@@ -1,0 +1,31 @@
+
+$top-bg-color: #002350;
+$bg-color-two: blue;
+
+header {
+  background-color: $top-bg-color;
+}
+
+.btn-link > i {
+  color: white;
+}
+
+.btn-link > i:hover {
+  color: $bg-color-two;
+}
+
+.nav-pills > .nav-item {
+  color: white;
+}
+
+#wordmark {
+  background: url('https://www.uni-jena.de/pub/theme/vorlage_fe/skin/_images/fsu_word_mark.svg');
+  height: 50px;
+  width: 145px;
+}
+
+#wordmark:hover {
+  background: url('https://www.uni-jena.de/pub/theme/vorlage_fe/skin/_images/fsu_word_mark_hover.svg');
+  height: 50px;
+  width: 145px;
+}

@@ -1,0 +1,62 @@
+
+footer {
+    color: white;
+    background-color: $softec-blue;
+}
+
+footer h2 {
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+footer a:link, footer a:visited {
+    color: white;
+}
+
+
+.imprintlinewrapper {
+    background-color: #151B20 !important;
+}
+
+#footerLogo img {
+    width: 228px;
+    height: auto;
+}
+
+#navigationFooter, #footerCopyright {
+    padding: 0;
+    margin: 0 0 15px;
+}
+
+#navigationFooter ul, #footerCopyright ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+#navigationFooter li, #footerCopyright li {
+    padding-right: 1em;
+}
+
+#navigationFooter > ul > li a i {
+    margin-right: .5em;
+    text-align: right;
+    width: auto;
+}
+
+footer .imprintlinewrapper {
+    font-size: 1.1rem;
+}
+
+footer ul {
+    margin-left: 0;
+    padding-left: 1.5em;
+    list-style-type: square;
+}
+
+footer ul li {
+    margin-bottom: .5em;
+}
+
