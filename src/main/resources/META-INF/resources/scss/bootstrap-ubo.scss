@@ -2,8 +2,10 @@
 // http://getbootstrap.com/customize/#less-variables
 @import "./utilities/variables_thunibib";
 
-// current stable bootstrap version
-@import "../webjars/bootstrap/4.1.3/scss/bootstrap";
+
+// necessary import (parent)
+@import "bootstrap-ubo-base";
+
 
 // thuunibib CSS
 // Unspecific/general
