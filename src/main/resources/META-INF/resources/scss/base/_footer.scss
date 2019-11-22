@@ -1,62 +1,54 @@
-
 footer {
-    color: white;
-    background-color: $softec-blue;
+    background-color: #174488;
+    color: #fff;
+    width: 100%;
+    height: 150px;
+    z-index: 100;
+    bottom: 0;
+    margin-top: auto;
 }
 
-footer h2 {
-    font-size: 1.45rem;
-    font-weight: 600;
+footer .container {
+    margin-top: auto;
 }
 
-footer a:link, footer a:visited {
-    color: white;
+footer .ribbon {
+  max-width: 1140px;
+  background-image: url(https://services.uni-jena.de/assets/images/footer_background_default.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 100%;
+  height: 12px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
-.imprintlinewrapper {
-    background-color: #151B20 !important;
+footer .info {
+    color: rgba(255,255,255,.4);
+    height: 138px;
 }
 
-#footerLogo img {
-    width: 228px;
-    height: auto;
+@include media-breakpoint-up(sm) {
+  footer .ribbon {
+    max-width: 540px;
+  }
 }
 
-#navigationFooter, #footerCopyright {
-    padding: 0;
-    margin: 0 0 15px;
+@include media-breakpoint-up(md) {
+  footer .ribbon {
+    max-width: 720px;
+  }
 }
 
-#navigationFooter ul, #footerCopyright ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
+@include media-breakpoint-up(lg) {
+  footer .ribbon {
+    max-width: 960px;
+  }
 }
 
-#navigationFooter li, #footerCopyright li {
-    padding-right: 1em;
-}
-
-#navigationFooter > ul > li a i {
-    margin-right: .5em;
-    text-align: right;
-    width: auto;
-}
-
-footer .imprintlinewrapper {
-    font-size: 1.1rem;
-}
-
-footer ul {
-    margin-left: 0;
-    padding-left: 1.5em;
-    list-style-type: square;
-}
-
-footer ul li {
-    margin-bottom: .5em;
+@include media-breakpoint-up(xl) {
+  footer .ribbon {
+    max-width: 1140px;
+  }
 }
 

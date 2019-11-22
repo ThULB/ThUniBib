@@ -74,7 +74,7 @@
       <xsl:call-template name="layout.headline"/>
       <!-- <xsl:call-template name="layout.topcontainer" /> -->
       <xsl:call-template name="layout.body" />
-      <!-- <xsl:call-template name="layout.footer" /> -->
+      <xsl:call-template name="layout.footer" />
     </body>
   </xsl:template>
 
@@ -254,7 +254,7 @@
     <header class="">
       <div class="container" id="">
         <div class="row">
-          <div class="col py-3">
+          <div class="col header-brand">
             <a title="Zur Startseite" class="imageLink" href="http://www.uni-jena.de/">
               <div id="wordmark" />
             </a>
@@ -377,7 +377,7 @@
           <form action="{$WebApplicationBaseURL}login.xed" method="get">
             <input type="hidden" name="url" value="{$RequestURL}" />
             <button title="Anmelden" class="btn btn-link p-0" type="submit" name="{i18n:translate('component.user2.button.login')}" value="{i18n:translate('component.user2.button.login')}">
-              <i class="fas fa-lock"></i>
+              <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
             </button>
           </form>
         </xsl:when>
@@ -385,7 +385,7 @@
           <form action="{$ServletsBaseURL}logout" method="get">
             <input type="hidden" name="url" value="{$RequestURL}" />
             <button title="Anmelden" class="btn btn-link p-0" style="border:0;" type="submit" name="{i18n:translate('login.logOut')}" value="{i18n:translate('login.logOut')}">
-              <i class="fas fa-lock-open"></i>
+              <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
             </button>
           </form>
         </xsl:otherwise>
@@ -451,41 +451,11 @@
 
   <xsl:template name="layout.footer">
     <footer>
-      <div class="container py-4">
-        <div class="row">
-          <div class="col col-md-4">
-            <h2 class="card-title">SOFTEC-Lehrstuhl</h2>
-            <div class="csc-textpic csc-textpic-left csc-textpic-above">
-              <div class="csc-textpic-imagewrap" data-csc-images="1" data-csc-cols="2">
-                <figure class="csc-textpic-image csc-textpic-last">
-                  <img src="https://static.wiwi.uni-due.de/user-upload/SOFTEC-logo-mono.svg" width="300" height="82" alt=""/>
-                </figure>
-              </div>
-            </div>
-          </div>
-          <div class="col col-md-4">
-            <xsl:value-of select="document('webapp:contact.xml')//article[lang($CurrentLang)]"/>
-          </div>
-          <div class="col col-md-4">
-            <h2 class="card-title">Mitgliedschaften</h2>
-            <ul>
-              <li>
-                <a href="https://www.wiwi.uni-due.de">Fakultät für Wirtschaftswissenschaften</a>
-              </li>
-              <li>
-                <a href="https://www.wi.wiwi.uni-due.de/home/">Fachgebiet Wirtschaftsinformatik</a>
-              </li>
-              <li>
-                <a href="https://www.icb.uni-due.de">Institut für Informatik und Wirtschaftsinformatik (ICB)</a>
-              </li>
-              <li>
-                <a href="https://paluno.uni-due.de/">paluno - The Ruhr Institute for Software Technology</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="ribbon"></div>
+      <div class="container info d-flex justify-content-center align-items-center">
+        <span>If you have problems, contact wwwadmin@uni-jena.de</span>
+        <i class="fas fa-info-circle ml-2 pt-1" placement="top"></i>
       </div>
-      <xsl:call-template name="layout.imprintline"/>
     </footer>
   </xsl:template>
 

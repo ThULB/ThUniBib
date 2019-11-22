@@ -1,5 +1,4 @@
 
-$bg-color-breadcrumb: #174488;
 #breadcrumbWrapper {
   background-color: $bg-color-breadcrumb;
 }
@@ -12,6 +11,7 @@ $bg-color-breadcrumb: #174488;
     list-style: none;
     background-color: $bg-color-breadcrumb;
     border-radius: 0;
+    font-size: .938em;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -19,6 +19,7 @@ $bg-color-breadcrumb: #174488;
     padding-right: 0.5rem;
     color: white;
     content: ">";
+    opacity: 0.7;
 }
 
 .breadcrumb-item, .breadcrumb-item > a {

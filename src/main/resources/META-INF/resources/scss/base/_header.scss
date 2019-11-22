@@ -4,6 +4,12 @@ $bg-color-two: blue;
 
 header {
   background-color: $top-bg-color;
+  padding-top: 0.5rem;
+}
+
+.header-brand {
+  padding-top: 0.5rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .btn-link > i {
@@ -16,6 +22,27 @@ header {
 
 .nav-pills > .nav-item {
   color: white;
+}
+
+.navbar-nav a {
+    color: white;
+    font-size: 18px;
+}
+
+.navbar-nav .nav-item {
+    padding: 0 .5rem;
+}
+
+a.nav-link:hover {
+    text-decoration: underline;
+}
+
+li.nav-item.active {
+    background-color: $bg-color-breadcrumb;
+}
+
+.nav-login:hover {
+  color: #2285ff !important;
 }
 
 #wordmark {
