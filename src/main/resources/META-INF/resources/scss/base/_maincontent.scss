@@ -4,15 +4,75 @@
 $form-color: #251e52;
 .mycore-form-input, .form-control {
   border-color: $form-color;
-  border-radius: 0;
+  border: 1px solid #ced4da;
+  border-radius: .1rem;
+}
+
+.form-control:focus, .mycore-form-input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #407fdf;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), inset 0 1px 1px rgba(0,0,0,.075), 0 0 2px rgba(23,68,136,.6);
+}
+
+.form-group>.mycore-form-input:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none !important;
 }
 
 .mycore-form-input.form-control-sm.mr-2 {
   margin-right: 0 !important;
 }
 
-.btn.btn-sm.btn-primary {
-  background-color: $form-color;
-  border-color: $form-color;
-  border-radius: 0;
+.form-control-sm {
+    height: calc(1.812rem + 2px);
+}
+
+.mycore-form-input + button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.mycore-form-input + button:not(:last-child) {
+    border-radius: 0px;
+}
+
+.minus, .up, .down {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+.plus {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.minus {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.minus:not(:last-child) {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.minus:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #174488;
+    border-color: #174488;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    border-radius: .1rem;
+}
+
+.btn-primary:hover {
+    background-color: #113467;
+    border-color: #102e5c;
 }
