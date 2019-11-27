@@ -28,6 +28,12 @@ footer .info {
     height: 138px;
 }
 
+.imprintlinewrapper a {
+    color: white;
+    font-size: 14px;
+    opacity: 0.4;
+}
+
 @include media-breakpoint-up(sm) {
   footer .ribbon {
     max-width: 540px;

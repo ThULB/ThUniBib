@@ -45,6 +45,10 @@ li.nav-item.active {
   color: #2285ff !important;
 }
 
+.nav-item .btn a {
+  color: white;
+}
+
 #wordmark {
   background: url('https://www.uni-jena.de/pub/theme/vorlage_fe/skin/_images/fsu_word_mark.svg');
   height: 50px;
@@ -55,4 +59,24 @@ li.nav-item.active {
   background: url('https://www.uni-jena.de/pub/theme/vorlage_fe/skin/_images/fsu_word_mark_hover.svg');
   height: 50px;
   width: 145px;
+}
+
+i.fas.fa-lg.fa-bars {
+    color: white;
+}
+
+.navbar-toggler {
+    padding: 0;
+    font-size: 25px;
+}
+
+.dropdown-menu {
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
+}
+
+.dropdown-menu a {
+    color: #212529;
+    font-size: 16px;
 }

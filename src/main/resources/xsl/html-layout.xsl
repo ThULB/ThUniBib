@@ -140,7 +140,9 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg p-0" role="navigation" id="hauptnavigation">
           <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">
+              <i class="fas fa-lg fa-bars"></i>
+            </span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -452,63 +454,33 @@
   <xsl:template name="layout.footer">
     <footer>
       <div class="ribbon"></div>
-      <div class="container info d-flex justify-content-center align-items-center">
-        <span>If you have problems, contact wwwadmin@uni-jena.de</span>
-        <i class="fas fa-info-circle ml-2 pt-1" placement="top"></i>
+      <div class="container info d-flex flex-column justify-content-center align-items-center">
+        <div>
+          <span>If you have problems, contact wwwadmin@uni-jena.de</span>
+          <i class="fas fa-info-circle ml-2 pt-1" placement="top"></i>
+        </div>
+        <div class="mt-2">
+          <xsl:call-template name="layout.imprintline" />
+        </div>
       </div>
     </footer>
   </xsl:template>
 
   <!-- Imprintline (below footer) -->
   <xsl:template name="layout.imprintline">
+    <!-- TODO: use navigation.xml to generate this AND use correct language! -->
     <div class="imprintlinewrapper">
-      <div class="container py-4">
-        <div class="row">
-          <div class="col" id="footerLogo">
-            <a href="https://www.uni-due.de/">
-              <img src="https://static.wiwi.uni-due.de/ude2018/Images/UDE-logo-claim-dark.svg" width="1052" height="414" alt="" />
-            </a>
-          </div>
-          <div class="col col-md-auto justify-content-end">
-            <nav id="navigationFooter" class="navbar">
-              <ul>
-                <li>
-                  <a href="https://www.uni-due.de/infoline/">
-                    <i class="fa fa-fw fa-phone"></i>Infoline
-                  </a>
-                </li>
-                  <li>
-                    <a href="https://www.uni-due.de/de/hilfe_im_notfall.php">
-                      <i class="fa fa-fw fa-exclamation-triangle"></i>Hilfe im Notfall
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/sitemap/">
-                      <i class="fa fa-fw fa-sitemap"></i>Sitemap
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/datenschutz/">
-                      <i class="fa fa-fw fa-user-shield"></i>Datenschutz
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/impressum/">
-                      <i class="fa fa-fw fa-file-alt"></i>Impressum
-                    </a>
-                  </li>
-              </ul>
-            </nav>
-            <div id="footerCopyright" class="navbar">
-                <ul class="nav">
-                    <li>© Universität Duisburg-Essen</li>
-                    <li><xsl:apply-templates select="/html/@lastModified" /></li>
-                </ul>
-            </div>
-          </div>
-        </div>
+        <span class="mr-2">
+          <a href="/datenschutz/">
+            <i class="fa fa-fw fa-user-shield mr-1"></i>Datenschutz
+          </a>
+        </span>
+        <span>
+          <a href="/impressum/">
+            <i class="fa fa-fw fa-file-alt mr-1"></i>Impressum
+          </a>
+        </span>
       </div>
-    </div>
   </xsl:template>
 
 </xsl:stylesheet>
