@@ -1,0 +1,33 @@
+body {
+  min-height: 100vh;
+  font-family: 'Roboto',Arial,sans-serif;
+}
+
+@media only screen and (min-width : 1200px) {
+    .container { width: 1140px; }
+}
+
+.card {
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .1rem;
+}
+
+.card.mb-3 {
+  margin-bottom: 1.5rem !important;
+}
+
+.card.mb-2 {
+  margin-bottom: 1.5rem !important;
+}
+
+.card-body {
+  padding: 10px 15px;
+}
+
+.card-header, .card-footer {
+  background-color: $color-light-blue;
+}
+
+a {
+  color: $color-dark-blue;
+}
