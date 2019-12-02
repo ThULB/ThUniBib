@@ -26,12 +26,16 @@ footer .ribbon {
 footer .info {
     color: rgba(255,255,255,.4);
     height: 138px;
+    padding-bottom: 30px;
+    line-height: 48px;
+    font-family: 'Roboto Condensed',Arial,sans-serif;
 }
 
 .imprintlinewrapper a {
     color: white;
-    font-size: 14px;
-    opacity: 0.4;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    margin-right: 32px;
 }
 
 @include media-breakpoint-up(sm) {

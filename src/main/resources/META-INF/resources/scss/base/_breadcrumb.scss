@@ -11,20 +11,20 @@
     list-style: none;
     background-color: $bg-color-breadcrumb;
     border-radius: 0;
-    font-size: .938em;
+    font-size: 14px;
+    font-family: 'Roboto Condensed',Arial,sans-serif;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
     display: inline-block;
     padding-right: 0.5rem;
-    color: white;
     content: ">";
-    opacity: 0.7;
+    color: rgba(255,255,255,.7);
+    opacity: .7;
 }
 
 .breadcrumb-item, .breadcrumb-item > a {
-    color: white;
-    opacity: 0.7;
+    color: rgba(255,255,255,.7);
 }
 
 //breadcrumb -> basketinfo

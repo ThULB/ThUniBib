@@ -50,7 +50,10 @@
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/bootstrap-glyphicons/bdd2cbfba0/css/bootstrap-glyphicons.css" type="text/css"/>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" type="text/css" />
+      <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" type="text/css" /> -->
+      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Droid+Sans|Droid+Sans+Mono:300,400" type="text/css" />
+      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto:300,400" type="text/css" />
+      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto+Condensed:300,400" type="text/css" />
       <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.uni-due.de/imperia/md/images/cms/h/apple-touch-icon.png" />
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.uni-due.de/imperia/md/images/cms/m/apple-touch-icon.png" />
       <link rel="apple-touch-icon-precomposed" href="https://www.uni-due.de/imperia/md/images/cms/l/apple-touch-icon-precomposed.png" />
@@ -454,12 +457,8 @@
   <xsl:template name="layout.footer">
     <footer>
       <div class="ribbon"></div>
-      <div class="container info d-flex flex-column justify-content-center align-items-center">
-        <div>
-          <span>If you have problems, contact wwwadmin@uni-jena.de</span>
-          <i class="fas fa-info-circle ml-2 pt-1" placement="top"></i>
-        </div>
-        <div class="mt-2">
+      <div class="container info d-flex flex-column pl-0 pr-0">
+        <div class="mt-auto">
           <xsl:call-template name="layout.imprintline" />
         </div>
       </div>
@@ -470,17 +469,16 @@
   <xsl:template name="layout.imprintline">
     <!-- TODO: use navigation.xml to generate this AND use correct language! -->
     <div class="imprintlinewrapper">
-        <span class="mr-2">
-          <a href="/datenschutz/">
-            <i class="fa fa-fw fa-user-shield mr-1"></i>Datenschutz
-          </a>
-        </span>
-        <span>
-          <a href="/impressum/">
-            <i class="fa fa-fw fa-file-alt mr-1"></i>Impressum
-          </a>
-        </span>
-      </div>
+      <span>
+        <a href="/contact.xml">Kontakt</a>
+      </span>
+      <span>
+        <a href="/datenschutz/">Datenschutz</a>
+      </span>
+      <span>
+        <a href="/impressum/">Impressum</a>
+      </span>
+    </div>
   </xsl:template>
 
 </xsl:stylesheet>
