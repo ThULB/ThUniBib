@@ -16,6 +16,7 @@ body {
 .card {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .1rem;
+    font-size: 15px;
 }
 
 .card.mb-3 {
@@ -28,4 +29,9 @@ body {
 
 .card-body {
   padding: 10px 15px;
+}
+
+.card-body h3 {
+  font-size: 23px;
+  font-weight: 400;
 }

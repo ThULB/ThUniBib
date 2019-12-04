@@ -4,8 +4,10 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xalan="http://xml.apache.org/xalan"
   xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
-  xmlns:encoder="xalan://java.net.URLEncoder" 
-  exclude-result-prefixes="xsl xalan i18n encoder">
+  xmlns:encoder="xalan://java.net.URLEncoder"
+  xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
+
+                exclude-result-prefixes="xsl xalan i18n encoder mcrver">
 
   <xsl:output method="html" encoding="UTF-8" media-type="text/html" indent="yes" xalan:indent-amount="2" />
 
@@ -458,8 +460,13 @@
     <footer>
       <div class="ribbon"></div>
       <div class="container info d-flex flex-column pl-0 pr-0">
-        <div class="mt-auto">
-          <xsl:call-template name="layout.imprintline" />
+        <div class="row mt-auto">
+          <div class="col">
+            <xsl:call-template name="layout.imprintline" />
+          </div>
+          <div class="col text-right">
+            <xsl:call-template name="powered_by"/>
+          </div>
         </div>
       </div>
     </footer>
@@ -478,6 +485,15 @@
       <span>
         <a href="/impressum/">Impressum</a>
       </span>
+    </div>
+  </xsl:template>
+
+  <xsl:template name="powered_by">
+    <xsl:variable name="mcr_version" select="concat('MyCoRe ', mcrver:getCompleteVersion())" />
+    <div id="powered_by">
+      <a href="http://www.mycore.de">
+        <img src="https://www.mycore.de/mir/mir-layout/images/mycore_logo_small_invert.png" title="{$mcr_version}" alt="powered by MyCoRe" />
+      </a>
     </div>
   </xsl:template>
 
