@@ -80,3 +80,18 @@ $form-color: #251e52;
 .row .col hr {
     border-top: 0;
 }
+
+p {
+  color: rgb(51, 57, 57);
+}
+
+a {
+  text-decoration: none !important;
+  color: #1D60BD;
+  font-family: 'Roboto Condensed',Arial,sans-serif;
+  letter-spacing: 0.02em;
+}
+
+a:hover {
+    color: #2285ff;
+}
