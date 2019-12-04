@@ -27,10 +27,19 @@
     color: rgba(255,255,255,.7);
 }
 
+.breadcrumb-item > a:hover {
+    color: rgba(255,255,255,.7);
+    text-decoration: underline !important;
+}
+
 //breadcrumb -> basketinfo
 #basketWrapper {
   a {
     color: white;
+  }
+  a:hover {
+    text-decoration: underline !important;
+    color: white !important;
   }
   padding: 0.75rem 0;
 }

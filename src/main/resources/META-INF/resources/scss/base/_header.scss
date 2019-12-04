@@ -34,11 +34,12 @@ header {
 }
 
 a.nav-link:hover {
-    text-decoration: underline;
+  color: white !important;
+  text-decoration: underline !important;
 }
 
 li.nav-item.active {
-    background-color: $bg-color-breadcrumb;
+  background-color: $bg-color-breadcrumb;
 }
 
 .nav-login:hover {
@@ -48,6 +49,11 @@ li.nav-item.active {
 .nav-item .btn a {
   color: white;
 }
+
+.nav-item .btn a:hover {
+  color: #2285ff;
+}
+
 
 #wordmark {
   background: url('https://www.uni-jena.de/pub/theme/vorlage_fe/skin/_images/fsu_word_mark.svg');

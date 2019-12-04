@@ -38,6 +38,12 @@ footer .info {
     margin-right: 32px;
 }
 
+.imprintlinewrapper a:hover {
+    color: white;
+    text-decoration: underline !important;
+}
+
+
 @include media-breakpoint-up(sm) {
   footer .ribbon {
     max-width: 540px;
