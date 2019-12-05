@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="UBO Schema for Solr core: ubo_projects" version="1.5">
+
+  <!-- SOLR internal fields -->
+  <field name="_version_" type="long"   indexed="true" stored="true"  />
+  <field name="_root_"    type="string" indexed="true" stored="false" />
+
+  <!-- General fields -->
+  <field name="projekt_id"         type="text"      indexed="true" stored="true"  multiValued="false"  />
+  <field name="acronym"            type="text"      indexed="true" stored="true"  multiValued="false"  />
+  <field name="projekttitel"       type="text"      indexed="true" stored="true"  multiValued="false"  />
+  <field name="kostentraeger"      type="text"      indexed="true" stored="true"  multiValued="false"  />
+  <field name="foerderkennzeichen" type="text"      indexed="true" stored="true"  multiValued="false"  />
+
+
+
+
+  <!-- Ignore all other fields -->
+  <dynamicField name="*" type="ignored" />
+
+  <uniqueKey>projekt_id</uniqueKey>
+
+  <fieldType name="string"  class="solr.StrField"      sortMissingLast="true" />
+  <fieldType name="int"     class="solr.TrieIntField"  precisionStep="0" positionIncrementGap="0"/>
+  <fieldType name="long"    class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0" />
+  <fieldType name="date"    class="solr.TrieDateField" precisionStep="0" positionIncrementGap="0"/>
+  <fieldtype name="ignored" class="solr.StrField"      stored="false" indexed="false" multiValued="true"  />
+
+  <!-- Field type for text such as title, abstract, comment -->
+  <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory" />
+      <filter class="solr.GermanNormalizationFilterFactory"/>
+      <filter class="solr.ICUNormalizer2FilterFactory" name="nfkc_cf" mode="compose"/>
+      <filter class="solr.ICUFoldingFilterFactory"/>
+      <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_de.txt" format="snowball" />
+      <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_en.txt" format="snowball" />
+      <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fr.txt" format="snowball" />
+      <filter class="solr.GermanMinimalStemFilterFactory"/> 
+      <filter class="solr.EnglishMinimalStemFilterFactory"/>
+    </analyzer>
+  </fieldType>
+
+</schema>
