@@ -5,14 +5,15 @@
   <parent>
     <groupId>org.mycore</groupId>
     <artifactId>mycore-parent</artifactId>
-    <version>40-SNAPSHOT</version>
+    <version>43-SNAPSHOT</version>
     <relativePath />
   </parent>
-  <artifactId>ubo_thunibib</artifactId>
-  <packaging>jar</packaging>
-
+  <groupId>de.uni-jena.thulb.ubo</groupId>
+  <artifactId>ThUniBib</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>ubo_thunibib_layout</name>
+  <packaging>pom</packaging>
+
+  <name>UBO ThUniBib</name>
   <url>...</url>
   <description>Thüringer Universitäts-Bibliographien</description>
   <inceptionYear>2019</inceptionYear>
@@ -37,7 +38,8 @@
     </plugins>
   </build>
 
-  <dependencies>
-
-  </dependencies>
+  <modules>
+    <module>jena</module>
+    <module>ilmenau</module>
+  </modules>
 </project>
