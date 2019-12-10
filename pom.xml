@@ -42,4 +42,18 @@
     <module>jena</module>
     <module>ilmenau</module>
   </modules>
+
+  <repositories>
+    <repository>
+      <releases>
+	<enabled>false</enabled>
+      </releases>
+      <snapshots>
+	<enabled>true</enabled>
+      </snapshots>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
+  
 </project>
