@@ -15,6 +15,7 @@ def read_csv():
                 data['projekttitel'] = row[2]
                 data['kostentraeger'] = row[3]
                 data['foerderkennzeichen'] = row[4]
+                data['project_search_all'] = ' '.join(row)
                 project_data.append(data)
     return project_data
 
