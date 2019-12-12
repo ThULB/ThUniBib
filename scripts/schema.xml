@@ -7,7 +7,7 @@
   <field name="_root_"    type="string" indexed="true" stored="false" />
 
   <!-- General fields -->
-  <field name="projekt_id"         type="text" indexed="true" stored="true" multiValued="false" />
+  <field name="projekt_id"         type="string" indexed="true" stored="true" multiValued="false" />
   <field name="acronym"            type="text" indexed="true" stored="true" multiValued="false" />
   <field name="projekttitel"       type="text" indexed="true" stored="true" multiValued="false" />
   <field name="kostentraeger"      type="text" indexed="true" stored="true" multiValued="false" />
