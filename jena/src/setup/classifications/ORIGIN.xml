@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
+    <label xml:lang="de" text="Friedrich-Schiller-Universität Jena"/>
+    <label xml:lang="x-place" text="Friedrich-Schiller-Universität Jena | Jena | Fürstengraben 1, 07743 Jena"/>
+    <categories>
+        <category ID="6010">
+            <label xml:lang="de" text="Fakultät für Biowissenschaften"/>
+        </category>
+        <category ID="6000">
+            <label xml:lang="de" text="Chemisch-Geowissenschaftliche Fakultät"/>
+        </category>
+        <category ID="4000">
+            <label xml:lang="de" text="Fakultät für Mathematik und Informatik"/>
+        </category>
+        <category ID="1040">
+            <label xml:lang="de" text="Fakultät für Sozial- und Verhaltenswissenschaften"/>
+        </category>
+        <category ID="7000">
+            <label xml:lang="de" text="Medizinische Fakultät"/>
+        </category>
+        <category ID="1030">
+            <label xml:lang="de" text="Philosophische Fakultät"/>
+        </category>
+        <category ID="5000">
+            <label xml:lang="de" text="Physikalisch-Astronomische Fakultät"/>
+        </category>
+        <category ID="1010">
+            <label xml:lang="de" text="Rechtswissenschaftliche Fakultät"/>
+        </category>
+        <category ID="1080">
+            <label xml:lang="de" text="Sonstige/Externe"/>
+        </category>
+        <category ID="1085">
+            <label xml:lang="de" text="Sprachenzentrum"/>
+        </category>
+        <category ID="2000">
+            <label xml:lang="de" text="Theologische Fakultät"/>
+        </category>
+        <category ID="4711">
+            <label xml:lang="de" text="Thüringer Universitäts- und Landesbibliothek Jena, ThULB"/>
+            <category ID="471101">
+                <label xml:lang="de" text="ThULB / Thüringenbibliographie"/>
+            </category>
+            <category ID="471102">
+                <label xml:lang="de" text="ThULB / Pflichtexemplare"/>
+            </category>
+        </category>
+        <category ID="1000">
+            <label xml:lang="de" text="Universitätsrechenzentrum"/>
+        </category>
+        <category ID="1060">
+            <label xml:lang="de" text="Universitätsverwaltung"/>
+        </category>
+        <category ID="1020">
+            <label xml:lang="de" text="Wirtschaftswissenschaftliche Fakultät"/>
+        </category>
+        <category ID="1050">
+            <label xml:lang="de" text="Zentrum für Didaktik"/>
+        </category>
+    </categories>
+</mycoreclass>
