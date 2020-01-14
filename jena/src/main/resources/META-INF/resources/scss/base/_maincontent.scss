@@ -95,3 +95,16 @@ a {
 a:hover {
     color: #2285ff;
 }
+
+.nameIdentifier {
+  @extend .badge, .badge-primary;
+  a {
+    color: white;
+  }
+  margin-right: 0.25rem;
+  background-color: #1d60bd;
+}
+
+.nameIdentifier:last-child {
+  margin-right: 0rem;
+}

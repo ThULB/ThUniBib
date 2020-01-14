@@ -98,3 +98,17 @@ $form-color: #251e52;
     background-color: $color-dark-blue;
     border-color: $color-dark-blue;
 }
+
+
+.nameIdentifier {
+  @extend .badge, .badge-primary;
+  a {
+    color: white;
+  }
+  margin-right: 0.25rem;
+  background-color: #024975;
+}
+
+.nameIdentifier:last-child {
+  margin-right: 0rem;
+}
