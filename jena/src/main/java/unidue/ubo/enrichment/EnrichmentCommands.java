@@ -18,7 +18,8 @@ import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
 import org.mycore.frontend.cli.MCRAbstractCommands;
-import org.mycore.frontend.cli.MCRCommand;
+import org.mycore.frontend.cli.annotation.MCRCommand;
+import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.mods.MCRMODSSorter;
 import org.mycore.mods.MCRMODSWrapper;
 import org.mycore.mods.enrichment.MCREnrichmentResolver;
@@ -44,6 +45,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+@MCRCommandGroup(name = "experimental DBT import commands")
 public class EnrichmentCommands extends MCRAbstractCommands {
 
     private static final Logger LOGGER = LogManager.getLogger(EnrichmentCommands.class);
@@ -55,18 +57,32 @@ public class EnrichmentCommands extends MCRAbstractCommands {
 
     private static HashMap<String, MCRObjectID> existingIssnMap = new HashMap<>();
 
-    /* Commands for the MyCoRe Command Line Interface */
-    public EnrichmentCommands() {
-        addCommand(new MCRCommand("test import dbt",
-                "unidue.ubo.enrichment.EnrichmentCommands.test",
-                "tests DBT import of mods from OAI"));
+    @MCRCommand(syntax = "test import dbt with status {0}",
+            help = "test DBT import of mods from OAI, imported documents get status one of 'confirmed', " +
+                    "'submitted', 'imported'",
+            order = 10
+    )
+    public static void testWithStatus(String import_status) {
+        final List<String> allowedStatus = Arrays.asList(new String[]{"confirmed", "submitted", "imported"});
+        if(allowedStatus.contains(import_status)) {
+            testSub(import_status);
+        } else {
+            LOGGER.info("Status not allowed: {}, use one of {}", import_status, String.join(", ", allowedStatus));
+        }
     }
 
+    @MCRCommand(syntax = "test import dbt",
+            help = "tests DBT import of mods from OAI",
+            order = 20)
     public static void test() throws IdDoesNotExistException, CannotDisseminateFormatException {
+        testSub("imported");
+    }
+
+    public static void testSub(String import_status) {
         Date lastHarvest = getLastHarvestDate();
         final Date newHarvest = new Date();
 
-        if(lastHarvest.before(newHarvest)) { // todo: in this context this does not make sense, review after fin
+        if(lastHarvest.before(newHarvest)) {
             final RecordTransformer recordTransformer = new RecordTransformer(
                     "https://www.db-thueringen.de/servlets/OAIDataProvider",
                     "mods",
@@ -77,7 +93,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
                     /*.map(obj -> {
                         new MCREnrichmentResolver().enrichPublication(new MCRMODSWrapper(obj).getMODS(), "import");
                         return obj;
-                    })*/.forEach(EnrichmentCommands::createOrUpdate);
+                    })*/.forEach(obj -> EnrichmentCommands.createOrUpdate(obj, import_status));
 
             saveLastHarvestDate(newHarvest);
         }
@@ -98,7 +114,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
             //LOGGER.info("BEFORE ENRICHMENT: ");
             //LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(obj.getMetadata().createXML()));
             //new MCREnrichmentResolver().enrichPublication(new MCRMODSWrapper(obj).getMODS(), "import");
-            createOrUpdate(obj);
+            createOrUpdate(obj, import_status);
             //LOGGER.info("AFTER ENRICHMENT: ");
             LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(obj.getMetadata().createXML()));
         }*/
@@ -208,12 +224,12 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         return MCRObjectID.getNextFreeId(projectID, "mods");
     }
 
-    private static void createOrUpdate(MCRObject object) {
+    private static void createOrUpdate(MCRObject object, String import_status) {
         final MCRMODSWrapper mw = new MCRMODSWrapper(object);
 
         // save object
         try {
-            setState(mw);
+            setState(mw, import_status);
 
             final Optional<MCRObjectID> alreadyExists = Optional.of(object.getId())
                     .filter(MCRMetadataManager::exists);
@@ -229,7 +245,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         }
     }
 
-    private static void setState(MCRMODSWrapper wrapped) {
-        wrapped.setServiceFlag("status", "imported");
+    private static void setState(MCRMODSWrapper wrapped, String import_status) {
+        wrapped.setServiceFlag("status", import_status);
     }
 }
