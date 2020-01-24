@@ -6,24 +6,156 @@
     <categories>
         <category ID="6010">
             <label xml:lang="de" text="Fakultät für Biowissenschaften"/>
+            <category ID="6010.01">
+                <label xml:lang="de" text="Institut für Zoologie und Evolutionsforschung"/>
+            </category>
+            <category ID="6010.02">
+                <label xml:lang="de" text="Matthias-Schleiden-Institut für Genetik, Bioinformatik und Molekulare Botanik"/>
+            </category>
+            <category ID="6010.03">
+                <label xml:lang="de" text="Institut für Mikrobiologie"/>
+            </category>
+            <category ID="6010.04">
+                <label xml:lang="de" text="Institut für Ökologie und Evolution"/>
+            </category>
+            <category ID="6010.05">
+                <label xml:lang="de" text="Institut für Biodiversität"/>
+            </category>
+            <category ID="6010.06">
+                <label xml:lang="de" text="Institut Biochemie/Biophysik"/>
+            </category>
+            <category ID="6010.07">
+                <label xml:lang="de" text="Institut für Ernährungswissenschaften"/>
+            </category>
+            <category ID="6010.08">
+                <label xml:lang="de" text="Institut für Pharmazie"/>
+            </category>
         </category>
         <category ID="6000">
             <label xml:lang="de" text="Chemisch-Geowissenschaftliche Fakultät"/>
+            <category ID="6000.01">
+                <label xml:lang="de" text="Institut für Anorganische und Analytische Chemie"/>
+            </category>
+            <category ID="6000.02">
+                <label xml:lang="de" text="Institut für Organische und Makromolekulare Chemie"/>
+            </category>
+            <category ID="6000.03">
+                <label xml:lang="de" text="Institut für Physikalische Chemie"/>
+            </category>
+            <category ID="6000.04">
+                <label xml:lang="de" text="Institut für Technische Chemie und Umweltchemie"/>
+            </category>
+            <category ID="6000.05">
+                <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Fraunhoferstr. 6)"/>
+            </category>
+            <category ID="6000.06">
+                <label xml:lang="de" text="Institut für Geowissenschaften"/>
+            </category>
+            <category ID="6000.07">
+                <label xml:lang="de" text="Institut für Geographie"/>
+            </category>
         </category>
         <category ID="4000">
             <label xml:lang="de" text="Fakultät für Mathematik und Informatik"/>
+            <category ID="4000.01">
+                <label xml:lang="de" text="Institut für Mathematik"/>
+            </category>
+            <category ID="4000.02">
+                <label xml:lang="de" text="Institut für Informatik"/>
+            </category>
         </category>
         <category ID="1040">
             <label xml:lang="de" text="Fakultät für Sozial- und Verhaltenswissenschaften"/>
+            <category ID="1040.01">
+                <label xml:lang="de" text="Institut für Psychologie"/>
+            </category>
+            <category ID="1040.02">
+                <label xml:lang="de" text="Institut für Erziehungswissenschaften"/>
+            </category>
+            <category ID="1040.03">
+                <label xml:lang="de" text="Institut für Politikwissenschaften"/>
+            </category>
+            <category ID="1040.04">
+                <label xml:lang="de" text="Institut für Soziologie"/>
+            </category>
+            <category ID="1040.05">
+                <label xml:lang="de" text="Institut für Sportwissenschaften"/>
+            </category>
+            <category ID="1040.06">
+                <label xml:lang="de" text="Institut für Kommunikationswissenschaften"/>
+            </category>
+            <category ID="1040.07">
+                <label xml:lang="de" text="Institut Bildung und Kultur"/>
+            </category>
         </category>
         <category ID="7000">
             <label xml:lang="de" text="Medizinische Fakultät"/>
         </category>
         <category ID="1030">
             <label xml:lang="de" text="Philosophische Fakultät"/>
+            <category ID="1030.01">
+                <label xml:lang="de" text="Institut für Philosophie"/>
+            </category>
+            <category ID="1030.02">
+                <label xml:lang="de" text="Institut für Altertumswissenschaften"/>
+            </category>
+            <category ID="1030.03">
+                <label xml:lang="de" text="Historisches Institut"/>
+            </category>
+            <category ID="1030.04">
+                <label xml:lang="de" text="Institut für Germanistische Literaturwissenschaft"/>
+            </category>
+            <category ID="1030.05">
+                <label xml:lang="de" text="Institut für Germanistische Sprachwissenschaft"/>
+            </category>
+            <category ID="1030.06">
+                <label xml:lang="de" text="Institut für Anglistik/Amerikanistik"/>
+            </category>
+            <category ID="1030.07">
+                <label xml:lang="de" text="Institut für Romanistik"/>
+            </category>
+            <category ID="1030.08">
+                <label xml:lang="de" text="Institut für Musikwissenschaft Weimar-Jena"/>
+            </category>
+            <category ID="1030.09">
+                <label xml:lang="de" text="Institut für Deutsch als Fremd- und Zweitsprache und Interkulturelle Studien"/>
+            </category>
+            <category ID="1030.10">
+                <label xml:lang="de" text="Institut für Orientalistik, Indogermanistik,Ur- und Frühgeschichtliche Archäologie"/>
+            </category>
+            <category ID="1030.11">
+                <label xml:lang="de" text="Institut für Kunst- und Kulturwissenschaften"/>
+            </category>
+            <category ID="1030.12">
+                <label xml:lang="de" text="Institut für Slawistik und Kaukasusstudien"/>
+            </category>
         </category>
         <category ID="5000">
             <label xml:lang="de" text="Physikalisch-Astronomische Fakultät"/>
+            <category ID="5000.01">
+                <label xml:lang="de" text="Theoretisch-Physikalisches Institut"/>
+            </category>
+            <category ID="5000.02">
+                <label xml:lang="de" text="Institut für Festkörpertheorie und -optik"/>
+            </category>
+            <category ID="5000.03">
+                <label xml:lang="de" text="Institut Optik und Quantenelektronik"/>
+            </category>
+            <category ID="5000.04">
+                <label xml:lang="de" text="Institut für Festkörperphysik"/>
+            </category>
+            <category ID="5000.05">
+                <label xml:lang="de" text="Astrophysikal. Institut und Universitätssternwarte"/>
+            </category>
+            <category ID="5000.06">
+                <label xml:lang="de" text="Institut für Angewandte Optik und Biophysik"/>
+            </category>
+            <category ID="5000.07">
+                <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Löbdergraben 32)"/>
+            </category>
+            <category ID="5000.08">
+                <label xml:lang="de" text="Institut für Angewandte Physik"/>
+            </category>
         </category>
         <category ID="1010">
             <label xml:lang="de" text="Rechtswissenschaftliche Fakultät"/>
