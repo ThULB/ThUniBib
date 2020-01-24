@@ -55,8 +55,6 @@ public class EnrichmentCommands extends MCRAbstractCommands {
     private static final String OAILAST_HARVEST_TXT = "OAILastHarvest.txt";
     private static final Date EARLY_DATE = new Date(1);
 
-    private static HashMap<String, MCRObjectID> existingIssnMap = new HashMap<>();
-
     @MCRCommand(syntax = "test import dbt with status {0}",
             help = "test DBT import of mods from OAI, imported documents get status one of 'confirmed', " +
                     "'submitted', 'imported'",
@@ -78,72 +76,97 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         testSub("imported");
     }
 
+    private static MCRMODSWrapper createMinimalMods(OAIRecord oaiRecord) {
+        LOGGER.info("Start createMinimalMods");
+        String recordID = oaiRecord.getRecord().getHeader().getId();
+        LOGGER.info("ID of oaiRecord: {}", recordID);
+        String dbtID = recordID.replace("oai:www.db-thueringen.de:", "");
+        LOGGER.info("DBT-ID of oaiRecord: {}", dbtID);
+
+        final Element modsRoot = new Element("mods", MCRConstants.MODS_NAMESPACE);
+        final Element identifierElement = new Element("identifier", MCRConstants.MODS_NAMESPACE);
+        identifierElement.setAttribute("type", "dbt");
+        identifierElement.setText(dbtID);
+
+        final MCRObject dbt;
+        dbt = MCRMODSWrapper.wrapMODSDocument(modsRoot, projectID);
+        dbt.setId(nextFreeID());
+
+        final MCRMODSWrapper wrapper = new MCRMODSWrapper(dbt);
+        wrapper.addElement(identifierElement);
+
+        LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(wrapper.getMCRObject().createXML()));
+        LOGGER.info("End createMinimalMods");
+        return wrapper;
+    }
+
     public static void testSub(String import_status) {
         Date lastHarvest = getLastHarvestDate();
         final Date newHarvest = new Date();
 
-        if(lastHarvest.before(newHarvest)) {
+        /*if(lastHarvest.before(newHarvest)) {
             final RecordTransformer recordTransformer = new RecordTransformer(
                     "https://www.db-thueringen.de/servlets/OAIDataProvider",
                     "mods",
                     "institute:1");
-            recordTransformer.transformAll("import/dbt2mods.xsl", lastHarvest, null)
-                    .filter(oaiRecord -> filterObject(oaiRecord))
-                    .map(EnrichmentCommands::mapToObject)
-                    /*.map(obj -> {
-                        new MCREnrichmentResolver().enrichPublication(new MCRMODSWrapper(obj).getMODS(), "import");
+
+            recordTransformer.getAll(lastHarvest, null)
+                    .map(EnrichmentCommands::createMinimalMods)
+                    .map(obj -> {
+                        new MCREnrichmentResolver().enrichPublication(obj.getMODS(), "import");
                         return obj;
-                    })*/.forEach(obj -> EnrichmentCommands.createOrUpdate(obj, import_status));
+                    })
+                    .filter(obj -> filterObject(obj))
+                    //.map(EnrichmentCommands::mapToObject) TODO: implement
+                    .forEach(obj -> EnrichmentCommands.createOrUpdate(obj, import_status));
 
             saveLastHarvestDate(newHarvest);
-        }
 
-        /*LOGGER.info("lastHarvestDate: {}", lastHarvest.toString());
-        Harvester harvester = HarvesterBuilder.createNewInstance("https://www.db-thueringen.de/servlets/OAIDataProvider");
-        String id = "oai:www.db-thueringen.de:dbt_mods_00040503";
-        Record r = harvester.getRecord(id, "mods");
-
-        final RecordTransformer recordTransformer = new RecordTransformer(
-                "https://www.db-thueringen.de/servlets/OAIDataProvider",
-                "mods",
-                "institute:1");
-
-        OAIRecord result = recordTransformer.transform(r.getHeader().getId(), "import/dbt2mods.xsl");
-        if(filterObject(result)) {
-            MCRObject obj = mapToObject(result);
-            //LOGGER.info("BEFORE ENRICHMENT: ");
-            //LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(obj.getMetadata().createXML()));
-            //new MCREnrichmentResolver().enrichPublication(new MCRMODSWrapper(obj).getMODS(), "import");
-            createOrUpdate(obj, import_status);
-            //LOGGER.info("AFTER ENRICHMENT: ");
-            LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(obj.getMetadata().createXML()));
         }*/
+
+        try {
+            LOGGER.info("lastHarvestDate: {}", lastHarvest.toString());
+            Harvester harvester = HarvesterBuilder.createNewInstance("https://www.db-thueringen.de/servlets/OAIDataProvider");
+            String id = "oai:www.db-thueringen.de:dbt_mods_00040503";
+            OAIRecord oaiRecord = new OAIRecord(harvester.getRecord(id, "mods"));
+            MCRMODSWrapper wrappedObj = createMinimalMods(oaiRecord);
+            new MCREnrichmentResolver().enrichPublication(wrappedObj.getMODS(), "import");
+            if(filterObject(wrappedObj)) {
+                /* TODO: implement -> MCRObject obj = mapToObject(wrappedObj) */
+                createOrUpdate(wrappedObj, import_status);
+                LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedObj.getMCRObject().createXML()));
+            }
+        } catch (CannotDisseminateFormatException e) {
+            e.printStackTrace();
+        } catch (IdDoesNotExistException e) {
+            e.printStackTrace();
+        }
     }
 
-    private static boolean filterObject(OAIRecord oaiRecord) {
+    private static boolean filterObject(MCRMODSWrapper wrappedMCRObj) {
         boolean goesTroughFilter = true;
         final List<String> filteredGenres = Arrays.asList(new String[]{"video", "audio", "picture", "broadcasting"});
 
-        String recordID = oaiRecord.getRecord().getHeader().getId();
-        Element recordRootElement = oaiRecord.getDocument().getRootElement();
+        String mcrID = wrappedMCRObj.getMCRObject().getId().toString();
+        Element modsRootElement = wrappedMCRObj.getMODS();
 
         //LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(recordRootElement));
-        LOGGER.info("Deciding whether to filter: {}", recordID);
+        LOGGER.info("Deciding whether to filter: {}", mcrID);
 
         final XPathExpression<Element> xpath = XPathFactory.instance()
                 .compile("mods:genre",
                         Filters.element(), null, MCRConstants.MODS_NAMESPACE);
-        final Element genreElem = xpath.evaluateFirst(recordRootElement);
+        final Element genreElem = xpath.evaluateFirst(modsRootElement);
 
         if(genreElem != null) {
             String genre = genreElem.getText();
             LOGGER.info("Genre is: {}", genre);
             if (filteredGenres.contains(genre)) {
                 goesTroughFilter = false;
-                LOGGER.info("filtered record: {}, because genre is one of: {}", recordID, filteredGenres);
+                LOGGER.info("filtered obj: {}, because genre is one of: {}", mcrID, filteredGenres);
             }
         } else {
-            LOGGER.info("No genre found for record: {}", recordID);
+            LOGGER.info("No genre found for obj: {}", mcrID);
         }
         return goesTroughFilter;
     }
@@ -187,10 +210,11 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         return configPath.resolve(OAILAST_HARVEST_TXT);
     }
 
-    private static MCRObject mapToObject(OAIRecord oaiRecord) {
+    private static MCRObject mapToObject(MCRMODSWrapper wrappedMCRObj) {
         // add identifier type importID to document
-        final Element modsRoot = oaiRecord.getDocument().getRootElement();
-        final String oaiId = oaiRecord.getRecord().getHeader().getId();
+        final Element modsRoot = wrappedMCRObj.getMODS();
+        // todo: use DBT/OAI id!
+        final String oaiId = wrappedMCRObj.getMCRObject().getId().toString();
         SolrDocument first = null;
         try {
             first = MCRSolrSearchUtils
@@ -224,12 +248,12 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         return MCRObjectID.getNextFreeId(projectID, "mods");
     }
 
-    private static void createOrUpdate(MCRObject object, String import_status) {
-        final MCRMODSWrapper mw = new MCRMODSWrapper(object);
+    private static void createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
 
+        MCRObject object = wrappedMCRobj.getMCRObject();
         // save object
         try {
-            setState(mw, import_status);
+            setState(wrappedMCRobj, import_status);
 
             final Optional<MCRObjectID> alreadyExists = Optional.of(object.getId())
                     .filter(MCRMetadataManager::exists);

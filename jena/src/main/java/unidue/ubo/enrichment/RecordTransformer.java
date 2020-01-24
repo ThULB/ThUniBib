@@ -75,75 +75,12 @@ public class RecordTransformer {
         this.format = !skipFormatCheck ? formatFunc.apply(format) : format;
     }
 
-    public OAIRecord transform(String id) throws CannotDisseminateFormatException, HarvestException,
-            IdDoesNotExistException, MalformedURLException {
-        return transform(id, null);
-    }
-
-    public OAIRecord transform(String id, String stylesheet) throws CannotDisseminateFormatException,
-            HarvestException, IdDoesNotExistException {
-
-        Record r = harvester.getRecord(id, format);
-
-        if (r.getMetadata() == null) {
-            LOGGER.warn("No metadata found for record with id {}.", id);
-            return null;
-        }
-
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug((new XMLOutputter(Format.getPrettyFormat())).outputString(r.getMetadata().toXML()));
-        }
-
-        try {
-            Map<String, Object> params = new HashMap<>();
-            params.put("recordBaseURL", baseURL);
-            params.put("recordId", id);
-
-            JDOMResult result = transform(r.getMetadata().toXML(),
-                    Optional.ofNullable(stylesheet).orElse("/transformer/" + format + ".xsl"), params);
-
-            OAIRecord record = new OAIRecord(r);
-            record.setDocument(result.getDocument());
-
-            return record;
-        } catch (TransformerException | IOException e) {
-            throw new IllegalArgumentException(
-                    "Couldn't transform metadata with provided xsl stylesheet ("
-                            + Optional.ofNullable(stylesheet).orElse("/transformer/" + format + ".xsl") + ").",
-                    e);
-        }
-    }
-
-    public Stream<OAIRecord> transformAll(String stylesheet, Date from, Date until) {
+    public Stream<OAIRecord> getAll(Date from, Date until) {
         final String fromString = from != null ? new SimpleDateFormat(OAI_SIMPLE_FORMAT).format(from) : null;
         final String untilString = until != null ? new SimpleDateFormat(OAI_SIMPLE_FORMAT).format(until) : null;
-        return processRecords(HarvesterUtil.streamHeaders(harvester, format, fromString, untilString, setSpec),
-                stylesheet);
-    }
-
-    private JDOMResult transform(Element xml, String stylesheet, Map<String, Object> params)
-            throws TransformerException, IOException {
-        InputStream xis = getClass().getResourceAsStream(stylesheet);
-        if (xis == null) {
-            xis = MCRClassTools
-                    .getClassLoader().getResourceAsStream("xsl/" + stylesheet);
-        }
-
-        Source xslt = new StreamSource(xis);
-        Transformer transformer = factory.newTransformer(xslt);
-        Optional.ofNullable(params).ifPresent(p -> p.forEach(transformer::setParameter));
-        JDOMResult result = new JDOMResult();
-        transformer.transform(new JDOMSource(xml), result);
-
-        xis.close();
-
-        return result;
-    }
-
-    public Stream<OAIRecord> processRecords(Stream<Header> recordStream, String stylesheet) {
-        return recordStream.parallel().map(h -> {
+        return HarvesterUtil.streamHeaders(harvester, format, fromString, untilString, setSpec).map(h -> {
             try {
-                return this.transform(h.getId(), stylesheet);
+                return new OAIRecord(harvester.getRecord(h.getId(), format));
             } catch (Throwable e) {
                 LOGGER.error("Error while downloading: " + h.getId(), e);
                 return null;
