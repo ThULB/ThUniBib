@@ -95,7 +95,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         final MCRMODSWrapper wrapper = new MCRMODSWrapper(dbt);
         wrapper.addElement(identifierElement);
 
-        LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(wrapper.getMCRObject().createXML()));
+        //LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(wrapper.getMCRObject().createXML()));
         LOGGER.info("End createMinimalMods");
         return wrapper;
     }
@@ -104,7 +104,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         Date lastHarvest = getLastHarvestDate();
         final Date newHarvest = new Date();
 
-        /*if(lastHarvest.before(newHarvest)) {
+        if(lastHarvest.before(newHarvest)) {
             final RecordTransformer recordTransformer = new RecordTransformer(
                     "https://www.db-thueringen.de/servlets/OAIDataProvider",
                     "mods",
@@ -117,22 +117,24 @@ public class EnrichmentCommands extends MCRAbstractCommands {
                         return obj;
                     })
                     .filter(obj -> filterObject(obj))
-                    //.map(EnrichmentCommands::mapToObject) TODO: implement
+                    .map(EnrichmentCommands::mapToObject)
                     .forEach(obj -> EnrichmentCommands.createOrUpdate(obj, import_status));
 
             saveLastHarvestDate(newHarvest);
 
-        }*/
+        }
 
-        try {
+        /*try {
             LOGGER.info("lastHarvestDate: {}", lastHarvest.toString());
             Harvester harvester = HarvesterBuilder.createNewInstance("https://www.db-thueringen.de/servlets/OAIDataProvider");
-            String id = "oai:www.db-thueringen.de:dbt_mods_00040503";
+
+            //String id = "oai:www.db-thueringen.de:dbt_mods_00040503";
+            String id ="oai:www.db-thueringen.de:dbt_mods_00030900";
             OAIRecord oaiRecord = new OAIRecord(harvester.getRecord(id, "mods"));
             MCRMODSWrapper wrappedObj = createMinimalMods(oaiRecord);
             new MCREnrichmentResolver().enrichPublication(wrappedObj.getMODS(), "import");
             if(filterObject(wrappedObj)) {
-                /* TODO: implement -> MCRObject obj = mapToObject(wrappedObj) */
+                wrappedObj = mapToObject(wrappedObj);
                 createOrUpdate(wrappedObj, import_status);
                 LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedObj.getMCRObject().createXML()));
             }
@@ -140,7 +142,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
             e.printStackTrace();
         } catch (IdDoesNotExistException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private static boolean filterObject(MCRMODSWrapper wrappedMCRObj) {
@@ -166,7 +168,9 @@ public class EnrichmentCommands extends MCRAbstractCommands {
                 LOGGER.info("filtered obj: {}, because genre is one of: {}", mcrID, filteredGenres);
             }
         } else {
-            LOGGER.info("No genre found for obj: {}", mcrID);
+            goesTroughFilter = false; // do not create/update objects that have no genre (as they are most likely empty
+            // at this point
+            LOGGER.info("filtered obj: {}, because no genre found", mcrID);
         }
         return goesTroughFilter;
     }
@@ -210,16 +214,26 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         return configPath.resolve(OAILAST_HARVEST_TXT);
     }
 
-    private static MCRObject mapToObject(MCRMODSWrapper wrappedMCRObj) {
-        // add identifier type importID to document
+    private static MCRMODSWrapper mapToObject(MCRMODSWrapper wrappedMCRObj) {
         final Element modsRoot = wrappedMCRObj.getMODS();
-        // todo: use DBT/OAI id!
-        final String oaiId = wrappedMCRObj.getMCRObject().getId().toString();
+        final XPathExpression<Element> xpath = XPathFactory.instance()
+                .compile("mods:identifier[@type='dbt']",
+                        Filters.element(), null, MCRConstants.MODS_NAMESPACE);
+        final Element dbtIdentifierElem = xpath.evaluateFirst(modsRoot);
+
+        String dbtIdentifier = "";
+        if(dbtIdentifierElem != null) {
+            dbtIdentifier = dbtIdentifierElem.getText();
+        }
+
+        final String solrQuery = "id_dbt:\"" + dbtIdentifier + "\"";
+        LOGGER.info("Got dbt identifier: {}, using solr query: {}", dbtIdentifier, solrQuery);
         SolrDocument first = null;
         try {
             first = MCRSolrSearchUtils
-                    .first(MCRSolrClientFactory.getMainSolrClient(), "mods.identifier:\"" + oaiId + "\"");
+                    .first(MCRSolrClientFactory.getMainSolrClient(), solrQuery);
         } catch (SolrServerException | IOException e) {
+            e.printStackTrace();
         }
         final MCRObject dbt;
         if (first == null) {
@@ -233,15 +247,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
             new MCRMODSWrapper(dbt).setMODS(modsRoot);
         }
 
-        final Element identifierElement = new Element("identifier", MCRConstants.MODS_NAMESPACE);
-        identifierElement.setAttribute("type", "importID");
-        identifierElement.setText(oaiId);
-        final MCRMODSWrapper wrapper = new MCRMODSWrapper(dbt);
-        wrapper.addElement(identifierElement);
-
-        MCRMODSSorter.sort(wrapper.getMODS());
-
-        return dbt;
+        return new MCRMODSWrapper(dbt);
     }
 
     private static MCRObjectID nextFreeID() {
