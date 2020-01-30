@@ -101,6 +101,7 @@ a:hover {
   a {
     color: white;
   }
+  vertical-align: top;
   margin-right: 0.25rem;
   background-color: #1d60bd;
 }
@@ -111,4 +112,9 @@ a:hover {
 
 .nameIdentifier:last-child {
   margin-right: 0rem;
+}
+
+.badge-secondary {
+  color: #333939;
+  background-color: #e7e4db;
 }

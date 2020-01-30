@@ -105,6 +105,7 @@ $form-color: #251e52;
   a {
     color: white;
   }
+  vertical-align: top;
   margin-right: 0.25rem;
   background-color: #024975;
 }
@@ -115,4 +116,9 @@ $form-color: #251e52;
 
 .nameIdentifier:last-child {
   margin-right: 0rem;
+}
+
+.badge-secondary {
+  color: #333939;
+  background-color: #e7e4db;
 }
