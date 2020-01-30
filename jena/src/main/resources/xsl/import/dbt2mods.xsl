@@ -16,7 +16,7 @@
 
     <xsl:template match="mods:mods">
         <xsl:copy>
-            <xsl:apply-templates select="mods:genre[contains(@authorityURI,'mir_genres')]" />
+            <xsl:apply-templates select="mods:genre[contains(@authorityURI,'mir_genres')][1]" />
             <xsl:copy-of select="mods:classification[contains(@valueURI,'classifications/ORIGIN#')]" />
             <xsl:apply-templates select="mods:name[contains(@authorityURI,'mir_institutes')]" />
             <xsl:apply-templates select="mods:titleInfo" />
@@ -95,7 +95,7 @@
                     <xsl:value-of select="./@xlink:type" />
                 </xsl:attribute>
             </xsl:if>
-            <xsl:apply-templates select="mods:genre[contains(@authorityURI,'mir_genres')]" />
+            <xsl:apply-templates select="mods:genre[contains(@authorityURI,'mir_genres')][1]" />
             <!-- Open Access omitted -->
             <xsl:apply-templates select="mods:titleInfo" />
             <!-- omitting "conference" -> mods:name[@type='conference']/mods:namePart, seemingly not in DBT data -->
