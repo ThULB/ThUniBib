@@ -5,7 +5,7 @@ $form-color: #251e52;
 .mycore-form-input, .form-control {
   border-color: $form-color;
   border: 1px solid #ced4da;
-  border-radius: .1rem;
+  border-radius: $border-radius;
 }
 
 .form-control:focus, .mycore-form-input:focus {
@@ -36,7 +36,7 @@ $form-color: #251e52;
 }
 
 .mycore-form-input + button:not(:last-child) {
-    border-radius: 0px;
+    border-radius: $border-radius;
 }
 
 .minus, .up, .down {
@@ -64,19 +64,6 @@ $form-color: #251e52;
     border-color: #bd2130 !important;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #174488;
-    border-color: #174488;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
-    border-radius: .1rem;
-}
-
-.btn-primary:hover {
-    background-color: #113467;
-    border-color: #102e5c;
-}
-
 .row .col hr {
     border-top: 0;
 }
@@ -86,14 +73,8 @@ p {
 }
 
 a {
-  text-decoration: none !important;
-  color: #1D60BD;
   font-family: 'Roboto Condensed',Arial,sans-serif;
   letter-spacing: 0.02em;
-}
-
-a:hover {
-    color: #2285ff;
 }
 
 .nameIdentifier {
