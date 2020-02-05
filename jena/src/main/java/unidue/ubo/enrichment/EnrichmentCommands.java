@@ -76,6 +76,32 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         testSub("imported");
     }
 
+    @MCRCommand(syntax = "test single import dbt with status {0} and oai identifier {1}",
+            help = "test DBT import of single mods document from OAI, imported documents get status one of " +
+                    "'confirmed', 'submitted', 'imported'; OAI Identifier typically has the following format: " +
+                    "oai:www.db-thueringen.de:dbt_mods_00012345 (thueringen)",
+            order = 30
+    )
+    public static void testSingleWithStatus(String import_status, String oai_identifier) {
+        try {
+            Harvester harvester = HarvesterBuilder.createNewInstance("https://www.db-thueringen.de/servlets/OAIDataProvider");
+
+            OAIRecord oaiRecord = new OAIRecord(harvester.getRecord(oai_identifier, "mods"));
+            MCRMODSWrapper wrappedObj = createMinimalMods(oaiRecord);
+            new MCREnrichmentResolver().enrichPublication(wrappedObj.getMODS(), "import");
+            if(filterObject(wrappedObj)) {
+                wrappedObj = mapToObject(wrappedObj);
+                createOrUpdate(wrappedObj, import_status);
+                LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedObj.getMCRObject().createXML()));
+            }
+        } catch (CannotDisseminateFormatException e) {
+            e.printStackTrace();
+        } catch (IdDoesNotExistException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private static MCRMODSWrapper createMinimalMods(OAIRecord oaiRecord) {
         LOGGER.info("Start createMinimalMods");
         String recordID = oaiRecord.getRecord().getHeader().getId();
@@ -121,28 +147,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
                     .forEach(obj -> EnrichmentCommands.createOrUpdate(obj, import_status));
 
             saveLastHarvestDate(newHarvest);
-
         }
-
-        /*try {
-            LOGGER.info("lastHarvestDate: {}", lastHarvest.toString());
-            Harvester harvester = HarvesterBuilder.createNewInstance("https://www.db-thueringen.de/servlets/OAIDataProvider");
-
-            //String id = "oai:www.db-thueringen.de:dbt_mods_00040503";
-            String id ="oai:www.db-thueringen.de:dbt_mods_00030900";
-            OAIRecord oaiRecord = new OAIRecord(harvester.getRecord(id, "mods"));
-            MCRMODSWrapper wrappedObj = createMinimalMods(oaiRecord);
-            new MCREnrichmentResolver().enrichPublication(wrappedObj.getMODS(), "import");
-            if(filterObject(wrappedObj)) {
-                wrappedObj = mapToObject(wrappedObj);
-                createOrUpdate(wrappedObj, import_status);
-                LOGGER.info(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedObj.getMCRObject().createXML()));
-            }
-        } catch (CannotDisseminateFormatException e) {
-            e.printStackTrace();
-        } catch (IdDoesNotExistException e) {
-            e.printStackTrace();
-        }*/
     }
 
     private static boolean filterObject(MCRMODSWrapper wrappedMCRObj) {
