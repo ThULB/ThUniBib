@@ -1,6 +1,22 @@
+$font-family-sans-serif: 'Roboto',Arial,sans-serif;
 $body-bg: white;
 
-$bg-color-breadcrumb: #174488;
+$primary:   #002350;  /* dark blue */
+$secondary: #887440;  /* gold      */
+$info:      #1d60bd;  /* blue      */
+$success:   #74a740;  /* green     */
+$danger:    #cb2129;  /* red       */
+$warning:   #dc9800;  /* orange    */
+
+$link-color: $info;
+$link-hover-decoration: none;
+$link-hover-color: #2285ff;
+
+$bg-color-breadcrumb: $info;
+$border-radius: 0;
+$badge-font-weight: normal;
+
+$border-radius-sm: 0rem;
 
 /* add new/overwrite custom colors */
 $theme-colors: (

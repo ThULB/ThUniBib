@@ -1,6 +1,5 @@
 body {
   min-height: 100vh;
-  font-family: 'Roboto',Arial,sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -16,6 +15,7 @@ body {
 .card {
     border: none !important;
     font-size: 15px;
+    background: rgba(255,255,255,0);
 }
 
 .card.mb-3 {
@@ -28,6 +28,7 @@ body {
 
 .card-body {
   padding: 10px 15px;
+  background: rgba(255,255,255,0) !important;
 }
 
 .card-body h3 {
@@ -40,4 +41,8 @@ body {
 
 h3#seitentitel {
   font-family: "Palatino Linotype", "AmiriRegular", "BookAntiqua", Georgia, serif;
+}
+
+.mycore-list-item {
+  background-color: transparent;
 }

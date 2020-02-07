@@ -10,7 +10,7 @@
     margin-bottom: 0;
     list-style: none;
     background-color: $bg-color-breadcrumb;
-    border-radius: 0;
+    border-radius: $border-radius;
     font-size: 15px;
     font-family: 'Roboto Condensed',Arial,sans-serif;
 }
