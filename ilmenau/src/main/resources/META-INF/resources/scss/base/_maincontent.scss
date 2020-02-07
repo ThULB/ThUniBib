@@ -104,6 +104,7 @@ $form-color: #251e52;
   @extend .badge, .badge-primary;
   a {
     color: white;
+    text-transform: capitalize;
   }
   vertical-align: top;
   margin-right: 0.25rem;
