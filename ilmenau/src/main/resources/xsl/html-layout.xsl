@@ -14,7 +14,7 @@
   <xsl:variable name="jquery.version" select="'3.3.1'" />
   <xsl:variable name="jquery-ui.version" select="'1.12.1'" />
   <xsl:variable name="chosen.version" select="'1.8.7'" />
-  <xsl:variable name="bootstrap.version" select="'4.1.3'" />
+  <xsl:variable name="bootstrap.version" select="'4.4.1'" />
   <xsl:variable name="font-awesome.version" select="'5.5.0'" />
 
   <!-- ==================== IMPORTS ==================== -->
@@ -355,25 +355,32 @@
   <xsl:template name="layout.login">
 
     <div class="nav-item mr-2">
-      <span class="user btn p-0" style="cursor: default;">
-        <xsl:text>[ </xsl:text>
-        <xsl:choose>
-          <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-            <xsl:value-of select="i18n:translate('component.user2.login.guest')" />
-          </xsl:when>
-          <xsl:when test="contains($CurrentUser,'@')">
-            <a href="{$ServletsBaseURL}MCRUserServlet?action=show" style="text-decoration: none;">
-              <xsl:value-of select="substring-before($CurrentUser,'@')" />
-            </a>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="$CurrentUser" />
-          </xsl:otherwise>
-        </xsl:choose>
-        <xsl:text> ]</xsl:text>
+      <xsl:choose>
+        <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
+          <span class="user p-0" style="cursor: default;">
+            [<xsl:value-of select="i18n:translate('component.user2.login.guest')" />]
+          </span>
+        </xsl:when>
+        <xsl:otherwise>
+          <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+             role="button" id="mcrFunctionsDropdown" href="#"
+             class="user nav-link dropdown-toggle p-0" style="cursor: default;">
+            <xsl:choose>
+              <xsl:when test="contains($CurrentUser,'@')">
+                [<xsl:value-of select="substring-before($CurrentUser,'@')" />]
+              </xsl:when>
+              <xsl:otherwise>
+                [<xsl:value-of select="$CurrentUser" />]
+              </xsl:otherwise>
+            </xsl:choose>
+          </a>
+          <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
+            <xsl:call-template name="layout.usernav" />
+          </div>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:call-template name="orcidUser" />
 
-        <xsl:call-template name="orcidUser" />        
-      </span>
     </div>
     <div class="nav-item mr-2">
       <xsl:choose>
