@@ -51,16 +51,10 @@
       <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"></script>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css" type="text/css"/>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/bootstrap-glyphicons/bdd2cbfba0/css/bootstrap-glyphicons.css" type="text/css"/>
-      <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" type="text/css" /> -->
       <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Droid+Sans|Droid+Sans+Mono:300,400" type="text/css" />
       <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto:300,400" type="text/css" />
       <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto+Condensed:300,400" type="text/css" />
       <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Amiri:300,400" type="text/css" />
-      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.uni-due.de/imperia/md/images/cms/h/apple-touch-icon.png" />
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.uni-due.de/imperia/md/images/cms/m/apple-touch-icon.png" />
-      <link rel="apple-touch-icon-precomposed" href="https://www.uni-due.de/imperia/md/images/cms/l/apple-touch-icon-precomposed.png" />
-      <link rel="shortcut icon" href="https://www.uni-due.de/imperia/md/images/cms/l/apple-touch-icon.png" />
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico" />
 
       <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL" />';</script>
@@ -500,7 +494,7 @@
     <xsl:variable name="mcr_version" select="concat('MyCoRe ', mcrver:getCompleteVersion())" />
     <div id="powered_by">
       <a href="http://www.mycore.de">
-        <img src="https://www.mycore.de/mir/mir-layout/images/mycore_logo_small_invert.png" title="{$mcr_version}" alt="powered by MyCoRe" />
+        <img src="{$WebApplicationBaseURL}images/mycore_logo_small_invert.png" title="{$mcr_version}" alt="powered by MyCoRe" />
       </a>
     </div>
   </xsl:template>
