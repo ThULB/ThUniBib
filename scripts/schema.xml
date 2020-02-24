@@ -7,17 +7,17 @@
   <field name="_root_"    type="string" indexed="true" stored="false" />
 
   <!-- General fields -->
-  <field name="projekt_id"         type="string" indexed="true" stored="true" multiValued="false" />
+  <field name="project_id"         type="string" indexed="true" stored="true" multiValued="false" />
   <field name="acronym"            type="text" indexed="true" stored="true" multiValued="false" />
-  <field name="projekttitel"       type="text" indexed="true" stored="true" multiValued="false" />
-  <field name="kostentraeger"      type="text" indexed="true" stored="true" multiValued="false" />
-  <field name="foerderkennzeichen" type="text" indexed="true" stored="true" multiValued="false" />
+  <field name="project_title"      type="text" indexed="true" stored="true" multiValued="false" />
+  <field name="funder"             type="text" indexed="true" stored="true" multiValued="false" />
+  <field name="funding_number"     type="text" indexed="true" stored="true" multiValued="false" />
   <field name="project_search_all" type="text" indexed="true" stored="true" multiValued="false" />
 
   <!-- Ignore all other fields -->
   <dynamicField name="*" type="ignored" />
 
-  <uniqueKey>projekt_id</uniqueKey>
+  <uniqueKey>project_id</uniqueKey>
 
   <fieldType name="string"  class="solr.StrField"      sortMissingLast="true" />
   <fieldType name="int"     class="solr.TrieIntField"  precisionStep="0" positionIncrementGap="0"/>
