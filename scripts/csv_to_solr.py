@@ -10,11 +10,11 @@ def read_csv():
                 print(row)
             else:
                 data = {}
-                data['projekt_id'] = row[0]
+                data['project_id'] = row[0]
                 data['acronym'] = row[1]
-                data['projekttitel'] = row[2]
-                data['kostentraeger'] = row[3]
-                data['foerderkennzeichen'] = row[4]
+                data['project_title'] = row[2]
+                data['funder'] = row[3]
+                data['funding_number'] = row[4]
                 data['project_search_all'] = ' '.join(row)
                 project_data.append(data)
     return project_data
