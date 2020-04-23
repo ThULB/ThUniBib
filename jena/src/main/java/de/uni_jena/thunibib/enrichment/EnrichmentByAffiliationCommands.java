@@ -1,4 +1,4 @@
-package unidue.ubo.enrichment;
+package de.uni_jena.thunibib.enrichment;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -35,7 +35,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 
 @MCRCommandGroup(name = "experimental DBT import commands (by affiliation gnd)")
@@ -169,15 +168,12 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         // save object
         try {
             setState(wrappedMCRobj, import_status);
-
-            final Optional<MCRObjectID> alreadyExists = Optional.of(object.getId())
-                    .filter(MCRMetadataManager::exists);
-            if (!alreadyExists.isPresent()) {
-                LOGGER.info("Create object {}!", object.getId().toString());
-                MCRMetadataManager.create(object);
-            } else {
+            if(MCRMetadataManager.exists(object.getId())) {
                 LOGGER.info("Update object {}!", object.getId().toString());
                 MCRMetadataManager.update(object);
+            } else {
+                LOGGER.info("Create object {}!", object.getId().toString());
+                MCRMetadataManager.create(object);
             }
         } catch (MCRAccessException e) {
             throw new MCRException("Error while creating " + object.getId().toString(), e);
