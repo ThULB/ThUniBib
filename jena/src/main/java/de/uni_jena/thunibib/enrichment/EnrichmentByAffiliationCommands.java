@@ -6,6 +6,9 @@ import com.google.gson.JsonObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.common.SolrDocumentList;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
@@ -17,6 +20,7 @@ import org.jdom2.xpath.XPathExpression;
 import org.mycore.access.MCRAccessException;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
+import org.mycore.common.config.MCRConfiguration;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -25,6 +29,8 @@ import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.mods.MCRMODSWrapper;
 import org.mycore.mods.enrichment.MCREnrichmentResolver;
+import org.mycore.solr.MCRSolrClientFactory;
+import org.mycore.solr.MCRSolrUtils;
 import org.xml.sax.InputSource;
 import org.jdom2.xpath.XPathFactory;
 
@@ -49,6 +55,15 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     private static final String projectID = "ubo";
 
+    private static String FIELD_TO_QUERY_ID;
+    static {
+        MCRConfiguration config = MCRConfiguration.instance();
+
+        String prefix = "UBO.ThuniBib.jena.affilitation.import.";
+        FIELD_TO_QUERY_ID = config.getString(prefix + "Field2QueryID", "id_ppn");
+    }
+
+
     @MCRCommand(syntax = "test import by affiliation with GND {0} and status {1}",
             help = "test import of publications by affiliation GND, imported documents get status one of 'confirmed', " +
                     "'submitted', 'imported'",
@@ -62,11 +77,16 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
             List<String> affiliatedPersonsGNDs = getAllGNDsOfAffiliatedPersons(affiliationGND);
             for(String affiliatedPersonGND : affiliatedPersonsGNDs) {
                 List<String> recordIdentifiers = getAllRecordIdentifiersOfPublicationsOfPersonsByGND(affiliatedPersonGND);
-                for(String ppnID : recordIdentifiers) {
-                    MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
-                    new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
-                    LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
-                    createOrUpdate(wrappedMods, import_status);
+                for (String ppnID : recordIdentifiers) {
+                    if(!isAlreadyStored(ppnID)) {
+                        MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
+                        new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
+                        LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
+                        createOrUpdate(wrappedMods, import_status);
+                    } else {
+                        LOGGER.info("Publication with PPN {} was already imported, import canceled, " +
+                                "Solr field used for finding duplicates: {}", ppnID, FIELD_TO_QUERY_ID);
+                    }
                 }
             }
 
@@ -74,6 +94,20 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
             LOGGER.info("Status not allowed: {}, use one of {}", import_status, String.join(", ", allowedStatus));
         }
 
+    }
+
+    private static boolean isAlreadyStored(String ppn) {
+        SolrClient solrClient = MCRSolrClientFactory.getMainSolrClient();
+        SolrQuery query = new SolrQuery();
+        query.setQuery(FIELD_TO_QUERY_ID + ":" + MCRSolrUtils.escapeSearchValue(ppn));
+        query.setRows(0);
+        SolrDocumentList results;
+        try {
+            results = solrClient.query(query).getResults();
+            return (results.getNumFound() > 0);
+        } catch (Exception ex) {
+            throw new MCRException(ex);
+        }
     }
 
     private static List<String> getAllRecordIdentifiersOfPublicationsOfPersonsByGND(String gnd) {
