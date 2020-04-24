@@ -40,7 +40,11 @@ import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 @MCRCommandGroup(name = "experimental DBT import commands (by affiliation gnd)")
@@ -55,12 +59,17 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     private static final String projectID = "ubo";
 
-    private static String FIELD_TO_QUERY_ID;
+    private static final String PPN_IDENTIFIER = "ppn";
+
+    private static List<String> DUPLICATE_CHECK_IDS;
     static {
         MCRConfiguration config = MCRConfiguration.instance();
 
-        String prefix = "UBO.ThuniBib.jena.affilitation.import.";
-        FIELD_TO_QUERY_ID = config.getString(prefix + "Field2QueryID", "id_ppn");
+        String property = "UBO.ThuniBib.jena.affilitation.import.dublicate.check.identifiers";
+
+        String ids = config.getString(property, "issn,isbn,doi");
+        DUPLICATE_CHECK_IDS = Arrays.asList(ids.split(","));
+        LOGGER.info("Checking for duplicates using these identifier: {}", DUPLICATE_CHECK_IDS);
     }
 
 
@@ -72,20 +81,22 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     public static void testImportByAffiliation(String affiliationGND, String import_status) {
         final List<String> allowedStatus = Arrays.asList(new String[]{"confirmed", "submitted", "imported"});
 
+        // HashSets for finding duplicates during the import session, PPN is hard wired, rest is configurable
+        Map<String, Set<String>> duplicateCheckSetsMap = setUpDuplicateCheckSets();
+
         if(allowedStatus.contains(import_status)) {
 
             List<String> affiliatedPersonsGNDs = getAllGNDsOfAffiliatedPersons(affiliationGND);
             for(String affiliatedPersonGND : affiliatedPersonsGNDs) {
-                List<String> recordIdentifiers = getAllRecordIdentifiersOfPublicationsOfPersonsByGND(affiliatedPersonGND);
-                for (String ppnID : recordIdentifiers) {
-                    if(!isAlreadyStored(ppnID)) {
+                Map<String, Document> ppnToPublicationMap = getAllPublicationsOfPersonByGND(affiliatedPersonGND);
+                for (String ppnID : ppnToPublicationMap.keySet()) {
+                    if(!checkForDuplicates(ppnID, ppnToPublicationMap.get(ppnID), duplicateCheckSetsMap)) {
                         MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
                         new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
                         LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
                         createOrUpdate(wrappedMods, import_status);
                     } else {
-                        LOGGER.info("Publication with PPN {} was already imported, import canceled, " +
-                                "Solr field used for finding duplicates: {}", ppnID, FIELD_TO_QUERY_ID);
+                        LOGGER.info("Publication with PPN {} was already imported, import canceled!", ppnID);
                     }
                 }
             }
@@ -96,10 +107,75 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     }
 
-    private static boolean isAlreadyStored(String ppn) {
+    private static Map<String, Set<String>> setUpDuplicateCheckSets() {
+        Map<String, Set<String>> duplicateCheckSetsMap = new HashMap<>();
+        duplicateCheckSetsMap.put(PPN_IDENTIFIER, new HashSet<>());
+        for(String checkID : DUPLICATE_CHECK_IDS) {
+            duplicateCheckSetsMap.put(checkID, new HashSet<>());
+        }
+        return duplicateCheckSetsMap;
+    }
+
+    /**
+     * Given a publication and its PPN, check for duplicates in current import session via HashSets and across sessions
+     * via Solr queries. This method has side effects. The sets in the duplicateCheckSetsMap get extended by the
+     * identifiers of the publication that are used for finding duplicates by each method call. Meaning that the first
+     * call with a new unique publication would return "false", meaning there where no duplicates found, while another
+     * call with the same parameters (same publication and ppn) would return "true", meaning this publication was
+     * already imported, either this import session or sometime before in a different session.
+     *
+     * @param publication_ppn The PPN of the publication
+     * @param publication The publication in question
+     * @param duplicateCheckSetsMap A map containing HashSets of different identifiers and their corresponding values
+     *                              to check for duplicates during an import session
+     * @return false, if no duplicate was found or true if a duplicate was found
+     */
+    private static boolean checkForDuplicates(String publication_ppn, Document publication,
+                                              Map<String, Set<String>> duplicateCheckSetsMap) {
+
+        // Check for duplicates using PPN (hard wired)
+        // 1. check HashSet (duplicates per import session)
+        if(duplicateCheckSetsMap.get(PPN_IDENTIFIER).contains(publication_ppn)) {
+            LOGGER.info("Found duplicate in import session by PPN {}", publication_ppn);
+            return true;
+        } else {
+            duplicateCheckSetsMap.get(PPN_IDENTIFIER).add(publication_ppn);
+        }
+        // 2. check against Solr (duplicates across multiple imports)
+        String ppn_field = "id_" + PPN_IDENTIFIER;
+        if(isAlreadyStored(ppn_field , publication_ppn)) {
+            LOGGER.info("Found duplicate in Solr by field {} and value {}", ppn_field, publication_ppn);
+            return true;
+        }
+
+        // Check for duplicates using configured IDs
+        // 1. Check HashSets (duplicates per import session)
+        for(String checkID : DUPLICATE_CHECK_IDS) {
+            List<Element> identifierElements = getIdentifierElementsByType(publication, checkID);
+            for (Element identifierElement : identifierElements) {
+                String identifierValue = identifierElement.getValue();
+                if (duplicateCheckSetsMap.get(checkID).contains(identifierValue)) {
+                    LOGGER.info("Found duplicate in import session by {} {}", checkID, identifierValue);
+                    return true;
+                } else {
+                    duplicateCheckSetsMap.get(checkID).add(identifierValue);
+                }
+                // 2. check against Solr (duplicates across multiple imports)
+                String solr_field = "id_" + checkID;
+                if (isAlreadyStored(solr_field, identifierValue)) {
+                    LOGGER.info("Found duplicate in Solr by field {} and value {}", solr_field, publication_ppn);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static boolean isAlreadyStored(String identifier_field, String identifier_value) {
+        LOGGER.info("Check if already stored in Solr using field {} and value {}", identifier_field, identifier_value);
         SolrClient solrClient = MCRSolrClientFactory.getMainSolrClient();
         SolrQuery query = new SolrQuery();
-        query.setQuery(FIELD_TO_QUERY_ID + ":" + MCRSolrUtils.escapeSearchValue(ppn));
+        query.setQuery(identifier_field + ":" + MCRSolrUtils.escapeSearchValue(identifier_value));
         query.setRows(0);
         SolrDocumentList results;
         try {
@@ -110,11 +186,22 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         }
     }
 
-    private static List<String> getAllRecordIdentifiersOfPublicationsOfPersonsByGND(String gnd) {
-        List<String> recordIdentifiers = new ArrayList<>();
+    private static List<Element> getIdentifierElementsByType(Document publication, String type) {
+        List<Element> identifierElements = new ArrayList<>();
+
+        XPathFactory xFactory = XPathFactory.instance();
+        XPathExpression<Element> identifierElementExpr = xFactory.compile("//mods:identifier[@type='" + type + "']",
+                Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
+        identifierElements = identifierElementExpr.evaluate(publication);
+
+        return identifierElements;
+    }
+
+    private static Map<String, Document> getAllPublicationsOfPersonByGND(String gnd) {
+        Map<String, Document> ppnToPublicationMap = new HashMap<>();
 
         String targetURL = "http://sru.k10plus.de/gvk?version=1.1&operation=searchRetrieve&query=pica.nid%3D" +
-                gnd + "&maximumRecords=10&recordSchema=mods36";
+                gnd + "&maximumRecords=1000&recordSchema=mods36";
         String requestContent = makeRequest(targetURL);
 
         SAXBuilder builder = new SAXBuilder();
@@ -123,18 +210,29 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
             XPathFactory xFactory = XPathFactory.instance();
 
-            XPathExpression<Element> modsRecordExpr = xFactory.compile("//mods:recordIdentifier",
+            // get all publications of person
+            XPathExpression<Element> modsRecordExpr = xFactory.compile("//mods:mods",
                     Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
-            List<Element> recordIdentifierElements = modsRecordExpr.evaluate(searchResponseXML);
-            for(Element recordIdentifierElement : recordIdentifierElements) {
-                recordIdentifiers.add(recordIdentifierElement.getValue());
-            }
+            List<Element> publicationElements = modsRecordExpr.evaluate(searchResponseXML);
+            LOGGER.info("Got {} publications for Person by GND {}", publicationElements.size(), gnd);
 
+            for(Element publication : publicationElements) {
+                // get the PPN of each publication and map it
+                XPathExpression<Element> recordIdentifierExpr = xFactory.compile("//mods:recordIdentifier",
+                        Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
+                Element recordIdentifierElement = recordIdentifierExpr.evaluateFirst(publication);
+                if(recordIdentifierElement != null) {
+                    String ppn = recordIdentifierElement.getValue();
+                    publication.detach();
+                    ppnToPublicationMap.put(ppn, new Document(publication));
+                } else {
+                    LOGGER.error("Publication without PPN found for GND {}, skipping", gnd);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        LOGGER.info("Got {} recordIdentifiers of publications for GND: {}", recordIdentifiers.size(), gnd);
-        return recordIdentifiers;
+        return ppnToPublicationMap;
     }
 
     private static MCRMODSWrapper createMinimalMods(String ppnID) {
