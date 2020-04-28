@@ -62,14 +62,26 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static final String PPN_IDENTIFIER = "ppn";
 
     private static List<String> DUPLICATE_CHECK_IDS;
+    private static String K10PLUS_MAX_RECORDS;
+    private static String LOBID_MAX_RECORDS;
+
     static {
         MCRConfiguration config = MCRConfiguration.instance();
 
-        String property = "UBO.ThuniBib.jena.affilitation.import.dublicate.check.identifiers";
+        String property_prefix = "UBO.ThuniBib.jena.affilitation.import.";
+        String property_duplicates_check = property_prefix + "dublicate.check.identifiers";
+        String property_k10plus_max_records = property_prefix + "k10plus.max.records";
+        String property_lobid_max_records = property_prefix + "lobid.max.records";
 
-        String ids = config.getString(property, "issn,isbn,doi");
+        String ids = config.getString(property_duplicates_check, "issn,isbn,doi");
         DUPLICATE_CHECK_IDS = Arrays.asList(ids.split(","));
         LOGGER.info("Checking for duplicates using these identifier: {}", DUPLICATE_CHECK_IDS);
+
+        K10PLUS_MAX_RECORDS = config.getString(property_k10plus_max_records, "1000");
+        LOGGER.info("Max records that are queried from k10plus: {}", K10PLUS_MAX_RECORDS);
+
+        LOBID_MAX_RECORDS = config.getString(property_lobid_max_records, "10000");
+        LOGGER.info("Max records that are queried from lobid: {}", LOBID_MAX_RECORDS);
     }
 
 
@@ -201,7 +213,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         Map<String, Document> ppnToPublicationMap = new HashMap<>();
 
         String targetURL = "http://sru.k10plus.de/gvk?version=1.1&operation=searchRetrieve&query=pica.nid%3D" +
-                gnd + "&maximumRecords=1000&recordSchema=mods36";
+                gnd + "&maximumRecords=" + K10PLUS_MAX_RECORDS + "&recordSchema=mods36";
         String requestContent = makeRequest(targetURL);
 
         SAXBuilder builder = new SAXBuilder();
@@ -273,7 +285,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         List<String> affiliatedPersonsGNDs = new ArrayList<>();
 
         String targetURL = "http://lobid.org/gnd/search?q=" + affiliationGND +
-                "&filter=type%3APerson&format=json&size=10000";
+                "&filter=type%3APerson&format=json&size=" + LOBID_MAX_RECORDS;
         String requestContent = makeRequest(targetURL);
 
         Gson gson = new Gson();
