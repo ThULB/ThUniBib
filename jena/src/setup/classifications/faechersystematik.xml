@@ -3,2218 +3,2221 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="fachreferate">
 
     <label xml:lang="en" text="subject classification system" description="destatis" />
-    <label xml:lang="de" text="Fächersystematik" description="destatis, Personal an Hochschulen (Stand 01.12.2016)" />
+    <label xml:lang="de" text="Fächersystematik" description="destatis, Personal an Hochschulen (Erschienen am 22.01.2020, Stand: Berichtsjahr 2018)" />
     <label xml:lang="x-uri" text="https://skohub.io/acka47/skos/heads/master/onto.tib.eu/destf/cs/index.html" />
 
   <categories>
     <category ID="01">
-      <label xml:lang="de" text="Geisteswissenschaften" />
+      <label xml:lang="de" text="01 Geisteswissenschaften" />
       <category ID="010">
-        <label xml:lang="de" text="Geisteswissenschaften allgemein" />
+        <label xml:lang="de" text="010 Geisteswissenschaften allgemein" />
         <category ID="0100">
-          <label xml:lang="de" text="0101010 Geisteswissenschaften allgemein" />
+          <label xml:lang="de" text="0100 Geisteswissenschaften allgemein" />
         </category>
         <category ID="0120">
-          <label xml:lang="de" text="0101030 Interdisziplinäre Studien (Schwerpunkt Sprach- und Kulturwissenschaften)" />
+          <label xml:lang="de" text="0120 Interdisziplinäre Studien (Schwerpunkt Sprach- und Kulturwissenschaften)" />
         </category>
         <category ID="0130">
-          <label xml:lang="de" text="0101060 Medienwissenschaft" />
+          <label xml:lang="de" text="0130 Medienwissenschaft" />
         </category>
       </category>
       <category ID="020">
-        <label xml:lang="de" text="Evangelische Theologie" />
+        <label xml:lang="de" text="020 Evangelische Theologie" />
         <category ID="0200">
-          <label xml:lang="de" text="0102010 Evang. Theologie allgemein" />
+          <label xml:lang="de" text="0200 Evang. Theologie allgemein" />
         </category>
         <category ID="0210">
-          <label xml:lang="de" text="0102020 Altes Testament (ev.)" />
+          <label xml:lang="de" text="0210 Altes Testament (ev.)" />
         </category>
         <category ID="0215">
-          <label xml:lang="de" text="0102030 Diakoniewissenschaft" />
+          <label xml:lang="de" text="0215 Diakoniewissenschaft" />
         </category>
         <category ID="0220">
-          <label xml:lang="de" text="0102050 Neues Testament (ev.)" />
+          <label xml:lang="de" text="0220 Neues Testament (ev.)" />
         </category>
         <category ID="0230">
-          <label xml:lang="de" text="0102040 Historische Theologie (ev.)" />
+          <label xml:lang="de" text="0230 Historische Theologie (ev.)" />
         </category>
         <category ID="0240">
-          <label xml:lang="de" text="0102080 Systematische Theologie (ev.)" />
+          <label xml:lang="de" text="0240 Systematische Theologie (ev.)" />
         </category>
         <category ID="0250">
-          <label xml:lang="de" text="0102060 Praktische Theologie und Religionspädagogik (ev.)" />
+          <label xml:lang="de" text="0250 Praktische Theologie und Religionspädagogik (ev.)" />
         </category>
         <category ID="0260">
-          <label xml:lang="de" text="0102070 Religionsgeschichte und Missionswissenschaft (ev.)" />
+          <label xml:lang="de" text="0260 Religionsgeschichte und Missionswissenschaft (ev.)" />
         </category>
       </category>
       <category ID="030">
-        <label xml:lang="de" text="Katholische Theologie" />
+        <label xml:lang="de" text="030 Katholische Theologie" />
         <category ID="0300">
-          <label xml:lang="de" text="0103010 Kath. Theologie allgemein" />
+          <label xml:lang="de" text="0300 Kath. Theologie allgemein" />
         </category>
         <category ID="0310">
-          <label xml:lang="de" text="0103030 Biblische Theologie (kath.)" />
+          <label xml:lang="de" text="0310 Biblische Theologie (kath.)" />
         </category>
         <category ID="0315">
-          <label xml:lang="de" text="0103040 Caritaswissenschaft" />
+          <label xml:lang="de" text="0315 Caritaswissenschaft" />
         </category>
         <category ID="0320">
-          <label xml:lang="de" text="0103050 Historische Theologie (kath.)" />
+          <label xml:lang="de" text="0320 Historische Theologie (kath.)" />
         </category>
         <category ID="0330">
-          <label xml:lang="de" text="0103080 Systematische Theologie (kath.)" />
+          <label xml:lang="de" text="0330 Systematische Theologie (kath.)" />
         </category>
         <category ID="0340">
-          <label xml:lang="de" text="0103070 Praktische Theologie und Religionspädagogik (kath.)" />
+          <label xml:lang="de" text="0340 Praktische Theologie und Religionspädagogik (kath.)" />
         </category>
         <category ID="0350">
-          <label xml:lang="de" text="0103060 Kanonistik (kath.)" />
+          <label xml:lang="de" text="0350 Kanonistik (kath.)" />
         </category>
         <category ID="0390">
-          <label xml:lang="de" text="0103020 Altkatholische Theologie" />
+          <label xml:lang="de" text="0390 Altkatholische Theologie" />
         </category>
       </category>
       <category ID="040">
-        <label xml:lang="de" text="Philosophie" />
+        <label xml:lang="de" text="040 Philosophie" />
         <category ID="0400">
-          <label xml:lang="de" text="0104010 Philosophie allgemein" />
+          <label xml:lang="de" text="0400 Philosophie allgemein" />
         </category>
         <category ID="0410">
-          <label xml:lang="de" text="0104060 Religionswissenschaft" />
+          <label xml:lang="de" text="0410 Religionswissenschaft" />
         </category>
         <category ID="0420">
-          <label xml:lang="de" text="0104020 Didaktik der Philosophie/Ethik" />
+          <label xml:lang="de" text="0420 Didaktik der Philosophie/Ethik" />
         </category>
         <category ID="0425">
-          <label xml:lang="de" text="0104030 Geschichte der Philosophie" />
+          <label xml:lang="de" text="0425 Geschichte der Philosophie" />
         </category>
         <category ID="0426">
-          <label xml:lang="de" text="0104040 Logik" />
+          <label xml:lang="de" text="0426 Logik" />
         </category>
         <category ID="0430">
-          <label xml:lang="de" text="0104080 Wissenschaftsforschung/-lehre" />
+          <label xml:lang="de" text="0430 Wissenschaftsforschung/-lehre" />
         </category>
       </category>
       <category ID="050">
-        <label xml:lang="de" text="Geschichte" />
+        <label xml:lang="de" text="050 Geschichte" />
         <category ID="0500">
-          <label xml:lang="de" text="0105010 Geschichte allgemein" />
+          <label xml:lang="de" text="0500 Geschichte allgemein" />
         </category>
         <category ID="0510">
-          <label xml:lang="de" text="0105070 Ur- und Frühgeschichte" />
+          <label xml:lang="de" text="0510 Ur- und Frühgeschichte" />
         </category>
         <category ID="0520">
-          <label xml:lang="de" text="0105020 Alte Geschichte" />
+          <label xml:lang="de" text="0520 Alte Geschichte" />
         </category>
         <category ID="0530">
-          <label xml:lang="de" text="0105055 Mittelalterliche Geschichte" />
+          <label xml:lang="de" text="0530 Mittelalterliche Geschichte" />
         </category>
         <category ID="0540">
-          <label xml:lang="de" text="0105060 Neuere und neueste Geschichte" />
+          <label xml:lang="de" text="0540 Neuere und neueste Geschichte" />
         </category>
         <category ID="0550">
-          <label xml:lang="de" text="0105050 Länder-, Landesgeschichte" />
+          <label xml:lang="de" text="0550 Länder-, Landesgeschichte" />
         </category>
         <category ID="0560">
-          <label xml:lang="de" text="0105080 Wirtschafts- und Sozialgeschichte" />
+          <label xml:lang="de" text="0560 Wirtschafts- und Sozialgeschichte" />
         </category>
         <category ID="0570">
-          <label xml:lang="de" text="0105025 Archäologie" />
+          <label xml:lang="de" text="0570 Archäologie" />
         </category>
         <category ID="0580">
-          <label xml:lang="de" text="0105030 Didaktik der Geschichte" />
+          <label xml:lang="de" text="0580 Didaktik der Geschichte" />
         </category>
         <category ID="0585">
-          <label xml:lang="de" text="0105040 Kultur- und Geistesgeschichte" />
+          <label xml:lang="de" text="0585 Kultur- und Geistesgeschichte" />
         </category>
         <category ID="0590">
-          <label xml:lang="de" text="0105065 Technikgeschichte" />
+          <label xml:lang="de" text="0590 Technikgeschichte" />
         </category>
       </category>
       <category ID="070">
-        <label xml:lang="de" text="Bibliothekswissenschaft, Dokumentation" />
+        <label xml:lang="de" text="070 Bibliothekswissenschaft, Dokumentation" />
         <category ID="0700">
-          <label xml:lang="de" text="0107010 Bibliothekswissenschaft, Dokumentation allgemein" />
+          <label xml:lang="de" text="0700 Bibliothekswissenschaft, Dokumentation allgemein" />
         </category>
         <category ID="0710">
-          <label xml:lang="de" text="0107020 Bibliothekswissenschaft/-wesen (nicht für Verwaltungs-FH)" />
+          <label xml:lang="de" text="0710 Bibliothekswissenschaft/-wesen (nicht für Verwaltungs-FH)" />
         </category>
         <category ID="0720">
-          <label xml:lang="de" text="0107030 Dokumentationswissenschaft" />
+          <label xml:lang="de" text="0720 Dokumentationswissenschaft" />
         </category>
       </category>
       <category ID="080">
-        <label xml:lang="de" text="Allgemeine und vergleichende Literatur- und Sprachwissenschaft" />
+        <label xml:lang="de" text="080 Allgemeine und vergleichende Literatur- und Sprachwissenschaft" />
         <category ID="0800">
-          <label xml:lang="de" text="0108010 Allgemeine und vergleichende Literatur- und Sprachwissenschaft allgemein" />
+          <label xml:lang="de" text="0800 Allgemeine und vergleichende Literatur- und Sprachwissenschaft allgemein" />
         </category>
         <category ID="0810">
-          <label xml:lang="de" text="0108025 Allgemeine und vergleichende Sprachwissenschaft" />
+          <label xml:lang="de" text="0810 Allgemeine und vergleichende Sprachwissenschaft" />
         </category>
         <category ID="0820">
-          <label xml:lang="de" text="0108020 Allgemeine und vergleichende Literaturwissenschaft" />
+          <label xml:lang="de" text="0820 Allgemeine und vergleichende Literaturwissenschaft" />
         </category>
         <category ID="0830">
-          <label xml:lang="de" text="0108030 Angewandte Sprachwissenschaft, berufsbezogene Fremdsprachenausbildung" />
+          <label xml:lang="de" text="0830 Angewandte Sprachwissenschaft, berufsbezogene Fremdsprachenausbildung" />
         </category>
         <category ID="0835">
-          <label xml:lang="de" text="0108040 Computerlinguistik" />
+          <label xml:lang="de" text="0835 Computerlinguistik" />
         </category>
         <category ID="0840">
-          <label xml:lang="de" text="0108050 Fremdsprachenausbildung (für Hörer aller Fakultäten)" />
+          <label xml:lang="de" text="0840 Fremdsprachenausbildung (für Hörer aller Fakultäten)" />
         </category>
         <category ID="0845">
-          <label xml:lang="de" text="0108060 Indogermanistik" />
+          <label xml:lang="de" text="0845 Indogermanistik" />
         </category>
       </category>
       <category ID="090">
-        <label xml:lang="de" text="Altphilologie (klassische Philologie)" />
+        <label xml:lang="de" text="090 Altphilologie (klassische Philologie)" />
         <category ID="0900">
-          <label xml:lang="de" text="0109010 Altphilologie allgemein" />
+          <label xml:lang="de" text="0900 Altphilologie allgemein" />
         </category>
         <category ID="0910">
-          <label xml:lang="de" text="0109040 Griechische Philologie" />
+          <label xml:lang="de" text="0910 Griechische Philologie" />
         </category>
         <category ID="0920">
-          <label xml:lang="de" text="0109050 Lateinische Philologie" />
+          <label xml:lang="de" text="0920 Lateinische Philologie" />
         </category>
         <category ID="0930">
-          <label xml:lang="de" text="0109020 Byzantinistik" />
+          <label xml:lang="de" text="0930 Byzantinistik" />
         </category>
         <category ID="0940">
-          <label xml:lang="de" text="0109060 Neugriechisch" />
+          <label xml:lang="de" text="0940 Neugriechisch" />
         </category>
         <category ID="0950">
-          <label xml:lang="de" text="0109070 Papyrologie" />
+          <label xml:lang="de" text="0950 Papyrologie" />
         </category>
         <category ID="0960">
-          <label xml:lang="de" text="0109030 Didaktik der Altphilologie" />
+          <label xml:lang="de" text="0960 Didaktik der Altphilologie" />
         </category>
       </category>
       <category ID="100">
-        <label xml:lang="de" text="Germanistik (Deutsch, germanische Sprachen ohne Anglistik)" />
+        <label xml:lang="de" text="100 Germanistik (Deutsch, germanische Sprachen ohne Anglistik)" />
         <category ID="1000">
-          <label xml:lang="de" text="0110010 Germanistik (Deutsch, germanische Sprachen ohne Anglistik) allgemein" />
+          <label xml:lang="de" text="1000 Germanistik (Deutsch, germanische Sprachen ohne Anglistik) allgemein" />
         </category>
         <category ID="1020">
-          <label xml:lang="de" text="0110070 Skandinavistik" />
+          <label xml:lang="de" text="1020 Skandinavistik" />
         </category>
         <category ID="1030">
-          <label xml:lang="de" text="0110060 Niederlandistik" />
+          <label xml:lang="de" text="1030 Niederlandistik" />
         </category>
         <category ID="1040">
-          <label xml:lang="de" text="0110030 Deutsch als Fremdsprache oder als Zweitsprache" />
+          <label xml:lang="de" text="1040 Deutsch als Fremdsprache oder als Zweitsprache" />
         </category>
         <category ID="1050">
-          <label xml:lang="de" text="0110040 Didaktik der deutschen Sprache" />
+          <label xml:lang="de" text="1050 Didaktik der deutschen Sprache" />
         </category>
         <category ID="1070">
-          <label xml:lang="de" text="0110080 Sonstige germanische Sprachen (ohne Anglistik)" />
+          <label xml:lang="de" text="1070 Sonstige germanische Sprachen (ohne Anglistik)" />
         </category>
         <category ID="1080">
-          <label xml:lang="de" text="0110033 Deutsche Literaturwissenschaft" />
+          <label xml:lang="de" text="1080 Deutsche Literaturwissenschaft" />
         </category>
         <category ID="1090">
-          <label xml:lang="de" text="0110036 Deutsche Sprachwissenschaft" />
+          <label xml:lang="de" text="1090 Deutsche Sprachwissenschaft" />
         </category>
       </category>
       <category ID="110">
-        <label xml:lang="de" text="Anglistik, Amerikanistik" />
+        <label xml:lang="de" text="110 Anglistik, Amerikanistik" />
         <category ID="1100">
-          <label xml:lang="de" text="0111020 Anglistik" />
+          <label xml:lang="de" text="1100 Anglistik" />
         </category>
         <category ID="1110">
-          <label xml:lang="de" text="0111010 Amerikanistik" />
+          <label xml:lang="de" text="1110 Amerikanistik" />
         </category>
         <category ID="1120">
-          <label xml:lang="de" text="0111030 Didaktik des Englischen" />
+          <label xml:lang="de" text="1120 Didaktik des Englischen" />
         </category>
         <category ID="1125">
-          <label xml:lang="de" text="0111080 Wirtschaftsenglisch, Englische Fachsprachen" />
+          <label xml:lang="de" text="1125 Wirtschaftsenglisch, Englische Fachsprachen" />
         </category>
       </category>
       <category ID="120">
-        <label xml:lang="de" text="Romanistik" />
+        <label xml:lang="de" text="120 Romanistik" />
         <category ID="1200">
-          <label xml:lang="de" text="0112010 Romanistik allgemein" />
+          <label xml:lang="de" text="1200 Romanistik allgemein" />
         </category>
         <category ID="1210">
-          <label xml:lang="de" text="0112050 Französische Sprach- und Literaturwissenschaft" />
+          <label xml:lang="de" text="1210 Französische Sprach- und Literaturwissenschaft" />
         </category>
         <category ID="1215">
-          <label xml:lang="de" text="0112020 Didaktik des Französischen" />
+          <label xml:lang="de" text="1215 Didaktik des Französischen" />
         </category>
         <category ID="1220">
-          <label xml:lang="de" text="0112070 Italienische Sprach- und Literaturwissenschaft" />
+          <label xml:lang="de" text="1220 Italienische Sprach- und Literaturwissenschaft" />
         </category>
         <category ID="1225">
-          <label xml:lang="de" text="0112030 Didaktik des Italienischen" />
+          <label xml:lang="de" text="1225 Didaktik des Italienischen" />
         </category>
         <category ID="1230">
-          <label xml:lang="de" text="0112060 Iberoromanische Sprach- und Literaturwissenschaft" />
+          <label xml:lang="de" text="1230 Iberoromanische Sprach- und Literaturwissenschaft" />
         </category>
         <category ID="1235">
-          <label xml:lang="de" text="0112040 Didaktik des Spanischen" />
+          <label xml:lang="de" text="1235 Didaktik des Spanischen" />
         </category>
         <category ID="1240">
-          <label xml:lang="de" text="0112080 Sonstige romanische Sprachen" />
+          <label xml:lang="de" text="1240 Sonstige romanische Sprachen" />
         </category>
       </category>
       <category ID="130">
-        <label xml:lang="de" text="Slawistik, Baltistik, Finno-Ugristik" />
+        <label xml:lang="de" text="130 Slawistik, Baltistik, Finno-Ugristik" />
         <category ID="1300">
-          <label xml:lang="de" text="0113010 Slawistik, Baltistik, Finno-Ugristik allgemein" />
+          <label xml:lang="de" text="1300 Slawistik, Baltistik, Finno-Ugristik allgemein" />
         </category>
         <category ID="1310">
-          <label xml:lang="de" text="0113015 Slawistik allgemein" />
+          <label xml:lang="de" text="1310 Slawistik allgemein" />
         </category>
         <category ID="1315">
-          <label xml:lang="de" text="0113050 Ostslawische Philologien" />
+          <label xml:lang="de" text="1315 Ostslawische Philologien" />
         </category>
         <category ID="1320">
-          <label xml:lang="de" text="0113060 Russische Sprach- und Literaturwissenschaft" />
+          <label xml:lang="de" text="1320 Russische Sprach- und Literaturwissenschaft" />
         </category>
         <category ID="1340">
-          <label xml:lang="de" text="0113070 Südslawische Philologien" />
+          <label xml:lang="de" text="1340 Südslawische Philologien" />
         </category>
         <category ID="1345">
-          <label xml:lang="de" text="0113080 Westslawische Philologien" />
+          <label xml:lang="de" text="1345 Westslawische Philologien" />
         </category>
         <category ID="1346">
-          <label xml:lang="de" text="0113055 Polnisch" />
+          <label xml:lang="de" text="1346 Polnisch" />
         </category>
         <category ID="1347">
-          <label xml:lang="de" text="0113065 Sorbisch" />
+          <label xml:lang="de" text="1347 Sorbisch" />
         </category>
         <category ID="1348">
-          <label xml:lang="de" text="0113075 Tschechisch" />
+          <label xml:lang="de" text="1348 Tschechisch" />
         </category>
         <category ID="1350">
-          <label xml:lang="de" text="0113030 Baltistik" />
+          <label xml:lang="de" text="1350 Baltistik" />
         </category>
         <category ID="1370">
-          <label xml:lang="de" text="0113045 Finno-Ugristik" />
+          <label xml:lang="de" text="1370 Finno-Ugristik" />
         </category>
         <category ID="1380">
-          <label xml:lang="de" text="0113025 Balkanologie" />
+          <label xml:lang="de" text="1380 Balkanologie" />
         </category>
       </category>
       <category ID="140">
-        <label xml:lang="de" text="Sonstige/Außereurop. Sprach- und Kulturwissenschaften" />
+        <label xml:lang="de" text="140 Sonstige/Außereurop. Sprach- und Kulturwissenschaften" />
         <category ID="1400">
-          <label xml:lang="de" text="0114005 Sonstige/Außereurop. Sprach- u.Kulturwissenschaften allgemein" />
+          <label xml:lang="de" text="1400 Sonstige/Außereurop. Sprach- u.Kulturwissenschaften allgemein" />
         </category>
         <category ID="1410">
-          <label xml:lang="de" text="0114015 Ägyptologie" />
+          <label xml:lang="de" text="1410 Ägyptologie" />
         </category>
         <category ID="1420">
-          <label xml:lang="de" text="0114010 Afrikanistik" />
+          <label xml:lang="de" text="1420 Afrikanistik" />
         </category>
         <category ID="1430">
-          <label xml:lang="de" text="0114018 Altorientalistik" />
+          <label xml:lang="de" text="1430 Altorientalistik" />
         </category>
         <category ID="1440">
-          <label xml:lang="de" text="0114068 Sprachen und Kulturen des christlichen Orients" />
+          <label xml:lang="de" text="1440 Sprachen und Kulturen des christlichen Orients" />
         </category>
         <category ID="1445">
-          <label xml:lang="de" text="0114072 Sprachen und Kulturen des Nahen und Mittleren Ostens" />
+          <label xml:lang="de" text="1445 Sprachen und Kulturen des Nahen und Mittleren Ostens" />
         </category>
         <category ID="1450">
-          <label xml:lang="de" text="0114060 Semitistik, Arabistik" />
+          <label xml:lang="de" text="1450 Semitistik, Arabistik" />
         </category>
         <category ID="1460">
-          <label xml:lang="de" text="0114045 Judaistik/Hebräisch" />
+          <label xml:lang="de" text="1460 Judaistik/Hebräisch" />
         </category>
         <category ID="1465">
-          <label xml:lang="de" text="0114048 Kaukasistik" />
+          <label xml:lang="de" text="1465 Kaukasistik" />
         </category>
         <category ID="1470">
-          <label xml:lang="de" text="0114036 Islamwissenschaft" />
+          <label xml:lang="de" text="1470 Islamwissenschaft" />
         </category>
         <category ID="1480">
-          <label xml:lang="de" text="0114033 Iranistik" />
+          <label xml:lang="de" text="1480 Iranistik" />
         </category>
         <category ID="1490">
-          <label xml:lang="de" text="0114030 Indologie" />
+          <label xml:lang="de" text="1490 Indologie" />
         </category>
         <category ID="1495">
-          <label xml:lang="de" text="0114076 Sprachen und Kulturen Ostasiens allgemein" />
+          <label xml:lang="de" text="1495 Sprachen und Kulturen Ostasiens allgemein" />
         </category>
         <category ID="1510">
-          <label xml:lang="de" text="0114090 Turkologie" />
+          <label xml:lang="de" text="1510 Turkologie" />
         </category>
         <category ID="1520">
-          <label xml:lang="de" text="0114085 Sprachen und Kulturen Zentralasiens" />
+          <label xml:lang="de" text="1520 Sprachen und Kulturen Zentralasiens" />
         </category>
         <category ID="1530">
-          <label xml:lang="de" text="0114064 Sinologie" />
+          <label xml:lang="de" text="1530 Sinologie" />
         </category>
         <category ID="1540">
-          <label xml:lang="de" text="0114040 Japanologie" />
+          <label xml:lang="de" text="1540 Japanologie" />
         </category>
         <category ID="1550">
-          <label xml:lang="de" text="0114052 Koreanistik" />
+          <label xml:lang="de" text="1550 Koreanistik" />
         </category>
         <category ID="1560">
-          <label xml:lang="de" text="0114080 Sprachen und Kulturen Südostasiens und Ozeaniens" />
+          <label xml:lang="de" text="1560 Sprachen und Kulturen Südostasiens und Ozeaniens" />
         </category>
         <category ID="1570">
-          <label xml:lang="de" text="0114022 Außereurop. Sprachen und Kulturen Amerikas" />
+          <label xml:lang="de" text="1570 Außereurop. Sprachen und Kulturen Amerikas" />
         </category>
         <category ID="1575">
-          <label xml:lang="de" text="0114026 Außereurop. Sprachen und Kulturen Australiens" />
+          <label xml:lang="de" text="1575 Außereurop. Sprachen und Kulturen Australiens" />
         </category>
         <category ID="1576">
-          <label xml:lang="de" text="0114057 Orientalistik allgemein" />
+          <label xml:lang="de" text="1576 Orientalistik allgemein" />
         </category>
         <category ID="1610">
-          <label xml:lang="de" text="0114095 Sonstige Sprachwissenschaften" />
+          <label xml:lang="de" text="1610 Sonstige Sprachwissenschaften" />
         </category>
       </category>
       <category ID="160">
-        <label xml:lang="de" text="Kulturwissenschaften i.e.S." />
+        <label xml:lang="de" text="160 Kulturwissenschaften i.e.S." />
         <category ID="1580">
-          <label xml:lang="de" text="0116018 Ethnologie" />
+          <label xml:lang="de" text="1580 Ethnologie" />
         </category>
         <category ID="1590">
-          <label xml:lang="de" text="0116080 Volkskunde" />
+          <label xml:lang="de" text="1590 Volkskunde" />
         </category>
         <category ID="1650">
-          <label xml:lang="de" text="0116010 Allgemeine Kulturwissenschaft" />
+          <label xml:lang="de" text="1650 Allgemeine Kulturwissenschaft" />
         </category>
         <category ID="1660">
-          <label xml:lang="de" text="0116020 Europäische Ethnologie" />
+          <label xml:lang="de" text="1660 Europäische Ethnologie" />
         </category>
       </category>
       <category ID="195">
-        <label xml:lang="de" text="Islamische Studien" />
+        <label xml:lang="de" text="195 Islamische Studien" />
         <category ID="1950">
-          <label xml:lang="de" text="0119510 Islamische Studien" />
+          <label xml:lang="de" text="1950 Islamische Studien" />
         </category>
       </category>
     </category>
     <category ID="02">
-      <label xml:lang="de" text="Sport" />
+      <label xml:lang="de" text="02 Sport" />
       <category ID="200">
-        <label xml:lang="de" text="Sport" />
+        <label xml:lang="de" text="200 Sport" />
         <category ID="2000">
-          <label xml:lang="de" text="0220010 Sportwissenschaften allgemein" />
+          <label xml:lang="de" text="2000 Sportwissenschaften allgemein" />
         </category>
         <category ID="2005">
-          <label xml:lang="de" text="0220020 Didaktiken einzelner Sportarten" />
+          <label xml:lang="de" text="2005 Didaktiken einzelner Sportarten" />
         </category>
         <category ID="2010">
-          <label xml:lang="de" text="0220060 Sportmedizin" />
+          <label xml:lang="de" text="2010 Sportmedizin" />
         </category>
         <category ID="2020">
-          <label xml:lang="de" text="0220070 Sportpädagogik/Sportpsychologie" />
+          <label xml:lang="de" text="2020 Sportpädagogik/Sportpsychologie" />
         </category>
       </category>
     </category>
     <category ID="03">
-      <label xml:lang="de" text="Rechts-, Wirtschafts- und Sozialwissenschaften" />
+      <label xml:lang="de" text="03 Rechts-, Wirtschafts- und Sozialwissenschaften" />
       <category ID="220">
-        <label xml:lang="de" text="Rechts-, Wirtschafts- und Sozialwissenschaften allgemein" />
+        <label xml:lang="de" text="220 Rechts-, Wirtschafts- und Sozialwissenschaften allgemein" />
         <category ID="2200">
-          <label xml:lang="de" text="0322010 Rechts-, Wirtschafts- und Sozialwissenschaften allgemein" />
+          <label xml:lang="de" text="2200 Rechts-, Wirtschafts- und Sozialwissenschaften allgemein" />
         </category>
         <category ID="2210">
-          <label xml:lang="de" text="0322020 Interdisziplinäre Studien (Schwerpunkt Rechts-, Wirtschafts- und Sozialwissenschaften)" />
+          <label xml:lang="de" text="2210 Interdisziplinäre Studien (Schwerpunkt Rechts-, Wirtschafts- und Sozialwissenschaften)" />
         </category>
         <category ID="2220">
-          <label xml:lang="de" text="0322070 Wirtschafts- und Sozialwissenschaften allgemein" />
+          <label xml:lang="de" text="2220 Wirtschafts- und Sozialwissenschaften allgemein" />
         </category>
         <category ID="2230">
-          <label xml:lang="de" text="0322080 Wirtschafts- und Sozialpolitik" />
+          <label xml:lang="de" text="2230 Wirtschafts- und Sozialpolitik" />
         </category>
         <category ID="2240">
-          <label xml:lang="de" text="0322050 Kommunikationswissenschaft/Publizistik" />
+          <label xml:lang="de" text="2240 Kommunikationswissenschaft/Publizistik" />
         </category>
       </category>
       <category ID="225">
-        <label xml:lang="de" text="Regionalwissenschaften" />
+        <label xml:lang="de" text="225 Regionalwissenschaften" />
         <category ID="2250">
-          <label xml:lang="de" text="0322510 Afrika" />
+          <label xml:lang="de" text="2250 Afrika" />
         </category>
         <category ID="2255">
-          <label xml:lang="de" text="0322520 Lateinamerika" />
+          <label xml:lang="de" text="2255 Lateinamerika" />
         </category>
         <category ID="2260">
-          <label xml:lang="de" text="0322540 Nordamerika" />
+          <label xml:lang="de" text="2260 Nordamerika" />
         </category>
         <category ID="2265">
-          <label xml:lang="de" text="0322530 Naher und Mittlerer Osten" />
+          <label xml:lang="de" text="2265 Naher und Mittlerer Osten" />
         </category>
         <category ID="2270">
-          <label xml:lang="de" text="0322560 Ostasien" />
+          <label xml:lang="de" text="2270 Ostasien" />
         </category>
         <category ID="2275">
-          <label xml:lang="de" text="0322570 Südasien" />
+          <label xml:lang="de" text="2275 Südasien" />
         </category>
         <category ID="2280">
-          <label xml:lang="de" text="0322580 Südostasien und Ozeanien" />
+          <label xml:lang="de" text="2280 Südostasien und Ozeanien" />
         </category>
         <category ID="2285">
-          <label xml:lang="de" text="0322550 Ost- und Südosteuropa" />
+          <label xml:lang="de" text="2285 Ost- und Südosteuropa" />
         </category>
         <category ID="2290">
-          <label xml:lang="de" text="0322535 Nord- und Westeuropa" />
+          <label xml:lang="de" text="2290 Nord- und Westeuropa" />
         </category>
       </category>
       <category ID="230">
-        <label xml:lang="de" text="Politikwissenschaften" />
+        <label xml:lang="de" text="230 Politikwissenschaften" />
         <category ID="2300">
-          <label xml:lang="de" text="0323010 Politikwissenschaften allgemein" />
+          <label xml:lang="de" text="2300 Politikwissenschaften allgemein" />
         </category>
         <category ID="2350">
-          <label xml:lang="de" text="0323030 Internationale Politik, Internationale Beziehungen" />
+          <label xml:lang="de" text="2350 Internationale Politik, Internationale Beziehungen" />
         </category>
         <category ID="2360">
-          <label xml:lang="de" text="0323060 Politische Bildung" />
+          <label xml:lang="de" text="2360 Politische Bildung" />
         </category>
       </category>
       <category ID="235">
-        <label xml:lang="de" text="Sozialwissenschaften" />
+        <label xml:lang="de" text="235 Sozialwissenschaften" />
         <category ID="2320">
-          <label xml:lang="de" text="0323510 Sozialwissenschaften allgemein" />
+          <label xml:lang="de" text="2320 Sozialwissenschaften allgemein" />
         </category>
         <category ID="2330">
-          <label xml:lang="de" text="0323580 Soziologie" />
+          <label xml:lang="de" text="2330 Soziologie" />
         </category>
         <category ID="2340">
-          <label xml:lang="de" text="0323520 Bevölkerungswissenschaft (Demographie)" />
+          <label xml:lang="de" text="2340 Bevölkerungswissenschaft (Demographie)" />
         </category>
         <category ID="2345">
-          <label xml:lang="de" text="0323570 Sozialkunde" />
+          <label xml:lang="de" text="2345 Sozialkunde" />
         </category>
       </category>
       <category ID="240">
-        <label xml:lang="de" text="Sozialwesen" />
+        <label xml:lang="de" text="240 Sozialwesen" />
         <category ID="2400">
-          <label xml:lang="de" text="0324010 Sozialwesen allgemein" />
+          <label xml:lang="de" text="2400 Sozialwesen allgemein" />
         </category>
         <category ID="2410">
-          <label xml:lang="de" text="0324030 Soziale Arbeit" />
+          <label xml:lang="de" text="2410 Soziale Arbeit" />
         </category>
         <category ID="2420">
-          <label xml:lang="de" text="0324050 Sozialpädagogik" />
+          <label xml:lang="de" text="2420 Sozialpädagogik" />
         </category>
       </category>
       <category ID="250">
-        <label xml:lang="de" text="Rechtswissenschaften" />
+        <label xml:lang="de" text="250 Rechtswissenschaften" />
         <category ID="2500">
-          <label xml:lang="de" text="0325005 Rechtswissenschaften allgemein" />
+          <label xml:lang="de" text="2500 Rechtswissenschaften allgemein" />
         </category>
         <category ID="2510">
-          <label xml:lang="de" text="0325065 Rechtsgeschichte" />
+          <label xml:lang="de" text="2510 Rechtsgeschichte" />
         </category>
         <category ID="2515">
-          <label xml:lang="de" text="0325070 Rechtsinformatik" />
+          <label xml:lang="de" text="2515 Rechtsinformatik" />
         </category>
         <category ID="2520">
-          <label xml:lang="de" text="0325060 Rechts- und Staatsphilosophie" />
+          <label xml:lang="de" text="2520 Rechts- und Staatsphilosophie" />
         </category>
         <category ID="2530">
-          <label xml:lang="de" text="0325075 Rechtssoziologie" />
+          <label xml:lang="de" text="2530 Rechtssoziologie" />
         </category>
         <category ID="2540">
-          <label xml:lang="de" text="0325035 Kirchenrecht" />
+          <label xml:lang="de" text="2540 Kirchenrecht" />
         </category>
         <category ID="2545">
-          <label xml:lang="de" text="0325040 Kriminologie" />
+          <label xml:lang="de" text="2545 Kriminologie" />
         </category>
         <category ID="2550">
-          <label xml:lang="de" text="0325050 Privatrecht (ohne Arbeitsrecht)" />
+          <label xml:lang="de" text="2550 Privatrecht (ohne Arbeitsrecht)" />
         </category>
         <category ID="2560">
-          <label xml:lang="de" text="0325045 Öffentliches Recht" />
+          <label xml:lang="de" text="2560 Öffentliches Recht" />
         </category>
         <category ID="2570">
-          <label xml:lang="de" text="0325085 Strafrecht" />
+          <label xml:lang="de" text="2570 Strafrecht" />
         </category>
         <category ID="2580">
-          <label xml:lang="de" text="0325030 Internationales Recht und Rechtsvergleichung" />
+          <label xml:lang="de" text="2580 Internationales Recht und Rechtsvergleichung" />
         </category>
         <category ID="2590">
-          <label xml:lang="de" text="0325080 Steuerrecht" />
+          <label xml:lang="de" text="2590 Steuerrecht" />
         </category>
         <category ID="2620">
-          <label xml:lang="de" text="0325025 Handelsrecht" />
+          <label xml:lang="de" text="2620 Handelsrecht" />
         </category>
         <category ID="2630">
-          <label xml:lang="de" text="0325010 Arbeitsrecht" />
+          <label xml:lang="de" text="2630 Arbeitsrecht" />
         </category>
         <category ID="2640">
-          <label xml:lang="de" text="0325090 Wirtschaftsrecht" />
+          <label xml:lang="de" text="2640 Wirtschaftsrecht" />
         </category>
         <category ID="2650">
-          <label xml:lang="de" text="0325055 Prozessrecht" />
+          <label xml:lang="de" text="2650 Prozessrecht" />
         </category>
         <category ID="2665">
-          <label xml:lang="de" text="0325020 Europarecht" />
+          <label xml:lang="de" text="2665 Europarecht" />
         </category>
         <category ID="2670">
-          <label xml:lang="de" text="0325016 Bürgerliches Recht" />
+          <label xml:lang="de" text="2670 Bürgerliches Recht" />
         </category>
         <category ID="2680">
-          <label xml:lang="de" text="0325078 Sozialrecht" />
+          <label xml:lang="de" text="2680 Sozialrecht" />
         </category>
         <category ID="2690">
-          <label xml:lang="de" text="0325088 Versicherungsrecht" />
+          <label xml:lang="de" text="2690 Versicherungsrecht" />
         </category>
       </category>
       <category ID="270">
-        <label xml:lang="de" text="Verwaltungswissenschaften" />
+        <label xml:lang="de" text="270 Verwaltungswissenschaften" />
         <category ID="2610">
-          <label xml:lang="de" text="0327070 Rechtspflege" />
+          <label xml:lang="de" text="2610 Rechtspflege" />
         </category>
         <category ID="2700">
-          <label xml:lang="de" text="0327005 Verwaltungswissenschaft allgemein" />
+          <label xml:lang="de" text="2700 Verwaltungswissenschaft allgemein" />
         </category>
         <category ID="2710">
-          <label xml:lang="de" text="0327015 Arbeits- und Berufsberatung" />
+          <label xml:lang="de" text="2710 Arbeits- und Berufsberatung" />
         </category>
         <category ID="2711">
-          <label xml:lang="de" text="0327025 Archivwesen" />
+          <label xml:lang="de" text="2711 Archivwesen" />
         </category>
         <category ID="2712">
-          <label xml:lang="de" text="0327040 Bibliothekswesen" />
+          <label xml:lang="de" text="2712 Bibliothekswesen" />
         </category>
         <category ID="2720">
-          <label xml:lang="de" text="0327020 Arbeitsverwaltung" />
+          <label xml:lang="de" text="2720 Arbeitsverwaltung" />
         </category>
         <category ID="2730">
-          <label xml:lang="de" text="0327030 Auswärtige Angelegenheiten" />
+          <label xml:lang="de" text="2730 Auswärtige Angelegenheiten" />
         </category>
         <category ID="2740">
-          <label xml:lang="de" text="0327035 Bankwesen" />
+          <label xml:lang="de" text="2740 Bankwesen" />
         </category>
         <category ID="2750">
-          <label xml:lang="de" text="0327045 Bundeswehrverwaltung" />
+          <label xml:lang="de" text="2750 Bundeswehrverwaltung" />
         </category>
         <category ID="2760">
-          <label xml:lang="de" text="0327050 Finanzverwaltung" />
+          <label xml:lang="de" text="2760 Finanzverwaltung" />
         </category>
         <category ID="2770">
-          <label xml:lang="de" text="0327010 Allgemeine innere Verwaltung" />
+          <label xml:lang="de" text="2770 Allgemeine innere Verwaltung" />
         </category>
         <category ID="2780">
-          <label xml:lang="de" text="0327055 Justizvollzug" />
+          <label xml:lang="de" text="2780 Justizvollzug" />
         </category>
         <category ID="2790">
-          <label xml:lang="de" text="0327060 Polizei/Verfassungsschutz" />
+          <label xml:lang="de" text="2790 Polizei/Verfassungsschutz" />
         </category>
         <category ID="2810">
-          <label xml:lang="de" text="0327065 Post- und Fernmeldewesen" />
+          <label xml:lang="de" text="2810 Post- und Fernmeldewesen" />
         </category>
         <category ID="2820">
-          <label xml:lang="de" text="0327075 Sozialverwaltung" />
+          <label xml:lang="de" text="2820 Sozialverwaltung" />
         </category>
         <category ID="2830">
-          <label xml:lang="de" text="0327080 Verkehrswesen" />
+          <label xml:lang="de" text="2830 Verkehrswesen" />
         </category>
         <category ID="2840">
-          <label xml:lang="de" text="0327085 Zoll- und Steuerverwaltung" />
+          <label xml:lang="de" text="2840 Zoll- und Steuerverwaltung" />
         </category>
       </category>
       <category ID="290">
-        <label xml:lang="de" text="Wirtschaftswissenschaften" />
+        <label xml:lang="de" text="290 Wirtschaftswissenschaften" />
         <category ID="2815">
-          <label xml:lang="de" text="0329040 Tourismuswirtschaft" />
+          <label xml:lang="de" text="2815 Tourismuswirtschaft" />
         </category>
         <category ID="2835">
-          <label xml:lang="de" text="0329055 Versicherungswesen" />
+          <label xml:lang="de" text="2835 Versicherungswesen" />
         </category>
         <category ID="2900">
-          <label xml:lang="de" text="0329005 Wirtschaftswissenschaften allgemein" />
+          <label xml:lang="de" text="2900 Wirtschaftswissenschaften allgemein" />
         </category>
         <category ID="2905">
-          <label xml:lang="de" text="0329044 Umweltwirtschaft/Umweltökonomie" />
+          <label xml:lang="de" text="2905 Umweltwirtschaft/Umweltökonomie" />
         </category>
         <category ID="2910">
-          <label xml:lang="de" text="0329075 Wirtschaftspädagogik" />
+          <label xml:lang="de" text="2910 Wirtschaftspädagogik" />
         </category>
         <category ID="2915">
-          <label xml:lang="de" text="0329080 Wirtschaftsstatistik" />
+          <label xml:lang="de" text="2915 Wirtschaftsstatistik" />
         </category>
         <category ID="2920">
-          <label xml:lang="de" text="0329063 Wirtschaftsinformatik (für Wirtschaftsingenieure)" />
+          <label xml:lang="de" text="2920 Wirtschaftsinformatik (für Wirtschaftsingenieure)" />
         </category>
         <category ID="2925">
-          <label xml:lang="de" text="0329038 Sportmanagement/Sportökonomie" />
+          <label xml:lang="de" text="2925 Sportmanagement/Sportökonomie" />
         </category>
         <category ID="2930">
-          <label xml:lang="de" text="0329060 Volkswirtschaftslehre" />
+          <label xml:lang="de" text="2930 Volkswirtschaftslehre" />
         </category>
         <category ID="2935">
-          <label xml:lang="de" text="0329065 Wirtschaftsinformatik (für Wirtschaftswissenschaften)" />
+          <label xml:lang="de" text="2935 Wirtschaftsinformatik (für Wirtschaftswissenschaften)" />
         </category>
         <category ID="2936">
-          <label xml:lang="de" text="0329070 Wirtschaftsmathematik (für Wirtschaftswissenschaften)" />
+          <label xml:lang="de" text="2936 Wirtschaftsmathematik (für Wirtschaftswissenschaften)" />
         </category>
         <category ID="2940">
-          <label xml:lang="de" text="0329035 Ökonometrie" />
+          <label xml:lang="de" text="2940 Ökonometrie" />
         </category>
         <category ID="2960">
-          <label xml:lang="de" text="0329015 Betriebswirtschaftslehre" />
+          <label xml:lang="de" text="2960 Betriebswirtschaftslehre" />
         </category>
         <category ID="2966">
-          <label xml:lang="de" text="0329032 Internationale Wirtschaft" />
+          <label xml:lang="de" text="2966 Internationale Wirtschaft" />
         </category>
         <category ID="2971">
-          <label xml:lang="de" text="0329050 Verkehrswirtschaft" />
+          <label xml:lang="de" text="2971 Verkehrswirtschaft" />
         </category>
         <category ID="2980">
-          <label xml:lang="de" text="0329030 Finanzwissenschaft" />
+          <label xml:lang="de" text="2980 Finanzwissenschaft" />
         </category>
         <category ID="2985">
-          <label xml:lang="de" text="0329033 Medienwirtschaft/Medienmanagement" />
+          <label xml:lang="de" text="2985 Medienwirtschaft/Medienmanagement" />
         </category>
         <category ID="3010">
-          <label xml:lang="de" text="0329010 Arbeitslehre/-wissenschaft" />
+          <label xml:lang="de" text="3010 Arbeitslehre/-wissenschaft" />
         </category>
       </category>
       <category ID="310">
-        <label xml:lang="de" text="Wirtschaftsingenieurwesen mit wirtschaftswissenschaftlichem Schwerpunkt" />
+        <label xml:lang="de" text="310 Wirtschaftsingenieurwesen mit wirtschaftswissenschaftlichem Schwerpunkt" />
         <category ID="3100">
-          <label xml:lang="de" text="0331010 Wirtschaftsingenieurwesen mit wirtschaftswissenschaftlichem Schwerpunkt" />
+          <label xml:lang="de" text="3100 Wirtschaftsingenieurwesen mit wirtschaftswissenschaftlichem Schwerpunkt" />
         </category>
         <category ID="3110">
-          <label xml:lang="de" text="0331030 Facility Management" />
+          <label xml:lang="de" text="3110 Facility Management" />
         </category>
       </category>
       <category ID="315">
-        <label xml:lang="de" text="Psychologie" />
+        <label xml:lang="de" text="315 Psychologie" />
         <category ID="1700">
-          <label xml:lang="de" text="0331510 Psychologie allgemein" />
+          <label xml:lang="de" text="1700 Psychologie allgemein" />
         </category>
         <category ID="1710">
-          <label xml:lang="de" text="0331550 Differentielle Psychologie, Persönlichkeitspsychologie und Diagnostik" />
+          <label xml:lang="de" text="1710 Differentielle Psychologie, Persönlichkeitspsychologie und Diagnostik" />
         </category>
         <category ID="1715">
-          <label xml:lang="de" text="0331530 Arbeits-, Organisations- und Wirtschaftspsychologie" />
+          <label xml:lang="de" text="1715 Arbeits-, Organisations- und Wirtschaftspsychologie" />
         </category>
         <category ID="1720">
-          <label xml:lang="de" text="0331560 Entwicklungspsychologie" />
+          <label xml:lang="de" text="1720 Entwicklungspsychologie" />
         </category>
         <category ID="1725">
-          <label xml:lang="de" text="0331580 Pädagogische Psychologie" />
+          <label xml:lang="de" text="1725 Pädagogische Psychologie" />
         </category>
         <category ID="1730">
-          <label xml:lang="de" text="0331590 Sozialpsychologie" />
+          <label xml:lang="de" text="1730 Sozialpsychologie" />
         </category>
         <category ID="1740">
-          <label xml:lang="de" text="0331570 Klinische Psychologie, Diagnostik und Psychotherapie" />
+          <label xml:lang="de" text="1740 Klinische Psychologie, Diagnostik und Psychotherapie" />
         </category>
         <category ID="1750">
-          <label xml:lang="de" text="0331520 Allgemeine und kognitive Psychologie" />
+          <label xml:lang="de" text="1750 Allgemeine und kognitive Psychologie" />
         </category>
         <category ID="1760">
-          <label xml:lang="de" text="0331540 Biologische und Neuropsychologie" />
+          <label xml:lang="de" text="1760 Biologische und Neuropsychologie" />
         </category>
       </category>
       <category ID="320">
-        <label xml:lang="de" text="Erziehungswissenschaften" />
+        <label xml:lang="de" text="320 Erziehungswissenschaften" />
         <category ID="1800">
-          <label xml:lang="de" text="0332005 Erziehungswissenschaften allgemein" />
+          <label xml:lang="de" text="1800 Erziehungswissenschaften allgemein" />
         </category>
         <category ID="1801">
-          <label xml:lang="de" text="0332015 Didaktik" />
+          <label xml:lang="de" text="1801 Didaktik" />
         </category>
         <category ID="1802">
-          <label xml:lang="de" text="0332020 Empirische Bildungsforschung" />
+          <label xml:lang="de" text="1802 Empirische Bildungsforschung" />
         </category>
         <category ID="1803">
-          <label xml:lang="de" text="0332030 Grundschul- und Primarstufenpädagogik" />
+          <label xml:lang="de" text="1803 Grundschul- und Primarstufenpädagogik" />
         </category>
         <category ID="1804">
-          <label xml:lang="de" text="0332035 Historische Bildungsforschung" />
+          <label xml:lang="de" text="1804 Historische Bildungsforschung" />
         </category>
         <category ID="1805">
-          <label xml:lang="de" text="0332010 Berufs- und Wirtschaftspädagogik" />
+          <label xml:lang="de" text="1805 Berufs- und Wirtschaftspädagogik" />
         </category>
         <category ID="1806">
-          <label xml:lang="de" text="0332065 Sonderpädagogik" />
+          <label xml:lang="de" text="1806 Sonderpädagogik" />
         </category>
         <category ID="1820">
-          <label xml:lang="de" text="0332025 Erwachsenenbildung" />
+          <label xml:lang="de" text="1820 Erwachsenenbildung" />
         </category>
         <category ID="1825">
-          <label xml:lang="de" text="0332055 Pädagogische Freizeitforschung und Sportpädagogik" />
+          <label xml:lang="de" text="1825 Pädagogische Freizeitforschung und Sportpädagogik" />
         </category>
         <category ID="1826">
-          <label xml:lang="de" text="0332050 Pädagogik der frühen Kindheit" />
+          <label xml:lang="de" text="1826 Pädagogik der frühen Kindheit" />
         </category>
         <category ID="1827">
-          <label xml:lang="de" text="0332060 Schulpädagogik" />
+          <label xml:lang="de" text="1827 Schulpädagogik" />
         </category>
         <category ID="1828">
-          <label xml:lang="de" text="0332045 Kultur- und Medienpädagogik" />
+          <label xml:lang="de" text="1828 Kultur- und Medienpädagogik" />
         </category>
         <category ID="1829">
-          <label xml:lang="de" text="0332040 Interkulturelle und International Vergleichende Erziehungswissenschaft" />
+          <label xml:lang="de" text="1829 Interkulturelle und International Vergleichende Erziehungswissenschaft" />
         </category>
       </category>
     </category>
     <category ID="04">
-      <label xml:lang="de" text="Mathematik, Naturwissenschaften" />
+      <label xml:lang="de" text="04 Mathematik, Naturwissenschaften" />
       <category ID="330">
-        <label xml:lang="de" text="Mathematik, Naturwissenschaften allgemein" />
+        <label xml:lang="de" text="330 Mathematik, Naturwissenschaften allgemein" />
         <category ID="3300">
-          <label xml:lang="de" text="0433010 Mathematik, Naturwissenschaften allgemein" />
+          <label xml:lang="de" text="3300 Mathematik, Naturwissenschaften allgemein" />
         </category>
         <category ID="3310">
-          <label xml:lang="de" text="0433030 Geschichte der Mathematik und Naturwissenschaften" />
+          <label xml:lang="de" text="3310 Geschichte der Mathematik und Naturwissenschaften" />
         </category>
         <category ID="3315">
-          <label xml:lang="de" text="0433070 Naturwissenschaftliche Fachdidaktiken" />
+          <label xml:lang="de" text="3315 Naturwissenschaftliche Fachdidaktiken, soweit nicht aufteilbar" />
         </category>
         <category ID="3320">
-          <label xml:lang="de" text="0433020 Interdisziplinäre Studien (Schwerpunkt Naturwissenschaft)" />
+          <label xml:lang="de" text="3320 Interdisziplinäre Studien (Schwerpunkt Naturwissenschaft)" />
         </category>
       </category>
       <category ID="340">
-        <label xml:lang="de" text="Mathematik" />
+        <label xml:lang="de" text="340 Mathematik" />
         <category ID="2950">
-          <label xml:lang="de" text="0434050 Mathematische Statistik/Wahrscheinlichkeitsrechnung" />
+          <label xml:lang="de" text="2950 Mathematische Statistik/Wahrscheinlichkeitsrechnung" />
         </category>
         <category ID="3400">
-          <label xml:lang="de" text="0434010 Mathematik allgemein" />
+          <label xml:lang="de" text="3400 Mathematik allgemein" />
         </category>
         <category ID="3410">
-          <label xml:lang="de" text="0434060 Reine Mathematik" />
+          <label xml:lang="de" text="3410 Reine Mathematik" />
         </category>
         <category ID="3420">
-          <label xml:lang="de" text="0434020 Angewandte Mathematik" />
+          <label xml:lang="de" text="3420 Angewandte Mathematik" />
         </category>
         <category ID="3430">
-          <label xml:lang="de" text="0434080 Wirtschaftsmathematik (für Mathematiker)" />
+          <label xml:lang="de" text="3430 Wirtschaftsmathematik (für Mathematiker)" />
         </category>
         <category ID="3450">
-          <label xml:lang="de" text="0434030 Didaktik der Mathematik" />
+          <label xml:lang="de" text="3450 Didaktik der Mathematik" />
         </category>
       </category>
       <category ID="360">
-        <label xml:lang="de" text="Physik, Astronomie" />
+        <label xml:lang="de" text="360 Physik, Astronomie" />
         <category ID="3600">
-          <label xml:lang="de" text="0436005 Physik, Astronomie allgemein" />
+          <label xml:lang="de" text="3600 Physik, Astronomie allgemein" />
         </category>
         <category ID="3610">
-          <label xml:lang="de" text="0436070 Physik" />
+          <label xml:lang="de" text="3610 Physik" />
         </category>
         <category ID="3620">
-          <label xml:lang="de" text="0436085 Theoretische Physik" />
+          <label xml:lang="de" text="3620 Theoretische Physik" />
         </category>
         <category ID="3630">
-          <label xml:lang="de" text="0436025 Experimentelle Physik" />
+          <label xml:lang="de" text="3630 Experimentelle Physik" />
         </category>
         <category ID="3635">
-          <label xml:lang="de" text="0436030 Festkörperphysik" />
+          <label xml:lang="de" text="3635 Festkörperphysik" />
         </category>
         <category ID="3636">
-          <label xml:lang="de" text="0436040 Kernphysik" />
+          <label xml:lang="de" text="3636 Kernphysik" />
         </category>
         <category ID="3637">
-          <label xml:lang="de" text="0436060 Optik" />
+          <label xml:lang="de" text="3637 Optik" />
         </category>
         <category ID="3638">
-          <label xml:lang="de" text="0436050 Materialphysik" />
+          <label xml:lang="de" text="3638 Materialphysik" />
         </category>
         <category ID="3640">
-          <label xml:lang="de" text="0436080 Technische Physik" />
+          <label xml:lang="de" text="3640 Technische Physik" />
         </category>
         <category ID="3650">
-          <label xml:lang="de" text="0436015 Didaktik der Physik" />
+          <label xml:lang="de" text="3650 Didaktik der Physik" />
         </category>
         <category ID="3690">
-          <label xml:lang="de" text="0436010 Astronomie, Astrophysik" />
+          <label xml:lang="de" text="3690 Astronomie, Astrophysik" />
         </category>
       </category>
       <category ID="370">
-        <label xml:lang="de" text="Chemie" />
+        <label xml:lang="de" text="370 Chemie" />
         <category ID="3700">
-          <label xml:lang="de" text="0437005 Chemie allgemein" />
+          <label xml:lang="de" text="3700 Chemie allgemein" />
         </category>
         <category ID="3710">
-          <label xml:lang="de" text="0437015 Anorganische Chemie" />
+          <label xml:lang="de" text="3710 Anorganische Chemie" />
         </category>
         <category ID="3720">
-          <label xml:lang="de" text="0437050 Organische Chemie" />
+          <label xml:lang="de" text="3720 Organische Chemie" />
         </category>
         <category ID="3730">
-          <label xml:lang="de" text="0437055 Physikalische Chemie" />
+          <label xml:lang="de" text="3730 Physikalische Chemie" />
         </category>
         <category ID="3740">
-          <label xml:lang="de" text="0437075 Technische Chemie" />
+          <label xml:lang="de" text="3740 Technische Chemie" />
         </category>
         <category ID="3750">
-          <label xml:lang="de" text="0437010 Analytische Chemie" />
+          <label xml:lang="de" text="3750 Analytische Chemie" />
         </category>
         <category ID="3760">
-          <label xml:lang="de" text="0437020 Biochemie (für Chemiker)" />
+          <label xml:lang="de" text="3760 Biochemie (für Chemiker)" />
         </category>
         <category ID="3770">
-          <label xml:lang="de" text="0437045 Makromolekulare Chemie" />
+          <label xml:lang="de" text="3770 Makromolekulare Chemie" />
         </category>
         <category ID="3780">
-          <label xml:lang="de" text="0437047 Nuklearchemie" />
+          <label xml:lang="de" text="3780 Nuklearchemie" />
         </category>
         <category ID="3790">
-          <label xml:lang="de" text="0437085 Theoretische Chemie" />
+          <label xml:lang="de" text="3790 Theoretische Chemie" />
         </category>
         <category ID="3800">
-          <label xml:lang="de" text="0437025 Didaktik der Chemie" />
+          <label xml:lang="de" text="3800 Didaktik der Chemie" />
         </category>
         <category ID="3810">
-          <label xml:lang="de" text="0437040 Lebensmittelchemie" />
+          <label xml:lang="de" text="3810 Lebensmittelchemie" />
         </category>
         <category ID="3820">
-          <label xml:lang="de" text="0437046 Materialchemie" />
+          <label xml:lang="de" text="3820 Materialchemie" />
         </category>
         <category ID="3830">
-          <label xml:lang="de" text="0437030 Elektrochemie" />
+          <label xml:lang="de" text="3830 Elektrochemie" />
         </category>
         <category ID="3840">
-          <label xml:lang="de" text="0437048 Oberflächen- und Nanochemie" />
+          <label xml:lang="de" text="3840 Oberflächen- und Nanochemie" />
         </category>
         <category ID="3850">
-          <label xml:lang="de" text="0437090 Umwelt- und Atmosphärenchemie" />
+          <label xml:lang="de" text="3850 Umwelt- und Atmosphärenchemie" />
         </category>
       </category>
       <category ID="390">
-        <label xml:lang="de" text="Pharmazie" />
+        <label xml:lang="de" text="390 Pharmazie" />
         <category ID="3900">
-          <label xml:lang="de" text="0439010 Pharmazie allgemein" />
+          <label xml:lang="de" text="3900 Pharmazie allgemein" />
         </category>
         <category ID="3910">
-          <label xml:lang="de" text="0439030 Pharmazeutische Biologie/Pharmakognosie" />
+          <label xml:lang="de" text="3910 Pharmazeutische Biologie/Pharmakognosie" />
         </category>
         <category ID="3920">
-          <label xml:lang="de" text="0439040 Pharmazeutische Chemie" />
+          <label xml:lang="de" text="3920 Pharmazeutische Chemie" />
         </category>
         <category ID="3930">
-          <label xml:lang="de" text="0439050 Pharmazeutische Technologie" />
+          <label xml:lang="de" text="3930 Pharmazeutische Technologie" />
         </category>
         <category ID="3940">
-          <label xml:lang="de" text="0439020 Pharmakologie und Toxikologie (Pharmazie)" />
+          <label xml:lang="de" text="3940 Pharmakologie und Toxikologie (Pharmazie)" />
         </category>
         <category ID="3950">
-          <label xml:lang="de" text="0439015 Klinische Pharmazie" />
+          <label xml:lang="de" text="3950 Klinische Pharmazie" />
         </category>
       </category>
       <category ID="400">
-        <label xml:lang="de" text="Biologie" />
+        <label xml:lang="de" text="400 Biologie" />
         <category ID="4000">
-          <label xml:lang="de" text="0440005 Biologie allgemein" />
+          <label xml:lang="de" text="4000 Biologie allgemein" />
         </category>
         <category ID="4010">
-          <label xml:lang="de" text="0440050 Genetik" />
+          <label xml:lang="de" text="4010 Genetik" />
         </category>
         <category ID="4020">
-          <label xml:lang="de" text="0440060 Mikrobiologie" />
+          <label xml:lang="de" text="4020 Mikrobiologie" />
         </category>
         <category ID="4030">
-          <label xml:lang="de" text="0440025 Biophysik" />
+          <label xml:lang="de" text="4030 Biophysik" />
         </category>
         <category ID="4035">
-          <label xml:lang="de" text="0440030 Biotechnologie (für Biologen)" />
+          <label xml:lang="de" text="4035 Biotechnologie (für Biologen)" />
         </category>
         <category ID="4040">
-          <label xml:lang="de" text="0440035 Botanik" />
+          <label xml:lang="de" text="4040 Botanik" />
         </category>
         <category ID="4050">
-          <label xml:lang="de" text="0440080 Zoologie" />
+          <label xml:lang="de" text="4050 Zoologie" />
         </category>
         <category ID="4060">
-          <label xml:lang="de" text="0440010 Anthropologie (Humanbiologie)" />
+          <label xml:lang="de" text="4060 Anthropologie (Humanbiologie)" />
         </category>
         <category ID="4065">
-          <label xml:lang="de" text="0440015 Biochemie (für Biologen)" />
+          <label xml:lang="de" text="4065 Biochemie (für Biologen)" />
         </category>
         <category ID="4070">
-          <label xml:lang="de" text="0440045 Didaktik der Biologie" />
+          <label xml:lang="de" text="4070 Didaktik der Biologie" />
         </category>
         <category ID="4080">
-          <label xml:lang="de" text="0440062 Neurobiologie" />
+          <label xml:lang="de" text="4080 Neurobiologie" />
         </category>
         <category ID="4090">
-          <label xml:lang="de" text="0440070 Ökologie" />
+          <label xml:lang="de" text="4090 Ökologie" />
         </category>
       </category>
       <category ID="410">
-        <label xml:lang="de" text="Geowissenschaften (ohne Geographie)" />
+        <label xml:lang="de" text="410 Geowissenschaften (ohne Geographie)" />
         <category ID="4100">
-          <label xml:lang="de" text="0441005 Geowissenschaften allgemein" />
+          <label xml:lang="de" text="4100 Geowissenschaften allgemein" />
         </category>
         <category ID="4110">
-          <label xml:lang="de" text="0441015 Geologie" />
+          <label xml:lang="de" text="4110 Geologie" />
         </category>
         <category ID="4120">
-          <label xml:lang="de" text="0441070 Paläontologie" />
+          <label xml:lang="de" text="4120 Paläontologie" />
         </category>
         <category ID="4130">
-          <label xml:lang="de" text="0441050 Mineralogie" />
+          <label xml:lang="de" text="4130 Mineralogie" />
         </category>
         <category ID="4135">
-          <label xml:lang="de" text="0441060 Ozeanographie" />
+          <label xml:lang="de" text="4135 Ozeanographie" />
         </category>
         <category ID="4140">
-          <label xml:lang="de" text="0441080 Petrologie, -graphie" />
+          <label xml:lang="de" text="4140 Petrologie, -graphie" />
         </category>
         <category ID="4150">
-          <label xml:lang="de" text="0441020 Geophysik" />
+          <label xml:lang="de" text="4150 Geophysik" />
         </category>
         <category ID="4160">
-          <label xml:lang="de" text="0441040 Meteorologie" />
+          <label xml:lang="de" text="4160 Meteorologie" />
         </category>
         <category ID="4170">
-          <label xml:lang="de" text="0441030 Kristallographie" />
+          <label xml:lang="de" text="4170 Kristallographie" />
         </category>
         <category ID="4180">
-          <label xml:lang="de" text="0441010 Geochemie" />
+          <label xml:lang="de" text="4180 Geochemie" />
         </category>
         <category ID="4190">
-          <label xml:lang="de" text="0441017 Geoökologie" />
+          <label xml:lang="de" text="4190 Geoökologie" />
         </category>
       </category>
       <category ID="420">
-        <label xml:lang="de" text="Geographie" />
+        <label xml:lang="de" text="420 Geographie" />
         <category ID="4200">
-          <label xml:lang="de" text="0442005 Geographie allgemein" />
+          <label xml:lang="de" text="4200 Geographie allgemein" />
         </category>
         <category ID="4205">
-          <label xml:lang="de" text="0442045 Geoinformatik/Geoinformationssysteme" />
+          <label xml:lang="de" text="4205 Geoinformatik/Geoinformationssysteme" />
         </category>
         <category ID="4210">
-          <label xml:lang="de" text="0442050 Physische Geographie" />
+          <label xml:lang="de" text="4210 Physische Geographie" />
         </category>
         <category ID="4215">
-          <label xml:lang="de" text="0442070 Wirtschafts- und Sozialgeographie" />
+          <label xml:lang="de" text="4215 Wirtschafts- und Sozialgeographie" />
         </category>
         <category ID="4220">
-          <label xml:lang="de" text="0442010 Anthropogeographie" />
+          <label xml:lang="de" text="4220 Anthropogeographie" />
         </category>
         <category ID="4230">
-          <label xml:lang="de" text="0442040 Geographische Länder- und Landschaftskunde" />
+          <label xml:lang="de" text="4230 Geographische Länder- und Landschaftskunde" />
         </category>
         <category ID="4240">
-          <label xml:lang="de" text="0442020 Biogeographie" />
+          <label xml:lang="de" text="4240 Biogeographie" />
         </category>
         <category ID="4250">
-          <label xml:lang="de" text="0442030 Didaktik der Geographie" />
+          <label xml:lang="de" text="4250 Didaktik der Geographie" />
         </category>
       </category>
     </category>
     <category ID="05">
-      <label xml:lang="de" text="Humanmedizin/Gesundheitswissenschaften" />
+      <label xml:lang="de" text="05 Humanmedizin/Gesundheitswissenschaften" />
       <category ID="440">
-        <label xml:lang="de" text="Humanmedizin allgemein" />
+        <label xml:lang="de" text="440 Humanmedizin allgemein" />
         <category ID="4400">
-          <label xml:lang="de" text="0544010 Humanmedizin allgemein" />
+          <label xml:lang="de" text="4400 Humanmedizin allgemein" />
         </category>
       </category>
       <category ID="445">
-        <label xml:lang="de" text="Gesundheitswissenschaften allgemein" />
+        <label xml:lang="de" text="445 Gesundheitswissenschaften allgemein" />
         <category ID="4450">
-          <label xml:lang="de" text="0544502 Gesundheitswissenschaften allgemein" />
+          <label xml:lang="de" text="4450 Gesundheitswissenschaften allgemein" />
         </category>
         <category ID="4451">
-          <label xml:lang="de" text="0544510 Gesundheitspädagogik" />
+          <label xml:lang="de" text="4451 Gesundheitspädagogik" />
         </category>
         <category ID="4453">
-          <label xml:lang="de" text="0544520 Gesundheitswissenschaft/-management" />
+          <label xml:lang="de" text="4453 Gesundheitswissenschaft/-management" />
         </category>
         <category ID="4455">
-          <label xml:lang="de" text="0544570 Nichtsärztliche Heilberufe/Therapien" />
+          <label xml:lang="de" text="4455 Nichtärztliche Heilberufe/Therapien" />
         </category>
         <category ID="4457">
-          <label xml:lang="de" text="0544580 Pflegewissenschaft/-management" />
+          <label xml:lang="de" text="4457 Pflegewissenschaft/-management" />
         </category>
         <category ID="4459">
-          <label xml:lang="de" text="0544505 Gesundheitsökonomie" />
+          <label xml:lang="de" text="4459 Gesundheitsökonomie" />
         </category>
       </category>
       <category ID="450">
-        <label xml:lang="de" text="Vorklinische Humanmedizin (einschl. Zahnmedizin)" />
+        <label xml:lang="de" text="450 Vorklinische Humanmedizin (einschl. Zahnmedizin)" />
         <category ID="4500">
-          <label xml:lang="de" text="0545005 Vorklinische Humanmedizin allgemein" />
+          <label xml:lang="de" text="4500 Vorklinische Humanmedizin allgemein" />
         </category>
         <category ID="4510">
-          <label xml:lang="de" text="0545035 Medizinische Physik" />
+          <label xml:lang="de" text="4510 Medizinische Physik" />
         </category>
         <category ID="4520">
-          <label xml:lang="de" text="0545025 Medizinische Chemie" />
+          <label xml:lang="de" text="4520 Medizinische Chemie" />
         </category>
         <category ID="4525">
-          <label xml:lang="de" text="0545030 Medizinische Informatik (nur für Mediziner)" />
+          <label xml:lang="de" text="4525 Medizinische Informatik (nur für Mediziner)" />
         </category>
         <category ID="4530">
-          <label xml:lang="de" text="0545020 Medizinische Biologie" />
+          <label xml:lang="de" text="4530 Medizinische Biologie" />
         </category>
         <category ID="4540">
-          <label xml:lang="de" text="0545065 Physiologie" />
+          <label xml:lang="de" text="4540 Physiologie" />
         </category>
         <category ID="4550">
-          <label xml:lang="de" text="0545070 Physiologische Chemie (Biochemie)" />
+          <label xml:lang="de" text="4550 Physiologische Chemie (Biochemie)" />
         </category>
         <category ID="4560">
-          <label xml:lang="de" text="0545010 Anatomie" />
+          <label xml:lang="de" text="4560 Anatomie" />
         </category>
         <category ID="4580">
-          <label xml:lang="de" text="0545040 Medizinische Psychologie" />
+          <label xml:lang="de" text="4580 Medizinische Psychologie" />
         </category>
         <category ID="4585">
-          <label xml:lang="de" text="0545045 Medizinische Soziologie" />
+          <label xml:lang="de" text="4585 Medizinische Soziologie" />
         </category>
         <category ID="4590">
-          <label xml:lang="de" text="0545050 Medizinische Terminologie" />
+          <label xml:lang="de" text="4590 Medizinische Terminologie" />
         </category>
         <category ID="4595">
-          <label xml:lang="de" text="0545055 Radiologie/Strahlentherapie/Nuklearmedizin" />
+          <label xml:lang="de" text="4595 Radiologie/Strahlentherapie/Nuklearmedizin" />
         </category>
         <category ID="4610">
-          <label xml:lang="de" text="0545080 Vorklinische Zahnheilkunde" />
+          <label xml:lang="de" text="4610 Vorklinische Zahnheilkunde" />
         </category>
       </category>
       <category ID="470">
-        <label xml:lang="de" text="Klinisch-Theoretische Humanmedizin (einschl. Zahnmedizin)" />
+        <label xml:lang="de" text="470 Klinisch-Theoretische Humanmedizin (einschl. Zahnmedizin)" />
         <category ID="4700">
-          <label xml:lang="de" text="0547004 Klinisch-Theoretische Humanmedizin allgemein" />
+          <label xml:lang="de" text="4700 Klinisch-Theoretische Humanmedizin allgemein" />
         </category>
         <category ID="4705">
-          <label xml:lang="de" text="0547008 Arbeitsmedizin (klinisch-theoretisch)" />
+          <label xml:lang="de" text="4705 Arbeitsmedizin (klinisch-theoretisch)" />
         </category>
         <category ID="4710">
-          <label xml:lang="de" text="0547068 Pathologie, Neuropathologie" />
+          <label xml:lang="de" text="4710 Pathologie, Neuropathologie" />
         </category>
         <category ID="4715">
-          <label xml:lang="de" text="0547072 Pharmakologie und Toxikologie (medizinisch)" />
+          <label xml:lang="de" text="4715 Pharmakologie und Toxikologie (medizinisch)" />
         </category>
         <category ID="4716">
-          <label xml:lang="de" text="0547076 Präventiv- und Vorsorgemedizin" />
+          <label xml:lang="de" text="4716 Präventiv- und Vorsorgemedizin" />
         </category>
         <category ID="4720">
-          <label xml:lang="de" text="0547012 Biomathematik (für Mediziner)" />
+          <label xml:lang="de" text="4720 Biomathematik (für Mediziner)" />
         </category>
         <category ID="4725">
-          <label xml:lang="de" text="0547016 Biomedizinische Technik" />
+          <label xml:lang="de" text="4725 Biomedizinische Technik" />
         </category>
         <category ID="4730">
-          <label xml:lang="de" text="0547044 Klinische Chemie und Hämatologie" />
+          <label xml:lang="de" text="4730 Klinische Chemie und Hämatologie" />
         </category>
         <category ID="4732">
-          <label xml:lang="de" text="0547048 Klinische Krebsforschung und molekulare Tumorforschung" />
+          <label xml:lang="de" text="4732 Klinische Krebsforschung und molekulare Tumorforschung" />
         </category>
         <category ID="4735">
-          <label xml:lang="de" text="0547052 Medizinische Balneologie und Klimatologie" />
+          <label xml:lang="de" text="4735 Medizinische Balneologie und Klimatologie" />
         </category>
         <category ID="4736">
-          <label xml:lang="de" text="0547056 Medizinische Biophysik und Elektronenmikroskopie" />
+          <label xml:lang="de" text="4736 Medizinische Biophysik und Elektronenmikroskopie" />
         </category>
         <category ID="4737">
-          <label xml:lang="de" text="0547060 Medizinische Statistik und Dokumentation" />
+          <label xml:lang="de" text="4737 Medizinische Statistik und Dokumentation" />
         </category>
         <category ID="4738">
-          <label xml:lang="de" text="0547064 Parasitologie" />
+          <label xml:lang="de" text="4738 Parasitologie" />
         </category>
         <category ID="4740">
-          <label xml:lang="de" text="0547080 Radiologie (diagnostisch, ohne Betten)" />
+          <label xml:lang="de" text="4740 Radiologie (diagnostisch, ohne Betten)" />
         </category>
         <category ID="4745">
-          <label xml:lang="de" text="0547020 Epidemiologie" />
+          <label xml:lang="de" text="4745 Epidemiologie" />
         </category>
         <category ID="4750">
-          <label xml:lang="de" text="0547032 Humangenetik" />
+          <label xml:lang="de" text="4750 Humangenetik" />
         </category>
         <category ID="4760">
-          <label xml:lang="de" text="0547028 Geschichte der Medizin" />
+          <label xml:lang="de" text="4760 Geschichte der Medizin" />
         </category>
         <category ID="4770">
-          <label xml:lang="de" text="0547084 Rechtsmedizin" />
+          <label xml:lang="de" text="4770 Rechtsmedizin" />
         </category>
         <category ID="4775">
-          <label xml:lang="de" text="0547088 Sexualmedizin" />
+          <label xml:lang="de" text="4775 Sexualmedizin" />
         </category>
         <category ID="4776">
-          <label xml:lang="de" text="0547092 Sozialmedizin (klinisch-theoretisch)" />
+          <label xml:lang="de" text="4776 Sozialmedizin (klinisch-theoretisch)" />
         </category>
         <category ID="4780">
-          <label xml:lang="de" text="0547036 Hygiene und Mikrobiologie" />
+          <label xml:lang="de" text="4780 Hygiene und Mikrobiologie" />
         </category>
         <category ID="4790">
-          <label xml:lang="de" text="0547096 Virologie" />
+          <label xml:lang="de" text="4790 Virologie" />
         </category>
         <category ID="4810">
-          <label xml:lang="de" text="0547040 Immunologie" />
+          <label xml:lang="de" text="4810 Immunologie" />
         </category>
         <category ID="4820">
-          <label xml:lang="de" text="0547024 Experimentelle Medizin/Medizinforschung (ohne klinische Medizin)" />
+          <label xml:lang="de" text="4820 Experimentelle Medizin/Medizinforschung (ohne klinische Medizin)" />
         </category>
       </category>
       <category ID="490">
-        <label xml:lang="de" text="Klinisch-Praktische Humanmedizin (ohne Zahnmedizin)" />
+        <label xml:lang="de" text="490 Klinisch-Praktische Humanmedizin (ohne Zahnmedizin)" />
         <category ID="4900">
-          <label xml:lang="de" text="0549003 Klinisch-Praktische Humanmedizin allgemein" />
+          <label xml:lang="de" text="4900 Klinisch-Praktische Humanmedizin allgemein" />
         </category>
         <category ID="4910">
-          <label xml:lang="de" text="0549006 Allgemeinmedizin" />
+          <label xml:lang="de" text="4910 Allgemeinmedizin" />
         </category>
         <category ID="4920">
-          <label xml:lang="de" text="0549072 Spezielle Pathologie" />
+          <label xml:lang="de" text="4920 Spezielle Pathologie" />
         </category>
         <category ID="4930">
-          <label xml:lang="de" text="0549075 Spezielle Pharmakologie" />
+          <label xml:lang="de" text="4930 Spezielle Pharmakologie" />
         </category>
         <category ID="4935">
-          <label xml:lang="de" text="0549078 Sportmedizin (klinisch-praktisch)" />
+          <label xml:lang="de" text="4935 Sportmedizin (klinisch-praktisch)" />
         </category>
         <category ID="4936">
-          <label xml:lang="de" text="0549081 Tumorzentrum und Transfusionsmedizin" />
+          <label xml:lang="de" text="4936 Tumorzentrum und Transfusionsmedizin" />
         </category>
         <category ID="4940">
-          <label xml:lang="de" text="0549033 Innere Medizin" />
+          <label xml:lang="de" text="4940 Innere Medizin" />
         </category>
         <category ID="4950">
-          <label xml:lang="de" text="0549039 Kinderheilkunde" />
+          <label xml:lang="de" text="4950 Kinderheilkunde" />
         </category>
         <category ID="4960">
-          <label xml:lang="de" text="0549021 Dermato-Venerologie" />
+          <label xml:lang="de" text="4960 Dermato-Venerologie" />
         </category>
         <category ID="4970">
-          <label xml:lang="de" text="0549084 Urologie" />
+          <label xml:lang="de" text="4970 Urologie" />
         </category>
         <category ID="4980">
-          <label xml:lang="de" text="0549018 Chirurgie" />
+          <label xml:lang="de" text="4980 Chirurgie" />
         </category>
         <category ID="4990">
-          <label xml:lang="de" text="0549027 Gynäkologie" />
+          <label xml:lang="de" text="4990 Gynäkologie" />
         </category>
         <category ID="5010">
-          <label xml:lang="de" text="0549048 Orthopädie" />
+          <label xml:lang="de" text="5010 Orthopädie" />
         </category>
         <category ID="5015">
-          <label xml:lang="de" text="0549051 Physikalische Medizin" />
+          <label xml:lang="de" text="5015 Physikalische Medizin" />
         </category>
         <category ID="5020">
-          <label xml:lang="de" text="0549015 Augenheilkunde" />
+          <label xml:lang="de" text="5020 Augenheilkunde" />
         </category>
         <category ID="5030">
-          <label xml:lang="de" text="0549030 Hals-, Nasen-, Ohrenheilkunde" />
+          <label xml:lang="de" text="5030 Hals-, Nasen-, Ohrenheilkunde" />
         </category>
         <category ID="5040">
-          <label xml:lang="de" text="0549045 Neurologie" />
+          <label xml:lang="de" text="5040 Neurologie" />
         </category>
         <category ID="5050">
-          <label xml:lang="de" text="0549054 Psychiatrie" />
+          <label xml:lang="de" text="5050 Psychiatrie" />
         </category>
         <category ID="5060">
-          <label xml:lang="de" text="0549057 Psychosomatische Medizin und Psychotherapie" />
+          <label xml:lang="de" text="5060 Psychosomatische Medizin und Psychotherapie" />
         </category>
         <category ID="5070">
-          <label xml:lang="de" text="0549009 Anästhesiologie" />
+          <label xml:lang="de" text="5070 Anästhesiologie" />
         </category>
         <category ID="5080">
-          <label xml:lang="de" text="0549063 Rehabilitation" />
+          <label xml:lang="de" text="5080 Rehabilitation" />
         </category>
         <category ID="5090">
-          <label xml:lang="de" text="0549012 Arbeitsmedizin (klinisch-praktisch)" />
+          <label xml:lang="de" text="5090 Arbeitsmedizin (klinisch-praktisch)" />
         </category>
         <category ID="5110">
-          <label xml:lang="de" text="0549069 Sozialmedizin (klinisch-praktisch)" />
+          <label xml:lang="de" text="5110 Sozialmedizin (klinisch-praktisch)" />
         </category>
         <category ID="5120">
-          <label xml:lang="de" text="0549024 Geriatrie/Gerontologie" />
+          <label xml:lang="de" text="5120 Geriatrie/Gerontologie" />
         </category>
         <category ID="5130">
-          <label xml:lang="de" text="0549042 Neurochirurgie" />
+          <label xml:lang="de" text="5130 Neurochirurgie" />
         </category>
         <category ID="5140">
-          <label xml:lang="de" text="0549066 Rheumatologie" />
+          <label xml:lang="de" text="5140 Rheumatologie" />
         </category>
         <category ID="5150">
-          <label xml:lang="de" text="0549046 Radiologie/Strahlentherapie/Nuklearmedizin (mit Betten)" />
+          <label xml:lang="de" text="5150 Radiologie/Strahlentherapie/Nuklearmedizin (mit Betten)" />
         </category>
         <category ID="5160">
-          <label xml:lang="de" text="0549036 Kinder- und Jugendpsychiatrie" />
+          <label xml:lang="de" text="5160 Kinder- und Jugendpsychiatrie" />
         </category>
       </category>
       <category ID="520">
-        <label xml:lang="de" text="Zahnmedizin (klinisch-praktisch)" />
+        <label xml:lang="de" text="520 Zahnmedizin (klinisch-praktisch)" />
         <category ID="5200">
-          <label xml:lang="de" text="0552010 Zahnmedizin allgemein" />
+          <label xml:lang="de" text="5200 Zahnmedizin allgemein" />
         </category>
         <category ID="5210">
-          <label xml:lang="de" text="0552070 Zahnerhaltung und Paradontologie" />
+          <label xml:lang="de" text="5210 Zahnerhaltung und Paradontologie" />
         </category>
         <category ID="5220">
-          <label xml:lang="de" text="0552060 Zahnärztliche Prothetik" />
+          <label xml:lang="de" text="5220 Zahnärztliche Prothetik" />
         </category>
         <category ID="5230">
-          <label xml:lang="de" text="0552050 Zahn-, Mund- und Kieferchirurgie" />
+          <label xml:lang="de" text="5230 Zahn-, Mund- und Kieferchirurgie" />
         </category>
         <category ID="5240">
-          <label xml:lang="de" text="0552020 Kieferorthopädie" />
+          <label xml:lang="de" text="5240 Kieferorthopädie" />
         </category>
       </category>
     </category>
     <category ID="07">
-      <label xml:lang="de" text="Agrar-, Forst- und Ernährungswissenschaften, Veterinärmedizin" />
+      <label xml:lang="de" text="07 Agrar-, Forst- und Ernährungswissenschaften, Veterinärmedizin" />
       <category ID="540">
-        <label xml:lang="de" text="Veterinärmedizin allgemein" />
+        <label xml:lang="de" text="540 Veterinärmedizin allgemein" />
         <category ID="5400">
-          <label xml:lang="de" text="0654010 Veterinärmedizin allgemein" />
+          <label xml:lang="de" text="5400 Veterinärmedizin allgemein" />
         </category>
       </category>
       <category ID="550">
-        <label xml:lang="de" text="Vorklinische Veterinärmedizin" />
+        <label xml:lang="de" text="550 Vorklinische Veterinärmedizin" />
         <category ID="5500">
-          <label xml:lang="de" text="0655010 Vorklinische Veterinärmedizin allgemein" />
+          <label xml:lang="de" text="5500 Vorklinische Veterinärmedizin allgemein" />
         </category>
         <category ID="5510">
-          <label xml:lang="de" text="0655020 Anatomie, Embryologie und Histologie" />
+          <label xml:lang="de" text="5510 Anatomie, Embryologie und Histologie" />
         </category>
         <category ID="5520">
-          <label xml:lang="de" text="0655050 Physiologie, Biochemie und Ernährungsphysiologie" />
+          <label xml:lang="de" text="5520 Physiologie, Biochemie und Ernährungsphysiologie" />
         </category>
         <category ID="5530">
-          <label xml:lang="de" text="0655060 Tierschutz, Mediz. Terminologie, Geschichte der Veterinärmedizin" />
+          <label xml:lang="de" text="5530 Tierschutz, Mediz. Terminologie, Geschichte der Veterinärmedizin" />
         </category>
         <category ID="5535">
-          <label xml:lang="de" text="0655070 Veterinärmedizinische Zoologie und Hydrobiologie" />
+          <label xml:lang="de" text="5535 Veterinärmedizinische Zoologie und Hydrobiologie" />
         </category>
       </category>
       <category ID="560">
-        <label xml:lang="de" text="Klinisch-Theoretische Veterinärmedizin" />
+        <label xml:lang="de" text="560 Klinisch-Theoretische Veterinärmedizin" />
         <category ID="5600">
-          <label xml:lang="de" text="0656010 Klinisch-Theoretische Veterinärmedizin allgemein" />
+          <label xml:lang="de" text="5600 Klinisch-Theoretische Veterinärmedizin allgemein" />
         </category>
         <category ID="5610">
-          <label xml:lang="de" text="0656060 Tierzucht, vet.-med. Genetik und Zuchthygiene" />
+          <label xml:lang="de" text="5610 Tierzucht, vet.-med. Genetik und Zuchthygiene" />
         </category>
         <category ID="5620">
-          <label xml:lang="de" text="0656050 Tierernährung, allgemeine Landwirtschaftslehre, Verhaltenskunde" />
+          <label xml:lang="de" text="5620 Tierernährung, allgemeine Landwirtschaftslehre, Verhaltenskunde" />
         </category>
         <category ID="5630">
-          <label xml:lang="de" text="0656080 Veterinärmedizinische Pathologie" />
+          <label xml:lang="de" text="5630 Veterinärmedizinische Pathologie" />
         </category>
         <category ID="5640">
-          <label xml:lang="de" text="0656030 Mikrobiologie, Virologie, Tierhygiene und Tierseuchenbekämpfung" />
+          <label xml:lang="de" text="5640 Mikrobiologie, Virologie, Tierhygiene und Tierseuchenbekämpfung" />
         </category>
         <category ID="5650">
-          <label xml:lang="de" text="0656040 Parasitologie, Tropenveterinärmedizin" />
+          <label xml:lang="de" text="5650 Parasitologie, Tropenveterinärmedizin" />
         </category>
         <category ID="5660">
-          <label xml:lang="de" text="0656045 Pharmakolologie, Toxikologie und Arzneiverordnungslehre" />
+          <label xml:lang="de" text="5660 Pharmakolologie, Toxikologie und Arzneiverordnungslehre" />
         </category>
         <category ID="5670">
-          <label xml:lang="de" text="0656020 Fleisch-, Lebensmittel- und Milchhygiene" />
+          <label xml:lang="de" text="5670 Fleisch-, Lebensmittel- und Milchhygiene" />
         </category>
         <category ID="5680">
-          <label xml:lang="de" text="0656070 Versuchstierkunde und Fischkunde einschl. Krankheiten" />
+          <label xml:lang="de" text="5680 Versuchstierkunde und Fischkunde einschl. Krankheiten" />
         </category>
       </category>
       <category ID="580">
-        <label xml:lang="de" text="Klinisch-Praktische Veterinärmedizin" />
+        <label xml:lang="de" text="580 Klinisch-Praktische Veterinärmedizin" />
         <category ID="5800">
-          <label xml:lang="de" text="0658005 Klinisch-Praktische Veterinärmedizin allgemein" />
+          <label xml:lang="de" text="5800 Klinisch-Praktische Veterinärmedizin allgemein" />
         </category>
         <category ID="5810">
-          <label xml:lang="de" text="0658070 Tierklinik allgemein" />
+          <label xml:lang="de" text="5810 Tierklinik allgemein" />
         </category>
         <category ID="5820">
-          <label xml:lang="de" text="0658080 Veterinärmedizinische Chirurgie" />
+          <label xml:lang="de" text="5820 Veterinärmedizinische Chirurgie" />
         </category>
         <category ID="5830">
-          <label xml:lang="de" text="0658020 Geburtshilfe und Gynäkologie" />
+          <label xml:lang="de" text="5830 Geburtshilfe und Gynäkologie" />
         </category>
         <category ID="5840">
-          <label xml:lang="de" text="0658010 Andrologie und Haustierbesamung" />
+          <label xml:lang="de" text="5840 Andrologie und Haustierbesamung" />
         </category>
         <category ID="5850">
-          <label xml:lang="de" text="0658025 Gerichtliche Veterinärmedizin" />
+          <label xml:lang="de" text="5850 Gerichtliche Veterinärmedizin" />
         </category>
         <category ID="5860">
-          <label xml:lang="de" text="0658030 Innere Veterinärmedizin einschl. Labordiagnostik" />
+          <label xml:lang="de" text="5860 Innere Veterinärmedizin einschl. Labordiagnostik" />
         </category>
         <category ID="5870">
-          <label xml:lang="de" text="0658045 Krankheiten der Pferde" />
+          <label xml:lang="de" text="5870 Krankheiten der Pferde" />
         </category>
         <category ID="5880">
-          <label xml:lang="de" text="0658050 Krankheiten der Rinder" />
+          <label xml:lang="de" text="5880 Krankheiten der Rinder" />
         </category>
         <category ID="5890">
-          <label xml:lang="de" text="0658040 Krankheiten der kleinen Klauentiere" />
+          <label xml:lang="de" text="5890 Krankheiten der kleinen Klauentiere" />
         </category>
         <category ID="5910">
-          <label xml:lang="de" text="0658035 Krankheiten der kleinen Haustiere" />
+          <label xml:lang="de" text="5910 Krankheiten der kleinen Haustiere" />
         </category>
         <category ID="5920">
-          <label xml:lang="de" text="0658055 Krankheiten des Geflügels" />
+          <label xml:lang="de" text="5920 Krankheiten des Geflügels" />
         </category>
       </category>
       <category ID="610">
-        <label xml:lang="de" text="Agrar-, Forst- und Ernährungswissenschaften allgemein" />
+        <label xml:lang="de" text="610 Agrar-, Forst- und Ernährungswissenschaften allgemein" />
         <category ID="6100">
-          <label xml:lang="de" text="0761010 Agrar-, Forst- und Ernährungswissenschaften allgemein" />
+          <label xml:lang="de" text="6100 Agrar-, Forst- und Ernährungswissenschaften allgemein" />
         </category>
         <category ID="6105">
-          <label xml:lang="de" text="0761020 Angewandte Biotechnologie" />
+          <label xml:lang="de" text="6105 Angewandte Biotechnologie" />
         </category>
         <category ID="6106">
-          <label xml:lang="de" text="0761030 Angewandte Maschinenbautechnik" />
+          <label xml:lang="de" text="6106 Angewandte Maschinenbautechnik" />
         </category>
         <category ID="6107">
-          <label xml:lang="de" text="0761040 Angewandte Naturwissenschaften" />
+          <label xml:lang="de" text="6107 Angewandte Naturwissenschaften" />
         </category>
         <category ID="6108">
-          <label xml:lang="de" text="0761050 Angewandte Verfahrenstechnik" />
+          <label xml:lang="de" text="6108 Angewandte Verfahrenstechnik" />
         </category>
       </category>
       <category ID="615">
-        <label xml:lang="de" text="Landespflege, Umweltgestaltung" />
+        <label xml:lang="de" text="615 Landespflege, Umweltgestaltung" />
         <category ID="6310">
-          <label xml:lang="de" text="0761510 Landespflege allgemein" />
+          <label xml:lang="de" text="6310 Landespflege allgemein" />
         </category>
         <category ID="6315">
-          <label xml:lang="de" text="0761520 Landschaftsarchitektur (ohne Gartenbau)" />
+          <label xml:lang="de" text="6315 Landschaftsarchitektur (ohne Gartenbau)" />
         </category>
         <category ID="6320">
-          <label xml:lang="de" text="0761525 Landschaftsökologie" />
+          <label xml:lang="de" text="6320 Landschaftsökologie" />
         </category>
         <category ID="6330">
-          <label xml:lang="de" text="0761530 Landschaftsplanung und Landschaftsentwicklung" />
+          <label xml:lang="de" text="6330 Landschaftsplanung und Landschaftsentwicklung" />
         </category>
         <category ID="6340">
-          <label xml:lang="de" text="0761550 Meliorationswesen" />
+          <label xml:lang="de" text="6340 Meliorationswesen" />
         </category>
         <category ID="6350">
-          <label xml:lang="de" text="0761560 Naturschutz" />
+          <label xml:lang="de" text="6350 Naturschutz" />
         </category>
       </category>
       <category ID="620">
-        <label xml:lang="de" text="Agrarwissenschaften, Lebensmittel- und Getränketechnologie" />
+        <label xml:lang="de" text="620 Agrarwissenschaften, Lebensmittel- und Getränketechnologie" />
         <category ID="6200">
-          <label xml:lang="de" text="0762005 Agrarwissenschaften allgemein" />
+          <label xml:lang="de" text="6200 Agrarwissenschaften allgemein" />
         </category>
         <category ID="6205">
-          <label xml:lang="de" text="0762010 Agrarbiologie" />
+          <label xml:lang="de" text="6205 Agrarbiologie" />
         </category>
         <category ID="6210">
-          <label xml:lang="de" text="0762015 Agrartechnik" />
+          <label xml:lang="de" text="6210 Agrartechnik" />
         </category>
         <category ID="6220">
-          <label xml:lang="de" text="0762060 Pflanzenproduktion" />
+          <label xml:lang="de" text="6220 Pflanzenproduktion" />
         </category>
         <category ID="6230">
-          <label xml:lang="de" text="0762070 Tierproduktion" />
+          <label xml:lang="de" text="6230 Tierproduktion" />
         </category>
         <category ID="6235">
-          <label xml:lang="de" text="0762080 Weinbau- und Kellerwirtschaft" />
+          <label xml:lang="de" text="6235 Weinbau- und Kellerwirtschaft" />
         </category>
         <category ID="6240">
-          <label xml:lang="de" text="0762085 Wirtschafts- und Sozialwissenschaften des Landbaus" />
+          <label xml:lang="de" text="6240 Wirtschafts- und Sozialwissenschaften des Landbaus" />
         </category>
         <category ID="6250">
-          <label xml:lang="de" text="0762040 Lebensmitteltechnologie/Getränketechnologie" />
+          <label xml:lang="de" text="6250 Lebensmitteltechnologie/Getränketechnologie" />
         </category>
         <category ID="6255">
-          <label xml:lang="de" text="0762050 Milch- und Molkereiwirtschaft" />
+          <label xml:lang="de" text="6255 Milch- und Molkereiwirtschaft" />
         </category>
         <category ID="6260">
-          <label xml:lang="de" text="0762020 Brauwesen/Getränketechnik" />
+          <label xml:lang="de" text="6260 Brauwesen/Getränketechnik" />
         </category>
         <category ID="6300">
-          <label xml:lang="de" text="0762030 Gartenbau" />
+          <label xml:lang="de" text="6300 Gartenbau" />
         </category>
       </category>
       <category ID="640">
-        <label xml:lang="de" text="Forstwissenschaft, Holzwirtschaft" />
+        <label xml:lang="de" text="640 Forstwissenschaft, Holzwirtschaft" />
         <category ID="6400">
-          <label xml:lang="de" text="0764010 Forstwissenschaft, Holzwirtschaft allgemein" />
+          <label xml:lang="de" text="6400 Forstwissenschaft, Holzwirtschaft allgemein" />
         </category>
         <category ID="6410">
-          <label xml:lang="de" text="0764030 Forstliche Grundlagenwissenschaften" />
+          <label xml:lang="de" text="6410 Forstliche Grundlagenwissenschaften" />
         </category>
         <category ID="6415">
-          <label xml:lang="de" text="0764040 Holzwirtschaft" />
+          <label xml:lang="de" text="6415 Holzwirtschaft" />
         </category>
         <category ID="6420">
-          <label xml:lang="de" text="0764020 Forstliche Fachwissenschaften" />
+          <label xml:lang="de" text="6420 Forstliche Fachwissenschaften" />
         </category>
         <category ID="6430">
-          <label xml:lang="de" text="0764050 Holzwissenschaften" />
+          <label xml:lang="de" text="6430 Holzwissenschaften" />
         </category>
       </category>
       <category ID="650">
-        <label xml:lang="de" text="Ernährungs- und Haushaltswissenschaften" />
+        <label xml:lang="de" text="650 Ernährungs- und Haushaltswissenschaften" />
         <category ID="6500">
-          <label xml:lang="de" text="0765010 Ernährungs- und Haushaltswissenschaften allgemein" />
+          <label xml:lang="de" text="6500 Ernährungs- und Haushaltswissenschaften allgemein" />
         </category>
         <category ID="6510">
-          <label xml:lang="de" text="0765030 Haushaltswissenschaften" />
+          <label xml:lang="de" text="6510 Haushaltswissenschaften" />
         </category>
         <category ID="6520">
-          <label xml:lang="de" text="0765020 Ernährungswissenschaften" />
+          <label xml:lang="de" text="6520 Ernährungswissenschaften" />
         </category>
       </category>
     </category>
     <category ID="08">
-      <label xml:lang="de" text="Ingenieurwissenschaften" />
+      <label xml:lang="de" text="08 Ingenieurwissenschaften" />
       <category ID="670">
-        <label xml:lang="de" text="Ingenieurwissenschaften allgemein" />
+        <label xml:lang="de" text="670 Ingenieurwissenschaften allgemein" />
         <category ID="6700">
-          <label xml:lang="de" text="0867010 Ingenieurwissenschaften allgemein" />
+          <label xml:lang="de" text="6700 Ingenieurwissenschaften allgemein" />
         </category>
         <category ID="6710">
-          <label xml:lang="de" text="0867060 Polytechnik/Arbeitslehre" />
+          <label xml:lang="de" text="6710 Polytechnik/Arbeitslehre" />
         </category>
         <category ID="6720">
-          <label xml:lang="de" text="0867080 Technisches Gesundheitswesen" />
+          <label xml:lang="de" text="6720 Technisches Gesundheitswesen" />
         </category>
         <category ID="6740">
-          <label xml:lang="de" text="0867020 Interdisziplinäre Studien (Schwerpunkt Ingenieurwesen - ohne Mechatronik)" />
+          <label xml:lang="de" text="6740 Interdisziplinäre Studien (Schwerpunkt Ingenieurwesen - ohne Mechatronik)" />
         </category>
         <category ID="6750">
-          <label xml:lang="de" text="0867050 Mechatronik" />
+          <label xml:lang="de" text="6750 Mechatronik" />
         </category>
         <category ID="6780">
-          <label xml:lang="de" text="0867055 Medientechnik" />
+          <label xml:lang="de" text="6780 Medientechnik" />
         </category>
         <category ID="6790">
-          <label xml:lang="de" text="0867065 Regenerative Energien" />
+          <label xml:lang="de" text="6790 Regenerative Energien" />
         </category>
       </category>
       <category ID="675">
-        <label xml:lang="de" text="Wirtschaftsingenieurwesen mit ingenieurwissenschaftlichem Schwerpunkt" />
+        <label xml:lang="de" text="675 Wirtschaftsingenieurwesen mit ingenieurwissenschaftlichem Schwerpunkt" />
         <category ID="6755">
-          <label xml:lang="de" text="0867520 Wirtschaftsingenieurwesen mit ingenieurwissenschaftlichem Schwerpunkt" />
+          <label xml:lang="de" text="6755 Wirtschaftsingenieurwesen mit ingenieurwissenschaftlichem Schwerpunkt" />
         </category>
       </category>
       <category ID="680">
-        <label xml:lang="de" text="Bergbau, Hüttenwesen" />
+        <label xml:lang="de" text="680 Bergbau, Hüttenwesen" />
         <category ID="6800">
-          <label xml:lang="de" text="0868005 Bergbau, Hüttenwesen allgemein" />
+          <label xml:lang="de" text="6800 Bergbau, Hüttenwesen allgemein" />
         </category>
         <category ID="6810">
-          <label xml:lang="de" text="0868030 Bergbau und mineralische Rohstoffwirtschaft" />
+          <label xml:lang="de" text="6810 Bergbau und mineralische Rohstoffwirtschaft" />
         </category>
         <category ID="6820">
-          <label xml:lang="de" text="0868040 Bergtechnik" />
+          <label xml:lang="de" text="6820 Bergtechnik" />
         </category>
         <category ID="6830">
-          <label xml:lang="de" text="0868035 Bergbauliche Betriebswirtschaft" />
+          <label xml:lang="de" text="6830 Bergbauliche Betriebswirtschaft" />
         </category>
         <category ID="6840">
-          <label xml:lang="de" text="0868045 Bergwirtschaft, Bergrecht" />
+          <label xml:lang="de" text="6840 Bergwirtschaft, Bergrecht" />
         </category>
         <category ID="6845">
-          <label xml:lang="de" text="0868060 Hütten- und Gießereiwesen" />
+          <label xml:lang="de" text="6845 Hütten- und Gießereiwesen" />
         </category>
         <category ID="6850">
-          <label xml:lang="de" text="0868070 Markscheidewesen, Bergschadenkunde, Geophysik im Bergbau" />
+          <label xml:lang="de" text="6850 Markscheidewesen, Bergschadenkunde, Geophysik im Bergbau" />
         </category>
         <category ID="6855">
-          <label xml:lang="de" text="0868075 Metallurgie" />
+          <label xml:lang="de" text="6855 Metallurgie" />
         </category>
         <category ID="6860">
-          <label xml:lang="de" text="0868020 Aufbereitung und Veredelung" />
+          <label xml:lang="de" text="6860 Aufbereitung und Veredelung" />
         </category>
         <category ID="6870">
-          <label xml:lang="de" text="0868010 Archäometrie (Ingenieurarchäologie)" />
+          <label xml:lang="de" text="6870 Archäometrie (Ingenieurarchäologie)" />
         </category>
       </category>
       <category ID="690">
-        <label xml:lang="de" text="Maschinenbau/Verfahrenstechnik" />
+        <label xml:lang="de" text="690 Maschinenbau/Verfahrenstechnik" />
         <category ID="6760">
-          <label xml:lang="de" text="0869006 Automatisierungstechnik" />
+          <label xml:lang="de" text="6760 Automatisierungstechnik" />
         </category>
         <category ID="6900">
-          <label xml:lang="de" text="0869004 Maschinenbau allgemein" />
+          <label xml:lang="de" text="6900 Maschinenbau allgemein" />
         </category>
         <category ID="6905">
-          <label xml:lang="de" text="0869008 Biotechnologie (technisches Verfahren)" />
+          <label xml:lang="de" text="6905 Biotechnologie (technisches Verfahren)" />
         </category>
         <category ID="6906">
-          <label xml:lang="de" text="0869012 Chemieingenieurwesen/Chemietechnik" />
+          <label xml:lang="de" text="6906 Chemieingenieurwesen/Chemietechnik" />
         </category>
         <category ID="6907">
-          <label xml:lang="de" text="0869050 Print- und Medientechnik" />
+          <label xml:lang="de" text="6907 Print- und Medientechnik" />
         </category>
         <category ID="6910">
-          <label xml:lang="de" text="0869028 Grundlagen des Maschinenwesens" />
+          <label xml:lang="de" text="6910 Grundlagen des Maschinenwesens" />
         </category>
         <category ID="6920">
-          <label xml:lang="de" text="0869052 Produkte des Maschinenbaus" />
+          <label xml:lang="de" text="6920 Produkte des Maschinenbaus" />
         </category>
         <category ID="6930">
-          <label xml:lang="de" text="0869020 Energietechnik (ohne Elektrotechnik)" />
+          <label xml:lang="de" text="6930 Energietechnik (ohne Elektrotechnik)" />
         </category>
         <category ID="6935">
-          <label xml:lang="de" text="0869042 Logistik" />
+          <label xml:lang="de" text="6935 Logistik" />
         </category>
         <category ID="6940">
-          <label xml:lang="de" text="0869056 Produktions- und Fertigungstechnologie" />
+          <label xml:lang="de" text="6940 Produktions- und Fertigungstechnologie" />
         </category>
         <category ID="6945">
-          <label xml:lang="de" text="0869060 Sicherheitstechnik" />
+          <label xml:lang="de" text="6945 Sicherheitstechnik" />
         </category>
         <category ID="6950">
-          <label xml:lang="de" text="0869080 Transport- und Verteiltechnik" />
+          <label xml:lang="de" text="6950 Transport- und Verteiltechnik" />
         </category>
         <category ID="6960">
-          <label xml:lang="de" text="0869088 Verfahrenstechnik" />
+          <label xml:lang="de" text="6960 Verfahrenstechnik" />
         </category>
         <category ID="6965">
-          <label xml:lang="de" text="0869092 Versorgungs-/Entsorgungstechnik" />
+          <label xml:lang="de" text="6965 Versorgungs-/Entsorgungstechnik" />
         </category>
         <category ID="6970">
-          <label xml:lang="de" text="0869068 Steuerungs-, Mess- und Regelungstechnik" />
+          <label xml:lang="de" text="6970 Steuerungs-, Mess- und Regelungstechnik" />
         </category>
         <category ID="6975">
-          <label xml:lang="de" text="0869072 Technische/angewandte Optik" />
+          <label xml:lang="de" text="6975 Technische/angewandte Optik" />
         </category>
         <category ID="6976">
-          <label xml:lang="de" text="0869076 Textiltechnik" />
+          <label xml:lang="de" text="6976 Textiltechnik" />
         </category>
         <category ID="6980">
-          <label xml:lang="de" text="0869064 Sondergebiete des Maschinenwesens" />
+          <label xml:lang="de" text="6980 Sondergebiete des Maschinenwesens" />
         </category>
         <category ID="6985">
-          <label xml:lang="de" text="0869084 Umwelttechnik (einschl. Recycling)" />
+          <label xml:lang="de" text="6985 Umwelttechnik (einschl. Recycling)" />
         </category>
         <category ID="7010">
-          <label xml:lang="de" text="0869044 Medizintechnik" />
+          <label xml:lang="de" text="7010 Medizintechnik" />
         </category>
         <category ID="7020">
-          <label xml:lang="de" text="0869048 Physikalische Technik" />
+          <label xml:lang="de" text="7020 Physikalische Technik" />
         </category>
         <category ID="7030">
-          <label xml:lang="de" text="0869040 Kunststofftechnik" />
+          <label xml:lang="de" text="7030 Kunststofftechnik" />
         </category>
         <category ID="7040">
-          <label xml:lang="de" text="0869032 Holztechnik" />
+          <label xml:lang="de" text="7040 Holztechnik" />
         </category>
         <category ID="7045">
-          <label xml:lang="de" text="0869036 Kerntechnik, Kernverfahrenstechnik" />
+          <label xml:lang="de" text="7045 Kerntechnik, Kernverfahrenstechnik" />
         </category>
         <category ID="7190">
-          <label xml:lang="de" text="0869024 Feinwerktechnik (mechanisch)" />
+          <label xml:lang="de" text="7190 Feinwerktechnik (mechanisch)" />
         </category>
       </category>
       <category ID="710">
-        <label xml:lang="de" text="Elektrotechnik und Informationstechnik" />
+        <label xml:lang="de" text="710 Elektrotechnik und Informationstechnik" />
         <category ID="7100">
-          <label xml:lang="de" text="0871010 Elektrotechnik allgemein" />
+          <label xml:lang="de" text="7100 Elektrotechnik allgemein" />
         </category>
         <category ID="7110">
-          <label xml:lang="de" text="0871020 Allgemeine Elektrotechnik" />
+          <label xml:lang="de" text="7110 Allgemeine Elektrotechnik" />
         </category>
         <category ID="7120">
-          <label xml:lang="de" text="0871030 Elektrische Energietechnik" />
+          <label xml:lang="de" text="7120 Elektrische Energietechnik" />
         </category>
         <category ID="7125">
-          <label xml:lang="de" text="0871040 Feinwerktechnik (elektrisch)" />
+          <label xml:lang="de" text="7125 Feinwerktechnik (elektrisch)" />
         </category>
         <category ID="7130">
-          <label xml:lang="de" text="0871043 Kommunikations- und Informationstechnik" />
+          <label xml:lang="de" text="7130 Kommunikations- und Informationstechnik" />
         </category>
         <category ID="7140">
-          <label xml:lang="de" text="0871050 Mikrosystemtechnik" />
+          <label xml:lang="de" text="7140 Mikrosystemtechnik" />
         </category>
         <category ID="7150">
-          <label xml:lang="de" text="0871070 Optoelektronik" />
+          <label xml:lang="de" text="7150 Optoelektronik" />
         </category>
         <category ID="7155">
-          <label xml:lang="de" text="0871080 Steuerungs-, Mess- und Regelungstechnik (elektrisch)" />
+          <label xml:lang="de" text="7155 Steuerungs-, Mess- und Regelungstechnik (elektrisch)" />
         </category>
         <category ID="7160">
-          <label xml:lang="de" text="0871046 Mikro- und Nanoelektronik" />
+          <label xml:lang="de" text="7160 Mikro- und Nanoelektronik" />
         </category>
         <category ID="7170">
-          <label xml:lang="de" text="0871075 Sensorik und Messtechnik" />
+          <label xml:lang="de" text="7170 Sensorik und Messtechnik" />
         </category>
       </category>
       <category ID="720">
-        <label xml:lang="de" text="Verkehrstechnik, Nautik" />
+        <label xml:lang="de" text="720 Verkehrstechnik, Nautik" />
         <category ID="7200">
-          <label xml:lang="de" text="0872010 Verkehrstechnik, Nautik allgemein" />
+          <label xml:lang="de" text="7200 Verkehrstechnik, Nautik allgemein" />
         </category>
         <category ID="7210">
-          <label xml:lang="de" text="0872070 Schiffsbetriebstechnik" />
+          <label xml:lang="de" text="7210 Schiffsbetriebstechnik" />
         </category>
         <category ID="7215">
-          <label xml:lang="de" text="0872080 Verkehrsingenieurwesen" />
+          <label xml:lang="de" text="7215 Verkehrsingenieurwesen" />
         </category>
         <category ID="7220">
-          <label xml:lang="de" text="0872060 Schiffbau, Meerestechnik" />
+          <label xml:lang="de" text="7220 Schiffbau, Meerestechnik" />
         </category>
         <category ID="7230">
-          <label xml:lang="de" text="0872050 Nautik, Seefahrt" />
+          <label xml:lang="de" text="7230 Nautik, Seefahrt" />
         </category>
         <category ID="7240">
-          <label xml:lang="de" text="0872020 Fahrzeug- und Flugzeugbau" />
+          <label xml:lang="de" text="7240 Fahrzeug- und Flugzeugbau" />
         </category>
         <category ID="7245">
-          <label xml:lang="de" text="0872030 Fahrzeugtechnik" />
+          <label xml:lang="de" text="7245 Fahrzeugtechnik" />
         </category>
         <category ID="7246">
-          <label xml:lang="de" text="0872040 Luft- und Raumfahrttechnik" />
+          <label xml:lang="de" text="7246 Luft- und Raumfahrttechnik" />
         </category>
       </category>
       <category ID="730">
-        <label xml:lang="de" text="Architektur" />
+        <label xml:lang="de" text="730 Architektur" />
         <category ID="7300">
-          <label xml:lang="de" text="0873010 Architektur allgemein" />
+          <label xml:lang="de" text="7300 Architektur allgemein" />
         </category>
         <category ID="7310">
-          <label xml:lang="de" text="0873060 Grundlagen und Hilfswissenschaften der Architektur" />
+          <label xml:lang="de" text="7310 Grundlagen und Hilfswissenschaften der Architektur" />
         </category>
         <category ID="7320">
-          <label xml:lang="de" text="0873050 Gestaltung und Darstellung" />
+          <label xml:lang="de" text="7320 Gestaltung und Darstellung" />
         </category>
         <category ID="7330">
-          <label xml:lang="de" text="0873020 Bautechnik und Baubetrieb" />
+          <label xml:lang="de" text="7330 Bautechnik und Baubetrieb" />
         </category>
         <category ID="7335">
-          <label xml:lang="de" text="0873030 Denkmalpflege (Architektur)" />
+          <label xml:lang="de" text="7335 Denkmalpflege (Architektur)" />
         </category>
         <category ID="7340">
-          <label xml:lang="de" text="0873040 Gebäudeplanung" />
+          <label xml:lang="de" text="7340 Gebäudeplanung" />
         </category>
         <category ID="7350">
-          <label xml:lang="de" text="0873015 Baugeschichte" />
+          <label xml:lang="de" text="7350 Baugeschichte" />
         </category>
         <category ID="7390">
-          <label xml:lang="de" text="0873070 Innenarchitektur" />
+          <label xml:lang="de" text="7390 Innenarchitektur" />
         </category>
         <category ID="7395">
-          <label xml:lang="de" text="0873080 Städtebau und Siedlungswesen" />
+          <label xml:lang="de" text="7395 Städtebau und Siedlungswesen" />
         </category>
       </category>
       <category ID="740">
-        <label xml:lang="de" text="Raumplanung" />
+        <label xml:lang="de" text="740 Raumplanung" />
         <category ID="7400">
-          <label xml:lang="de" text="0874010 Raumplanung allgemein" />
+          <label xml:lang="de" text="7400 Raumplanung allgemein" />
         </category>
         <category ID="7410">
-          <label xml:lang="de" text="0874020 Grundlagen der Raumplanung" />
+          <label xml:lang="de" text="7410 Grundlagen der Raumplanung" />
         </category>
         <category ID="7420">
-          <label xml:lang="de" text="0874060 Stadtplanung (Ortsplanung)" />
+          <label xml:lang="de" text="7420 Stadtplanung (Ortsplanung)" />
         </category>
         <category ID="7430">
-          <label xml:lang="de" text="0874050 Regional- und Landesplanung" />
+          <label xml:lang="de" text="7430 Regional- und Landesplanung" />
         </category>
         <category ID="7440">
-          <label xml:lang="de" text="0874040 Raumordnung" />
+          <label xml:lang="de" text="7440 Raumordnung" />
         </category>
         <category ID="7450">
-          <label xml:lang="de" text="0874030 Infrastrukturplanung" />
+          <label xml:lang="de" text="7450 Infrastrukturplanung" />
         </category>
         <category ID="7460">
-          <label xml:lang="de" text="0874080 Umweltschutz" />
+          <label xml:lang="de" text="7460 Umweltschutz" />
         </category>
       </category>
       <category ID="750">
-        <label xml:lang="de" text="Bauingenieurwesen" />
+        <label xml:lang="de" text="750 Bauingenieurwesen" />
         <category ID="7500">
-          <label xml:lang="de" text="0875010 Bauingenieurwesen allgemein" />
+          <label xml:lang="de" text="7500 Bauingenieurwesen allgemein" />
         </category>
         <category ID="7510">
-          <label xml:lang="de" text="0875040 Konstruktiver Ingenieurbau" />
+          <label xml:lang="de" text="7510 Konstruktiver Ingenieurbau" />
         </category>
         <category ID="7520">
-          <label xml:lang="de" text="0875060 Wasserbau, -wesen" />
+          <label xml:lang="de" text="7520 Wasserbau, -wesen" />
         </category>
         <category ID="7530">
-          <label xml:lang="de" text="0875050 Verkehrsbau, -wesen" />
+          <label xml:lang="de" text="7530 Verkehrsbau, -wesen" />
         </category>
         <category ID="7540">
-          <label xml:lang="de" text="0875020 Baubetriebswesen/Baumanagement" />
+          <label xml:lang="de" text="7540 Baubetriebswesen/Baumanagement" />
         </category>
         <category ID="7550">
-          <label xml:lang="de" text="0875070 Sonstige Bereiche des Bauingenieurwesens" />
+          <label xml:lang="de" text="7550 Sonstige Bereiche des Bauingenieurwesens" />
         </category>
         <category ID="7560">
-          <label xml:lang="de" text="0875030 Holzbau" />
+          <label xml:lang="de" text="7560 Holzbau" />
         </category>
         <category ID="7570">
-          <label xml:lang="de" text="0875023 Baustofftechnik" />
+          <label xml:lang="de" text="7570 Baustofftechnik" />
         </category>
       </category>
       <category ID="760">
-        <label xml:lang="de" text="Vermessungswesen" />
+        <label xml:lang="de" text="760 Vermessungswesen" />
         <category ID="7600">
-          <label xml:lang="de" text="0876010 Vermessungswesen allgemein" />
+          <label xml:lang="de" text="7600 Vermessungswesen allgemein" />
         </category>
         <category ID="7610">
-          <label xml:lang="de" text="0876030 Kartographie" />
+          <label xml:lang="de" text="7610 Kartographie" />
         </category>
         <category ID="7620">
-          <label xml:lang="de" text="0876060 Photogrammetrie" />
+          <label xml:lang="de" text="7620 Photogrammetrie" />
         </category>
       </category>
       <category ID="765">
-        <label xml:lang="de" text="Informatik" />
+        <label xml:lang="de" text="765 Informatik" />
         <category ID="2990">
-          <label xml:lang="de" text="0876590 Wirtschaftsinformatik (für Informatiker)" />
+          <label xml:lang="de" text="2990 Wirtschaftsinformatik (für Informatiker)" />
         </category>
         <category ID="3500">
-          <label xml:lang="de" text="0876510 Informatik allgemein" />
+          <label xml:lang="de" text="3500 Informatik allgemein" />
         </category>
         <category ID="3510">
-          <label xml:lang="de" text="0876580 Theoretische Informatik" />
+          <label xml:lang="de" text="3510 Theoretische Informatik" />
         </category>
         <category ID="3520">
-          <label xml:lang="de" text="0876520 Angewandte Informatik" />
+          <label xml:lang="de" text="3520 Angewandte Informatik" />
         </category>
         <category ID="3530">
-          <label xml:lang="de" text="0876550 Ingenieurinformatik/Technische Informatik" />
+          <label xml:lang="de" text="3530 Ingenieurinformatik/Technische Informatik" />
         </category>
         <category ID="3540">
-          <label xml:lang="de" text="0876530 Bioinformatik" />
+          <label xml:lang="de" text="3540 Bioinformatik" />
         </category>
         <category ID="3550">
-          <label xml:lang="de" text="0876540 Computer- und Kommunikationstechniken" />
+          <label xml:lang="de" text="3550 Computer- und Kommunikationstechniken" />
         </category>
         <category ID="3560">
-          <label xml:lang="de" text="0876560 Künstliche Intelligenz" />
+          <label xml:lang="de" text="3560 Künstliche Intelligenz" />
         </category>
         <category ID="3570">
-          <label xml:lang="de" text="0876570 Softwaretechnologie" />
+          <label xml:lang="de" text="3570 Softwaretechnologie" />
         </category>
       </category>
       <category ID="770">
-        <label xml:lang="de" text="Materialwissenschaft und Werkstofftechnik" />
+        <label xml:lang="de" text="770 Materialwissenschaft und Werkstofftechnik" />
         <category ID="6990">
-          <label xml:lang="de" text="0877020 Werkstofftechnik" />
+          <label xml:lang="de" text="6990 Werkstofftechnik" />
         </category>
         <category ID="7700">
-          <label xml:lang="de" text="0877010 Materialwissenschaft" />
+          <label xml:lang="de" text="7700 Materialwissenschaft" />
         </category>
       </category>
     </category>
     <category ID="09">
-      <label xml:lang="de" text="Kunst, Kunstwissenschaft" />
+      <label xml:lang="de" text="09 Kunst, Kunstwissenschaft" />
       <category ID="780">
-        <label xml:lang="de" text="Kunst, Kunstwissenschaft allgemein" />
+        <label xml:lang="de" text="780 Kunst, Kunstwissenschaft allgemein" />
         <category ID="7800">
-          <label xml:lang="de" text="0978010 Kunst, Kunstwissenschaften allgemein" />
+          <label xml:lang="de" text="7800 Kunst, Kunstwissenschaften allgemein" />
         </category>
         <category ID="7810">
-          <label xml:lang="de" text="0978050 Kunstgeschichte" />
+          <label xml:lang="de" text="7810 Kunstgeschichte" />
         </category>
         <category ID="7820">
-          <label xml:lang="de" text="0978030 Kunsterziehung" />
+          <label xml:lang="de" text="7820 Kunsterziehung" />
         </category>
         <category ID="7830">
-          <label xml:lang="de" text="0978070 Restaurierungskunde" />
+          <label xml:lang="de" text="7830 Restaurierungskunde" />
         </category>
         <category ID="7840">
-          <label xml:lang="de" text="0978055 Kunsttherapie" />
+          <label xml:lang="de" text="7840 Kunsttherapie" />
         </category>
       </category>
       <category ID="790">
-        <label xml:lang="de" text="Bildende Kunst" />
+        <label xml:lang="de" text="790 Bildende Kunst" />
         <category ID="7900">
-          <label xml:lang="de" text="0979010 Bildende Kunst allgemein" />
+          <label xml:lang="de" text="7900 Bildende Kunst allgemein" />
         </category>
         <category ID="7920">
-          <label xml:lang="de" text="0979050 Malerei" />
+          <label xml:lang="de" text="7920 Malerei" />
         </category>
         <category ID="7930">
-          <label xml:lang="de" text="0979070 Plastik, Bildhauerei" />
+          <label xml:lang="de" text="7930 Plastik, Bildhauerei" />
         </category>
         <category ID="7940">
-          <label xml:lang="de" text="0979030 Graphik" />
+          <label xml:lang="de" text="7940 Graphik" />
         </category>
         <category ID="7950">
-          <label xml:lang="de" text="0979020 Aktionen, Performance, Environment, Fotografie" />
+          <label xml:lang="de" text="7950 Aktionen, Performance, Environment, Fotografie" />
         </category>
         <category ID="7960">
-          <label xml:lang="de" text="0979060 Neue Medien" />
+          <label xml:lang="de" text="7960 Neue Medien" />
         </category>
       </category>
       <category ID="800">
-        <label xml:lang="de" text="Gestaltung" />
+        <label xml:lang="de" text="800 Gestaltung" />
         <category ID="8000">
-          <label xml:lang="de" text="0980005 Gestaltung allgemein" />
+          <label xml:lang="de" text="8000 Gestaltung allgemein" />
         </category>
         <category ID="8010">
-          <label xml:lang="de" text="0980040 Industriedesign/Produktgestaltung" />
+          <label xml:lang="de" text="8010 Industriedesign/Produktgestaltung" />
         </category>
         <category ID="8020">
-          <label xml:lang="de" text="0980050 Modedesign" />
+          <label xml:lang="de" text="8020 Modedesign" />
         </category>
         <category ID="8030">
-          <label xml:lang="de" text="0980070 Visuelle Kommunikation" />
+          <label xml:lang="de" text="8030 Visuelle Kommunikation" />
         </category>
         <category ID="8035">
-          <label xml:lang="de" text="0980080 Werkerziehung (Gestaltung)" />
+          <label xml:lang="de" text="8035 Werkerziehung (Gestaltung)" />
         </category>
         <category ID="8040">
-          <label xml:lang="de" text="0980060 Textildesign" />
+          <label xml:lang="de" text="8040 Textildesign" />
         </category>
         <category ID="8050">
-          <label xml:lang="de" text="0980010 Angewandte Kunst" />
+          <label xml:lang="de" text="8050 Angewandte Kunst" />
         </category>
         <category ID="8060">
-          <label xml:lang="de" text="0980015 Bühnenbild, Kostüm" />
+          <label xml:lang="de" text="8060 Bühnenbild, Kostüm" />
         </category>
         <category ID="8070">
-          <label xml:lang="de" text="0980020 Designtheorie, -geschichte" />
+          <label xml:lang="de" text="8070 Designtheorie, -geschichte" />
         </category>
         <category ID="8075">
-          <label xml:lang="de" text="0980030 Edelstein- und Schmuckdesign" />
+          <label xml:lang="de" text="8075 Edelstein- und Schmuckdesign" />
         </category>
         <category ID="8076">
-          <label xml:lang="de" text="0980035 Graphikdesign/Kommunikationsgestaltung" />
+          <label xml:lang="de" text="8076 Graphikdesign/Kommunikationsgestaltung" />
         </category>
       </category>
       <category ID="820">
-        <label xml:lang="de" text="Darst. Kunst, Film und Fernsehen, Theaterwissenschaft" />
+        <label xml:lang="de" text="820 Darst. Kunst, Film und Fernsehen, Theaterwissenschaft" />
         <category ID="8200">
-          <label xml:lang="de" text="0982005 Darst. Kunst, Film und Fernsehen, Theaterwissenschaft allgemein" />
+          <label xml:lang="de" text="8200 Darst. Kunst, Film und Fernsehen, Theaterwissenschaft allgemein" />
         </category>
         <category ID="8210">
-          <label xml:lang="de" text="0982015 Darstellende Kunst" />
+          <label xml:lang="de" text="8210 Darstellende Kunst" />
         </category>
         <category ID="8220">
-          <label xml:lang="de" text="0982070 Schauspiel" />
+          <label xml:lang="de" text="8220 Schauspiel" />
         </category>
         <category ID="8225">
-          <label xml:lang="de" text="0982080 Tanzwissenschaft" />
+          <label xml:lang="de" text="8225 Tanzwissenschaft" />
         </category>
         <category ID="8230">
-          <label xml:lang="de" text="0982060 Regie" />
+          <label xml:lang="de" text="8230 Regie" />
         </category>
         <category ID="8240">
-          <label xml:lang="de" text="0982085 Theaterwissenschaft" />
+          <label xml:lang="de" text="8240 Theaterwissenschaft" />
         </category>
         <category ID="8250">
-          <label xml:lang="de" text="0982025 Film und Fernsehen" />
+          <label xml:lang="de" text="8250 Film und Fernsehen" />
         </category>
         <category ID="8270">
-          <label xml:lang="de" text="0982040 Musiktheater" />
+          <label xml:lang="de" text="8270 Musiktheater" />
         </category>
         <category ID="8275">
-          <label xml:lang="de" text="0982050 Produktionswirtschaft im Bereich Darst. Kunst, Theater, Film und Fernsehen" />
+          <label xml:lang="de" text="8275 Produktionswirtschaft im Bereich Darst. Kunst, Theater, Film und Fernsehen" />
         </category>
       </category>
       <category ID="830">
-        <label xml:lang="de" text="Musik, Musikwissenschaft" />
+        <label xml:lang="de" text="830 Musik, Musikwissenschaft" />
         <category ID="8300">
-          <label xml:lang="de" text="0983010 Musik, Musikwissenschaft allgemein" />
+          <label xml:lang="de" text="8300 Musik, Musikwissenschaft allgemein" />
         </category>
         <category ID="8310">
-          <label xml:lang="de" text="0983040 Instrumentalmusik" />
+          <label xml:lang="de" text="8310 Instrumentalmusik" />
         </category>
         <category ID="8315">
-          <label xml:lang="de" text="0983045 Jazz und Popularmusik" />
+          <label xml:lang="de" text="8315 Jazz und Popularmusik" />
         </category>
         <category ID="8320">
-          <label xml:lang="de" text="0983030 Gesang" />
+          <label xml:lang="de" text="8320 Gesang" />
         </category>
         <category ID="8325">
-          <label xml:lang="de" text="0983050 Kirchenmusik" />
+          <label xml:lang="de" text="8325 Kirchenmusik" />
         </category>
         <category ID="8330">
-          <label xml:lang="de" text="0983055 Komposition" />
+          <label xml:lang="de" text="8330 Komposition" />
         </category>
         <category ID="8340">
-          <label xml:lang="de" text="0983020 Dirigieren" />
+          <label xml:lang="de" text="8340 Dirigieren" />
         </category>
         <category ID="8350">
-          <label xml:lang="de" text="0983065 Musikwissenschaft, -geschichte" />
+          <label xml:lang="de" text="8350 Musikwissenschaft, -geschichte" />
         </category>
         <category ID="8360">
-          <label xml:lang="de" text="0983060 Musikerziehung" />
+          <label xml:lang="de" text="8360 Musikerziehung" />
         </category>
         <category ID="8363">
-          <label xml:lang="de" text="0983070 Orchestermusik" />
+          <label xml:lang="de" text="8363 Orchestermusik" />
         </category>
         <category ID="8364">
-          <label xml:lang="de" text="0983080 Rhythmik" />
+          <label xml:lang="de" text="8364 Rhythmik" />
         </category>
         <category ID="8365">
-          <label xml:lang="de" text="0983090 Sonstige Musikpraxis" />
+          <label xml:lang="de" text="8365 Sonstige Musikpraxis" />
         </category>
       </category>
     </category>
     <category ID="10">
-      <label xml:lang="de" text="Außerhalb der Studienbereichsgliederung/Sonstige Fächer" />
+      <label xml:lang="de" text="10 Außerhalb der Studienbereichsgliederung/Sonstige Fächer" />
     </category>
     <category ID="15">
-      <label xml:lang="de" text="Zentrale Einrichtungen (ohne klinikspezifische Einrichtungen)" />
+      <label xml:lang="de" text="15 Zentrale Einrichtungen (ohne klinikspezifische Einrichtungen)" />
+      <category ID="850">
+        <label xml:lang="de" text="850 Zentrale Einrichtungen der Berufsakademien" />
+      </category>
       <category ID="870">
-        <label xml:lang="de" text="Hochschule insgesamt" />
+        <label xml:lang="de" text="870 Hochschule insgesamt" />
         <category ID="8700">
-          <label xml:lang="de" text="1587010 Hochschule allgemein" />
+          <label xml:lang="de" text="8700 Hochschule allgemein" />
         </category>
         <category ID="8710">
-          <label xml:lang="de" text="1587060 Nicht zugeteilte Stellen/Räume/Mittel" />
+          <label xml:lang="de" text="8710 Nicht zugeteilte Stellen/Räume/Mittel" />
         </category>
         <category ID="8720">
-          <label xml:lang="de" text="1587050 Nicht nutzbare Räume" />
+          <label xml:lang="de" text="8720 Nicht nutzbare Räume" />
         </category>
         <category ID="8730">
-          <label xml:lang="de" text="1587020 Hochschulkommission" />
+          <label xml:lang="de" text="8730 Hochschulkommission" />
         </category>
       </category>
       <category ID="880">
-        <label xml:lang="de" text="Zentrale Hochschulverwaltung" />
+        <label xml:lang="de" text="880 Zentrale Hochschulverwaltung" />
         <category ID="8800">
-          <label xml:lang="de" text="1588010 Allgemeine Hochschulverwaltung" />
+          <label xml:lang="de" text="8800 Allgemeine Hochschulverwaltung" />
         </category>
         <category ID="8805">
-          <label xml:lang="de" text="1588020 Akademische Selbstverwaltung" />
+          <label xml:lang="de" text="8805 Akademische Selbstverwaltung" />
         </category>
         <category ID="8806">
-          <label xml:lang="de" text="1588040 Personalvertretung einschl. Vertr. für Datenschutz, Behinderte, etc." />
+          <label xml:lang="de" text="8806 Personalvertretung einschl. Vertr. für Datenschutz, Behinderte, etc." />
         </category>
         <category ID="8810">
-          <label xml:lang="de" text="1588030 Fakultäts-/Fachbereichsverwaltung" />
+          <label xml:lang="de" text="8810 Fakultäts-/Fachbereichsverwaltung" />
         </category>
         <category ID="8820">
-          <label xml:lang="de" text="1588050 Studentische Selbstverwaltung" />
+          <label xml:lang="de" text="8820 Studentische Selbstverwaltung" />
         </category>
         <category ID="8830">
-          <label xml:lang="de" text="1588060 Zentrale Studienberatung" />
+          <label xml:lang="de" text="8830 Zentrale Studienberatung" />
         </category>
       </category>
       <category ID="890">
-        <label xml:lang="de" text="Zentral verwaltete Hörsäle und Lehrräume" />
+        <label xml:lang="de" text="890 Zentral verwaltete Hörsäle und Lehrräume" />
         <category ID="8600">
-          <label xml:lang="de" text="1589010 Hörsaal/Lehrraum" />
+          <label xml:lang="de" text="8600 Hörsaal/Lehrraum" />
         </category>
       </category>
       <category ID="900">
-        <label xml:lang="de" text="Zentralbibliothek" />
+        <label xml:lang="de" text="900 Zentralbibliothek" />
         <category ID="9000">
-          <label xml:lang="de" text="1590010 Bibliothek" />
+          <label xml:lang="de" text="9000 Bibliothek" />
         </category>
         <category ID="9050">
-          <label xml:lang="de" text="1590005 Archiv" />
+          <label xml:lang="de" text="9050 Archiv" />
         </category>
       </category>
       <category ID="910">
-        <label xml:lang="de" text="Hochschulrechenzentrum" />
+        <label xml:lang="de" text="910 Hochschulrechenzentrum" />
         <category ID="9100">
-          <label xml:lang="de" text="1591010 Rechenzentrum" />
+          <label xml:lang="de" text="9100 Rechenzentrum" />
         </category>
       </category>
       <category ID="920">
-        <label xml:lang="de" text="Zentrale wissenschaftliche Einrichtungen" />
+        <label xml:lang="de" text="920 Zentrale wissenschaftliche Einrichtungen" />
         <category ID="9200">
-          <label xml:lang="de" text="1592010 Zentrale wissenschaftliche Einrichtungen allgemein" />
+          <label xml:lang="de" text="9200 Zentrale wissenschaftliche Einrichtungen allgemein" />
         </category>
         <category ID="9210">
-          <label xml:lang="de" text="1592023 Sprachenzentrum" />
+          <label xml:lang="de" text="9210 Sprachenzentrum" />
         </category>
         <category ID="9220">
-          <label xml:lang="de" text="1592026 Sprachlabor" />
+          <label xml:lang="de" text="9220 Sprachlabor" />
         </category>
         <category ID="9230">
-          <label xml:lang="de" text="1592013 Akademisches Auslandsamt" />
+          <label xml:lang="de" text="9230 Akademisches Auslandsamt" />
         </category>
         <category ID="9240">
-          <label xml:lang="de" text="1592040 Tierversuchsanlage" />
+          <label xml:lang="de" text="9240 Tierversuchsanlage" />
         </category>
         <category ID="9250">
-          <label xml:lang="de" text="1592030 Strahlenlabor" />
+          <label xml:lang="de" text="9250 Strahlenlabor" />
         </category>
         <category ID="9260">
-          <label xml:lang="de" text="1592070 Wissenschaftliche/Künstlerische Werkstätten" />
+          <label xml:lang="de" text="9260 Wissenschaftliche/Künstlerische Werkstätten" />
         </category>
         <category ID="9280">
-          <label xml:lang="de" text="1592020 Forschungs-/Technologie-/Transferstellen" />
+          <label xml:lang="de" text="9280 Forschungs-/Technologie-/Transferstellen" />
         </category>
         <category ID="9290">
-          <label xml:lang="de" text="1592060 Weiterbildungszentrum" />
+          <label xml:lang="de" text="9290 Weiterbildungszentrum" />
         </category>
       </category>
       <category ID="930">
-        <label xml:lang="de" text="Zentrale Betriebs- und Versorgungseinrichtungen" />
+        <label xml:lang="de" text="930 Zentrale Betriebs- und Versorgungseinrichtungen" />
         <category ID="9300">
-          <label xml:lang="de" text="1593010 Zentrale Betriebs- und Versorgungseinrichtungen allgemein" />
+          <label xml:lang="de" text="9300 Zentrale Betriebs- und Versorgungseinrichtungen allgemein" />
         </category>
         <category ID="9305">
-          <label xml:lang="de" text="1593020 Arbeitssicherheit, Feuerwehr" />
+          <label xml:lang="de" text="9305 Arbeitssicherheit, Feuerwehr" />
         </category>
         <category ID="9310">
-          <label xml:lang="de" text="1593050 Hausverwaltung" />
+          <label xml:lang="de" text="9310 Hausverwaltung" />
         </category>
         <category ID="9320">
-          <label xml:lang="de" text="1593040 Foto-, Reprostelle" />
+          <label xml:lang="de" text="9320 Foto-, Reprostelle" />
         </category>
         <category ID="9330">
-          <label xml:lang="de" text="1593080 Zentrale Betriebswerkstätten" />
+          <label xml:lang="de" text="9330 Zentrale Betriebswerkstätten" />
         </category>
         <category ID="9340">
-          <label xml:lang="de" text="1593060 Materialversorgungslager der Hochschule" />
+          <label xml:lang="de" text="9340 Materialversorgungslager der Hochschule" />
         </category>
         <category ID="9350">
-          <label xml:lang="de" text="1593030 Fahrbereitschaft" />
+          <label xml:lang="de" text="9350 Fahrbereitschaft" />
         </category>
         <category ID="9360">
-          <label xml:lang="de" text="1593070 Versorgungseinrichtungen" />
+          <label xml:lang="de" text="9360 Versorgungseinrichtungen" />
         </category>
       </category>
       <category ID="940">
-        <label xml:lang="de" text="Soziale Einrichtungen" />
+        <label xml:lang="de" text="940 Soziale Einrichtungen" />
         <category ID="9400">
-          <label xml:lang="de" text="1594010 Soziale Einrichtungen allgemein" />
+          <label xml:lang="de" text="9400 Soziale Einrichtungen allgemein" />
         </category>
         <category ID="9410">
-          <label xml:lang="de" text="1594070 Wohnung/Gästehaus" />
+          <label xml:lang="de" text="9410 Wohnung/Gästehaus" />
         </category>
         <category ID="9420">
-          <label xml:lang="de" text="1594060 Wohnheim" />
+          <label xml:lang="de" text="9420 Wohnheim" />
         </category>
         <category ID="9430">
-          <label xml:lang="de" text="1594080 Sonstige soziale Einrichtungen" />
+          <label xml:lang="de" text="9430 Sonstige soziale Einrichtungen" />
         </category>
       </category>
       <category ID="950">
-        <label xml:lang="de" text="Übrige Ausbildungseinrichtungen" />
+        <label xml:lang="de" text="950 Übrige Ausbildungseinrichtungen" />
         <category ID="9500">
-          <label xml:lang="de" text="1595010 Übrige Ausbildungseinrichtungen allgemein" />
+          <label xml:lang="de" text="9500 Übrige Ausbildungseinrichtungen allgemein" />
         </category>
         <category ID="9510">
-          <label xml:lang="de" text="1595050 Studienkolleg" />
+          <label xml:lang="de" text="9510 Studienkolleg" />
         </category>
         <category ID="9520">
-          <label xml:lang="de" text="1595030 Schulen für nichtakademische Ausbildungsgänge" />
+          <label xml:lang="de" text="9520 Schulen für nichtakademische Ausbildungsgänge" />
         </category>
         <category ID="9530">
-          <label xml:lang="de" text="1595070 Sonstige Bildungseinrichtungen" />
+          <label xml:lang="de" text="9530 Sonstige Bildungseinrichtungen" />
         </category>
         <category ID="9540">
-          <label xml:lang="de" text="1595040 Sportstätten" />
+          <label xml:lang="de" text="9540 Sportstätten" />
         </category>
       </category>
       <category ID="960">
-        <label xml:lang="de" text="Mit der Hochschule verbundene sowie hochschulfremde Einrichtungen" />
+        <label xml:lang="de" text="960 Mit der Hochschule verbundene sowie hochschulfremde Einrichtungen" />
         <category ID="9600">
-          <label xml:lang="de" text="1596005 Mit der Hochschule verbundene Einrichtungen allgemein" />
+          <label xml:lang="de" text="9600 Mit der Hochschule verbundene Einrichtungen allgemein" />
         </category>
         <category ID="9610">
-          <label xml:lang="de" text="1596075 Studentenwerk" />
+          <label xml:lang="de" text="9610 Studentenwerk" />
         </category>
         <category ID="9620">
-          <label xml:lang="de" text="1596070 Staatliche Prüfungsämter" />
+          <label xml:lang="de" text="9620 Staatliche Prüfungsämter" />
         </category>
         <category ID="9630">
-          <label xml:lang="de" text="1596055 Max-Planck-Institute" />
+          <label xml:lang="de" text="9630 Max-Planck-Institute" />
         </category>
         <category ID="9640">
-          <label xml:lang="de" text="1596050 Materialprüfungsanstalten" />
+          <label xml:lang="de" text="9640 Materialprüfungsanstalten" />
         </category>
         <category ID="9650">
-          <label xml:lang="de" text="1596010 Einrichtungen des öffentlichen Gesundheitswesens" />
+          <label xml:lang="de" text="9650 Einrichtungen des öffentlichen Gesundheitswesens" />
         </category>
         <category ID="9660">
-          <label xml:lang="de" text="1596020 Hochschulbauamt" />
+          <label xml:lang="de" text="9660 Hochschulbauamt" />
         </category>
         <category ID="9665">
-          <label xml:lang="de" text="1596030 Kirchliche Prüfungsämter" />
+          <label xml:lang="de" text="9665 Kirchliche Prüfungsämter" />
         </category>
         <category ID="9670">
-          <label xml:lang="de" text="1596040 Landesanstalten" />
+          <label xml:lang="de" text="9670 Landesanstalten" />
         </category>
         <category ID="9675">
-          <label xml:lang="de" text="1596015 Fraunhofer-Institute" />
+          <label xml:lang="de" text="9675 Fraunhofer-Institute" />
         </category>
         <category ID="9680">
-          <label xml:lang="de" text="1596080 Sonstige hochschulfremde Institutionen" />
+          <label xml:lang="de" text="9680 Sonstige hochschulfremde Institutionen" />
         </category>
       </category>
     </category>
     <category ID="20">
-      <label xml:lang="de" text="Zentrale Einrichtungen der Hochschulkliniken (nur Humanmedizin)" />
+      <label xml:lang="de" text="20 Zentrale Einrichtungen der Hochschulkliniken (nur Humanmedizin)" />
       <category ID="970">
-        <label xml:lang="de" text="Kliniken insgesamt, Zentrale Dienste" />
+        <label xml:lang="de" text="970 Kliniken insgesamt, Zentrale Dienste" />
         <category ID="8900">
-          <label xml:lang="de" text="2097005 Zentrale Dienste der Kliniken allgemein" />
+          <label xml:lang="de" text="8900 Zentrale Dienste der Kliniken allgemein" />
         </category>
         <category ID="8905">
-          <label xml:lang="de" text="2097010 Ambulanz, Konsiliardienst" />
+          <label xml:lang="de" text="8905 Ambulanz, Konsiliardienst" />
         </category>
         <category ID="8910">
-          <label xml:lang="de" text="2097030 Klinikverwaltung (einschl. Rechenzentrum)" />
+          <label xml:lang="de" text="8910 Klinikverwaltung (einschl. Rechenzentrum)" />
         </category>
         <category ID="8915">
-          <label xml:lang="de" text="2097040 Pflegedienst" />
+          <label xml:lang="de" text="8915 Pflegedienst" />
         </category>
         <category ID="8920">
-          <label xml:lang="de" text="2097070 Zentrale Blutbank" />
+          <label xml:lang="de" text="8920 Zentrale Blutbank" />
         </category>
         <category ID="8930">
-          <label xml:lang="de" text="2097015 Apotheke" />
+          <label xml:lang="de" text="8930 Apotheke" />
         </category>
         <category ID="8940">
-          <label xml:lang="de" text="2097050 Reinigung, Wäsche, Sterilisation" />
+          <label xml:lang="de" text="8940 Reinigung, Wäsche, Sterilisation" />
         </category>
         <category ID="8950">
-          <label xml:lang="de" text="2097085 Zentrallabor" />
+          <label xml:lang="de" text="8950 Zentrallabor" />
         </category>
         <category ID="9710">
-          <label xml:lang="de" text="2097065 Zentral verwaltete Hörsäle und Lehrräume" />
+          <label xml:lang="de" text="9710 Zentral verwaltete Hörsäle und Lehrräume" />
         </category>
         <category ID="9720">
-          <label xml:lang="de" text="2097075 Zentrale wissenschaftliche Einrichtungen (einschl. Bibliothek)" />
+          <label xml:lang="de" text="9720 Zentrale wissenschaftliche Einrichtungen (einschl. Bibliothek)" />
         </category>
         <category ID="9730">
-          <label xml:lang="de" text="2097020 Energie, Wasser, Transport" />
+          <label xml:lang="de" text="9730 Energie, Wasser, Transport" />
         </category>
         <category ID="9740">
-          <label xml:lang="de" text="2097060 Werkstätten" />
+          <label xml:lang="de" text="9740 Werkstätten" />
         </category>
       </category>
       <category ID="980">
-        <label xml:lang="de" text="Soziale Einrichtungen der Kliniken" />
+        <label xml:lang="de" text="980 Soziale Einrichtungen der Kliniken" />
         <category ID="9800">
-          <label xml:lang="de" text="2098010 Soziale Einrichtungen der Kliniken allgemein" />
+          <label xml:lang="de" text="9800 Soziale Einrichtungen der Kliniken allgemein" />
         </category>
         <category ID="9805">
-          <label xml:lang="de" text="2098060 Sozialdienst, Patientenbetreuung" />
+          <label xml:lang="de" text="9805 Sozialdienst, Patientenbetreuung" />
         </category>
         <category ID="9810">
-          <label xml:lang="de" text="2098040 Krankenhausseelsorge" />
+          <label xml:lang="de" text="9810 Krankenhausseelsorge" />
         </category>
         <category ID="9815">
-          <label xml:lang="de" text="2098050 Patientenbücherei" />
+          <label xml:lang="de" text="9815 Patientenbücherei" />
         </category>
         <category ID="9820">
-          <label xml:lang="de" text="2098020 Dienstwohnungen" />
+          <label xml:lang="de" text="9820 Dienstwohnungen" />
         </category>
         <category ID="9825">
-          <label xml:lang="de" text="2098070 Wohnheime" />
+          <label xml:lang="de" text="9825 Wohnheime" />
         </category>
         <category ID="9830">
-          <label xml:lang="de" text="2098030 Kindergarten" />
+          <label xml:lang="de" text="9830 Kindergarten" />
         </category>
       </category>
       <category ID="986">
-        <label xml:lang="de" text="Übrige Ausbildungseinrichtungen der Kliniken" />
+        <label xml:lang="de" text="986 Übrige Ausbildungseinrichtungen der Kliniken" />
         <category ID="9860">
-          <label xml:lang="de" text="2098610 Schulen für nichtakademische Ausbildungsgänge" />
+          <label xml:lang="de" text="9860 Schulen für nichtakademische Ausbildungsgänge" />
         </category>
       </category>
       <category ID="990">
-        <label xml:lang="de" text="Mit den Kliniken verbundene sowie klinikfremde Einrichtungen" />
+        <label xml:lang="de" text="990 Mit den Kliniken verbundene sowie klinikfremde Einrichtungen" />
         <category ID="9900">
-          <label xml:lang="de" text="2099010 Mit den Kliniken verbundene Einrichtungen allgemein" />
+          <label xml:lang="de" text="9900 Mit den Kliniken verbundene Einrichtungen allgemein" />
         </category>
         <category ID="9910">
-          <label xml:lang="de" text="2099060 Öffentliches Gesundheitswesen (z.B. Blutalkoholunters.)" />
+          <label xml:lang="de" text="9910 Öffentliches Gesundheitswesen (z.B. Blutalkoholunters.)" />
         </category>
         <category ID="9920">
-          <label xml:lang="de" text="2099020 Blutbank anderer Träger" />
+          <label xml:lang="de" text="9920 Blutbank anderer Träger" />
         </category>
         <category ID="9930">
-          <label xml:lang="de" text="2099030 Geschäft, Gaststätte, Bank, Friseur" />
+          <label xml:lang="de" text="9930 Geschäft, Gaststätte, Bank, Friseur" />
         </category>
       </category>
     </category>
