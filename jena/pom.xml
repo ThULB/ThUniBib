@@ -12,7 +12,7 @@
   <name>ThUniBib Layout: Jena</name>
 
   <properties>
-    <mycore.version>2020.02-SNAPSHOT</mycore.version>
+    <mycore.version>2020.06.1-SNAPSHOT</mycore.version>
   </properties>
 
   <build>
