@@ -17,7 +17,7 @@
   <xsl:variable name="jquery-ui.version" select="'1.12.1'" />
   <xsl:variable name="chosen.version" select="'1.8.7'" />
   <xsl:variable name="bootstrap.version" select="'4.4.1'" />
-  <xsl:variable name="font-awesome.version" select="'5.5.0'" />
+  <xsl:variable name="font-awesome.version" select="'5.13.0'" />
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
