@@ -10,6 +10,7 @@
   <xsl:output method="html" encoding="UTF-8" media-type="text/html" indent="yes" xalan:indent-amount="2" />
 
   <xsl:param name="CurrentLang" />
+  <xsl:param name="UBO.Login.Path" />
 
   <xsl:variable name="jquery.version" select="'3.3.1'" />
   <xsl:variable name="jquery-ui.version" select="'1.12.1'" />
@@ -380,7 +381,7 @@
       <xsl:choose>
         <xsl:when test="/webpage/@id='login'" />
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-          <form action="{$WebApplicationBaseURL}login.xed" method="get">
+          <form action="{$WebApplicationBaseURL}{$UBO.Login.Path}" method="get">
             <input type="hidden" name="url" value="{$RequestURL}" />
             <button title="Anmelden" class="btn btn-link p-0" type="submit" name="{i18n:translate('component.user2.button.login')}" value="{i18n:translate('component.user2.button.login')}">
               <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
