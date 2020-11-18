@@ -314,7 +314,7 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <i class="fas fa-home pr-1"></i>
-                  <a href="https://www.uni-due.de/ub/">
+                  <a href="https://www.thulb.uni-jena.de/">
                     <xsl:value-of select="i18n:translate('navigation.UB')" />
                   </a>
                 </li>
