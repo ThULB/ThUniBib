@@ -184,7 +184,7 @@
                     </div>
                   </div>
                 </xed:bind>
-                <xed:bind xpath="condition[@field='objectProject'][@operator='='][@value='*']" />
+                <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']" />
               </xed:when>
               <xed:otherwise>
                 <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
