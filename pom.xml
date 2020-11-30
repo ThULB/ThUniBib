@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.mycore</groupId>
     <artifactId>mycore-parent</artifactId>
-    <version>42</version>
+    <version>45</version>
     <relativePath />
   </parent>
   <groupId>de.uni-jena.thulb.ubo</groupId>
@@ -55,5 +55,13 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </repository>
   </repositories>
-  
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub ThULB Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/ThULB/ThUniBib</url>
+    </repository>
+  </distributionManagement>
+
 </project>
