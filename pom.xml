@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -14,9 +14,14 @@
   <packaging>pom</packaging>
 
   <name>UBO ThUniBib</name>
-  <url>...</url>
   <description>Thüringer Universitäts-Bibliographien</description>
+  <url>...</url>
   <inceptionYear>2019</inceptionYear>
+
+  <properties>
+    <mycore.version>2020.06.1-SNAPSHOT</mycore.version>
+    <oaipmh.version>2.1</oaipmh.version>
+  </properties>
 
   <build>
     <plugins>
@@ -38,18 +43,13 @@
     </plugins>
   </build>
 
-  <modules>
-    <module>jena</module>
-    <module>ilmenau</module>
-  </modules>
-
   <repositories>
     <repository>
       <releases>
-	<enabled>false</enabled>
+        <enabled>false</enabled>
       </releases>
       <snapshots>
-	<enabled>true</enabled>
+        <enabled>true</enabled>
       </snapshots>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -63,5 +63,27 @@
       <url>https://maven.pkg.github.com/ThULB/ThUniBib</url>
     </repository>
   </distributionManagement>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.mycore</groupId>
+        <artifactId>oaipmh-harvester</artifactId>
+        <version>${oaipmh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mycore</groupId>
+        <artifactId>mycore-meta</artifactId>
+        <version>${mycore.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>jena</module>
+    <module>ilmenau</module>
+  </modules>
 
 </project>

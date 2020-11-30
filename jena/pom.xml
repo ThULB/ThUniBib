@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -11,10 +11,6 @@
   <artifactId>thunibib-jena</artifactId>
   <name>ThUniBib Layout: Jena</name>
 
-  <properties>
-    <mycore.version>2020.06.1-SNAPSHOT</mycore.version>
-  </properties>
-
   <build>
     <plugins>
       <plugin>
@@ -22,10 +18,10 @@
         <version>3.2.0</version>
         <executions>
           <execution>
-            <phase>install</phase>
             <goals>
               <goal>shade</goal>
             </goals>
+            <phase>install</phase>
             <configuration>
               <artifactSet>
                 <includes>
@@ -80,9 +76,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-solrj</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.mycore</groupId>
       <artifactId>mycore-base</artifactId>
-      <version>${mycore.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.apache.logging.log4j</groupId>
@@ -91,24 +90,16 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.apache.solr</groupId>
-      <artifactId>solr-solrj</artifactId>
-      <version>7.7.2</version>
+      <groupId>org.mycore</groupId>
+      <artifactId>mycore-mods</artifactId>
     </dependency>
     <dependency>
       <groupId>org.mycore</groupId>
-      <artifactId>mycore-mods</artifactId>
-      <version>${mycore.version}</version>
-    </dependency>
-    <dependency>
-    <groupId>org.mycore</groupId>
-    <artifactId>oaipmh</artifactId>
-    <version>1.0</version>
+      <artifactId>oaipmh</artifactId>
     </dependency>
     <dependency>
       <groupId>org.mycore</groupId>
       <artifactId>oaipmh-harvester</artifactId>
-      <version>1.0</version>
     </dependency>
   </dependencies>
 
