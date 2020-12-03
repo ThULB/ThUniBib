@@ -67,9 +67,9 @@
     <body class="d-flex flex-column">
       <!-- <xsl:call-template name="layout.headerline" /> -->
       <xsl:call-template name="layout.header" />
+      <xsl:call-template name="layout.headline"/>
       <xsl:call-template name="layout.navigation" />
       <xsl:call-template name="layout.breadcrumbPath"/>
-      <xsl:call-template name="layout.headline"/>
       <!-- <xsl:call-template name="layout.topcontainer" /> -->
       <xsl:call-template name="layout.body" />
       <xsl:call-template name="layout.footer" />
@@ -255,7 +255,7 @@
       <div class="container" id="">
         <div class="row">
           <div class="col header-brand">
-            <a title="Zur Startseite" class="imageLink" href="http://www.uni-jena.de/">
+            <a href="http://www.tu-ilmenau.de/" class="imageLink" title="Zur Startseite der TU Ilmenau">
               <div id="wordmark" />
             </a>
           </div>
@@ -311,7 +311,7 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <i class="fas fa-home pr-1"></i>
-                  <a href="https://www.uni-jena.de/">
+                  <a href="https://www.tu-ilmenau.de/ub/">
                     <xsl:value-of select="i18n:translate('navigation.UB')" />
                   </a>
                 </li>
