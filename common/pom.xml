@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>de.uni-jena.thulb.ubo</groupId>
     <artifactId>ThUniBib</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>thunibib-ilmenau</artifactId>
-  <name>ThUniBib Layout: Ilmenau</name>
+  <artifactId>thunibib-common</artifactId>
+  <name>ThUniBib Common Files</name>
   <dependencies>
     <dependency>
-      <groupId>de.uni-jena.thulb.ubo</groupId>
-      <artifactId>thunibib-common</artifactId>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-solrj</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mycore</groupId>
+      <artifactId>mycore-base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mycore</groupId>
+      <artifactId>mycore-mods</artifactId>
     </dependency>
   </dependencies>
 </project>

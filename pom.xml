@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>org.mycore</groupId>
     <artifactId>mycore-parent</artifactId>
@@ -12,17 +11,14 @@
   <artifactId>ThUniBib</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-
   <name>UBO ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
   <url>...</url>
   <inceptionYear>2019</inceptionYear>
-
   <properties>
     <mycore.version>2020.06.1-SNAPSHOT</mycore.version>
     <oaipmh.version>2.1</oaipmh.version>
   </properties>
-
   <build>
     <plugins>
       <plugin>
@@ -37,7 +33,6 @@
               <MCR-Auto-Deploy>true</MCR-Auto-Deploy>
             </manifestEntries>
           </archive>
-          <outputDirectory>${dir}</outputDirectory>
         </configuration>
       </plugin>
     </plugins>
@@ -63,9 +58,13 @@
       <url>https://maven.pkg.github.com/ThULB/ThUniBib</url>
     </repository>
   </distributionManagement>
-
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>de.uni-jena.thulb.ubo</groupId>
+        <artifactId>thunibib-common</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
       <dependency>
         <groupId>org.mycore</groupId>
         <artifactId>oaipmh-harvester</artifactId>
@@ -80,8 +79,8 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <modules>
+    <module>common</module>
     <module>jena</module>
     <module>ilmenau</module>
   </modules>

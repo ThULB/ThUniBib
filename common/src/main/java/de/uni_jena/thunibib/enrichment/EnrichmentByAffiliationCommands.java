@@ -17,10 +17,13 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import org.jdom2.xpath.XPathExpression;
+import org.jdom2.xpath.XPathFactory;
 import org.mycore.access.MCRAccessException;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
+import org.mycore.common.MCRSessionMgr;
 import org.mycore.common.config.MCRConfiguration;
+import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -32,18 +35,20 @@ import org.mycore.mods.enrichment.MCREnrichmentResolver;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrUtils;
 import org.xml.sax.InputSource;
-import org.jdom2.xpath.XPathFactory;
 
 import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -84,6 +89,61 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         LOGGER.info("Max records that are queried from lobid: {}", LOBID_MAX_RECORDS);
     }
 
+
+    private static final String QUERY_PLACEHOLDER = "${query}";
+    private static final int BATCH_SIZE = 10;
+    private static final String PICA_URL = "https://sru.k10plus.de/opac-de-ilm1?version=1.1&operation=searchRetrieve&query="
+        + QUERY_PLACEHOLDER + "m&maximumRecords="+BATCH_SIZE+"&recordSchema=mods36";
+    private static final String PICA_IMPORT_SYNTAX = "test import by pica query with {0} and start {1} and status {2}";
+    private static final String ENRICH_PPN_SYNTAX = "test enrich ppn {0} with status {1}";
+
+    /* pica.lsw%3Dil */
+    @MCRCommand(syntax = PICA_IMPORT_SYNTAX, help = "imports all objects for a specific query",order = 5)
+    public static List<String> testImportByPicaQuery(String picaQuery, String startStr, String status) {
+        final String request = buildRequestURL(picaQuery, startStr);
+        final Element result = Objects.requireNonNull(MCRURIResolver.instance().resolve(request));
+
+        XPathExpression<Element> r = XPathFactory.instance().compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
+                Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
+        List<Element> recordIdentifierElements = r.evaluate(result);
+
+        List<String> commands = new ArrayList<>(recordIdentifierElements.size());
+
+        recordIdentifierElements.stream().map(Element::getTextNormalize)
+                .map((ppn) -> ENRICH_PPN_SYNTAX.replace("{0}",ppn).replace("{1}", status))
+                .forEach(commands::add);
+
+        final String numberOfRecordsStr = result.getChildTextNormalize("numberOfRecords", NAMESPACE_ZS);
+        final int numberOfRecords = Integer.parseInt(numberOfRecordsStr);
+        final int start = Integer.parseInt(startStr);
+
+        if((start+BATCH_SIZE)<numberOfRecords){
+            commands.add(PICA_IMPORT_SYNTAX.replace("{0}",picaQuery)
+                    .replace("{1}",""+(start+BATCH_SIZE))
+                    .replace("{2}",status));
+        }
+
+        return commands;
+    }
+
+    @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
+    public static void testEnrichPPN(String ppnID,String status){
+        MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
+        new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
+        LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
+        createOrUpdate(wrappedMods, status);
+    }
+
+    public static String buildRequestURL(String query, String start) {
+        return PICA_URL.replace(QUERY_PLACEHOLDER, query) + "&startRecord=" + start;
+    }
+
+    private final static SimpleDateFormat ID_BUILDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+
+    private static String getImportID() {
+        return ID_BUILDER.format(new Date(MCRSessionMgr.getCurrentSession().getLoginTime()));
+    }
 
     @MCRCommand(syntax = "test import by affiliation with GND {0} and status {1}",
             help = "test import of publications by affiliation GND, imported documents get status one of 'confirmed', " +
@@ -307,7 +367,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     }
 
     private static void createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
-
+        wrappedMCRobj.setServiceFlag("importID","SRU-PPN-" + getImportID());
         MCRObject object = wrappedMCRobj.getMCRObject();
         // save object
         try {

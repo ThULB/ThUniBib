@@ -10,7 +10,6 @@
   </parent>
   <artifactId>thunibib-jena</artifactId>
   <name>ThUniBib Layout: Jena</name>
-
   <build>
     <plugins>
       <plugin>
@@ -35,7 +34,6 @@
       </plugin>
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <snapshots>
@@ -73,8 +71,15 @@
       <url>http://artifactory.mycore.de/mycore-snapshots</url>
     </repository>
   </repositories>
-
   <dependencies>
+    <dependency>
+      <groupId>de.uni-jena.thulb.ubo</groupId>
+      <artifactId>thunibib-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-solrj</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.apache.solr</groupId>
       <artifactId>solr-solrj</artifactId>
@@ -102,5 +107,4 @@
       <artifactId>oaipmh-harvester</artifactId>
     </dependency>
   </dependencies>
-
 </project>
