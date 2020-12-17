@@ -77,26 +77,6 @@ a {
   letter-spacing: 0.02em;
 }
 
-.nameIdentifier {
-  @extend .badge, .badge-primary;
-  a {
-    color: white;
-    text-transform: capitalize;
-  }
-  vertical-align: top;
-  margin-right: 0.25rem;
-  background-color: #1d60bd;
-  border-radius: 0.2rem;
-}
-
-.nameIdentifier:first-child {
-  margin-left: 0.25rem;
-}
-
-.nameIdentifier:last-child {
-  margin-right: 0rem;
-}
-
 .badge-secondary {
   color: #333939;
   background-color: #e7e4db;

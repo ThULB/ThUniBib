@@ -11,8 +11,9 @@
 
   <xsl:output method="html" encoding="UTF-8" media-type="text/html" indent="yes" xalan:indent-amount="2" />
 
-  <xsl:param name="CurrentLang" />
   <xsl:param name="UBO.Login.Path" />
+  <xsl:param name="UBO.Mail.Feedback" />
+
 
   <xsl:variable name="jquery.version" select="'3.3.1'" />
   <xsl:variable name="jquery-ui.version" select="'1.12.1'" />
@@ -90,6 +91,9 @@
           </div>
         </div>
       </div>
+      <xsl:if test="string-length($UBO.Mail.Feedback)&gt;0">
+        <xsl:call-template name="feedback"/>
+      </xsl:if>
     </div>
   </xsl:template>
 
@@ -497,6 +501,12 @@
       <a href="http://www.mycore.de">
         <img src="{$WebApplicationBaseURL}images/mycore_logo_small_invert.png" title="{$mcr_version}" alt="powered by MyCoRe" />
       </a>
+    </div>
+  </xsl:template>
+  
+  <xsl:template name="feedback">
+    <div id="feedback">
+      <a href="mailto:{$UBO.Mail.Feedback}?subject=[Bibliografie%20der%20FSU%20Jena]%20-%20Feedback&body=Rückmeldung%20zu%20{$RequestURL}:">Feedback</a>
     </div>
   </xsl:template>
 
