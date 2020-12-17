@@ -506,7 +506,7 @@
   
   <xsl:template name="feedback">
     <div id="feedback">
-      <a href="mailto:{$UBO.Mail.Feedback}?subject=[Bibliografie%20der%20FSU%20Jena]%20-%20Feedback&body=Rückmeldung%20zu%20{$RequestURL}:">Feedback</a>
+      <a href="mailto:{$UBO.Mail.Feedback}?subject=[Bibliografie%20der%20FSU%20Jena]%20-%20Feedback&amp;body=Rückmeldung%20zu%20{$RequestURL}:">Feedback</a>
     </div>
   </xsl:template>
 
