@@ -282,7 +282,7 @@
             <span class="fas fa-bookmark mr-1" aria-hidden="true" />
             <span class="mr-1"><xsl:value-of select="i18n:translate('basket')" />:</span>
             <span class="mr-1" id="basket-info-num">
-              <xsl:value-of xmlns:basket="xalan://unidue.ubo.basket.BasketUtils" select="basket:size()" />
+              <xsl:value-of xmlns:basket="xalan://org.mycore..ubo.basket.BasketUtils" select="basket:size()" />
             </span>
             <span><xsl:value-of select="i18n:translate('ubo.publications')" /></span>
       </a>

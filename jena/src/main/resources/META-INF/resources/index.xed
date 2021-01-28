@@ -52,7 +52,7 @@
 
               <!-- Standard users must only find confirmed publications, admins find all publications -->
               <xed:choose>
-                <xed:when test="not(xed:call-java('unidue.ubo.AccessControl','currentUserIsAdmin'))">
+                <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
                   <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
                 </xed:when>
                 <xed:otherwise>

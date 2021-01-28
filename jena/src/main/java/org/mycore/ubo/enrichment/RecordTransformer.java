@@ -1,36 +1,16 @@
-package unidue.ubo.enrichment;
+package org.mycore.ubo.enrichment;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jdom2.Element;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
-import org.jdom2.transform.JDOMResult;
-import org.jdom2.transform.JDOMSource;
 import org.mycore.common.MCRClassTools;
-import org.mycore.oai.pmh.CannotDisseminateFormatException;
-import org.mycore.oai.pmh.Header;
-import org.mycore.oai.pmh.IdDoesNotExistException;
-import org.mycore.oai.pmh.Record;
-import org.mycore.oai.pmh.harvester.HarvestException;
 import org.mycore.oai.pmh.harvester.Harvester;
 import org.mycore.oai.pmh.harvester.HarvesterBuilder;
 import org.mycore.oai.pmh.harvester.HarvesterUtil;
 
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamSource;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Stream;
 

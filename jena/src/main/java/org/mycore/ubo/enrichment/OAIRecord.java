@@ -1,4 +1,4 @@
-package unidue.ubo.enrichment;
+package org.mycore.ubo.enrichment;
 
 import org.jdom2.Document;
 import org.mycore.oai.pmh.Record;
