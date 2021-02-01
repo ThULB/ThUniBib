@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="dozbib">
+ <title xml:lang="de">Willkommen bei der Universitätsbibliografie der TU Ilmenau</title>
+ <title xml:lang="en">Welcome to Bibliography of TU Ilmenau</title>
+ 
+ <article class="card mb-3" xml:lang="de">
+   <div class="card-body">
+     <h3>Die Universitätsbibliografie</h3>
+      <p>
+        ist der zentrale Publikationsnachweis der TU Ilmenau, der online die Publikationstätigkeit der Hochschulangehörigen verzeichnet.
+        Die Universitätsbibliografie befindet sich derzeit im Aufbau.
+      </p>
+      <h3>Gehören Sie der TU Ilmenau an?</h3>
+      <p>
+        Helfen Sie uns bei der Vervollständigung!<br/>
+        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliografie melden</a>
+      </p>
+   </div>
+ </article>
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <h3>The University Bibliography</h3>
+      <p>
+        is the central resource of TU Ilmenau that lists all publication activities of the university members.
+        The bibliography is currently under construction.
+      </p>
+      <h3>
+        As a member of TU Ilmenau</h3>
+      <p>
+        Help us to complete the bibliography!<br/>
+        <a href="../newPublication.xed">Here you can register your own publication</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3">
+    <div class="card-body">
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">
+        <div class="form-group form-inline mb-0">
+
+          <xed:bind xpath="/query">
+            <xed:bind xpath="@mask" default="index.xed" />
+            <xed:bind xpath="@numPerPage" default="10" />
+            <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
+              <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
+                <label for="input" class="mycore-form-label">
+                  <xed:output i18n="ubo.search.simple" />
+                </label>
+                <input id="input" type="text" class="mycore-form-input form-control-sm mr-2" />
+              </xed:bind>
+
+              <!-- Standard users must only find confirmed publications, admins find all publications -->
+              <xed:choose>
+                <xed:when test="not(xed:call-java('unidue.ubo.AccessControl','currentUserIsAdmin'))">
+                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
+                </xed:when>
+                <xed:otherwise>
+                  <xed:bind xpath="condition[@field='objectProject'][@operator='='][@value='ubo']" />
+                </xed:otherwise>
+              </xed:choose>
+
+            </xed:bind>
+
+            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]" />
+
+          </xed:bind>
+
+          <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
+            <xed:output i18n="button.search" />
+          </button>
+
+        </div>
+      </xed:form>
+    </div>
+  </article>
+
+  <xinclude uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:%5B2017+TO+2018%5D&amp;rows=4&amp;sort=created+desc,year+desc&amp;facet=false&amp;fl=id,year" />
+  
+  <aside id="sidebar">
+    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0" />
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY" />
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID" />
+ 
+    <article class="card" xml:lang="de">
+      <div class="card-body bg-alternative">
+        <hgroup>
+          <h3>Kontakt:</h3>
+        </hgroup>
+        <p>
+	  <a href="https://www.tu-ilmenau.de/ub/allgemein/ansprechpartner/">
+            <span>Kontakt zur Universitätsbibliothek Ilmenau</span>
+          </a>
+        </p>
+        <p>
+          Universitätsbibliothek Ilmenau<br/>
+          Tel.: +49 3677 69-4531
+        </p>
+      </div>
+    </article>
+    <article class="card" xml:lang="en">
+      <div class="card-body bg-alternative">
+        <hgroup>
+          <h3>Contact:</h3>
+        </hgroup>
+        <p>
+	  <a href="https://www.tu-ilmenau.de/ub/allgemein/ansprechpartner/">
+            <span>Contact to UB Ilmenau</span>
+          </a>
+        </p>
+        <p>
+          University library<br/>
+          Phone: +49 3677 69-4531
+        </p>
+      </div>
+    </article>
+  </aside>
+    
+</webpage>
