@@ -468,18 +468,19 @@
 
   <!-- Imprintline (below footer) -->
   <xsl:template name="layout.imprintline">
-    <!-- TODO: use navigation.xml to generate this AND use correct language! -->
+    <xsl:variable name="metanavigation" select="$navigation.tree/item[@role='meta']/item"/>
     <div class="imprintlinewrapper">
-      <span>
-        <a href="/contact.xml">Kontakt</a>
-      </span>
-      <span>
-        <a href="/datenschutz/">Datenschutz</a>
-      </span>
-      <span>
-        <a href="/impressum/">Impressum</a>
-      </span>
+      <!-- Find the item that is the root of the navigation tree to display -->
+      <xsl:for-each select="$metanavigation" >
+        <span>
+          <a href="{$WebApplicationBaseURL}{@ref}">
+            <xsl:copy-of select="@target" />
+            <xsl:call-template name="output.label.for.lang" />
+          </a>
+        </span>
+      </xsl:for-each>
     </div>
+
   </xsl:template>
 
 </xsl:stylesheet>

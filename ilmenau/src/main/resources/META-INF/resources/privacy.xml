@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<webpage lastModified="$Date$" id="contact">
+  <title xml:lang="de">Datenschutzerklärung</title>
+  <title xml:lang="en">Privacy</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <p>
+        Es gelten die <a href="#">Datenschutzbestimmungen der TU Ilmenau</a>,
+        zusätzlich gilt:
+      </p>
+
+      <h2>Zugriffsdaten</h2>
+      <p>
+        Über jeden Zugriff auf die Bibliografie werden Zugriffsdaten in so genannten Serverlogfiles erhoben. Zu den Zugriffsdaten gehören:
+        Der Name der aufgerufenen Webseite oder Datei, das Datum und die Uhrzeit des Abrufs, die übertragene Datenmenge, eine Meldung über einen erfolgreichen Aufruf,
+        der Browsertyp nebst Version, das Betriebssystem des Nutzers, die Referrer URL (die zuvor besuchte Seite) sowie die IP-Adresse. Diese Protokolldaten werden
+        nur für statistische Auswertungen zum Zweck des Betriebs, der Sicherheit und der Optimierung des Angebotes verwendet. Dazu werden die Daten anonymisiert und nach
+        der Auswertung innerhalb kurzer Zeit wieder gelöscht.
+      </p>
+      
+      <p>Noch zu erarbeiten: Text über Cookie-Nutzung und LDAP-Daten.</p>
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+      <div class="card-body">
+        <p>
+          under construction ...
+        </p>
+      </div>
+  </article>
+
+</webpage>
