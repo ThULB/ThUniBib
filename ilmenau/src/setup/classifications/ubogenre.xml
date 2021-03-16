@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ubogenre">
+
+  <label xml:lang="en" text="genre" description="publication types of university bibliography" />
+  <label xml:lang="de" text="Genre" description="Publikationstypen der Universitätsbibliographie" />
+
+  <categories>
+    <category ID="article">
+      <label xml:lang="x-hosts" text="journal blog standalone" />
+      <label xml:lang="de" text="Artikel/Aufsatz" />
+      <label xml:lang="en" text="article/chapter" />
+      <category ID="abstract">
+        <label xml:lang="de" text="Abstract" />
+        <label xml:lang="en" text="abstract" />
+        <label xml:lang="x-hosts" text="journal proceedings standalone" />
+        <label xml:lang="x-marcgt" text="abstract_or_summary" /> 
+      </category>
+      <category ID="chapter">
+        <label xml:lang="de" text="Buchaufsatz/Kapitel" />
+        <label xml:lang="en" text="book article/chapter" />
+        <label xml:lang="x-hosts" text="collection proceedings festschrift" />
+        <label xml:lang="x-marcgt" text="article" />
+      </category>
+      <category ID="preface">
+        <label xml:lang="x-hosts" text="collection proceedings festschrift lexicon journal" />
+        <label xml:lang="de" text="Vorwort / Nachwort" />
+        <label xml:lang="en" text="Preface (foreword) / Postface" />
+      </category>
+      <category ID="speech">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="en" text="Lecture / Speech" />
+        <label xml:lang="de" text="Vortrag" />
+      </category>
+      <category ID="entry">
+        <label xml:lang="en" text="Encyclopedia entry" />
+        <label xml:lang="x-hosts" text="lexicon" />
+        <label xml:lang="de" text="Lexikoneintrag" />
+      </category>
+       <category ID="review">
+        <label xml:lang="en" text="Review" />
+        <label xml:lang="x-hosts" text="journal collection" />
+        <label xml:lang="de" text="Rezension" />
+        <label xml:lang="x-marcgt" text="review" />
+      </category>
+    </category>
+    <category ID="thesis">
+      <label xml:lang="de" text="Hochschulschrift" />
+      <label xml:lang="en" text="thesis" />
+      <category ID="bachelor_thesis">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="x-marcgt" text="thesis" />
+        <label xml:lang="de" text="Bachelorarbeit " />
+        <label xml:lang="en" text="Bachelor thesis" />
+      </category>
+      <category ID="diploma_thesis">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="x-marcgt" text="thesis" />
+        <label xml:lang="en" text="Diploma thesis" />
+        <label xml:lang="de" text="Diplomarbeit" />
+      </category>
+      <category ID="dissertation">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="x-marcgt" text="thesis" />
+        <label xml:lang="en" text="dissertation" />
+        <label xml:lang="de" text="Dissertation" />
+        <label xml:lang="x-legacy" text="doctoralThesis" />
+      </category>
+      <category ID="habilitation">
+        <label xml:lang="de" text="Habilitationsschrift" />
+        <label xml:lang="en" text="Habilitation" />
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="x-marcgt" text="thesis" />
+      </category>
+      <category ID="master_thesis">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="x-marcgt" text="thesis" />
+        <label xml:lang="en" text="Master thesis" />
+        <label xml:lang="de" text="Masterarbeit" />
+      </category>
+    </category>
+    <category ID="collection">
+      <label xml:lang="de" text="Sammelwerk" />
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="en" text="collection" />
+      <label xml:lang="x-marcgt" text="book" />
+      <category ID="proceedings">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="en" text="Proceedings" />
+        <label xml:lang="de" text="Tagungsband" />
+        <label xml:lang="x-marcgt" text="book" />
+      </category>
+      <category ID="festschrift">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="en" text="Festschrift" />
+        <label xml:lang="de" text="Festschrift" />
+      </category>
+      <category ID="lexicon">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="en" text="Lexicon" />
+        <label xml:lang="de" text="Lexikon" />
+      </category>
+    </category>
+    <category ID="book">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="de" text="Buch" />
+      <label xml:lang="en" text="book" />
+    </category>
+    <category ID="journal">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="de" text="Zeitschrift" />
+      <label xml:lang="en" text="journal" />
+    </category>
+    <category ID="blog">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="de" text="Blog" />
+      <label xml:lang="en" text="blog" />
+    </category>
+    <category ID="series">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="de" text="Serie" />
+      <label xml:lang="en" text="series" />      
+    </category>
+    <category ID="poster">
+      <label xml:lang="en" text="Poster" />
+      <label xml:lang="de" text="Poster" />
+      <label xml:lang="x-hosts" text="proceedings standalone" />
+    </category>
+    <category ID="interview">
+      <label xml:lang="x-hosts" text="journal standalone" />
+      <label xml:lang="en" text="Interview" />
+      <label xml:lang="de" text="Interview" />
+    </category>
+    <category ID="researchpaper">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="en" text="Research Paper" />
+      <label xml:lang="de" text="Forschungsbericht" />
+      <label xml:lang="x-marcgt" text="reporting" />
+    </category>
+    <category ID="workingpaper">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="en" text="Working Paper" />
+      <label xml:lang="de" text="Working Paper" />
+      <label xml:lang="x-marcgt" text="book" />
+    </category>
+  </categories>
+</mycoreclass>
