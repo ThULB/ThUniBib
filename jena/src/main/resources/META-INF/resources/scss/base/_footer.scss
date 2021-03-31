@@ -45,19 +45,19 @@ footer .info {
 
 @include media-breakpoint-up(sm) {
   footer .ribbon {
-    max-width: 600px;
+    max-width: 570px;
   }
 }
 
 @include media-breakpoint-up(md) {
   footer .ribbon {
-    max-width: 780px;
+    max-width: 720px;
   }
 }
 
 @include media-breakpoint-up(lg) {
   footer .ribbon {
-    max-width: 1020px;
+    max-width: 990px;
   }
 }
 
