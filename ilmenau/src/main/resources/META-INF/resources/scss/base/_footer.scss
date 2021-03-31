@@ -26,28 +26,3 @@ footer .info {
     letter-spacing: 0.02em;
     margin-right: 32px;
 }
-
-@include media-breakpoint-up(sm) {
-  footer .ribbon {
-    max-width: 540px;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  footer .ribbon {
-    max-width: 720px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  footer .ribbon {
-    max-width: 960px;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  footer .ribbon {
-    max-width: 1140px;
-  }
-}
-

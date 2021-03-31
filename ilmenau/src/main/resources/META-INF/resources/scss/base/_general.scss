@@ -3,10 +3,6 @@ body {
   font-family: 'Roboto',Arial,sans-serif;
 }
 
-@media only screen and (min-width : 1200px) {
-    .container { width: 1140px; }
-}
-
 .card {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .1rem;

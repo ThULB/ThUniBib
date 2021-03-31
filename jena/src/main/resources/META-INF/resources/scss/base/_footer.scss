@@ -13,7 +13,6 @@ footer .container {
 }
 
 footer .ribbon {
-  max-width: 1140px;
   background-image: url(/images/footer_background_default.svg);
   background-repeat: no-repeat;
   background-position: top center;
@@ -46,25 +45,25 @@ footer .info {
 
 @include media-breakpoint-up(sm) {
   footer .ribbon {
-    max-width: 540px;
+    max-width: 600px;
   }
 }
 
 @include media-breakpoint-up(md) {
   footer .ribbon {
-    max-width: 720px;
+    max-width: 780px;
   }
 }
 
 @include media-breakpoint-up(lg) {
   footer .ribbon {
-    max-width: 960px;
+    max-width: 1020px;
   }
 }
 
 @include media-breakpoint-up(xl) {
   footer .ribbon {
-    max-width: 1140px;
+    max-width: 1260px;
   }
 }
 
