@@ -93,7 +93,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static final String QUERY_PLACEHOLDER = "${query}";
     private static final int BATCH_SIZE = 10;
     private static final String PICA_URL = "https://sru.k10plus.de/opac-de-ilm1?version=1.1&operation=searchRetrieve&query="
-        + QUERY_PLACEHOLDER + "m&maximumRecords="+BATCH_SIZE+"&recordSchema=mods36";
+        + QUERY_PLACEHOLDER + "&maximumRecords="+BATCH_SIZE+"&recordSchema=mods36";
     private static final String PICA_IMPORT_SYNTAX = "test import by pica query with {0} and start {1} and status {2}";
     private static final String ENRICH_PPN_SYNTAX = "test enrich ppn {0} with status {1}";
 
