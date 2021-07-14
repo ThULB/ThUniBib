@@ -128,10 +128,16 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
     public static void testEnrichPPN(String ppnID,String status){
-        MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
-        new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
-        LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
-        createOrUpdate(wrappedMods, status);
+        // 2. check against Solr (duplicates across multiple imports)
+        String ppn_field = "id_" + PPN_IDENTIFIER;
+        if(isAlreadyStored(ppn_field , ppnID)) {
+            LOGGER.info("Found duplicate in Solr by field {} and value {}", ppn_field, ppnID);
+        } else {
+            MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
+            new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
+            LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
+            createOrUpdate(wrappedMods, status);
+        }
     }
 
     public static String buildRequestURL(String query, String start) {
