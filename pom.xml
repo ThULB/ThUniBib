@@ -16,7 +16,7 @@
   <url>...</url>
   <inceptionYear>2019</inceptionYear>
   <properties>
-    <mycore.version>2020.06.2-SNAPSHOT</mycore.version>
+    <mycore.version>2020.06.3-SNAPSHOT</mycore.version>
     <oaipmh.version>2.1</oaipmh.version>
   </properties>
   <build>

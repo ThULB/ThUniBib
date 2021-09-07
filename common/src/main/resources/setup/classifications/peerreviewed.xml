@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="peerreviewed">
+
+  <label xml:lang="en" text="Peer Reviewed" description="todo" />
+  <label xml:lang="de" text="Peer Reviewed" description="todo" />
+
+  <categories>
+    <category ID="true">
+      <label xml:lang="de" text="Ja" />
+      <label xml:lang="en" text="Yes" />
+    </category>
+    <category ID="false">
+      <label xml:lang="de" text="Nein" />
+      <label xml:lang="en" text="No" />
+    </category>
+  </categories>
+
+</mycoreclass>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="partOf">
+
+  <label xml:lang="en" text="Part of bibliography" description="Publication was created while belonging to the institution and is part of the collection guidelines" />
+  <label xml:lang="de" text="Teil der Bibliographie" description="Publikation ist während der Zugehörigkeit zur Hochschule entstanden und Teil der Sammlungsrichtlinie" />
+
+  <categories>
+    <category ID="true">
+      <label xml:lang="de" text="Ja" />
+      <label xml:lang="en" text="Yes" />
+    </category>
+    <category ID="false">
+      <label xml:lang="de" text="Nein" />
+      <label xml:lang="en" text="No" />
+    </category>
+  </categories>
+
+</mycoreclass>
