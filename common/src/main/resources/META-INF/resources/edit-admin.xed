@@ -51,11 +51,11 @@
               <legend>Publikation:</legend>
               <xed:include uri="webapp:import-editor.xed" ref="genre" />
               <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource" />
-              <!-- Datenträgertyp -->
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType" />
               <xed:include uri="webapp:import-editor.xed"   ref="oa" />
-              <!-- Lizenztyp -->
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license" />
               <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed" />
-              <!-- Zweitveröffentlichung ja/nein -->
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication" />
               <xed:include uri="webapp:import-editor.xed" ref="title.complex" />
               <xed:include uri="webapp:import-editor.xed" ref="person.role" />
               <xed:include uri="webapp:import-editor.xed" ref="corporate.role" />
@@ -72,9 +72,13 @@
               <!-- Koordinaten -->
               <xed:include uri="webapp:import-editor.xed" ref="identifier" />
               <xed:include uri="webapp:import-editor.xed" ref="url" />
-
           </fieldset>
-          <!-- xed:include uri="webapp:import-editor.xed" ref="relations" / -->
+          <fieldset>
+            <legend><xed:output i18n="ubo.abstract.information" />:</legend>
+            <xed:include uri="webapp:import-editor.xed" ref="topics" />
+            <xed:include uri="webapp:import-editor.xed" ref="abstract" />
+          </fieldset>
+          <xed:include uri="webapp:import-editor.xed" ref="relations" />
           <fieldset>
             <legend>erschienen in:</legend>
             <xed:bind xpath="mods:relatedItem[@type='host']">
@@ -95,23 +99,9 @@
                   <xed:include uri="webapp:import-editor.xed" ref="pages" />
                   <xed:include uri="webapp:import-editor.xed" ref="article_number" />
                   <xed:include uri="webapp:import-editor.xed" ref="identifier" />
-                  
-                  <!-- xed:include uri="webapp:import-editor.xed" ref="oa" />
-                  <xed:include uri="webapp:import-editor.xed" ref="person.role" />
-                  <xed:include uri="webapp:import-editor.xed" ref="conference" />
-                  <xed:include uri="webapp:import-editor.xed" ref="place" />
-                  <xed:include uri="webapp:import-editor.xed" ref="year" />
-                  <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-                  <xed:include uri="webapp:import-editor.xed" ref="edition" />
-                  <xed:include uri="webapp:import-editor.xed" ref="series" />
-                  <xed:include uri="webapp:import-editor.xed" ref="url" / -->
                 </xed:otherwise>
               </xed:choose>
             </xed:bind>
-          </fieldset>
-          <fieldset>
-            <xed:include uri="webapp:import-editor.xed" ref="topics" />
-            <xed:include uri="webapp:import-editor.xed" ref="abstract" />
           </fieldset>
            <fieldset>
             <legend><xed:output i18n="ubo.project.information" />:</legend>

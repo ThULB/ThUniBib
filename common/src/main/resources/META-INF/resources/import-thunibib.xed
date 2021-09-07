@@ -64,4 +64,61 @@
     </xed:bind>
   </xed:template>
 
+  <xed:template id="thunibib.mediaType">
+    <xed:bind xpath="mods:classification[@classID='mediaType']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.mediatype" />:</label>
+        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
+          <option value=""><xed:output i18n="search.select" /></option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mediaType" />
+        </select>
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.mediatype}">
+          <i class="fas fa-info"></i>
+        </a>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="thunibib.republication">
+    <xed:bind xpath="mods:classification[@classID='republication']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.republication" />:</label>
+        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
+          <option value=""><xed:output i18n="search.select" /></option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:republication" />
+        </select>
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.republication}">
+          <i class="fas fa-info"></i>
+        </a>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="thunibib.license">
+    <xed:bind xpath="mods:accessCondition[@type='use and reproduction'][@classID='licenses']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.license" />:</label>
+        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
+          <option value=""><xed:output i18n="search.select" /></option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:licenses" />
+        </select>
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.license}">
+          <i class="fas fa-info"></i>
+        </a>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="thunibib.dateIssued">
+    <xed:bind xpath="mods:originInfo/mods:dateIssued[@encoding='w3cdtf']">
+      <div class="form-inline form-group">
+        <label for="year" class="mycore-form-label">
+          *<xed:output i18n="ubo.date.issued" />:
+        </label>
+        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text" placeholder="{i18n:ubo.date.issued.placeholder}" />
+      </div>
+      <xed:validate matches="\d{4}(\-\d{2}(\-\d{2})?)?" type="datetime" format="yyyy;yyyy-MM;yyyy-MM-dd" i18n="ubo.date.issued.validation" display="global" />
+    </xed:bind>
+  </xed:template>
+
 </xed:templates>

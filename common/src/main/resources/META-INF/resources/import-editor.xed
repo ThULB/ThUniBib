@@ -601,7 +601,7 @@
   </xed:template>
 
   <xed:template id="doi.urn.duepublico">
-    <xed:repeat xpath="mods:identifier[contains('doi urn pubmed ieee scopus arxiv duepublico duepublico2',@type)]">
+    <xed:repeat xpath="mods:identifier[contains('doi urn pubmed ieee scopus arxiv dbt dpm',@type)]">
       <div class="form-inline form-group">
         <div class="mycore-form-label">
           <xed:bind xpath="@type" default="doi">
@@ -612,8 +612,8 @@
               <option value="ieee">IEEE ID</option>
               <option value="arxiv">arXiv.org ID</option>
               <option value="scopus">Scopus ID</option>
-              <option value="duepublico">DuEPublico 1 ID</option>
-              <option value="duepublico2">DuEPublico 2 ID</option>
+              <option value="dbt">DBT ID</option>
+              <option value="dpm">Patentnummer</option>
             </select>:
           </xed:bind>
         </div>
@@ -624,7 +624,7 @@
   </xed:template>
 
   <xed:template id="identifier">
-    <xed:repeat xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn hbz mms scopus evaluna isi isbn issn duepublico duepublico2',@type)]">
+    <xed:repeat xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm',@type)]">
       <div class="form-inline form-group ubo-repeat-group">
         <div class="mycore-form-label">
           <xed:bind xpath="@type" default="doi">
@@ -640,12 +640,9 @@
               <option value="zdb">ZDB ID</option>
               <option value="scopus">Scopus ID</option>
               <option value="isi">Web of Science ID</option>
-              <option value="evaluna">EVALuna ID</option>
               <option value="ppn">GBV PPN</option>
-              <option value="hbz">HBZ HT-Nummer</option>
-              <option value="mms">Alma MMS ID</option>
-              <option value="duepublico">DuEPublico 1 ID</option>
-              <option value="duepublico2">DuEPublico 2 ID</option>
+              <option value="dbt">DBT ID</option>
+              <option value="dpm">Patentnummer</option>
           </select>:
           </xed:bind>
         </div>
@@ -676,9 +673,6 @@
           <xed:output i18n="ubo.shelfmark" />:
         </label>
         <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input-double" type="text" />
-        <a class="ml-1 align-self-center" target="_blank" href="https://primo.uni-due.de/">
-          <xed:output i18n="ubo.shelfmark.search" />
-        </a>
       </div>
     </xed:bind>
   </xed:template>

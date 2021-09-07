@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="mediaType">
+
+  <label xml:lang="en" text="media type" />
+  <label xml:lang="de" text="Datenträgertypen" />
+
+  <categories>
+    <category ID="print">
+      <label xml:lang="de" text="Printmedium / nicht-technischer Datenträger" />
+      <label xml:lang="en" text="print / non-technical media" />
+    </category>
+    <category ID="technical">
+      <label xml:lang="de" text="Technischer Datenträger" />
+      <label xml:lang="en" text="technical media" />
+    </category>
+    <category ID="online">
+      <label xml:lang="de" text="Online-Ressource" />
+      <label xml:lang="en" text="online resources" />
+    </category>
+    <category ID="mixed">
+      <label xml:lang="de" text="Medienkombination" />
+      <label xml:lang="en" text="mixed media" />
+    </category>
+  </categories>
+
+</mycoreclass>
