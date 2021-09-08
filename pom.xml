@@ -72,7 +72,7 @@
       </dependency>
       <dependency>
         <groupId>org.mycore</groupId>
-        <artifactId>mycore-meta</artifactId>
+        <artifactId>mycore</artifactId>
         <version>${mycore.version}</version>
         <type>pom</type>
         <scope>import</scope>
