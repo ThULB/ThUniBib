@@ -544,14 +544,15 @@
   </xed:template>
 
   <xed:template id="comment">
-    <xed:bind xpath="mods:note[not(@type)]">
+    <xed:repeat xpath="mods:note[not(@type)]">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output i18n="ubo.comment" />:
         </label>
         <input id="{xed:generate-id()}" type="text" class="mycore-form-input" />
+        <xed:controls />
       </div>
-    </xed:bind>
+    </xed:repeat>
   </xed:template>
 
   <xed:template id="pages">
