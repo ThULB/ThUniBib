@@ -311,6 +311,9 @@
       <xsl:for-each select="xalan:tokenize($subject,';')">
         <mods:classification authorityURI="{$authorityFach}" valueURI="{$authorityFach}#{normalize-space(.)}" />
       </xsl:for-each> 
+      <mods:note>
+        Scopus-Subject: <xsl:value-of select="concat(text(),' (code=',@code,', abbrev=', @abbrev, ')')" />
+      </mods:note>
     </xsl:for-each>
   </xsl:template>
 
