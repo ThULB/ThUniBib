@@ -7,15 +7,22 @@
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
      <h3>Die Universitätsbibliografie</h3>
-      <p>
-        ist der zentrale Publikationsnachweis der Friedrich-Schiller-Universität Jena, der online die Publikationstätigkeit der Hochschulangehörigen verzeichnet.
-        Die Universitätsbibliografie befindet sich derzeit im Aufbau.
-      </p>
-      <h3>Sie sind Angehöriger der FSU Jena?</h3>
-      <p>
-        Helfen Sie uns bei der Vervollständigung!<br/>
-        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliografie melden</a>
-      </p>
+     <p>
+       Die Universitätsbibliografie dokumentiert die Publikationstätigkeit der Angehörigen der
+       <a href="https://www.uni-jena.de/">Friedrich-Schiller-Universität Jena</a> und wird von der
+       <a href="https://www.thulb.uni-jena.de/">Thüringer Universitäts- und Landesbibliothek Jena</a> betrieben.
+       Der Aufbau der Universitätsbibliografie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+       gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
+     </p>
+     <p>
+       Derzeit befindet sich die Universitätsbibliografie im Aufbau. Einträge ab dem Jahr 2010 werden redaktionell
+       überarbeitet und vervollständigt.
+     </p>
+     <p>
+       Als Angehörige der FSU Jena können Sie <a href="../newPublication.xed">Ihre Publikationen an die
+       Universitätsbibliografie melden</a>.
+       Damit helfen Sie uns bei ihrer Vervollständigung.
+     </p>
    </div>
  </article>
   <article class="card mb-3" xml:lang="en">
@@ -88,8 +95,8 @@
           <h3>Kontakt:</h3>
         </hgroup>
         <p>
-          <a href="https://www.thulb.uni-jena.de/Mailformulare/Hagner.html">
-            <span>Kontakt zur Thüringen Bibliografie</span>
+          <a href="mailto:unibibliografie_thulb@uni-jena.de">
+            <span>Kontakt zur Universitätsbibliografie</span>
           </a>
         </p>
         <p>
@@ -104,8 +111,8 @@
           <h3>Contact:</h3>
         </hgroup>
         <p>
-          <a href="https://www.thulb.uni-jena.de/Mailformulare/Hagner.html">
-            <span>Contact to Thuringia Bibliography</span>
+          <a href="mailto:unibibliografie_thulb@uni-jena.de">
+            <span>Contact to University Bibliography</span>
           </a>
         </p>
         <p>
