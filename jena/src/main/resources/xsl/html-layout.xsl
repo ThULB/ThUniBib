@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0" 
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xalan="http://xml.apache.org/xalan"
-  xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
-  xmlns:encoder="xalan://java.net.URLEncoder"
-  xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
+                xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
 
-                exclude-result-prefixes="xsl xalan i18n encoder mcrver">
+                exclude-result-prefixes="xsl xalan i18n mcrver">
 
   <xsl:output method="html" encoding="UTF-8" media-type="text/html" indent="yes" xalan:indent-amount="2" />
 
@@ -484,16 +483,25 @@
   <!-- Imprintline (below footer) -->
   <xsl:template name="layout.imprintline">
     <!-- TODO: use navigation.xml to generate this AND use correct language! -->
+    <xsl:variable name="navigation" select="document('webapp:navigation.xml')" />
     <div class="imprintlinewrapper">
-      <span>
-        <a href="/contact.xml">Kontakt</a>
-      </span>
-      <span>
-        <a href="/datenschutz/">Datenschutz</a>
-      </span>
-      <span>
-        <a href="/impressum/">Impressum</a>
-      </span>
+      <xsl:for-each select="$navigation/navigation/item[@role='meta']/item[not(@xml:lang) or lang($CurrentLang)]">
+        <span>
+          <a href="{$WebApplicationBaseURL}{./@ref}">
+            <xsl:attribute name="href">
+              <xsl:choose>
+                <xsl:when test="contains(@ref, '://')">
+                  <xsl:value-of select="@ref" />
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="concat(WebApplicationBaseURL,@ref)" />
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <xsl:value-of select="label[lang($CurrentLang)]" />
+          </a>
+        </span>
+      </xsl:for-each>
     </div>
   </xsl:template>
 
