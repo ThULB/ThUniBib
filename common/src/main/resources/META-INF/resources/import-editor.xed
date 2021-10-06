@@ -13,9 +13,8 @@
         </ul>
       </div>
     </xed:if>
-    <xed:validate xpath="//mods:classification[@classID='fachreferate']" required="true" i18n="condition.subject" display="global" />
     <xed:validate xpath="/mycoreobject/metadata/def.modsContainer/modsContainer/mods:mods/mods:titleInfo/mods:title" required="true" i18n="ubo.title.validation" display="global" />
-    <xed:validate xpath="//mods:mods[not(mods:genre='journal')]/mods:name[@type='personal'][1]" test="string-length(mods:namePart[@type='family']) &gt; 0" i18n="ubo.role.author.validation" display="global" />
+    <xed:validate xpath="//mods:mods[not(mods:genre='journal') and string-length(mods:name[@type='corporate']/mods:namePart/text())=0]/mods:name[@type='personal'][1]" test="string-length(mods:namePart[@type='family']) &gt; 0" i18n="ubo.role.author.validation" display="global" />
     <xed:validate xpath="//mods:nameIdentifier[@type='orcid']" matches="\d{4}\-\d{4}\-\d{4}\-\d{3}[0-9X]" i18n="ubo.nameIdentifier.orcid.validation" display="global" />
     <xed:validate xpath="//mods:identifier[@type='doi']" matches="10\.\d+.*" i18n="ubo.identifier.doi.validation" display="global" />
     <xed:validate xpath="//mods:identifier[@type='urn']" matches="urn:nbn:[a-z]{2}:\S*" i18n="ubo.identifier.urn.validation" display="global" />
@@ -28,8 +27,7 @@
     <xed:validate xpath="//mods:location/mods:shelfLocator" matches="(\d\d\s[A-Za-z]+\s\d+.*)|([A-Z]{3,4}\d+[A-Z_d\-+,()\d]*)" i18n="ubo.shelfmark.validation" display="global" />
     <xed:validate xpath="//mods:abstract/@xlink:href" matches="(f|ht)tp(s?)://[\w\d.]+\S*" i18n="ubo.link.validation" display="global" />
     <!-- year is required, except for journal and series: -->
-    <xed:validate xpath="//mods:mods" test="descendant::mods:dateIssued[string-length(.) &gt; 0] or mods:genre='journal' or mods:genre='series'" i18n="ubo.date.issued.4.validation" display="global" />
-    <xed:validate xpath="//mods:dateIssued" matches="[\d]{4}" i18n="ubo.date.issued.4.validation" display="global" />
+    <xed:validate xpath="//mods:mods" test="descendant::mods:dateIssued[string-length(.) &gt; 0] or mods:genre='journal' or mods:genre='series' or mods:genre='blog' or mods:genre='newspaper'" i18n="ubo.date.issued.validation" display="global" />
 
     <script type="text/javascript">
       $(document).ready(function() {
@@ -102,7 +100,7 @@
     <xed:repeat xpath="mods:classification[@classID='fachreferate']" max="5">
       <div class="form-inline form-group ubo-repeat-group">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          *<xed:output i18n="ubo.subject" />:
+          <xed:output i18n="ubo.subject" />:
         </label>
         <select id="{xed:generate-id()}" class="autocomplete {$xed-validation-marker} mycore-form-input">
           <option value=""><xed:output i18n="search.select.autocomplete" /></option>
@@ -380,9 +378,9 @@
         </div>
       </xed:repeat>
       <div class="form-group form-inline col-12 px-0">
-        <label class="mycore-form-label">
-        </label>
         <xed:repeat xpath="mods:affiliation">
+          <label class="mycore-form-label">
+          </label>
           <textarea class="mycore-form-input" placeholder="Institutionelle Zugehörigkeit" />
         </xed:repeat>
       </div>
