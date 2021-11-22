@@ -23,6 +23,7 @@ import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.MCRSessionMgr;
 import org.mycore.common.config.MCRConfiguration;
+import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
@@ -62,7 +63,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     private static final Logger LOGGER = LogManager.getLogger(EnrichmentByAffiliationCommands.class);
 
-    private static final String projectID = "ubo";
+    private static final String projectID = MCRConfiguration2.getStringOrThrow("UBO.projectid.default");
 
     private static final String PPN_IDENTIFIER = "ppn";
 
@@ -73,7 +74,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     static {
         MCRConfiguration config = MCRConfiguration.instance();
 
-        String property_prefix = "UBO.ThuniBib.jena.affilitation.import.";
+        String property_prefix = "ThUniBib.affilitation.import.";
         String property_duplicates_check = property_prefix + "dublicate.check.identifiers";
         String property_k10plus_max_records = property_prefix + "k10plus.max.records";
         String property_lobid_max_records = property_prefix + "lobid.max.records";
