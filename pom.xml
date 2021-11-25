@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.mycore</groupId>
     <artifactId>mycore-parent</artifactId>
-    <version>45</version>
+    <version>47</version>
     <relativePath />
   </parent>
   <groupId>de.uni-jena.thulb.ubo</groupId>
@@ -16,7 +16,7 @@
   <url>...</url>
   <inceptionYear>2019</inceptionYear>
   <properties>
-    <mycore.version>2020.06.3-SNAPSHOT</mycore.version>
+    <mycore.version>2021.06.1-SNAPSHOT</mycore.version>
     <oaipmh.version>2.1</oaipmh.version>
   </properties>
   <build>

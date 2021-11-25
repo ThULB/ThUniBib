@@ -22,7 +22,6 @@ import org.mycore.access.MCRAccessException;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.MCRSessionMgr;
-import org.mycore.common.config.MCRConfiguration;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
@@ -51,6 +50,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @MCRCommandGroup(name = "experimental DBT import commands (by affiliation gnd)")
@@ -72,24 +72,22 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static String LOBID_MAX_RECORDS;
 
     static {
-        MCRConfiguration config = MCRConfiguration.instance();
-
         String property_prefix = "ThUniBib.affilitation.import.";
         String property_duplicates_check = property_prefix + "dublicate.check.identifiers";
         String property_k10plus_max_records = property_prefix + "k10plus.max.records";
         String property_lobid_max_records = property_prefix + "lobid.max.records";
 
-        String ids = config.getString(property_duplicates_check, "issn,isbn,doi");
-        DUPLICATE_CHECK_IDS = Arrays.asList(ids.split(","));
+        DUPLICATE_CHECK_IDS = MCRConfiguration2
+            .getOrThrow(property_duplicates_check, MCRConfiguration2::splitValue)
+            .collect(Collectors.toList());
         LOGGER.info("Checking for duplicates using these identifier: {}", DUPLICATE_CHECK_IDS);
 
-        K10PLUS_MAX_RECORDS = config.getString(property_k10plus_max_records, "1000");
+        K10PLUS_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(property_k10plus_max_records);
         LOGGER.info("Max records that are queried from k10plus: {}", K10PLUS_MAX_RECORDS);
 
-        LOBID_MAX_RECORDS = config.getString(property_lobid_max_records, "10000");
+        LOBID_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(property_lobid_max_records);
         LOGGER.info("Max records that are queried from lobid: {}", LOBID_MAX_RECORDS);
     }
-
 
     private static final String QUERY_PLACEHOLDER = "${query}";
     private static final int BATCH_SIZE = 10;
