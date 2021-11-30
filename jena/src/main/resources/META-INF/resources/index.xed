@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib">
- <title xml:lang="de">Willkommen bei der Universitätsbibliografie der FSU Jena</title>
+ <title xml:lang="de">Willkommen bei der Universitätsbibliographie der FSU Jena</title>
  <title xml:lang="en">Welcome to Bibliography of FSU Jena</title>
  
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
-     <h3>Die Universitätsbibliografie</h3>
+     <h3>Die Universitätsbibliographie</h3>
      <p>
-       Die Universitätsbibliografie dokumentiert die Publikationstätigkeit der Angehörigen der
+       Die Universitätsbibliographie dokumentiert die Publikationstätigkeit der Angehörigen der
        <a href="https://www.uni-jena.de/">Friedrich-Schiller-Universität Jena</a> und wird von der
        <a href="https://www.thulb.uni-jena.de/">Thüringer Universitäts- und Landesbibliothek Jena</a> betrieben.
-       Der Aufbau der Universitätsbibliografie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+       Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
        gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
      </p>
      <p>
-       Derzeit befindet sich die Universitätsbibliografie im Aufbau. Einträge ab dem Jahr 2010 werden redaktionell
+       Derzeit befindet sich die Universitätsbibliographie im Aufbau. Einträge ab dem Jahr 2010 werden redaktionell
        überarbeitet und vervollständigt.
      </p>
      <p>
        Als Angehörige der FSU Jena können Sie <a href="../newPublication.xed">Ihre Publikationen an die
-       Universitätsbibliografie melden</a>.
+       Universitätsbibliographie melden</a>.
        Damit helfen Sie uns bei ihrer Vervollständigung.
      </p>
    </div>
@@ -95,8 +95,8 @@
           <h3>Kontakt:</h3>
         </hgroup>
         <p>
-          <a href="mailto:unibibliografie_thulb@uni-jena.de">
-            <span>Kontakt zur Universitätsbibliografie</span>
+          <a href="mailto:unibibliographie_thulb@uni-jena.de">
+            <span>Kontakt zur Universitätsbibliographie</span>
           </a>
         </p>
         <p>
@@ -111,7 +111,7 @@
           <h3>Contact:</h3>
         </hgroup>
         <p>
-          <a href="mailto:unibibliografie_thulb@uni-jena.de">
+          <a href="mailto:unibibliographie_thulb@uni-jena.de">
             <span>Contact to University Bibliography</span>
           </a>
         </p>
