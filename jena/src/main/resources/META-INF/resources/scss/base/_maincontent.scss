@@ -82,3 +82,50 @@ a {
   background-color: #e7e4db;
   border-radius: 0.2rem;
 }
+#accordionExample {
+  margin-top: 2rem;
+  .card {
+    border: none;
+  }
+  .card-header {
+    border: none;
+    padding: 0;
+    button {
+      padding: 0;
+      padding-left: $fsu-acc-indent;
+      position: relative;
+      font-size: 1.125rem;
+      color: $secondary;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+      i {
+        margin-right: .5rem;
+        position:absolute;
+        top: 0.2rem;
+        left: 0;
+        color: $secondary;
+      }
+      i.fa-minus-circle {
+        display: inline;
+      }
+      i.fa-plus-circle {
+        display: none;
+      }
+      &.collapsed {
+        i.fa-minus-circle {
+          display: none;
+        }
+        i.fa-plus-circle {
+          display: inline;
+        }
+      }
+    }
+  }
+  .card-body {
+    padding: 0;
+    padding-left: $fsu-acc-indent;
+    padding-top: 1rem;
+  }
+}
