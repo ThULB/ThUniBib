@@ -101,17 +101,16 @@
                 <div class="mycore-form-label">
                   <xed:bind xpath="@field" default="{$id_type}">
                     <select class="form-control w-100 custom-select">
-                      <option value="id_doi"        >DOI:</option>
-                      <option value="id_urn"        >URN:</option>
-                      <option value="id_issn"       >ISSN:</option>
-                      <option value="id_isbn"       >ISBN:</option>
-                      <option value="id_duepublico" >DuEPublico ID:</option>
-                      <option value="id_duepublico2">DuEPublico 2 ID:</option>
-                      <option value="id"            >UBO ID:</option>
-                      <option value="id_pubmed"     >PubMed ID:</option>
-                      <option value="id_scopus"     >Scopus ID:</option>
-                      <option value="shelfmark"     >Signatur:</option>
-                      <option value="tag"           >Tag:</option>
+                      <option value="id_doi"        >DOI</option>
+                      <option value="id_urn"        >URN</option>
+                      <option value="id_issn"       >ISSN</option>
+                      <option value="id_isbn"       >ISBN</option>
+                      <option value="id_dbt"        >DBT ID</option>
+                      <option value="id"            >Dokument ID</option>
+                      <option value="id_pubmed"     >PubMed ID</option>
+                      <option value="id_scopus"     >Scopus ID</option>
+                      <option value="shelfmark"     >Signatur</option>
+                      <option value="tag"           >Tag</option>
                     </select>
                   </xed:bind>
                 </div>
@@ -137,7 +136,7 @@
             <xed:bind xpath="condition[@field='origin'][@operator='=']/value">
              <div class="form-group form-inline">
                 <label for="{xed:generate-id()}" class="mycore-form-label">
-                  <xed:output i18n="ubo.department" />:
+                  <xed:output i18n="ubo.department" />
                 </label>
                 <select id="{xed:generate-id()}" class="autocomplete mycore-form-input custom-select">
                   <option value=""><xed:output i18n="search.select" /></option>
