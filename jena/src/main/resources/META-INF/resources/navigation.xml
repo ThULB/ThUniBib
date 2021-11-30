@@ -25,10 +25,6 @@
       <label xml:lang="en">Registering a publication</label>
       <item id="dozbib.edit.publication" />
     </item>
-    <item ref="contact.xml" id="contact">
-       <label xml:lang="de">Kontakt</label>
-       <label xml:lang="en">Contact</label>
-    </item>
     <item ref="statistics.xml" id="dozbib.stats">
       <label xml:lang="de">Statistiken</label>
       <label xml:lang="en">Statistics</label>
@@ -44,6 +40,10 @@
         <label xml:lang="de">aus EVALuna Biblio</label>
         <label xml:lang="en">from EVALuna Biblio</label>
       </item -->
+    </item>
+    <item ref="faq.xml" id="about">
+      <label xml:lang="de">FAQ</label>
+      <label xml:lang="en">FAQ</label>
     </item>
   </item>
 
