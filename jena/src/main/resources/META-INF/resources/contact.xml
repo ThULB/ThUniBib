@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="contact">
- <title xml:lang="de">Kontakt - Universitätsbibliographie</title>
- <title xml:lang="en">Contact - University Bibliography</title>
+ <title xml:lang="de">Kontakt</title>
+ <title xml:lang="en">Contact</title>
 
   <article class="card" xml:lang="de">
     <div class="card-body">
