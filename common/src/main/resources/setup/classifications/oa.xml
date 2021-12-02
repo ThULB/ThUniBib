@@ -20,6 +20,12 @@
         <label xml:lang="de" text="OA Gold" />
         <label xml:lang="en" text="OA Gold" />
         <label xml:lang="x-color" text="#FFFF00" />
+          <category ID="platin">
+            <!-- OA Erstveröffentlichung ohne APCs -->
+            <label xml:lang="de" text="OA Platin" />
+            <label xml:lang="en" text="OA Platinum" />
+            <label xml:lang="x-color" text="#CECECE" />
+          </category>
       </category>
       <category ID="hybrid">
         <!-- Publikation ist in einer lizenzpflichtigen Zeitschrift erschienen, in der einzelne Artikel gegen Zahlung einer Publikationsgebühr Open Access erscheinen. -->

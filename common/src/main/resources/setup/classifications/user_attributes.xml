@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="user_attributes">
+  <label xml:lang="de" text="Nutzerattribute" />
+  <categories>
+    <category ID="id_local">
+      <label xml:lang="de" text="Lokale ID" />
+    </category>
+    <category ID="id_gnd">
+      <label xml:lang="de" text="GND" />
+    </category>
+    <category ID="id_orcid">
+      <label xml:lang="de" text="ORCID" />
+    </category>
+    <category ID="id_scopus">
+      <label xml:lang="de" text="SCOPUS" />
+    </category>
+    <category ID="id_researcherid">
+      <label xml:lang="de" text="ResearcherID" />
+    </category>
+  </categories>
+</mycoreclass>
