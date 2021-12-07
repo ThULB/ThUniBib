@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date: 2017-02-10 07:55:23 +0100 (Fr, 10 Feb 2017) $" id="dozbib.stats">
+  <title xml:lang="de">Statistiken über alle verzeichneten Publikationen</title>
+  <title xml:lang="en">Statistics for all publications listed here</title>
+
+  <script src="webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"></script>
+  <script src="webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"></script>
+
+  <div id="chartDialog" />
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body bg-alternative">
+      <h3>Hinweis:</h3>
+      <p>
+        Diese Statistiken werden <strong>live</strong> über den gesamten Datenbestand gebildet.
+        Alternativ können Sie auch beliebige Suchergebnisse aus der Trefferliste heraus statistisch darstellen.
+        Zur Vergrößerung in einen leeren Bereich des jeweiligen Charts klicken!
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body bg-alternative">
+      <h3>Notice:</h3>
+      <p>
+        These statistics are built <strong>live</strong> for all publications listed here.
+        Alternatively, you can also display statistics for any search results, right from the result list.
+        To enlarge, click on an empty area within the chart!
+      </p>
+    </div>
+  </article>
+
+  <xinclude uri="xslStyle:statistics-oa:solr:q=status:confirmed+AND+year:[2018+TO+2022]&amp;rows=0&amp;json.facet={year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}" />
+
+  <xinclude uri="xslStyle:statistics:solr:q=status:confirmed+AND+year:%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year" />
+  <xinclude uri="xslStyle:statistics:solr:q=status:confirmed&amp;rows=0&amp;facet.field=subject" />
+  <xinclude uri="xslStyle:statistics:solr:q=status:confirmed&amp;rows=0&amp;facet.field=genre" />
+  <xinclude uri="xslStyle:statistics:solr:q=status:confirmed&amp;rows=0&amp;facet.field=oa" />
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <h3>Am häufigsten verzeichnete Personen (nur mit Personen-ID-Zuordnung, Top 50, in Publikationen ab 2015):</h3>
+    <xinclude uri="xslStyle:statistics:solr:q=status:confirmed+AND+year:%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50" />
+    </div>
+  </article>
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <h3>Most frequently listed staff (University members only that are linked to person ids, top 50, in publications from 2015):</h3>
+    <xinclude uri="xslStyle:statistics:solr:q=status:confirmed+AND+year:%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50" />
+    </div>
+  </article>
+
+  <article class="card" xml:lang="de">
+    <div class="card-body">
+      <h3>In Publikationen verwendete Autoren-Identifikatoren:</h3>
+      <xinclude uri="xslStyle:statistics:solr:q=objectKind:name&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type" />
+    </div>
+  </article>
+  <article class="card" xml:lang="en">
+    <div class="card-body">
+      <h3>Author identifier schemes used in publications:</h3>
+      <xinclude uri="xslStyle:statistics:solr:q=objectKind:name&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type" />
+    </div>
+  </article>
+
+ </webpage>
