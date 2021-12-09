@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<webpage lastModified="$Date$" id="dhsb.privacy">
+  <title xml:lang="de">Datenschutzerklärung</title>
+  <title xml:lang="en">Privacy</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <p>
+        Es gelten die <a href="https://www.uni-jena.de/datenschutz">Datenschutzbestimmungen der FSU Jena</a>,
+        zusätzlich gilt:
+      </p>
+
+      <h2>I. Allgemeines zur Datenverarbeitung</h2>
+      
+      <p>
+        Zweck der Universitätsbibliographie ist die Bereitstellung einer weitgehend vollständigen Publikationsliste
+        aller Angehörigen der FSU Jena.
+        Wir verarbeiten personenbezogene Daten unserer Nutzenden grundsätzlich nur, soweit dies
+        zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist.
+        Dies geschieht zur Wahrnehmung der uns übertragenen Aufgabe der Unterstützung von Lehre und Forschung 
+        gemäß Art. 6 Abs. 1 lit. e DSGVO.
+        Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung einholen, 
+        dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage.
+        Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen 
+        Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.
+      </p>
+      
+      <h2>II. Verbindungsdaten und Logfiles</h2>
+      
+      <p>
+        Bei jedem Aufruf der Webseiten dieser Bibliographie überträgt Ihr Web-Browser automatisch Daten des aufrufenden Rechners. 
+        Dies ist eine Grundfunktion des World Wide Web und nicht durch uns beeinflussbar. 
+        Dabei werden folgende Daten übertragen und in Log-Dateien gespeichert:
+      </p>
+      <ul>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Adressen der aufgerufenen Webseiten</li>
+        <li>IP-Adresse des Nutzers, daraus ableitbar die Herkunft des Webseitenaufrufs (Land, Stadt oder Organisation, Internet Service Provider)</li>
+        <li>Informationen zum verwendeten Betriebssystem und Browsertyp</li>
+        <li>Adressen der Webseiten, von denen aus Sie auf unsere Webseiten gelangt sind</li>
+      </ul>
+      <p>
+        Die vorübergehende Verarbeitung dieser Verbindungsdaten ist zur Bereitstellung der Plattform technisch zwingend erforderlich.
+        Die Speicherung in Log-Dateien erfolgt zur Optimierung und Sicherstellung der Funktionsfähigkeit und Sicherheit der Plattform.
+        Die Daten in den Log-Dateien werden regelmäßig in anonymisierter Form zu statistischen Zwecken weiterverarbeitet.
+        Personenbezogene Zugriffsdaten werden nach 7 Tagen gelöscht.   
+      </p>
+      
+      <h2>III. Session Cookies</h2>
+      
+      <p>
+        Die Universitätsbibliographie verwendet sogenannte Session Cookies. 
+        Session-Cookies sind kleine Informationseinheiten, die ein Webserver 
+        im Arbeitsspeicher des Computers des Besuchers speichert. 
+        In einem Session-Cookie wird eine zufällig erzeugte
+        eindeutige Identifikationsnummer abgelegt, eine sogenannte Session-ID. 
+        Außerdem enthält ein Cookie die Angabe über seine Herkunft und die Speicherfrist. 
+        Diese Cookies können keine anderen Daten speichern. 
+        Die von uns eingesetzten Session-Cookies sind für die Funktion unserer Webseite 
+        notwendig, damit Ihr Browser auch nach einem Seitenwechsel wiedererkannt wird.
+        Sie werden automatisch gelöscht, wenn Sie Ihren Webbrowser schließen.
+        Session Cookies werden nicht zur Erstellung von Nutzerprofilen verwendet.
+      </p>
+      
+      <h2>IV. Anmelde-Daten</h2>
+      
+      <p>
+        Eine Anmeldung (Login) mit persönlichen Daten ist nur zur Bearbeitung der Bibliographie
+        durch Hochschulangehörige erforderlich, nicht für die Suche nach oder den lesenden Zugriff
+        auf Publikationen.
+        Zur Veröffentlichung melden sich Hochschulangehörige mit ihrer Hochschulkennung an.
+        Unsere Bibliographie verarbeitet und speichert folgende Nutzerdaten:
+      </p>  
+      <ul>
+        <li>Name</li>
+        <li>Benutzerkennung (nur zur Authentifizierung, wird nicht gespeichert)</li>
+        <li>EDU-Person-Unique-ID</li>
+        <li>Uhrzeit und Datum des letzten Logins</li>
+        <li>Benutzerrollen (z.B. Administrator*innen, die Rollen werden in der Bibliographie zugewiesen)</li>
+        <li>Verknüpfung zu den in dieser Bibliographie erfassten Publikationen, inkl. Datum und Uhrzeit der letzten Änderung</li>
+      </ul>  
+      <p>
+        Die Speicherung und Verarbeitung dieser Daten geschieht zur Wahrnehmung der uns 
+        übertragenen Aufgabe der Unterstützung von Lehre und Forschung gemäß Art. 6 Abs. 1 lit. e DSGVO 
+        und ist erforderlich
+      </p>
+      <ul>
+        <li>zum Nachweis der Berechtigung zur Nutzung der Bibliographie</li>
+        <li>zur Kommunikation mit Autor*innen</li>
+        <li>zum Nachweis der Urheberschaft an den Publikationen</li>
+      </ul>
+      
+      <h2>V. Publikationsdaten</h2>
+      
+      <p>
+        Zweck dieser Bibliographie ist die weltweite Bereitstellung einer weitgehend vollständigen Publikationsliste der
+        Angehörigen der FSU Jena. Dazu speichern, verarbeiten und veröffentlichen
+        wir auch personenbezogene Daten der an Publikationen beteiligten Personen:  
+      </p>
+      <ul>
+        <li>Namen und Rollen (z. B. Autor, Herausgeber)</li>
+        <li>Eindeutige Autoren-Identifikatoren (z. B. ORCID iD, GND)</li>
+        <li>Informationen zur organisatorischen Zugehörigkeit (z. B. Hochschule, Fakultät, Institut)</li>
+      </ul>
+      <p>
+        Dies dient dem eindeutigen Nachweis und der Anerkennung der Urheberschaft.
+        Mit Übertragung der Publikationsmetadaten übertragen wir auch diese personenbezogenen Daten an Dritte
+        und stellen sie über Schnittstellen bereit:
+      </p>
+      <ul>
+        <li>an wissenschaftliche und allgemeine Suchmaschinen wie Google</li>
+        <li>an Dritte weltweit, über Schnittstellen wie OAI (Open Archives Initiative) und das Google Sitemap Protokoll</li>
+      </ul>
+      <!-- p>
+        Eine Veröffentlichung und damit Weitergabe und weltweite Zugänglichmachung erfolgt nur mit 
+        Einverständnis der Autor*innen bzw. Herausgeber*innen und erst nach Unterzeichnung des
+        Veröffentlichungsvertrages.
+      </p -->
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <p>
+        The <a href="https://www.uni-jena.de/en/privacy+statement">data protection regulations of FSU Jena</a>
+        apply, in addition:
+      </p>
+
+      <h2>I. General Information on Data Processing</h2>
+      
+      <p>
+        The purpose of the University Bibliography is to provide a largely complete publication list of all FSU Jena members. In
+        principle, we only process personal data of our users to the extent that is necessary to provide a functional website
+        and our contents and services. This is done to perform the task assigned to us of supporting teaching and research
+        according to Art. 6 point (e) of paragraph 1 GDPR. As far as we obtain consent for the processing of personal data, Art. 6
+        point (a) of paragraph 1 GDPR serves as the legal basis. An exception applies in those cases where obtaining consent in
+        advance is not possible for factual reasons and the processing of the data is permitted by legal regulations.
+      </p>
+      
+      <h2>II. Connection Data and Log Files</h2>
+      
+      <p>
+        Every time you access the web pages of the bibliography, your web browser automatically transports data of the calling
+        computer. This is a basic function of the World Wide Web and cannot be influenced by us. The following data is transmitted
+        and stored in log files:
+      </p>
+      <ul>
+        <li>Date and time of access</li>
+        <li>Addresses of the accessed web pages</li>
+        <li>IP address of the user, from which the origin of the web page access can be derived (country, town or organization, Internet service provider)</li>
+        <li>Information on the operating system and browser type used</li>
+        <li>Addresses of the web pages that led to our bibliography website</li>
+      </ul>
+      <p>
+        The temporary processing of this connection data is technically mandatory for the provision of the platform. The storage
+        in log files is carried out to optimize and ensure the platform’s functionality and security. For statistical purposes,
+        the log file data is regularly processed in anonymized form. Personal access data is deleted after 7 days.
+      </p>
+      
+      <h2>III. Session Cookies</h2>
+      
+      <p>
+        The University Bibliography uses so-called session cookies. These are small information units stored by a web server
+        in the working memory of the visitor’s computer. In session cookies, a randomly generated and unique identification
+        number – a so-called session ID – is stored. A cookie also contains information on its origin and retention period.
+        These cookies cannot store any other data. The session cookies we use are essential for the function of our website,
+        so that your browser can be recognized after a web page change. They are automatically deleted when you close your web
+        browser. Session cookies are not used to create user profiles.
+      </p>
+      
+      <h2>IV. Login Data</h2>
+      
+      <p>
+        A login with personal data is only required by university members to edit the bibliography; it is not necessary for
+        the search for publications or to gain reading access. For publication, university members register with their university
+        identifier. The following user data is processed and stored by the bibliography: 
+      </p>
+      <ul>
+        <li>Name</li>
+        <li>User ID (for authentication only, not stored)</li>
+        <li>EDU-Person-Unique-ID</li>
+        <li>Time and date of the last login</li>
+        <li>User roles (e.g. administrator, the roles are assigned within the bibliography)</li>
+        <li>Links to the publications recorded in the bibliography, incl. date and time of the last modification</li>
+      </ul>  
+      <p>
+        The storage and processing of this data is carried out only to perform the task assigned to us of supporting teaching
+        and research according to Art. 6 point (e) of paragraph 1 GDPR and is required
+      </p>
+      <ul>
+        <li>to prove authorization to use the bibliography</li>
+        <li>to communicate with the authors</li>
+        <li>to prove the authorship of the publications</li>
+      </ul>
+      
+      <h2>V. Publication data</h2>
+      <p>
+        The purpose of this bibliography is the worldwide provision of a largely complete publication list of all
+        FSU Jena members. Therefore we store, process and publish personal data of persons involved in publications:
+      </p>
+      <ul>
+        <li>Names and roles (e.g. author, editor)</li>
+        <li>Unique author identifiers (e.g. ORCID iD, GND)</li>
+        <li>Information on the organizational affiliation (e.g. university, faculty, institute)</li>
+      </ul>
+      <p>
+        This serves to clearly prove and acknowledge authorship. By transferring the publication meta data we also
+        transmit these personal data to third parties and provide them via interfaces:
+      </p>
+      <ul>
+        <li>to scientific and general search engines like Google</li>
+        <li>to third parties worldwide, via interfaces like OAI (Open Archives Initiative) and the Google Sitemap protocol</li>
+      </ul>
+      <!-- p>
+        Eine Veröffentlichung und damit Weitergabe und weltweite Zugänglichmachung erfolgt nur mit 
+        Einverständnis der Autor*innen bzw. Herausgeber*innen und erst nach Unterzeichnung des
+        Veröffentlichungsvertrages.
+      </p -->
+    </div>
+  </article>
+
+</webpage>

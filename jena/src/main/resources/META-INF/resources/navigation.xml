@@ -7,21 +7,25 @@
   <item id="dozbib" />
   
   <item menu="main">
-    <item id="dozbib.search-simple" ref="search.xed">
-      <label xml:lang="de">Erweiterte Suche</label>
-      <label xml:lang="en">Advanced search</label>
-      <item id="dozbib.search" />
-    </item>
-    <item id="dozbib.search-expert" ref="search-expert.xed" role="admin">
-      <label xml:lang="de">Expertensuche</label>
-      <label xml:lang="en">Expert search</label>
+    <item ref="search.xed">
+      <label xml:lang="de">Suche</label>
+      <label xml:lang="en">Search</label>
+        <item id="dozbib.search-simple" ref="search.xed">
+          <label xml:lang="de">Erweiterte Suche</label>
+          <label xml:lang="en">Advanced search</label>
+        <item id="dozbib.search" />
+      </item>
+      <item id="dozbib.search-expert" ref="search-expert.xed">
+        <label xml:lang="de">Expertensuche</label>
+        <label xml:lang="en">Expert search</label>
+      </item>
     </item>
     <item ref="list-wizard.xed" id="dozbib.list-wizard">
       <label xml:lang="de">Persönliche Publikationsliste</label>
       <label xml:lang="en">Personal publication list</label>
     </item>
     <item ref="newPublication.xed" id="dozbib.new.publication">
-      <label xml:lang="de">Publikation melden</label>
+      <label xml:lang="de">Publikation einreichen</label>
       <label xml:lang="en">Registering a publication</label>
       <item id="dozbib.edit.publication" />
     </item>
@@ -29,17 +33,9 @@
       <label xml:lang="de">Statistiken</label>
       <label xml:lang="en">Statistics</label>
     </item>
-    <item ref="import-list.xed" role="admin">
+    <item id="dozbib.import.list" ref="import-list.xed" role="admin">
       <label xml:lang="de">Importieren</label>
       <label xml:lang="en">Import</label>
-      <item id="dozbib.import.list" ref="import-list.xed" role="admin">
-        <label xml:lang="de">Literaturliste importieren</label>
-        <label xml:lang="en">Import publication list</label>
-      </item>
-      <!-- item id="dozbib.import.evaluna" ref="import-from-evaluna.xed" role="admin">
-        <label xml:lang="de">aus EVALuna Biblio</label>
-        <label xml:lang="en">from EVALuna Biblio</label>
-      </item -->
     </item>
     <item ref="faq.xml" id="about">
       <label xml:lang="de">FAQ</label>
@@ -83,11 +79,9 @@
       <label xml:lang="de">Impressum</label>
       <label xml:lang="en">Imprint</label>
     </item>
-    <item ref="https://www.uni-jena.de/datenschutz" xml:lang="de">
+    <item ref="privacy.xml">
       <label xml:lang="de">Datenschutz</label>
-    </item>
-    <item ref="https://www.uni-jena.de/en/privacy+statement" xml:lang="en">
-      <label xml:lang="en">Privacy</label>
+      <label xml:lang="en">Privacy Notice</label>
     </item>
     <item ref="accessibility.xml">
       <label xml:lang="de">Barrierefreiheit</label>
