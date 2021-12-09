@@ -94,11 +94,20 @@
                   <xed:include uri="webapp:import-editor.xed" ref="host" />
                   <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem" />
                   <xed:include uri="webapp:import-editor.xed" ref="title.complex" />
+                  <xed:include uri="webapp:import-editor.xed" ref="conference" />
+                  <xed:include uri="webapp:import-editor.xed" ref="person.role" />
                   <xed:include uri="webapp:import-editor.xed" ref="volume" />
                   <xed:include uri="webapp:import-editor.xed" ref="issue" />
+                  <xed:include uri="webapp:import-editor.xed" ref="place" />
+                  <xed:include uri="webapp:import-editor.xed" ref="year" />
+                  <xed:include uri="webapp:import-editor.xed" ref="publisher" />
+                  <xed:include uri="webapp:import-editor.xed" ref="edition" />
+                  <xed:include uri="webapp:import-editor.xed" ref="series" />
                   <xed:include uri="webapp:import-editor.xed" ref="pages" />
                   <xed:include uri="webapp:import-editor.xed" ref="article_number" />
                   <xed:include uri="webapp:import-editor.xed" ref="identifier" />
+                  <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
+                  <xed:include uri="webapp:import-editor.xed" ref="url" />
                 </xed:otherwise>
               </xed:choose>
             </xed:bind>
