@@ -113,18 +113,14 @@
         <li>an wissenschaftliche und allgemeine Suchmaschinen wie Google</li>
         <li>an Dritte weltweit, über Schnittstellen wie OAI (Open Archives Initiative) und das Google Sitemap Protokoll</li>
       </ul>
-      <!-- p>
-        Eine Veröffentlichung und damit Weitergabe und weltweite Zugänglichmachung erfolgt nur mit 
-        Einverständnis der Autor*innen bzw. Herausgeber*innen und erst nach Unterzeichnung des
-        Veröffentlichungsvertrages.
-      </p -->
+      
     </div>
   </article>
 
   <article class="card mb-3" xml:lang="en">
     <div class="card-body">
       <p>
-        The <a href="https://www.tu-ilmenau.de/datenschutz">data protection regulations of TU Ilmenau</a>
+        The <a href="https://www.tu-ilmenau.de/en/data-protection">data protection regulations of TU Ilmenau</a>
         apply, in addition:
       </p>
 
@@ -213,11 +209,7 @@
         <li>to scientific and general search engines like Google</li>
         <li>to third parties worldwide, via interfaces like OAI (Open Archives Initiative) and the Google Sitemap protocol</li>
       </ul>
-      <!-- p>
-        Eine Veröffentlichung und damit Weitergabe und weltweite Zugänglichmachung erfolgt nur mit 
-        Einverständnis der Autor*innen bzw. Herausgeber*innen und erst nach Unterzeichnung des
-        Veröffentlichungsvertrages.
-      </p -->
+      
     </div>
   </article>
 
