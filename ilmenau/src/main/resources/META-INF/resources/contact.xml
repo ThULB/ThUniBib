@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="contact">
- <title xml:lang="de">Kontakt - Universitätsbibliografie</title>
+ <title xml:lang="de">Kontakt - Universitätsbibliographie</title>
  <title xml:lang="en">Contact - University Bibliography</title>
 
   <article class="card" xml:lang="de">
@@ -11,7 +11,7 @@
           Haben Sie Fragen zur Universitätsbibliografie oder benötigen Hilfe oder Beratung, melden Sie sich bei uns:
       </p>
       <p>
-         <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a><br/>
+         E-Mail: <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a><br/>
          Tel.: +49 3677 69-4531 <br/>
       </p>
     </div>
@@ -24,7 +24,7 @@
         If you have questions to the university library, or need advice or consultation, please contact us:
         </p>
         <p>
-           <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a><br/>
+           Email: <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a><br/>
            Phone: +49 3677 69-4531 <br/>
         </p>
       </div>
