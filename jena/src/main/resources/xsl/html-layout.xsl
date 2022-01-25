@@ -353,22 +353,34 @@
   <xsl:template name="layout.login">
 
     <div class="nav-item mr-2">
+      <xsl:value-of select="'['" />
       <xsl:choose>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <span class="user p-0" style="cursor: default;">
-            [<xsl:value-of select="i18n:translate('component.user2.login.guest')" />]
+            <xsl:value-of select="i18n:translate('component.user2.login.guest')" />
           </span>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:variable name="userData" select="document('user:current')/user" />
+          <xsl:variable name="userId">
+            <xsl:choose>
+              <xsl:when test="contains($CurrentUser,'@')">
+                <xsl:value-of select="substring-before($CurrentUser,'@')" />
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="$CurrentUser" />
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:variable>
           <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
              role="button" id="mcrFunctionsDropdown" href="#"
              class="user nav-link dropdown-toggle p-0" style="cursor: default;">
             <xsl:choose>
-              <xsl:when test="contains($CurrentUser,'@')">
-                [<xsl:value-of select="substring-before($CurrentUser,'@')" />]
+              <xsl:when test="$userData/realName">
+                <xsl:value-of select="$userData/realName" />
               </xsl:when>
               <xsl:otherwise>
-                [<xsl:value-of select="$CurrentUser" />]
+                <xsl:value-of select="$userId" />
               </xsl:otherwise>
             </xsl:choose>
           </a>
@@ -377,6 +389,7 @@
           </div>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:value-of select="']'" />
       <xsl:call-template name="orcidUser" />
 
     </div>
