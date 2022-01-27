@@ -30,6 +30,7 @@
       <xsl:apply-templates select="scopus:language[@xml:lang]" />
       <xsl:apply-templates select="item/bibrecord/head/abstracts/abstract[current()/scopus:coredata/scopus:openaccess='1']" />
       <xsl:apply-templates select="scopus:coredata/scopus:openaccess" />
+      <xsl:apply-templates select="item/bibrecord/head/source/additional-srcinfo/conferenceinfo/confevent/confname" />
       <xsl:apply-templates select="scopus:subject-areas" />
     </mods:mods>
   </xsl:template>
@@ -334,6 +335,14 @@
         Scopus-Subject: <xsl:value-of select="concat(text(),' (code=',@code,', abbrev=', @abbrev, ')')" />
       </mods:note>
     </xsl:for-each>
+  </xsl:template>
+
+  <xsl:template match="confname">
+    <mods:name type="conference">
+      <mods:namePart>
+        <xsl:value-of select="." />
+      </mods:namePart>
+    </mods:name>
   </xsl:template>
 
   <xsl:template match="text()" />
