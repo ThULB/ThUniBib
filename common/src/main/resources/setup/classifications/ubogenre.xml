@@ -9,7 +9,7 @@
       <label xml:lang="de" text="Unselbstständige Werke" />
       <label xml:lang="en" text="Article / Contribution" />
       <category ID="article">
-        <label xml:lang="de" text="Periodikaartikel / Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veroeffentlicht in einer wissenschaftlichen Zeitschrift" />
+        <label xml:lang="de" text="Artikel / Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veroeffentlicht in einer wissenschaftlichen Zeitschrift" />
         <label xml:lang="en" text="journal article" />
         <label xml:lang="x-hosts" text="journal collection" />
         <label xml:lang="x-marcgt" text="article" /> 
@@ -179,26 +179,66 @@
       <label xml:lang="en" text="speech / lecture" />
       <label xml:lang="de" text="Vortrag / Redebeitrag" />
     </category>
-    <!-- Fortlaufende Werke -->
-    <category ID="series">
+    
+    <category ID="video">
       <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="de" text="Reihe / Serie" />
-      <label xml:lang="en" text="series" />
+      <label xml:lang="en" text="video / film" />
+      <label xml:lang="de" text="Video / Film" />
     </category>
-    <category ID="journal">
+    <category ID="software">
       <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="de" text="Zeitschrift" />
-      <label xml:lang="en" text="journal" />
+      <label xml:lang="en" text="software" />
+      <label xml:lang="de" text="Software" />
     </category>
-    <category ID="newspaper">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="de" text="Zeitung" />
-      <label xml:lang="en" text="newspaper" />
+    <category ID="sheet_music">
+      <label xml:lang="x-hosts" text="collection standalone" />
+      <label xml:lang="en" text="sheet music" />
+      <label xml:lang="de" text="Noten" />
     </category>
-    <category ID="blog">
+    <category ID="image">
       <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="de" text="Website / Blog" />
-      <label xml:lang="en" text="website / blog" />
+      <label xml:lang="en" text="image / picture" />
+      <label xml:lang="de" text="Bild" />
+    </category>
+    <category ID="map">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="en" text="map" />
+      <label xml:lang="de" text="Karte" />
+    </category>
+    <category ID="object">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="en" text="object / artifact" />
+      <label xml:lang="de" text="Objekt / Artefakt" />
+    </category>
+    <category ID="others">
+      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="en" text="others" />
+      <label xml:lang="de" text="Sonstiges" />
+    </category>
+
+    <category ID="periodical">
+      <label xml:lang="de" text="Fortlaufende Werke" />
+      <label xml:lang="en" text="Periodical" />
+      <category ID="series">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="de" text="Reihe / Serie" />
+        <label xml:lang="en" text="series" />
+      </category>
+      <category ID="journal">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="de" text="Zeitschrift" />
+        <label xml:lang="en" text="journal" />
+      </category>
+      <category ID="newspaper">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="de" text="Zeitung" />
+        <label xml:lang="en" text="newspaper" />
+      </category>
+      <category ID="blog">
+        <label xml:lang="x-hosts" text="standalone" />
+        <label xml:lang="de" text="Website / Blog" />
+        <label xml:lang="en" text="website / blog" />
+      </category>
     </category>
   </categories>
 </mycoreclass>
