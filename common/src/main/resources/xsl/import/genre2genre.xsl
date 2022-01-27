@@ -109,6 +109,7 @@
       <xsl:when test="$genre='proceedings'">proceedings</xsl:when>
       <xsl:when test="$genre='manual'">book</xsl:when>
       <xsl:when test="$genre='techreport'">book</xsl:when>
+      <xsl:when test="$genre='data paper'">research_data</xsl:when>
       <xsl:when test="$genre='misc'">book</xsl:when>
       <xsl:when test="$genre='unpublished'">book</xsl:when>
       <xsl:when test="$genre='other'">book</xsl:when> 

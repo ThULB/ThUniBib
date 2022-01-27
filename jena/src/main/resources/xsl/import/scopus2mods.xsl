@@ -156,10 +156,12 @@
         <xsl:when test=".='bk'">Book</xsl:when>
         <xsl:when test=".='br'">Book Review</xsl:when>
         <xsl:when test=".='bz'">Business Article</xsl:when>
+        <xsl:when test=".='ch'">Book Chapter</xsl:when>
         <xsl:when test=".='cb'">Conference Abstract</xsl:when>
         <xsl:when test=".='cp'">Conference Paper</xsl:when>
         <xsl:when test=".='cr'">Conference Review</xsl:when>
         <xsl:when test=".='di'">Dissertation</xsl:when>
+        <xsl:when test=".='dp'">Data Paper</xsl:when>
         <xsl:when test=".='ed'">Editorial</xsl:when>
         <xsl:when test=".='er'">Erratum</xsl:when>
         <xsl:when test=".='ip'">Article in Press</xsl:when>
