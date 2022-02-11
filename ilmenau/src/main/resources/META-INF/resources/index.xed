@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib">
- <title xml:lang="de">Willkommen bei der Universitätsbibliografie der TU Ilmenau</title>
+ <title xml:lang="de">Willkommen bei der Universitätsbibliographie der TU Ilmenau</title>
  <title xml:lang="en">Welcome to Bibliography of TU Ilmenau</title>
  
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
-     <h3>Die Universitätsbibliografie</h3>
+     <h3>Die Universitätsbibliographie</h3>
       <p>
         ist der zentrale Publikationsnachweis der TU Ilmenau, der online die Publikationstätigkeit der Hochschulangehörigen verzeichnet.
-        Die Universitätsbibliografie befindet sich derzeit im Aufbau.
+        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut.<br/>
+        Die Universitätsbibliographie befindet sich derzeit im Aufbau.
+      </p>
+      <p>
+        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+        gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
       </p>
       <h3>Gehören Sie der TU Ilmenau an?</h3>
       <p>
         Helfen Sie uns bei der Vervollständigung!<br/>
-        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliografie melden</a>
+        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliographie melden</a>
       </p>
    </div>
  </article>
@@ -23,7 +28,12 @@
       <h3>The University Bibliography</h3>
       <p>
         is the central resource of TU Ilmenau that lists all publication activities of the university members.
+        It is a service of the university library and is editorially supervised by it.<br/>
         The bibliography is currently under construction.
+      </p>
+      <p>
+        The development of the university bibliography is supported by the State of Thuringia within the framework of the 
+        Thuringian Digital Strategy and is being carried out in cooperation with the Head Office of the GBV Common Library Network.
       </p>
       <h3>
         As a member of TU Ilmenau</h3>
@@ -88,28 +98,31 @@
           <h3>Kontakt:</h3>
         </hgroup>
         <p>
-	  <a href="https://www.tu-ilmenau.de/ub/allgemein/ansprechpartner/">
+	  <a href="https://www.tu-ilmenau.de/universitaet/quicklinks/universitaetsbibliothek/ueber-uns/ansprechpersonen">
             <span>Kontakt zur Universitätsbibliothek Ilmenau</span>
           </a>
         </p>
         <p>
           Universitätsbibliothek Ilmenau<br/>
+          E-Mail: <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a><br/>
           Tel.: +49 3677 69-4531
         </p>
       </div>
     </article>
+
     <article class="card" xml:lang="en">
       <div class="card-body bg-alternative">
         <hgroup>
           <h3>Contact:</h3>
         </hgroup>
         <p>
-	  <a href="https://www.tu-ilmenau.de/ub/allgemein/ansprechpartner/">
+	  <a href="https://www.tu-ilmenau.de/en/universitaet/quicklinks/universitaetsbibliothek/ueber-uns/ansprechpersonen">
             <span>Contact to UB Ilmenau</span>
           </a>
         </p>
         <p>
-          University library<br/>
+          Ilmenau University library<br/>
+          Email: <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a><br/>
           Phone: +49 3677 69-4531
         </p>
       </div>
