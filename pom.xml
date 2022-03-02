@@ -83,6 +83,8 @@
     <module>common</module>
     <module>jena</module>
     <module>ilmenau</module>
+    <module>erfurt</module>
+    <module>weimar</module>
   </modules>
 
 </project>
