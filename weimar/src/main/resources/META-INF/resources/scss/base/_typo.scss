@@ -1,0 +1,37 @@
+/*  typographie settings
+ *  - all about common texts and text design
+ *  - special sections may contain own typo settings
+ */
+
+// Extra large devices (large desktops)
+// set the defaults for all responsive levels here
+// no (xl) media query necessary (desktop first)
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: $erfurtText;
+}
+
+h1, .h1 { font-size: 2rem; }
+h2, .h2 { font-size: 1.6rem; }
+h3, .h3 { font-size: 1.4rem; }
+
+// Large devices (desktops) and below: <= 1200px
+@include media-breakpoint-down(lg) {
+  // add/overwrite styles for responsive level lg and lower
+}
+
+// Medium devices (tablets) and below: <= 992px
+@include media-breakpoint-down(md) {
+  // add/overwrite styles for responsive level md and lower
+}
+
+// Small devices (landscape phones) and below: <= 768px
+@include media-breakpoint-down(sm) {
+  // add/overwrite styles for responsive level sm and lower
+}
+
+// Extra small devices (portrait phones): <= 576px
+@include media-breakpoint-down(xs) {
+  // add/overwrite styles for responsive level xs
+}

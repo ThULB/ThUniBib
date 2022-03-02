@@ -1,0 +1,14 @@
+@import "./utilities/variables";  // project variables
+
+@import "ubo";     // core layout (variables and base settings)
+
+@import "./base/general";         // common settings
+
+@import "./base/header";          // page header
+@import "./base/navigation";      // menus and links
+@import "./base/footer";          // page footer
+
+@import "./base/typo";            // all about typography
+@import "./base/buttons";         // button settings
+@import "./base/forms";           // forms but not buttons
+@import "./base/cards";           // cards

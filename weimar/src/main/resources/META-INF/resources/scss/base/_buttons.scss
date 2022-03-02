@@ -1,0 +1,68 @@
+/*  buttons settings
+ *  - buttons, links like buttons and buttons buttons
+ */
+
+// Extra large devices (large desktops)
+// set the defaults for all responsive levels here
+// no (xl) media query necessary (desktop first)
+
+  .btn-link > i {
+    color: $primary;
+  }
+
+  .btn-link > i:hover {
+    color: $primary;
+  }
+
+  .plus,
+  .minus,
+  .up,
+  .down {
+    background-color: $RButton;
+    border-color: $RButton;
+    margin-right: 5px;
+    &:hover {
+      background-color: $RButtonHover;
+      border-color: $RButtonBorder;
+    }
+  }
+  .chosen-container,
+  .mycore-form-input {
+    & + button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  // export menu buttons
+  .btn-outline-primary {
+    color: $primary;
+    background-color: transparent;
+    background-image: none;
+    border-color: $primary;
+    &:hover {
+      color: #fff;
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+
+// Large devices (desktops) and below: <= 1200px
+@include media-breakpoint-down(lg) {
+  // add/overwrite styles for responsive level lg and lower
+}
+
+// Medium devices (tablets) and below: <= 992px
+@include media-breakpoint-down(md) {
+  // add/overwrite styles for responsive level md and lower
+}
+
+// Small devices (landscape phones) and below: <= 768px
+@include media-breakpoint-down(sm) {
+  // add/overwrite styles for responsive level sm and lower
+}
+
+// Extra small devices (portrait phones): <= 576px
+@include media-breakpoint-down(xs) {
+  // add/overwrite styles for responsive level xs
+}

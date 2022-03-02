@@ -1,0 +1,33 @@
+// web page
+$erfurtLink:           #4645A4;
+$erfurtVisited:        #6B2906;
+$erfurtGray:           #e8e8ea;
+$erfurtOldBlue:        #2a2a94;
+$erfurtBlue:           #004c97;
+$erfurtBlueHover:      #2f6daa;
+$erfurtYellow:         rgb(208,168,72);
+
+// reposis
+$erfurtRHover:         #6969d4;
+$erfurtRLink:          #494999;
+$erfurtRLinkAlt:       #3838c2;
+$erfurtRLinkHover:     #f39c12;
+$erfurtRInfoBack:      #dce4ec;
+$erfurtRButton:        #9d9d9d;
+$erfurtRButtonHover:   #848484;
+$erfurtRButtonBorder:  #7e7e7e;
+$erfurtText:           #4d4d4d;
+// project variables
+
+
+// bs overwrite
+$primary:             $erfurtBlue;
+$secondary:           $erfurtRInfoBack;
+$border-radius:       4px;
+
+$body-bg:             white;
+$badge-font-weight:   normal;
+
+$theme-colors: (
+  alternative: $secondary
+);
