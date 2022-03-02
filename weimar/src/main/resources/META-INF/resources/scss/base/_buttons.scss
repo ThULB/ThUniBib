@@ -18,12 +18,12 @@
   .minus,
   .up,
   .down {
-    background-color: $RButton;
-    border-color: $RButton;
+    background-color: $weimarRButton;
+    border-color: $weimarRButton;
     margin-right: 5px;
     &:hover {
-      background-color: $RButtonHover;
-      border-color: $RButtonBorder;
+      background-color: $weimarRButtonHover;
+      border-color: $weimarRButtonBorder;
     }
   }
   .chosen-container,
