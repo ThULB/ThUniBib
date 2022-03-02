@@ -59,6 +59,9 @@
 
       <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL" />';</script>
       <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang" />';</script>
+      <script type="text/javascript" src="{$WebApplicationBaseURL}js/session-polling.js"></script>
+
+      <script type="text/javascript" src="{$WebApplicationBaseURL}js/person-popover.js"></script>
 
       <xsl:copy-of select="node()" />
     </head>
