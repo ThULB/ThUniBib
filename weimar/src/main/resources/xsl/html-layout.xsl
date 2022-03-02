@@ -320,7 +320,7 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <i class="fas fa-home pr-1"></i>
-                  <a href="https://www.uni-erfurt.de/bibliothek">
+                  <a href="https://www.uni-weimar.de/de/universitaet/struktur/zentrale-einrichtungen/universitaetsbibliothek/">
                     <xsl:value-of select="i18n:translate('navigation.UB')" />
                   </a>
                 </li>
