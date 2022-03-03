@@ -75,15 +75,19 @@
       <label xml:lang="de">Kontakt</label>
       <label xml:lang="en">Contact</label>
     </item>
-    <item ref="impressum.xml">
+    <item ref="https://www.uni-jena.de/impressum" xml:lang="de">
       <label xml:lang="de">Impressum</label>
-      <label xml:lang="en">Imprint</label>
     </item>
-    <item ref="privacy.xml">
+    <item ref="https://www.uni-jena.de/en/legal-notice" xml:lang="en">
+      <label xml:lang="en">Legal Notice</label>
+    </item>
+    <item ref="https://www.uni-jena.de/datenschutz" xml:lang="de">
       <label xml:lang="de">Datenschutz</label>
-      <label xml:lang="en">Privacy Notice</label>
     </item>
-    <item ref="accessibility.xml">
+    <item ref="https://www.uni-jena.de/en/privacy+statement" xml:lang="en">
+      <label xml:lang="en">Privacy Statement</label>
+    </item>
+    <item ref="https://www.uni-jena.de/erklaerung-zur-barrierefreiheit">
       <label xml:lang="de">Barrierefreiheit</label>
       <label xml:lang="en">Accessibility</label>
     </item>
