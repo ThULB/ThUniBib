@@ -48,10 +48,10 @@
 
   <!-- copied from pics2mods and changed rfc5646 to rfc4646 -->
   <xsl:template name="ubomodsLanguage">
-    <!-- relative Pfade funktionieren nicht für Classpath-Resourcen: <xsl:variable name="rfc5646" select="document('../_common/rfc5646.xml')" -->
+    <!-- relative Pfade funktionieren nicht für Classpath-Resourcen: <xsl:variable name="rfc5646" select="document('../../_data/rfc5646.xml')" /> -->
     <xsl:variable name="rfc5646" select="document('resource:_data/rfc5646.xml')" />
     <xsl:for-each select="./p:datafield[@tag='010@']"> <!-- 1500 Language -->
-      <!-- weiter Unterfelder für Orginaltext / Zwischenübersetzung nicht abbildbar -->
+      <!-- weiter Unterfelder für Originaltext / Zwischenübersetzung nicht abbildbar -->
       <xsl:for-each select="./p:subfield[@code='a']">
         <mods:language>
             <xsl:variable name="l" select="." />
@@ -75,34 +75,31 @@
   </xsl:template>
 
   <xsl:template name="ubomodsGenre">
-    <mods:genre type="intern">
-      <xsl:variable name="genre" select="normalize-space(translate(p:datafield[@tag='041A']/p:subfield[@code='a'],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))" />
-      <xsl:choose>
-        <xsl:when test="$genre='bachelor-arbeit'">bachelor_thesis</xsl:when>
-        <xsl:when test="$genre='buchbeitrag'">chapter</xsl:when>
-        <xsl:when test="$genre='diplomarbeit'">diploma_thesis</xsl:when>
-        <xsl:when test="$genre='dissertation'">dissertation</xsl:when>
-        <xsl:when test="$genre='filmbeitrag'">video_contribution</xsl:when>
-        <xsl:when test="$genre='filmwerk'">video</xsl:when>
-        <xsl:when test="$genre='forschungsdaten'">research_data</xsl:when>
-        <xsl:when test="$genre='habilitationsschrift'">habilitation</xsl:when>
-        <xsl:when test="$genre='kongressband'">proceedings</xsl:when>
-        <xsl:when test="$genre='kongressbeitrag'">conference_essay</xsl:when>
-        <xsl:when test="$genre='masterarbeit'">master_thesis</xsl:when>
-        <xsl:when test="$genre='monographie'">book</xsl:when>
-        <xsl:when test="$genre='projektbericht'">researchpaper</xsl:when>
-        <xsl:when test="$genre='rezension'">review</xsl:when>
-        <xsl:when test="$genre='schriftenreihe'">series</xsl:when>
-        <xsl:when test="$genre='tagungsbeitrag - Abstract'">abstract</xsl:when>
-        <xsl:when test="$genre='zeitschrift'">journal</xsl:when>
-        <xsl:when test="$genre='zeitschriftenaufsatz'">article</xsl:when>
-      </xsl:choose>
-    </mods:genre>
+    <xsl:for-each select="p:datafield[@tag='144Z']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090',text())]">
+      <xsl:variable name="genre" select="text()" />
+      <mods:genre type="intern">
+        <xsl:choose>
+          <xsl:when test="$genre='480926107'">bachelor_thesis</xsl:when>
+          <xsl:when test="$genre='477192068'">chapter</xsl:when>
+          <xsl:when test="$genre='476643694'">diploma_thesis</xsl:when>
+          <xsl:when test="$genre='476644615'">dissertation</xsl:when>
+          <xsl:when test="$genre='746489978'">video_contribution</xsl:when>
+          <xsl:when test="$genre='1727299213'">video</xsl:when>
+          <xsl:when test="$genre='1713916851'">research_data</xsl:when>
+          <xsl:when test="$genre='47664321X'">habilitation</xsl:when>
+          <xsl:when test="$genre='476643392'">proceedings</xsl:when>
+          <xsl:when test="$genre='477191517'">conference_essay</xsl:when>
+          <xsl:when test="$genre='476643597'">master_thesis</xsl:when>
+          <xsl:when test="$genre='476643503'">book</xsl:when>
+          <xsl:when test="$genre='476643880'">researchpaper</xsl:when>
+          <xsl:when test="$genre='490019234'">review</xsl:when>
+          <xsl:when test="$genre='47664481X'">series</xsl:when>
+          <xsl:when test="$genre='516869523'">abstract</xsl:when>
+          <xsl:when test="$genre='476644992'">journal</xsl:when>
+          <xsl:when test="$genre='476643090'">article</xsl:when>
+        </xsl:choose>
+      </mods:genre>
+    </xsl:for-each>
   </xsl:template>
-
-
-
-
-
 
 </xsl:stylesheet>
