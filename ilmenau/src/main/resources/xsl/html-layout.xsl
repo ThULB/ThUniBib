@@ -7,7 +7,7 @@
   xmlns:encoder="xalan://java.net.URLEncoder" 
   exclude-result-prefixes="xsl xalan i18n encoder">
 
-  <xsl:output method="html" encoding="UTF-8" media-type="text/html" indent="yes" xalan:indent-amount="2" />
+  <xsl:output method="xml" encoding="UTF-8" />
 
   <xsl:param name="CurrentLang" />
   <xsl:param name="UBO.Login.Path" />

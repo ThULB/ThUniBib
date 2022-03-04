@@ -8,7 +8,7 @@
   xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
   exclude-result-prefixes="xsl xalan i18n encoder mcrver">
 
-  <xsl:output method="html" encoding="UTF-8" media-type="text/html" indent="yes" xalan:indent-amount="2" />
+  <xsl:output method="xml" encoding="UTF-8" />
 
   <xsl:param name="CurrentLang" />
   <xsl:param name="UBO.Login.Path" />
