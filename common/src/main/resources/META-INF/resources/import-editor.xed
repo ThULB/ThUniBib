@@ -347,6 +347,10 @@
               </a>
             </xed:bind>
           </xed:when>
+          <!-- do not search and display results if person is already linked, but lead_id was deleted -->
+          <xed:when test="count(mods:nameIdentifier[@type='connection'])&gt;0">
+            <span class="fas fa-user"> </span>
+          </xed:when>
           <xed:when test="string-length(mods:namePart[@type='family']) &gt; 0">
             <xed:load-resource uri="ires:search:{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}" name="searchResults"/>
             <xed:if test="count($searchResults/person) &gt; 0">
