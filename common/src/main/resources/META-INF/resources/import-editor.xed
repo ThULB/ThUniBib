@@ -349,7 +349,7 @@
           </xed:when>
           <!-- do not search and display results if person is already linked, but lead_id was deleted -->
           <xed:when test="count(mods:nameIdentifier[@type='connection'])&gt;0">
-            <span class="fas fa-user"> </span>
+            <span class="fas fa-user ml-1"> </span>
           </xed:when>
           <xed:when test="string-length(mods:namePart[@type='family']) &gt; 0">
             <xed:load-resource uri="ires:search:{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}" name="searchResults"/>
@@ -361,7 +361,10 @@
       </span>
       <div class="ml-auto pb-1">
         <button class="btn btn-xs btn-primary mr-1" type="submit" xed:target="subselect" xed:href="../identitypicker.html?{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}">
-          <xed:output i18n="search.select" />
+          <xed:choose>
+            <xed:when test="count(mods:nameIdentifier[@type='connection'])&gt;0"><xed:output i18n="search.update" /></xed:when>
+            <xed:otherwise><xed:output i18n="search.select" /></xed:otherwise>
+          </xed:choose>
         </button>
       </div>
     </div>
