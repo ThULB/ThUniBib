@@ -131,7 +131,7 @@
       <category ID="070">
         <label xml:lang="de" text="070 Informations- und Bibliothekswissenschaften" />
         <category ID="0700">
-          <label xml:lang="de" text="0700 nformations- und Bibliothekswissenschaften allgemein" />
+          <label xml:lang="de" text="0700 Informations- und Bibliothekswissenschaften allgemein" />
         </category>
         <category ID="0710">
           <label xml:lang="de" text="0710 Bibliothekswissenschaft (nicht für Verwaltungs-FH)" />
@@ -396,7 +396,10 @@
         </category>
       </category>
       <category ID="197">
-        <label xml:lang="de" text="0130 Medienwissenschaft" />
+        <label xml:lang="de" text="197 Medienwissenschaft" />
+        <category ID="0130">
+          <label xml:lang="de" text="0130 Medienwissenschaft" />
+        </category>
       </category>
     </category>
     <category ID="02">
@@ -1078,9 +1081,6 @@
         <category ID="4520">
           <label xml:lang="de" text="4520 Medizinische Chemie" />
         </category>
-        <category ID="4525">
-          <label xml:lang="de" text="4525 Medizinische Informatik (nur für Mediziner)" />
-        </category>
         <category ID="4530">
           <label xml:lang="de" text="4530 Medizinische Biologie" />
         </category>
@@ -1111,6 +1111,9 @@
       </category>
       <category ID="470">
         <label xml:lang="de" text="470 Klinisch-Theoretische Humanmedizin (einschl. Zahnmedizin)" />
+        <category ID="4525">
+          <label xml:lang="de" text="4525 Medizinische Informatik (nur für Mediziner)" />
+        </category>
         <category ID="4700">
           <label xml:lang="de" text="4700 Klinisch-Theoretische Humanmedizin allgemein" />
         </category>
@@ -1605,6 +1608,9 @@
         <category ID="6985">
           <label xml:lang="de" text="6985 Umwelttechnik (einschl. Recycling)" />
         </category>
+        <category ID="6995">
+          <label xml:lang="de" text="6995 Thermische Verfahrenstechnik" />
+        </category>
         <category ID="7010">
           <label xml:lang="de" text="7010 Medizintechnik" />
         </category>
@@ -1811,9 +1817,6 @@
         <label xml:lang="de" text="770 Materialwissenschaft und Werkstofftechnik" />
         <category ID="6990">
           <label xml:lang="de" text="6990 Werkstofftechnik" />
-        </category>
-        <category ID="6995">
-          <label xml:lang="de" text="6995 Thermische Verfahrenstechnik" />
         </category>
         <category ID="7700">
           <label xml:lang="de" text="7700 Materialwissenschaft" />
