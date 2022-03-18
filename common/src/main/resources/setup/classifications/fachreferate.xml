@@ -1078,9 +1078,6 @@
         <category ID="4520">
           <label xml:lang="de" text="4520 Medizinische Chemie" />
         </category>
-        <category ID="4525">
-          <label xml:lang="de" text="4525 Medizinische Informatik (nur für Mediziner)" />
-        </category>
         <category ID="4530">
           <label xml:lang="de" text="4530 Medizinische Biologie" />
         </category>
@@ -1111,6 +1108,9 @@
       </category>
       <category ID="470">
         <label xml:lang="de" text="470 Klinisch-Theoretische Humanmedizin (einschl. Zahnmedizin)" />
+        <category ID="4525">
+          <label xml:lang="de" text="4525 Medizinische Informatik (nur für Mediziner)" />
+        </category>
         <category ID="4700">
           <label xml:lang="de" text="4700 Klinisch-Theoretische Humanmedizin allgemein" />
         </category>
