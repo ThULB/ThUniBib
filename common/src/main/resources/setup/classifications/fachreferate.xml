@@ -396,7 +396,10 @@
         </category>
       </category>
       <category ID="197">
-        <label xml:lang="de" text="0130 Medienwissenschaft" />
+        <label xml:lang="de" text="197 Medienwissenschaft" />
+        <category ID="0130">
+          <label xml:lang="de" text="0130 Medienwissenschaft" />
+        </category>
       </category>
     </category>
     <category ID="02">
