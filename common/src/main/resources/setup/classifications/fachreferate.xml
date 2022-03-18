@@ -1605,6 +1605,9 @@
         <category ID="6985">
           <label xml:lang="de" text="6985 Umwelttechnik (einschl. Recycling)" />
         </category>
+        <category ID="6995">
+          <label xml:lang="de" text="6995 Thermische Verfahrenstechnik" />
+        </category>
         <category ID="7010">
           <label xml:lang="de" text="7010 Medizintechnik" />
         </category>
@@ -1811,9 +1814,6 @@
         <label xml:lang="de" text="770 Materialwissenschaft und Werkstofftechnik" />
         <category ID="6990">
           <label xml:lang="de" text="6990 Werkstofftechnik" />
-        </category>
-        <category ID="6995">
-          <label xml:lang="de" text="6995 Thermische Verfahrenstechnik" />
         </category>
         <category ID="7700">
           <label xml:lang="de" text="7700 Materialwissenschaft" />
