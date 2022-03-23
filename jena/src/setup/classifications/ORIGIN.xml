@@ -1,194 +1,508 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
-    <label xml:lang="de" text="Friedrich-Schiller-Universität Jena"/>
-    <label xml:lang="x-place" text="Friedrich-Schiller-Universität Jena | Jena | Fürstengraben 1, 07743 Jena"/>
-    <categories>
-        <category ID="6010">
-            <label xml:lang="de" text="Fakultät für Biowissenschaften"/>
-            <category ID="6010.01">
-                <label xml:lang="de" text="Institut für Zoologie und Evolutionsforschung"/>
-            </category>
-            <category ID="6010.02">
-                <label xml:lang="de" text="Matthias-Schleiden-Institut für Genetik, Bioinformatik und Molekulare Botanik"/>
-            </category>
-            <category ID="6010.03">
-                <label xml:lang="de" text="Institut für Mikrobiologie"/>
-            </category>
-            <category ID="6010.04">
-                <label xml:lang="de" text="Institut für Ökologie und Evolution"/>
-            </category>
-            <category ID="6010.05">
-                <label xml:lang="de" text="Institut für Biodiversität"/>
-            </category>
-            <category ID="6010.06">
-                <label xml:lang="de" text="Institut Biochemie/Biophysik"/>
-            </category>
-            <category ID="6010.07">
-                <label xml:lang="de" text="Institut für Ernährungswissenschaften"/>
-            </category>
-            <category ID="6010.08">
-                <label xml:lang="de" text="Institut für Pharmazie"/>
-            </category>
+  <label xml:lang="de" text="Friedrich-Schiller-Universität Jena"/>
+  <label xml:lang="x-place" text="Friedrich-Schiller-Universität Jena | Jena | Fürstengraben 1, 07743 Jena"/>
+  <categories>
+    <category ID="6010">
+      <label xml:lang="de" text="Fakultät für Biowissenschaften"/>
+      <category ID="6010.01">
+        <label xml:lang="de" text="Institut für Zoologie und Evolutionsforschung"/>
+      </category>
+      <category ID="6010.02">
+        <label xml:lang="de" text="Matthias-Schleiden-Institut für Genetik, Bioinformatik und Molekulare Botanik"/>
+      </category>
+      <category ID="6010.03">
+        <label xml:lang="de" text="Institut für Mikrobiologie"/>
+      </category>
+      <category ID="6010.04">
+        <label xml:lang="de" text="Institut für Ökologie und Evolution"/>
+      </category>
+      <category ID="6010.05">
+        <label xml:lang="de" text="Institut für Biodiversität"/>
+      </category>
+      <category ID="6010.06">
+        <label xml:lang="de" text="Institut Biochemie/Biophysik"/>
+      </category>
+      <category ID="6010.07">
+        <label xml:lang="de" text="Institut für Ernährungswissenschaften"/>
+      </category>
+      <category ID="6010.08">
+        <label xml:lang="de" text="Institut für Pharmazie"/>
+      </category>
+    </category>
+    <category ID="6000">
+      <label xml:lang="de" text="Chemisch-Geowissenschaftliche Fakultät"/>
+      <category ID="6000.01">
+        <label xml:lang="de" text="Institut für Anorganische und Analytische Chemie"/>
+      </category>
+      <category ID="6000.02">
+        <label xml:lang="de" text="Institut für Organische und Makromolekulare Chemie"/>
+      </category>
+      <category ID="6000.03">
+        <label xml:lang="de" text="Institut für Physikalische Chemie"/>
+      </category>
+      <category ID="6000.04">
+        <label xml:lang="de" text="Institut für Technische Chemie und Umweltchemie"/>
+      </category>
+      <category ID="6000.05">
+        <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Fraunhoferstr. 6)"/>
+      </category>
+      <category ID="6000.06">
+        <label xml:lang="de" text="Institut für Geowissenschaften"/>
+      </category>
+      <category ID="6000.07">
+        <label xml:lang="de" text="Institut für Geographie"/>
+      </category>
+    </category>
+    <category ID="4000">
+      <label xml:lang="de" text="Fakultät für Mathematik und Informatik"/>
+      <category ID="4000.01">
+        <label xml:lang="de" text="Institut für Mathematik"/>
+      </category>
+      <category ID="4000.02">
+        <label xml:lang="de" text="Institut für Informatik"/>
+      </category>
+    </category>
+    <category ID="1040">
+      <label xml:lang="de" text="Fakultät für Sozial- und Verhaltenswissenschaften"/>
+      <category ID="1040.01">
+        <label xml:lang="de" text="Institut für Psychologie"/>
+      </category>
+      <category ID="1040.02">
+        <label xml:lang="de" text="Institut für Erziehungswissenschaften"/>
+      </category>
+      <category ID="1040.03">
+        <label xml:lang="de" text="Institut für Politikwissenschaften"/>
+      </category>
+      <category ID="1040.04">
+        <label xml:lang="de" text="Institut für Soziologie"/>
+      </category>
+      <category ID="1040.05">
+        <label xml:lang="de" text="Institut für Sportwissenschaften"/>
+      </category>
+      <category ID="1040.06">
+        <label xml:lang="de" text="Institut für Kommunikationswissenschaften"/>
+      </category>
+      <category ID="1040.07">
+        <label xml:lang="de" text="Institut Bildung und Kultur"/>
+      </category>
+    </category>
+    <category ID="7000">
+      <label xml:lang="de" text="Medizinische Fakultät"/>
+      <category ID="institutes">
+        <label xml:lang="x-group" text="Institute"/>
+        <url xlink:href="https://www.uniklinikum-jena.de/Kliniken+_+Institute/Institute.html"/>
+        <category ID="7000.01">
+          <label xml:lang="de" text="Institut für Allgemeinmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/allgemeinmedizin/"/>
         </category>
-        <category ID="6000">
-            <label xml:lang="de" text="Chemisch-Geowissenschaftliche Fakultät"/>
-            <category ID="6000.01">
-                <label xml:lang="de" text="Institut für Anorganische und Analytische Chemie"/>
-            </category>
-            <category ID="6000.02">
-                <label xml:lang="de" text="Institut für Organische und Makromolekulare Chemie"/>
-            </category>
-            <category ID="6000.03">
-                <label xml:lang="de" text="Institut für Physikalische Chemie"/>
-            </category>
-            <category ID="6000.04">
-                <label xml:lang="de" text="Institut für Technische Chemie und Umweltchemie"/>
-            </category>
-            <category ID="6000.05">
-                <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Fraunhoferstr. 6)"/>
-            </category>
-            <category ID="6000.06">
-                <label xml:lang="de" text="Institut für Geowissenschaften"/>
-            </category>
-            <category ID="6000.07">
-                <label xml:lang="de" text="Institut für Geographie"/>
-            </category>
+        <category ID="7000.02">
+          <label xml:lang="de" text="Institut für Anatomie I"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/anatomie1/"/>
         </category>
-        <category ID="4000">
-            <label xml:lang="de" text="Fakultät für Mathematik und Informatik"/>
-            <category ID="4000.01">
-                <label xml:lang="de" text="Institut für Mathematik"/>
-            </category>
-            <category ID="4000.02">
-                <label xml:lang="de" text="Institut für Informatik"/>
-            </category>
+        <category ID="7000.03">
+          <label xml:lang="de" text="Institut für Anatomie II"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/anatomie2/"/>
         </category>
-        <category ID="1040">
-            <label xml:lang="de" text="Fakultät für Sozial- und Verhaltenswissenschaften"/>
-            <category ID="1040.01">
-                <label xml:lang="de" text="Institut für Psychologie"/>
-            </category>
-            <category ID="1040.02">
-                <label xml:lang="de" text="Institut für Erziehungswissenschaften"/>
-            </category>
-            <category ID="1040.03">
-                <label xml:lang="de" text="Institut für Politikwissenschaften"/>
-            </category>
-            <category ID="1040.04">
-                <label xml:lang="de" text="Institut für Soziologie"/>
-            </category>
-            <category ID="1040.05">
-                <label xml:lang="de" text="Institut für Sportwissenschaften"/>
-            </category>
-            <category ID="1040.06">
-                <label xml:lang="de" text="Institut für Kommunikationswissenschaften"/>
-            </category>
-            <category ID="1040.07">
-                <label xml:lang="de" text="Institut Bildung und Kultur"/>
-            </category>
+        <category ID="7000.04">
+          <label xml:lang="de" text="Institut für Arbeits-, Sozial- und Umweltmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/asum/"/>
         </category>
-        <category ID="7000">
-            <label xml:lang="de" text="Medizinische Fakultät"/>
+        <category ID="7000.05">
+          <label xml:lang="de" text="Institut für Biochemie I"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/biochemie/Biochemie+I.html"/>
         </category>
-        <category ID="1030">
-            <label xml:lang="de" text="Philosophische Fakultät"/>
-            <category ID="1030.01">
-                <label xml:lang="de" text="Institut für Philosophie"/>
-            </category>
-            <category ID="1030.02">
-                <label xml:lang="de" text="Institut für Altertumswissenschaften"/>
-            </category>
-            <category ID="1030.03">
-                <label xml:lang="de" text="Historisches Institut"/>
-            </category>
-            <category ID="1030.04">
-                <label xml:lang="de" text="Institut für Germanistische Literaturwissenschaft"/>
-            </category>
-            <category ID="1030.05">
-                <label xml:lang="de" text="Institut für Germanistische Sprachwissenschaft"/>
-            </category>
-            <category ID="1030.06">
-                <label xml:lang="de" text="Institut für Anglistik/Amerikanistik"/>
-            </category>
-            <category ID="1030.07">
-                <label xml:lang="de" text="Institut für Romanistik"/>
-            </category>
-            <category ID="1030.08">
-                <label xml:lang="de" text="Institut für Musikwissenschaft Weimar-Jena"/>
-            </category>
-            <category ID="1030.09">
-                <label xml:lang="de" text="Institut für Deutsch als Fremd- und Zweitsprache und Interkulturelle Studien"/>
-            </category>
-            <category ID="1030.10">
-                <label xml:lang="de" text="Institut für Orientalistik, Indogermanistik,Ur- und Frühgeschichtliche Archäologie"/>
-            </category>
-            <category ID="1030.11">
-                <label xml:lang="de" text="Institut für Kunst- und Kulturwissenschaften"/>
-            </category>
-            <category ID="1030.12">
-                <label xml:lang="de" text="Institut für Slawistik und Kaukasusstudien"/>
-            </category>
+        <category ID="7000.06">
+          <label xml:lang="de" text="Institut für Biochemie II"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/biochemie/Biochemie+II.html"/>
         </category>
-        <category ID="5000">
-            <label xml:lang="de" text="Physikalisch-Astronomische Fakultät"/>
-            <category ID="5000.01">
-                <label xml:lang="de" text="Theoretisch-Physikalisches Institut"/>
-            </category>
-            <category ID="5000.02">
-                <label xml:lang="de" text="Institut für Festkörpertheorie und -optik"/>
-            </category>
-            <category ID="5000.03">
-                <label xml:lang="de" text="Institut Optik und Quantenelektronik"/>
-            </category>
-            <category ID="5000.04">
-                <label xml:lang="de" text="Institut für Festkörperphysik"/>
-            </category>
-            <category ID="5000.05">
-                <label xml:lang="de" text="Astrophysikal. Institut und Universitätssternwarte"/>
-            </category>
-            <category ID="5000.06">
-                <label xml:lang="de" text="Institut für Angewandte Optik und Biophysik"/>
-            </category>
-            <category ID="5000.07">
-                <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Löbdergraben 32)"/>
-            </category>
-            <category ID="5000.08">
-                <label xml:lang="de" text="Institut für Angewandte Physik"/>
-            </category>
+        <category ID="7000.07">
+          <label xml:lang="de" text="Institut für Klinische Transfusionsmedizin Jena gGmbH (Blutspende)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/iktj/"/>
         </category>
-        <category ID="1010">
-            <label xml:lang="de" text="Rechtswissenschaftliche Fakultät"/>
+        <category ID="7000.08">
+          <label xml:lang="de" text="Institut für Klinische Chemie und Laboratoriumsdiagnostik (IKCL)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/ikcl/"/>
         </category>
-        <category ID="1080">
-            <label xml:lang="de" text="Sonstige/Externe"/>
+        <category ID="7000.09">
+          <label xml:lang="de" text="Institut für Geschichte, Theorie und Ethik der Medizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/Medizingeschichte.html"/>
         </category>
-        <category ID="1085">
-            <label xml:lang="de" text="Sprachenzentrum"/>
+        <category ID="7000.10">
+          <label xml:lang="de" text=" Institut für Humangenetik"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/humangenetik/"/>
         </category>
-        <category ID="2000">
-            <label xml:lang="de" text="Theologische Fakultät"/>
+        <category ID="7000.12">
+          <label xml:lang="de" text="Institut für Immunologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/iki/"/>
         </category>
-        <category ID="4711">
-            <label xml:lang="de" text="Thüringer Universitäts- und Landesbibliothek Jena, ThULB"/>
-            <category ID="471101">
-                <label xml:lang="de" text="ThULB / Thüringenbibliographie"/>
-            </category>
-            <category ID="471102">
-                <label xml:lang="de" text="ThULB / Pflichtexemplare"/>
-            </category>
+        <category ID="7000.13">
+          <label xml:lang="de" text="Institut für Infektionsmedizin und Krankenhaushygiene (IIMK)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/infektionsmedizin/"/>
         </category>
-        <category ID="1000">
-            <label xml:lang="de" text="Universitätsrechenzentrum"/>
+        <category ID="7000.14">
+          <label xml:lang="de" text="Institut für Medizinische Mikrobiologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/mibi/"/>
         </category>
-        <category ID="1060">
-            <label xml:lang="de" text="Universitätsverwaltung"/>
+        <category ID="7000.15">
+          <label xml:lang="de" text="Institut für Pharmakologie und Toxikologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/ipt/"/>
         </category>
-        <category ID="1020">
-            <label xml:lang="de" text="Wirtschaftswissenschaftliche Fakultät"/>
+        <category ID="7000.16">
+          <label xml:lang="de" text="Institut für Physiologie I - Neurophysiologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/physiologie1/"/>
         </category>
-        <category ID="1050">
-            <label xml:lang="de" text="Zentrum für Didaktik"/>
+        <category ID="7000.17">
+          <label xml:lang="de" text="Institut für Physiologie II - Herz-Kreislauf-Physiologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/physiologie2/"/>
         </category>
-    </categories>
+        <category ID="7000.18">
+          <label xml:lang="de" text="Institut für Physiotherapie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/physiotherapie/"/>
+        </category>
+        <category ID="7000.19">
+          <label xml:lang="de" text="Institut für Psychosoziale Medizin, Psychotherapie und Psychoonkologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/mpsy/"/>
+        </category>
+        <category ID="7000.20">
+          <label xml:lang="de" text=" Institut für Diagnostische und Interventionelle Radiologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/idir/"/>
+        </category>
+        <category ID="7000.21">
+          <label xml:lang="de" text="Institut für Rechtsmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/remed/"/>
+        </category>
+        <category ID="7000.22">
+          <label xml:lang="de"
+                 text="Institut für Medizinische Statistik, Informatik und Datenwissenschaften (IMSID)	"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/imsid/"/>
+        </category>
+        <category ID="7000.23">
+          <label xml:lang="de" text="Institut für Transfusionsmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/transfusionsmedizin/"/>
+        </category>
+        <category ID="7000.24">
+          <label xml:lang="de" text="Institut für Molekulare Zellbiologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zellbiologie/"/>
+        </category>
+      </category>
+      <category ID="clinics">
+        <label xml:lang="x-group" text="Kliniken"/>
+        <url xlink:href="https://www.uniklinikum-jena.de/Kliniken+_+Institute/Kliniken.html"/>
+        <category ID="7000.25">
+          <label xml:lang="de" text="Klinik für Allgemein-, Viszeral- und Gefäßchirurgie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/avc/"/>
+        </category>
+        <category ID="7000.26">
+          <label xml:lang="de" text="Klinik für Anästhesiologie und Intensivmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kai/"/>
+        </category>
+        <category ID="7000.27">
+          <label xml:lang="de" text="Klinik für Augenheilkunde"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/augenklinik/"/>
+        </category>
+        <category ID="7000.28">
+          <label xml:lang="de" text=" Klinik und Poliklinik für Frauenheilkunde und Fortpflanzungsmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/frauenheilkunde/"/>
+        </category>
+        <category ID="7000.29">
+          <label xml:lang="de" text="Klinik für Geburtsmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/geburtsmedizin/Wir+sind+f%C3%BCr+Sie+da.html"/>
+        </category>
+        <category ID="7000.30">
+          <label xml:lang="de" text="Klinik für Geriatrie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/geriatrie/"/>
+        </category>
+        <category ID="7000.31">
+          <label xml:lang="de" text="Klinik für Gerontopsychiatrie und Psychotherapie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/gerontopsychiatrie/"/>
+        </category>
+        <category ID="7000.32">
+          <label xml:lang="de" text="Klinik für Hals-, Nasen- und Ohrenheilkunde"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/hno/"/>
+        </category>
+        <category ID="7000.33">
+          <label xml:lang="de" text="Klinik für Hautkrankheiten"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/derma/"/>
+        </category>
+        <category ID="7000.34">
+          <label xml:lang="de" text="Klinik für Herz- und Thoraxchirurgie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/htchirurgie/"/>
+        </category>
+        <category ID="7000.35">
+          <label xml:lang="de"
+                 text="Klinik für Innere Medizin I (Kardiologie, Internistische Intensivmedizin, Angiologie)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kim1/"/>
+        </category>
+        <category ID="7000.36">
+          <label xml:lang="de"
+                 text="Klinik für Innere Medizin II (Hämatologie und Internistische Onkologie, Palliativmedizin)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kim2/"/>
+        </category>
+        <category ID="7000.37">
+          <label xml:lang="de"
+                 text=" Klinik für Innere Medizin III (Nephrologie, Rheumatologie/Osteologie, Diabetologie/Endokrinologie)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kim3/"/>
+        </category>
+        <category ID="7000.38">
+          <label xml:lang="de"
+                 text="Klinik für Innere Medizin IV (Gastroenterologie, Hepatologie, Infektiologie, Interdisziplinäre Endoskopie)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kim4/"/>
+        </category>
+        <category ID="7000.39">
+          <label xml:lang="de" text="Klinik für Innere Medizin V (Pneumologie, Allergologie)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kim5/"/>
+        </category>
+        <category ID="7000.40">
+          <label xml:lang="de" text="Klinik für Kinder- und Jugendmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kinderklinik/"/>
+        </category>
+        <category ID="7000.41">
+          <label xml:lang="de" text="Klinik für Kinder- und Jugendpsychiatrie, Psychosomatik und Psychotherapie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kjp/"/>
+        </category>
+        <category ID="7000.42">
+          <label xml:lang="de" text="Klinik für Kinderchirurgie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/kinderchirurgie/"/>
+        </category>
+        <category ID="7000.43">
+          <label xml:lang="de"
+                 text="Klinik und Poliklinik für Mund-, Kiefer- und Gesichtschirurgie / Plastische Chirurgie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/mkg/"/>
+        </category>
+        <category ID="7000.44">
+          <label xml:lang="de" text="Klinik und Poliklinik für Neurochirurgie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/neurochirurgie/"/>
+        </category>
+        <category ID="7000.45">
+          <label xml:lang="de" text="Klinik für Neurologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/neuro/"/>
+        </category>
+        <category ID="7000.46">
+          <label xml:lang="de" text="Klinik für Neuropädiatrie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/neuropaediatrie/"/>
+        </category>
+        <category ID="7000.47">
+          <label xml:lang="de" text="Klinik für Notfallmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zna/"/>
+        </category>
+        <category ID="7000.48">
+          <label xml:lang="de" text="Klinik für Nuklearmedizin"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/nuklearmedizin/"/>
+        </category>
+        <category ID="7000.49">
+          <label xml:lang="de" text="Klinik für Psychiatrie und Psychotherapie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/psychiatrie/"/>
+        </category>
+        <category ID="7000.50">
+          <label xml:lang="de" text="Klinik für Psychosomatik und Psychotherapie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/psychosomatik/"/>
+        </category>
+        <category ID="7000.51">
+          <label xml:lang="de" text="Klinik für Strahlentherapie und Radioonkologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/strahlenklinik/"/>
+        </category>
+        <category ID="7000.52">
+          <label xml:lang="de" text="Klinik für Unfall-, Hand- und Wiederherstellungschirurgie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/uc/"/>
+        </category>
+        <category ID="7000.53">
+          <label xml:lang="de" text="Klinik für Urologie https://www.uniklinikum-jena.de/urologie/"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/urologie/"/>
+        </category>
+        <category ID="7000.54">
+          <label xml:lang="de" text="Poliklinik für Konservierende Zahnheilkunde und Parodontologie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zzmk/kons.html"/>
+        </category>
+        <category ID="7000.55">
+          <label xml:lang="de" text="Poliklinik für Zahnärztliche Prothetik und Werkstoffkunde"/>
+          <url
+              xlink:href="https://www.uniklinikum-jena.de/zzmk/Poliklinik+f%C3%BCr+Zahn%C3%A4rztliche+Prothetik+und+Werkstoffkunde.html"/>
+        </category>
+        <category ID="7000.56">
+          <label xml:lang="de" text="Poliklinik für Kieferorthopädie"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zzmk/Poliklinik+f%C3%BCr+Kieferorthop%C3%A4die.html"/>
+        </category>
+      </category>
+      <category ID="centers">
+        <label xml:lang="x-group" text="Zentren"/>
+        <url xlink:href="https://www.uniklinikum-jena.de/Kliniken+_+Institute/Zentren.html"/>
+        <category ID="7000.60">
+          <label xml:lang="de" text="Jena Zentrum für Gesundes Altern"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zga/"/>
+        </category>
+        <category ID="7000.61">
+          <label xml:lang="de" text="Zentrum für Ambulante Medizin (ZAM)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zam/"/>
+        </category>
+        <category ID="7000.62">
+          <label xml:lang="de" text="Biomagnetisches Zentrum"/>
+          <url
+              xlink:href="https://www.uniklinikum-jena.de/neuro/%C3%84rzte+_+Zuweisende/Neurologische+Zentren/Biomagnetisches+Zentrum.html"/>
+        </category>
+        <category ID="7000.63">
+          <label xml:lang="de"
+                 text="Zentrum für Sepsis und Infektionsforschung / Center for Sepsis Control and Care (CSCC)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/cscc/"/>
+        </category>
+        <category ID="7000.64">
+          <label xml:lang="de" text="Elektronenmikroskopisches Zentrum"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/emz/"/>
+        </category>
+        <category ID="7000.65">
+          <label xml:lang="de" text="Fazialis-Nerv-Zentrum"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/fazialis/"/>
+        </category>
+        <category ID="7000.66">
+          <label xml:lang="de" text="Forschungszentrum Lobeda (FZL)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/fzl/"/>
+        </category>
+        <category ID="7000.67">
+          <label xml:lang="de" text="Interdisziplinäres Zentrum für Klinische Forschung (IZKF)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/izkf/"/>
+        </category>
+        <category ID="7000.68">
+          <label xml:lang="de" text="Zentrum für Klinische Studien (ZKS)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zks/"/>
+        </category>
+        <category ID="7000.69">
+          <label xml:lang="de" text="Mitteldeutsches Kopfschmerzzentrum Jena (MKJ)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/mkj/"/>
+        </category>
+        <category ID="7000.70">
+          <label xml:lang="de" text="Thüringer Muskelzentrum (TMZ)"/>
+          <url xlink:href=""/>
+        </category>
+        <category ID="7000.71">
+          <label xml:lang="de" text="https://www.uniklinikum-jena.de/tmz/"/>
+          <url xlink:href=""/>
+        </category>
+        <category ID="7000.72">
+          <label xml:lang="de" text="Zentrum für seltene Erkrankungen (ZSE)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zse/"/>
+        </category>
+        <category ID="7000.73">
+          <label xml:lang="de" text="ThIMEDOP - Thüringer Innovationszentrum für Medizintechnik-Lösungen"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/thimedop/"/>
+        </category>
+        <category ID="7000.74">
+          <label xml:lang="de" text="Tinnitus-Zentrum Jena"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/tinnitus/"/>
+        </category>
+        <category ID="7000.75">
+          <label xml:lang="de" text="UniversitätsTumorCentrum Jena (UTC)"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/tz/-p-6304.html"/>
+        </category>
+        <category ID="7000.76">
+          <label xml:lang="de" text="SATELIT - Schlaganfall Telemedizin in Thüringen"/>
+          <url
+              xlink:href="https://www.uniklinikum-jena.de/neuro/%C3%84rzte+_+Zuweisende/Neurologische+Zentren/Schlaganfallzentrum.html"/>
+        </category>
+        <category ID="7000.77">
+          <label xml:lang="de" text="Zentrum für Zahn-, Mund- und Kieferheilkunde"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zzmk/"/>
+        </category>
+      </category>
+    </category>
+    <category ID="1030">
+      <label xml:lang="de" text="Philosophische Fakultät"/>
+      <category ID="1030.01">
+        <label xml:lang="de" text="Institut für Philosophie"/>
+      </category>
+      <category ID="1030.02">
+        <label xml:lang="de" text="Institut für Altertumswissenschaften"/>
+      </category>
+      <category ID="1030.03">
+        <label xml:lang="de" text="Historisches Institut"/>
+      </category>
+      <category ID="1030.04">
+        <label xml:lang="de" text="Institut für Germanistische Literaturwissenschaft"/>
+      </category>
+      <category ID="1030.05">
+        <label xml:lang="de" text="Institut für Germanistische Sprachwissenschaft"/>
+      </category>
+      <category ID="1030.06">
+        <label xml:lang="de" text="Institut für Anglistik/Amerikanistik"/>
+      </category>
+      <category ID="1030.07">
+        <label xml:lang="de" text="Institut für Romanistik"/>
+      </category>
+      <category ID="1030.08">
+        <label xml:lang="de" text="Institut für Musikwissenschaft Weimar-Jena"/>
+      </category>
+      <category ID="1030.09">
+        <label xml:lang="de" text="Institut für Deutsch als Fremd- und Zweitsprache und Interkulturelle Studien"/>
+      </category>
+      <category ID="1030.10">
+        <label xml:lang="de" text="Institut für Orientalistik, Indogermanistik,Ur- und Frühgeschichtliche Archäologie"/>
+      </category>
+      <category ID="1030.11">
+        <label xml:lang="de" text="Institut für Kunst- und Kulturwissenschaften"/>
+      </category>
+      <category ID="1030.12">
+        <label xml:lang="de" text="Institut für Slawistik und Kaukasusstudien"/>
+      </category>
+    </category>
+    <category ID="5000">
+      <label xml:lang="de" text="Physikalisch-Astronomische Fakultät"/>
+      <category ID="5000.01">
+        <label xml:lang="de" text="Theoretisch-Physikalisches Institut"/>
+      </category>
+      <category ID="5000.02">
+        <label xml:lang="de" text="Institut für Festkörpertheorie und -optik"/>
+      </category>
+      <category ID="5000.03">
+        <label xml:lang="de" text="Institut Optik und Quantenelektronik"/>
+      </category>
+      <category ID="5000.04">
+        <label xml:lang="de" text="Institut für Festkörperphysik"/>
+      </category>
+      <category ID="5000.05">
+        <label xml:lang="de" text="Astrophysikal. Institut und Universitätssternwarte"/>
+      </category>
+      <category ID="5000.06">
+        <label xml:lang="de" text="Institut für Angewandte Optik und Biophysik"/>
+      </category>
+      <category ID="5000.07">
+        <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Löbdergraben 32)"/>
+      </category>
+      <category ID="5000.08">
+        <label xml:lang="de" text="Institut für Angewandte Physik"/>
+      </category>
+    </category>
+    <category ID="1010">
+      <label xml:lang="de" text="Rechtswissenschaftliche Fakultät"/>
+    </category>
+    <category ID="1080">
+      <label xml:lang="de" text="Sonstige/Externe"/>
+    </category>
+    <category ID="1085">
+      <label xml:lang="de" text="Sprachenzentrum"/>
+    </category>
+    <category ID="2000">
+      <label xml:lang="de" text="Theologische Fakultät"/>
+    </category>
+    <category ID="4711">
+      <label xml:lang="de" text="Thüringer Universitäts- und Landesbibliothek Jena, ThULB"/>
+      <category ID="471101">
+        <label xml:lang="de" text="ThULB / Thüringenbibliographie"/>
+      </category>
+      <category ID="471102">
+        <label xml:lang="de" text="ThULB / Pflichtexemplare"/>
+      </category>
+    </category>
+    <category ID="1000">
+      <label xml:lang="de" text="Universitätsrechenzentrum"/>
+    </category>
+    <category ID="1060">
+      <label xml:lang="de" text="Universitätsverwaltung"/>
+    </category>
+    <category ID="1020">
+      <label xml:lang="de" text="Wirtschaftswissenschaftliche Fakultät"/>
+    </category>
+    <category ID="1050">
+      <label xml:lang="de" text="Zentrum für Didaktik"/>
+    </category>
+  </categories>
 </mycoreclass>
