@@ -42,6 +42,9 @@
       <xsl:call-template name="modsNote" />
       <xsl:call-template name="modsRelatedItem" />
       <xsl:call-template name="modsSubject" />
+      <xsl:call-template name="uboTypeOfResource" />
+      <xsl:call-template name="uboPeerReview" />
+      <xsl:call-template name="uboMediaType" />
     </mods:mods>
   </xsl:template>
 
@@ -100,6 +103,55 @@
         </xsl:choose>
       </mods:genre>
     </xsl:for-each>
+  </xsl:template>
+
+  <xsl:template name="uboTypeOfResource">
+    <xsl:variable name="resourceType" select="p:datafield[@tag='002C']/p:subfield[@code='b']" />
+    <mods:typeOfResource>
+      <xsl:choose>
+        <xsl:when test="$resourceType='prm'">aud</xsl:when>
+        <xsl:when test="$resourceType='snd'">aud</xsl:when>
+        <xsl:when test="$resourceType='spw'">aud</xsl:when>
+        <xsl:when test="$resourceType='tdi'">mov</xsl:when>
+        <xsl:when test="$resourceType='tdm'">mov</xsl:when>
+        <xsl:when test="$resourceType='cod'">mul</xsl:when>
+        <xsl:when test="$resourceType='cop'">mul</xsl:when>
+        <xsl:when test="$resourceType='sti'">mul</xsl:when>
+        <xsl:otherwise>txt</xsl:otherwise>
+      </xsl:choose>
+    </mods:typeOfResource>
+  </xsl:template>
+
+  <xsl:template name="uboMediaType">
+    <xsl:choose>
+      <xsl:when test="count(p:datafield[@tag='002E']) &gt; 1">
+        <mods:classification valueURI="https://thunibib-ilmenau.gbv.de/classifications/mediaType#mixed" authorityURI="https://thunibib-ilmenau.gbv.de/classifications/mediaType" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="mediaType" select="p:datafield[@tag='002E']/p:subfield[@code='b']" />
+        <xsl:variable name="uboMediaType">
+          <xsl:choose>
+            <xsl:when test="$mediaType='nc'">print</xsl:when>
+            <xsl:when test="$mediaType='cd'">technical</xsl:when>
+            <xsl:when test="$mediaType='he'">technical</xsl:when>
+            <xsl:when test="$mediaType='cb'">technical</xsl:when>
+            <xsl:when test="$mediaType='vd'">technical</xsl:when>
+            <xsl:when test="$mediaType='sd'">technical</xsl:when>
+            <xsl:when test="$mediaType='cr'">online</xsl:when>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:if test="string-length($uboMediaType) &gt; 0">
+          <mods:classification valueURI="https://thunibib-ilmenau.gbv.de/classifications/mediaType#{$uboMediaType}" authorityURI="https://thunibib-ilmenau.gbv.de/classifications/mediaType" />
+        </xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="uboPeerReview">
+    <!-- KXP :  144Z/01-99 $9 -->
+    <xsl:if test="p:datafield[@tag='144Z']/p:subfield[@code='9'] = '480733066'">
+      <mods:classification valueURI="https://thunibib-ilmenau.gbv.de/classifications/peerreviewed#true" authorityURI="https://thunibib-ilmenau.gbv.de/classifications/peerreviewed"/>
+    </xsl:if>
   </xsl:template>
 
 </xsl:stylesheet>
