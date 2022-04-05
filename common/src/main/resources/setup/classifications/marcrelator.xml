@@ -46,7 +46,11 @@
       <label xml:lang="de" text="Beitragende*r" description="Eine Person oder Institution dessen Arbeit zu einem größeren Werk beiträgt, z. B. eine Anthologie, Serienpublikation oder andere Zusammenstellung individueller Werke. Nicht zu verwenden, wenn spezifischere Rollenangabe möglich ist. " />
       <label xml:lang="en" text="Contributor" description="Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, ..." />
       <category ID="ths">
-        <label xml:lang="en" text="Thesis advisor" description="Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. " />
+        <label xml:lang="en" text="Thesis advisor" description="Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation." />
+        <label xml:lang="de" text="Akademische Gutachter*in" description="Eine Person die für die Begutachtung einer Dissertation oder Abschlussarbeit verantwortlich ist." />
+      </category>
+      <category ID="dgs">
+        <label xml:lang="en" text="Degree supervisor" description="A person overseeing a higher level academic degree." />
         <label xml:lang="de" text="Akademische Betreuung" description="Eine Person, unter deren Betreuung ein Kandidat eine Dissertation oder Abschlussarbeit entwickelt und präsentiert." />
       </category>
       <category ID="rev">
