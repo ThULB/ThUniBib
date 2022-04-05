@@ -11,6 +11,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.common.SolrDocumentList;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
@@ -23,6 +24,10 @@ import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.MCRSessionMgr;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.common.content.MCRContent;
+import org.mycore.common.content.MCRJDOMContent;
+import org.mycore.common.content.transformer.MCRContentTransformer;
+import org.mycore.common.content.transformer.MCRContentTransformerFactory;
 import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
@@ -35,7 +40,9 @@ import org.mycore.mods.enrichment.MCREnrichmentResolver;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrUtils;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
+import java.io.IOException;
 import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -93,12 +100,12 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static final int BATCH_SIZE = 10;
     private static final String PICA_URL = "https://sru.k10plus.de/opac-de-ilm1?version=1.1&operation=searchRetrieve&query="
         + QUERY_PLACEHOLDER + "&maximumRecords="+BATCH_SIZE+"&recordSchema=mods36";
-    private static final String PICA_IMPORT_SYNTAX = "test import by pica query with {0} and start {1} and status {2}";
-    private static final String ENRICH_PPN_SYNTAX = "test enrich ppn {0} with status {1}";
+    private static final String PICA_IMPORT_SYNTAX = "import by pica query with {0} and start {1} and status {2} and filter {3}";
+    private static final String ENRICH_PPN_SYNTAX = "enrich ppn {0} with status {1} and filter {2}";
 
     /* pica.lsw%3Dil */
     @MCRCommand(syntax = PICA_IMPORT_SYNTAX, help = "imports all objects for a specific query",order = 5)
-    public static List<String> testImportByPicaQuery(String picaQuery, String startStr, String status) {
+    public static List<String> importByPicaQuery(String picaQuery, String startStr, String status, String filterTransformer) {
         final String request = buildRequestURL(picaQuery, startStr);
         final Element result = Objects.requireNonNull(MCRURIResolver.instance().resolve(request));
 
@@ -119,14 +126,15 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         if((start+BATCH_SIZE)<numberOfRecords){
             commands.add(PICA_IMPORT_SYNTAX.replace("{0}",picaQuery)
                     .replace("{1}",""+(start+BATCH_SIZE))
-                    .replace("{2}",status));
+                    .replace("{2}",status)
+                    .replace("{3}", filterTransformer));
         }
 
         return commands;
     }
 
     @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
-    public static void testEnrichPPN(String ppnID,String status){
+    public static void testEnrichPPN(String ppnID, String status, String filterTransformer) throws IOException, JDOMException, SAXException {
         // 2. check against Solr (duplicates across multiple imports)
         String ppn_field = "id_" + PPN_IDENTIFIER;
         if(isAlreadyStored(ppn_field , ppnID)) {
@@ -135,8 +143,17 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
             MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
             new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
             LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
+            wrappedMods = transform(wrappedMods, filterTransformer);
             createOrUpdate(wrappedMods, status);
         }
+    }
+
+    public static MCRMODSWrapper transform(MCRMODSWrapper mods, String transformerId) throws IOException, JDOMException, SAXException {
+        Document xml = mods.getMCRObject().createXML();
+        MCRJDOMContent tt = new MCRJDOMContent(xml);
+        MCRContentTransformer transformer = MCRContentTransformerFactory.getTransformer(transformerId);
+        MCRContent transform = transformer.transform(tt);
+        return new MCRMODSWrapper(new MCRObject(transform.asXML()));
     }
 
     public static String buildRequestURL(String query, String start) {
