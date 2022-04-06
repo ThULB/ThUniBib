@@ -3,7 +3,7 @@ import pysolr
 
 def read_csv():
     project_data = []
-    with open('191121_EU-Projekte.csv') as csv_file:
+    with open('201029_ThUniBib_Projekte.csv') as csv_file:
         reader = csv.reader(csv_file, delimiter=';')
         for line, row in enumerate(reader):
             if line == 0:
@@ -20,7 +20,7 @@ def read_csv():
     return project_data
 
 def update_solr(project_data_list):
-    solr = pysolr.Solr('http://localhost:8081/solr/ubo_projects')
+    solr = pysolr.Solr('http://localhost:8983/solr/ubo_projects')
     solr.add(project_data_list)
     solr.commit()
         
