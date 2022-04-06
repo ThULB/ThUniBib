@@ -56,11 +56,6 @@
             <xed:validate xpath="//mods:identifier[@type='duepublico']" matches="\d+" display="global" />
             <xed:validate xpath="//mods:identifier[@type='duepublico2']" matches="duepublico_mods_\d\d\d\d\d\d\d\d" display="global" />
 
-            <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-              <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-              <xed:validate xpath="//mods:location/mods:shelfLocator" matches="(\d\d\/\d\d\s[A-Za-z]+\s\d+.*)|([A-Z]{3,4}\d+[A-Z_d\-+,()\d]*)" i18n="ubo.shelfmark.validation" display="global" />
-            </xed:if>
-
             <div>
               <p>
                 <xed:output i18n="ubo.newPublicationWizard.titleAuthor" />

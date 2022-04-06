@@ -24,7 +24,6 @@
     <xed:validate xpath="//mods:identifier[@type='duepublico2']" matches="duepublico_mods_\d\d\d\d\d\d\d\d" display="global" />
     <xed:validate xpath="//mods:location/mods:url" matches="(f|ht)tp(s?)://[\w\d.]+\S*" i18n="ubo.link.validation" display="global" />
     <xed:validate xpath="//mods:location/mods:url" matches="^((?!doi.org/10).)*$" i18n="ubo.link.validation.not.doi" display="global" />
-    <xed:validate xpath="//mods:location/mods:shelfLocator" matches="(\d\d\s[A-Za-z]+\s\d+.*)|([A-Z]{3,4}\d+[A-Z_d\-+,()\d]*)" i18n="ubo.shelfmark.validation" display="global" />
     <xed:validate xpath="//mods:abstract/@xlink:href" matches="(f|ht)tp(s?)://[\w\d.]+\S*" i18n="ubo.link.validation" display="global" />
     <!-- year is required, except for journal and series: -->
     <xed:validate xpath="//mods:mods" test="descendant::mods:dateIssued[string-length(.) &gt; 0] or mods:genre='journal' or mods:genre='series' or mods:genre='blog' or mods:genre='newspaper'" i18n="ubo.date.issued.validation" display="global" />
@@ -352,10 +351,10 @@
             <span class="fas fa-user ml-1"> </span>
           </xed:when>
           <xed:when test="string-length(mods:namePart[@type='family']) &gt; 0">
-            <xed:load-resource uri="ires:search:{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}" name="searchResults"/>
+            <!-- xed:load-resource uri="ires:search:{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}" name="searchResults"/>
             <xed:if test="count($searchResults/person) &gt; 0">
               <xed:output value="concat('&#160;(', count($searchResults/person), ' in ', i18n:translate('editor.identity.picker.name'), ')')" />
-            </xed:if>
+            </xed:if -->
           </xed:when>
         </xed:choose>
       </span>
