@@ -4,19 +4,190 @@
   <label xml:lang="de" text="Friedrich-Schiller-Universität Jena"/>
   <label xml:lang="x-place" text="Friedrich-Schiller-Universität Jena | Jena | Fürstengraben 1, 07743 Jena"/>
   <categories>
+    <category ID="2000">
+      <label xml:lang="de" text="Theologische Fakultät"/>
+    </category>
+    <category ID="1010">
+      <label xml:lang="de" text="Rechtswissenschaftliche Fakultät"/>
+      <category ID="1010.01">
+        <label xml:lang="de" text="Abbe-Institut für Stiftungswesen"/>
+        <url xlink:href="https://www.abbe-institut.de/"/>
+      </category>
+      <category ID="1010.02">
+        <label xml:lang="de" text="Institut für Notarrecht"/>
+        <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-notarrecht"/>
+      </category>
+      <category ID="1010.03">
+        <label xml:lang="de" text="Institut für Energiewirtschaftsrecht"/>
+        <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-energiewirtschaftsrecht"/>
+      </category>
+      <category ID="1010.04">
+        <label xml:lang="de"
+               text="Institut für Rechtstatsachenforschung zum Deutschen und Europäischen Unternehmensrecht"/>
+        <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-rechtstatsachenforschung"/>
+      </category>
+    </category>
+    <category ID="1020">
+      <label xml:lang="de" text="Wirtschaftswissenschaftliche Fakultät"/>
+    </category>
+    <category ID="1030">
+      <label xml:lang="de" text="Philosophische Fakultät"/>
+      <category ID="1030.01">
+        <label xml:lang="de" text="Institut für Philosophie"/>
+        <url xlink:href="https://www.gw.uni-jena.de/fakultaet"/>
+      </category>
+      <category ID="1030.02">
+        <label xml:lang="de" text="Institut für Altertumswissenschaft"/>
+        <url xlink:href="https://www.gw.uni-jena.de/altertum"/>
+      </category>
+      <category ID="1030.03">
+        <label xml:lang="de" text="Historisches Institut"/>
+        <url xlink:href="https://www.gw.uni-jena.de/histinst"/>
+        <category ID="1030.03.01">
+          <label xml:lang="de" text="Jena Center Geschichte des 20. Jahrhunderts"/>
+          <url xlink:href="https://www.jenacenter.uni-jena.de/"/>
+        </category>
+        <category ID="1030.03.02">
+          <label xml:lang="de" text="Europäisches Kolleg Jena"/>
+          <url xlink:href="https://www.europaeisches-kolleg.uni-jena.de/"/>
+        </category>
+      </category>
+      <category ID="1030.04">
+        <label xml:lang="de" text="Institut für Germanistische Literaturwissenschaft"/>
+        <url xlink:href="https://www.glw.uni-jena.de/"/>
+      </category>
+      <category ID="1030.05">
+        <label xml:lang="de" text="Institut für Germanistische Sprachwissenschaft"/>
+        <url xlink:href="https://www.gw.uni-jena.de/germanistische-sprachwissenschaft"/>
+      </category>
+      <category ID="1030.06">
+        <label xml:lang="de" text="Institut für Anglistik/Amerikanistik"/>
+        <url xlink:href="https://www.iaa.uni-jena.de/"/>
+      </category>
+      <category ID="1030.07">
+        <label xml:lang="de" text="Institut für Romanistik"/>
+        <url xlink:href="http://www.romanistik.uni-jena.de/"/>
+      </category>
+      <category ID="1030.08">
+        <label xml:lang="de" text="Institut für Musikwissenschaft Weimar-Jena"/>
+        <url
+            xlink:href="https://www.hfm-weimar.de/institut-fuer-musikwissenschaft-weimar-jena/institutsleitung-sekretariat/#HfM"/>
+      </category>
+      <category ID="1030.09">
+        <label xml:lang="de" text="Institut für Deutsch als Fremd- und Zweitsprache und Interkulturelle Studien"/>
+        <url xlink:href="https://www.ikdaf.uni-jena.de/"/>
+      </category>
+      <category ID="1030.10">
+        <label xml:lang="de" text="Institut für Orientalistik, Indogermanistik,Ur- und Frühgeschichtliche Archäologie"/>
+        <url xlink:href="https://www.ikdaf.uni-jena.de/"/>
+      </category>
+      <category ID="1030.11">
+        <label xml:lang="de" text="Institut für Kunst- und Kulturwissenschaft"/>
+        <url xlink:href="https://www.kuk.uni-jena.de/"/>
+      </category>
+      <category ID="1030.12">
+        <label xml:lang="de" text="Institut für Slawistik und Kaukasusstudien"/>
+        <url xlink:href="https://www.gw.uni-jena.de/slawkauk"/>
+      </category>
+    </category>
+    <category ID="1040">
+      <label xml:lang="de" text="Fakultät für Sozial- und Verhaltenswissenschaften"/>
+      <category ID="1040.01">
+        <label xml:lang="de" text="Institut für Psychologie"/>
+        <url xlink:href="https://www.psychologie.uni-jena.de/"/>
+      </category>
+      <category ID="1040.02">
+        <label xml:lang="de" text="Institut für Erziehungswissenschaft"/>
+        <url xlink:href="https://www.erziehungswissenschaft.uni-jena.de/"/>
+      </category>
+      <category ID="1040.03">
+        <label xml:lang="de" text="Institut für Politikwissenschaft"/>
+        <url xlink:href="https://www.powi.uni-jena.de/"/>
+      </category>
+      <category ID="1040.04">
+        <label xml:lang="de" text="Institut für Soziologie"/>
+        <url xlink:href="https://www.soziologie.uni-jena.de/"/>
+      </category>
+      <category ID="1040.05">
+        <label xml:lang="de" text="Institut für Sportwissenschaft"/>
+        <url xlink:href="https://www.spowi.uni-jena.de/"/>
+      </category>
+      <category ID="1040.06">
+        <label xml:lang="de" text="Institut für Kommunikationswissenschaft"/>
+        <url xlink:href="https://www.ifkw.uni-jena.de/"/>
+      </category>
+      <category ID="1040.07">
+        <label xml:lang="de" text="Institut Bildung und Kultur"/>
+        <url xlink:href="https://www.ibk.uni-jena.de/"/>
+      </category>
+    </category>
+    <category ID="4000">
+      <label xml:lang="de" text="Fakultät für Mathematik und Informatik"/>
+      <category ID="4000.01">
+        <label xml:lang="de" text="Institut für Mathematik"/>
+        <url xlink:href="https://www.fmi.uni-jena.de/institut-mathematik"/>
+      </category>
+      <category ID="4000.02">
+        <label xml:lang="de" text="Institut für Informatik"/>
+        <url xlink:href="https://www.fmi.uni-jena.de/fakultaet/institute-und-abteilungen/institut-fuer-informatik"/>
+      </category>
+      <category ID="4000.03">
+        <label xml:lang="de" text="Abteilung Didaktik"/>
+        <url xlink:href="https://www.mi-didaktik.uni-jena.de/"/>
+      </category>
+    </category>
+    <category ID="5000">
+      <label xml:lang="de" text="Physikalisch-Astronomische Fakultät"/>
+      <category ID="5000.01">
+        <label xml:lang="de" text="Theoretisch-Physikalisches Institut (TPI)"/>
+        <url xlink:href="https://www.physik.uni-jena.de/tpi"/>
+      </category>
+      <category ID="5000.02">
+        <label xml:lang="de" text="Institut für Festkörpertheorie und -optik"/>
+        <url xlink:href="https://www.ifto.uni-jena.de/"/>
+      </category>
+      <category ID="5000.03">
+        <label xml:lang="de" text="Institut Optik und Quantenelektronik (IOQ)"/>
+        <url xlink:href="https://www.physik.uni-jena.de/ioq"/>
+      </category>
+      <category ID="5000.04">
+        <label xml:lang="de" text="Institut für Festkörperphysik"/>
+        <url xlink:href="https://www.ifk.uni-jena.de/"/>
+      </category>
+      <category ID="5000.09">
+        <label xml:lang="de" text="AG Fachdidaktik der Physik und Astronomie"/>
+        <url xlink:href="https://www.physik.uni-jena.de/pad"/>
+      </category>
+      <category ID="5000.05">
+        <label xml:lang="de" text="Astrophysikal. Institut und Universitätssternwarte"/>
+        <url xlink:href="https://www.astro.uni-jena.de/"/>
+      </category>
+      <category ID="5000.06">
+        <label xml:lang="de" text="Institut für Angewandte Optik und Biophysik"/>
+        <url xlink:href="https://www.physik.uni-jena.de/angewandte-optik-biophysik"/>
+      </category>
+      <category ID="5000.07">
+        <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (OSIM: Löbdergraben 32)"/>
+        <url xlink:href="https://www.osim.uni-jena.de/"/>
+      </category>
+      <category ID="5000.08">
+        <label xml:lang="de" text="Institut für Angewandte Physik"/>
+        <url xlink:href="https://www.iap.uni-jena.de/"/>
+      </category>
+    </category>
     <category ID="6000">
       <label xml:lang="de" text="Chemisch-Geowissenschaftliche Fakultät"/>
       <url xlink:href="https://www.chemgeo.uni-jena.de/fakultaet/institute-und-forschungszentren"/>
       <category ID="6000.01">
-        <label xml:lang="de" text="Institut für Anorganische und Analytische Chemie"/>
+        <label xml:lang="de" text="Institut für Anorganische und Analytische Chemie (IAAC)"/>
         <url xlink:href="https://www.chemgeo.uni-jena.de/iaac"/>
       </category>
       <category ID="6000.02">
-        <label xml:lang="de" text="Institut für Organische und Makromolekulare Chemie"/>
+        <label xml:lang="de" text="Institut für Organische und Makromolekulare Chemie (IOMC)"/>
         <url xlink:href="https://www.chemgeo.uni-jena.de/iomc"/>
       </category>
       <category ID="6000.03">
-        <label xml:lang="de" text="Institut für Physikalische Chemie"/>
+        <label xml:lang="de" text="Institut für Physikalische Chemie (IPC)"/>
         <url xlink:href="https://www.ipc.uni-jena.de/"/>
       </category>
       <category ID="6000.04">
@@ -24,14 +195,14 @@
         <url xlink:href="https://www.chemgeo.uni-jena.de/ituc"/>
       </category>
       <category ID="6000.05">
-        <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Fraunhoferstr. 6)"/>
+        <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (OSIM, Fraunhoferstr. 6)"/>
       </category>
       <category ID="6000.09">
         <label xml:lang="de" text="Arbeitsgruppe Chemiedidaktik"/>
         <url xlink:href="https://www.chemgeo.uni-jena.de/chemiedidaktik"/>
       </category>
       <category ID="6000.06">
-        <label xml:lang="de" text="Institut für Geowissenschaften"/>
+        <label xml:lang="de" text="Institut für Geowissenschaften (IGW)"/>
         <url xlink:href="https://www.igw.uni-jena.de/"/>
       </category>
       <category ID="6000.07">
@@ -65,7 +236,7 @@
         <url xlink:href="https://www.mikrobiologie.uni-jena.de/"/>
       </category>
       <category ID="6010.04">
-        <label xml:lang="de" text="Institut für Ökologie und Evolution"/>
+        <label xml:lang="de" text="Institut für Ökologie und Evolution (IEE)"/>
         <url xlink:href="https://www.iee.uni-jena.de/"/>
         <category ID="6010.04.01">
           <label xml:lang="de" text="Botanischer Garten Jena"/>
@@ -85,7 +256,7 @@
         <url xlink:href="https://www.ibb.uni-jena.de/"/>
       </category>
       <category ID="6010.07">
-        <label xml:lang="de" text="Institut für Ernährungswissenschaften"/>
+        <label xml:lang="de" text="Institut für Ernährungswissenschaft"/>
         <url xlink:href="https://www.iew.uni-jena.de/"/>
       </category>
       <category ID="6010.08">
@@ -93,51 +264,118 @@
         <url xlink:href="https://www.pharmazie.uni-jena.de/"/>
       </category>
     </category>
-    <category ID="4000">
-      <label xml:lang="de" text="Fakultät für Mathematik und Informatik"/>
-      <category ID="4000.01">
-        <label xml:lang="de" text="Institut für Mathematik"/>
-        <url xlink:href="https://www.fmi.uni-jena.de/institut-mathematik"/>
+    <category ID="8000">
+      <label xml:lang="de" text="Wissenschaftliche Zentren"/>
+      <category ID="8000.01">
+        <label xml:lang="de" text="Forschungszentrum für Religion und Bildung (FZRB, ehemals ZRB)"/>
+        <url xlink:href="https://www.zrb.uni-jena.de/"/>
       </category>
-      <category ID="4000.02">
-        <label xml:lang="de" text="Institut für Informatik"/>
-        <url xlink:href="https://www.fmi.uni-jena.de/fakultaet/institute-und-abteilungen/institut-fuer-informatik"/>
+      <category ID="8000.02">
+        <label xml:lang="de" text="Jena Center for Reconciliation Studies (JCRS)"/>
+        <url xlink:href="https://www.jcrs.uni-jena.de/"/>
       </category>
-      <category ID="4000.03">
-        <label xml:lang="de" text="Abteilung Didaktik"/>
-        <url xlink:href="https://www.mi-didaktik.uni-jena.de/"/>
+      <category ID="8000.03">
+        <label xml:lang="de" text="Center for European Studies (CEuS)"/>
+        <url xlink:href="http://www.ceus.uni-jena.de/de/"/>
+      </category>
+      <category ID="8000.04">
+        <label xml:lang="de" text="Forschungszentrum “Laboratorium Aufklärung“ (FZLA)"/>
+        <url xlink:href="https://www.fzla.uni-jena.de/"/>
+      </category>
+      <category ID="8000.05">
+        <label xml:lang="de" text="Imre Kertész Kolleg Jena"/>
+        <url xlink:href="https://www.imre-kertesz-kolleg.uni-jena.de/"/>
+      </category>
+      <category ID="8000.06">
+        <label xml:lang="de" text="Aleksander-Brückner-Zentrum für Polenstudien"/>
+        <url
+            xlink:href="https://www.uni-jena.de/forschung/profillinien/wissenschaftliche-zentren/aleksander-brueckner-zentrum-fuer-polenstudien"/>
+      </category>
+      <category ID="8000.07">
+        <label xml:lang="de" text="Forschungsstelle Weimarer Republik"/>
+        <url xlink:href="https://www.weimarforschung.uni-jena.de/"/>
+      </category>
+      <category ID="8000.08">
+        <label xml:lang="de" text="Forum for the Study of the Global Condition"/>
+        <url xlink:href="https://www.forum-global-condition.de/"/>
+      </category>
+      <category ID="8000.09">
+        <label xml:lang="de" text="Schumpeter-Zentrum zur Erforschung des sozialen und ökonomischen Wandels (JSEC)"/>
+        <url xlink:href="https://www.jsec.uni-jena.de/"/>
+      </category>
+      <category ID="8000.10">
+        <label xml:lang="de" text="Michael Stifel Center Jena (MSCJ)"/>
+        <url xlink:href="https://www.mscj.uni-jena.de/"/>
+      </category>
+      <category ID="8000.11">
+        <label xml:lang="de" text="Abbe Center of Photonics (ACP)"/>
+        <url xlink:href="https://www.acp.uni-jena.de/"/>
+      </category>
+      <category ID="8000.12">
+        <label xml:lang="de" text="Jena Center for Soft Matter (JCSM)"/>
+        <url xlink:href="https://www.jcsm.uni-jena.de/"/>
+      </category>
+      <category ID="8000.13">
+        <label xml:lang="de"
+               text="iDiv - Deutsches Zentrum für integrative Biodiversitätsforschung Halle-Jena-Leipzig"/>
+        <url xlink:href="https://www.idiv.de/de"/>
+      </category>
+      <category ID="8000.14">
+        <label xml:lang="de"
+               text="KomRex - Zentrum für Rechtsextremismusforschung, Demokratiebildung und gesellschaftliche Integration"/>
+        <url xlink:href="https://www.komrex.uni-jena.de/"/>
+      </category>
+      <category ID="8000.15">
+        <label xml:lang="de" text="Zentrum für Alternsforschung Jena (ZAJ)"/>
+        <url xlink:href="https://www.zaj.uni-jena.de/"/>
+      </category>
+      <category ID="8000.16">
+        <label xml:lang="de" text="Jena Centre for Bioinformatics (JCB)"/>
+        <url
+            xlink:href="https://www.uni-jena.de/forschung/profillinien/wissenschaftliche-zentren/jena-zentrum-fuer-bioinformatik"/>
+      </category>
+      <category ID="8000.17">
+        <label xml:lang="de" text="Jena Center for Microbial Communication (JCMC)"/>
+        <url xlink:href="https://www.jcmc.de/home.html"/>
+      </category>
+      <category ID="8000.18">
+        <label xml:lang="de" text="Center for Energy and Environmental Chemistry Jena (CEEC)"/>
+        <url xlink:href="https://www.ceec.uni-jena.de/"/>
+      </category>
+      <category ID="8000.19">
+        <label xml:lang="de" text="Center of Medical Optics and Photonics (CeMOP)"/>
+        <url xlink:href="https://www.cemop.uni-jena.de/ueber-uns"/>
+      </category>
+      <category ID="8000.20">
+        <label xml:lang="de" text="Center for Molecular Biomedicine (CMB)"/>
+        <url xlink:href="https://www.cmb.uni-jena.de/"/>
+      </category>
+      <category ID="8000.21">
+        <label xml:lang="de" text="Zentrum für Innovationskompetenz (ZIK) Septomics"/>
+        <url xlink:href="https://www.septomics.de/de/"/>
       </category>
     </category>
-    <category ID="1040">
-      <label xml:lang="de" text="Fakultät für Sozial- und Verhaltenswissenschaften"/>
-      <category ID="1040.01">
-        <label xml:lang="de" text="Institut für Psychologie"/>
-        <url xlink:href="https://www.psychologie.uni-jena.de/"/>
-      </category>
-      <category ID="1040.02">
-        <label xml:lang="de" text="Institut für Erziehungswissenschaften"/>
-        <url xlink:href="https://www.erziehungswissenschaft.uni-jena.de/"/>
-      </category>
-      <category ID="1040.03">
-        <label xml:lang="de" text="Institut für Politikwissenschaften"/>
-        <url xlink:href="https://www.powi.uni-jena.de/"/>
-      </category>
-      <category ID="1040.04">
-        <label xml:lang="de" text="Institut für Soziologie"/>
-        <url xlink:href="https://www.soziologie.uni-jena.de/"/>
-      </category>
-      <category ID="1040.05">
-        <label xml:lang="de" text="Institut für Sportwissenschaften"/>
-        <url xlink:href="https://www.spowi.uni-jena.de/"/>
-      </category>
-      <category ID="1040.06">
-        <label xml:lang="de" text="Institut für Kommunikationswissenschaften"/>
-        <url xlink:href="https://www.ifkw.uni-jena.de/"/>
-      </category>
-      <category ID="1040.07">
-        <label xml:lang="de" text="Institut Bildung und Kultur"/>
-        <url xlink:href="https://www.ibk.uni-jena.de/"/>
-      </category>
+    <category ID="1060">
+      <label xml:lang="de" text="Zentrale Universitätsverwaltung"/>
+    </category>
+    <category ID="4711">
+      <label xml:lang="de" text="Thüringer Universitäts- und Landesbibliothek Jena, ThULB"/>
+      <url xlink:href="https://www.thulb.uni-jena.de/"/>
+    </category>
+    <category ID="10000">
+      <label xml:lang="de" text="Universitätsarchiv"/>
+      <url xlink:href="https://www.uni-jena.de/uniarchiv"/>
+    </category>
+    <category ID="1000">
+      <label xml:lang="de" text="Universitätsrechenzentrum (URZ)"/>
+      <url xlink:href="https://www.uni-jena.de/urz"/>
+    </category>
+    <category ID="1085">
+      <label xml:lang="de" text="Sprachenzentrum"/>
+    </category>
+    <category ID="12000">
+      <label xml:lang="de" text="Zentrum für Lehrerbildung und Bildungsforschung (ZLB)"/>
+      <url xlink:href="https://www.zlb.uni-jena.de/"/>
     </category>
     <category ID="7000">
       <label xml:lang="de" text="Medizinische Fakultät"/>
@@ -226,7 +464,7 @@
         </category>
         <category ID="7000.22">
           <label xml:lang="de"
-                 text="Institut für Medizinische Statistik, Informatik und Datenwissenschaften (IMSID)	"/>
+                 text="Institut für Medizinische Statistik, Informatik und Datenwissenschaft (IMSID)	"/>
           <url xlink:href="https://www.uniklinikum-jena.de/imsid/"/>
         </category>
         <category ID="7000.23">
@@ -455,250 +693,6 @@
           <url xlink:href="https://www.uniklinikum-jena.de/zzmk/"/>
         </category>
       </category>
-    </category>
-    <category ID="1030">
-      <label xml:lang="de" text="Philosophische Fakultät"/>
-      <category ID="1030.01">
-        <label xml:lang="de" text="Institut für Philosophie"/>
-        <url xlink:href="https://www.gw.uni-jena.de/fakultaet"/>
-      </category>
-      <category ID="1030.02">
-        <label xml:lang="de" text="Institut für Altertumswissenschaften"/>
-        <url xlink:href="https://www.gw.uni-jena.de/altertum"/>
-      </category>
-      <category ID="1030.03">
-        <label xml:lang="de" text="Historisches Institut"/>
-        <url xlink:href="https://www.gw.uni-jena.de/histinst"/>
-        <category ID="1030.03.01">
-          <label xml:lang="de" text="Jena Center Geschichte des 20. Jahrhunderts"/>
-          <url xlink:href="https://www.jenacenter.uni-jena.de/"/>
-        </category>
-        <category ID="1030.03.02">
-          <label xml:lang="de" text="Europäisches Kolleg Jena"/>
-          <url xlink:href="https://www.europaeisches-kolleg.uni-jena.de/"/>
-        </category>
-      </category>
-      <category ID="1030.04">
-        <label xml:lang="de" text="Institut für Germanistische Literaturwissenschaft"/>
-        <url xlink:href="https://www.glw.uni-jena.de/"/>
-      </category>
-      <category ID="1030.05">
-        <label xml:lang="de" text="Institut für Germanistische Sprachwissenschaft"/>
-        <url xlink:href="https://www.gw.uni-jena.de/germanistische-sprachwissenschaft"/>
-      </category>
-      <category ID="1030.06">
-        <label xml:lang="de" text="Institut für Anglistik/Amerikanistik"/>
-        <url xlink:href="https://www.iaa.uni-jena.de/"/>
-      </category>
-      <category ID="1030.07">
-        <label xml:lang="de" text="Institut für Romanistik"/>
-        <url xlink:href="http://www.romanistik.uni-jena.de/"/>
-      </category>
-      <category ID="1030.08">
-        <label xml:lang="de" text="Institut für Musikwissenschaft Weimar-Jena"/>
-        <url
-            xlink:href="https://www.hfm-weimar.de/institut-fuer-musikwissenschaft-weimar-jena/institutsleitung-sekretariat/#HfM"/>
-      </category>
-      <category ID="1030.09">
-        <label xml:lang="de" text="Institut für Deutsch als Fremd- und Zweitsprache und Interkulturelle Studien"/>
-        <url xlink:href="https://www.ikdaf.uni-jena.de/"/>
-      </category>
-      <category ID="1030.10">
-        <label xml:lang="de" text="Institut für Orientalistik, Indogermanistik,Ur- und Frühgeschichtliche Archäologie"/>
-        <url xlink:href="https://www.ikdaf.uni-jena.de/"/>
-      </category>
-      <category ID="1030.11">
-        <label xml:lang="de" text="Institut für Kunst- und Kulturwissenschaften"/>
-        <url xlink:href="https://www.kuk.uni-jena.de/"/>
-      </category>
-      <category ID="1030.12">
-        <label xml:lang="de" text="Institut für Slawistik und Kaukasusstudien"/>
-        <url xlink:href="https://www.gw.uni-jena.de/slawkauk"/>
-      </category>
-    </category>
-    <category ID="5000">
-      <label xml:lang="de" text="Physikalisch-Astronomische Fakultät"/>
-      <category ID="5000.01">
-        <label xml:lang="de" text="Theoretisch-Physikalisches Institut"/>
-        <url xlink:href="https://www.physik.uni-jena.de/tpi"/>
-      </category>
-      <category ID="5000.02">
-        <label xml:lang="de" text="Institut für Festkörpertheorie und -optik"/>
-        <url xlink:href="https://www.ifto.uni-jena.de/"/>
-      </category>
-      <category ID="5000.03">
-        <label xml:lang="de" text="Institut Optik und Quantenelektronik"/>
-        <url xlink:href="https://www.physik.uni-jena.de/ioq"/>
-      </category>
-      <category ID="5000.04">
-        <label xml:lang="de" text="Institut für Festkörperphysik"/>
-        <url xlink:href="https://www.ifk.uni-jena.de/"/>
-      </category>
-      <category ID="5000.09">
-        <label xml:lang="de" text="AG Fachdidaktik der Physik und Astronomie"/>
-        <url xlink:href="https://www.physik.uni-jena.de/pad"/>
-      </category>
-      <category ID="5000.05">
-        <label xml:lang="de" text="Astrophysikal. Institut und Universitätssternwarte"/>
-        <url xlink:href="https://www.astro.uni-jena.de/"/>
-      </category>
-      <category ID="5000.06">
-        <label xml:lang="de" text="Institut für Angewandte Optik und Biophysik"/>
-        <url xlink:href="https://www.physik.uni-jena.de/angewandte-optik-biophysik"/>
-      </category>
-      <category ID="5000.07">
-        <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung (Standort: Löbdergraben 32)"/>
-        <url xlink:href="https://www.osim.uni-jena.de/"/>
-      </category>
-      <category ID="5000.08">
-        <label xml:lang="de" text="Institut für Angewandte Physik"/>
-        <url xlink:href="https://www.iap.uni-jena.de/"/>
-      </category>
-    </category>
-    <category ID="1010">
-      <label xml:lang="de" text="Rechtswissenschaftliche Fakultät"/>
-      <category ID="1010.01">
-        <label xml:lang="de" text="Abbe-Institut für Stiftungswesen"/>
-        <url xlink:href="https://www.abbe-institut.de/"/>
-      </category>
-      <category ID="1010.02">
-        <label xml:lang="de" text="Institut für Notarrecht"/>
-        <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-notarrecht"/>
-      </category>
-      <category ID="1010.03">
-        <label xml:lang="de" text="Institut für Energiewirtschaftsrecht"/>
-        <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-energiewirtschaftsrecht"/>
-      </category>
-      <category ID="1010.04">
-        <label xml:lang="de"
-               text="Institut für Rechtstatsachenforschung zum Deutschen und Europäischen Unternehmensrecht"/>
-        <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-rechtstatsachenforschung"/>
-      </category>
-    </category>
-    <category ID="1080">
-      <label xml:lang="de" text="Sonstige/Externe"/>
-    </category>
-    <category ID="1085">
-      <label xml:lang="de" text="Sprachenzentrum"/>
-    </category>
-    <category ID="2000">
-      <label xml:lang="de" text="Theologische Fakultät"/>
-    </category>
-    <category ID="4711">
-      <label xml:lang="de" text="Thüringer Universitäts- und Landesbibliothek Jena, ThULB"/>
-      <url xlink:href="https://www.thulb.uni-jena.de/"/>
-    </category>
-    <category ID="1020">
-      <label xml:lang="de" text="Wirtschaftswissenschaftliche Fakultät"/>
-    </category>
-    <category ID="10000">
-      <label xml:lang="de" text="Universitätsarchiv"/>
-      <url xlink:href="https://www.uni-jena.de/uniarchiv"/>
-    </category>
-    <category ID="1000">
-      <label xml:lang="de" text="Universitätsrechenzentrum (URZ)"/>
-      <url xlink:href="https://www.uni-jena.de/urz"/>
-    </category>
-    <category ID="1060">
-      <label xml:lang="de" text="Universitätsverwaltung"/>
-    </category>
-    <category ID="8000">
-      <label xml:lang="de" text="Wissenschaftliche Zentren"/>
-      <category ID="8000.01">
-        <label xml:lang="de" text="Forschungszentrum für Religion und Bildung (FZRB, ehemals ZRB)"/>
-        <url xlink:href="https://www.zrb.uni-jena.de/"/>
-      </category>
-      <category ID="8000.02">
-        <label xml:lang="de" text="Jena Center for Reconciliation Studies (JCRS)"/>
-        <url xlink:href="https://www.jcrs.uni-jena.de/"/>
-      </category>
-      <category ID="8000.03">
-        <label xml:lang="de" text="Center for European Studies (CEuS)"/>
-        <url xlink:href="http://www.ceus.uni-jena.de/de/"/>
-      </category>
-      <category ID="8000.04">
-        <label xml:lang="de" text="Forschungszentrum “Laboratorium Aufklärung“ (FZLA)"/>
-        <url xlink:href="https://www.fzla.uni-jena.de/"/>
-      </category>
-      <category ID="8000.05">
-        <label xml:lang="de" text="Imre Kertész Kolleg Jena"/>
-        <url xlink:href="https://www.imre-kertesz-kolleg.uni-jena.de/"/>
-      </category>
-      <category ID="8000.06">
-        <label xml:lang="de" text="Aleksander-Brückner-Zentrum für Polenstudien"/>
-        <url
-            xlink:href="https://www.uni-jena.de/forschung/profillinien/wissenschaftliche-zentren/aleksander-brueckner-zentrum-fuer-polenstudien"/>
-      </category>
-      <category ID="8000.07">
-        <label xml:lang="de" text="Forschungsstelle Weimarer Republik"/>
-        <url xlink:href="https://www.weimarforschung.uni-jena.de/"/>
-      </category>
-      <category ID="8000.08">
-        <label xml:lang="de" text="Forum for the Study of the Global Condition"/>
-        <url xlink:href="https://www.forum-global-condition.de/"/>
-      </category>
-      <category ID="8000.09">
-        <label xml:lang="de" text="Schumpeter-Zentrum zur Erforschung des sozialen und ökonomischen Wandels (JSEC)"/>
-        <url xlink:href="https://www.jsec.uni-jena.de/"/>
-      </category>
-      <category ID="8000.10">
-        <label xml:lang="de" text="Michael Stifel Center Jena (MSCJ)"/>
-        <url xlink:href="https://www.mscj.uni-jena.de/"/>
-      </category>
-      <category ID="8000.11">
-        <label xml:lang="de" text="Abbe Center of Photonics (ACP)"/>
-        <url xlink:href="https://www.acp.uni-jena.de/"/>
-      </category>
-      <category ID="8000.12">
-        <label xml:lang="de" text="Jena Center for Soft Matter (JCSM)"/>
-        <url xlink:href="https://www.jcsm.uni-jena.de/"/>
-      </category>
-      <category ID="8000.13">
-        <label xml:lang="de"
-               text="iDiv - Deutsches Zentrum für integrative Biodiversitätsforschung Halle-Jena-Leipzig"/>
-        <url xlink:href="https://www.idiv.de/de"/>
-      </category>
-      <category ID="8000.14">
-        <label xml:lang="de"
-               text="KomRex - Zentrum für Rechtsextremismusforschung, Demokratiebildung und gesellschaftliche Integration"/>
-        <url xlink:href="https://www.komrex.uni-jena.de/"/>
-      </category>
-      <category ID="8000.15">
-        <label xml:lang="de" text="Zentrum für Alternsforschung Jena (ZAJ)"/>
-        <url xlink:href="https://www.zaj.uni-jena.de/"/>
-      </category>
-      <category ID="8000.16">
-        <label xml:lang="de" text="Jena Centre for Bioinformatics (JCB)"/>
-        <url
-            xlink:href="https://www.uni-jena.de/forschung/profillinien/wissenschaftliche-zentren/jena-zentrum-fuer-bioinformatik"/>
-      </category>
-      <category ID="8000.17">
-        <label xml:lang="de" text="Jena Center for Microbial Communication (JCMC)"/>
-        <url xlink:href="https://www.jcmc.de/home.html"/>
-      </category>
-      <category ID="8000.18">
-        <label xml:lang="de" text="Center for Energy and Environmental Chemistry Jena (CEEC)"/>
-        <url xlink:href="https://www.ceec.uni-jena.de/"/>
-      </category>
-      <category ID="8000.19">
-        <label xml:lang="de" text="Center of Medical Optics and Photonics (CeMOP)"/>
-        <url xlink:href="https://www.cemop.uni-jena.de/ueber-uns"/>
-      </category>
-      <category ID="8000.20">
-        <label xml:lang="de" text="Center for Molecular Biomedicine (CMB)"/>
-        <url xlink:href="https://www.cmb.uni-jena.de/"/>
-      </category>
-      <category ID="8000.21">
-        <label xml:lang="de" text="Zentrum für Innovationskompetenz (ZIK) Septomics"/>
-        <url xlink:href="https://www.septomics.de/de/"/>
-      </category>
-    </category>
-    <category ID="1050">
-      <label xml:lang="de" text="Zentrum für Didaktik"/>
-    </category>
-    <category ID="12000">
-      <label xml:lang="de" text="Zentrum für Lehrerbildung und Bildungsforschung (ZLB)"/>
-      <url xlink:href="https://www.zlb.uni-jena.de/"/>
     </category>
   </categories>
 </mycoreclass>
