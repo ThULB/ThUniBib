@@ -597,7 +597,7 @@
           <url xlink:href="https://www.uniklinikum-jena.de/uc/"/>
         </category>
         <category ID="7000.53">
-          <label xml:lang="de" text="Klinik für Urologie https://www.uniklinikum-jena.de/urologie/"/>
+          <label xml:lang="de" text="Klinik für Urologie"/>
           <url xlink:href="https://www.uniklinikum-jena.de/urologie/"/>
         </category>
         <category ID="7000.54">
@@ -661,29 +661,25 @@
         </category>
         <category ID="7000.70">
           <label xml:lang="de" text="Thüringer Muskelzentrum (TMZ)"/>
-          <url xlink:href=""/>
+          <url xlink:href="https://www.uniklinikum-jena.de/tmz/"/>
         </category>
         <category ID="7000.71">
-          <label xml:lang="de" text="https://www.uniklinikum-jena.de/tmz/"/>
-          <url xlink:href=""/>
-        </category>
-        <category ID="7000.72">
           <label xml:lang="de" text="Zentrum für seltene Erkrankungen (ZSE)"/>
           <url xlink:href="https://www.uniklinikum-jena.de/zse/"/>
         </category>
-        <category ID="7000.73">
+        <category ID="7000.72">
           <label xml:lang="de" text="ThIMEDOP - Thüringer Innovationszentrum für Medizintechnik-Lösungen"/>
           <url xlink:href="https://www.uniklinikum-jena.de/thimedop/"/>
         </category>
-        <category ID="7000.74">
+        <category ID="7000.73">
           <label xml:lang="de" text="Tinnitus-Zentrum Jena"/>
           <url xlink:href="https://www.uniklinikum-jena.de/tinnitus/"/>
         </category>
-        <category ID="7000.75">
+        <category ID="7000.74">
           <label xml:lang="de" text="UniversitätsTumorCentrum Jena (UTC)"/>
           <url xlink:href="https://www.uniklinikum-jena.de/tz/-p-6304.html"/>
         </category>
-        <category ID="7000.76">
+        <category ID="7000.75">
           <label xml:lang="de" text="SATELIT - Schlaganfall Telemedizin in Thüringen"/>
           <url
               xlink:href="https://www.uniklinikum-jena.de/neuro/%C3%84rzte+_+Zuweisende/Neurologische+Zentren/Schlaganfallzentrum.html"/>
