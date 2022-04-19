@@ -377,7 +377,7 @@
           </xsl:variable>
           <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
              role="button" id="mcrFunctionsDropdown" href="#"
-             class="user nav-link dropdown-toggle p-0" style="cursor: default; display: inline-block; margin-left: 0.3em;">
+             class="user nav-link dropdown-toggle p-0" style="cursor: pointer; display: inline-block; margin-left: 0.3em;">
             <xsl:choose>
               <xsl:when test="$userData/realName">
                 <xsl:value-of select="$userData/realName" />
