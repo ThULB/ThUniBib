@@ -410,7 +410,7 @@
         <xsl:otherwise>
           <form action="{$ServletsBaseURL}logout" method="get">
             <input type="hidden" name="url" value="{$RequestURL}" />
-            <button title="Anmelden" class="btn btn-link p-0" style="border:0;" type="submit" name="{i18n:translate('login.logOut')}" value="{i18n:translate('login.logOut')}">
+            <button title="Abmelden" class="btn btn-link p-0" style="border:0;" type="submit" name="{i18n:translate('login.logOut')}" value="{i18n:translate('login.logOut')}">
               <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
             </button>
           </form>
