@@ -453,7 +453,7 @@
           <label xml:lang="de" text="2270 Ostasien-Studien" />
         </category>
         <category ID="2275">
-          <label xml:lang="de" text="2275 Südasien" />
+          <label xml:lang="de" text="2275 Südasien-Studien" />
         </category>
         <category ID="2280">
           <label xml:lang="de" text="2280 Südostasien und Ozeanien-Studien" />
@@ -466,7 +466,7 @@
         </category>
       </category>
       <category ID="230">
-        <label xml:lang="de" text="230 Politikwissenschaften" />
+        <label xml:lang="de" text="230 Politikwissenschaft" />
         <category ID="2300">
           <label xml:lang="de" text="2300 Politikwissenschaft allgemein" />
         </category>
@@ -488,9 +488,6 @@
         <category ID="2320">
           <label xml:lang="de" text="2320 Sozialwissenschaften/Soziologie allgemein" />
         </category>
-        <category ID="2330">
-          <label xml:lang="de" text="2330 Soziologie" />
-        </category>
         <category ID="2340">
           <label xml:lang="de" text="2340 Bevölkerungswissenschaft (Demographie)" />
         </category>
@@ -504,7 +501,7 @@
           <label xml:lang="de" text="2365 Soziologische Theorie" />
         </category>
         <category ID="2375">
-          <label xml:lang="de" text="2375 Spezielle Soziologien n" />
+          <label xml:lang="de" text="2375 Spezielle Soziologien" />
         </category>
       </category>
       <category ID="240">
@@ -666,10 +663,10 @@
           <label xml:lang="de" text="2930 Volkswirtschaftslehre" />
         </category>
         <category ID="2935">
-          <label xml:lang="de" text="2935 Wirtschaftsinformatik (für Wirtschaftswissenschaften)" />
+          <label xml:lang="de" text="2935 Wirtschaftsinformatik (für Wirtschaftswissenschaftler)" />
         </category>
         <category ID="2936">
-          <label xml:lang="de" text="2936 Wirtschaftsmathematik (für Wirtschaftswissenschaften)" />
+          <label xml:lang="de" text="2936 Wirtschaftsmathematik" />
         </category>
         <category ID="2940">
           <label xml:lang="de" text="2940 Ökonometrie" />
