@@ -56,11 +56,11 @@
       <label xml:lang="de">Klassifikationseditor</label>
       <label xml:lang="en">Classification editor</label>
     </item>
-    <item id="useradmin" ref="servlets/MCRUserServlet">
+    <item id="useradmin" ref="servlets/MCRUserServlet" role="admin">
       <label xml:lang="de">Nutzerverwaltung</label>
       <label xml:lang="en">User administration</label>
     </item>
-    <item id="acleditor" ref="rsc/ACLE/start">
+    <item id="acleditor" ref="rsc/ACLE/start" role="admin">
       <label xml:lang="de">ACL-Editor</label>
       <label xml:lang="en">ACL editor</label>
     </item>
