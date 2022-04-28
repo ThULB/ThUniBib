@@ -73,12 +73,10 @@
   <!-- all layout -->
   <xsl:template name="layout">
     <body class="d-flex flex-column">
-      <!-- <xsl:call-template name="layout.headerline" /> -->
       <xsl:call-template name="layout.header" />
       <xsl:call-template name="layout.navigation" />
       <xsl:call-template name="layout.breadcrumbPath"/>
       <xsl:call-template name="layout.headline"/>
-      <!-- <xsl:call-template name="layout.topcontainer" /> -->
       <xsl:call-template name="layout.body" />
       <xsl:call-template name="layout.footer" />
     </body>
@@ -98,26 +96,6 @@
       <xsl:if test="string-length($UBO.Mail.Feedback)&gt;0">
         <xsl:call-template name="feedback"/>
       </xsl:if>
-    </div>
-  </xsl:template>
-
-  <xsl:template name="layout.topcontainer">
-    <div id="topcontainer">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <xsl:call-template name="layout.pageTitle"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-9">
-            <xsl:call-template name="layout.breadcrumbPath"/>
-          </div>
-          <div class="col-lg-3 pl-0">
-            <xsl:call-template name="layout.basket.info"/>
-          </div>
-        </div>
-      </div>
     </div>
   </xsl:template>
 
@@ -160,85 +138,6 @@
             </ul>
           </div>
         </nav>
-      </div>
-    </div>
-  </xsl:template>
-
-  <xsl:template name="layout.headerline">
-    <div id="headerLine" class="d-flex align-items-center bg-white">
-      <div class="container" >
-        <div class="row">
-          <nav class="col">
-            <ul class="nav">
-              <li class="">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                  <i class="far fa-fw fa-comments"></i>
-                  <span class="icon-label">Kontakt</span>
-                </a>
-                <div class="dropdown-menu" x-placement="bottom-start">
-                  <ul>
-                    <li>
-                      <a href="tel:+492011834031">
-                        <i class="far fa-fw fa-phone"></i>
-                        +49 201 18 34031
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/">
-                        <i class="far fa-fw fa-envelope"></i>
-                        sekretariat.softec@paluno.uni-due.de
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/kontakt/anfahrt-und-postanschrift/">
-                        <i class="far fa-fw fa-map-signs"></i>
-                        Anfahrt und Postanschrift
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li id="navigationStakeholder">
-                <xsl:call-template name="layout.sub.navigation.information"/>
-              </li>
-            </ul>
-          </nav>
-          <nav class="col col-auto">
-            <a href="#" class="social-toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" id="socialDropDownButton">
-              <i class="far fa-fw fa-share-square" aria-hidden="true"></i>
-              <span class="icon-label">Social Media</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" id="navigationSocialContent" aria-labelledby="socialDropDownButton">
-              <ul>
-                <li>
-                  <a href="https://www.uni-due.de/myude/" class="social social-myude" title="myUDE">
-                    <i class="fab fa-fw fa-myude" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://www.facebook.com/uni.due" class="social social-facebook" title="Facebook">
-                    <i class="fab fa-fw fa-facebook-f" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://twitter.com/unidue" class="social social-twitter" title="Twitter">
-                    <i class="fab fa-fw fa-twitter" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.softec.wiwi.uni-due.de/rss/" class="social social-rss" title="RSS">
-                    <i class="fab fa-fw fa-rss" aria-hidden="true"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <nav class="col col-auto">
-            <div class="nav nav-pills">
-              <xsl:call-template name="layout.login"/>
-            </div>
-          </nav>
-        </div>
       </div>
     </div>
   </xsl:template>
