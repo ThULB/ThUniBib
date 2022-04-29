@@ -116,7 +116,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         List<String> commands = new ArrayList<>(recordIdentifierElements.size());
 
         recordIdentifierElements.stream().map(Element::getTextNormalize)
-                .map((ppn) -> ENRICH_PPN_SYNTAX.replace("{0}",ppn).replace("{1}", status))
+                .map((ppn) -> ENRICH_PPN_SYNTAX.replace("{0}",ppn).replace("{1}", status).replace("{2}", filterTransformer))
                 .forEach(commands::add);
 
         final String numberOfRecordsStr = result.getChildTextNormalize("numberOfRecords", NAMESPACE_ZS);
