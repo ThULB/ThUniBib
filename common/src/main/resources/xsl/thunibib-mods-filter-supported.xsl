@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -14,6 +14,32 @@
 </xsl:template>
 
 <xsl:template match="*|@*" /> <!-- ignore all other unsupported elements and attributes -->
+
+<xsl:template match="mycoreobject"> <!-- copy also mycore object structure if given -->
+  <xsl:copy>
+    <xsl:copy-of select="@*" />
+    <xsl:apply-templates select="structure|metadata|service" />
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="structure">
+  <xsl:copy>
+    <xsl:copy-of select="*|@*" />
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="metadata|def.modsContainer|modsContainer">
+  <xsl:copy>
+    <xsl:copy-of select="@*" />
+    <xsl:apply-templates />
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="service">
+  <xsl:copy>
+    <xsl:copy-of select="*|@*" />
+  </xsl:copy>
+</xsl:template>
 
 <xsl:template match="mods:mods">
   <xsl:copy>
