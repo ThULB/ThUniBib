@@ -91,7 +91,7 @@
               <label class="mycore-form-label">
         </label>
               <div class="cancel-submit">
-                <button class="btn btn-primary" type="submit" xed:target="servlet" xed:href="NewPublicationWizard">
+                <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="NewPublicationWizard">
                   <xed:output i18n="button.next" />
                 </button>
               </div>
