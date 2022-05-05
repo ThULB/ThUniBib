@@ -42,18 +42,24 @@
                   test="descendant::mods:dateIssued[string-length(.) &gt; 0] or mods:genre='journal' or mods:genre='series' or mods:genre='blog' or mods:genre='newspaper'"
                   i18n="ubo.date.issued.validation" display="global"/>
 
+    <!-- title required for all non standalone object types -->
+    <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
+                  test="string-length(.) &gt; 0"
+                  relevant-if="//mods:mods/mods:genre='entry' or //mods:mods/mods:genre='article' or //mods:mods/mods:genre='chapter' or //mods:mods/mods:genre='preface' or //mods:mods/mods:genre='abstract' or //mods:mods/mods:genre='conference_essay' or //mods:mods/mods:genre='entry' or //mods:mods/mods:genre='video_contribution' or //mods:mods/mods:genre='blog_entry' or //mods:mods/mods:genre='series' or (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
+                  i18n="ubo.title.validation" display="global"/>
+
     <script type="text/javascript">
-      $(document).ready(function() {
-
-      $('select[class*="autocomplete"]').chosen({search_contains: true});
-
-      $(document).popover({
-      selector: "[data-toggle=popover]",
-      container: "body",
-      html: true,
-      trigger: "focus"
-      });
-      });
+      <![CDATA[
+        $(document).ready(function () {
+            $('select[class*="autocomplete"]').chosen({search_contains: true});
+            $(document).popover({
+                selector: "[data-toggle=popover]",
+                container: "body",
+                html: true,
+                trigger: "focus"
+            });
+        });
+      ]]>
     </script>
   </xed:template>
 
@@ -106,7 +112,7 @@
       <label for="{xed:generate-id()}" class="mycore-form-label">Tags:</label>
       <div class="col-6 pl-0 form-group form-inline">
         <xed:repeat xpath="mods:extension/tag" min="3">
-          <input type="text" placeholder="Tag" class="form-control col-2 mb-1 mr-1"/>
+          <input type="text" placeholder="Tag" class="form-control ml-1 col-2"/>
           <xed:controls>append</xed:controls>
         </xed:repeat>
       </div>
@@ -607,7 +613,7 @@
     </xed:repeat>
   </xed:template>
 
-  <xed:template id="size">
+  <xed:template id="extent">
     <xed:bind xpath="mods:physicalDescription/mods:extent">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
@@ -775,6 +781,46 @@
     </xed:repeat>
   </xed:template>
 
+  <xed:template id="scale">
+    <xed:bind xpath="mods:subject/mods:cartographics/mods:scale">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output i18n="ubo.scale"/>:
+        </label>
+        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="coordinates">
+    <xed:include ref="coordinates.latitude"/>
+    <xed:include ref="coordinates.longitude"/>
+  </xed:template>
+
+  <xed:template id="coordinates.latitude">
+    <xed:bind xpath="mods:subject/mods:cartographics/mods:coordinates[1]">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output i18n="ubo.coordinates.latitude"/>:
+        </label>
+        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input"
+               placeholder="{i18n:ubo.coordinates.format.decimal} (50.9287800)" type="text"/>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="coordinates.longitude">
+    <xed:bind xpath="mods:subject/mods:cartographics/mods:coordinates[2]">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output i18n="ubo.coordinates.longitude"/>:
+        </label>
+        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input"
+               placeholder="{i18n:ubo.coordinates.format.decimal} (11.5899000)" type="text"/>
+      </div>
+    </xed:bind>
+  </xed:template>
+
   <xed:template id="languages">
     <xed:repeat xpath="mods:language">
       <div class="form-inline form-group ubo-repeat-group">
@@ -885,7 +931,8 @@
         </div>
       </xed:repeat>
     </fieldset>
-    <xed:validate xpath="//mods:relatedItem/@xlink:href" matches="\w+_mods_\d{8}" i18n="ubo.relatedItem.validation.href"
+    <xed:validate xpath="//mods:relatedItem/@xlink:href" matches="\w+_mods_\d{8}"
+                  i18n="ubo.relatedItem.validation.href"
                   display="global"/>
   </xed:template>
 

@@ -2,32 +2,41 @@
 
 <xed:templates xmlns:xed="http://www.mycore.de/xeditor">
 
-
   <xed:template id="thunibib.partOf">
     <xed:bind xpath="mods:classification[@classID='partOf']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">*<xed:output i18n="thunibib.editor.label.partOf" />:</label>
+        <label for="{xed:generate-id()}" class="mycore-form-label">*<xed:output i18n="thunibib.editor.label.partOf"/>:
+        </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value=""><xed:output i18n="search.select" /></option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:partOf" />
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:partOf"/>
         </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.partOf}">
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.partOf}">
           <i class="fas fa-info"></i>
         </a>
       </div>
     </xed:bind>
-    <xed:validate xpath="//mods:classification[@classID='partOf']" required="true" i18n="thunibib.condition.partOf" display="global" />
+    <xed:validate xpath="//mods:classification[@classID='partOf']" required="true" i18n="thunibib.condition.partOf"
+                  display="global"/>
   </xed:template>
 
   <xed:template id="thunibib.peerreviewed">
     <xed:bind xpath="mods:classification[@classID='peerreviewed']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.peerreviewed" />:</label>
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output
+            i18n="thunibib.editor.label.peerreviewed"/>:
+        </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value=""><xed:output i18n="search.select" /></option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:peerreviewed" />
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:peerreviewed"/>
         </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.peerreviewed}">
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.peerreviewed}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -38,10 +47,11 @@
     <xed:bind xpath="mods:note[@type='intern']">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output i18n="thunibib.comment.intern" />:
+          <xed:output i18n="thunibib.comment.intern"/>:
         </label>
-        <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} mycore-form-input" />
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.comment.intern}">
+        <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} mycore-form-input"/>
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.comment.intern}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -52,13 +62,16 @@
     <xed:bind xpath="mods:typeOfResource" default="text">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output i18n="thunibib.typeOfResource" />:
+          <xed:output i18n="thunibib.typeOfResource"/>:
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value=""><xed:output i18n="search.select" /></option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:typeOfResource" />
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:typeOfResource"/>
         </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.typeOfResource}">
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.typeOfResource}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -68,12 +81,16 @@
   <xed:template id="thunibib.mediaType">
     <xed:bind xpath="mods:classification[@classID='mediaType']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.mediatype" />:</label>
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.mediatype"/>:
+        </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value=""><xed:output i18n="search.select" /></option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mediaType" />
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mediaType"/>
         </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.mediatype}">
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.mediatype}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -83,12 +100,17 @@
   <xed:template id="thunibib.republication">
     <xed:bind xpath="mods:classification[@classID='republication']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.republication" />:</label>
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output
+            i18n="thunibib.editor.label.republication"/>:
+        </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value=""><xed:output i18n="search.select" /></option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:republication" />
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:republication"/>
         </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.republication}">
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.republication}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -98,12 +120,16 @@
   <xed:template id="thunibib.license">
     <xed:bind xpath="mods:accessCondition[@type='use and reproduction'][@classID='licenses']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.license" />:</label>
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.license"/>:
+        </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value=""><xed:output i18n="search.select" /></option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:licenses" />
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:licenses"/>
         </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.license}">
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.license}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -114,12 +140,64 @@
     <xed:bind xpath="mods:originInfo/mods:dateIssued[@encoding='w3cdtf']">
       <div class="form-inline form-group">
         <label for="year" class="mycore-form-label">
-          *<xed:output i18n="ubo.date.issued" />:
+          *<xed:output i18n="ubo.date.issued"/>:
         </label>
-        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text" placeholder="{i18n:ubo.date.issued.placeholder}" />
+        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
+               placeholder="{i18n:ubo.date.issued.placeholder}"/>
       </div>
-      <xed:validate matches="\d{4}(\-\d{2}(\-\d{2})?)?" type="datetime" format="yyyy;yyyy-MM;yyyy-MM-dd" i18n="ubo.date.issued.validation" display="global" />
+      <xed:validate matches="\d{4}(\-\d{2}(\-\d{2})?)?" type="datetime" format="yyyy;yyyy-MM;yyyy-MM-dd"
+                    i18n="ubo.date.issued.validation" display="global"/>
     </xed:bind>
   </xed:template>
 
+  <xed:template id="thunibib.relatedItem">
+    <fieldset>
+      <legend>
+        <xed:output i18n="thunibib.editor.label.published.in"/>
+      </legend>
+      <xed:bind xpath="mods:relatedItem[@type='host']">
+        <xed:choose>
+          <xed:when test="string-length(@xlink:href) &gt; 0">
+            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+            </xed:if>
+            <xed:if
+                test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+            </xed:if>
+            <xed:if
+                test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+            </xed:if>
+            <xed:if
+                test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+            </xed:if>
+          </xed:when>
+          <xed:otherwise>
+            <xed:include uri="webapp:import-editor.xed" ref="host"/>
+            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+            </xed:if>
+            <xed:include uri="webapp:import-editor.xed" ref="title"/>
+            <xed:if
+                test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+            </xed:if>
+            <xed:if
+                test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+            </xed:if>
+            <xed:if
+                test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+            </xed:if>
+            <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+          </xed:otherwise>
+        </xed:choose>
+      </xed:bind>
+    </fieldset>
+  </xed:template>
 </xed:templates>
