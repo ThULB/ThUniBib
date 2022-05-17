@@ -176,6 +176,9 @@
         <xsl:when test=".='wp'">Working Paper</xsl:when>
       </xsl:choose>
     </mods:genre>
+    <mods:note type="source note">
+        Scopus citation-type/@code: <xsl:value-of select="." />
+      </mods:note>
   </xsl:template>
 
   <xsl:template match="source/@type">
@@ -191,6 +194,9 @@
         <xsl:when test=".='w'">Newspaper</xsl:when>
       </xsl:choose>
     </mods:genre>
+    <mods:note type="source note">
+        Scopus source/@type: <xsl:value-of select="." />
+      </mods:note>
   </xsl:template>
 
   <xsl:template match="sourcetitle">
@@ -331,7 +337,7 @@
       <xsl:for-each select="xalan:tokenize($subject,';')">
         <mods:classification authorityURI="{$authorityFach}" valueURI="{$authorityFach}#{normalize-space(.)}" />
       </xsl:for-each> 
-      <mods:note>
+      <mods:note type="source note">
         Scopus-Subject: <xsl:value-of select="concat(text(),' (code=',@code,', abbrev=', @abbrev, ')')" />
       </mods:note>
     </xsl:for-each>

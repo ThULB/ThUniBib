@@ -50,7 +50,7 @@
       <xsl:when test="$genre='journals'">article</xsl:when>
       <xsl:when test="$genre='journal article'">article</xsl:when>
       <xsl:when test="$genre='journal-article'">article</xsl:when>
-      <xsl:when test="$genre='abstract report'">article</xsl:when>
+      <xsl:when test="$genre='abstract report'">others</xsl:when>
       <xsl:when test="$genre='article'">article</xsl:when>
       <xsl:when test="$genre='article in press'">article</xsl:when>
       <xsl:when test="$genre='business article'">article</xsl:when>
@@ -62,23 +62,23 @@
       <xsl:when test="$genre='conferences'">chapter</xsl:when>
       <xsl:when test="$genre='conference paper'">conference_essay</xsl:when>
       <xsl:when test="$genre='conference abstract'">abstract</xsl:when>
-      <xsl:when test="$genre='conference review'">review</xsl:when>
+      <xsl:when test="$genre='conference review'">proceedings</xsl:when>
       <xsl:when test="$genre='conference proceedings'">proceedings</xsl:when>
       <xsl:when test="$genre='editorial'">preface</xsl:when>
       <xsl:when test="$genre='dissertation'">dissertation</xsl:when>
       <xsl:when test="$genre='working paper'">workingpaper</xsl:when>
-      <xsl:when test="$genre='review'">review</xsl:when>
+      <xsl:when test="$genre='review'">article</xsl:when>
       <xsl:when test="$genre='report'">article</xsl:when>
       <xsl:when test="$genre='short survey'">article</xsl:when>
       <xsl:when test="$genre='book chapter'">chapter</xsl:when>
       <xsl:when test="$genre='book-chapter'">chapter</xsl:when>
       <xsl:when test="$genre='book-part'">chapter</xsl:when>
-      <xsl:when test="$genre='letter'">article</xsl:when>
-      <xsl:when test="$genre='note'">article</xsl:when>
+      <xsl:when test="$genre='letter'">others</xsl:when>
+      <xsl:when test="$genre='note'">others</xsl:when>
       <xsl:when test="$genre='short survey'">article</xsl:when>
-      <xsl:when test="$genre='erratum'">article</xsl:when>
+      <xsl:when test="$genre='erratum'">others</xsl:when>
       <xsl:when test="$genre='patent'">patent</xsl:when>
-      <xsl:when test="$genre='press release'">article</xsl:when>
+      <xsl:when test="$genre='press release'">others</xsl:when>
       <xsl:when test="$genre='biography'">interview</xsl:when>  
       <xsl:when test="$genre='case reports'">article</xsl:when>
       <xsl:when test="$genre='classical article'">article</xsl:when>  
@@ -110,9 +110,9 @@
       <xsl:when test="$genre='manual'">book</xsl:when>
       <xsl:when test="$genre='techreport'">book</xsl:when>
       <xsl:when test="$genre='data paper'">research_data</xsl:when>
-      <xsl:when test="$genre='misc'">book</xsl:when>
-      <xsl:when test="$genre='unpublished'">book</xsl:when>
-      <xsl:when test="$genre='other'">book</xsl:when> 
+      <xsl:when test="$genre='misc'">others</xsl:when>
+      <xsl:when test="$genre='unpublished'">others</xsl:when>
+      <xsl:when test="$genre='other'">others</xsl:when> 
     </xsl:choose>
     <xsl:text> </xsl:text>
   </xsl:template>
@@ -148,7 +148,7 @@
       <xsl:when test="$genre='booklet'">book</xsl:when>
       <xsl:when test="$genre='manual'">book</xsl:when>
       <xsl:when test="$genre='multi-volume reference works'">collection</xsl:when>
-      <xsl:when test="$genre='newsletter'">blog</xsl:when>
+      <xsl:when test="$genre='newsletter'">journal</xsl:when>
       <xsl:when test="$genre='newspaper'">newspaper</xsl:when>
     </xsl:choose>
     <xsl:text> </xsl:text>
