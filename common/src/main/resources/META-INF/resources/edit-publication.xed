@@ -104,7 +104,6 @@
               <xed:include uri="webapp:import-editor.xed" ref="status"/>
               <xed:include uri="webapp:import-editor.xed" ref="subject"/>
               <xed:include uri="webapp:import-editor.xed" ref="origin"/>
-              <xed:include uri="webapp:import-editor.xed" ref="tags"/>
             </fieldset>
 
             <fieldset>
