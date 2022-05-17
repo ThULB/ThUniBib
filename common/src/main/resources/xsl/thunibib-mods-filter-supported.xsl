@@ -117,7 +117,7 @@
 </xsl:template>
 
 <xsl:template match="mods:note">
-  <xsl:if test="not(@type) or contains('intern other', @type)">
+  <xsl:if test="not(@type) or contains('intern source other', @type)">
     <xsl:call-template name="copy-and-apply" />
   </xsl:if>
 </xsl:template>
