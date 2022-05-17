@@ -42,6 +42,10 @@
                   test="descendant::mods:dateIssued[string-length(.) &gt; 0] or mods:genre='journal' or mods:genre='series' or mods:genre='blog' or mods:genre='newspaper'"
                   i18n="ubo.date.issued.validation" display="global"/>
 
+    <xed:validate xpath="//mods:mods/mods:classification[@classID='fachreferate']"
+                  test="string-length(.) &gt; 0"
+                  i18n="thunibib.classification.fachreferate.validation" display="global"/>
+
     <!-- title required for all non standalone object types -->
     <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
                   test="string-length(.) &gt; 0"
@@ -121,11 +125,11 @@
 
   <xed:template id="subject">
     <xed:repeat xpath="mods:classification[@classID='fachreferate']" max="5">
-      <div class="form-inline form-group ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="form-inline form-group ubo-repeat-group {$xed-validation-marker}">
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
           <xed:output i18n="ubo.subject"/>:
         </label>
-        <select id="{xed:generate-id()}" class="autocomplete {$xed-validation-marker} mycore-form-input">
+        <select id="{xed:generate-id()}" class="autocomplete mycore-form-input">
           <option value="">
             <xed:output i18n="search.select.autocomplete"/>
           </option>
@@ -184,8 +188,8 @@
   <xed:template id="genre">
     <xed:bind xpath="mods:genre[@type='intern']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          *<xed:output i18n="ubo.genre"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+          <xed:output i18n="ubo.genre"/>:
         </label>
         <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
           <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:ubogenre"/>
@@ -214,8 +218,8 @@
     <xed:bind xpath="mods:titleInfo">
       <xed:bind xpath="mods:title">
         <div class="form-inline form-group">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
-            *<xed:output i18n="ubo.title"/>:
+          <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+            <xed:output i18n="ubo.title"/>:
           </label>
           <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
         </div>
@@ -234,8 +238,8 @@
   <xed:template id="title.complex">
     <xed:repeat xpath="mods:titleInfo" max="6">
       <div class="form-inline form-group ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          *<xed:output i18n="ubo.title"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+          <xed:output i18n="ubo.title"/>:
         </label>
         <div class="mycore-form-input-group">
           <xed:bind xpath="@type">
@@ -320,8 +324,8 @@
         xpath="mods:name[@type='personal'][mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']='aut']"
         max="99">
       <div class="form-inline form-group ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="col-sm-3 justify-content-sm-end pl-0 mr-3">
-          *<xed:output i18n="ubo.role.author"/>:
+        <label for="{xed:generate-id()}" class="col-sm-3 justify-content-sm-end pl-0 mr-3 ubo-mandatory">
+          <xed:output i18n="ubo.role.author"/>:
         </label>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
       </div>
@@ -346,8 +350,8 @@
         xpath="mods:name[@type='personal'][mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']='ive']"
         max="99">
       <div class="form-group form-inline ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          *<xed:output i18n="ubo.role.interviewee"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+          <xed:output i18n="ubo.role.interviewee"/>:
         </label>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
       </div>
@@ -359,8 +363,8 @@
         xpath="mods:name[@type='personal'][mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']='ivr']"
         max="99">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          *<xed:output i18n="ubo.role.interviewer"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+          <xed:output i18n="ubo.role.interviewer"/>:
         </label>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
       </div>
@@ -470,8 +474,7 @@
     <xed:repeat xpath="mods:name[@type='personal']">
       <div class="form-group form-inline ubo-repeat-group">
         <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="aut">
-          <label class="mycore-form-label d-flex align-items-center mt-0">
-            <div class="mr-1">*</div>
+          <label class="mycore-form-label d-flex align-items-center mt-0 ubo-mandatory">
             <select class="form-control custom-select">
               <xed:include uri="xslStyle:items2options:webapp:rollen.xml"/>
             </select>
@@ -487,8 +490,7 @@
     <xed:repeat xpath="mods:name[@type='personal']">
       <div class="form-group form-inline ubo-repeat-group">
         <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="aut">
-          <label class="mycore-form-label d-flex align-items-center mt-0">
-            <div class="mr-1">*</div>
+          <label class="mycore-form-label d-flex align-items-center mt-0 ubo-mandatory">
             <select class="form-control custom-select">
               <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator"/>
             </select>
@@ -533,8 +535,8 @@
   <xed:template id="year">
     <xed:bind xpath="mods:originInfo/mods:dateIssued[@encoding='w3cdtf']">
       <div class="form-inline form-group">
-        <label for="year" class="mycore-form-label">
-          *<xed:output i18n="ubo.date.issued.4"/>:
+        <label for="year" class="mycore-form-label ubo-mandatory">
+          <xed:output i18n="ubo.date.issued.4"/>:
         </label>
         <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
                placeholder="{i18n:ubo.date.issued.4.placeholder}"/>
