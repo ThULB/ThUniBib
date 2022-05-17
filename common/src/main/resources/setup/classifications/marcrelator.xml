@@ -9,122 +9,134 @@
         <label xml:lang="de" text="Autor*in" description="Eine Person oder Institution, die für den geistigen oder gestalterischen Inhalt hauptsächlich verantwortlich ist, insbesondere für gedruckten text. Dieser Ausdruck kann auch verwendet wenn mehr als eine Person betroffen ist." />
         <label xml:lang="en" text="Author" description="Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. " />
       </category>
+      <category ID="arc">
+        <label xml:lang="de" text="Architekt*in" description="Ein Akteur, der für eine architektonische Gestaltung verantwortlich ist, einschließlich einer bildlichen Darstellung, die zeigt, wie ein Gebäude o. ä. aussieht, wenn es fertig gebaut sein wird." />
+        <label xml:lang="en" text="Architect" description="A person, family, or organization responsible for creating an architectural design, including a pictorial representation intended to show how a building, etc., will look when completed. It also oversees the construction of structures" />
+      </category>
+      <category ID="org">
+        <label xml:lang="de" text="Begründer*in eines Werks" description="Eine Person oder Institution, die mit dem geistigen Inhalt des Werkes verbunden ist. Diese Kategorie umfasst nicht den Herausgeber oder eine persönliche Zugehörigkeit oder einen Sponsor, es sei denn sie ist auch der Corporate Autor." />
+        <label xml:lang="en" text="Originator" description="Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is ..." />
+      </category>
       <category ID="tch">
         <label xml:lang="de" text="Dozent*in" description="Eine Person, die im Kontext einer Resource Instruktionen zu einem intellektuellen Thema gibt oder demonstriert, während sie physische Fähigkeiten lehrt." />
         <label xml:lang="en" text="Teacher" description="Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. " />
-      </category>
-      <category ID="ivr">
-        <label xml:lang="en" text="Interviewer" description="A person, family, or organization responsible for creating or contributing to a resource by acting as an interviewer, reporter, pollster, or some other information gathering agent." />
-        <label xml:lang="de" text="Interviewer*in" description="Eine Person oder Institution,die vorbereitend bei der Veröffentlichung einer nicht primär eigenen Arbeit mitwirkt, z.B. duch Texterklärungen, Hinzufügen von Einleitungen und anderen kritischen Inhalten, oder die technische Leitung des ..." />
-      </category>
-      <category ID="pht">
-        <label xml:lang="en" text="Photographer" description="Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions." />
-        <label xml:lang="de" text="Fotograf*in" description="Eine Person oder Institution verwantwortlich für die Aufnahme von Fotografien, seien sie in ihrer ursprünglichen Form oder als Reproduktion verwendet." />
-      </category>
-      <category ID="prg">
-        <label xml:lang="en" text="Programmer" description="Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation." />
-        <label xml:lang="de" text="Programmierung" description="Eine Person oder Institution, die für die Erstellung und/oder Wartung von Entwürfen, Quellcode, maschinell ausführbaren Dateien und unterstützender Dokumentation eines Computerprogramms verantwortlich ist." />
       </category>
       <category ID="inv">
         <label xml:lang="en" text="Inventor" description="A person, family, or organization responsible for creating a new device or process. Also use for patent inventor." />
         <label xml:lang="de" text="Erfinder*in" description="Eine Person, Familie oder Organisation, die für die Erstellung eines neuen Geräts oder Prozesses verantwortlich ist. Kann auch für Patenterfinder verwendet werden." />
       </category>
+      <category ID="pht">
+        <label xml:lang="en" text="Photographer" description="Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions." />
+        <label xml:lang="de" text="Fotograf*in" description="Eine Person oder Institution verwantwortlich für die Aufnahme von Fotografien, seien sie in ihrer ursprünglichen Form oder als Reproduktion verwendet." />
+      </category>
+      <category ID="ivr">
+        <label xml:lang="en" text="Interviewer" description="A person, family, or organization responsible for creating or contributing to a resource by acting as an interviewer, reporter, pollster, or some other information gathering agent." />
+        <label xml:lang="de" text="Interviewer*in" description="Eine Person oder Institution,die vorbereitend bei der Veröffentlichung einer nicht primär eigenen Arbeit mitwirkt, z.B. duch Texterklärungen, Hinzufügen von Einleitungen und anderen kritischen Inhalten, oder die technische Leitung des ..." />
+      </category>
+      <category ID="ive">
+        <label xml:lang="de" text="Interviewte*r" description="Die Person oder Institution, die bei einem Besuch oder auf einem Meeting von einem Reporter, einem Meinungsforscher oder einer anderen Informationen sammelnden Person befragt wurde." />
+        <label xml:lang="en" text="Interviewee" description="Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent." />
+      </category>
+      <category ID="ctg">
+        <label xml:lang="de" text="Kartograf*in" description="Ein Akteur, der für die Schaffung einer Karte, eines Atlasses, eines Globusses oder eines anderen kartografischen Werks verantwortlich ist." />
+        <label xml:lang="en" text="Cartographer" description="A person, family, or organization responsible for creating a map, atlas, globe, or other cartographic work." />
+      </category>
+      <category ID="cmp">
+        <label xml:lang="de" text="Komponist*in" description="Ein Akteur, der für die Schaffung eines Musikwerks verantwortlich ist. Eine Adaption eines anderen Musikwerks, das sich deutlich vom Original unterscheidet, Paraphrasieren eines Werks im Stil eines anderen Komponisten oder erschaffen eines Werks das auf der Musik eines anderen Komponisten basiert, ist hier eingeschlossen." />
+        <label xml:lang="en" text="Composer" description="A person, family, or organization responsible for creating or contributing to a musical resource by adding music to a work that originally lacked it or supplements it." />
+      </category>
+      <category ID="art">
+        <label xml:lang="de" text="Künstler*in" description="Ein Akteur, der für die Schaffung eines Werks durch Konzeption und oft auch Umsetzung einer originalen grafischen Gestaltung, einer Zeichnung oder eines Gemäldes usw. verantwortlich ist." />
+        <label xml:lang="en" text="Artist" description="A person, family, or organization responsible for creating a work by conceiving, and implementing, an original graphic design, drawing, painting, etc. For book illustrators, prefer Illustrator [ill]." />
+      </category>
+      <category ID="pro">
+        <label xml:lang="de" text="Produzent*in" description="Eine Person oder Einrichtung, die für die Erstellung eines Filmes verantwortlich ist, inklusiver kommerzieller Aspekte und Management der Produktion" />
+        <label xml:lang="en" text="Producer" description="Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work." />
+      </category>
+      <category ID="prg">
+        <label xml:lang="en" text="Programmer" description="Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation." />
+        <label xml:lang="de" text="Programmierer*in" description="Eine Person oder Institution, die für die Erstellung und/oder Wartung von Entwürfen, Quellcode, maschinell ausführbaren Dateien und unterstützender Dokumentation eines Computerprogramms verantwortlich ist." />
+      </category>
+      <category ID="spk">
+        <label xml:lang="de" text="Redner*in" description="Eine Person oder Institution, die an einem Program (oft im Rundfunk) mit einem in der Regel im Voraus vorbereiteten formalen Beitrag oder eine Präsentation beteiligt ist" />
+        <label xml:lang="en" text="Speaker" description="Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance." />
+      </category>
+      <category ID="drt">
+        <label xml:lang="en" text="Director" description="Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording." />
+        <label xml:lang="de" text="Regisseur*in" description="Eine Person oder Institution, die für das generelle Management einer Arbeit oder Überwachung der Produktion einer Bühnendarstellung, eines Filmes oder einer Audioaufnahme verantwortlich ist." />
+      </category>
+      <category ID="com">
+        <label xml:lang="en" text="Compiler" description="A person, family, or organization responsible for creating a new work (e.g., a bibliography, a directory) through the act of compilation, e.g., selecting, arranging, aggregating, and editing data, information, etc" />
+        <label xml:lang="de" text="Zusammenstellende*r" description="Ein Akteur, der durch Selektieren, Gliedern, Zusammentragen und Editieren von Daten und Informationen usw. für die Schaffung eines neuen Werks, z. B. einer Bibliografie oder eines Verzeichnisses, verantwortlich ist. Überarbeiten oder Erläutern des Inhalts oder Auswählen und Zusammenstellen von Werken oder Teilen von Werken von einem oder mehreren geistigen Schöpfern ist hiervon ausgenommen." />
+      </category>
     </category>
-    <category ID="pbl">
-      <label xml:lang="en" text="Publisher" description="Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public." />
-      <label xml:lang="de" text="Verlag, Verleger*in" description="Eine Person oder Institution, die gedruckte Sachen, oft Text, gedruckte Musik oder Kunstwerke der Öffentlichkeit zur Verfügung stellt." />
-      <category ID="dst">
-        <label xml:lang="de" text="Distribution" description="Eine Person oder Organisation, die die exklusiven oder geteilten Vermarktungsrechte für ein Werk hat." />
-        <label xml:lang="en" text="Distributor" description="Use for a person or organization that has exclusive or shared marketing rights for an item." />
+    <category ID="ctb">
+      <label xml:lang="de" text="Mitwirkende*r / Weitere Personen" description="Eine Person oder Institution dessen Arbeit zu einem größeren Werk beiträgt, z. B. eine Anthologie, Serienpublikation oder andere Zusammenstellung individueller Werke. Nicht zu verwenden, wenn spezifischere Rollenangabe möglich ist. " />
+      <label xml:lang="en" text="Contributor" description="Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, ..." />
+      <category ID="dgs">
+        <label xml:lang="en" text="Degree supervisor" description="A person overseeing a higher level academic degree." />
+        <label xml:lang="de" text="Akademische*r Betreuer*in" description="Eine Person, unter deren Betreuung ein Kandidat eine Dissertation oder Abschlussarbeit entwickelt und präsentiert." />
+      </category>
+      <category ID="fnd">
+        <label xml:lang="de" text="Fördermittelgeber*in" description="Eine Person oder Institution, die finanzielle Unterstützung für die Erstellung einer Arbeit bereitstellt." />
+        <label xml:lang="en" text="Funder" description="Use for a person or organization that furnished financial support for the production of the work." />
+      </category>
+      <category ID="spn">
+        <label xml:lang="de" text="Finanzielle Förderung" description="Ein Akteur, der einzelne Aspekte eines Werks finanziell unterstützt z. B. Forschungsförderung, finanzielle Unterstützung einer Veranstaltung." />
+        <label xml:lang="en" text="Sponsor" description="A person, family, or organization sponsoring some aspect of a resource, e.g., funding research, sponsoring an event" />
+      </category>
+      <category ID="res">
+        <label xml:lang="de" text="Forscher*in" description="Ein Akteur, der Forschung betreibt, um die Schaffung eines Werks zu unterstützen." />
+        <label xml:lang="en" text="Researcher" description="A person or organization responsible for performing research." />
+      </category>
+      <category ID="hnr">
+        <label xml:lang="en" text="Honoree" description="Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. " />
+        <label xml:lang="de" text="Gefeierte*r" description="Eine Person oder Institution, die in einem Buch, Manuskript u.s.w. geehrt wird." />
+      </category>
+      <category ID="dgc">
+        <label xml:lang="en" text="Degree committee member" description="A person who is part of a committee that considers the merit of a thesis, dissertation, or other submission by an academic degree candidate." />
+        <label xml:lang="de" text="Gutachter*in" description="A person who is part of a committee that considers the merit of a thesis, dissertation, or other submission by an academic degree candidate." />
       </category>
       <category ID="edt">
         <label xml:lang="en" text="Editor" description="Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff." />
         <label xml:lang="de" text="Herausgeber*in" description="Eine Person oder Institution,die vorbereitend bei der Veröffentlichung einer nicht primär eigenen Arbeit mitwirkt, z.B. duch Texterklärungen, Hinzufügen von Einleitungen und anderen kritischen Inhalten, oder die technische Leitung des ..." />
       </category>
-    </category>
-    <category ID="ctb">
-      <label xml:lang="de" text="Beitragende*r" description="Eine Person oder Institution dessen Arbeit zu einem größeren Werk beiträgt, z. B. eine Anthologie, Serienpublikation oder andere Zusammenstellung individueller Werke. Nicht zu verwenden, wenn spezifischere Rollenangabe möglich ist. " />
-      <label xml:lang="en" text="Contributor" description="Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, ..." />
-      <category ID="ths">
-        <label xml:lang="en" text="Thesis advisor" description="Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation." />
-        <label xml:lang="de" text="Akademische Gutachter*in" description="Eine Person die für die Begutachtung einer Dissertation oder Abschlussarbeit verantwortlich ist." />
+      <category ID="ill">
+        <label xml:lang="de" text="Illustrator*in" description="Eine Person oder Institution, die eine Zeichnung oder Illustration  entwirft und eventuell auch implementiert, um einen geschriebenen Text zu begleiten. " />
+        <label xml:lang="en" text="Illustrator" description="Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text." />
       </category>
-      <category ID="dgs">
-        <label xml:lang="en" text="Degree supervisor" description="A person overseeing a higher level academic degree." />
-        <label xml:lang="de" text="Akademische Betreuung" description="Eine Person, unter deren Betreuung ein Kandidat eine Dissertation oder Abschlussarbeit entwickelt und präsentiert." />
-      </category>
-      <category ID="rev">
-        <label xml:lang="en" text="Reviewer" description="Use for a person or organization responsible for the review of a book, motion picture, performance, etc." />
-        <label xml:lang="de" text="Gutachter*in, Rezensent*in" description="Eine Person oder Institution, die für die Begutachtung von Büchern, Filmen, Aufführungen, etc. verantwortlich ist." />
-      </category>
-      <category ID="col">
-        <label xml:lang="en" text="Collector" description="Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the ..." />
-        <label xml:lang="de" text="Zusammensteller*in" description="Eine Person oder Institution, die Material aus verschiedenen Quellen zusammengebracht hat, die als Sammlung arrangiert und beschrieben wurde." />
-      </category>
-      <category ID="pro">
-        <label xml:lang="de" text="Audio/Video Produktion" description="Eine Person oder Einrichtung, die für die Erstellung eines Filmes verantwortlich ist, inklusiver kommerzieller Aspekte und Management der Produktion" />
-        <label xml:lang="en" text="Producer" description="Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work." />
-      </category>
-      <category ID="drt">
-        <label xml:lang="en" text="Director" description="Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording." />
-        <label xml:lang="de" text="Regie" description="Eine Person oder Institution, die für das generelle Management einer Arbeit oder Überwachung der Produktion einer Bühnendarstellung, eines Filmes oder einer Audioaufnahme verantwortlich ist." />
-      </category>
-      <category ID="fnd">
-        <label xml:lang="de" text="Finanzielle Förderung" description="Eine Person oder Institution, die finanzielle Unterstützung für die Erstellung einer Arbeit bereitstellt." />
-        <label xml:lang="en" text="Funder" description="Use for a person or organization that furnished financial support for the production of the work." />
+      <category ID="act">
+        <label xml:lang="de" text="Schauspieler*in" description="Ein Ausführender, der zu einer Expression eines Werks als Ensemble-Mitglied oder Darsteller in einer musikalischen oder dramatischen Darbietung usw. beiträgt." />
+        <label xml:lang="en" text="Actor" description="A performer contributing to an expression of a work by acting as a cast member or player in a musical or dramatic presentation, etc." />
       </category>
       <category ID="trl">
         <label xml:lang="en" text="Translator" description="Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form." />
         <label xml:lang="de" text="Übersetzer*in" description="Eine Person oder Institution, die eine Text von einer Sprache in eine andere, oder eine ältere Form einer Sprache in eine modernere übersetzt." />
       </category>
-      <category ID="ill">
-        <label xml:lang="de" text="Illustrator*in" description="Eine Person oder Institution, die eine Zeichnung oder Illustration  entwirft und eventuell auch implementiert, um einen geschriebenen Text zu begleiten. " />
-        <label xml:lang="en" text="Illustrator" description="Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text." />
-      </category>
-      <category ID="sad">
-        <label xml:lang="de" text="Wissenschaftliche Beratung" description="Eine Person oder Institution, die ihre wissenschaftliche, pädagogische oder historische Kompetenz bei der Konzeption und Realisierung der Arbeit eingebracht hat, insbesondere in audiovisuellen Veröffentlichungen." />
-        <label xml:lang="en" text="Scientific advisor" description="Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items." />
-      </category>
-      <category ID="rth">
-        <label xml:lang="de" text="Projektleitung" description="Eine Person, die ein Forschungsprojekt geleitet oder geführt hat." />
-        <label xml:lang="en" text="Research team head" description="Use for a person who directed or managed a research project." />
-      </category>
-      <category ID="red">
-        <label xml:lang="en" text="Redactor" description="Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content." />
-        <label xml:lang="de" text="Redaktion" description="Eine Person oder Institution, die eine Information in eine zur Veröffentlichung geeignete Fassung bringt ohne für den geistigen Inhalt verantwortlich zu sein. " />
-      </category>
-      <category ID="ldr">
-        <label xml:lang="de" text="Laborleitung" description="Eine Person oder Institution, die die Arbeit in einem kontrollierten Umfeld überwacht." />
-        <label xml:lang="en" text="Laboratory director" description="Use for a person or organization that manages or supervises work done in a controlled setting or environment." />
-      </category>
-      <category ID="adp">
-        <label xml:lang="en" text="Adapter" description="Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium." />
-        <label xml:lang="de" text="Adaption" description="Eine Person oder Institution, die 1) eine musikalische Komposition überarbeitet, normalerweise für ein anderes Medium, oder 2) eine Novelle oder Geschichte für Filme oder andere audiovisuelle Medien umschreibt." />
-      </category>
-      <category ID="spk">
-        <label xml:lang="de" text="Vorredner*in" description="Eine Person oder Institution, die an einem Program (oft im Rundfunk) mit einem in der Regel im Voraus vorbereiteten formalen Beitrag oder eine Präsentation beteiligt ist" />
-        <label xml:lang="en" text="Speaker" description="Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance." />
-      </category>
-      <category ID="org">
-        <label xml:lang="de" text="Begründer*in" description="Eine Person oder Institution, die mit dem geistigen Inhalt des Werkes verbunden ist. Diese Kategorie umfasst nicht den Herausgeber oder eine persönliche Zugehörigkeit oder einen Sponsor, es sei denn sie ist auch der Corporate Autor." />
-        <label xml:lang="en" text="Originator" description="Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is ..." />
-      </category>
-      <category ID="aqt">
-        <label xml:lang="de" text="Zitierte Person" description="Eine Person oder Institution, deren Arbeit weitgehend zitiert wird oder in Werken beschrieben werden, zu denen er oder sie nicht direkt beigetragen haben. Solche Zitierungen findet man besonders in Ausstellungen, Katalogen, Sammlungen, Fotografien etc." />
-        <label xml:lang="en" text="Author in quotations or text extracts" description="Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc." />
-      </category>
-      <category ID="hnr">
-        <label xml:lang="en" text="Honoree" description="Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. " />
-        <label xml:lang="de" text="Gefeierte Person" description="Eine Person oder Institution, die in einem Buch, Manuskript u.s.w. geehrt wird." />
-      </category>
-      <category ID="ive">
-        <label xml:lang="de" text="Interviewpartner" description="Die Person oder Institution, die bei einem Besuch oder auf einem Meeting von einem Reporter, einem Meinungsforscher oder einer anderen Informationen sammelnden Person befragt wurde." />
-        <label xml:lang="en" text="Interviewee" description="Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent." />
-      </category>
-      <category ID="pta">
-        <label xml:lang="de" text="Anmeldende Einrichtung" description="Eine Person oder Organisation, die ein Patent angemeldet hat." />
-        <label xml:lang="en" text="Patent applicant" description="A person or organization that applied for a patent." />
-      </category>
+    </category>
+    <category ID="pta">
+      <label xml:lang="de" text="Anmeldende Einrichtung (Patent)" description="Eine Person oder Organisation, die ein Patent angemeldet hat." />
+      <label xml:lang="en" text="Patent applicant" description="A person or organization that applied for a patent." />
+    </category>
+    <category ID="dgg">
+      <label xml:lang="de" text="Grad-verleihende Einrichtung" description="Eine Körperschaft, die einen akademischen Grad verleiht." />
+      <label xml:lang="en" text="Degree granting institution" description="A organization granting an academic degree." />
+    </category>
+    <category ID="isb">
+      <label xml:lang="de" text="Herausgebende Einrichtung" description="Ein Akteur, der ein Werk z. B. ein offizielles Organ der Körperschaft herausgibt." />
+      <label xml:lang="en" text="Issuing body" description="A person, family or organization issuing a work, such as an official organ of the body." />
+    </category>
+    <category ID="prn">
+      <label xml:lang="de" text="Produktionsfirma" description="Eine Körperschaft, die für das finanzielle, technische und organisatorische Management einer Produktion für die Bühne, die Leinwand, die Tonaufnahme, das Fernsehen, für einen Webcast usw. verantwortlich ist." />
+      <label xml:lang="en" text="Production company" description="An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc." />
+    </category>
+    <category ID="orm">
+      <label xml:lang="de" text="Veranstaltende Einrichtung" description="Ein Akteur, der eine Ausstellung, ein Ereignis, eine Konferenz, einen Kurs, eine Sendung usw. organisiert, die/das ein Werk zur Folge hat." />
+      <label xml:lang="en" text="Organizer" description="A person, family, or organization organizing the exhibit, event, conference, etc., which gave rise to a resource" />
+    </category>
+    <category ID="pbl">
+      <label xml:lang="en" text="Publisher" description="Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public." />
+      <label xml:lang="de" text="Verlag" description="Eine Person oder Institution, die gedruckte Sachen, oft Text, gedruckte Musik oder Kunstwerke der Öffentlichkeit zur Verfügung stellt." />
     </category>
   </categories>
 </mycoreclass>
