@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage id="dozbib.search-expert">
+  <title xml:lang="de">Universitätsbibliographie Online: Expertensuche</title>
+  <title xml:lang="en">University Bibliography Online: Expert search</title>
+
+  <script type="text/javascript" src="/external/jquery-tools-1.2.7/jquery.tools.min.js"></script>
+
+  <article class="card">
+    <div class="card-body">
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">
+        <fieldset>
+          <legend>
+            <xed:output i18n="search.dozbib"/>
+          </legend>
+
+          <xed:if test="$xed-validation-failed">
+            <div class="validation-failures">
+              <h3>
+                <xed:output i18n="form.validation.failed"/>
+              </h3>
+              <ul>
+                <xed:display-validation-messages/>
+              </ul>
+            </div>
+          </xed:if>
+
+          <div class="mb-2">
+            <xed:multi-lang>
+              <xed:lang xml:lang="de">
+                Hier können Sie einen Suchausdruck in der Syntax der
+                <strong>MyCoRe Abfragesprache (MCRQL)</strong>
+                eingeben und so auch komplexere Suchanfragen stellen.
+              </xed:lang>
+              <xed:lang xml:lang="en">
+                Here you can enter a search term in the syntax of
+                <strong>MyCoRe query language (MCRQL)</strong>
+                and put that way an even more complex query.
+              </xed:lang>
+            </xed:multi-lang>
+          </div>
+
+          <xed:bind xpath="/query">
+            <xed:bind xpath="@mask" default="search-expert.xed"/>
+
+            <xed:bind xpath="conditions[@format='text']">
+              <div class="form-group form-inline">
+                <label class="mycore-form-label">
+                  <xed:output i18n="search.dozbib.term"/>
+                </label>
+                <textarea class="{$xed-validation-marker} mycore-form-input"/>
+                <xed:validate required="true" class="org.mycore.services.fieldquery.MCRQueryParser"
+                              method="validateQueryExpression" i18n="condition.syntax" display="global"/>
+              </div>
+            </xed:bind>
+            <div class="form-group form-inline">
+              <label class="mycore-form-label">
+                Syntax:
+              </label>
+              <div class="col-sm pl-0">
+                <ul class="pl-3">
+                  <xed:multi-lang>
+                    <xed:lang xml:lang="de">
+                      <li>Suchfeld Operator Zielwert</li>
+                      <li>(Suchfeld1 Operator1 Zielwert1) and (Suchfeld2 Operator2 Zielwert2) ...</li>
+                      <li>(Suchfeld1 Operator1 Zielwert1) or (Suchfeld2 Operator2 Zielwert2) ...</li>
+                    </xed:lang>
+                    <xed:lang xml:lang="en">
+                      <li>searchField operator targetValue</li>
+                      <li>(searchField1 operator1 targetValue1) and (searchField2 operator2 targetValue2) ...</li>
+                      <li>(searchField1 operator1 targetValue1) or (searchField2 operator2 targetValue2) ...</li>
+                    </xed:lang>
+                  </xed:multi-lang>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group form-inline">
+              <label class="mycore-form-label">
+                <xed:multi-lang>
+                  <xed:lang xml:lang="de">Beispiele:</xed:lang>
+                  <xed:lang xml:lang="en">Examples:</xed:lang>
+                </xed:multi-lang>
+              </label>
+              <div class="col-sm pl-0">
+                <ul class="pl-3">
+                  <li>title contains Faktoren</li>
+                  <li>(title contains Faktoren) or (nid_lsf = 2809)</li>
+                  <li>((title contains Faktoren) or (nid_lsf = 2809))
+                    <br/>
+                    and (year = 2006)
+                  </li>
+                  <li>(nid_lsf = 2809) and ((year = 2010) or (year = 2011))</li>
+                  <li>(role_lsf = aut_2809) or ((genre = book)
+                    <br/>
+                    and (role_lsf = edt_2809))
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <xed:include uri="webapp:import-search.xed" ref="sortby"/>
+            <xed:include uri="webapp:import-search.xed" ref="numPerPage"/>
+            <xed:include uri="webapp:import-search.xed" ref="submit"/>
+
+          </xed:bind>
+
+        </fieldset>
+      </xed:form>
+    </div>
+  </article>
+
+  <article class="card" xml:lang="de">
+    <div class="card-body">
+      <p>
+        Die folgenden Suchfelder sind verfügbar:
+      </p>
+      <p>
+        <table class="editor">
+
+          <tr class="background1">
+            <th>Suchfeld:</th>
+            <th>Datentyp:</th>
+            <th>Beschreibung:</th>
+            <th>Operator</th>
+          </tr>
+          <tr class="background2">
+            <td>all</td>
+            <td>Text</td>
+            <td>Suche in allen Datenfeldern (mit Ausnahme von "tag", "place", "publisher", "volume", "issue", "edition",
+              "extent", "pages"
+            </td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>title</td>
+            <td>Text</td>
+            <td>Titel</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>host_title</td>
+            <td>Text</td>
+            <td>Titel einer Überordnung</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>person</td>
+            <td>Name</td>
+            <td>Personenname (Autoren, Herausgeber oder andere), mit jeder Rolle kombinierbar (siehe häufigste Beispiele
+              unten) vgl.
+              <a href="api/v2/classifications/marcrelator">diese Liste</a>
+            </td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background2">
+            <td>person_aut</td>
+            <td>Name</td>
+            <td>Autor</td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background1">
+            <td>person_edt</td>
+            <td>Name</td>
+            <td>Herausgeber, Verlag</td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background2">
+            <td>person_ths</td>
+            <td>Name</td>
+            <td>Doktorvater, BetreuerIn bei Dissertationen (Akademische Betreuung)</td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background1">
+            <td>nid_lsf</td>
+            <td>ID</td>
+            <td>Personen-ID aus HIS LSF</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>ae_lsf</td>
+            <td>ID</td>
+            <td>Autoren- oder Herausgeber-ID aus HIS LSF</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>nid_orcid</td>
+            <td>ID</td>
+            <td>ORCID</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>nid_researcherid</td>
+            <td>ID</td>
+            <td>ResearcherID</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>nid_scopus</td>
+            <td>ID</td>
+            <td>ID der Person in SCOPUS</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>nid_gnd</td>
+            <td>ID</td>
+            <td>GND</td>
+            <td>= , contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>role_lsf</td>
+            <td>ID</td>
+            <td>Kombination Rolle + Personen-ID aus HIS LSF, z. B. ths_2809 findet Doktorvater</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>year</td>
+            <td>Zahl</td>
+            <td>Jahr</td>
+            <td>=, &lt;, &gt;, &lt;=, &gt;=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>pub_id</td>
+            <td>ID</td>
+            <td>ID der Publikation, Kombination aus pub_id + ID-Typ (z.B. pub_id_doi) findet Publikationen mit einem
+              bestimmten ID-Typ
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>host_id</td>
+            <td>ID</td>
+            <td>ID der Überordnung, Kombination aus host_id + ID-Typ (z.B. host_id_doi) findet Publikationen mit einem
+              bestimmten ID-Typ
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id_issn</td>
+            <td>ID</td>
+            <td>ISSN</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>id_isbn</td>
+            <td>ID</td>
+            <td>ISBN</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id_doi</td>
+            <td>ID</td>
+            <td>DOI</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>id_urn</td>
+            <td>ID</td>
+            <td>URN</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id_scopus</td>
+            <td>ID</td>
+            <td>ID der Publikation in SCOPUS</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>journal</td>
+            <td>Text</td>
+            <td>Titel der Zeitschrift</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>series</td>
+            <td>Text</td>
+            <td>Bezeichnung der Serie</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>conference</td>
+            <td>Text</td>
+            <td>Konferenz</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>abstract</td>
+            <td>Text</td>
+            <td>Abstract, Zusammenfassung</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>topic</td>
+            <td>Text</td>
+            <td>Schlagwort, Thema</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>note</td>
+            <td>Text</td>
+            <td>Kommentarfeld</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>genre</td>
+            <td>ID</td>
+            <td>Typ des Eintrages, z. B.
+              <b>article, chapter, book, dissertation</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>host_genre</td>
+            <td>ID</td>
+            <td>Typ des Eintrages, der Überordnung z. B.
+              <b>collection, journal</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>subject</td>
+            <td>ID</td>
+            <td>Fach, vgl.
+              <a href="fachreferate.xed">diese Liste</a>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>lang</td>
+            <td>ID</td>
+            <td>Sprache als nomiertes Kürzel z.B. <b>en</b>,
+              <b>de</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>origin</td>
+            <td>ID</td>
+            <td>Fakultät / Einrichtung</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id</td>
+            <td>ID</td>
+            <td>ID des Eintrages</td>
+            <td>=</td>
+          </tr>
+          <tr class="background2">
+            <td>importID</td>
+            <td>Import-ID</td>
+            <td>z.B.
+              <b>"2018-01-08 08:52:51"</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>modified</td>
+            <td>Timestamp</td>
+            <td>Zeitpunkt der letzten Änderung des Eintrages</td>
+            <td>=, &lt;, &gt;, &lt;=, &gt;=</td>
+          </tr>
+
+        </table>
+      </p>
+    </div>
+  </article>
+
+  <article class="card" xml:lang="en">
+    <div class="card-body">
+      <p>
+        The following search fields are available:
+      </p>
+      <p>
+
+        <table class="editor">
+          <tr class="background1">
+            <th>search field:</th>
+            <th>data type:</th>
+            <th>description:</th>
+            <th>operator</th>
+          </tr>
+          <tr class="background2">
+            <td>all</td>
+            <td>text</td>
+            <td>search in all data fields</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>title</td>
+            <td>text</td>
+            <td>title</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>host_title</td>
+            <td>text</td>
+            <td>title of the host</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>person</td>
+            <td>name</td>
+            <td>name (authors, editors or others)</td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background1">
+            <td>person_aut</td>
+            <td>name</td>
+            <td>author</td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background2">
+            <td>person_edt</td>
+            <td>name</td>
+            <td>publisher</td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background1">
+            <td>person_ths</td>
+            <td>name</td>
+            <td>advisor of thesis paper</td>
+            <td>=, contains, like</td>
+          </tr>
+          <tr class="background2">
+            <td>nid_lsf</td>
+            <td>ID</td>
+            <td>person ID from HIS LSF</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>ae_lsf</td>
+            <td>ID</td>
+            <td>author or editor ID from HIS LSF</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>nid_orcid</td>
+            <td>ID</td>
+            <td>ORCID</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>nid_researcherid</td>
+            <td>ID</td>
+            <td>ResearcherID</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>nid_scopus</td>
+            <td>ID</td>
+            <td>ID of person in SCOPUS</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>nid_gnd</td>
+            <td>ID</td>
+            <td>GND</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>role_lsf</td>
+            <td>ID</td>
+            <td>Combined role plus person ID from HIS LSF, e.g. ths_2809 finds thesis advisor</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>year</td>
+            <td>number</td>
+            <td>year</td>
+            <td>=, &lt;, &gt;, &lt;=, &gt;=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>pub_id</td>
+            <td>ID</td>
+            <td>publication ID, combination pub_id + ID (e.g. pub_id_doi) finds publications with a certain type of ID
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>host_id</td>
+            <td>ID</td>
+            <td>combination host_id + ID (e.g. host_id_doi) finds publications with a certain type of ID in the
+              host-entry
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>id_issn</td>
+            <td>ID</td>
+            <td>ISSN</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id_isbn</td>
+            <td>ID</td>
+            <td>ISBN</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>id_doi</td>
+            <td>ID</td>
+            <td>DOI</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id_urn</td>
+            <td>ID</td>
+            <td>URN</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>id_scopus</td>
+            <td>ID</td>
+            <td>ID of publication in SCOPUS</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id_duepublico</td>
+            <td>ID</td>
+            <td>ID of a linked DuEPublico 1 document</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>id_duepublico2</td>
+            <td>ID</td>
+            <td>ID of a linked DuEPublico 2 document</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>shelfmark</td>
+            <td>ID</td>
+            <td>signature from the university library</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>journal</td>
+            <td>text</td>
+            <td>title of the journal</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>series</td>
+            <td>text</td>
+            <td>name of the series</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>conference</td>
+            <td>text</td>
+            <td>conference</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>topic</td>
+            <td>text</td>
+            <td>subject, topic</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>abstract</td>
+            <td>text</td>
+            <td>abstract, summary</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>note</td>
+            <td>text</td>
+            <td>comment field</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background1">
+            <td>genre</td>
+            <td>ID</td>
+            <td>type of the entry, e.g.
+              <b>article chapter book dissertation</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>host_genre</td>
+            <td>ID</td>
+            <td>type of the entry of the host, e.g.
+              <b>collection, journal</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>subject</td>
+            <td>ID</td>
+            <td>subject, cf.
+              <a href="fachreferate.xed">attribute value in this list</a>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>lang</td>
+            <td>ID</td>
+            <td>language code, e.g. <b>en</b>,
+              <b>de</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>origin</td>
+            <td>ID</td>
+            <td>faculty / institution</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>id</td>
+            <td>text</td>
+            <td>ID of the entry</td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background1">
+            <td>importID</td>
+            <td>import-ID</td>
+            <td>e.g.
+              <b>"2018-01-08 08:52:51"</b>
+            </td>
+            <td>=, contains *</td>
+          </tr>
+          <tr class="background2">
+            <td>modified</td>
+            <td>Timestamp</td>
+            <td>Timestamp of the last modification of the entry</td>
+            <td>=, &lt;, &gt;, &lt;=, &gt;=</td>
+          </tr>
+
+        </table>
+      </p>
+    </div>
+  </article>
+
+</webpage>
