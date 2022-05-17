@@ -1,2 +1,2 @@
 # ThUniBib
-Thüringer Universitäts-Bibliografien
+Thüringer Universitätsbibliografien

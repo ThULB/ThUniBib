@@ -2,321 +2,809 @@
 
 <xed:template xmlns:xed="http://www.mycore.de/xeditor">
 
+  <xed:template id="genre.book.common">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:if test="$genre_intern = 'workingpaper'">
+      <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+    </xed:if>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
   <xed:template id="genre.book">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="book.contributors" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="size" />
-    <xed:include uri="webapp:import-editor.xed" ref="comment" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include ref="genre.book.common"/>
+  </xed:template>
+
+  <xed:template id="genre.researchpaper">
+    <xed:include ref="genre.book.common"/>
+  </xed:template>
+
+  <xed:template id="genre.research_data">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.bachelor_thesis">
+    <xed:include ref="thesis.common"/>
+  </xed:template>
+
+  <xed:template id="genre.diploma_thesis">
+    <xed:include ref="thesis.common"/>
   </xed:template>
 
   <xed:template id="genre.dissertation">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="book.contributors" />    
-    <xed:include uri="webapp:import-editor.xed" ref="place" />    
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />    
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />    
-    <xed:include uri="webapp:import-editor.xed" ref="size" />    
-    <xed:include uri="webapp:import-editor.xed" ref="comment" />    
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />    
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />    
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include ref="thesis.common"/>
   </xed:template>
 
-  <xed:template id="genre.article">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
-  </xed:template>
-  
-  <xed:template id="genre.abstract">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:if test="$host_intern='journal'">      
-      <xed:include uri="webapp:import-editor.xed" ref="year" />
-    </xed:if>
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
-  </xed:template>
-  
-  <xed:template id="genre.chapter">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+  <xed:template id="genre.habilitation">
+    <xed:include ref="thesis.common"/>
   </xed:template>
 
-  <xed:template id="genre.preface">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:if test="$host_intern='journal'">      
-      <xed:include uri="webapp:import-editor.xed" ref="year" />
-    </xed:if>
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />    
+  <xed:template id="genre.master_thesis">
+    <xed:include ref="thesis.common"/>
   </xed:template>
-  
-  <xed:template id="genre.review">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:if test="$host_intern='journal'">      
-      <xed:include uri="webapp:import-editor.xed" ref="year" />
-    </xed:if>
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />    
+
+  <xed:template id="genre.magister_thesis">
+    <xed:include ref="thesis.common"/>
   </xed:template>
-  
+
+  <xed:template id="genre.seminar_paper">
+    <xed:include ref="thesis.common"/>
+  </xed:template>
+
+  <xed:template id="genre.state_examination_thesis">
+    <xed:include ref="thesis.common"/>
+  </xed:template>
+
+  <xed:template id="thesis.common">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
   <xed:template id="genre.review-article">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />          
-    <xed:include uri="webapp:import-editor.xed" ref="year" />    
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />    
-  </xed:template>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
 
-  <xed:template id="genre.entry">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
-  </xed:template>
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="author"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
 
-  <xed:template id="genre.speech">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:if test="$host_intern='standalone'">
-      <xed:include uri="webapp:import-editor.xed" ref="conference" />
-      <xed:include uri="webapp:import-editor.xed" ref="place" />
-      <xed:include uri="webapp:import-editor.xed" ref="year" />
-    </xed:if>
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
   <xed:template id="genre.poster">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:if test="$host_intern='standalone'">
-      <xed:include uri="webapp:import-editor.xed" ref="conference" />
-      <xed:include uri="webapp:import-editor.xed" ref="place" />
-      <xed:include uri="webapp:import-editor.xed" ref="year" />
-    </xed:if>
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.authors_version">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
   <xed:template id="genre.interview">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="author" />
-    <xed:include uri="webapp:import-editor.xed" ref="interviewee" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />    
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="author"/>
+    <xed:include uri="webapp:import-editor.xed" ref="interviewee"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
-  <xed:template id="genre.collection">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="size" />
-    <xed:include uri="webapp:import-editor.xed" ref="comment" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+  <xed:template id="genre.speech">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
-  <xed:template id="genre.festschrift">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="honoree" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="size" />
-    <xed:include uri="webapp:import-editor.xed" ref="comment" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+  <xed:template id="genre.video">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
-  <xed:template id="genre.lexicon">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="size" />
-    <xed:include uri="webapp:import-editor.xed" ref="comment" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+  <xed:template id="genre.software">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
-  <xed:template id="genre.proceedings">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="conference" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="size" />
-    <xed:include uri="webapp:import-editor.xed" ref="comment" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
-  </xed:template>
-  
-  <xed:template id="genre.workingpaper">
-   <xed:include uri="webapp:import-genres.xed" ref="genre.book" /> 
-  </xed:template>
-  
-  <xed:template id="genre.researchpaper">
-   <xed:include uri="webapp:import-genres.xed" ref="genre.book" /> 
+  <xed:template id="genre.sheet_music">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
-  <xed:template id="genre.journal">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="issn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+  <xed:template id="genre.image">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.map">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+    <xed:include uri="webapp:import-editor.xed" ref="scale"/>
+    <xed:include uri="webapp:import-editor.xed" ref="coordinates"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.object">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.others">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+    <xed:include uri="webapp:import-editor.xed" ref="scale"/>
+    <xed:include uri="webapp:import-editor.xed" ref="coordinates"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.article">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.chapter">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.preface">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.abstract">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.conference_essay">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.entry">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.video_contribution">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.blog_entry">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
   <xed:template id="genre.series">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="issn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
-  
+
+  <xed:template id="genre.journal">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.newspaper">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
   <xed:template id="genre.blog">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="issn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.collection">
+    <xed:include ref="collection.common"/>
+  </xed:template>
+
+  <xed:template id="genre.proceedings">
+    <xed:include ref="collection.common"/>
+  </xed:template>
+
+  <xed:template id="genre.lexicon">
+    <xed:include ref="collection.common"/>
+  </xed:template>
+
+  <xed:template id="collection.common">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:if test="$genre_intern = 'proceedings'">
+      <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+    </xed:if>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.festschrift">
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
+    <xed:include uri="webapp:import-editor.xed" ref="honoree"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.workingpaper">
+    <xed:include ref="genre.book.common"/>
+  </xed:template>
+
+  <xed:template id="genre.patent">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.review">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="genre.preprint">
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+    <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
   <xed:template id="host.journal">
-    <xed:include uri="webapp:import-editor.xed" ref="host.title" />
-    <xed:include uri="webapp:import-editor.xed" ref="volume" />
-    <xed:include uri="webapp:import-editor.xed" ref="issue" />
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
-    <xed:include uri="webapp:import-editor.xed" ref="issn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
+    <xed:include uri="webapp:import-editor.xed" ref="host.title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.journal.linked">
-    <xed:include uri="webapp:import-editor.xed" ref="volume" />
-    <xed:include uri="webapp:import-editor.xed" ref="issue" />
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
-  
+
   <xed:template id="host.blog">
-    <xed:include uri="webapp:import-editor.xed" ref="host.title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />    
-    <xed:include uri="webapp:import-editor.xed" ref="issn" />
-    <xed:include uri="webapp:import-editor.xed" ref="doi.urn.duepublico" />
-    <xed:include uri="webapp:import-editor.xed" ref="url" />
+    <xed:include uri="webapp:import-editor.xed" ref="host.title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
+
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="url"/>
   </xed:template>
 
   <xed:template id="host.collection">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.collection.linked">
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.proceedings">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="conference" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.proceedings.linked">
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.festschrift">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="honoree" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
+    <xed:include uri="webapp:import-editor.xed" ref="title"/>
+    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
+    <xed:include uri="webapp:import-editor.xed" ref="honoree"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.festschrift.linked">
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
-  </xed:template>
-
-  <xed:template id="host.lexicon">
-    <xed:include uri="webapp:import-editor.xed" ref="title" />
-    <xed:include uri="webapp:import-editor.xed" ref="editor" />
-    <xed:include uri="webapp:import-editor.xed" ref="place" />
-    <xed:include uri="webapp:import-editor.xed" ref="year" />
-    <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-    <xed:include uri="webapp:import-editor.xed" ref="edition" />
-    <xed:include uri="webapp:import-editor.xed" ref="series" />
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
-    <xed:include uri="webapp:import-editor.xed" ref="isbn" />
-    <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.lexicon.linked">
-    <xed:include uri="webapp:import-editor.xed" ref="pages" />
-  </xed:template>  
-  
+    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+  </xed:template>
+
 </xed:template>

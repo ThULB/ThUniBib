@@ -2,28 +2,28 @@
 
 <webpage lastModified="$Date: 2016-02-01 15:05:21 +0100 (Mo, 01 Feb 2016) $" id="dozbib.edit.publication">
   <title xml:lang="de">Publikation bearbeiten</title>
- 
+
   <script type="text/javascript" src="js/editor.validation.failed.tooltip.js"></script>
-     
+
   <article class="card">
     <div class="card-body">
       <xed:form xmlns:xed="http://www.mycore.de/xeditor"
                 xmlns:cerif="https://www.openaire.eu/cerif-profile/1.1/"
                 method="post" role="form">
 
-        <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}" />
-        <xed:source uri="xslStyle:mods2mycoreobject,mods-preprocessor:session:{$key}" />
-        <xed:cancel url="servlets/MCRLockServlet?action=unlock&amp;id={$id}&amp;url=DozBibEntryServlet%3Fid={$id}" />
-        <xed:cancel url="newPublication.xed" />
+        <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}"/>
+        <xed:source uri="xslStyle:mods2mycoreobject,mods-preprocessor:session:{$key}"/>
+        <xed:cancel url="servlets/MCRLockServlet?action=unlock&amp;id={$id}&amp;url=DozBibEntryServlet%3Fid={$id}"/>
+        <xed:cancel url="newPublication.xed"/>
 
-        <xed:post-processor xsl="mods-postprocessor.xsl" />
+        <xed:post-processor xsl="mods-postprocessor.xsl"/>
 
         <xed:bind xpath="/mycoreobject">
-          <xed:include uri="webapp:import-editor.xed" ref="common.metafields" />
-          
+          <xed:include uri="webapp:import-editor.xed" ref="common.metafields"/>
+
           <xed:choose>
             <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-              <xed:include uri="webapp:edit-admin.xed" ref="editor" />
+              <xed:include uri="webapp:edit-admin.xed" ref="editor"/>
             </xed:when>
             <xed:otherwise>
               <p>Sie sind nicht berechtigt, dieses Formular zu verwenden.</p>
@@ -32,96 +32,99 @@
         </xed:bind>
 
         <xed:template id="editor">
-          <input type="hidden" name="mode" value="save" />
-          <xed:include uri="webapp:import-editor.xed" ref="validation" />
+          <input type="hidden" name="mode" value="save"/>
+          <xed:include uri="webapp:import-editor.xed" ref="validation"/>
           <fieldset>
             <legend>
-              <xed:include uri="webapp:import-editor.xed" ref="legend.ID" />
+              <xed:include uri="webapp:import-editor.xed" ref="legend.ID"/>
             </legend>
             <xed:bind xpath="metadata/def.modsContainer[@class='MCRMetaXML']/modsContainer/mods:mods">
-              <xed:include uri="webapp:import-editor.xed"   ref="status" />
-              <xed:include uri="webapp:import-editor.xed" ref="subject" />
-              <xed:include uri="webapp:import-editor.xed" ref="origin" />
-              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.partOf" />
-              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.comment.intern" />
+              <xed:include uri="webapp:import-editor.xed" ref="status"/>
+              <xed:include uri="webapp:import-editor.xed" ref="subject"/>
+              <xed:include uri="webapp:import-editor.xed" ref="origin"/>
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.partOf"/>
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.comment.intern"/>
             </xed:bind>
           </fieldset>
           <xed:bind xpath="metadata/def.modsContainer[@class='MCRMetaXML']/modsContainer/mods:mods">
             <fieldset>
               <legend>Publikation:</legend>
-              <xed:include uri="webapp:import-editor.xed" ref="genre" />
-              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource" />
-              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType" />
-              <xed:include uri="webapp:import-editor.xed"   ref="oa" />
-              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license" />
-              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed" />
-              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication" />
-              <xed:include uri="webapp:import-editor.xed" ref="title.complex" />
-              <xed:include uri="webapp:import-editor.xed" ref="person.role" />
-              <xed:include uri="webapp:import-editor.xed" ref="corporate.role" />
-              <xed:include uri="webapp:import-editor.xed" ref="year" />
-              <xed:include uri="webapp:import-editor.xed" ref="languages" />
-              <xed:include uri="webapp:import-editor.xed" ref="edition" />
-              <xed:include uri="webapp:import-editor.xed" ref="place" />
-              <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-              <xed:include uri="webapp:import-editor.xed" ref="size" />
-              <xed:include uri="webapp:import-editor.xed" ref="series" />
-              <xed:include uri="webapp:import-editor.xed" ref="conference" />
-              <xed:include uri="webapp:import-editor.xed" ref="comment" />
+              <xed:include uri="webapp:import-editor.xed" ref="genre"/>
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
+              <xed:include uri="webapp:import-editor.xed" ref="oa"/>
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.license"/>
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.peerreviewed"/>
+              <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.republication"/>
+              <xed:include uri="webapp:import-editor.xed" ref="title.complex"/>
+              <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+              <xed:include uri="webapp:import-editor.xed" ref="corporate.role"/>
+              <xed:include uri="webapp:import-editor.xed" ref="year"/>
+              <xed:include uri="webapp:import-editor.xed" ref="languages"/>
+              <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+              <xed:include uri="webapp:import-editor.xed" ref="place"/>
+              <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+              <xed:include uri="webapp:import-editor.xed" ref="extent"/>
+              <xed:include uri="webapp:import-editor.xed" ref="series"/>
+              <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+              <xed:include uri="webapp:import-editor.xed" ref="comment"/>
               <!-- Maßstab -->
               <!-- Koordinaten -->
-              <xed:include uri="webapp:import-editor.xed" ref="identifier" />
-              <xed:include uri="webapp:import-editor.xed" ref="url" />
-          </fieldset>
-          <fieldset>
-            <legend><xed:output i18n="ubo.abstract.information" />:</legend>
-            <xed:include uri="webapp:import-editor.xed" ref="topics" />
-            <xed:include uri="webapp:import-editor.xed" ref="abstract" />
-          </fieldset>
-          <xed:include uri="webapp:import-editor.xed" ref="relations" />
-          <fieldset>
-            <legend>erschienen in:</legend>
-            <xed:bind xpath="mods:relatedItem[@type='host']">
-              <xed:choose>
-                <xed:when test="string-length(@xlink:href) &gt; 0">
-                  <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem" />
-                  <xed:include uri="webapp:import-editor.xed" ref="volume" />
-                  <xed:include uri="webapp:import-editor.xed" ref="issue" />
-                  <xed:include uri="webapp:import-editor.xed" ref="pages" />
-                  <xed:include uri="webapp:import-editor.xed" ref="article_number" />
-                </xed:when>
-                <xed:otherwise>
-                  <xed:include uri="webapp:import-editor.xed" ref="host" />
-                  <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem" />
-                  <xed:include uri="webapp:import-editor.xed" ref="title.complex" />
-                  <xed:include uri="webapp:import-editor.xed" ref="conference" />
-                  <xed:include uri="webapp:import-editor.xed" ref="person.role" />
-                  <xed:include uri="webapp:import-editor.xed" ref="volume" />
-                  <xed:include uri="webapp:import-editor.xed" ref="issue" />
-                  <xed:include uri="webapp:import-editor.xed" ref="place" />
-                  <xed:include uri="webapp:import-editor.xed" ref="year" />
-                  <xed:include uri="webapp:import-editor.xed" ref="publisher" />
-                  <xed:include uri="webapp:import-editor.xed" ref="edition" />
-                  <xed:include uri="webapp:import-editor.xed" ref="series" />
-                  <xed:include uri="webapp:import-editor.xed" ref="pages" />
-                  <xed:include uri="webapp:import-editor.xed" ref="article_number" />
-                  <xed:include uri="webapp:import-editor.xed" ref="identifier" />
-                  <xed:include uri="webapp:import-editor.xed" ref="shelfmark" />
-                  <xed:include uri="webapp:import-editor.xed" ref="url" />
-                </xed:otherwise>
-              </xed:choose>
-            </xed:bind>
-          </fieldset>
-           <fieldset>
-            <legend><xed:output i18n="ubo.project.information" />:</legend>
-            <xed:include uri="webapp:import-editor.xed" ref="projectInformation"/>
-          </fieldset>
-        </xed:bind>
-        <xed:include uri="webapp:import-editor.xed" ref="fix.structure.parent" />
-        <xed:include uri="webapp:import-editor.xed" ref="cleanup" />
-        <xed:include uri="webapp:import-editor.xed" ref="cancel.submit" />
-      </xed:template>
-    </xed:form>
-   </div>
+              <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+              <xed:include uri="webapp:import-editor.xed" ref="url"/>
+            </fieldset>
+            <fieldset>
+              <legend><xed:output i18n="ubo.abstract.information"/>:
+              </legend>
+              <xed:include uri="webapp:import-editor.xed" ref="topics"/>
+              <xed:include uri="webapp:import-editor.xed" ref="abstract"/>
+            </fieldset>
+            <xed:include uri="webapp:import-editor.xed" ref="relations"/>
+            <fieldset>
+              <legend><xed:output i18n="thunibib.editor.label.published.in"/>:
+              </legend>
+              <xed:bind xpath="mods:relatedItem[@type='host']">
+                <xed:choose>
+                  <xed:when test="string-length(@xlink:href) &gt; 0">
+                    <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+                  </xed:when>
+                  <xed:otherwise>
+                    <xed:include uri="webapp:import-editor.xed" ref="host"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="title.complex"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="conference"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="series"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="shelfmark"/>
+                    <xed:include uri="webapp:import-editor.xed" ref="url"/>
+                  </xed:otherwise>
+                </xed:choose>
+              </xed:bind>
+            </fieldset>
+            <fieldset>
+              <legend><xed:output i18n="ubo.project.information"/>:
+              </legend>
+              <xed:include uri="webapp:import-editor.xed" ref="projectInformation"/>
+            </fieldset>
+          </xed:bind>
+          <xed:include uri="webapp:import-editor.xed" ref="fix.structure.parent"/>
+          <xed:include uri="webapp:import-editor.xed" ref="cleanup"/>
+          <xed:include uri="webapp:import-editor.xed" ref="cancel.submit"/>
+        </xed:template>
+      </xed:form>
+    </div>
   </article>
 </webpage>

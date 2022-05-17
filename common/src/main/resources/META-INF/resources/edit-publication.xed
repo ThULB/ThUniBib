@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date: 2016-02-01 15:05:21 +0100 (Mo, 01 Feb 2016) $" id="dozbib.edit.publication">
+  <title xml:lang="de">Publikation erfassen</title>
+  <title xml:lang="en">Acquire publication</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body bg-alternative">
+      <p>
+        Die mit <strong>*</strong> gekennzeichneten Felder sind <strong>Pflichtfelder</strong>.
+        Durch klicken auf <strong>[+]</strong> können Sie ein <strong>Eingabefeld wiederholen</strong>!
+      </p>
+      <p>
+        Bitte tragen Sie möglichst vollständig die Angaben zu Ihrem Titel in das Formular ein.
+        Wenn Sie (Zweit-)Veröffentlichungsrechte an dieser Publikation haben, können Sie sie über DuEPublico
+        im Volltext archivieren und im Sinne des Open Access weltweit frei zugänglich zu machen. Informationen dazu
+        finden Sie auf unseren <a href="https://www.uni-due.de/ub/openaccess/">Open Access-Seiten</a>.
+      </p>
+    </div>
+  </article>
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body bg-alternative">
+      <p>
+        Fields marked with <strong>*</strong>  are <strong>required fields</strong>.
+        By clicking on <strong>[+]</strong> you can repeat an input field!
+      </p>
+      <p>
+        Please, enter the bibliographic information on your title as complete as possible.
+        Should you have a right of (secondary) exploitation for this publication you have the possibility to archive
+        your
+        publication online in full text form in DuEPubico and make it freely accessible worldwide in the spirit of Open
+        Access.
+        You can find further information on
+        our <a href="https://www.uni-due.de/ub/en/openaccess/">Open Access pages</a>.
+      </p>
+    </div>
+  </article>
+
+  <article class="card" id="form">
+    <div class="card-body">
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor"
+                xmlns:cerif="https://www.openaire.eu/cerif-profile/1.1/"
+                method="post" role="form">
+
+        <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}"/>
+        <xed:source uri="xslStyle:mods2mycoreobject,mods-preprocessor:session:{$key}"/>
+
+        <xed:cancel url="servlets/MCRLockServlet?action=unlock&amp;id={$id}&amp;url=DozBibEntryServlet%3Fid={$id}"/>
+        <xed:cancel url="newPublication.xed"/>
+
+        <xed:post-processor xsl="mods-postprocessor.xsl"/>
+
+        <xed:bind xpath="/mycoreobject">
+          <xed:include uri="webapp:import-editor.xed" ref="common.metafields"/>
+
+          <input type="hidden" name="mode" value="save"/>
+
+          <xed:include uri="webapp:import-editor.xed" ref="validation"/>
+
+          <xed:bind xpath="metadata/def.modsContainer[@class='MCRMetaXML']/modsContainer/mods:mods">
+
+            <xed:load-resource name="genres" uri="classification:metadata:-1:children:ubogenre"/>
+
+            <!-- Request parameter genre always overrides existing value in entry -->
+            <!-- If parameter genre is missing, use existing genre: you do not need the parameter to edit existing as-is -->
+            <xed:choose>
+              <xed:when test="string-length($genre) &gt; 0">
+                <xed:bind xpath="mods:genre[@type='intern']" set="{$genre}" name="genre_intern"/>
+              </xed:when>
+              <xed:otherwise>
+                <xed:bind xpath="mods:genre[@type='intern']" name="genre_intern"/>
+              </xed:otherwise>
+            </xed:choose>
+
+            <!-- Request parameter host always overrides existing value in entry -->
+            <!-- host=standalone means this publication has no host -->
+            <!-- If parameter host is missing, use existing host: you do not need the parameter to edit existing as-is -->
+            <xed:choose>
+              <xed:when test="$host = 'standalone'">
+                <xed:param name="host_intern" default="standalone"/>
+              </xed:when>
+              <xed:when test="string-length($host) &gt; 0">
+                <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" set="{$host}"
+                          name="host_intern"/>
+              </xed:when>
+              <xed:when test="mods:relatedItem[@type='host']">
+                <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" name="host_intern"/>
+              </xed:when>
+              <xed:otherwise>
+                <xed:param name="host_intern" default="standalone"/>
+              </xed:otherwise>
+            </xed:choose>
+
+            <fieldset>
+              <legend>
+                <xed:include uri="webapp:import-editor.xed" ref="legend.ID"/>
+                <xed:output value="$genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text"/>
+                <xed:if test="not($host_intern='standalone')">
+                  <xed:output
+                      value="concat(' in ',$genres//category[@ID=$host_intern]/label[lang($CurrentLang)]/@text)"/>
+                </xed:if>
+              </legend>
+
+              <xed:include uri="webapp:import-editor.xed" ref="status"/>
+              <xed:include uri="webapp:import-editor.xed" ref="subject"/>
+              <xed:include uri="webapp:import-editor.xed" ref="origin"/>
+            </fieldset>
+
+            <fieldset>
+              <legend>
+                <xed:output value="concat($genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text,':')"/>
+              </legend>
+
+              <hr class="bg-danger"/>
+              <xed:include uri="webapp:import-genres.xed" ref="genre.{$genre_intern}"/>
+              <hr class="bg-danger"/>
+            </fieldset>
+
+            <fieldset>
+              <xed:include uri="webapp:import-editor.xed" ref="languages"/>
+              <xed:include uri="webapp:import-editor.xed" ref="topics"/>
+              <xed:if test="not($genre_intern='abstract') or not($genre_intern='preface')">
+                <xed:include uri="webapp:import-editor.xed" ref="abstract"/>
+              </xed:if>
+            </fieldset>
+
+            <fieldset>
+              <legend>Projektinformationen:</legend>
+              <xed:include uri="webapp:import-editor.xed" ref="projectInformation"/>
+            </fieldset>
+          </xed:bind>
+          <xed:include uri="webapp:import-editor.xed" ref="cleanup"/>
+          <xed:include uri="webapp:import-editor.xed" ref="cancel.submit"/>
+        </xed:bind>
+      </xed:form>
+    </div>
+  </article>
+</webpage>
