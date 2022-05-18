@@ -1,0 +1,32 @@
+[
+  {
+    "update-requestHandler": {
+      "name": "/select",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "qs": "5",
+        "mm": "100%",
+        "q.op": "AND",
+        "df": "all",
+        "rows": 10,
+        "fl": "id",
+        "facet": "true",
+        "facet.mincount": "1",
+        "facet.field": [
+          "status",
+          "importID",
+          "year",
+          "facet_person",
+          "subject",
+          "genre",
+          "origin",
+          "facet_host_title",
+          "oa"
+        ],
+        "wt": "xml"
+      }
+    }
+  }
+]
