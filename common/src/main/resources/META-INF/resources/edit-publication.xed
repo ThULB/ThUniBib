@@ -124,10 +124,14 @@
               </xed:if>
             </fieldset>
 
-            <fieldset>
-              <legend>Projektinformationen:</legend>
-              <xed:include uri="webapp:import-editor.xed" ref="projectInformation"/>
-            </fieldset>
+            <xed:if test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
+              <fieldset>
+                <legend>
+                  <xed:output value="concat(i18n:translate('thunibib.editor.label.project.information'), ':')"/>
+                </legend>
+                <xed:include uri="webapp:import-editor.xed" ref="projectInformation"/>
+              </fieldset>
+            </xed:if>
           </xed:bind>
           <xed:include uri="webapp:import-editor.xed" ref="cleanup"/>
           <xed:include uri="webapp:import-editor.xed" ref="cancel.submit"/>
