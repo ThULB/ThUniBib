@@ -5,7 +5,9 @@
   <xed:template id="thunibib.partOf">
     <xed:bind xpath="mods:classification[@classID='partOf']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">*<xed:output i18n="thunibib.editor.label.partOf"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+          <xed:output
+              value="concat(i18n:translate('thunibib.editor.label.partOf'), ': ')"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
@@ -26,8 +28,9 @@
   <xed:template id="thunibib.peerreviewed">
     <xed:bind xpath="mods:classification[@classID='peerreviewed']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output
-            i18n="thunibib.editor.label.peerreviewed"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output
+              value="concat(i18n:translate('thunibib.editor.label.peerreviewed'), ': ')"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
@@ -47,7 +50,7 @@
     <xed:bind xpath="mods:note[@type='intern']">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output i18n="thunibib.comment.intern"/>:
+          <xed:output value="concat(i18n:translate('thunibib.comment.intern'), ': ')"/>
         </label>
         <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} mycore-form-input"/>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
@@ -62,7 +65,7 @@
     <xed:bind xpath="mods:typeOfResource" default="text">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output i18n="thunibib.typeOfResource"/>:
+          <xed:output value="concat(i18n:translate('thunibib.typeOfResource'), ': ')"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
@@ -81,7 +84,8 @@
   <xed:template id="thunibib.mediaType">
     <xed:bind xpath="mods:classification[@classID='mediaType']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.mediatype"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.mediatype'), ': )"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
@@ -100,8 +104,9 @@
   <xed:template id="thunibib.republication">
     <xed:bind xpath="mods:classification[@classID='republication']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output
-            i18n="thunibib.editor.label.republication"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output
+              value="concat(i18n:translate('thunibib.editor.label.republication'), ': ')"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
@@ -120,7 +125,8 @@
   <xed:template id="thunibib.license">
     <xed:bind xpath="mods:accessCondition[@type='use and reproduction'][@classID='licenses']">
       <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="thunibib.editor.label.license"/>:
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.license', ': ')"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
@@ -139,8 +145,8 @@
   <xed:template id="thunibib.dateIssued">
     <xed:bind xpath="mods:originInfo/mods:dateIssued[@encoding='w3cdtf']">
       <div class="form-inline form-group">
-        <label for="year" class="mycore-form-label">
-          *<xed:output i18n="ubo.date.issued"/>:
+        <label for="year" class="mycore-form-label ubo-mandatory">
+          <xed:output value="concat(i18n:translate('ubo.date.issued'), ': ')"/>
         </label>
         <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
                placeholder="{i18n:ubo.date.issued.placeholder}"/>
@@ -151,53 +157,48 @@
   </xed:template>
 
   <xed:template id="thunibib.relatedItem">
-    <fieldset>
-      <legend>
-        <xed:output i18n="thunibib.editor.label.published.in"/>
-      </legend>
-      <xed:bind xpath="mods:relatedItem[@type='host']">
-        <xed:choose>
-          <xed:when test="string-length(@xlink:href) &gt; 0">
-            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
-            </xed:if>
-            <xed:if
-                test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
-              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
-            </xed:if>
-            <xed:if
-                test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
-            </xed:if>
-            <xed:if
-                test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
-            </xed:if>
-          </xed:when>
-          <xed:otherwise>
-            <xed:include uri="webapp:import-editor.xed" ref="host"/>
-            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
-            </xed:if>
-            <xed:include uri="webapp:import-editor.xed" ref="title"/>
-            <xed:if
-                test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
-              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
-            </xed:if>
-            <xed:if
-                test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
-            </xed:if>
-            <xed:if
-                test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
-              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
-            </xed:if>
-            <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
-          </xed:otherwise>
-        </xed:choose>
-      </xed:bind>
-    </fieldset>
+      <fieldset>
+        <legend>
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.published.in'), ': ')"/>
+        </legend>
+        <xed:bind xpath="mods:relatedItem[@type='host']">
+          <xed:choose>
+            <xed:when test="string-length(@xlink:href) &gt; 0">
+              <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') and xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+                <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+              </xed:if>
+              <xed:if test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+                <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+              </xed:if>
+              <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+              </xed:if>
+              <xed:if
+                  test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+              </xed:if>
+            </xed:when>
+            <xed:otherwise>
+              <xed:include uri="webapp:import-editor.xed" ref="host"/>
+              <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') and xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+                <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+              </xed:if>
+              <xed:include uri="webapp:import-editor.xed" ref="title"/>
+              <xed:if test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+                <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+              </xed:if>
+              <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+              </xed:if>
+              <xed:if test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+              </xed:if>
+              <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+            </xed:otherwise>
+          </xed:choose>
+        </xed:bind>
+      </fieldset>
   </xed:template>
 </xed:templates>

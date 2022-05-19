@@ -26,7 +26,9 @@
               <xed:include uri="webapp:edit-admin.xed" ref="editor"/>
             </xed:when>
             <xed:otherwise>
-              <p>Sie sind nicht berechtigt, dieses Formular zu verwenden.</p>
+              <p>
+                <xed:output i18n="navigation.notAllowedToSeeThisPage"/>
+              </p>
             </xed:otherwise>
           </xed:choose>
         </xed:bind>
@@ -48,7 +50,9 @@
           </fieldset>
           <xed:bind xpath="metadata/def.modsContainer[@class='MCRMetaXML']/modsContainer/mods:mods">
             <fieldset>
-              <legend>Publikation:</legend>
+              <legend>
+                <xed:output value="concat(i18n:translate('thunibib.editor.label.publication'), ': ')"/>
+              </legend>
               <xed:include uri="webapp:import-editor.xed" ref="genre"/>
               <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
               <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
@@ -68,20 +72,22 @@
               <xed:include uri="webapp:import-editor.xed" ref="series"/>
               <xed:include uri="webapp:import-editor.xed" ref="conference"/>
               <xed:include uri="webapp:import-editor.xed" ref="comment"/>
-              <!-- Maßstab -->
-              <!-- Koordinaten -->
+              <xed:include uri="webapp:import-editor.xed" ref="scale"/>
+              <xed:include uri="webapp:import-editor.xed" ref="coordinates"/>
               <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
               <xed:include uri="webapp:import-editor.xed" ref="url"/>
             </fieldset>
             <fieldset>
-              <legend><xed:output i18n="ubo.abstract.information"/>:
+              <legend>
+                <xed:output value="concat(i18n:translate('ubo.abstract.information'), ': ')"/>
               </legend>
               <xed:include uri="webapp:import-editor.xed" ref="topics"/>
               <xed:include uri="webapp:import-editor.xed" ref="abstract"/>
             </fieldset>
             <xed:include uri="webapp:import-editor.xed" ref="relations"/>
             <fieldset>
-              <legend><xed:output i18n="thunibib.editor.label.published.in"/>:
+              <legend>
+                <xed:output value="concat(i18n:translate('thunibib.editor.label.published.in), ': ')"/>
               </legend>
               <xed:bind xpath="mods:relatedItem[@type='host']">
                 <xed:choose>
@@ -115,7 +121,8 @@
               </xed:bind>
             </fieldset>
             <fieldset>
-              <legend><xed:output i18n="ubo.project.information"/>:
+              <legend>
+                <xed:output value="concat(i18n:translate('ubo.project.information'), ': ')"/>
               </legend>
               <xed:include uri="webapp:import-editor.xed" ref="projectInformation"/>
             </fieldset>

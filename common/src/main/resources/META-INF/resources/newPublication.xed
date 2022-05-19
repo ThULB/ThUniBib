@@ -44,8 +44,8 @@
                         <option value="issn">ISSN</option>
                       </xed:if>
                     </select>
-                    :
                   </xed:bind>
+                  :
                 </div>
                 <input id="identifier" class="{$xed-validation-marker} mycore-form-input"/>
               </div>
@@ -57,40 +57,43 @@
                           i18n="ubo.identifier.issn.validation" display="global"/>
             <xed:validate xpath="//mods:identifier[@type='isbn']" matches="^((978|979)-?)?([\d -]{12}|\d{9})(\d|X)$"
                           i18n="ubo.identifier.isbn.validation" display="global"/>
-            <div>
-              <p>
-                <xed:output i18n="ubo.newPublicationWizard.titleAuthor"/>
-              </p>
-            </div>
 
-            <xed:bind xpath="mods:titleInfo/mods:title">
-              <div class="form-group form-inline">
-                <label for="title" class="mycore-form-label">
-                  <xed:output i18n="ubo.title"/>:
-                </label>
-                <input id="title" class="{$xed-validation-marker} mycore-form-input"
-                       placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
+            <xed:if test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
+              <div>
+                <p>
+                  <xed:output i18n="ubo.newPublicationWizard.titleAuthor"/>
+                </p>
               </div>
-            </xed:bind>
 
-            <xed:bind xpath="mods:name[@type='personal']">
-              <xed:bind xpath="mods:namePart[@type='family']">
+              <xed:bind xpath="mods:titleInfo/mods:title">
                 <div class="form-group form-inline">
-                  <label for="author" class="mycore-form-label">
-                    <xed:output i18n="ubo.role.author"/>:
+                  <label for="title" class="mycore-form-label">
+                    <xed:output i18n="ubo.title"/>:
                   </label>
-                  <input id="author" class="{$xed-validation-marker} mycore-form-input"
-                         placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                  <input id="title" class="{$xed-validation-marker} mycore-form-input"
+                         placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
                 </div>
               </xed:bind>
-              <xed:bind xpath="mods:role[mods:roleTerm[@authority='marcrelator'][@type='code']='aut']"/>
-            </xed:bind>
 
-            <xed:validate
-                test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
-                display="global" i18n="ubo.newPublicationWizard.required"/>
+              <xed:bind xpath="mods:name[@type='personal']">
+                <xed:bind xpath="mods:namePart[@type='family']">
+                  <div class="form-group form-inline">
+                    <label for="author" class="mycore-form-label">
+                      <xed:output i18n="ubo.role.author"/>:
+                    </label>
+                    <input id="author" class="{$xed-validation-marker} mycore-form-input"
+                           placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                  </div>
+                </xed:bind>
+                <xed:bind xpath="mods:role[mods:roleTerm[@authority='marcrelator'][@type='code']='aut']"/>
+              </xed:bind>
 
-            <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
+              <xed:validate
+                  test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
+                  display="global" i18n="ubo.newPublicationWizard.required"/>
+
+              <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
+            </xed:if>
 
             <div class="form-group form-inline">
               <label class="mycore-form-label">

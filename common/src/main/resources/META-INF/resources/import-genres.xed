@@ -112,7 +112,7 @@
     <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
-  <xed:template id="genre.review-article">
+  <xed:template id="genre.review_article">
     <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.typeOfResource"/>
     <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.mediaType"/>
     <xed:include uri="webapp:import-editor.xed" ref="oa"/>
