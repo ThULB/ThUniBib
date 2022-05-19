@@ -4,38 +4,6 @@
   <title xml:lang="de">Publikation erfassen</title>
   <title xml:lang="en">Acquire publication</title>
 
-  <article class="card mb-3" xml:lang="de">
-    <div class="card-body bg-alternative">
-      <p>
-        Die mit <strong>*</strong> gekennzeichneten Felder sind <strong>Pflichtfelder</strong>.
-        Durch klicken auf <strong>[+]</strong> können Sie ein <strong>Eingabefeld wiederholen</strong>!
-      </p>
-      <p>
-        Bitte tragen Sie möglichst vollständig die Angaben zu Ihrem Titel in das Formular ein.
-        Wenn Sie (Zweit-)Veröffentlichungsrechte an dieser Publikation haben, können Sie sie über DuEPublico
-        im Volltext archivieren und im Sinne des Open Access weltweit frei zugänglich zu machen. Informationen dazu
-        finden Sie auf unseren <a href="https://www.uni-due.de/ub/openaccess/">Open Access-Seiten</a>.
-      </p>
-    </div>
-  </article>
-  <article class="card mb-3" xml:lang="en">
-    <div class="card-body bg-alternative">
-      <p>
-        Fields marked with <strong>*</strong>  are <strong>required fields</strong>.
-        By clicking on <strong>[+]</strong> you can repeat an input field!
-      </p>
-      <p>
-        Please, enter the bibliographic information on your title as complete as possible.
-        Should you have a right of (secondary) exploitation for this publication you have the possibility to archive
-        your
-        publication online in full text form in DuEPubico and make it freely accessible worldwide in the spirit of Open
-        Access.
-        You can find further information on
-        our <a href="https://www.uni-due.de/ub/en/openaccess/">Open Access pages</a>.
-      </p>
-    </div>
-  </article>
-
   <article class="card" id="form">
     <div class="card-body">
       <xed:form xmlns:xed="http://www.mycore.de/xeditor"
