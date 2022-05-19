@@ -26,7 +26,7 @@
   <xsl:include href="html-layout-backend.xsl" />
 
   <!-- ==================== HTML ==================== -->
-  
+
   <xsl:template match="/html">
     <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html>
 
@@ -54,18 +54,14 @@
       <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"></script>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css" type="text/css"/>
-      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Droid+Sans|Droid+Sans+Mono:300,400" type="text/css" />
-      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto:300,400" type="text/css" />
-      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto+Condensed:300,400" type="text/css" />
-      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Amiri:300,400" type="text/css" />
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css" />
+
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico" />
 
       <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL" />';</script>
       <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang" />';</script>
       <script type="text/javascript" src="{$WebApplicationBaseURL}js/session-polling.js"></script>
-
       <script type="text/javascript" src="{$WebApplicationBaseURL}js/person-popover.js"></script>
-
       <xsl:copy-of select="node()" />
     </head>
   </xsl:template>
@@ -196,7 +192,7 @@
 
   <xsl:template name="layout.inhalt">
     <section role="main" id="inhalt">
-    
+
       <xsl:choose>
         <xsl:when test="$allowed.to.see.this.page = 'true'">
           <xsl:copy-of select="body/*[not(@id='sidebar')][not(@id='breadcrumb')]" />
@@ -345,7 +341,7 @@
 
   </xsl:template>
 
-  <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->  
+  <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
   <xsl:param name="MCR.ORCID.LinkURL" />
 
   <xsl:template name="orcidUser">
@@ -353,7 +349,7 @@
     <xsl:variable name="orcidUser" select="orcidSession:getCurrentUser()" xmlns:orcidSession="xalan://org.mycore.orcid.user.MCRORCIDSession" />
     <xsl:variable name="userStatus" select="orcidUser:getStatus($orcidUser)" xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser" />
     <xsl:variable name="trustedParty" select="userStatus:weAreTrustedParty($userStatus)" xmlns:userStatus="xalan://org.mycore.orcid.user.MCRUserStatus" />
-    
+
     <xsl:if test="$trustedParty = 'true'">
       <xsl:variable name="orcid" select="orcidUser:getORCID($orcidUser)" xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser" />
       <a href="{$MCR.ORCID.LinkURL}{$orcid}">
@@ -371,7 +367,7 @@
       </div>
     </div>
   </xsl:template>
-  
+
   <!-- Footer -->
 
   <xsl:template name="layout.footer">
@@ -423,7 +419,7 @@
       </a>
     </div>
   </xsl:template>
-  
+
   <xsl:template name="feedback">
     <div id="feedback">
       <a href="mailto:{$UBO.Mail.Feedback}?subject=[Bibliographie%20der%20FSU%20Jena]%20-%20Feedback&amp;body=Rückmeldung%20zu%20{$RequestURL}:">Feedback</a>
