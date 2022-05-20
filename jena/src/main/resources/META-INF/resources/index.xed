@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="2022-05-23T10:46:00" id="dozbib" xmlns:i18n="http://www.mycore.org/i18n">
-  <title xml:lang="de">Willkommen bei der Universitätsbibliographie Jena</title>
-  <title xml:lang="en">Welcome to the bibliography of Friedrich Schiller University Jena</title>
+  <title>
+    <i18n:de>Willkommen bei der Universitätsbibliographie Jena</i18n:de>
+    <i18n:en>Welcome to the bibliography of Friedrich Schiller University Jena</i18n:en>
+  </title>
 
   <article class="card mb-3">
     <div class="card-body">

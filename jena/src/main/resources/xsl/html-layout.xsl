@@ -84,12 +84,12 @@
         <div class="row">
           <div class="col">
             <h3 id="seitentitel">
-              <xsl:value-of select="head/title" disable-output-escaping="yes" />
+              <xsl:copy-of select="head/title/node()" />
             </h3>
           </div>
         </div>
       </div>
-      <xsl:if test="string-length($UBO.Mail.Feedback)&gt;0">
+      <xsl:if test="string-length($UBO.Mail.Feedback) &gt; 0">
         <xsl:call-template name="feedback"/>
       </xsl:if>
     </div>
@@ -362,7 +362,7 @@
     <div class="card my-3">
       <div class="card-body py-2">
         <h3 id="seitentitel">
-          <xsl:value-of select="head/title" disable-output-escaping="yes" />
+          <xsl:copy-of select="head/title/node()" />
         </h3>
       </div>
     </div>

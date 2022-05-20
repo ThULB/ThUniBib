@@ -87,7 +87,7 @@
         <div class="row">
           <div class="col">
             <h3 id="seitentitel">
-              <xsl:value-of select="head/title" disable-output-escaping="yes" />
+              <xsl:copy-of select="head/title/node()" />
             </h3>
           </div>
         </div>
@@ -453,7 +453,7 @@
     <div class="card my-3">
       <div class="card-body py-2">
         <h3 id="seitentitel">
-          <xsl:value-of select="head/title" disable-output-escaping="yes" />
+          <xsl:copy-of select="head/title/node()" />
         </h3>
       </div>
     </div>
