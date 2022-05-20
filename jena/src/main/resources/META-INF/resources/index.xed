@@ -3,7 +3,7 @@
 <webpage lastModified="$Date$" id="dozbib">
  <title xml:lang="de">Willkommen bei der Universitätsbibliographie der FSU Jena</title>
  <title xml:lang="en">Welcome to Bibliography of FSU Jena</title>
- 
+
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
      <h3>Die Universitätsbibliographie</h3>
@@ -80,13 +80,13 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:%5B2019+TO+2021%5D&amp;rows=4&amp;sort=created+desc,year+desc&amp;facet=false&amp;fl=id,year" />
-  
+  <xinclude uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year" />
+
   <aside id="sidebar">
     <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0" />
     <xinclude uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY" />
     <xinclude uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID" />
- 
+
     <article class="card" xml:lang="de">
       <div class="card-body bg-alternative">
         <hgroup>
@@ -120,5 +120,5 @@
       </div>
     </article>
   </aside>
-    
+
 </webpage>
