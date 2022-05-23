@@ -47,7 +47,7 @@
   </xsl:copy>
 </xsl:template>
 
-<xsl:template match="mods:titleInfo|mods:titleInfo/@type|mods:titleInfo/@xml:lang|mods:title|mods:subTitle">
+<xsl:template match="mods:titleInfo|mods:titleInfo/@type|mods:titleInfo/@xml:lang|mods:title|mods:subTitle|mods:mods:nonSort">
   <xsl:call-template name="copy-and-apply" />
 </xsl:template>
 
@@ -117,7 +117,7 @@
 </xsl:template>
 
 <xsl:template match="mods:note">
-  <xsl:if test="not(@type) or contains('intern source other', @type)">
+  <xsl:if test="not(@type) or contains('intern source note other', @type)">
     <xsl:call-template name="copy-and-apply" />
   </xsl:if>
 </xsl:template>
