@@ -1,40 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="$Date$" id="dozbib">
- <title xml:lang="de">Willkommen bei der Universitätsbibliographie der FSU Jena</title>
- <title xml:lang="en">Welcome to Bibliography of FSU Jena</title>
+<webpage lastModified="2022-05-23T10:46:00" id="thunibib-jena-index">
+  <title xml:lang="de">Willkommen bei der Universitätsbibliographie Jena</title>
+  <title xml:lang="en">Welcome to the bibliography of Friedrich Schiller University Jena</title>
 
- <article class="card mb-3" xml:lang="de">
-   <div class="card-body">
-     <h3>Die Universitätsbibliographie</h3>
-     <p>
-       Die Universitätsbibliographie dokumentiert die Publikationstätigkeit der Angehörigen der
-       <a href="https://www.uni-jena.de/">Friedrich-Schiller-Universität Jena</a> (FSU) und wird von der
-       <a href="https://www.thulb.uni-jena.de/">Thüringer Universitäts- und Landesbibliothek Jena</a> betrieben.
-     </p>
-     <p>
-       Als Angehörige der FSU Jena können Sie <a href="../newPublication.xed">Ihre Publikationen an die
-       Universitätsbibliographie melden</a>.
-       Damit helfen Sie uns bei ihrer Vervollständigung.
-     </p>
-     <p>
-       Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
-       gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
-     </p>
-   </div>
- </article>
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <h3>Die Universitätsbibliographie</h3>
+      <p>
+        Die Universitätsbibliographie dokumentiert die Publikationstätigkeit der Angehörigen der
+        <a href="https://www.uni-jena.de/">Friedrich-Schiller-Universität Jena</a>
+        inklusive des <a href="https://www.uniklinikum-jena.de/">Universitätsklinikums Jena</a> und wird von der
+        <a href="https://www.thulb.uni-jena.de/">Thüringer Universitäts- und Landesbibliothek Jena</a>
+        (ThULB) betrieben.
+      </p>
+      <p>
+        Ab dem 01.06.2022 werden in der Universitätsbibliographie sukzessive Publikationen nachgewiesen. Diese gelangen
+        über Datenbanken, manuelle Meldungen oder Listen in die Bibliographie und werden durch die ThULB redaktionell
+        geprüft. Derzeit befindet sich die Universitätsbibliographie im Aufbau und es werden vorrangig aktuelle
+        Publikationen bearbeitet.
+      </p>
+      <p>
+        Sie können <a href="newPublication.xed">Ihre Publikationen an die
+        Universitätsbibliographie melden</a>. Damit helfen Sie uns bei der Vervollständigung. Wir freuen uns auf Ihre
+        Unterstützung.
+      </p>
+      <p>
+        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+        gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie der Verbundzentrale des
+        Gemeinsamen Bibliotheksverbundes.
+      </p>
+    </div>
+  </article>
   <article class="card mb-3" xml:lang="en">
     <div class="card-body">
       <h3>The University Bibliography</h3>
       <p>
-        is the central resource of Friedrich-Schiller-University Jena that lists all publication activities of the university members.
-        The bibliography is currently under construction.
+        The university bibliography documents the publication activities of the members of the <a
+          href="https://www.uni-jena.de/en/">Friedrich Schiller University Jena
+      </a> including the <a href="https://www.uniklinikum-jena.de/en/">University Hospital Jena.</a> It is operated by
+        the <a href="https://www.thulb.uni-jena.de/">Thuringian University and State Library Jena</a> (ThULB).
       </p>
-      <h3>
-        As a member of FSU Jena</h3>
       <p>
-        Help us to complete the bibliography!<br/>
-        <a href="../newPublication.xed">Here you can register your own publication</a>
+        As from 1st of June 2022 new publications will be listed in the university bibliography. The university
+        bibliography is currently under constant development and current publications are processed preferably.
+      </p>
+      <p>By reporting your publications <a href="newPublication.xed">here</a> you are
+        supporting us to complete it.
+      </p>
+      <p>
+        The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian
+        Digital Strategy and is carried out in cooperation with the Library Service Center Thuringia and the central
+        library network.
       </p>
     </div>
   </article>
@@ -45,34 +62,34 @@
         <div class="form-group form-inline mb-0">
 
           <xed:bind xpath="/query">
-            <xed:bind xpath="@mask" default="index.xed" />
-            <xed:bind xpath="@numPerPage" default="10" />
+            <xed:bind xpath="@mask" default="index.xed"/>
+            <xed:bind xpath="@numPerPage" default="10"/>
             <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
               <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
                 <label for="input" class="mycore-form-label">
-                  <xed:output i18n="ubo.search.simple" />
+                  <xed:output i18n="ubo.search.simple"/>
                 </label>
-                <input id="input" type="text" class="mycore-form-input form-control-sm mr-2" />
+                <input id="input" type="text" class="mycore-form-input form-control-sm mr-2"/>
               </xed:bind>
 
               <!-- Standard users must only find confirmed publications, admins find all publications -->
               <xed:choose>
                 <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
-                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
+                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']"/>
                 </xed:when>
                 <xed:otherwise>
-                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']" />
+                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']"/>
                 </xed:otherwise>
               </xed:choose>
 
             </xed:bind>
 
-            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]" />
+            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]"/>
 
           </xed:bind>
 
           <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
-            <xed:output i18n="button.search" />
+            <xed:output i18n="button.search"/>
           </button>
 
         </div>
@@ -80,12 +97,15 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year" />
+  <xinclude
+      uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
 
   <aside id="sidebar">
-    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0" />
-    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY" />
-    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID" />
+    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0"/>
+    <xinclude
+        uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
+    <xinclude
+        uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID"/>
 
     <article class="card" xml:lang="de">
       <div class="card-body bg-alternative">
@@ -98,7 +118,8 @@
           </a>
         </p>
         <p>
-          Thüringer Universitäts- und Landesbibliothek<br/>
+          Thüringer Universitäts- und Landesbibliothek
+          <br/>
           Tel.: +49 3641 9-404 100
         </p>
       </div>
@@ -114,7 +135,8 @@
           </a>
         </p>
         <p>
-          University library<br/>
+          University library
+          <br/>
           Phone: +49 3641 9-404 100
         </p>
       </div>
