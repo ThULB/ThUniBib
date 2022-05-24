@@ -86,15 +86,7 @@
               <div class="col-sm pl-0">
                 <ul class="pl-3">
                   <li>title contains Faktoren</li>
-                  <li>(title contains Faktoren) or (nid_lsf = 2809)</li>
-                  <li>((title contains Faktoren) or (nid_lsf = 2809))
-                    <br/>
-                    and (year = 2006)
-                  </li>
-                  <li>(nid_lsf = 2809) and ((year = 2010) or (year = 2011))</li>
-                  <li>(role_lsf = aut_2809) or ((genre = book)
-                    <br/>
-                    and (role_lsf = edt_2809))
+                  <li>(title contains Faktoren) and (year = 2006)
                   </li>
                 </ul>
               </div>
@@ -173,18 +165,6 @@
             <td>=, contains, like</td>
           </tr>
           <tr class="background1">
-            <td>nid_lsf</td>
-            <td>ID</td>
-            <td>Personen-ID aus HIS LSF</td>
-            <td>=, contains *</td>
-          </tr>
-          <tr class="background2">
-            <td>ae_lsf</td>
-            <td>ID</td>
-            <td>Autoren- oder Herausgeber-ID aus HIS LSF</td>
-            <td>=, contains *</td>
-          </tr>
-          <tr class="background1">
             <td>nid_orcid</td>
             <td>ID</td>
             <td>ORCID</td>
@@ -207,12 +187,6 @@
             <td>ID</td>
             <td>GND</td>
             <td>= , contains *</td>
-          </tr>
-          <tr class="background1">
-            <td>role_lsf</td>
-            <td>ID</td>
-            <td>Kombination Rolle + Personen-ID aus HIS LSF, z. B. ths_2809 findet Doktorvater</td>
-            <td>=, contains *</td>
           </tr>
           <tr class="background2">
             <td>year</td>
@@ -423,18 +397,6 @@
             <td>=, contains, like</td>
           </tr>
           <tr class="background2">
-            <td>nid_lsf</td>
-            <td>ID</td>
-            <td>person ID from HIS LSF</td>
-            <td>=, contains *</td>
-          </tr>
-          <tr class="background1">
-            <td>ae_lsf</td>
-            <td>ID</td>
-            <td>author or editor ID from HIS LSF</td>
-            <td>=, contains *</td>
-          </tr>
-          <tr class="background2">
             <td>nid_orcid</td>
             <td>ID</td>
             <td>ORCID</td>
@@ -456,12 +418,6 @@
             <td>nid_gnd</td>
             <td>ID</td>
             <td>GND</td>
-            <td>=, contains *</td>
-          </tr>
-          <tr class="background2">
-            <td>role_lsf</td>
-            <td>ID</td>
-            <td>Combined role plus person ID from HIS LSF, e.g. ths_2809 finds thesis advisor</td>
             <td>=, contains *</td>
           </tr>
           <tr class="background1">
@@ -627,7 +583,6 @@
             <td>Timestamp of the last modification of the entry</td>
             <td>=, &lt;, &gt;, &lt;=, &gt;=</td>
           </tr>
-
         </table>
       </p>
     </div>
