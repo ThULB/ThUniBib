@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage id="dozbib.search-expert">
-  <title xml:lang="de">Universitätsbibliographie Online: Expertensuche</title>
-  <title xml:lang="en">University Bibliography Online: Expert search</title>
+<webpage id="dozbib.search-expert" xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:de>Expertensuche</i18n:de>
+    <i18n:en>Expert search</i18n:en>
+  </title>
 
   <script type="text/javascript" src="/external/jquery-tools-1.2.7/jquery.tools.min.js"></script>
 
