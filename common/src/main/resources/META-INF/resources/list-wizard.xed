@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date: 2016-05-20 08:54:29 +0200 (Fr, 20 Mai 2016) $" id="dozbib.list-wizard"
+         xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:de>Persönliche Publikationliste erstellen</i18n:de>
+    <i18n:en>Build your personal publication list</i18n:en>
+  </title>
+
+  <article class="card mb-1">
+    <div class="card-body bg-alternative">
+      <h3>
+        <i18n:de>Persönliche Publikationliste erstellen</i18n:de>
+        <i18n:en>Build your personal publication list</i18n:en>
+      </h3>
+      <p>
+        <i18n:de>
+          Über das folgende Formular können Sie persönliche Publikationslisten direkt aus der Universitätsbibliographie
+          heraus erstellen und in verschiedenen Formaten ausgeben. Fehlende Publikationen können Sie jederzeit
+          <a href="newPublication.xed">einreichen.</a>
+          Nehmen Sie <a href="contact.xml">Kontakt mit uns auf,</a> falls Publikationen korrigiert werden müssen.
+        </i18n:de>
+
+        <i18n:en>
+          You can use the following form to create your personal publication list directly from university bibliography
+          data to link it or output it in various formats. This requires publications are linked with your own
+          HIS LSF person ID. In case publications are missing <a href="newPublication.xed">you can register them
+          here.
+        </a>In case entries have to be corrected please
+          <a href="contact.xml">contact us.</a>
+        </i18n:en>
+      </p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form" style="z-index: 99">
+        <script src="{$WebApplicationBaseURL}vue/vue.min.js"/>
+        <script src="{$WebApplicationBaseURL}vue/publication-list/publicationList.umd.min.js"/>
+        <link href="{$WebApplicationBaseURL}vue/publication-list/publicationList.css" rel="stylesheet"/>
+
+        <div id="publicationList">
+          <pl baseurl="{$WebApplicationBaseURL}"
+              leadid="{$MCR.user2.matching.lead_id}" roles="{$UBO.Search.PersonalList.Roles}"
+              personids="{$UBO.Search.PersonalList.Ids}"
+          ></pl>
+        </div>
+
+        <script>
+          <![CDATA[
+            new Vue({
+              components: {
+                pl: publicationList
+              }
+            }).$mount('#publicationList');
+          ]]>
+        </script>
+      </xed:form>
+    </div>
+  </article>
+
+</webpage>
