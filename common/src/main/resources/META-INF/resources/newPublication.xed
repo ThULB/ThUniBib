@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="$Date$" id="dozbib.new.publication">
+<webpage lastModified="$Date$" id="dozbib.new.publication" xmlns:i18n="http://www.mycore.org/i18n">
   <title xml:lang="de">Publikation einreichen</title>
-  <title xml:lang="en">Registering publication</title>
+  <title xml:lang="en">Registering a publication</title>
 
   <article class="card mb-1">
     <div class="card-body">
@@ -112,31 +112,26 @@
     </div>
   </article>
 
-  <article class="card mb-1" xml:lang="de">
+  <article class="card mb-1">
     <div class="card-body bg-alternative">
       <p>
-        Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Nutzen Sie dazu das
-        <a href="https://thunibib-jena.gbv.de/import-list.xed">Formular</a>
-        oder schreiben Sie uns eine E-Mail an <a href="mailto:unibibliographie_thulb@uni-jena.de">
-        unibibliographie_thulb@uni-jena.de</a>.
+        <i18n:de>
+          Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Nutzen Sie dazu das
+          <a href="import-list.xed">Formular</a>
+          oder schreiben Sie uns eine E-Mail an <a href="mailto:unibibliographie_thulb@uni-jena.de">
+          unibibliographie_thulb@uni-jena.de</a>.
+        </i18n:de>
       </p>
       <p>
-        In der Bibliographie werden <strong>selbstständige und unselbstständige Publikationen</strong> erfasst, die <strong>
-        gedruckt oder in digitaler Form
-      </strong> erschienen
-        sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge in Sammelwerken sein, aber
-        auch Tondokumente und multimediale, digitale
-        Veröffentlichungen. <strong>Alle Angehörigen und ehemaligen Angehörigen</strong> der
-        Friedrich-Schiller-Universität Jena sind eingeladen, ihre Publikationen an die
-        Universitätsbibliographie zu melden.
-      </p>
-    </div>
-  </article>
-
-  <article class="card mb-1" xml:lang="en">
-    <div class="card-body bg-alternative">
-      <p class="d-none">
-        ...
+        <i18n:de>
+          In der Bibliographie werden <strong>selbstständige und unselbstständige Publikationen</strong> erfasst, die <strong>
+          gedruckt oder in digitaler Form
+        </strong> erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge in
+          Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>Alle
+          Angehörigen und ehemaligen Angehörigen
+        </strong> der Friedrich-Schiller-Universität Jena sind eingeladen, ihre Publikationen an die
+          Universitätsbibliographie zu melden.
+        </i18n:de>
       </p>
     </div>
   </article>
