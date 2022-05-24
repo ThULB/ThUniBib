@@ -303,15 +303,19 @@
   </xed:template>
 
   <xed:template id="conference">
-    <xed:bind xpath="mods:name[@type='conference']/mods:namePart">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('ubo.conference'), ': ')"/>
-        </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-               placeholder="{i18n:ubo.conference.placeholder}"/>
-      </div>
-    </xed:bind>
+    <xed:repeat xpath="mods:name[@type='conference']">
+      <xed:bind xpath="mods:namePart">
+        <div class="form-group form-inline">
+          <label for="{xed:generate-id()}" class="mycore-form-label">
+            <xed:output value="concat(i18n:translate('ubo.conference'), ': ')"/>
+          </label>
+          <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
+                 placeholder="{i18n:ubo.conference.placeholder}"/>
+
+          <xed:controls/>
+        </div>
+      </xed:bind>
+    </xed:repeat>
   </xed:template>
 
   <xed:template id="author">
@@ -493,11 +497,11 @@
           </label>
         </xed:bind>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
-        <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']" >
+        <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
           <div class="form-group form-inline col-12 px-0">
             <label class="mycore-form-label"></label>
-            <input type="checkbox" value="corresponding_author" />
-            <xed:output i18n="ubo.corresponding_author" />
+            <input type="checkbox" value="corresponding_author"/>
+            <xed:output i18n="ubo.corresponding_author"/>
           </div>
         </xed:bind>
       </div>
@@ -527,7 +531,7 @@
     <xed:bind xpath="mods:originInfo/mods:place/mods:placeTerm[@type='text']">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('ubo.place'), ': '"/>
+          <xed:output value="concat(i18n:translate('ubo.place'), ': ')"/>
         </label>
         <input id="{xed:generate-id()}" type="text" class="mycore-form-input"/>
       </div>
