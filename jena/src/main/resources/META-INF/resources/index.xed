@@ -1,57 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="2022-05-23T10:46:00" id="dozbib">
+<webpage lastModified="2022-05-23T10:46:00" id="dozbib" xmlns:i18n="http://www.mycore.org/i18n">
   <title xml:lang="de">Willkommen bei der Universitätsbibliographie Jena</title>
   <title xml:lang="en">Welcome to the bibliography of Friedrich Schiller University Jena</title>
 
-  <article class="card mb-3" xml:lang="de">
+  <article class="card mb-3">
     <div class="card-body">
-      <h3>Die Universitätsbibliographie</h3>
+      <h3>
+        <i18n:de>Die Universitätsbibliographie</i18n:de>
+        <i18n:en>The University Bibliography</i18n:en>
+      </h3>
       <p>
-        Die Universitätsbibliographie dokumentiert die Publikationstätigkeit der Angehörigen der
-        <a href="https://www.uni-jena.de/">Friedrich-Schiller-Universität Jena</a>
-        inklusive des <a href="https://www.uniklinikum-jena.de/">Universitätsklinikums Jena</a> und wird von der
-        <a href="https://www.thulb.uni-jena.de/">Thüringer Universitäts- und Landesbibliothek Jena</a>
-        (ThULB) betrieben.
+        <i18n:de>
+          Die Universitätsbibliographie dokumentiert die Publikationstätigkeit der Angehörigen der
+          <a href="https://www.uni-jena.de/">Friedrich-Schiller-Universität Jena</a>
+          inklusive des <a href="https://www.uniklinikum-jena.de/">Universitätsklinikums Jena</a> und wird von der
+          <a href="https://www.thulb.uni-jena.de/">Thüringer Universitäts- und Landesbibliothek Jena</a>
+          (ThULB) betrieben.
+        </i18n:de>
+        <i18n:en>
+          The university bibliography documents the publication activities of the members of the <a
+            href="https://www.uni-jena.de/en/">Friedrich Schiller University Jena
+        </a> including the <a href="https://www.uniklinikum-jena.de/en/">University Hospital Jena.</a> It is operated by
+          the <a href="https://www.thulb.uni-jena.de/">Thuringian University and State Library Jena</a> (ThULB).
+        </i18n:en>
       </p>
       <p>
-        Ab dem 01.06.2022 werden in der Universitätsbibliographie sukzessive Publikationen nachgewiesen. Diese gelangen
-        über Datenbanken, manuelle Meldungen oder Listen in die Bibliographie und werden durch die ThULB redaktionell
-        geprüft. Derzeit befindet sich die Universitätsbibliographie im Aufbau und es werden vorrangig aktuelle
-        Publikationen bearbeitet.
+        <i18n:de>
+          Ab dem 01.06.2022 werden in der Universitätsbibliographie sukzessive Publikationen nachgewiesen. Diese
+          gelangen
+          über Datenbanken, manuelle Meldungen oder Listen in die Bibliographie und werden durch die ThULB redaktionell
+          geprüft. Derzeit befindet sich die Universitätsbibliographie im Aufbau und es werden vorrangig aktuelle
+          Publikationen bearbeitet.
+        </i18n:de>
+        <i18n:en>
+          As from 1st of June 2022 new publications will be listed in the university bibliography. The university
+          bibliography is currently under constant development and current publications are processed preferably.
+        </i18n:en>
       </p>
       <p>
-        Sie können <a href="newPublication.xed">Ihre Publikationen an die
-        Universitätsbibliographie melden</a>. Damit helfen Sie uns bei der Vervollständigung. Wir freuen uns auf Ihre
-        Unterstützung.
+        <i18n:de>
+          Sie können <a href="newPublication.xed">Ihre Publikationen an die
+          Universitätsbibliographie melden</a>. Damit helfen Sie uns bei der Vervollständigung. Wir freuen uns auf Ihre
+          Unterstützung.
+        </i18n:de>
+        <i18n:en>By reporting your publications <a href="newPublication.xed">here</a> you are
+          supporting us to complete it.
+        </i18n:en>
       </p>
       <p>
-        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
-        gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie der Verbundzentrale des
-        Gemeinsamen Bibliotheksverbundes.
-      </p>
-    </div>
-  </article>
-  <article class="card mb-3" xml:lang="en">
-    <div class="card-body">
-      <h3>The University Bibliography</h3>
-      <p>
-        The university bibliography documents the publication activities of the members of the <a
-          href="https://www.uni-jena.de/en/">Friedrich Schiller University Jena
-      </a> including the <a href="https://www.uniklinikum-jena.de/en/">University Hospital Jena.</a> It is operated by
-        the <a href="https://www.thulb.uni-jena.de/">Thuringian University and State Library Jena</a> (ThULB).
-      </p>
-      <p>
-        As from 1st of June 2022 new publications will be listed in the university bibliography. The university
-        bibliography is currently under constant development and current publications are processed preferably.
-      </p>
-      <p>By reporting your publications <a href="newPublication.xed">here</a> you are
-        supporting us to complete it.
-      </p>
-      <p>
-        The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian
-        Digital Strategy and is carried out in cooperation with the Library Service Center Thuringia and the central
-        library network.
+        <i18n:de>
+          Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer
+          Digitalstrategie
+          gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie der Verbundzentrale
+          des
+          Gemeinsamen Bibliotheksverbundes.
+        </i18n:de>
+        <i18n:en>The development of the university bibliography is funded by the state of Thuringia as part of the
+          Thuringian
+          Digital Strategy and is carried out in cooperation with the Library Service Center Thuringia and the central
+          library network.
+        </i18n:en>
       </p>
     </div>
   </article>
