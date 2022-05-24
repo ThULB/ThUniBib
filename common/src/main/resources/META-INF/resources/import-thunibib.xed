@@ -85,7 +85,7 @@
     <xed:bind xpath="mods:classification[@classID='mediaType']">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('thunibib.editor.label.mediatype'), ': )"/>
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.mediatype'), ': ')"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
@@ -126,7 +126,7 @@
     <xed:bind xpath="mods:accessCondition[@type='use and reproduction'][@classID='licenses']">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('thunibib.editor.label.license', ': ')"/>
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.license'), ': ')"/>
         </label>
         <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
           <option value="">
