@@ -493,6 +493,13 @@
           </label>
         </xed:bind>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
+        <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']" >
+          <div class="form-group form-inline col-12 px-0">
+            <label class="mycore-form-label"></label>
+            <input type="checkbox" value="corresponding_author" />
+            <xed:output value="i18n:translate('ubo.corresponding_author')" />
+          </div>
+        </xed:bind>
       </div>
     </xed:repeat>
   </xed:template>
@@ -614,7 +621,7 @@
     <xed:bind xpath="mods:physicalDescription/mods:extent">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('ubo.extent'), ': )"/>
+          <xed:output value="concat(i18n:translate('ubo.extent'), ': ')"/>
         </label>
         <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
                placeholder="{i18n:ubo.extent.placeholder}"/>
