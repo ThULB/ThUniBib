@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="$Date: 2016-02-01 15:05:21 +0100 (Mo, 01 Feb 2016) $" id="dozbib.edit.publication">
-  <title xml:lang="de">Publikation erfassen</title>
-  <title xml:lang="en">Acquire publication</title>
+<webpage lastModified="$Date: 2016-02-01 15:05:21 +0100 (Mo, 01 Feb 2016) $" id="dozbib.edit.publication"
+         xmlns:i18n="http://www.mycore.org/i18n">
+  <title xml:lang="de">Publikation bearbeiten</title>
+  <title xml:lang="en">Edit publication</title>
+
+  <article class="card mb-3">
+    <div class="card-body bg-alternative">
+      <p>
+        <i18n:de>
+          Die mit <strong>*</strong> gekennzeichneten Felder sind <strong>Pflichtfelder</strong>.
+          Durch klicken auf <strong>[+]</strong> können Sie ein <strong>Eingabefeld wiederholen</strong>. Bitte tragen
+          Sie die Angaben zu Ihrem Titel möglichst vollständig in das Formular ein.
+        </i18n:de>
+      </p>
+    </div>
+  </article>
 
   <article class="card" id="form">
     <div class="card-body">
-      <xed:form xmlns:xed="http://www.mycore.de/xeditor"
-                xmlns:cerif="https://www.openaire.eu/cerif-profile/1.1/"
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" xmlns:cerif="https://www.openaire.eu/cerif-profile/1.1/"
                 method="post" role="form">
 
         <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}"/>
