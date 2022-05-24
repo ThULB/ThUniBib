@@ -26,7 +26,6 @@
   <xinclude uri="xslStyle:statistics:solr:q=status:confirmed+AND+year:%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
   <xinclude uri="xslStyle:statistics:solr:q=status:confirmed&amp;rows=0&amp;facet.field=subject"/>
   <xinclude uri="xslStyle:statistics:solr:q=status:confirmed&amp;rows=0&amp;facet.field=genre"/>
-  <xinclude uri="xslStyle:statistics:solr:q=status:confirmed&amp;rows=0&amp;facet.field=oa"/>
 
   <article class="card mb-3">
     <div class="card-body">
