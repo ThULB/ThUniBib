@@ -483,12 +483,6 @@
             <td>ID of a linked DuEPublico 2 document</td>
             <td>=, contains *</td>
           </tr>
-          <tr class="background2">
-            <td>shelfmark</td>
-            <td>ID</td>
-            <td>signature from the university library</td>
-            <td>=, contains *</td>
-          </tr>
           <tr class="background1">
             <td>journal</td>
             <td>text</td>
