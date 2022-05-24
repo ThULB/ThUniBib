@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="$Date$" id="about">
+<webpage lastModified="$Date$" id="about" xmlns:i18n="http://www.mycore.org/i18n">
   <title xml:lang="de">Über die Bibliographie</title>
   <title xml:lang="en">About the Bibliography</title>
 
@@ -10,14 +10,16 @@
       <article class="card mb-3" xml:lang="de">
         <div class="card-body">
           <p>
-            Die Digitale Hochschulbibliographie dient der Erfassung, Präsentation und Dokumentation der Publikationsleistungen
-            aller Beschäftigten der FSU Jena.
+            Die Digitale Hochschulbibliographie dient der Erfassung, Präsentation und Dokumentation der
+            Publikationsleistungen
+            aller Beschäftigten der Friedrich-Schiller-Universität Jena.
           </p>
           <p>
             Alle Eintragungen werden von der Hochschulbibliothek überprüft, ggf. korrigiert und final freigegeben.
           </p>
           <p>
-            Die Eintragungen in die Digitale Hochschulbibliographie ersetzen die jährliche Meldung der Publikationen an das
+            Die Eintragungen in die Digitale Hochschulbibliographie ersetzen die jährliche Meldung der Publikationen an
+            das
             Forschungsmonitoring.
           </p>
         </div>
@@ -26,13 +28,15 @@
       <article class="card mb-3" xml:lang="en">
         <div class="card-body">
           <p>
-            The Digital University Bibliography serves to record, present and document the publication achievements of all FSU Jena employees.
+            The Digital University Bibliography serves to record, present and document the publication achievements of
+            all employees of Friedrich Schiller University Jena.
           </p>
           <p>
             All entries are reviewed, corrected if necessary and given final approval by the University Library.
           </p>
           <p>
-            The entries in the Digital University Bibliography replace the annual reporting of publications to the “Forschungsmonitoring” (research monitoring).
+            The entries in the Digital University Bibliography replace the annual reporting of publications to the
+            “Forschungsmonitoring” (research monitoring).
           </p>
         </div>
       </article>
@@ -43,8 +47,14 @@
         <div class="card-body">
           <h3>Links:</h3>
           <ul>
-            <li>Webseite FSU Jena: <a href="https://bibliographie.uni-jena.de">bibliographie.uni-jena.de</a></li>
-            <li>Informationen zum Publizieren für Angehörige der FSU Jena: <a href="https://www.uni-jena.de/publizieren">www.uni-jena.de/publizieren</a></li>
+            <li>Webseite der Friedrich-Schiller-Universität Jena:
+              <a href="https://bibliographie.uni-jena.de" target="_blank">bibliographie.uni-jena.de</a>
+            </li>
+            <li>Informationen zum Publizieren für Angehörige der Universität Jena:
+              <a href="https://www.uni-jena.de/wissenschaftliche-karriere/promotion/qualifizierung/c-praesentieren-und-publizieren"
+                 target="_blank">www.uni-jena.de/publizieren
+              </a>
+            </li>
           </ul>
         </div>
       </article>
@@ -53,12 +63,17 @@
         <div class="card-body">
           <h3>Links:</h3>
           <ul>
-            <li>FSU Jena website: <a href="https://bibliographie.uni-jena.de">bibliographie.uni-jena.de</a></li>
-            <li>More information on publishing services for FSU Jena members (in German): <a href="https://www.uni-jena.de/publizieren">www.uni-jena.de/publizieren</a></li>
+            <li>University of Jena website:
+              <a href="https://bibliographie.uni-jena.de" target="_blank">bibliographie.uni-jena.de</a>
+            </li>
+            <li>More information on publishing services for members of the University of Jena:
+              <a href="https://www.uni-jena.de/en/academic-career/doctoral-phase/qualification/c-presenting-and-publishing"
+                 target="_blank">www.uni-jena.de/publizieren
+              </a>
+            </li>
           </ul>
         </div>
       </article>
-
     </div>
   </div>
 
@@ -70,7 +85,8 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Wer kann Publikationen eintragen?
@@ -80,7 +96,8 @@
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                Alle Beschäftigten der FSU Jena können ihre Publikationen über die Digitale Hochschulbibliographie der FSU Jena melden.
+                Alle Beschäftigten der FSU Jena können ihre Publikationen über die Digitale Hochschulbibliographie der
+                FSU Jena melden.
               </p>
               <p>
                 Zusätzlich können auf Antrag
@@ -89,18 +106,25 @@
                 <li>Promovierende, die nicht beschäftigt sind,</li>
                 <li>Ehemalige Professor*innen und Mitarbeiter*innen (mit campusID),</li>
                 <li>Honorarprofessor*innen,</li>
-                <li>Stipendiat*innen (benötigt wird eine formlose Freigabe-E-Mail durch Ihre*n Betreuer*in, das Referat für internationale Angelegenheiten oder das Referat
-                  Forschung und Wissenstransfer),</li>
+                <li>Stipendiat*innen (benötigt wird eine formlose Freigabe-E-Mail durch Ihre*n Betreuer*in, das Referat
+                  für internationale Angelegenheiten oder das Referat
+                  Forschung und Wissenstransfer),
+                </li>
                 <li>Hilfskräfte (benötigt wird eine formlose Freigabe-E-Mail durch Ihre*n Vorgesetzte*n) und</li>
                 <li>Gastforscher*innen</li>
               </ul>
               <p>
                 die Digitale Hochschulbibliographie nutzen, sofern sie gemäß den
-                <a href="https://www.uni-jena.de/mam/downloads/deutsch/forschung/leitlinien_zur_angabe_der_affiliation_bei_publikationen.pdf">Leitlinien</a> die FSU Jena als
-                ihre Affiliation definiert haben. Stellen Sie bitte dafür eine Anfrage an Service Desk der Campus-IT (support@campus-it.uni-jena.de).
+                <a href="https://www.uni-jena.de/mam/downloads/deutsch/forschung/leitlinien_zur_angabe_der_affiliation_bei_publikationen.pdf">
+                  Leitlinien
+                </a>
+                die FSU Jena als
+                ihre Affiliation definiert haben. Stellen Sie bitte dafür eine Anfrage an Service Desk der Campus-IT
+                (support@campus-it.uni-jena.de).
               </p>
               <p>
-                Studierende können keine Publikationen verzeichnen lassen. Ausnahme sind Publikationen, die sie gemeinsam mit einer Person aus den o.g. Personengruppen
+                Studierende können keine Publikationen verzeichnen lassen. Ausnahme sind Publikationen, die sie
+                gemeinsam mit einer Person aus den o.g. Personengruppen
                 veröffentlicht haben.
               </p>
             </div>
@@ -110,7 +134,8 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Welche Publikationen werden in die Bibliographie eingetragen?
@@ -120,12 +145,15 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                In der Bibliographie werden wissenschaftliche Publikationen erfasst, die gedruckt oder digital dauerhaft öffentlich verfügbar sind und die aus der Arbeit
-                einer oder mehrerer Angehörigen der FSU Jena resultieren. Auch Publikationen, in denen wissenschaftliche Resultate an eine breitere Öffentlichkeit vermittelt
+                In der Bibliographie werden wissenschaftliche Publikationen erfasst, die gedruckt oder digital dauerhaft
+                öffentlich verfügbar sind und die aus der Arbeit
+                einer oder mehrerer Angehörigen der FSU Jena resultieren. Auch Publikationen, in denen wissenschaftliche
+                Resultate an eine breitere Öffentlichkeit vermittelt
                 werden, können aufgenommen werden.
               </p>
               <p>
-                Eine Publikation muss einer eigenständigen intellektuellen Leistung entsprechen; rein formale Zusammenstellungen gelten dabei nicht als wissenschaftliche
+                Eine Publikation muss einer eigenständigen intellektuellen Leistung entsprechen; rein formale
+                Zusammenstellungen gelten dabei nicht als wissenschaftliche
                 Publikationen im Sinne der Hochschulbibliographie.
               </p>
             </div>
@@ -135,7 +163,8 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Wie kann man Publikationen in die Bibliographie eintragen? Wie kann ich mich einloggen?
@@ -145,8 +174,10 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                Berechtigte Personen (s.o. Wer kann Publikationen eintragen?) können sich oben rechts in der Bibliographie mit dem Klick auf „Anmelden“ mit ihrer Campus ID
-                in die Hochschulbibliographie einloggen. Die Funktion „Publikation melden“ wird dann eingeblendet. Mit der Angabe eines Identifier z.B. der DOI oder mit der
+                Berechtigte Personen (s.o. Wer kann Publikationen eintragen?) können sich oben rechts in der
+                Bibliographie mit dem Klick auf „Anmelden“ mit ihrer Campus ID
+                in die Hochschulbibliographie einloggen. Die Funktion „Publikation melden“ wird dann eingeblendet. Mit
+                der Angabe eines Identifier z.B. der DOI oder mit der
                 Angabe von Autor*in und Titel der Publikation gelangen Sie zur Eingabemaske für Publikationen.
               </p>
             </div>
@@ -156,22 +187,28 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
-                Wie kann ich meine Publikationen aus der Bibliographie auf meiner Personenseite im öffentlichen Webauftritt der FSU Jena automatisch anzeigen lassen?
+                Wie kann ich meine Publikationen aus der Bibliographie auf meiner Personenseite im öffentlichen
+                Webauftritt der FSU Jena automatisch anzeigen lassen?
               </button>
             </h2>
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                Im Personenseiteneditor (PSE) können Sie über den Bereich „Publikationen“ (wenn dieser Bereich für Sie sichtbar ist) eigene Publikationslisten auf ihrer
-                Personenwebseite darstellen. Die Publikationslisten aktualisieren sich innerhalb der vorgegebenen Optionen automatisch. Die Anzeigeoptionen für die Liste
-                können Sie in der Digitalen Hochschulbibliographie selbst zusammenstellen und den Suchstring über das Modul „Publikationen“ einbinden.
+                Im Personenseiteneditor (PSE) können Sie über den Bereich „Publikationen“ (wenn dieser Bereich für Sie
+                sichtbar ist) eigene Publikationslisten auf ihrer
+                Personenwebseite darstellen. Die Publikationslisten aktualisieren sich innerhalb der vorgegebenen
+                Optionen automatisch. Die Anzeigeoptionen für die Liste
+                können Sie in der Digitalen Hochschulbibliographie selbst zusammenstellen und den Suchstring über das
+                Modul „Publikationen“ einbinden.
               </p>
               <p>
-                Eine detaillierte und aktuelle Anleitung finden Sie in der Benutzungsanleitung unter <a href="https://www.uni-jena.de/bibliographie">https://www.uni-jena.de/bibliographie</a>
+                Eine detaillierte und aktuelle Anleitung finden Sie in der Benutzungsanleitung unter
+                <a href="https://www.uni-jena.de/bibliographie">https://www.uni-jena.de/bibliographie</a>
               </p>
             </div>
           </div>
@@ -180,87 +217,138 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Was bedeuten die einzelnen Publikationstypen?
               </button>
             </h2>
           </div>
-          <div id="collapseFive" class="collapse faq-types" aria-labelledby="headingFive" data-parent="#accordionExample">
+          <div id="collapseFive" class="collapse faq-types" aria-labelledby="headingFive"
+               data-parent="#accordionExample">
             <div class="card-body">
               <dl>
                 <dt>Buch (Monographie)</dt>
-                <dd>Ein Buch, geschrieben von einem oder mehreren Autor*innen, das sich einem  Thema widmet und dieses umfassend und unter Berücksichtigung der relevanten Forschungsergebnisse darstellt.</dd>
+                <dd>Ein Buch, geschrieben von einem oder mehreren Autor*innen, das sich einem Thema widmet und dieses
+                  umfassend und unter Berücksichtigung der relevanten Forschungsergebnisse darstellt.
+                </dd>
 
                 <dt>Buch (Sammelwerk)</dt>
-                <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
+                <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge in Form von
+                  Buchaufsätzen oder Kapiteln verschiedener Autor*innen.
+                </dd>
 
                 <dt>Tagungsband</dt>
-                <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge einer wissenschaftlichen Tagung in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
+                <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge einer
+                  wissenschaftlichen Tagung in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.
+                </dd>
 
                 <dt>Festschrift</dt>
-                <dd>Ein Buch, das von einer oder mehreren Personen zu einem festlichen Anlass z.B. Jubiläum eines Gelehrten herausgegeben wurde. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
+                <dd>Ein Buch, das von einer oder mehreren Personen zu einem festlichen Anlass z.B. Jubiläum eines
+                  Gelehrten herausgegeben wurde. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln
+                  verschiedener Autor*innen.
+                </dd>
 
                 <dt>Lexikon</dt>
-                <dd>Ein nach Stichwörtern alphabetisch geordnetes Nachschlagewerk für alle Wissensgebiete oder für ein bestimmtes Sachgebiet. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
+                <dd>Ein nach Stichwörtern alphabetisch geordnetes Nachschlagewerk für alle Wissensgebiete oder für ein
+                  bestimmtes Sachgebiet. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener
+                  Autor*innen.
+                </dd>
 
                 <dt>Buchaufsatz / Kapitel</dt>
-                <dd>Ein Buchaufsatz oder Kapitel ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einem Buch veröffentlicht wurde.</dd>
+                <dd>Ein Buchaufsatz oder Kapitel ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten
+                  Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einem Buch veröffentlicht
+                  wurde.
+                </dd>
 
                 <dt>Vorwort / Nachwort</dt>
-                <dd>Ein Vorwort oder Nachwort ist ein abgeschlossener unselbstständiger Beitrag zur Einleitung oder zum Abschluss einer Thematik in einer Zeitschrift oder einem Buch.</dd>
+                <dd>Ein Vorwort oder Nachwort ist ein abgeschlossener unselbstständiger Beitrag zur Einleitung oder zum
+                  Abschluss einer Thematik in einer Zeitschrift oder einem Buch.
+                </dd>
 
                 <dt>Abstract</dt>
-                <dd>Ein Abstract ist ein kurzer Text, der eine Präsentation an einer Konferenz zusammenfasst und entweder in einer wissenschaftlichen Zeitschrift oder in einem Tagungsband veröffentlicht wurde.</dd>
+                <dd>Ein Abstract ist ein kurzer Text, der eine Präsentation an einer Konferenz zusammenfasst und
+                  entweder in einer wissenschaftlichen Zeitschrift oder in einem Tagungsband veröffentlicht wurde.
+                </dd>
 
                 <dt>Blog</dt>
-                <dd>Ein Blog ist eine tagebuchartige, öffentlich zugängliche Webseite, die ständig um Kommentare und Notizen zu bestimmten wissenschaftlichen Themen ergänzt wird.</dd>
+                <dd>Ein Blog ist eine tagebuchartige, öffentlich zugängliche Webseite, die ständig um Kommentare und
+                  Notizen zu bestimmten wissenschaftlichen Themen ergänzt wird.
+                </dd>
 
                 <dt>Lehrmaterial</dt>
-                <dd>Hier erfasst werden <strong>veröffentlichte</strong> Lehrmaterialien, zum Beispiel in Form von Lehrvideos.</dd>
+                <dd>Hier erfasst werden <strong>veröffentlichte</strong> Lehrmaterialien, zum Beispiel in Form von
+                  Lehrvideos.
+                </dd>
 
                 <dt>Aufsatz / Artikel</dt>
-                <dd>Ein Aufsatz oder Artikel ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einer Zeitschrift veröffentlicht wurde.</dd>
+                <dd>Ein Aufsatz oder Artikel ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten
+                  Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einer Zeitschrift
+                  veröffentlicht wurde.
+                </dd>
 
                 <dt>Rezension</dt>
-                <dd>Eine Rezension ist ein Artikel, der eine kritische Bewertung eines oder auch mehrerer Werke beinhaltet.</dd>
+                <dd>Eine Rezension ist ein Artikel, der eine kritische Bewertung eines oder auch mehrerer Werke
+                  beinhaltet.
+                </dd>
 
                 <dt>Interview</dt>
-                <dd>Interviews mit Bezug auf wissenschaftliche Tätigkeiten, die in Zeitschriften, Zeitungen, Blogs, Rundfunk oder Fernsehen veröffentlicht wurden, können hier angegeben werden.</dd>
+                <dd>Interviews mit Bezug auf wissenschaftliche Tätigkeiten, die in Zeitschriften, Zeitungen, Blogs,
+                  Rundfunk oder Fernsehen veröffentlicht wurden, können hier angegeben werden.
+                </dd>
 
                 <dt>Bericht</dt>
-                <dd>Die Kategorie “Bericht” umfasst öffentliche wissenschaftliche Publikationen, die entweder von der Institution herausgegeben wurde, in der die Forschung stattfindet, oder im Auftrag einer Institution angefertigt wurden. Arbeitspapiere, Gutachten, Forschungs- und Abschlussberichte z.B. von Projekten öffentlicher Einrichtungen können hier erfasst werden.</dd>
+                <dd>Die Kategorie “Bericht” umfasst öffentliche wissenschaftliche Publikationen, die entweder von der
+                  Institution herausgegeben wurde, in der die Forschung stattfindet, oder im Auftrag einer Institution
+                  angefertigt wurden. Arbeitspapiere, Gutachten, Forschungs- und Abschlussberichte z.B. von Projekten
+                  öffentlicher Einrichtungen können hier erfasst werden.
+                </dd>
 
                 <dt>Beitrag (Bericht)</dt>
                 <dd>Hier können Beiträge, die innerhalb von Berichten veröffentlicht wurden, gemeldet werden.</dd>
 
                 <dt>Qualifikationsarbeit</dt>
-                <dd>Die Qualifikationsschrift dient als Überbegriff für Dissertationen, Habilitationen und Hochschulschriften.</dd>
+                <dd>Die Qualifikationsschrift dient als Überbegriff für Dissertationen, Habilitationen und
+                  Hochschulschriften.
+                </dd>
 
                 <dt>Dissertation</dt>
                 <dd>Eine Dissertation ist eine wissenschaftliche Arbeit zum Erwerb des Doktorgrades.</dd>
 
                 <dt>Habilitation</dt>
-                <dd>Eine Habilitation ist eine wissenschaftliche Arbeit zum Erwerb der universitären Lehrbefähigung.</dd>
+                <dd>Eine Habilitation ist eine wissenschaftliche Arbeit zum Erwerb der universitären Lehrbefähigung.
+                </dd>
 
                 <dt>Poster</dt>
-                <dd>Ein Poster ist eine visuelle Präsentation wissenschaftlicher Ergebnisse, die im Rahmen einer Konferenz dauerhaft auf den Seiten der Veranstalter oder einem Repositorium publiziert wurden.</dd>
+                <dd>Ein Poster ist eine visuelle Präsentation wissenschaftlicher Ergebnisse, die im Rahmen einer
+                  Konferenz dauerhaft auf den Seiten der Veranstalter oder einem Repositorium publiziert wurden.
+                </dd>
 
                 <dt>Aufsatz (Konferenz)</dt>
-                <dd>Ein Aufsatz (Konferenz) ist eine Konferenzschrift, die im Rahmen einer Konferenz dauerhaft auf den Seiten der Veranstalter oder einem Repositorium publiziert wurde.</dd>
+                <dd>Ein Aufsatz (Konferenz) ist eine Konferenzschrift, die im Rahmen einer Konferenz dauerhaft auf den
+                  Seiten der Veranstalter oder einem Repositorium publiziert wurde.
+                </dd>
 
                 <dt>Patentschrift</dt>
-                <dd>Eine Patentschrift bezieht sich auf ein erteiltes Patent und enthält Beschreibungen und Zeichnungen zu einem technischen Verfahren oder Produkt.</dd>
+                <dd>Eine Patentschrift bezieht sich auf ein erteiltes Patent und enthält Beschreibungen und Zeichnungen
+                  zu einem technischen Verfahren oder Produkt.
+                </dd>
 
                 <dt>Zeitschrift</dt>
-                <dd>Eine Zeitschrift ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge zu einer thematischen oder fachlichen Ausrichtung erscheinen.</dd>
+                <dd>Eine Zeitschrift ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge zu
+                  einer thematischen oder fachlichen Ausrichtung erscheinen.
+                </dd>
 
                 <dt>Reihe / Serie</dt>
-                <dd>Eine Reihe oder Serie ist ein fortlaufendes Sammelwerk, welches mehrere Publikationen, die jeweils in sich abgeschlossen sind, aber in einem allgemeinen thematischen Bezug zueinander stehen, umfasst.</dd>
+                <dd>Eine Reihe oder Serie ist ein fortlaufendes Sammelwerk, welches mehrere Publikationen, die jeweils
+                  in sich abgeschlossen sind, aber in einem allgemeinen thematischen Bezug zueinander stehen, umfasst.
+                </dd>
 
                 <dt>Zeitung</dt>
-                <dd>Eine Zeitung ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge mit aktuellem und universellem Inhalt erscheinen.</dd>
+                <dd>Eine Zeitung ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge mit
+                  aktuellem und universellem Inhalt erscheinen.
+                </dd>
 
               </dl>
             </div>
@@ -270,7 +358,8 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
@@ -282,16 +371,33 @@
               <dl>
 
                 <dt>Open Access</dt>
-                <dd><strong>Offener Zugang:</strong> Eine Ressource ist Open Access wenn sie sofort und dauerhaft online und für alle im Web kostenlos und ohne finanzielle und technische Hindernisse verfügbar ist.</dd>
+                <dd>
+                  <strong>Offener Zugang:</strong>
+                  Eine Ressource ist Open Access wenn sie sofort und dauerhaft online und für alle im Web kostenlos und
+                  ohne finanzielle und technische Hindernisse verfügbar ist.
+                </dd>
 
                 <dt>Embargoed access</dt>
-                <dd><strong>Zugang unterliegt Embargo:</strong> Eine Ressource, die einem Embargo unterliegt, wird ab einem bestimmten Datum für den offenen Zugriff freigegeben. Bis dahin können nur die Metadaten angezeigt werden. Embargos können von Herausgeber- und Geldgeberrichtlinien verlangt oder vom Autor festgelegt werden.</dd>
+                <dd>
+                  <strong>Zugang unterliegt Embargo:</strong>
+                  Eine Ressource, die einem Embargo unterliegt, wird ab einem bestimmten Datum für den offenen Zugriff
+                  freigegeben. Bis dahin können nur die Metadaten angezeigt werden. Embargos können von Herausgeber- und
+                  Geldgeberrichtlinien verlangt oder vom Autor festgelegt werden.
+                </dd>
 
                 <dt>Restricted access</dt>
-                <dd><strong>Eingeschränkter Zugang:</strong> Ressource, die in einem System verfügbar ist, jedoch eine gewisse Einschränkung für den vollständigen offenen Zugriff aufweist.</dd>
+                <dd>
+                  <strong>Eingeschränkter Zugang:</strong>
+                  Ressource, die in einem System verfügbar ist, jedoch eine gewisse Einschränkung für den vollständigen
+                  offenen Zugriff aufweist.
+                </dd>
 
                 <dt>Metadata only access</dt>
-                <dd><strong>Nur Metadaten:</strong> Eine Ressource, bei der der Zugriff nur auf Metadaten beschränkt ist. Die Ressource selbst wird durch die Metadaten beschrieben, ist jedoch weder direkt über das System noch über die Plattform verfügbar.</dd>
+                <dd>
+                  <strong>Nur Metadaten:</strong>
+                  Eine Ressource, bei der der Zugriff nur auf Metadaten beschränkt ist. Die Ressource selbst wird durch
+                  die Metadaten beschrieben, ist jedoch weder direkt über das System noch über die Plattform verfügbar.
+                </dd>
 
               </dl>
             </div>
@@ -310,7 +416,8 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Who can enter publications?
@@ -320,7 +427,8 @@
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                All employees of FSU Jena can report their publications to the Digital University Bibliography of FSU Jena.
+                All employees of FSU Jena can report their publications to the Digital University Bibliography of FSU
+                Jena.
               </p>
               <p>
                 Additionally and upon request,
@@ -329,17 +437,23 @@
                 <li>doctoral candidates who are not employed</li>
                 <li>former professors and employees (with campusID)</li>
                 <li>honorary professors</li>
-                <li>scholarship holders (an informal approval e-mail from your supervisor, the Department of International Affairs or the Department of Research and Knowledge Transfer is required)</li>
+                <li>scholarship holders (an informal approval e-mail from your supervisor, the Department of
+                  International Affairs or the Department of Research and Knowledge Transfer is required)
+                </li>
                 <li>student assistants (an informal approval e-mail from your supervisor is required) and</li>
                 <li>visiting researchers</li>
               </ul>
               <p>
-                may also use the bibliography, provided that they have specified FSU Jena as their affiliation in accordance with the
-                <a href="https://www.uni-jena.de/mam/downloads/deutsch/forschung/leitlinien_zur_angabe_der_affiliation_bei_publikationen.pdf">guidelines.</a>
-                Please submit a request to the Campus IT Service-Desk  (support@campus-it.uni-jena.de).
+                may also use the bibliography, provided that they have specified FSU Jena as their affiliation in
+                accordance with the
+                <a href="https://www.uni-jena.de/mam/downloads/deutsch/forschung/leitlinien_zur_angabe_der_affiliation_bei_publikationen.pdf">
+                  guidelines.
+                </a>
+                Please submit a request to the Campus IT Service-Desk (support@campus-it.uni-jena.de).
               </p>
               <p>
-                Students cannot register publications unless they have been published jointly with a person from a group mentioned above.
+                Students cannot register publications unless they have been published jointly with a person from a group
+                mentioned above.
               </p>
             </div>
           </div>
@@ -348,7 +462,8 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Which publications are included in the University Bibliography?
@@ -358,11 +473,15 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                The bibliography lists scientific publications that are permanently accessible and publicly available in print or digitally
-                and that result from the work of one or more members of FSU Jena. Publications in which scientific results are communicated
-                to the wider public can also be included.</p>
+                The bibliography lists scientific publications that are permanently accessible and publicly available in
+                print or digitally
+                and that result from the work of one or more members of FSU Jena. Publications in which scientific
+                results are communicated
+                to the wider public can also be included.
+              </p>
               <p>
-                A publication must consist of an independent intellectual achievement; simple formal compilations are not considered as
+                A publication must consist of an independent intellectual achievement; simple formal compilations are
+                not considered as
                 scientific publications in the sense of the University Bibliography.
               </p>
             </div>
@@ -372,7 +491,8 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 How can I add publications to the University Bibliography? How can I log in?
@@ -382,9 +502,12 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                Authorized persons (see above: Who can enter publictions?) can log into the University Bibliography with their campusID by
-                clicking "Login" at the top right of the bibliography website. The function "registering a publication" will then be
-                displayed. By entering an identifier, e.g. the DOI, or by entering the author and title of the publication, you can
+                Authorized persons (see above: Who can enter publictions?) can log into the University Bibliography with
+                their campusID by
+                clicking "Login" at the top right of the bibliography website. The function "registering a publication"
+                will then be
+                displayed. By entering an identifier, e.g. the DOI, or by entering the author and title of the
+                publication, you can
                 access the entry screen for publications.
               </p>
             </div>
@@ -394,24 +517,30 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
-                How can I automatically display my publications from the University Bibliography on my personal FSU Jena web page?
+                How can I automatically display my publications from the University Bibliography on my personal FSU Jena
+                web page?
               </button>
             </h2>
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                In the Personenseiteneditor (PSE, personal website editor) you can display your own publication lists on your personal
-                FSU Jena web page by using the module “Publikationen” (if this area is visible to you). The publication lists update automatically
-                within the given options. You can compile the display options for the list by yourself in the Digital University Bibliography
+                In the Personenseiteneditor (PSE, personal website editor) you can display your own publication lists on
+                your personal
+                FSU Jena web page by using the module “Publikationen” (if this area is visible to you). The publication
+                lists update automatically
+                within the given options. You can compile the display options for the list by yourself in the Digital
+                University Bibliography
                 and integrate the search string via the module "Publikationen" in the Personenseiteneditor.
               </p>
               <p>
                 Detailed and up-to-date instructions can be found in the user manual at
-                <a href="https://bibliographie.uni-jena.de">https://bibliographie.uni-jena.de</a> (in German).
+                <a href="https://bibliographie.uni-jena.de">https://bibliographie.uni-jena.de</a>
+                (in German).
               </p>
             </div>
           </div>
@@ -420,7 +549,8 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 What do separate publication types mean?
@@ -431,52 +561,80 @@
             <div class="card-body">
               <dl>
                 <dt>Book (monograph)</dt>
-                <dd>A book, written by one or more authors, dedicated to a specific topic and presenting it comprehensively and in consideration of the relevant research results.</dd>
+                <dd>A book, written by one or more authors, dedicated to a specific topic and presenting it
+                  comprehensively and in consideration of the relevant research results.
+                </dd>
 
                 <dt>Book (collection)</dt>
-                <dd>A book edited by one or more people. It contains contributions in the form of book essays / chapters by different authors.</dd>
+                <dd>A book edited by one or more people. It contains contributions in the form of book essays / chapters
+                  by different authors.
+                </dd>
 
                 <dt>Conference proceedings</dt>
-                <dd>A book edited by one or more people. It contains contributions of a scientific conference in the form of book essays / chapters by different authors.</dd>
+                <dd>A book edited by one or more people. It contains contributions of a scientific conference in the
+                  form of book essays / chapters by different authors.
+                </dd>
 
                 <dt>Festschrift</dt>
-                <dd>A book published by one or more persons on a festive occasion, e.g. the anniversary of a scholar. It contains contributions in the form of book essays / chapters by different authors.</dd>
+                <dd>A book published by one or more persons on a festive occasion, e.g. the anniversary of a scholar. It
+                  contains contributions in the form of book essays / chapters by different authors.
+                </dd>
 
                 <dt>Lexicon</dt>
-                <dd>A reference work arranged alphabetically by keywords for all fields of knowledge or for a specific subject area. It contains contributions in the form of book essays / chapters by different authors.</dd>
+                <dd>A reference work arranged alphabetically by keywords for all fields of knowledge or for a specific
+                  subject area. It contains contributions in the form of book essays / chapters by different authors.
+                </dd>
 
                 <dt>Book essay / Chapter</dt>
-                <dd>A book essay / chapter is a self-contained, dependent contribution to a specific topic / question that has been published together with other contributions, for example in a book.</dd>
+                <dd>A book essay / chapter is a self-contained, dependent contribution to a specific topic / question
+                  that has been published together with other contributions, for example in a book.
+                </dd>
 
                 <dt>Preface / Epilog</dt>
-                <dd>A preface / epilog is a self-contained, dependent contribution to the introduction or conclusion of a topic in a journal or book.</dd>
+                <dd>A preface / epilog is a self-contained, dependent contribution to the introduction or conclusion of
+                  a topic in a journal or book.
+                </dd>
 
                 <dt>Abstract</dt>
-                <dd>An abstract is a short text summarizing a presentation at a conference and published either in a scientific journal or in conference proceedings.</dd>
+                <dd>An abstract is a short text summarizing a presentation at a conference and published either in a
+                  scientific journal or in conference proceedings.
+                </dd>
 
                 <dt>Blog</dt>
-                <dd>A blog is a diary-like, publicly accessible website that is constantly updated with comments and notes on specific scientific topics.</dd>
+                <dd>A blog is a diary-like, publicly accessible website that is constantly updated with comments and
+                  notes on specific scientific topics.
+                </dd>
 
                 <dt>Teaching material</dt>
                 <dd>Published teaching materials, for example in the form of teaching videos, can be reported here.</dd>
 
                 <dt>Essay / Article</dt>
-                <dd>An essay/article is a self-contained, dependent contribution to a specific topic/question that has been published together with other contributions, for example in a journal.</dd>
+                <dd>An essay/article is a self-contained, dependent contribution to a specific topic/question that has
+                  been published together with other contributions, for example in a journal.
+                </dd>
 
                 <dt>Review</dt>
                 <dd>A review is an article that contains a critical evaluation of one or sometimes several works.</dd>
 
                 <dt>Interview</dt>
-                <dd>Interviews related to scientific activities and published in magazines, newspapers, blogs, radio or television can be reported here.</dd>
+                <dd>Interviews related to scientific activities and published in magazines, newspapers, blogs, radio or
+                  television can be reported here.
+                </dd>
 
                 <dt>Report</dt>
-                <dd>The “Report” category includes public scientific publications that have either been published by the institution in which the research is carried out or prepared on behalf of an institution. Working papers, expert opinions, research and final reports, e.g. from projects of public institutions can be entered here.</dd>
+                <dd>The “Report” category includes public scientific publications that have either been published by the
+                  institution in which the research is carried out or prepared on behalf of an institution. Working
+                  papers, expert opinions, research and final reports, e.g. from projects of public institutions can be
+                  entered here.
+                </dd>
 
                 <dt>Contribution (Report)</dt>
                 <dd>Contributions published within reports can be reported here.</dd>
 
                 <dt>Qualification paper</dt>
-                <dd>The qualification paper serves as an umbrella term for dissertations, habilitations and university theses.</dd>
+                <dd>The qualification paper serves as an umbrella term for dissertations, habilitations and university
+                  theses.
+                </dd>
 
                 <dt>Dissertation</dt>
                 <dd>A dissertation is a scientific work to acquire a doctoral degree.</dd>
@@ -485,22 +643,34 @@
                 <dd>A habilitation is a scientific work to acquire the university teaching qualification.</dd>
 
                 <dt>Poster</dt>
-                <dd>A poster is a visual presentation of scientific results that has been published permanently on the organisers' website or in a repository during a conference.</dd>
+                <dd>A poster is a visual presentation of scientific results that has been published permanently on the
+                  organisers' website or in a repository during a conference.
+                </dd>
 
                 <dt>Essay (Conference)</dt>
-                <dd>An essay (conference) is a conference paper that has been published permanently on the organisers' website or in a repository during a conference.</dd>
+                <dd>An essay (conference) is a conference paper that has been published permanently on the organisers'
+                  website or in a repository during a conference.
+                </dd>
 
                 <dt>Patent specification</dt>
-                <dd>A patent specification refers to a granted patent and contains descriptions and drawings of a technical process or product.</dd>
+                <dd>A patent specification refers to a granted patent and contains descriptions and drawings of a
+                  technical process or product.
+                </dd>
 
                 <dt>Journal</dt>
-                <dd>A journal is a regularly published serial in which contributions with a thematic or subject-related focus are published.</dd>
+                <dd>A journal is a regularly published serial in which contributions with a thematic or subject-related
+                  focus are published.
+                </dd>
 
                 <dt>Series</dt>
-                <dd>A series is an ongoing collective work comprising several publications, each of which is self-contained but with a general thematic reference to each other.</dd>
+                <dd>A series is an ongoing collective work comprising several publications, each of which is
+                  self-contained but with a general thematic reference to each other.
+                </dd>
 
                 <dt>Newspaper</dt>
-                <dd>A newspaper is a regularly published serial that includes articles with current and universal content.</dd>
+                <dd>A newspaper is a regularly published serial that includes articles with current and universal
+                  content.
+                </dd>
 
               </dl>
             </div>
@@ -510,7 +680,8 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 What is the difference between different Access Rights options?
@@ -522,16 +693,24 @@
               <dl>
 
                 <dt>Open Access</dt>
-                <dd>Open access refers to a resource that is immediately and permanently online, and free for all on the Web, without financial and technical barriers.</dd>
+                <dd>Open access refers to a resource that is immediately and permanently online, and free for all on the
+                  Web, without financial and technical barriers.
+                </dd>
 
                 <dt>Embargoed access</dt>
-                <dd>Embargoed access refers to a resource that is metadata only access until released for open access on a certain date. Embargoes can be required by publishers and funders policies, or set by the author.</dd>
+                <dd>Embargoed access refers to a resource that is metadata only access until released for open access on
+                  a certain date. Embargoes can be required by publishers and funders policies, or set by the author.
+                </dd>
 
                 <dt>Restricted access</dt>
-                <dd>Restricted access refers to a resource that is available in a system but with some type of restriction for full open access.</dd>
+                <dd>Restricted access refers to a resource that is available in a system but with some type of
+                  restriction for full open access.
+                </dd>
 
                 <dt>Metadata only access</dt>
-                <dd>Metadata only access refers to a resource in which access is limited to metadata only. The resource itself is described by the metadata, but neither is directly available through the system or platform.</dd>
+                <dd>Metadata only access refers to a resource in which access is limited to metadata only. The resource
+                  itself is described by the metadata, but neither is directly available through the system or platform.
+                </dd>
 
               </dl>
             </div>
