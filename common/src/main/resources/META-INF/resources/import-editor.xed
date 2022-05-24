@@ -661,7 +661,7 @@
     <xed:bind xpath="mods:part/mods:detail[@type='article_number']/mods:number">
       <div class="form-inline form-group">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:('ubo.article_number'), ': ')"/>
+          <xed:output value="concat(i18n:translate('ubo.article_number'), ': ')"/>
         </label>
         <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
                placeholder="{i18n:ubo.article_number.placeholder}"/>
