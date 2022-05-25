@@ -84,7 +84,7 @@
     <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='status']">
       <xed:choose>
         <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-          <xed:bind xpath="." default="confirmed"/>
+          <xed:bind xpath="." default="submitted"/>
           <div class="form-inline form-group">
             <label for="{xed:generate-id()}" class="mycore-form-label">
               <xed:output value="concat(i18n:translate('ubo.status'), ': ')"/>
