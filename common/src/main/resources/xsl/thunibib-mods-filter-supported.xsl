@@ -47,7 +47,7 @@
   </xsl:copy>
 </xsl:template>
 
-<xsl:template match="mods:titleInfo|mods:titleInfo/@type|mods:titleInfo/@xml:lang|mods:title|mods:subTitle|mods:mods:nonSort">
+<xsl:template match="mods:titleInfo|mods:titleInfo/@type|mods:titleInfo/@xml:lang|mods:title|mods:subTitle|mods:nonSort">
   <xsl:call-template name="copy-and-apply" />
 </xsl:template>
 
