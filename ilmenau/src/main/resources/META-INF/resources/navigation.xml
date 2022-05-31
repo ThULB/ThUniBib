@@ -77,7 +77,7 @@
     </item>
     <item ref="impressum.xml">
       <label xml:lang="de">Impressum</label>
-      <label xml:lang="en">Imprint</label>
+      <label xml:lang="en">Legal Notice</label>
     </item>
     <item ref="privacy.xml">
       <label xml:lang="de">Datenschutz</label>
