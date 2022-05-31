@@ -3,7 +3,7 @@
 
 <webpage lastModified="$Date$" id="impressum">
   <title xml:lang="de">Impressum</title>
-  <title xml:lang="en">Imprint</title>
+  <title xml:lang="en">Legal Notice</title>
 
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">

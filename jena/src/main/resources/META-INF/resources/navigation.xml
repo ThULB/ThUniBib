@@ -2,18 +2,18 @@
 
 <navigation root="true">
 
-  <item id="home" />
-  <item id="login" />
-  <item id="dozbib" />
-  
+  <item id="home"/>
+  <item id="login"/>
+  <item id="dozbib"/>
+
   <item menu="main">
     <item ref="search.xed">
       <label xml:lang="de">Suche</label>
       <label xml:lang="en">Search</label>
-        <item id="dozbib.search-simple" ref="search.xed">
-          <label xml:lang="de">Erweiterte Suche</label>
-          <label xml:lang="en">Advanced search</label>
-        <item id="dozbib.search" />
+      <item id="dozbib.search-simple" ref="search.xed">
+        <label xml:lang="de">Erweiterte Suche</label>
+        <label xml:lang="en">Advanced search</label>
+        <item id="dozbib.search"/>
       </item>
       <item id="dozbib.search-expert" ref="search-expert.xed">
         <label xml:lang="de">Expertensuche</label>
@@ -27,7 +27,7 @@
     <item ref="newPublication.xed" id="dozbib.new.publication">
       <label xml:lang="de">Publikation einreichen</label>
       <label xml:lang="en">Registering a publication</label>
-      <item id="dozbib.edit.publication" />
+      <item id="dozbib.edit.publication"/>
     </item>
     <item ref="statistics.xml" id="dozbib.stats">
       <label xml:lang="de">Statistiken</label>
@@ -71,14 +71,12 @@
   </item>
 
   <item role="meta">
-    <item ref="contact.xml">
+    <item ref="https://bibliographie.uni-jena.de/contact.xml">
       <label xml:lang="de">Kontakt</label>
       <label xml:lang="en">Contact</label>
     </item>
-    <item ref="https://www.uni-jena.de/impressum" xml:lang="de">
+    <item ref="https://bibliographie.uni-jena.de/impressum.xml">
       <label xml:lang="de">Impressum</label>
-    </item>
-    <item ref="https://www.uni-jena.de/en/legal-notice" xml:lang="en">
       <label xml:lang="en">Legal Notice</label>
     </item>
     <item ref="https://www.uni-jena.de/datenschutz" xml:lang="de">
