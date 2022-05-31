@@ -71,11 +71,11 @@
   </item>
 
   <item role="meta">
-    <item ref="https://bibliographie.uni-jena.de/contact.xml">
+    <item ref="contact.xml">
       <label xml:lang="de">Kontakt</label>
       <label xml:lang="en">Contact</label>
     </item>
-    <item ref="https://bibliographie.uni-jena.de/impressum.xml">
+    <item ref="impressum.xml">
       <label xml:lang="de">Impressum</label>
       <label xml:lang="en">Legal Notice</label>
     </item>
