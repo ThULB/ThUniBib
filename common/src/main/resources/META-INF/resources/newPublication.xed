@@ -7,133 +7,141 @@
   <article class="card mb-1">
     <div class="card-body">
       <xed:form role="form" xmlns:xed="http://www.mycore.de/xeditor">
-        <xed:bind xpath="/mods:mods">
-          <fieldset>
+        <xed:choose>
+          <xed:when test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
+            <xed:bind xpath="/mods:mods">
+              <fieldset>
 
-            <xed:if test="$xed-validation-failed">
-              <div class="validation-failures">
-                <h3>
-                  <xed:output i18n="form.validation.failed"/>
-                </h3>
-                <ul>
-                  <xed:display-validation-messages/>
-                </ul>
-              </div>
-            </xed:if>
+                <xed:if test="$xed-validation-failed">
+                  <div class="validation-failures">
+                    <h3>
+                      <xed:output i18n="form.validation.failed"/>
+                    </h3>
+                    <ul>
+                      <xed:display-validation-messages/>
+                    </ul>
+                  </div>
+                </xed:if>
 
-            <div>
-              <p>
-                <xed:output i18n="ubo.newPublicationWizard.doi"/>
-              </p>
-            </div>
-
-            <xed:bind xpath="mods:identifier">
-              <div class="form-group form-inline">
-                <div class="mycore-form-label">
-                  <xed:bind xpath="@type">
-                    <select class="form-control custom-select">
-                      <option value="doi">DOI</option>
-                      <option value="pubmed">PubMed ID</option>
-                      <option value="scopus">Scopus ID</option>
-                      <option value="ieee">IEEE Article No.</option>
-                      <option value="arxiv">arXiv.org ID</option>
-                      <option value="isbn">ISBN</option>
-                      <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-                        <option value="zdb">ZDB ID</option>
-                        <option value="ppn">GVK PPN</option>
-                        <option value="issn">ISSN</option>
-                      </xed:if>
-                    </select>
-                  </xed:bind>
-                  :
+                <div>
+                  <p>
+                    <xed:output i18n="ubo.newPublicationWizard.doi"/>
+                  </p>
                 </div>
-                <input id="identifier" class="{$xed-validation-marker} mycore-form-input"/>
-              </div>
-            </xed:bind>
 
-            <xed:validate xpath="//mods:identifier[@type='doi']" matches="10\.\d+.*"
-                          i18n="ubo.identifier.doi.validation" display="global"/>
-            <xed:validate xpath="//mods:identifier[@type='issn']" matches="[0-9X]{4}\-[0-9X]{4}"
-                          i18n="ubo.identifier.issn.validation" display="global"/>
-            <xed:validate xpath="//mods:identifier[@type='isbn']" matches="^((978|979)-?)?([\d -]{12}|\d{9})(\d|X)$"
-                          i18n="ubo.identifier.isbn.validation" display="global"/>
-
-            <xed:if test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
-              <div>
-                <p>
-                  <xed:output i18n="ubo.newPublicationWizard.titleAuthor"/>
-                </p>
-              </div>
-
-              <xed:bind xpath="mods:titleInfo/mods:title">
-                <div class="form-group form-inline">
-                  <label for="title" class="mycore-form-label">
-                    <xed:output i18n="ubo.title"/>:
-                  </label>
-                  <input id="title" class="{$xed-validation-marker} mycore-form-input"
-                         placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
-                </div>
-              </xed:bind>
-
-              <xed:bind xpath="mods:name[@type='personal']">
-                <xed:bind xpath="mods:namePart[@type='family']">
+                <xed:bind xpath="mods:identifier">
                   <div class="form-group form-inline">
-                    <label for="author" class="mycore-form-label">
-                      <xed:output i18n="ubo.role.author"/>:
-                    </label>
-                    <input id="author" class="{$xed-validation-marker} mycore-form-input"
-                           placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                    <div class="mycore-form-label">
+                      <xed:bind xpath="@type">
+                        <select class="form-control custom-select">
+                          <option value="doi">DOI</option>
+                          <option value="pubmed">PubMed ID</option>
+                          <option value="scopus">Scopus ID</option>
+                          <option value="ieee">IEEE Article No.</option>
+                          <option value="arxiv">arXiv.org ID</option>
+                          <option value="isbn">ISBN</option>
+                          <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
+                            <option value="zdb">ZDB ID</option>
+                            <option value="ppn">GVK PPN</option>
+                            <option value="issn">ISSN</option>
+                          </xed:if>
+                        </select>
+                      </xed:bind>
+                      :
+                    </div>
+                    <input id="identifier" class="{$xed-validation-marker} mycore-form-input"/>
                   </div>
                 </xed:bind>
-                <xed:bind xpath="mods:role[mods:roleTerm[@authority='marcrelator'][@type='code']='aut']"/>
-              </xed:bind>
 
-              <xed:validate
-                  test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
-                  display="global" i18n="ubo.newPublicationWizard.required"/>
+                <xed:validate xpath="//mods:identifier[@type='doi']" matches="10\.\d+.*"
+                              i18n="ubo.identifier.doi.validation" display="global"/>
+                <xed:validate xpath="//mods:identifier[@type='issn']" matches="[0-9X]{4}\-[0-9X]{4}"
+                              i18n="ubo.identifier.issn.validation" display="global"/>
+                <xed:validate xpath="//mods:identifier[@type='isbn']" matches="^((978|979)-?)?([\d -]{12}|\d{9})(\d|X)$"
+                              i18n="ubo.identifier.isbn.validation" display="global"/>
 
-              <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
-            </xed:if>
+                <div>
+                  <p>
+                    <xed:output i18n="ubo.newPublicationWizard.titleAuthor"/>
+                  </p>
+                </div>
 
-            <div class="form-group form-inline">
-              <label class="mycore-form-label">
-              </label>
-              <div class="cancel-submit">
-                <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet"
-                        xed:href="NewPublicationWizard">
-                  <xed:output i18n="button.next"/>
-                </button>
-              </div>
+                <xed:bind xpath="mods:titleInfo/mods:title">
+                  <div class="form-group form-inline">
+                    <label for="title" class="mycore-form-label">
+                      <xed:output i18n="ubo.title"/>:
+                    </label>
+                    <input id="title" class="{$xed-validation-marker} mycore-form-input"
+                           placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
+                  </div>
+                </xed:bind>
+
+                <xed:bind xpath="mods:name[@type='personal']">
+                  <xed:bind xpath="mods:namePart[@type='family']">
+                    <div class="form-group form-inline">
+                      <label for="author" class="mycore-form-label">
+                        <xed:output i18n="ubo.role.author"/>:
+                      </label>
+                      <input id="author" class="{$xed-validation-marker} mycore-form-input"
+                             placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                    </div>
+                  </xed:bind>
+                  <xed:bind xpath="mods:role[mods:roleTerm[@authority='marcrelator'][@type='code']='aut']"/>
+                </xed:bind>
+
+                <xed:validate
+                    test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
+                    display="global" i18n="ubo.newPublicationWizard.required"/>
+
+                <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
+
+                <div class="form-group form-inline">
+                  <label class="mycore-form-label">
+                  </label>
+                  <div class="cancel-submit">
+                    <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet"
+                            xed:href="NewPublicationWizard">
+                      <xed:output i18n="button.next"/>
+                    </button>
+                  </div>
+                </div>
+
+              </fieldset>
+            </xed:bind>
+            <div class="card-body bg-alternative">
+              <p>
+                <i18n:de>
+                  Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Nutzen Sie dazu das
+                  <a href="import-list.xed">Formular</a>
+                  oder schreiben Sie uns eine E-Mail an <a href="mailto:unibibliographie_thulb@uni-jena.de">
+                  unibibliographie_thulb@uni-jena.de</a>.
+                </i18n:de>
+              </p>
+              <p>
+                <i18n:de>
+                  In der Bibliographie werden <strong>selbstständige und unselbstständige Publikationen</strong> erfasst,
+                  die <strong>
+                  gedruckt oder in digitaler Form
+                </strong> erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge
+                  in
+                  Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>Alle
+                  Angehörigen und ehemaligen Angehörigen
+                </strong> der Friedrich-Schiller-Universität Jena sind eingeladen, ihre Publikationen an die
+                  Universitätsbibliographie zu melden.
+                </i18n:de>
+              </p>
             </div>
-
-          </fieldset>
-        </xed:bind>
+          </xed:when>
+          <xed:otherwise>
+            <p>
+              <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem URZ-Login an.
+              </i18n:de>
+              <i18n:en>If you would like to submit a publication please login with your URZ credentials.
+              </i18n:en>
+            </p>
+          </xed:otherwise>
+        </xed:choose>
       </xed:form>
     </div>
   </article>
-
-  <article class="card mb-1">
-    <div class="card-body bg-alternative">
-      <p>
-        <i18n:de>
-          Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Nutzen Sie dazu das
-          <a href="import-list.xed">Formular</a>
-          oder schreiben Sie uns eine E-Mail an <a href="mailto:unibibliographie_thulb@uni-jena.de">
-          unibibliographie_thulb@uni-jena.de</a>.
-        </i18n:de>
-      </p>
-      <p>
-        <i18n:de>
-          In der Bibliographie werden <strong>selbstständige und unselbstständige Publikationen</strong> erfasst, die <strong>
-          gedruckt oder in digitaler Form
-        </strong> erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge in
-          Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>Alle
-          Angehörigen und ehemaligen Angehörigen
-        </strong> der Friedrich-Schiller-Universität Jena sind eingeladen, ihre Publikationen an die
-          Universitätsbibliographie zu melden.
-        </i18n:de>
-      </p>
-    </div>
-  </article>
-
 </webpage>
