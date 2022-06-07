@@ -14,7 +14,7 @@
         <!-- Publikation ist in einer lizenzpflichtigen Zeitschrift erschienen, eine (evtl. andere) Version des Artikels wurde auf DuEPublico publiziert (Zweitveröffentlichung). -->
         <label xml:lang="de" text="OA Grün" />
         <label xml:lang="en" text="OA Green" />
-        <label xml:lang="x-color" text="#0b610b" />
+        <label xml:lang="x-color" text="#00FF00" />
       </category>
       <category ID="gold">
         <!-- OA Erstveröffentlichung -->
@@ -32,7 +32,7 @@
         <!-- Publikation ist in einer lizenzpflichtigen Zeitschrift erschienen, in der einzelne Artikel gegen Zahlung einer Publikationsgebühr Open Access erscheinen. -->
         <label xml:lang="de" text="OA Hybrid" />
         <label xml:lang="en" text="OA Hybrid" />
-        <label xml:lang="x-color" text="#4472c4" />
+        <label xml:lang="x-color" text="#FF8000" />
       </category>
       <category ID="bronze">
         <!-- Beim Verlag frei zugänglich, aber nicht unter einer OA Lizenz  -->
