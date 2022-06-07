@@ -94,29 +94,23 @@
               </xed:choose>
 
             </xed:bind>
-
             <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]"/>
-
           </xed:bind>
 
           <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
             <xed:output i18n="button.search"/>
           </button>
-
         </div>
       </xed:form>
     </div>
   </article>
 
-  <xinclude
-      uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
+  <xinclude uri="xslStyle:response-newest:solr:q=partOf:true+AND+status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
 
   <aside id="sidebar">
     <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0"/>
-    <xinclude
-        uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
-    <xinclude
-        uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID"/>
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID"/>
 
     <article class="card" xml:lang="de">
       <div class="card-body bg-alternative">
