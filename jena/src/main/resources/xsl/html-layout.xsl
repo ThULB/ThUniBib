@@ -311,23 +311,16 @@
       <xsl:choose>
         <xsl:when test="/webpage/@id='login'"/>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-          <form action="{$WebApplicationBaseURL}{$UBO.Login.Path}" method="get">
-            <input type="hidden" name="url" value="{$RequestURL}"/>
-            <button title="Anmelden" class="btn btn-link p-0" type="submit"
-                    name="{i18n:translate('component.user2.button.login')}"
-                    value="{i18n:translate('component.user2.button.login')}">
-              <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
-            </button>
-          </form>
+          <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
+             href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={$RequestURL}">
+            <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
+          </a>
         </xsl:when>
         <xsl:otherwise>
-          <form action="{$ServletsBaseURL}logout" method="get">
-            <input type="hidden" name="url" value="{$RequestURL}"/>
-            <button title="Abmelden" class="btn btn-link p-0" style="border:0;" type="submit"
-                    name="{i18n:translate('login.logOut')}" value="{i18n:translate('login.logOut')}">
-              <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
-            </button>
-          </form>
+          <a class="btn btn-link p-0" title="{i18n:translate('login.logOut')}"
+             href="{$ServletsBaseURL}logout?url={$RequestURL}">
+            <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
+          </a>
         </xsl:otherwise>
       </xsl:choose>
     </div>
