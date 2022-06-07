@@ -88,7 +88,7 @@
             <xed:include uri="webapp:import-editor.xed" ref="relations"/>
             <fieldset>
               <legend>
-                <xed:output value="concat(i18n:translate('thunibib.editor.label.published.in), ': ')"/>
+                <xed:output value="concat(i18n:translate('thunibib.editor.label.published.in'), ': ')"/>
               </legend>
               <xed:bind xpath="mods:relatedItem[@type='host']">
                 <xed:choose>
