@@ -4,8 +4,6 @@
  <title xml:lang="de">Suche in der Universitätsbibliographie</title>
  <title xml:lang="en">Search in University bibliography</title>
 
- <script type="text/javascript" src="/js/editor.validation.failed.tooltip.js"></script>
-
  <article class="card mb-1">
    <div class="card-body">
     <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">

@@ -4,8 +4,6 @@
   <title xml:lang="de">Publikation bearbeiten</title>
   <title xml:lang="en">Edit publication</title>
 
-  <script type="text/javascript" src="js/editor.validation.failed.tooltip.js"></script>
-
   <article class="card">
     <div class="card-body">
       <xed:form xmlns:xed="http://www.mycore.de/xeditor"
