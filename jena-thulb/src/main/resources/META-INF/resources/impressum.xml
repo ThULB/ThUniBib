@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE webpage>
+
+<webpage lastModified="$Date$" id="impressum">
+  <title xml:lang="de">Impressum</title>
+  <title xml:lang="en">Legal Notice</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <p>
+        Friedrich-Schiller-Universität Jena
+        <br/>
+        Der Präsident
+        <br/>
+        Fürstengraben 1
+        <br/>
+        07743 Jena
+      </p>
+      <p>
+        Die Friedrich-Schiller-Universität Jena ist eine Körperschaft des Öffentlichen Rechts.
+        <br/>
+        Sie wird durch ihren Präsidenten Professor Dr. Walter Rosenthal gesetzlich vertreten.
+      </p>
+      <p>
+        Für allgemeine Anfragen verwenden Sie bitte unsere <a href="https://www.uni-jena.de/kontakt">
+        Kontaktseite</a>.
+      </p>
+      <h3>Zuständige Aufsichtsbehörde</h3>
+      <p>
+        Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft
+        <br/>
+        Max-Reger-Straße 4 – 8
+        <br/>
+        99096 Erfurt
+      </p>
+      <h3>Umsatzsteueridentifikations-Nr. nach § 27a UStG</h3>
+      <p>
+        DE 150546536
+      </p>
+      <h3>Herausgeber</h3>
+      <p>
+        Verantwortlich für die redaktionelle Betreuung ist
+      </p>
+      <p>
+        Friedrich-Schiller-Universität Jena
+        <br/>
+        Thüringer Universitäts- und Landesbibliothek Jena
+        <br/>
+        Bibliotheksdirektor: Michael Lörzer
+      </p>
+      <p>
+        E-Mail:
+        <a href="mailto:direktion_thulb@uni-jena.de">direktion_thulb@uni-jena.de</a>
+        <br/>
+        Tel.: +49 3641 9-404 000
+        <br/>
+        Fax: +49 3641 9-404 002
+        <br/>
+        Bibliotheksplatz 2
+        <br/>
+        07743 Jena
+      </p>
+      <p>
+        Team Universitätsbibliographie:
+        <a href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de</a>
+      </p>
+      <p>
+        Verantwortlich für das Design ist
+      </p>
+      <p>
+        Friedrich-Schiller-Universität Jena
+        <br/>
+        Abteilung Hochschulkommunikation
+        <br/>
+        <a href="https://www.uni-jena.de/webentwicklung">Bereich Webentwicklung und Webservices</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <p>
+        Friedrich Schiller University Jena
+        <br/>
+        President
+        <br/>
+        Fürstengraben 1
+        <br/>
+        07743 Jena
+        <br/>
+        Germany
+      </p>
+      <p>
+        The Friedrich Schiller University Jena is a public-law entity.
+        <br/>
+        It is legally represented by the President Prof. Dr Walter Rosenthal.
+      </p>
+      <p>
+        For general inquieries, please use our <a href="https://www.uni-jena.de/kontakt">
+        contact site</a>.
+      </p>
+      <h3>Supervisory authority</h3>
+      <p>
+        Thuringian Ministry of Economy, Science and Digital Society
+        <br/>
+        Max-Reger-Straße 4 – 8
+        <br/>
+        99096 Erfurt
+        <br/>
+        Germany
+      </p>
+      <h3>VAT identification number according to § 27a of the VAT Act (Umsatzsteuergesetz, UStG)</h3>
+      <p>
+        DE 150546536
+      </p>
+      <h3>Published by</h3>
+      <p>
+        The editorial responsibility
+      </p>
+      <p>
+        Friedrich Schiller University Jena
+        <br/>
+        Thüringer Universitäts- und Landesbibliothek Jena
+        <br/>
+        Director: Michael Lörzer
+      </p>
+      <p>
+        E-Mail:
+        <a href="mailto:direktion_thulb@uni-jena.de">direktion_thulb@uni-jena.de</a>
+        <br/>
+        Tel.: +49 3641 9-404 000
+        <br/>
+        Fax: +49 3641 9-404 002
+        <br/>
+        Bibliotheksplatz 2
+        <br/>
+        07743 Jena
+        <br/>
+        Germany
+      </p>
+      <p>
+        Team University Bibliography:
+        <a href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de</a>
+      </p>
+      <p>
+        Responsible for design and technical support:
+      </p>
+      <p>
+        Friedrich Schiller University Jena
+        <br/>
+        Communication and Marketing
+        <br/>
+        <a href="https://www.uni-jena.de/webentwicklung">Section Web Development and Web Services</a>
+      </p>
+    </div>
+  </article>
+</webpage>

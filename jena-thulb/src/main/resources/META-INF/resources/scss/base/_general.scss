@@ -1,0 +1,44 @@
+body {
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  body {
+      background: url('/images/body_background.png') right 13rem no-repeat fixed #fff;
+  }
+}
+
+.card {
+    border: none !important;
+    font-size: 15px;
+    background: rgba(255,255,255,0);
+}
+
+.card.mb-3 {
+  margin-bottom: 1.5rem !important;
+}
+
+.card.mb-2 {
+  margin-bottom: 1.5rem !important;
+}
+
+.card-body {
+  padding: 10px 15px;
+  background: rgba(255,255,255,0) !important;
+}
+
+.card-body h3 {
+  font-size: 23px;
+  font-weight: 400;
+  font-family: 'Roboto Condensed',Arial,sans-serif;
+  letter-spacing: 0.02em;
+  color: #002350;
+}
+
+h3#seitentitel {
+  font-family: "Palatino Linotype", "AmiriRegular", "BookAntiqua", Georgia, serif;
+}
+
+.mycore-list-item {
+  background-color: transparent;
+}

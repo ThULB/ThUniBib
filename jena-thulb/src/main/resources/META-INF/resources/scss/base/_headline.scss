@@ -1,0 +1,38 @@
+
+$bg-color-headline: #dbdbdb;
+#headlineWrapper {
+  background-color: $bg-color-headline;
+  padding: 25px 0px;
+  h3 {
+    padding: 6px 0px 0px 0px;
+    color: #002f5d;
+    background: url('/images/meta_headline_white.svg') no-repeat left top;
+    font-size: 27px;
+    font-weight: 400;
+  }
+}
+
+#feedback {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20%;
+  right: -24px;
+  transform: rotate(-90deg);
+  display: block;
+  background: #002350;
+  padding: 8px 0px;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: solid 1px #002350;
+  border-left: solid 0px #002350;
+  border-right: solid 1px #002350;
+  z-index: 999;
+  width: 80px;
+  text-align: center;
+}
+
+#feedback a {
+  color: #fff;
+}

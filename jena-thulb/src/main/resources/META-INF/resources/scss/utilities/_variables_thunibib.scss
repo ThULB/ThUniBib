@@ -1,0 +1,27 @@
+$font-family-sans-serif: 'Roboto',Arial,sans-serif;
+$body-bg: white;
+
+$primary:   #002f5d;  /* dark blue */
+$secondary: #887440;  /* gold      */
+$info:      #dbdbdb;  /* grey      */
+$success:   #74a740;  /* green     */
+$danger:    #cb2129;  /* red       */
+$warning:   #dc9800;  /* orange    */
+
+$link-color: $primary;
+$link-hover-decoration: none;
+$link-hover-color: #2285ff;
+
+$bg-color-breadcrumb: $info;
+$border-radius: 0;
+$badge-font-weight: normal;
+
+$border-radius-sm: 0rem;
+
+/* add new/overwrite custom colors */
+$theme-colors: (
+  alternative: #f3f1ec
+);
+
+// accordion indent (for faq)
+$fsu-acc-indent: 1.8rem;
