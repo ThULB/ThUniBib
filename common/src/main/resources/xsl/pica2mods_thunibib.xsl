@@ -3,8 +3,9 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
                 xmlns:p="info:srw/schema/5/picaXML-v1.0"
                 xmlns:mods="http://www.loc.gov/mods/v3"
+                xmlns:zs="http://www.loc.gov/zing/srw/"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="xsl p xlink">
+                exclude-result-prefixes="xsl p xlink zs">
   <xsl:mode on-no-match="shallow-copy"/>
   
   <xsl:import href="default/pica2mods-default-titleInfo.xsl" />
@@ -152,6 +153,10 @@
     <xsl:if test="p:datafield[@tag='144Z']/p:subfield[@code='9'] = '480733066'">
       <mods:classification valueURI="https://thunibib-ilmenau.gbv.de/classifications/peerreviewed#true" authorityURI="https://thunibib-ilmenau.gbv.de/classifications/peerreviewed"/>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="zs:searchRetrieveResponse">
+    <xsl:apply-templates select="//p:record" />
   </xsl:template>
 
 </xsl:stylesheet>
