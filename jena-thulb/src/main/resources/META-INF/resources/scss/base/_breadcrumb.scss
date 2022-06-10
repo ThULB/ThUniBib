@@ -1,0 +1,43 @@
+
+#breadcrumbWrapper {
+    background-color: $bg-color-breadcrumb;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0;
+    list-style: none;
+    background-color: $bg-color-breadcrumb;
+    border-radius: $border-radius;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    content: ">";
+    color: #002f5d;
+    opacity: .7;
+}
+
+.breadcrumb-item, .breadcrumb-item > a {
+    color: #002f5d;
+}
+
+.breadcrumb-item > a:hover {
+    color: rgba(255, 255, 255, .7);
+    text-decoration: underline !important;
+}
+
+//breadcrumb -> basketinfo
+#basketWrapper {
+    a:hover {
+        text-decoration: underline !important;
+        color: white !important;
+    }
+
+    padding: 0.75rem 0;
+}
