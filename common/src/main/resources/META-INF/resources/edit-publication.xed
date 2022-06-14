@@ -22,33 +22,40 @@
       <xed:form xmlns:xed="http://www.mycore.de/xeditor" xmlns:cerif="https://www.openaire.eu/cerif-profile/1.1/"
                 method="post" role="form">
 
-        <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}"/>
-        <xed:source uri="xslStyle:mods2mycoreobject,mods-preprocessor:session:{$key}"/>
+        <xed:preload uri="webapp:edit-publication.xed" />
+        <xed:preload uri="webapp:import-editor.xed" />
+        <xed:preload uri="webapp:import-thunibib.xed" />
+        <xed:preload uri="webapp:{$UBO.EditorForms.CustomIncludes}" />
 
-        <xed:cancel url="servlets/MCRLockServlet?action=unlock&amp;id={$id}&amp;url=DozBibEntryServlet%3Fid={$id}"/>
-        <xed:cancel url="newPublication.xed"/>
+        <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}" />
+        <xed:source uri="xslStyle:mods2mycoreobject,mods-preprocessor:session:{$key}" />
 
-        <xed:post-processor xsl="mods-postprocessor.xsl"/>
+        <xed:cancel url="servlets/MCRLockServlet?action=unlock&amp;id={$id}&amp;url=DozBibEntryServlet%3Fid={$id}" />
+        <xed:cancel url="newPublication.xed" />
+
+        <xed:post-processor xsl="mods-postprocessor.xsl" />
 
         <xed:bind xpath="/mycoreobject">
-          <xed:include uri="webapp:import-editor.xed" ref="common.metafields"/>
+          <xed:include ref="editor-form-fields" />
+        </xed:bind>
 
-          <input type="hidden" name="mode" value="save"/>
+        <xed:template id="editor-form-fields">
+          <input type="hidden" name="mode" value="save" />
 
-          <xed:include uri="webapp:import-editor.xed" ref="validation"/>
+          <xed:include ref="common.metafields" />
+          <xed:include ref="validation" />
 
           <xed:bind xpath="metadata/def.modsContainer[@class='MCRMetaXML']/modsContainer/mods:mods">
-
-            <xed:load-resource name="genres" uri="classification:metadata:-1:children:ubogenre"/>
+            <xed:load-resource name="genres" uri="classification:metadata:-1:children:ubogenre" />
 
             <!-- Request parameter genre always overrides existing value in entry -->
             <!-- If parameter genre is missing, use existing genre: you do not need the parameter to edit existing as-is -->
             <xed:choose>
               <xed:when test="string-length($genre) &gt; 0">
-                <xed:bind xpath="mods:genre[@type='intern']" set="{$genre}" name="genre_intern"/>
+                <xed:bind xpath="mods:genre[@type='intern']" set="{$genre}" name="genre_intern" />
               </xed:when>
               <xed:otherwise>
-                <xed:bind xpath="mods:genre[@type='intern']" name="genre_intern"/>
+                <xed:bind xpath="mods:genre[@type='intern']" name="genre_intern" />
               </xed:otherwise>
             </xed:choose>
 
@@ -57,65 +64,66 @@
             <!-- If parameter host is missing, use existing host: you do not need the parameter to edit existing as-is -->
             <xed:choose>
               <xed:when test="$host = 'standalone'">
-                <xed:param name="host_intern" default="standalone"/>
+                <xed:param name="host_intern" default="standalone" />
               </xed:when>
               <xed:when test="string-length($host) &gt; 0">
                 <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" set="{$host}"
-                          name="host_intern"/>
+                          name="host_intern" />
               </xed:when>
               <xed:when test="mods:relatedItem[@type='host']">
-                <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" name="host_intern"/>
+                <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" name="host_intern" />
               </xed:when>
               <xed:otherwise>
-                <xed:param name="host_intern" default="standalone"/>
+                <xed:param name="host_intern" default="standalone" />
               </xed:otherwise>
             </xed:choose>
 
             <fieldset>
               <legend>
-                <xed:include uri="webapp:import-editor.xed" ref="legend.ID"/>
-                <xed:output value="$genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text"/>
+                <xed:include ref="legend.ID" />
+                <xed:output value="$genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text" />
                 <xed:if test="not($host_intern='standalone')">
                   <xed:output
-                      value="concat(' in ',$genres//category[@ID=$host_intern]/label[lang($CurrentLang)]/@text)"/>
+                      value="concat(' in ',$genres//category[@ID=$host_intern]/label[lang($CurrentLang)]/@text)" />
                 </xed:if>
               </legend>
 
-              <xed:include uri="webapp:import-editor.xed" ref="status"/>
-              <xed:include uri="webapp:import-editor.xed" ref="subject"/>
-              <xed:include uri="webapp:import-editor.xed" ref="origin"/>
+              <xed:include ref="status" />
+              <xed:include ref="subject" />
+              <xed:include ref="origin" />
             </fieldset>
 
             <fieldset>
               <legend>
-                <xed:output value="concat($genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text,':')"/>
+                <xed:output
+                    value="concat($genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text,':')" />
               </legend>
 
-              <hr class="bg-danger"/>
-              <xed:include uri="webapp:import-genres.xed" ref="genre.{$genre_intern}"/>
-              <hr class="bg-danger"/>
+              <hr class="bg-danger" />
+              <xed:include uri="webapp:import-genres.xed" ref="genre.{$genre_intern}" />
+              <hr class="bg-danger" />
             </fieldset>
 
             <fieldset>
-              <xed:include uri="webapp:import-editor.xed" ref="languages"/>
-              <xed:include uri="webapp:import-editor.xed" ref="topics"/>
+              <xed:include ref="languages" />
+              <xed:include ref="topics" />
               <xed:if test="not($genre_intern='abstract') or not($genre_intern='preface')">
-                <xed:include uri="webapp:import-editor.xed" ref="abstract"/>
+                <xed:include ref="abstract" />
               </xed:if>
             </fieldset>
 
             <xed:if test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
               <fieldset>
                 <legend>
-                  <xed:output value="concat(i18n:translate('thunibib.editor.label.project.information'), ':')"/>
+                  <xed:output value="concat(i18n:translate('thunibib.editor.label.project.information'), ':')" />
                 </legend>
-                <xed:include uri="webapp:import-editor.xed" ref="projectInformation"/>
+                <xed:include ref="projectInformation" />
               </fieldset>
             </xed:if>
           </xed:bind>
-          <xed:include uri="webapp:import-editor.xed" ref="cleanup"/>
-          <xed:include uri="webapp:import-editor.xed" ref="cancel.submit"/>
-        </xed:bind>
+          <xed:include ref="cleanup" />
+          <xed:include ref="cancel.submit" />
+        </xed:template>
       </xed:form>
     </div>
   </article>
