@@ -173,7 +173,7 @@
       <div class="container" id="">
         <div class="row">
           <div class="col header-brand">
-            <a title="Zur Startseite" class="imageLink" href="http://www.uni-jena.de/">
+            <a title="Zur Startseite" class="imageLink" href="{$WebApplicationBaseURL}">
               <div id="wordmark" class="ml-3" />
             </a>
           </div>

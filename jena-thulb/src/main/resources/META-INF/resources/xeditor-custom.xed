@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xed:template xmlns:xed="http://www.mycore.de/xeditor">
+
+  <xed:template id="projectInformation">
+    <xed:bind xpath="mods:classification[@classID='project']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output value="concat(i18n:translate('ubo.project'), ': ')" />
+        </label>
+
+        <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
+          <option value="">
+            <xed:output i18n="search.select" />
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:project" />
+        </select>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+</xed:template>
