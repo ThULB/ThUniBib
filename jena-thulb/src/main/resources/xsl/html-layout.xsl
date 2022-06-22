@@ -5,8 +5,8 @@
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
-
-                exclude-result-prefixes="xsl xalan i18n mcrver">
+                xmlns:encoder="xalan://java.net.URLEncoder"
+                exclude-result-prefixes="xsl xalan i18n mcrver encoder">
 
   <xsl:output method="xml" encoding="UTF-8" />
 
@@ -311,13 +311,13 @@
         <xsl:when test="/webpage/@id='login'" />
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
-             href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={$RequestURL}">
+             href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
             <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
           </a>
         </xsl:when>
         <xsl:otherwise>
           <a class="btn btn-link p-0" title="{i18n:translate('login.logOut')}"
-             href="{$ServletsBaseURL}logout?url={$RequestURL}">
+             href="{$ServletsBaseURL}logout?url={encoder:encode($RequestURL)}">
             <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
           </a>
         </xsl:otherwise>

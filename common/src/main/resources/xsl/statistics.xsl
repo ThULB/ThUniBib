@@ -31,7 +31,7 @@
   </xsl:template>
 
   <xsl:template match="lst[@name='facet_fields']/lst[@name='origin']">
-    <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('facets.facet.origin'))"/>
+    <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('ubo.department'))"/>
 
     <section class="card mb-3">
       <div class="card-body">
