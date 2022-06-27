@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
+  <label xml:lang="de" text="Universität Erfurt" />
+  <label xml:lang="en" text="University of Erfurt" />
+  <label xml:lang="x-place" text="Universität Erfurt | Erfurt | Nordhäuser Str. 63, 99089 Erfurt" />
+  <categories>
+    <category ID="0100">
+      <label xml:lang="de" text="Erziehungswissenschaftliche Fakultät" />
+    </category>
+    <category ID="0200">
+      <label xml:lang="de" text="Katholisch-Theologische Fakultät" />
+    </category>
+    <category ID="0300">
+      <label xml:lang="de" text="Philosophische Fakultät" />
+    </category>
+    <category ID="0400">
+      <label xml:lang="de" text="Staatswissenschaftliche Fakultät" />
+    </category>
+    <category ID="0500">
+      <label xml:lang="de" text="Max-Weber-Kolleg" />
+    </category>
+    <category ID="0600">
+      <label xml:lang="de" text="Erfurt Laboratory for Empirical Research" />
+    </category>
+    <category ID="0700">
+      <label xml:lang="de" text="Erfurt School of Education (ESE)" />
+    </category>
+    <category ID="0800">
+      <label xml:lang="de" text="Forschungsbibliothek Gotha" />
+    </category>
+    <category ID="0900">
+      <label xml:lang="de" text="Forschungskolleg Transkulturelle Studien" />
+    </category>
+    <category ID="1000">
+      <label xml:lang="de" text="Forschungszentrum Gotha" />
+    </category>
+    <category ID="1100">
+      <label xml:lang="de" text=" Willy Brandt School of Public Policy (WBS)" />
+    </category>
+    <category ID="1200">
+      <label xml:lang="de" text="Sprachenzentrum" />
+    </category>
+    <category ID="1300">
+      <label xml:lang="de" text="Universitätsbibliothek Erfurt" />
+    </category>
+    <category ID="1400">
+      <label xml:lang="de" text="Universitätsrechen- und Medienzentrum" />
+    </category>
+    <category ID="1500">
+      <label xml:lang="de" text="Präsidialbereich" />
+    </category>
+    <category ID="1600">
+      <label xml:lang="de" text="Zentrale Univerwaltung" />
+    </category>
+  </categories>
+</mycoreclass>
