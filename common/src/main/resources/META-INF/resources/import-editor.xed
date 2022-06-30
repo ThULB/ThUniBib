@@ -764,17 +764,6 @@
     </xed:bind>
   </xed:template>
 
-  <xed:template id="shelfmark">
-    <xed:bind xpath="mods:location/mods:shelfLocator">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('ubo.shelfmark'), ': ')"/>
-        </label>
-        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input-double" type="text"/>
-      </div>
-    </xed:bind>
-  </xed:template>
-
   <xed:template id="topics">
     <xed:repeat xpath="mods:subject">
       <div class="form-inline form-group ubo-repeat-group">
