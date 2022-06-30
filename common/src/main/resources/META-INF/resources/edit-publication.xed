@@ -25,7 +25,10 @@
         <xed:preload uri="webapp:edit-publication.xed" />
         <xed:preload uri="webapp:import-editor.xed" />
         <xed:preload uri="webapp:import-thunibib.xed" />
-        <xed:preload uri="webapp:{$UBO.EditorForms.CustomIncludes}" />
+
+        <xed:if test="$UBO.EditorForms.CustomIncludes">
+          <xed:preload uri="webapp:{$UBO.EditorForms.CustomIncludes}" />
+        </xed:if>
 
         <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}" />
         <xed:source uri="xslStyle:mods2mycoreobject,mods-preprocessor:session:{$key}" />
