@@ -12,7 +12,7 @@
 
   <xsl:param name="UBO.Login.Path" />
   <xsl:param name="UBO.Mail.Feedback" />
-
+  <xsl:param name="RequestURL" />
 
   <xsl:variable name="jquery.version" select="'3.3.1'" />
   <xsl:variable name="jquery-ui.version" select="'1.12.1'" />
@@ -437,10 +437,28 @@
 
   <xsl:template name="feedback">
     <div id="feedback">
-      <a href="mailto:{$UBO.Mail.Feedback}?subject=[Bibliographie%20der%20FSU%20Jena]%20-%20Feedback&amp;body=Rückmeldung%20zu%20{$RequestURL}:">
+      <a class="thunibib-btn-feedback">
+        <xsl:call-template name="feedback.href" />
         Feedback
       </a>
     </div>
+  </xsl:template>
+
+  <xsl:template name="feedback.href">
+    <xsl:attribute name="href">
+      <xsl:variable name="title" select="head/title/node()"/>
+      <xsl:variable name="title.abbrev">
+        <xsl:choose>
+          <xsl:when test="string-length($title) &gt; 70">
+            <xsl:value-of select="concat(substring($title, 0, 65), '[...]')" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$title" />
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:value-of select="concat('mailto:', $UBO.Mail.Feedback, '?subject=[Feedback]: ', $title.abbrev, '&amp;body=Rückmeldung%20zu: ', $title, '%0D%0A', encoder:encode($RequestURL))" />
+    </xsl:attribute>
   </xsl:template>
 
 </xsl:stylesheet>
