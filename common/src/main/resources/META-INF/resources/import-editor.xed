@@ -649,7 +649,7 @@
   </xed:template>
 
   <xed:template id="comment">
-    <xed:repeat xpath="mods:note[not(@type)]">
+    <xed:repeat xpath="mods:note[not(@type='intern')]">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output value="concat(i18n:translate('ubo.comment'), ': ')"/>

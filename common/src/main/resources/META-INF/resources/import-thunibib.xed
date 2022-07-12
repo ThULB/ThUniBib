@@ -47,18 +47,19 @@
   </xed:template>
 
   <xed:template id="thunibib.comment.intern">
-    <xed:bind xpath="mods:note[@type='intern']">
+    <xed:repeat xpath="mods:note[@type='intern']">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('thunibib.comment.intern'), ': ')"/>
+          <xed:output value="concat(i18n:translate('thunibib.comment.intern'), ': ')" />
         </label>
-        <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} mycore-form-input"/>
+        <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} mycore-form-input" />
+        <xed:controls />
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
            data-content="{i18n:thunibib.editor.help.comment.intern}">
           <i class="fas fa-info"></i>
         </a>
       </div>
-    </xed:bind>
+    </xed:repeat>
   </xed:template>
 
   <xed:template id="thunibib.typeOfResource">
