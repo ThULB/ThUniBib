@@ -81,11 +81,22 @@ a.ubo-btn-feedback {
     display: none;
 }
 
+.nameIdentifier {
+    @extend .badge, .badge-primary;
+    a {
+        color: white;
+        text-transform: uppercase;
+    }
+    vertical-align: top;
+    margin-right: 0.25rem;
+}
+
 .badge-secondary {
   color: #333939;
   background-color: #e7e4db;
   border-radius: 0.2rem;
 }
+
 #accordionExample {
   margin-top: 2rem;
   .card {
