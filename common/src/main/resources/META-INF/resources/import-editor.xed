@@ -219,6 +219,14 @@
           <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
         </div>
       </xed:bind>
+      <xed:bind xpath="mods:nonSort">
+        <div class="form-inline form-group">
+          <label for="{xed:generate-id()}" class="mycore-form-label">
+            <xed:output value="concat(i18n:translate('ubo.title.nonSort'), ': ')"/>
+          </label>
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        </div>
+      </xed:bind>
       <xed:bind xpath="mods:subTitle">
         <div class="form-inline form-group">
           <label for="{xed:generate-id()}" class="mycore-form-label">
@@ -277,6 +285,14 @@
           </label>
           <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
                     placeholder="{i18n:ubo.title}"/>
+        </xed:bind>
+      </div>
+      <div class="form-inline form-group">
+        <xed:bind xpath="mods:nonSort">
+          <label class="mycore-form-label">
+          </label>
+          <input class="{$xed-validation-marker} mycore-form-input" type="text"
+                 placeholder="{i18n:ubo.title.nonSort}"/>
         </xed:bind>
       </div>
       <div class="form-inline form-group">
