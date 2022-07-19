@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xalan="http://xml.apache.org/xalan"
   xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
   xmlns:encoder="xalan://java.net.URLEncoder"
@@ -35,7 +36,7 @@
 
     <section class="card mb-3">
       <div class="card-body">
-        <div id="chartOrigin" style="width:100%; height:350px"/>
+        <div id="chartOrigin" style="width:100%; height:{50 + count(int) * 30}px" />
         <script type="text/javascript">
               $(document).ready(function() {
                 new Highcharts.Chart({
@@ -530,6 +531,8 @@
 
   <xsl:template match="lst[@name='facet_fields']/lst[@name='nid_connection']">
 
+    <xsl:if test="not(mcrxsl:isCurrentUserGuestUser())">
+
     <!-- The facet is a list of top connected Person IDs matching the restricted query, e.g. status=confirmed, year > 2012 -->
     <!-- To find the corresponding names, build a pivot facet with Connection ID and name variants, use most frequent name  -->
     <xsl:variable name="uri">
@@ -549,122 +552,127 @@
 
     <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('facets.facet.nid_connection'))" />
 
-    <section class="card">
-      <xsl:if test="not(mcrxsl:isCurrentUserGuestUser())">
+    <article class="card mb-3">
       <div class="card-body">
-
         <h3>
           <xsl:value-of select="concat(i18n:translate('thunibib.statistic.aut.ids.used.most'), ': ')"/>
         </h3>
-
-        <div id="chartID" style="width:100%; height:{50 + count(int) * 30}px" />
-
-        <script type="text/javascript">
-          $(document).ready(function() {
-            new Highcharts.Chart({
-              chart: {
-                renderTo: 'chartID',
-                type: 'bar',
-                events: {
-                  click: function(e) {
-                    $('#chartDialog').dialog({
-                      position: 'center',
-                      width: $(window).width() - 80,
-                      height: $(window).height() - 80,
-                      draggable: false,
-                      resizable: false,
-                      modal: false
-                    });
-                    var dialogOptions = this.options;
-                    dialogOptions.chart.renderTo = 'chartDialog';
-                    dialogOptions.chart.events = null;
-                    dialogOptions.chart.zoomType = 'x';
-                    new Highcharts.Chart(dialogOptions);
-                  }
-                }
-              },
-              title: { text: '<xsl:value-of select="$title" />' },
-              legend: { enabled: false },
-              xAxis: { categories: [
-                <xsl:for-each select="int">
-                  <xsl:sort select="text()" data-type="number" order="descending" />
-                  <xsl:variable name="connection_id" select="@name" />
-                  <xsl:variable name="name"   select="$id2name/lst[str[@name='value']=$connection_id]/arr/lst[1]/str[@name='value']" />
-                  "<xsl:value-of select="$name"/>"
-                  <xsl:if test="position() != last()">, </xsl:if>
-                </xsl:for-each>
-                ],
-                labels: {
-                  align: 'right',
-                  style: <xsl:value-of select="$UBO.Statistics.Style.Labels" />
-                }
-              },
-              yAxis: {
-                 title: { text: '<xsl:value-of select="$count" />' },
-                 labels: { formatter: function() { return this.value; } },
-                 endOnTick: false,
-                 max: <xsl:value-of select="floor(number(int[1]) * 1.05)" /> <!-- +5% -->
-              },
-              tooltip: { formatter: function() { return '<b>' + this.x +'</b>: '+ this.y; } },
-              plotOptions: { series: { pointWidth: 15 } },
-              series: [{
-                name: '<xsl:value-of select="$title" />',
-                data: [
-                  <xsl:for-each select="int">
-                    <xsl:sort select="text()" data-type="number" order="descending" />
-                    <xsl:value-of select="text()"/>
-                    <xsl:if test="position() != last()">, </xsl:if>
-                  </xsl:for-each>
-                ],
-                color: '<xsl:value-of select="$UBO.Statistics.Color.Bar" />',
-                dataLabels: {
-                  enabled: true,
-                  align: 'right',
-                  formatter: function() { return this.y; },
-                  style: <xsl:value-of select="$UBO.Statistics.Style.Labels" />
-                }
-              }]
-            });
-          });
-          </script>
-
+        <section class="card">
+          <div class="card-body">
+            <div id="chartID" style="width:100%; height:{50 + count(int) * 30}px" />
+    
+            <script type="text/javascript">
+              $(document).ready(function() {
+                new Highcharts.Chart({
+                  chart: {
+                    renderTo: 'chartID',
+                    type: 'bar',
+                    events: {
+                      click: function(e) {
+                        $('#chartDialog').dialog({
+                          position: 'center',
+                          width: $(window).width() - 80,
+                          height: $(window).height() - 80,
+                          draggable: false,
+                          resizable: false,
+                          modal: false
+                        });
+                        var dialogOptions = this.options;
+                        dialogOptions.chart.renderTo = 'chartDialog';
+                        dialogOptions.chart.events = null;
+                        dialogOptions.chart.zoomType = 'x';
+                        new Highcharts.Chart(dialogOptions);
+                      }
+                    }
+                  },
+                  title: { text: '<xsl:value-of select="$title" />' },
+                  legend: { enabled: false },
+                  xAxis: { categories: [
+                    <xsl:for-each select="int">
+                      <xsl:sort select="text()" data-type="number" order="descending" />
+                      <xsl:variable name="connection_id" select="@name" />
+                      <xsl:variable name="name"   select="$id2name/lst[str[@name='value']=$connection_id]/arr/lst[1]/str[@name='value']" />
+                      "<xsl:value-of select="$name"/>"
+                      <xsl:if test="position() != last()">, </xsl:if>
+                    </xsl:for-each>
+                    ],
+                    labels: {
+                      align: 'right',
+                      style: <xsl:value-of select="$UBO.Statistics.Style.Labels" />
+                    }
+                  },
+                  yAxis: {
+                     title: { text: '<xsl:value-of select="$count" />' },
+                     labels: { formatter: function() { return this.value; } },
+                     endOnTick: false,
+                     max: <xsl:value-of select="floor(number(int[1]) * 1.05)" /> <!-- +5% -->
+                  },
+                  tooltip: { formatter: function() { return '<b>' + this.x +'</b>: '+ this.y; } },
+                  plotOptions: { series: { pointWidth: 15 } },
+                  series: [{
+                    name: '<xsl:value-of select="$title" />',
+                    data: [
+                      <xsl:for-each select="int">
+                        <xsl:sort select="text()" data-type="number" order="descending" />
+                        <xsl:value-of select="text()"/>
+                        <xsl:if test="position() != last()">, </xsl:if>
+                      </xsl:for-each>
+                    ],
+                    color: '<xsl:value-of select="$UBO.Statistics.Color.Bar" />',
+                    dataLabels: {
+                      enabled: true,
+                      align: 'right',
+                      formatter: function() { return this.y; },
+                      style: <xsl:value-of select="$UBO.Statistics.Style.Labels" />
+                    }
+                  }]
+                });
+              });
+              </script>
+            </div>
+          </section>
         </div>
-      </xsl:if>
-    </section>
+      </article>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="lst/arr[@name='name_id_type,name_id_type']">
     <xsl:if test="not(mcrxsl:isCurrentUserGuestUser())">
       <xsl:variable name="base" select="." />
 
-      <table class="table table-bordered">
-        <h3>
-          <xsl:value-of select="concat(i18n:translate('thunibib.statistic.aut.ids.used'), ': ')"/>
-        </h3>
+      <article class="card">
+        <div class="card-body">
+          <h3>
+            <xsl:value-of select="concat(i18n:translate('thunibib.statistic.aut.ids.used'), ': ')"/>
+          </h3>
 
-        <tr class="text-center">
-          <th>/</th>
-          <xsl:for-each select="$base/lst">
-            <th>
-              <xsl:value-of select="translate(str[@name='value'],'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
-            </th>
-          </xsl:for-each>
-        </tr>
-        <xsl:for-each select="$base/lst">
-          <xsl:variable name="a" select="str[@name='value']" />
-          <tr class="text-right">
-            <th class="identifier">
-              <xsl:value-of select="translate(str[@name='value'],'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
-            </th>
+          <table class="table table-bordered">
+            <tr class="text-center">
+              <th>/</th>
+              <xsl:for-each select="$base/lst">
+                <th>
+                  <xsl:value-of select="translate(str[@name='value'],'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
+                </th>
+              </xsl:for-each>
+            </tr>
             <xsl:for-each select="$base/lst">
-              <xsl:variable name="b" select="str[@name='value']" />
-              <td class="identifier">
-                <xsl:value-of select="$base/lst[str[@name='value']=$a]/arr/lst[str[@name='value']=$b]/int[@name='count']" />
-              </td>
+              <xsl:variable name="a" select="str[@name='value']" />
+              <tr class="text-right">
+                <th class="identifier">
+                  <xsl:value-of select="translate(str[@name='value'],'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
+                </th>
+                <xsl:for-each select="$base/lst">
+                  <xsl:variable name="b" select="str[@name='value']" />
+                  <td class="identifier">
+                    <xsl:value-of select="$base/lst[str[@name='value']=$a]/arr/lst[str[@name='value']=$b]/int[@name='count']" />
+                  </td>
+                </xsl:for-each>
+              </tr>
             </xsl:for-each>
-          </tr>
-        </xsl:for-each>
-      </table>
+          </table>
+
+        </div>
+      </article>
     </xsl:if>
   </xsl:template>
 

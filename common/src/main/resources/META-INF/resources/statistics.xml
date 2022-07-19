@@ -27,16 +27,7 @@
   <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=origin"/>
   <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=genre"/>
 
-  <article class="card mb-3">
-    <div class="card-body">
-      <xinclude uri="xslStyle:statistics:solr:q=partOf:true+status:confirmed+AND+year:%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
-    </div>
-  </article>
-
-  <article class="card">
-    <div class="card-body">
-      <xinclude uri="xslStyle:statistics:solr:q=objectKind:name&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
-    </div>
-  </article>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+status:confirmed+AND+year:%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
+  <xinclude uri="xslStyle:statistics:solr:q=objectKind:name&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
 
 </webpage>
