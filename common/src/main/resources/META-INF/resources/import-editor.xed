@@ -43,7 +43,7 @@
     <!-- title required for all non standalone object types -->
     <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
                   test="string-length(.) &gt; 0"
-                  relevant-if="//mods:mods/mods:relatedItem[@type='host'] and (//mods:mods/mods:genre='entry' or //mods:mods/mods:genre='article' or //mods:mods/mods:genre='chapter' or //mods:mods/mods:genre='preface' or //mods:mods/mods:genre='abstract' or //mods:mods/mods:genre='conference_essay' or //mods:mods/mods:genre='entry' or //mods:mods/mods:genre='video_contribution' or //mods:mods/mods:genre='blog_entry' or //mods:mods/mods:genre='series' or (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0))"
+                  relevant-if="//mods:mods/mods:genre='entry' or //mods:mods/mods:genre='article' or //mods:mods/mods:genre='chapter' or //mods:mods/mods:genre='preface' or //mods:mods/mods:genre='abstract' or //mods:mods/mods:genre='conference_essay' or //mods:mods/mods:genre='entry' or //mods:mods/mods:genre='video_contribution' or //mods:mods/mods:genre='blog_entry' or (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
                   i18n="ubo.title.validation" display="global"/>
 
     <script type="text/javascript">
