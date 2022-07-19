@@ -54,7 +54,6 @@
       <xsl:when test="$genre='article'">article</xsl:when>
       <xsl:when test="$genre='article in press'">article</xsl:when>
       <xsl:when test="$genre='business article'">article</xsl:when>
-      <xsl:when test="$genre='book' and ancestor::mods:relatedItem/@type='host'">collection</xsl:when>
       <xsl:when test="$genre='book'">book</xsl:when>
       <xsl:when test="$genre='book review'">review</xsl:when>
       <xsl:when test="$genre='monograph'">book</xsl:when>
@@ -129,7 +128,10 @@
       <xsl:when test="$child_genre='edited-book'">collection</xsl:when>
       <xsl:when test="$child_genre='article'">journal</xsl:when>
       <xsl:when test="$child_genre='journal-article'">journal</xsl:when>
+      <xsl:when test="$child_genre='chapter'">collection</xsl:when>
+      <xsl:when test="$child_genre='book chapter'">collection</xsl:when>
       <xsl:when test="$child_genre='book-chapter'">collection</xsl:when>
+      <xsl:when test="$child_genre='book-part'">collection</xsl:when>
       <xsl:when test="$child_genre='techreport'">collection</xsl:when>
       <xsl:when test="$child_genre='misc'">collection</xsl:when>
       <xsl:when test="$child_genre='unpublished'">collection</xsl:when>
