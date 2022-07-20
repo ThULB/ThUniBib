@@ -606,8 +606,7 @@
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output value="concat(i18n:translate('ubo.edition'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-               placeholder="{i18n:ubo.edition.placeholder}"/>
+        <input id="{xed:generate-id()}" type="text" class="mycore-form-input" placeholder="{i18n:ubo.edition.placeholder}"/>
       </div>
     </xed:bind>
   </xed:template>
