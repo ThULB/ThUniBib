@@ -16,6 +16,7 @@
         "facet.mincount": "1",
         "facet.field": [
           "status",
+          "partOf",
           "importID",
           "year",
           "facet_person",
