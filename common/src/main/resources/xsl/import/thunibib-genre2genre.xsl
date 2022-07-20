@@ -66,7 +66,7 @@
       <xsl:when test="$genre='editorial'">preface</xsl:when>
       <xsl:when test="$genre='dissertation'">dissertation</xsl:when>
       <xsl:when test="$genre='working paper'">workingpaper</xsl:when>
-      <xsl:when test="$genre='review'">article</xsl:when>
+      <xsl:when test="$genre='review'">review_article</xsl:when>
       <xsl:when test="$genre='report'">article</xsl:when>
       <xsl:when test="$genre='short survey'">article</xsl:when>
       <xsl:when test="$genre='book chapter'">chapter</xsl:when>
