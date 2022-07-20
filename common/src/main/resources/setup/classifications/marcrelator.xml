@@ -77,10 +77,6 @@
         <label xml:lang="en" text="Degree supervisor" description="A person overseeing a higher level academic degree." />
         <label xml:lang="de" text="Akademische*r Betreuer*in" description="Eine Person, unter deren Betreuung ein Kandidat eine Dissertation oder Abschlussarbeit entwickelt und präsentiert." />
       </category>
-      <category ID="fnd">
-        <label xml:lang="de" text="Fördermittelgeber*in" description="Eine Person oder Institution, die finanzielle Unterstützung für die Erstellung einer Arbeit bereitstellt." />
-        <label xml:lang="en" text="Funder" description="Use for a person or organization that furnished financial support for the production of the work." />
-      </category>
       <category ID="spn">
         <label xml:lang="de" text="Finanzielle Förderung" description="Ein Akteur, der einzelne Aspekte eines Werks finanziell unterstützt z. B. Forschungsförderung, finanzielle Unterstützung einer Veranstaltung." />
         <label xml:lang="en" text="Sponsor" description="A person, family, or organization sponsoring some aspect of a resource, e.g., funding research, sponsoring an event" />
