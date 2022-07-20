@@ -16,6 +16,7 @@
         "facet.mincount": "1",
         "facet.field": [
           "status",
+          "partOf",
           "importID",
           "year",
           "facet_person",
@@ -26,38 +27,6 @@
           "oa"
         ],
         "wt": "xml"
-      }
-    }
-  },
-  {
-    "update-requestHandler": {
-      "name": "/statistics",
-      "class": "solr.SearchHandler",
-      "defaults": {
-        "echoParams": "explicit",
-        "defType": "edismax",
-        "qs": "5",
-        "mm": "100%",
-        "q.op": "AND",
-        "df": "all",
-        "wt": "xml"
-      },
-      "appends": {
-        "fq": "+partOf:true",
-        "facet.field": [
-          "year",
-          "subject",
-          "genre",
-          "facet_person",
-          "oa"
-        ]
-      },
-      "invariants": {
-        "fl": "",
-        "start": "0",
-        "rows": "0",
-        "facet": "true",
-        "facet.mincount": "1"
       }
     }
   }
