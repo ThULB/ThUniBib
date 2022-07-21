@@ -96,9 +96,10 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         LOGGER.info("Max records that are queried from lobid: {}", LOBID_MAX_RECORDS);
     }
 
+    private static final String SRU_DATABASE = MCRConfiguration2.getStringOrThrow("MCR.PICA2MODS.DATABASE");
     private static final String QUERY_PLACEHOLDER = "${query}";
     private static final int BATCH_SIZE = 10;
-    private static final String PICA_URL = "https://sru.k10plus.de/opac-de-ilm1?version=1.1&operation=searchRetrieve&query="
+    private static final String PICA_URL = "https://sru.k10plus.de/" + SRU_DATABASE + "?version=1.1&operation=searchRetrieve&query="
         + QUERY_PLACEHOLDER + "&maximumRecords="+BATCH_SIZE+"&recordSchema=mods36";
     private static final String PICA_IMPORT_SYNTAX = "import by pica query with {0} and start {1} and status {2} and filter {3}";
     private static final String ENRICH_PPN_SYNTAX = "enrich ppn {0} with status {1} and filter {2}";
