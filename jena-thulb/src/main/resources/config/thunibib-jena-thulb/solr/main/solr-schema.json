@@ -1,0 +1,12 @@
+[
+  {
+    "add-field": {
+      "name": "project",
+      "type": "ubo_id",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    }
+  }
+]
+
