@@ -527,10 +527,10 @@
   <xed:template id="corporate.role">
     <xed:repeat xpath="mods:name[@type='corporate']">
       <div class="form-group form-inline ubo-repeat-group">
-        <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="edt">
+        <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator_corporation']" initially="isb">
           <label class="mycore-form-label d-flex align-items-center mt-0">
             <select class="form-control custom-select">
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator"/>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator_corporation"/>
             </select>
             <div class="ml-1">:</div>
           </label>
