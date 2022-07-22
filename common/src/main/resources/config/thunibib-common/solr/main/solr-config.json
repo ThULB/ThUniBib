@@ -29,5 +29,39 @@
         "wt": "xml"
       }
     }
+  },
+  {
+    "update-requestHandler": {
+      "name": "/statistics",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "qs": "5",
+        "mm": "100%",
+        "q.op": "AND",
+        "df": "all",
+        "wt": "xml"
+      },
+      "appends": {
+        "facet.field": [
+          "year",
+          "subject",
+          "origin",
+          "genre",
+          "oa",
+          "facet_person",
+          "nid_connection"
+        ],
+        "json.facet": "{year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}"
+      },
+      "invariants": {
+        "fl": "",
+        "start": "0",
+        "rows": "0",
+        "facet": "true",
+        "facet.mincount": "1"
+      }
+    }
   }
 ]
