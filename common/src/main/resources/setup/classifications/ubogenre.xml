@@ -128,7 +128,6 @@
       </category>
     </category>
     <category ID="collection">
-      <label xml:lang="x-group" text="true" />
       <label xml:lang="x-hosts" text="standalone" />
       <label xml:lang="x-marcgt" text="book" />
       <label xml:lang="de" text="Sammelwerk" />
