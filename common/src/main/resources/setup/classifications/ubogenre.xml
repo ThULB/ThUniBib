@@ -4,6 +4,7 @@
   <label xml:lang="de" text="Genre" description="Publikationstypen der Hochschulbibliographie" />
   <categories>
     <category ID="contribution">
+      <label xml:lang="x-marcgt" text="book" />
       <label xml:lang="en" text="Article / Contribution" />
       <label xml:lang="de" text="Unselbstständige Werke" />
       <category ID="article">
@@ -66,6 +67,7 @@
       </category>
     </category>
     <category ID="thesis">
+      <label xml:lang="x-group" text="true" />
       <label xml:lang="de" text="Hochschulschrift" />
       <label xml:lang="en" text="thesis" />
       <category ID="bachelor_thesis">
@@ -126,10 +128,11 @@
       </category>
     </category>
     <category ID="collection">
-      <label xml:lang="de" text="Sammelwerk" />
+      <label xml:lang="x-group" text="true" />
       <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="book (collection)" />
       <label xml:lang="x-marcgt" text="book" />
+      <label xml:lang="de" text="Sammelwerk" />
+      <label xml:lang="en" text="book (collection)" />
       <category ID="proceedings">
         <label xml:lang="x-hosts" text="standalone" />
         <label xml:lang="x-color" text="#174488" />
