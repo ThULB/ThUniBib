@@ -921,18 +921,17 @@
 
   <xed:template id="relations">
     <fieldset>
-      <legend>Verweise:</legend>
+      <legend>
+        <xed:output value="concat(i18n:translate('thunibib.editor.label.references'), ':')"/>
+      </legend>
       <xed:repeat xpath="mods:relatedItem[not(@type='host')][not(@type='series')]" max="30">
         <div class="form-group form-inline ubo-repeat-group">
           <xed:bind xpath="@type" default="references">
             <div class="mycore-form-label">
               <select class="form-control custom-select">
-                <option value="references">Referenziert</option>
-                <option value="preceding">Vorgänger</option>
-                <option value="succeeding">Nachfolger</option>
-                <option value="reviewOf">Ist Review von</option>
+                <xed:include uri="xslStyle:items2options:classification:editor:-1:children:reference_type"/>
               </select>
-              :
+              <xed:output value=":"/>
             </div>
           </xed:bind>
           <xed:bind xpath="@xlink:href">
@@ -943,8 +942,7 @@
         </div>
       </xed:repeat>
     </fieldset>
-    <xed:validate xpath="//mods:relatedItem/@xlink:href" matches="\w+_mods_\d{8}"
-                  i18n="ubo.relatedItem.validation.href"
+    <xed:validate xpath="//mods:relatedItem/@xlink:href" matches="\w+_mods_\d{8}" i18n="ubo.relatedItem.validation.href"
                   display="global"/>
   </xed:template>
 
