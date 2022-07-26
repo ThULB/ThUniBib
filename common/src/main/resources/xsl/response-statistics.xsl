@@ -9,6 +9,7 @@
   <xsl:include href="statistics.xsl" />
   <xsl:include href="statistics-oa.xsl" />
   <xsl:param name="WebApplicationBaseURL" />
+  <xsl:param name="RequestURL" />
 
   <xsl:template match="/">
     <html id="dozbib.search">
@@ -20,12 +21,15 @@
       <body>
         <article class="card mb-3">
           <div class="card-body bg-alternative">
-            <h3>
-              <xsl:value-of select="i18n:translate('thunibib.statistic.hint')" />
-            </h3>
-            <p>
-              <xsl:value-of select="i18n:translate('thunibib.statistic.generic.hint.text')" />
-            </p>
+            <xsl:if test="not(response/lst[@name='responseHeader']/lst[@name='params']/str[@name='fq'] = 'partOf:&quot;true&quot;')">
+              <h3>
+                <xsl:value-of select="i18n:translate('thunibib.statistic.hint')" />
+              </h3>
+
+              <p>
+                <xsl:value-of select="i18n:translate('thunibib.statistic.generic.hint.text')" />
+              </p>
+            </xsl:if>
           </div>
         </article>
         <xsl:apply-templates select="/" mode="oa-statistics" />
