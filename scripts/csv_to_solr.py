@@ -20,7 +20,7 @@ def read_csv():
     return project_data
 
 def update_solr(project_data_list):
-    solr = pysolr.Solr('http://localhost:8983/solr/ubo_projects')
+    solr = pysolr.Solr('http://localhost:8983/solr/ubo-projects')
     solr.add(project_data_list)
     solr.commit()
         
