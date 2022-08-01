@@ -66,7 +66,7 @@
                   <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
                 </xed:when>
                 <xed:otherwise>
-                  <xed:bind xpath="condition[@field='objectProject'][@operator='='][@value='ubo']" />
+                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']" />
                 </xed:otherwise>
               </xed:choose>
 
