@@ -87,7 +87,7 @@
 
   <xsl:template name="layout.headline">
     <div id="headlineWrapper">
-      <div class="container">
+      <div class="container w-100 w-sm-50">
         <div class="row">
           <div class="col">
             <h3 id="seitentitel">
