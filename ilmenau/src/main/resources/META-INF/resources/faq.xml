@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="about" xmlns:i18n="http://www.mycore.org/i18n">
+  <title xml:lang="de">Über die Bibliographie</title>
+  <title xml:lang="en">About the Bibliography</title>
+
+  <div class="row">
+    <div class="col-12 col-md-8">
+
+      <article class="card mb-3" xml:lang="de">
+        <div class="card-body">
+          <p>
+            Die Digitale Hochschulbibliographie dient der Erfassung, Präsentation und Dokumentation der
+            Publikationsleistungen
+            aller Beschäftigten der TU Ilmenau.
+          </p>
+          <p>
+            Alle Eintragungen werden von der Hochschulbibliothek überprüft, ggf. korrigiert und final freigegeben.
+          </p>
+          <p>
+            Die Eintragungen in die Digitale Hochschulbibliographie ersetzen die jährliche Meldung der Publikationen an
+            das Forschungsmonitoring.
+          </p>
+        </div>
+      </article>
+
+      <article class="card mb-3" xml:lang="en">
+        <div class="card-body">
+          <p>
+            The Digital University Bibliography serves to record, present and document the publication achievements of
+            all employees of TU Ilmenau.
+          </p>
+          <p>
+            All entries are reviewed, corrected if necessary and given final approval by the University Library.
+          </p>
+          <p>
+            The entries in the Digital University Bibliography replace the annual reporting of publications to the
+            “Forschungsmonitoring” (research monitoring).
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</webpage>
