@@ -2,6 +2,34 @@
 
 <xed:template xmlns:xed="http://www.mycore.de/xeditor">
 
+  <xed:template id="thunibib.partOf" />
+
+  <xed:template id="relations">
+    <xed:repeat xpath="mods:relatedItem[not(@type='host')][not(@type='series')]" max="30">
+      <div class="form-group form-inline ubo-repeat-group">
+        <xed:bind xpath="@type" default="references">
+          <div class="mycore-form-label">
+            <select class="form-control custom-select">
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:reference_type" />
+            </select>
+            <xed:output value="':'" />
+          </div>
+        </xed:bind>
+
+        <xed:bind xpath="@xlink:href">
+          <input class="mycore-form-input" type="text" value="{.}" />
+
+          <button class="btn btn-outline-primary" type="submit" xed:target="subselect"
+                  xed:href="../search-reference.xed?id_type=id&amp;origin={/mycoreobject/@ID}&amp;project={../../mods:classification[@classID='project']}">
+            <i class="fas fa-search" title="{i18n:thunibib.editor.references.select}" />
+          </button>
+        </xed:bind>
+        <xed:controls />
+      </div>
+    </xed:repeat>
+
+  </xed:template>
+
   <xed:template id="projectInformation">
     <xed:bind xpath="mods:classification[@classID='project']">
       <div class="form-group form-inline">
