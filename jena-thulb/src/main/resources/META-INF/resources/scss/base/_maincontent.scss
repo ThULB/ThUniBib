@@ -81,6 +81,10 @@ a.ubo-btn-feedback {
     display: none;
 }
 
+a[href^="statistics"] {
+    display: none;
+}
+
 .badge-secondary {
   color: #333939;
   background-color: #e7e4db;
