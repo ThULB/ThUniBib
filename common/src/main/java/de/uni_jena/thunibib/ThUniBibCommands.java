@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.xml.xpath.XPathFactoryConfigurationException;
 
@@ -139,6 +140,7 @@ public class ThUniBibCommands {
         XPathExpression<Element> funderNoExpr = XPathFactory.instance()
             .compile("./cerif:Funded/cerif:As/cerif:Funding", Filters.element(), null, cerif);
 
+        AtomicInteger counter = new AtomicInteger(0);
         XPathFactory.instance().compile("//cerif:Project", Filters.element(), null, cerif).evaluate(projects)
             .parallelStream().forEach(p -> {
                 String projectTitle = titleExpr.evaluateFirst(p).getText();
@@ -157,10 +159,12 @@ public class ThUniBibCommands {
                     projectId + " " + projectTitle + " " + acronym + " " + funder + " " + fundingNumber);
                 try {
                     client.add(sd);
+                    counter.getAndIncrement();
                 } catch (SolrServerException | IOException e) {
                     throw new RuntimeException(e);
                 }
             });
+        LOGGER.info("A total of {} projects were indexed", counter.get());
         LOGGER.info("Optimizing project index");
         MCRSolrCommands.optimize(core);
     }
