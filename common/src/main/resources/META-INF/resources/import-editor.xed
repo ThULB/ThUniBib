@@ -709,30 +709,6 @@
     </xed:repeat>
   </xed:template>
 
-  <xed:template id="doi.urn.duepublico">
-    <xed:repeat xpath="mods:identifier[contains('doi urn pubmed ieee scopus arxiv dbt dpm',@type)]">
-      <div class="form-inline form-group">
-        <div class="mycore-form-label">
-          <xed:bind xpath="@type" default="doi">
-            <select class="form-control custom-select">
-              <option value="doi">DOI</option>
-              <option value="urn">URN</option>
-              <option value="pubmed">PubMed ID</option>
-              <option value="ieee">IEEE ID</option>
-              <option value="arxiv">arXiv.org ID</option>
-              <option value="scopus">Scopus ID</option>
-              <option value="dbt">DBT ID</option>
-              <option value="dpm">Patentnummer</option>
-            </select>
-            :
-          </xed:bind>
-        </div>
-        <input class="{$xed-validation-marker} form-control col-sm-4" type="text"/>
-        <xed:controls/>
-      </div>
-    </xed:repeat>
-  </xed:template>
-
   <xed:template id="identifier">
     <xed:repeat
         xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm',@type)]">
