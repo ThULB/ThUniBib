@@ -8,9 +8,10 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="mods:name[@type='corporate']/mods:role/mods:roleTerm[@authority='marcrelator_corporation']/@authority">
+  <xsl:template
+      match="mods:name[@type='corporate']/mods:role/mods:roleTerm[@authority='marcrelator_corporation']/@authority">
     <xsl:attribute name="authority">
-      <xsl:value-of select="marcrelator" />
+      <xsl:value-of select="'marcrelator'" />
     </xsl:attribute>
 
   </xsl:template>
