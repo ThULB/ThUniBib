@@ -47,4 +47,29 @@
     </xed:bind>
   </xed:template>
 
+  <xed:template id="status">
+    <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='status']" default="confirmed">
+      <xed:choose>
+        <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
+          <xed:bind xpath="." default="submitted"/>
+          <div class="form-inline form-group">
+            <label for="{xed:generate-id()}" class="mycore-form-label">
+              <xed:output value="concat(i18n:translate('ubo.status'), ': ')"/>
+            </label>
+            <select id="{xed:generate-id()}" class="mycore-form-input custom-select" disabled="disabled">
+              <xed:include uri="xslStyle:items2options:resource:status.xml"/>
+            </select>
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover"
+               data-placement="right" data-content="{i18n:ubo.help.status}">
+              <i class="fas fa-info"></i>
+            </a>
+          </div>
+        </xed:when>
+        <xed:otherwise>
+          <xed:bind xpath="." default="submitted"/>
+        </xed:otherwise>
+      </xed:choose>
+    </xed:bind>
+  </xed:template>
+
 </xed:template>
