@@ -4,8 +4,13 @@
   <label xml:lang="de" text="Projekt" />
   <label xml:lang="en" text="Project" />
   <categories>
+    <category ID="bit">
+      <label xml:lang="de" text="Bauhaus im Text" />
+      <label xml:lang="en" text="Bauhaus im Text" />
+    </category>
     <category ID="nbe">
       <label xml:lang="de" text="Neue Bibliothek des Eigentums" />
+      <label xml:lang="en" text="Neue Bibliothek des Eigentums" />
     </category>
   </categories>
 </mycoreclass>
