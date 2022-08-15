@@ -2,9 +2,9 @@
 
 <navigation root="true">
 
-  <item id="home"/>
-  <item id="login"/>
-  <item id="dozbib"/>
+  <item id="home" />
+  <item id="login" />
+  <item id="dozbib" />
 
   <item menu="main">
     <item ref="search.xed">
@@ -13,7 +13,7 @@
       <item id="dozbib.search-simple" ref="search.xed">
         <label xml:lang="de">Erweiterte Suche</label>
         <label xml:lang="en">Advanced search</label>
-        <item id="dozbib.search"/>
+        <item id="dozbib.search" />
       </item>
       <item id="dozbib.search-expert" ref="search-expert.xed">
         <label xml:lang="de">Expertensuche</label>
@@ -27,7 +27,7 @@
     <item ref="newPublication.xed" id="dozbib.new.publication">
       <label xml:lang="de">Publikation einreichen</label>
       <label xml:lang="en">Registering a publication</label>
-      <item id="dozbib.edit.publication"/>
+      <item id="dozbib.edit.publication" />
     </item>
     <item ref="statistics.xml" id="dozbib.stats">
       <label xml:lang="de">Statistiken</label>
@@ -59,6 +59,10 @@
     <item id="useradmin" ref="servlets/MCRUserServlet" role="admin">
       <label xml:lang="de">Nutzerverwaltung</label>
       <label xml:lang="en">User administration</label>
+    </item>
+    <item id="usernew" ref="authorization/new-user.xed?action=save" role="admin">
+      <label xml:lang="de">Nutzer anlegen</label>
+      <label xml:lang="en">Create new User</label>
     </item>
     <item id="acleditor" ref="rsc/ACLE/start" role="admin">
       <label xml:lang="de">ACL-Editor</label>
