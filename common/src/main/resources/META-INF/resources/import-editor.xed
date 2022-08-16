@@ -652,7 +652,7 @@
     <xed:repeat xpath="mods:note[not(@type='intern')]">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('ubo.comment'), ': ')"/>
+          <xed:output value="concat(i18n:translate('ubo.note'), ': ')"/>
         </label>
         <input id="{xed:generate-id()}" type="text" class="mycore-form-input"/>
         <xed:controls/>
