@@ -709,55 +709,32 @@
     </xed:repeat>
   </xed:template>
 
-  <xed:template id="doi.urn.duepublico">
-    <xed:repeat xpath="mods:identifier[contains('doi urn pubmed ieee scopus arxiv dbt dpm',@type)]">
-      <div class="form-inline form-group">
-        <div class="mycore-form-label">
-          <xed:bind xpath="@type" default="doi">
-            <select class="form-control custom-select">
-              <option value="doi">DOI</option>
-              <option value="urn">URN</option>
-              <option value="pubmed">PubMed ID</option>
-              <option value="ieee">IEEE ID</option>
-              <option value="arxiv">arXiv.org ID</option>
-              <option value="scopus">Scopus ID</option>
-              <option value="dbt">DBT ID</option>
-              <option value="dpm">Patentnummer</option>
-            </select>
-            :
-          </xed:bind>
-        </div>
-        <input class="{$xed-validation-marker} form-control col-sm-4" type="text"/>
-        <xed:controls/>
-      </div>
-    </xed:repeat>
-  </xed:template>
-
   <xed:template id="identifier">
-    <xed:repeat
-        xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm',@type)]">
+    <xed:repeat xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm oclc', @type)]">
       <div class="form-inline form-group ubo-repeat-group">
-        <div class="mycore-form-label">
           <xed:bind xpath="@type" default="doi">
-            <select class="form-control custom-select">
-              <option value="doi">DOI</option>
-              <option value="urn">URN</option>
-              <option value="hdl">Handle</option>
-              <option value="isbn">ISBN</option>
-              <option value="issn">ISSN</option>
-              <option value="pubmed">PubMed ID</option>
-              <option value="ieee">IEEE ID</option>
-              <option value="arxiv">arXiv.org ID</option>
-              <option value="zdb">ZDB ID</option>
-              <option value="scopus">Scopus ID</option>
-              <option value="isi">Web of Science ID</option>
-              <option value="ppn">GBV PPN</option>
-              <option value="dbt">DBT ID</option>
-              <option value="dpm">Patentnummer</option>
-            </select>
-            :
+            <label class="mycore-form-label d-flex align-items-center mt-0">
+              <select class="form-control custom-select">
+                <option value="doi">DOI</option>
+                <option value="urn">URN</option>
+                <option value="hdl">Handle</option>
+                <option value="isbn">ISBN</option>
+                <option value="issn">ISSN</option>
+                <option value="pubmed">PubMed ID</option>
+                <option value="ieee">IEEE ID</option>
+                <option value="arxiv">arXiv.org ID</option>
+                <option value="zdb">ZDB ID</option>
+                <option value="scopus">Scopus ID</option>
+                <option value="isi">Web of Science ID</option>
+                <option value="ppn">GBV PPN</option>
+                <option value="dbt">DBT ID</option>
+                <option value="dpm">Patentnummer</option>
+                <option value="oclc">OCLC</option>
+              </select>
+              <div class="ml-1">:</div>
+            </label>
           </xed:bind>
-        </div>
+
         <input class="{$xed-validation-marker} mycore-form-input" type="text"/>
         <xed:controls/>
       </div>
