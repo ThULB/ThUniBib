@@ -63,7 +63,7 @@
   </xed:template>
 
   <xed:template id="thunibib.typeOfResource">
-    <xed:bind xpath="mods:typeOfResource" default="text">
+    <xed:bind xpath="mods:typeOfResource" default="txt">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output value="concat(i18n:translate('thunibib.typeOfResource'), ': ')"/>
