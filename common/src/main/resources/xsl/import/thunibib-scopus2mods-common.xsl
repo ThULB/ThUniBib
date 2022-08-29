@@ -14,8 +14,6 @@
     <xsl:value-of select="concat($MCR.baseurl, 'classifications/fachreferate')"/>
   </xsl:variable>
 
-  <xsl:include href="scopus2destatis.xsl" />
-
   <xsl:key name="subject-abbrev" match="scopus:subject-area" use="@abbrev"/>
 
   <xsl:output method="xml" encoding="UTF-8" indent="yes" xalan:indent-amount="2" />
