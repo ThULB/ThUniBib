@@ -78,7 +78,7 @@
         <label xml:lang="de" text="Akademische*r Betreuer*in" description="Eine Person, unter deren Betreuung ein Kandidat eine Dissertation oder Abschlussarbeit entwickelt und präsentiert." />
       </category>
       <category ID="spn">
-        <label xml:lang="de" text="Finanzielle Förderung" description="Ein Akteur, der einzelne Aspekte eines Werks finanziell unterstützt z. B. Forschungsförderung, finanzielle Unterstützung einer Veranstaltung." />
+        <label xml:lang="de" text="Fördermittelgeber*in" description="Ein Akteur, der einzelne Aspekte eines Werks finanziell unterstützt z. B. Forschungsförderung, finanzielle Unterstützung einer Veranstaltung." />
         <label xml:lang="en" text="Sponsor" description="A person, family, or organization sponsoring some aspect of a resource, e.g., funding research, sponsoring an event" />
       </category>
       <category ID="res">
@@ -109,30 +109,6 @@
         <label xml:lang="en" text="Translator" description="Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form." />
         <label xml:lang="de" text="Übersetzer*in" description="Eine Person oder Institution, die eine Text von einer Sprache in eine andere, oder eine ältere Form einer Sprache in eine modernere übersetzt." />
       </category>
-    </category>
-    <category ID="pta">
-      <label xml:lang="de" text="Anmeldende Einrichtung (Patent)" description="Eine Person oder Organisation, die ein Patent angemeldet hat." />
-      <label xml:lang="en" text="Patent applicant" description="A person or organization that applied for a patent." />
-    </category>
-    <category ID="dgg">
-      <label xml:lang="de" text="Grad-verleihende Einrichtung" description="Eine Körperschaft, die einen akademischen Grad verleiht." />
-      <label xml:lang="en" text="Degree granting institution" description="A organization granting an academic degree." />
-    </category>
-    <category ID="isb">
-      <label xml:lang="de" text="Herausgebende Einrichtung" description="Ein Akteur, der ein Werk z. B. ein offizielles Organ der Körperschaft herausgibt." />
-      <label xml:lang="en" text="Issuing body" description="A person, family or organization issuing a work, such as an official organ of the body." />
-    </category>
-    <category ID="prn">
-      <label xml:lang="de" text="Produktionsfirma" description="Eine Körperschaft, die für das finanzielle, technische und organisatorische Management einer Produktion für die Bühne, die Leinwand, die Tonaufnahme, das Fernsehen, für einen Webcast usw. verantwortlich ist." />
-      <label xml:lang="en" text="Production company" description="An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc." />
-    </category>
-    <category ID="orm">
-      <label xml:lang="de" text="Veranstaltende Einrichtung" description="Ein Akteur, der eine Ausstellung, ein Ereignis, eine Konferenz, einen Kurs, eine Sendung usw. organisiert, die/das ein Werk zur Folge hat." />
-      <label xml:lang="en" text="Organizer" description="A person, family, or organization organizing the exhibit, event, conference, etc., which gave rise to a resource" />
-    </category>
-    <category ID="pbl">
-      <label xml:lang="en" text="Publisher" description="Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public." />
-      <label xml:lang="de" text="Verlag" description="Eine Person oder Institution, die gedruckte Sachen, oft Text, gedruckte Musik oder Kunstwerke der Öffentlichkeit zur Verfügung stellt." />
     </category>
   </categories>
 </mycoreclass>

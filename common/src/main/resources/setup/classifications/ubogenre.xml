@@ -245,6 +245,7 @@
       <label xml:lang="de" text="Sonstiges" />
     </category>
     <category ID="periodical">
+      <label xml:lang="x-group" text="true" />
       <label xml:lang="de" text="Fortlaufende Werke" />
       <label xml:lang="en" text="Periodical" />
       <category ID="series">
