@@ -1,44 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="marcrelator_corporation">
-
   <label xml:lang="x-auth" text="marcrelator" description="A list of possible contributor roles for corporations" />
+
   <categories>
     <category ID="cre">
       <label xml:lang="de" text="Urheberschaft" description="Eine Person oder Institution, die für den intellektuellen oder künstlerischen Inhalt eines Werkes verantwortlich ist." />
       <label xml:lang="en" text="Creator" description="Use for a person or organization responsible for the intellectual or artistic content of a work." />
-      <category ID="com">
-        <label xml:lang="de" text="Zusammenstellung" description="Ein Akteur, der durch Selektieren, Gliedern, Zusammentragen und Editieren von Daten und Informationen usw. für die Schaffung eines neuen Werks, z. B. einer Bibliografie oder eines Verzeichnisses, verantwortlich ist. Überarbeiten oder Erläutern des Inhalts oder Auswählen und Zusammenstellen von Werken oder Teilen von Werken von einem oder mehreren geistigen Schöpfern ist hiervon ausgenommen." />
-        <label xml:lang="en" text="Compiler" description="A person, family, or organization responsible for creating a new work (e.g., a bibliography, a directory) through the act of compilation, e.g., selecting, arranging, aggregating, and editing data, information, etc" />
-      </category>
-      <category ID="ivr">
-        <label xml:lang="de" text="Interviewende Einrichtung" description="Ein Akteur, der für die Schaffung eines Werks verantwortlich ist, indem er als Interviewer, Reporter, Meinungsforscher oder anderer Informationssammler tätig ist." />
-        <label xml:lang="en" text="Interviewer" description="A person, family, or organization responsible for creating or contributing to a resource by acting as an interviewer, reporter, pollster, or some other information gathering agent." />
-      </category>
-      <category ID="ive">
-        <label xml:lang="de" text="Interviewte Einrichtung" description="Ein Akteur, der für die Schaffung eines Werks verantwortlich ist, indem er einem Interviewer antwortet, normalerweise einem Reporter, einem Meinungsforscher oder einem anderen, der Informationen zusammenträgt." />
-        <label xml:lang="en" text="Interviewee" description="Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent." />
-      </category>
-      <category ID="org">
-        <label xml:lang="de" text="Begründende Einrichtung eines Werks" description="Ein Akteur, der für das Begründen einer fortlaufenden oder einer integrierenden Ressource oder einer mehrteiligen Monografie verantwortlich ist." />
-        <label xml:lang="en" text="Originator" description="A person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author" />
-      </category>
     </category>
-
+    <category ID="com">
+      <label xml:lang="de" text="Zusammenstellung" description="Ein Akteur, der durch Selektieren, Gliedern, Zusammentragen und Editieren von Daten und Informationen usw. für die Schaffung eines neuen Werks, z. B. einer Bibliografie oder eines Verzeichnisses, verantwortlich ist. Überarbeiten oder Erläutern des Inhalts oder Auswählen und Zusammenstellen von Werken oder Teilen von Werken von einem oder mehreren geistigen Schöpfern ist hiervon ausgenommen." />
+      <label xml:lang="en" text="Compiler" description="A person, family, or organization responsible for creating a new work (e.g., a bibliography, a directory) through the act of compilation, e.g., selecting, arranging, aggregating, and editing data, information, etc" />
+    </category>
+    <category ID="ivr">
+      <label xml:lang="de" text="Interviewende Einrichtung" description="Ein Akteur, der für die Schaffung eines Werks verantwortlich ist, indem er als Interviewer, Reporter, Meinungsforscher oder anderer Informationssammler tätig ist." />
+      <label xml:lang="en" text="Interviewer" description="A person, family, or organization responsible for creating or contributing to a resource by acting as an interviewer, reporter, pollster, or some other information gathering agent." />
+    </category>
+    <category ID="ive">
+      <label xml:lang="de" text="Interviewte Einrichtung" description="Ein Akteur, der für die Schaffung eines Werks verantwortlich ist, indem er einem Interviewer antwortet, normalerweise einem Reporter, einem Meinungsforscher oder einem anderen, der Informationen zusammenträgt." />
+      <label xml:lang="en" text="Interviewee" description="Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent." />
+    </category>
+    <category ID="org">
+      <label xml:lang="de" text="Begründende Einrichtung eines Werks" description="Ein Akteur, der für das Begründen einer fortlaufenden oder einer integrierenden Ressource oder einer mehrteiligen Monografie verantwortlich ist." />
+      <label xml:lang="en" text="Originator" description="A person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author" />
+    </category>
     <category ID="ctb">
       <label xml:lang="de" text="Mitwirkende Einrichtung" description="Eine Person oder Institution dessen Arbeit zu einem größeren Werk beiträgt, z. B. eine Anthologie, Serienpublikation oder andere Zusammenstellung individueller Werke. Nicht zu verwenden, wenn spezifischere Rollenangabe möglich ist. " />
       <label xml:lang="en" text="Contributor" description="Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, ..." />
-      <category ID="hnr">
-        <label xml:lang="de" text="Gefeierte Einrichtung" description="Ein Akteur, der durch ein Werk geehrt wird." />
-        <label xml:lang="en" text="Honoree" description="A person, family, or organization honored by a work or item (e.g., the honoree of a festschrift, a person to whom a copy is presented)" />
-      </category>
-      <category ID="res">
-        <label xml:lang="de" text="Forschungseinrichtung" description="Ein Akteur, der Forschung betreibt, um die Schaffung eines Werks zu unterstützen." />
-        <label xml:lang="en" text="Researcher" description="A person or organization responsible for performing research." />
-      </category>
-      <category ID="spn">
-        <label xml:lang="de" text="Finanzielle Förderung" description="Ein Akteur, der einzelne Aspekte eines Werks finanziell unterstützt z. B. Forschungsförderung, finanzielle Unterstützung einer Veranstaltung." />
-        <label xml:lang="en" text="Sponsor" description="A person, family, or organization sponsoring some aspect of a resource, e.g., funding research, sponsoring an event" />
-      </category>
+    </category>
+    <category ID="hnr">
+      <label xml:lang="de" text="Gefeierte Einrichtung" description="Ein Akteur, der durch ein Werk geehrt wird." />
+      <label xml:lang="en" text="Honoree" description="A person, family, or organization honored by a work or item (e.g., the honoree of a festschrift, a person to whom a copy is presented)" />
+    </category>
+    <category ID="res">
+      <label xml:lang="de" text="Forschungseinrichtung" description="Ein Akteur, der Forschung betreibt, um die Schaffung eines Werks zu unterstützen." />
+      <label xml:lang="en" text="Researcher" description="A person or organization responsible for performing research." />
+    </category>
+    <category ID="spn">
+      <label xml:lang="de" text="Finanzielle Förderung" description="Ein Akteur, der einzelne Aspekte eines Werks finanziell unterstützt z. B. Forschungsförderung, finanzielle Unterstützung einer Veranstaltung." />
+      <label xml:lang="en" text="Sponsor" description="A person, family, or organization sponsoring some aspect of a resource, e.g., funding research, sponsoring an event" />
     </category>
     <category ID="dgg">
       <label xml:lang="de" text="Gradverleihende Einrichtung" description="Eine Körperschaft, die einen akademischen Grad verleiht." />
