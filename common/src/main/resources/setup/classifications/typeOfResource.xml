@@ -4,60 +4,60 @@
   <label xml:lang="de" text="typeOfResource" />
   <label xml:lang="x-uri" text="http://www.mycore.org/classifications/typeOfResource" />
   <categories>
-    <category ID="txt">
-      <label xml:lang="de" text="Text" />
-      <label xml:lang="en" text="Text" description="Resource intended to be perceived visually and understood through the use of language in written or spoken form." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/txt.html" xlink:type="locator" />
-    </category>
     <category ID="aud">
       <label xml:lang="en" text="Audio" description="Resources expressed in an audible form, including music or other sounds." />
       <label xml:lang="de" text="Audio" />
       <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/aud.html" xlink:type="locator" />
-    </category>
-    <category ID="art">
-      <label xml:lang="de" text="Objekt / Artefakt" />
-      <label xml:lang="en" text="object / artifact" description="Resource in a form intended to be perceived visually in three dimensions. Includes man-made objects as well as naturally occurring objects such as specimens mounted for viewing." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/art.html" xlink:type="locator" />
-    </category>
-    <category ID="car">
-      <label xml:lang="de" text="Kartenmaterial" />
-      <label xml:lang="en" text="map material" description="Resource that shows spatial information, including maps, atlases, globes, digital, and other cartographic resources." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/car.html" xlink:type="locator" />
-    </category>
-    <category ID="dat">
-      <label xml:lang="de" text="Numerisch / Daten" />
-      <label xml:lang="en" text="dataset" description="Data encoded in a defined structure, but not normally displayed in its raw form." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/dat.html" xlink:type="locator" />
-    </category>
-    <category ID="mix">
-      <label xml:lang="de" text="Medienkombination" />
-      <label xml:lang="en" text="mixed material" description="Resource comprised of multiple types which is not driven by software; for instance, a manuscript collection of text, photographs and sound recordings." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/mix.html" xlink:type="locator" />
-    </category>
-    <category ID="mov">
-      <label xml:lang="de" text="Video / Film" />
-      <label xml:lang="en" text="video / film" description="Images intended to be perceived as moving, including motion pictures and video recordings." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/mov.html" xlink:type="locator" />
-    </category>
-    <category ID="mul">
-      <label xml:lang="de" text="Software / Multimedia" />
-      <label xml:lang="en" text="software / multimedia" description="Electronic resource that is a computer program or which consists of multiple media types that are software driven." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/mul.html" xlink:type="locator" />
-    </category>
-    <category ID="not">
-      <label xml:lang="de" text="Notierte Musik" />
-      <label xml:lang="en" text="notated music" description="Graphic, non-realized representations of musical works intended to be perceived visually." />
-      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/not.html" xlink:type="locator" />
     </category>
     <category ID="img">
       <label xml:lang="de" text="Bild" />
       <label xml:lang="en" text="image / picture" description="Resource expressed through line, shape, shading, etc., intended to be perceived visually as a still image or images in two dimensions." />
       <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/img.html" xlink:type="locator" />
     </category>
+        <category ID="car">
+      <label xml:lang="de" text="Kartenmaterial" />
+      <label xml:lang="en" text="map material" description="Resource that shows spatial information, including maps, atlases, globes, digital, and other cartographic resources." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/car.html" xlink:type="locator" />
+    </category>
+    <category ID="mix">
+      <label xml:lang="de" text="Medienkombination" />
+      <label xml:lang="en" text="mixed material" description="Resource comprised of multiple types which is not driven by software; for instance, a manuscript collection of text, photographs and sound recordings." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/mix.html" xlink:type="locator" />
+    </category>
+    <category ID="not">
+      <label xml:lang="de" text="Notierte Musik" />
+      <label xml:lang="en" text="notated music" description="Graphic, non-realized representations of musical works intended to be perceived visually." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/not.html" xlink:type="locator" />
+    </category>
+    <category ID="dat">
+      <label xml:lang="de" text="Numerisch / Daten" />
+      <label xml:lang="en" text="dataset" description="Data encoded in a defined structure, but not normally displayed in its raw form." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/dat.html" xlink:type="locator" />
+    </category>
+    <category ID="art">
+      <label xml:lang="de" text="Objekt / Artefakt" />
+      <label xml:lang="en" text="object / artifact" description="Resource in a form intended to be perceived visually in three dimensions. Includes man-made objects as well as naturally occurring objects such as specimens mounted for viewing." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/art.html" xlink:type="locator" />
+    </category>
+    <category ID="mul">
+      <label xml:lang="de" text="Software / Multimedia" />
+      <label xml:lang="en" text="software / multimedia" description="Electronic resource that is a computer program or which consists of multiple media types that are software driven." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/mul.html" xlink:type="locator" />
+    </category>
     <category ID="tac">
       <label xml:lang="de" text="Taktil" description="Materialien, die dazu konzipiert sind, über den Tastsinn wahrgenommen zu werden." />
       <label xml:lang="en" text="Tactile" description="Resource that is intended to be perceived by touch." />
       <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/tac.html" xlink:type="locator" />
+    </category>
+    <category ID="txt">
+      <label xml:lang="de" text="Text" />
+      <label xml:lang="en" text="Text" description="Resource intended to be perceived visually and understood through the use of language in written or spoken form." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/txt.html" xlink:type="locator" />
+    </category>
+    <category ID="mov">
+      <label xml:lang="de" text="Video / Film" />
+      <label xml:lang="en" text="video / film" description="Images intended to be perceived as moving, including motion pictures and video recordings." />
+      <url xlink:href="https://id.loc.gov/vocabulary/resourceTypes/mov.html" xlink:type="locator" />
     </category>
     <category ID="unk">
       <label xml:lang="de" text="Sonstiges" />
