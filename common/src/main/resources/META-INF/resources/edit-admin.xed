@@ -42,6 +42,8 @@
         <xed:template id="editor-form-fields">
           <input type="hidden" name="mode" value="save" />
           <xed:include ref="validation" />
+          <xed:include uri="webapp:import-editor.xed" ref="cancel.submit" />
+
           <fieldset>
             <legend>
               <xed:include ref="legend.ID" />
@@ -135,7 +137,6 @@
 
           <xed:include uri="webapp:import-editor.xed" ref="fix.structure.parent" />
           <xed:include uri="webapp:import-editor.xed" ref="cleanup" />
-          <xed:include uri="webapp:import-editor.xed" ref="cancel.submit" />
         </xed:template>
       </xed:form>
     </div>

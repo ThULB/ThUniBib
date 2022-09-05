@@ -8,6 +8,13 @@ $form-color: #251e52;
   border-radius: $border-radius;
 }
 
+.thunibib-editor-confirm-btn-group {
+    position: fixed;
+    right: 0px;
+    top: 310px;
+    z-index: 9999;
+}
+
 .form-control:focus, .mycore-form-input:focus {
     color: #495057;
     background-color: #fff;

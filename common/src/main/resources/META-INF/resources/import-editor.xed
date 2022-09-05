@@ -982,16 +982,16 @@
   </xed:template>
 
   <xed:template id="cancel.submit">
-    <div class="form-inline form-group">
-      <label class="mycore-form-label"></label>
-      <button class="btn btn-sm btn-primary mr-2" type="submit" xed:target="servlet" xed:href="DozBibEntryServlet">
-        <xed:output i18n="button.save"/>
-      </button>
+    <div class="form-inline form-group thunibib-editor-confirm-btn-group">
+      <div class="bg-white">
+        <button class="btn btn-sm btn-primary mr-2" type="submit" xed:target="servlet" xed:href="DozBibEntryServlet">
+          <xed:output i18n="button.save"/>
+        </button>
 
-      <button class="btn btn-sm btn-primary" type="submit" xed:target="cancel">
-        <xed:output i18n="button.cancel"/>
-      </button>
-      <!-- <button class="ml-2 btn btn-sm btn-primary" type="submit" xed:target="debug">Debug</button> -->
+        <button class="btn btn-sm btn-outline-secondary" type="submit" xed:target="cancel">
+          <xed:output i18n="button.cancel"/>
+        </button>
+      </div>
     </div>
   </xed:template>
 

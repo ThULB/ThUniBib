@@ -47,6 +47,7 @@
 
           <xed:include ref="common.metafields" />
           <xed:include ref="validation" />
+          <xed:include ref="cancel.submit" />
 
           <xed:bind xpath="metadata/def.modsContainer[@class='MCRMetaXML']/modsContainer/mods:mods">
             <xed:load-resource name="genres" uri="classification:metadata:-1:children:ubogenre" />
@@ -125,7 +126,6 @@
             </xed:if>
           </xed:bind>
           <xed:include ref="cleanup" />
-          <xed:include ref="cancel.submit" />
         </xed:template>
       </xed:form>
     </div>
