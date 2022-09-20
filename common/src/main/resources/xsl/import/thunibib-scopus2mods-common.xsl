@@ -4,8 +4,15 @@
 <!-- http://api.elsevier.com/content/abstract/scopus_id/84946429507?apikey=... -->
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xalan="http://xml.apache.org/xalan" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:scopus="http://www.elsevier.com/xml/svapi/abstract/dtd" xmlns:ait="http://www.elsevier.com/xml/ani/ait" xmlns:ce="http://www.elsevier.com/xml/ani/common" xmlns:cto="http://www.elsevier.com/xml/cto/dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:xocs="http://www.elsevier.com/xml/xocs/dtd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <xsl:param name="MCR.baseurl"/>
 
-  <xsl:include href="scopus2destatis.xsl" />
+  <xsl:variable name="authorityOA">
+    <xsl:value-of select="concat($MCR.baseurl, 'classifications/oa')"/>
+  </xsl:variable>
+
+  <xsl:variable name="authorityFach">
+    <xsl:value-of select="concat($MCR.baseurl, 'classifications/fachreferate')"/>
+  </xsl:variable>
 
   <xsl:key name="subject-abbrev" match="scopus:subject-area" use="@abbrev"/>
 
@@ -43,11 +50,11 @@
       </mods:title>
     </mods:titleInfo>
   </xsl:template>
-  
+
   <xsl:template match="inf"> <!-- subscript / inferior -->
     <xsl:value-of select="translate(text(),'-+=()aeox0123456789','₋₊₌₍₎ₐₑₒₓ₀₁₂₃₄₅₆₇₈₉')" />
   </xsl:template>
-  
+
   <xsl:template match="sup"> <!-- superscript / superior -->
     <xsl:value-of select="translate(text(),'-+=()ni0123456789','⁻⁺⁼⁽⁾ⁿⁱ⁰¹²³⁴⁵⁶⁷⁸⁹')" />
   </xsl:template>
@@ -70,7 +77,7 @@
       <xsl:apply-templates select="//author[@auid=current()/@auid][1]/ce:e-address[@type='email']" />
     </mods:name>
   </xsl:template>
-  
+
   <xsl:template match="ce:e-address[@type='email']">
     <mods:affiliation>
       <xsl:value-of select="." />
@@ -316,15 +323,11 @@
     </mods:subject>
   </xsl:template>
 
-  <xsl:variable name="authorityOA">https://bibliographie.ub.uni-due.de/classifications/oa</xsl:variable>
-
   <xsl:template match="scopus:coredata/scopus:openaccess">
     <xsl:if test=".='1'">
       <mods:classification authorityURI="{$authorityOA}" valueURI="{$authorityOA}#oa" />
     </xsl:if>
   </xsl:template>
-
-  <xsl:variable name="authorityFach">https://bibliographie.ub.uni-due.de/classifications/fachreferate</xsl:variable>
 
   <xsl:template match="scopus:subject-areas">
     <!-- to avoid duplicates, only use first occurence of each Subject Area Classifications -->
@@ -336,7 +339,7 @@
       </xsl:variable>
       <xsl:for-each select="xalan:tokenize($subject,';')">
         <mods:classification authorityURI="{$authorityFach}" valueURI="{$authorityFach}#{normalize-space(.)}" />
-      </xsl:for-each> 
+      </xsl:for-each>
       <mods:note type="source note">
         Scopus-Subject: <xsl:value-of select="concat(text(),' (code=',@code,', abbrev=', @abbrev, ')')" />
       </mods:note>
