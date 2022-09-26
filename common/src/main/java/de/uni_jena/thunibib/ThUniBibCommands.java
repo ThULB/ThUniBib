@@ -25,6 +25,7 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
+import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -95,12 +96,6 @@ public class ThUniBibCommands {
             responseEntity = httpResponse.getEntity();
             String source = EntityUtils.toString(responseEntity, "UTF-8");
 
-            // the xml from factscience is not well-formed at the moment
-            source = source.replaceAll("<\\?xml version=\"1.0\" encoding=\"UTF-8\"\\?>", "");
-            // removes non-printable characters from unicode
-            source = source.replaceAll("\\p{C}", "");
-            source = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Projects>" + source + "</Projects>";
-
             SAXBuilder b = new SAXBuilder();
             try (InputStream is = new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8))) {
                 LOGGER.info("Parsing response...");
@@ -140,6 +135,9 @@ public class ThUniBibCommands {
         XPathExpression<Element> funderNoExpr = XPathFactory.instance()
             .compile("./cerif:Funded/cerif:As/cerif:Funding", Filters.element(), null, cerif);
 
+        Attribute attribute = XPathFactory.instance().compile("./response/@numFound", Filters.attribute(), null)
+            .evaluateFirst(projects);
+
         AtomicInteger counter = new AtomicInteger(0);
         XPathFactory.instance().compile("//cerif:Project", Filters.element(), null, cerif).evaluate(projects)
             .parallelStream().forEach(p -> {
@@ -164,7 +162,9 @@ public class ThUniBibCommands {
                     throw new RuntimeException(e);
                 }
             });
-        LOGGER.info("A total of {} projects were indexed", counter.get());
+
+        LOGGER.info("Expected {} projects and a total of {} projects were indexed",
+            attribute != null ? attribute.getValue() : "?", counter.get());
         LOGGER.info("Optimizing project index");
         MCRSolrCommands.optimize(core);
     }
