@@ -11,6 +11,8 @@
 
   <xsl:param name="CurrentLang"/>
   <xsl:param name="UBO.Login.Path"/>
+  <!-- if current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
+  <xsl:param name="MCR.ORCID.LinkURL"/>
 
   <xsl:variable name="jquery.version" select="'3.3.1'"/>
   <xsl:variable name="jquery-ui.version" select="'1.12.1'"/>
@@ -56,9 +58,7 @@
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css" type="text/css"/>
 
-      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Droid+Sans|Droid+Sans+Mono:300,400" type="text/css"/>
-      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto:300,400" type="text/css"/>
-      <link rel="stylesheet" href="https://webfonts.gbv.de/css?family=Roboto+Condensed:300,400" type="text/css"/>
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css" />
 
       <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';</script>
       <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang"/>';</script>
@@ -246,7 +246,6 @@
   </xsl:template>
 
   <!-- custom navigation for additional information -->
-
   <xsl:template name="layout.sub.navigation.information">
     <xsl:for-each select="$navigation.tree/item[@menu='information']">
       <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -301,7 +300,6 @@
   </xsl:template>
 
   <!-- page content -->
-
   <xsl:template name="layout.inhalt">
     <section role="main" id="inhalt">
 
@@ -319,7 +317,6 @@
   </xsl:template>
 
   <!-- Brotkrumen-Navigation -->
-
   <xsl:template name="layout.breadcrumbPath">
     <div id="breadcrumbWrapper">
       <div class="container">
@@ -366,7 +363,6 @@
 
   <!-- current user and login formular-->
   <xsl:template name="layout.login">
-
     <div class="nav-item mr-2">
       <xsl:choose>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
@@ -442,11 +438,7 @@
 
   </xsl:template>
 
-  <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
-  <xsl:param name="MCR.ORCID.LinkURL"/>
-
   <xsl:template name="orcidUser">
-
     <xsl:variable name="orcidUser" select="orcidSession:getCurrentUser()"
                   xmlns:orcidSession="xalan://org.mycore.orcid.user.MCRORCIDSession"/>
     <xsl:variable name="userStatus" select="orcidUser:getStatus($orcidUser)"
