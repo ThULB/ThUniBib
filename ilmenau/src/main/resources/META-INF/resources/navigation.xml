@@ -2,18 +2,18 @@
 
 <navigation root="true">
 
-  <item id="home" />
-  <item id="login" />
-  <item id="dozbib" />
+  <item id="home"/>
+  <item id="login"/>
+  <item id="dozbib"/>
 
   <item menu="main">
     <item ref="search.xed">
       <label xml:lang="de">Suche</label>
       <label xml:lang="en">Search</label>
-        <item id="dozbib.search-simple" ref="search.xed">
-          <label xml:lang="de">Erweiterte Suche</label>
-          <label xml:lang="en">Advanced search</label>
-        <item id="dozbib.search" />
+      <item id="dozbib.search-simple" ref="search.xed">
+        <label xml:lang="de">Erweiterte Suche</label>
+        <label xml:lang="en">Advanced search</label>
+        <item id="dozbib.search"/>
       </item>
       <item id="dozbib.search-expert" ref="search-expert.xed">
         <label xml:lang="de">Expertensuche</label>
@@ -27,7 +27,7 @@
     <item ref="newPublication.xed" id="dozbib.new.publication">
       <label xml:lang="de">Publikation einreichen</label>
       <label xml:lang="en">Registering a publication</label>
-      <item id="dozbib.edit.publication" />
+      <item id="dozbib.edit.publication"/>
     </item>
     <item ref="statistics.xml" id="dozbib.stats">
       <label xml:lang="de">Statistiken</label>
@@ -75,15 +75,15 @@
       <label xml:lang="de">Kontakt</label>
       <label xml:lang="en">Contact</label>
     </item>
-    <item ref="impressum.xml">
+    <item ref="https://www.tu-ilmenau.de/impressum">
       <label xml:lang="de">Impressum</label>
       <label xml:lang="en">Legal Notice</label>
     </item>
-    <item ref="privacy.xml">
+    <item ref="https://www.tu-ilmenau.de/datenschutz">
       <label xml:lang="de">Datenschutz</label>
       <label xml:lang="en">Privacy Notice</label>
     </item>
-    <item ref="accessibility.xml">
+    <item ref="https://www.tu-ilmenau.de/barrierefreiheit">
       <label xml:lang="de">Barrierefreiheit</label>
       <label xml:lang="en">Accessibility</label>
     </item>
