@@ -60,7 +60,7 @@
             <label for="{xed:generate-id()}" class="mycore-form-label">
               <xed:output value="concat(i18n:translate('ubo.status'), ': ')" />
             </label>
-            <select id="{xed:generate-id()}" class="mycore-form-input custom-select" disabled="disabled">
+            <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
               <xed:include uri="xslStyle:items2options:resource:status.xml" />
             </select>
             <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover"
