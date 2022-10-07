@@ -60,6 +60,10 @@
       <label xml:lang="de">Nutzerverwaltung</label>
       <label xml:lang="en">User administration</label>
     </item>
+    <item id="usernew" ref="authorization/new-user.xed?action=save" role="admin">
+      <label xml:lang="de">Nutzer anlegen</label>
+      <label xml:lang="en">Create new User</label>
+    </item>
     <item id="acleditor" ref="rsc/ACLE/start" role="admin">
       <label xml:lang="de">ACL-Editor</label>
       <label xml:lang="en">ACL editor</label>
