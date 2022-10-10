@@ -88,7 +88,7 @@ $form-color: #251e52;
 
 .btn-outline-primary {
     color: $color-dark-blue;
-    background-color: transparent;
+    background-color: white;
     background-image: none;
     border-color: $color-dark-blue;
 }
@@ -101,5 +101,7 @@ $form-color: #251e52;
 
 .badge-secondary {
   color: #333939;
-  background-color: #e7e4db;
+  background-color: white !important;
+  border-radius: 0.2rem;
+  border: 1px solid $color-dark-blue;
 }
