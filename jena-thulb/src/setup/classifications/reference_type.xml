@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="reference_type">
+
+  <label xml:lang="de" text="Referenztypen" />
+  <label xml:lang="en" text="Type of Reference" />
+
+  <categories>
+    <category ID="format_other">
+      <label xml:lang="de" text="Anderes Format" />
+      <label xml:lang="en" text="Other Format" />
+    </category>
+    <category ID="original">
+      <label xml:lang="de" text="Original" />
+      <label xml:lang="en" text="Original" />
+    </category>
+    <category ID="preceding">
+      <label xml:lang="de" text="Vorgänger" />
+      <label xml:lang="en" text="Predecessor" />
+    </category>
+    <category ID="references">
+      <label xml:lang="de" text="Referenziert" />
+      <label xml:lang="en" text="References" />
+    </category>
+    <category ID="reviewOf">
+      <label xml:lang="de" text="Rezension von" />
+      <label xml:lang="en" text="Review of" />
+    </category>
+    <category ID="Translation">
+      <label xml:lang="de" text="Übersetzung" />
+      <label xml:lang="en" text="Translation" />
+    </category>
+    <category ID="version_other">
+      <label xml:lang="de" text="Andere Version" />
+      <label xml:lang="en" text="Other Version" />
+    </category>
+  </categories>
+
+</mycoreclass>
