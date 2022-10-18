@@ -4,6 +4,7 @@
   <label xml:lang="de" text="Genre" description="Publikationstypen der Hochschulbibliographie" />
   <categories>
     <category ID="contribution">
+      <label xml:lang="x-group" text="true" />
       <label xml:lang="x-marcgt" text="book" />
       <label xml:lang="en" text="Article / Contribution" />
       <label xml:lang="de" text="Unselbstständige Werke" />
