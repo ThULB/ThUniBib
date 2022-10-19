@@ -10,6 +10,10 @@
       <label xml:lang="de" text="Anderes Format" />
       <label xml:lang="en" text="Other Format" />
     </category>
+    <category ID="hka">
+      <label xml:lang="de" text="Historisch-kritische Ausgabe" />
+      <label xml:lang="en" text="Historical-critical edition" />
+    </category>
     <category ID="original">
       <label xml:lang="de" text="Original" />
       <label xml:lang="en" text="Original" />
