@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xed:template xmlns:xed="http://www.mycore.de/xeditor">
+  <!--
+    as of https://cmswiki.rrz.uni-hamburg.de/hummel/MyCoRe/Organisation/AnwenderWorkshop2018?action=AttachFile&do=view&target=MyCoRe+XEditor+Erweiterungen+2018-11-14.pdf
+  -->
+  <xed:modify ref="editor-form-fields">
+    <!-- add -->
+    <xed:include ref="scroll-to-validation-error" after="projectInformation"/>
 
-  <!-- remove -->
-  <xed:template id="thunibib.comment.intern" />
-  <xed:template id="thunibib.partOf" />
+    <!-- remove -->
+    <xed:remove ref="thunibib.partOf"/>
+    <xed:remove ref="thunibib.comment.intern"/>
+  </xed:modify>
 
   <!-- overwrite -->
   <xed:template id="relations">
@@ -13,21 +19,21 @@
         <xed:bind xpath="@type" default="references">
           <div class="mycore-form-label">
             <select class="form-control custom-select">
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:reference_type" />
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:reference_type"/>
             </select>
-            <xed:output value="':'" />
+            <xed:output value="':'"/>
           </div>
         </xed:bind>
 
         <xed:bind xpath="@xlink:href">
-          <input class="mycore-form-input" type="text" value="{.}" />
+          <input class="mycore-form-input" type="text" value="{.}"/>
 
           <button class="btn btn-outline-primary" type="submit" xed:target="subselect"
                   xed:href="../search-reference.xed?id_type=id&amp;origin={/mycoreobject/@ID}&amp;project={../../mods:classification[@classID='project']}">
-            <i class="fas fa-search" title="{i18n:thunibib.editor.references.select}" />
+            <i class="fas fa-search" title="{i18n:thunibib.editor.references.select}"/>
           </button>
         </xed:bind>
-        <xed:controls />
+        <xed:controls/>
       </div>
     </xed:repeat>
 
@@ -37,14 +43,14 @@
     <xed:bind xpath="mods:classification[@classID='project']">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output value="concat(i18n:translate('ubo.project'), ': ')" />
+          <xed:output value="concat(i18n:translate('ubo.project'), ': ')"/>
         </label>
 
         <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
           <option value="">
-            <xed:output i18n="search.select" />
+            <xed:output i18n="search.select"/>
           </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:project" />
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:project"/>
         </select>
       </div>
     </xed:bind>
@@ -55,13 +61,13 @@
               default="confirmed">
       <xed:choose>
         <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-          <xed:bind xpath="." default="submitted" />
+          <xed:bind xpath="." default="submitted"/>
           <div class="form-inline form-group">
             <label for="{xed:generate-id()}" class="mycore-form-label">
-              <xed:output value="concat(i18n:translate('ubo.status'), ': ')" />
+              <xed:output value="concat(i18n:translate('ubo.status'), ': ')"/>
             </label>
             <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
-              <xed:include uri="xslStyle:items2options:resource:status.xml" />
+              <xed:include uri="xslStyle:items2options:resource:status.xml"/>
             </select>
             <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover"
                data-placement="right" data-content="{i18n:ubo.help.status}">
@@ -70,10 +76,26 @@
           </div>
         </xed:when>
         <xed:otherwise>
-          <xed:bind xpath="." default="submitted" />
+          <xed:bind xpath="." default="submitted"/>
         </xed:otherwise>
       </xed:choose>
     </xed:bind>
+  </xed:template>
+
+  <xed:template id="scroll-to-validation-error">
+    <script type="text/javascript">
+      <![CDATA[
+        $('document').ready(function () {
+          var offset = $(".is-invalid:nth-of-type(1)").offset();
+          if(typeof offset !== "undefined"){
+            offset.top = offset.top - 100;
+            $([document.documentElement, document.body]).animate({
+            scrollTop: offset.top
+            }, 1000);
+          }
+        });
+      ]]>
+    </script>
   </xed:template>
 
 </xed:template>
