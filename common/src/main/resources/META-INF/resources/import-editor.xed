@@ -40,11 +40,16 @@
                   test="descendant::mods:dateIssued[string-length(.) &gt; 0] or mods:genre='journal' or mods:genre='series' or mods:genre='blog' or mods:genre='newspaper'"
                   i18n="ubo.date.issued.validation" display="global"/>
 
-    <!-- title required for all non standalone object types -->
+    <!-- title required for all non-standalone object types -->
     <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
                   test="string-length(.) &gt; 0"
-                  relevant-if="//mods:mods/mods:genre='entry' or //mods:mods/mods:genre='article' or //mods:mods/mods:genre='chapter' or //mods:mods/mods:genre='preface' or //mods:mods/mods:genre='abstract' or //mods:mods/mods:genre='conference_essay' or //mods:mods/mods:genre='entry' or //mods:mods/mods:genre='video_contribution' or //mods:mods/mods:genre='blog_entry' or (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
+                  relevant-if="//mods:mods/mods:genre='entry' or //mods:mods/mods:genre='article' or //mods:mods/mods:genre='chapter' or //mods:mods/mods:genre='preface' or //mods:mods/mods:genre='abstract' or //mods:mods/mods:genre='conference_essay' or //mods:mods/mods:genre='entry' or //mods:mods/mods:genre='video_contribution' or //mods:mods/mods:genre='blog_entry'"
                   i18n="ubo.title.validation" display="global"/>
+
+    <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
+                  test="string-length(.) &gt; 0"
+                  relevant-if="(string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
+                  i18n="ubo.title.validation.genre.intern.present" display="global"/>
 
     <script type="text/javascript">
       <![CDATA[
@@ -606,7 +611,8 @@
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output value="concat(i18n:translate('ubo.edition'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input" placeholder="{i18n:ubo.edition.placeholder}"/>
+        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
+               placeholder="{i18n:ubo.edition.placeholder}"/>
       </div>
     </xed:bind>
   </xed:template>
@@ -710,30 +716,31 @@
   </xed:template>
 
   <xed:template id="identifier">
-    <xed:repeat xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm oclc', @type)]">
+    <xed:repeat
+        xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm oclc', @type)]">
       <div class="form-inline form-group ubo-repeat-group">
-          <xed:bind xpath="@type" default="doi">
-            <label class="mycore-form-label d-flex align-items-center mt-0">
-              <select class="form-control custom-select">
-                <option value="doi">DOI</option>
-                <option value="urn">URN</option>
-                <option value="hdl">Handle</option>
-                <option value="isbn">ISBN</option>
-                <option value="issn">ISSN</option>
-                <option value="pubmed">PubMed ID</option>
-                <option value="ieee">IEEE ID</option>
-                <option value="arxiv">arXiv.org ID</option>
-                <option value="zdb">ZDB ID</option>
-                <option value="scopus">Scopus ID</option>
-                <option value="isi">Web of Science ID</option>
-                <option value="ppn">GBV PPN</option>
-                <option value="dbt">DBT ID</option>
-                <option value="dpm">Patentnummer</option>
-                <option value="oclc">OCLC</option>
-              </select>
-              <div class="ml-1">:</div>
-            </label>
-          </xed:bind>
+        <xed:bind xpath="@type" default="doi">
+          <label class="mycore-form-label d-flex align-items-center mt-0">
+            <select class="form-control custom-select">
+              <option value="doi">DOI</option>
+              <option value="urn">URN</option>
+              <option value="hdl">Handle</option>
+              <option value="isbn">ISBN</option>
+              <option value="issn">ISSN</option>
+              <option value="pubmed">PubMed ID</option>
+              <option value="ieee">IEEE ID</option>
+              <option value="arxiv">arXiv.org ID</option>
+              <option value="zdb">ZDB ID</option>
+              <option value="scopus">Scopus ID</option>
+              <option value="isi">Web of Science ID</option>
+              <option value="ppn">GBV PPN</option>
+              <option value="dbt">DBT ID</option>
+              <option value="dpm">Patentnummer</option>
+              <option value="oclc">OCLC</option>
+            </select>
+            <div class="ml-1">:</div>
+          </label>
+        </xed:bind>
 
         <input class="{$xed-validation-marker} mycore-form-input" type="text"/>
         <xed:controls/>
