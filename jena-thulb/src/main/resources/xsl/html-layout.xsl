@@ -6,7 +6,8 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
                 xmlns:encoder="xalan://java.net.URLEncoder"
-                exclude-result-prefixes="xsl xalan i18n mcrver encoder">
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="xsl xalan i18n mcrver encoder mcrxml">
 
   <xsl:output method="xml" encoding="UTF-8" />
 
@@ -24,6 +25,7 @@
   <!-- additional stylesheets -->
   <xsl:include href="coreFunctions.xsl" />
   <xsl:include href="html-layout-backend.xsl" />
+  <xsl:include href="servicedesk.xsl"/>
 
   <!-- ==================== HTML ==================== -->
 
@@ -97,9 +99,14 @@
           </div>
         </div>
       </div>
-      <xsl:if test="string-length($UBO.Mail.Feedback) &gt; 0">
-        <xsl:call-template name="feedback" />
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="string-length($UBO.Mail.Feedback) &gt; 0 and not(mcrxml:isCurrentUserInRole('admin'))">
+          <xsl:call-template name="feedback"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="." mode="servicedesk"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </div>
   </xsl:template>
 

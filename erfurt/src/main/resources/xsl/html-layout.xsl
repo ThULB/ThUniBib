@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xalan="http://xml.apache.org/xalan"
-  xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
-  xmlns:encoder="xalan://java.net.URLEncoder"
-  xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
-  exclude-result-prefixes="xsl xalan i18n encoder mcrver">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
+                xmlns:encoder="xalan://java.net.URLEncoder"
+                xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="xsl xalan i18n encoder mcrver mcrxml">
 
-  <xsl:output method="xml" encoding="UTF-8" />
+  <xsl:output method="xml" encoding="UTF-8"/>
 
-  <xsl:param name="CurrentLang" />
-  <xsl:param name="UBO.Login.Path" />
-  <xsl:param name="UBO.TestInstance" />
+  <xsl:param name="CurrentLang"/>
+  <xsl:param name="UBO.Login.Path"/>
+  <xsl:param name="UBO.TestInstance"/>
 
-  <xsl:variable name="jquery.version" select="'3.3.1'" />
-  <xsl:variable name="jquery-ui.version" select="'1.12.1'" />
-  <xsl:variable name="chosen.version" select="'1.8.7'" />
-  <xsl:variable name="bootstrap.version" select="'4.4.1'" />
-  <xsl:variable name="font-awesome.version" select="'5.13.0'" />
+  <xsl:variable name="jquery.version" select="'3.3.1'"/>
+  <xsl:variable name="jquery-ui.version" select="'1.12.1'"/>
+  <xsl:variable name="chosen.version" select="'1.8.7'"/>
+  <xsl:variable name="bootstrap.version" select="'4.4.1'"/>
+  <xsl:variable name="font-awesome.version" select="'5.13.0'"/>
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
-  <xsl:include href="coreFunctions.xsl" />
-  <xsl:include href="html-layout-backend.xsl" />
+  <xsl:include href="coreFunctions.xsl"/>
+  <xsl:include href="html-layout-backend.xsl"/>
+  <xsl:include href="servicedesk.xsl"/>
 
   <!-- ==================== HTML ==================== -->
 
@@ -32,39 +34,45 @@
 
     </xsl:text>
     <html lang="{$CurrentLang}">
-      <xsl:apply-templates select="head" />
+      <xsl:apply-templates select="head"/>
       <!-- include Internet Explorer warning -->
-      <xsl:call-template name="msie-note" />
-      <xsl:call-template name="layout" />
+      <xsl:call-template name="msie-note"/>
+      <xsl:call-template name="layout"/>
     </html>
   </xsl:template>
 
   <xsl:template match="head">
     <head>
-      <meta charset="utf-8" />
+      <meta charset="utf-8"/>
 
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta http-equiv="x-ua-compatible" content="ie=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta http-equiv="x-ua-compatible" content="ie=edge"/>
 
-      <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico" />
-      <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet" />
+      <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
+      <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
       <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery/{$jquery.version}/jquery.min.js"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
-      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.min.css" rel="stylesheet" />
+      <script type="text/javascript"
+              src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
+      <script type="text/javascript"
+              src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
+      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.min.css" rel="stylesheet"/>
       <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"/>
 
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css" type="text/css"/>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css" type="text/css"/>
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css"
+            type="text/css"/>
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css"
+            type="text/css"/>
 
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css" />
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
 
-      <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL" />';</script>
-      <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang" />';</script>
+      <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
+      </script>
+      <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang"/>';
+      </script>
       <script type="text/javascript" src="{$WebApplicationBaseURL}js/session-polling.js"/>
       <script type="text/javascript" src="{$WebApplicationBaseURL}js/person-popover.js"/>
 
-      <xsl:copy-of select="node()" />
+      <xsl:copy-of select="node()"/>
     </head>
   </xsl:template>
 
@@ -73,13 +81,13 @@
   <xsl:template name="layout">
     <body class="d-flex flex-column">
       <!-- <xsl:call-template name="layout.headerline" /> -->
-      <xsl:call-template name="layout.header" />
-      <xsl:call-template name="layout.navigation" />
+      <xsl:call-template name="layout.header"/>
+      <xsl:call-template name="layout.navigation"/>
       <xsl:call-template name="layout.breadcrumbPath"/>
       <xsl:call-template name="layout.headline"/>
       <!-- <xsl:call-template name="layout.topcontainer" /> -->
-      <xsl:call-template name="layout.body" />
-      <xsl:call-template name="layout.footer" />
+      <xsl:call-template name="layout.body"/>
+      <xsl:call-template name="layout.footer"/>
       <xsl:if test="contains($UBO.TestInstance, 'true')">
         <div id="watermark_testenvironment">Testumgebung</div>
       </xsl:if>
@@ -92,12 +100,18 @@
         <div class="row">
           <div class="col">
             <h3 id="seitentitel">
-              <xsl:copy-of select="head/title/node()" />
+              <xsl:copy-of select="head/title/node()"/>
             </h3>
           </div>
         </div>
       </div>
     </div>
+
+    <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
+      <xsl:apply-templates select="." mode="servicedesk">
+        <xsl:with-param name="affiliation" select="'16982'"/>
+      </xsl:apply-templates>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="layout.topcontainer">
@@ -126,11 +140,11 @@
       <div class="container d-flex flex-column flex-grow-1">
         <div class="row">
           <div class="col-lg">
-            <xsl:call-template name="layout.inhalt" />
+            <xsl:call-template name="layout.inhalt"/>
           </div>
           <xsl:if test="body/aside[@id='sidebar']">
             <div class="col-lg-3 pl-lg-0">
-              <xsl:copy-of select="body/aside[@id='sidebar']" />
+              <xsl:copy-of select="body/aside[@id='sidebar']"/>
             </div>
           </xsl:if>
         </div>
@@ -147,7 +161,9 @@
     <div id="navigationWrapper">
       <div class="container">
         <nav class="navbar navbar-expand-lg p-0" role="navigation" id="hauptnavigation">
-          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
               <i class="fas fa-lg fa-bars"></i>
             </span>
@@ -155,7 +171,7 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav" id="mainnav">
-              <xsl:call-template name="layout.mainnav" />
+              <xsl:call-template name="layout.mainnav"/>
             </ul>
           </div>
         </nav>
@@ -165,12 +181,13 @@
 
   <xsl:template name="layout.headerline">
     <div id="headerLine" class="d-flex align-items-center bg-white">
-      <div class="container" >
+      <div class="container">
         <div class="row">
           <nav class="col">
             <ul class="nav">
               <li class="">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   role="button">
                   <i class="far fa-fw fa-comments"></i>
                   <span class="icon-label">Kontakt</span>
                 </a>
@@ -203,11 +220,13 @@
             </ul>
           </nav>
           <nav class="col col-auto">
-            <a href="#" class="social-toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" id="socialDropDownButton">
+            <a href="#" class="social-toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+               role="button" id="socialDropDownButton">
               <i class="far fa-fw fa-share-square" aria-hidden="true"></i>
               <span class="icon-label">Social Media</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" id="navigationSocialContent" aria-labelledby="socialDropDownButton">
+            <div class="dropdown-menu dropdown-menu-right" id="navigationSocialContent"
+                 aria-labelledby="socialDropDownButton">
               <ul>
                 <li>
                   <a href="https://www.uni-due.de/myude/" class="social social-myude" title="myUDE">
@@ -248,7 +267,9 @@
     <xsl:for-each select="$navigation.tree/item[@menu='information']">
       <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="far fa-fw fa-user"></i>
-        <span class="icon-label"><xsl:call-template name="output.label.for.lang"/></span>
+        <span class="icon-label">
+          <xsl:call-template name="output.label.for.lang"/>
+        </span>
       </a>
     </xsl:for-each>
     <ul class="dropdown-menu">
@@ -266,7 +287,7 @@
         <div class="row">
           <div class="col header-brand">
             <a title="Zur Startseite" class="imageLink" href="{$WebApplicationBaseURL}">
-              <div id="wordmark" />
+              <div id="wordmark"/>
             </a>
           </div>
           <nav class="col col-auto">
@@ -282,12 +303,15 @@
   <xsl:template name="layout.basket.info">
     <div id="basketWrapper">
       <a href="{$ServletsBaseURL}MCRBasketServlet?action=show&amp;type=objects">
-            <span class="fas fa-bookmark mr-1" aria-hidden="true" />
-            <span class="mr-1"><xsl:value-of select="i18n:translate('basket')" />:</span>
-            <span class="mr-1" id="basket-info-num">
-              <xsl:value-of xmlns:basket="xalan://org.mycore.ubo.basket.BasketUtils" select="basket:size()" />
-            </span>
-            <span><xsl:value-of select="i18n:translate('ubo.publications')" /></span>
+        <span class="fas fa-bookmark mr-1" aria-hidden="true"/>
+        <span class="mr-1"><xsl:value-of select="i18n:translate('basket')"/>:
+        </span>
+        <span class="mr-1" id="basket-info-num">
+          <xsl:value-of xmlns:basket="xalan://org.mycore.ubo.basket.BasketUtils" select="basket:size()"/>
+        </span>
+        <span>
+          <xsl:value-of select="i18n:translate('ubo.publications')"/>
+        </span>
       </a>
     </div>
   </xsl:template>
@@ -299,11 +323,11 @@
 
       <xsl:choose>
         <xsl:when test="$allowed.to.see.this.page = 'true'">
-          <xsl:copy-of select="body/*[not(@id='sidebar')][not(@id='breadcrumb')]" />
+          <xsl:copy-of select="body/*[not(@id='sidebar')][not(@id='breadcrumb')]"/>
         </xsl:when>
         <xsl:otherwise>
           <h3>
-            <xsl:value-of select="i18n:translate('navigation.notAllowedToSeeThisPage')" />
+            <xsl:value-of select="i18n:translate('navigation.notAllowedToSeeThisPage')"/>
           </h3>
         </xsl:otherwise>
       </xsl:choose>
@@ -322,20 +346,20 @@
                 <li class="breadcrumb-item">
                   <i class="fas fa-home pr-1"></i>
                   <a href="https://www.uni-erfurt.de/bibliothek">
-                    <xsl:value-of select="i18n:translate('navigation.UB')" />
+                    <xsl:value-of select="i18n:translate('navigation.UB')"/>
                   </a>
                 </li>
                 <li class="breadcrumb-item">
                   <a href="{$WebApplicationBaseURL}">
-                    <xsl:value-of select="i18n:translate('navigation.Home')" />
+                    <xsl:value-of select="i18n:translate('navigation.Home')"/>
                   </a>
                 </li>
                 <xsl:apply-templates mode="breadcrumb"
-                                     select="$CurrentItem/ancestor-or-self::item[@label|label][ancestor-or-self::*=$navigation.tree[@role='main']]" />
+                                     select="$CurrentItem/ancestor-or-self::item[@label|label][ancestor-or-self::*=$navigation.tree[@role='main']]"/>
                 <xsl:for-each select="body/ul[@id='breadcrumb']/li">
                   <li class="breadcrumb-item">
                     <a href="#">
-                      <xsl:copy-of select="node()" />
+                      <xsl:copy-of select="node()"/>
                     </a>
                   </li>
                 </xsl:for-each>
@@ -352,7 +376,7 @@
 
   <xsl:template match="item" mode="breadcrumb">
     <li class="breadcrumb-item">
-      <xsl:call-template name="output.item.label" />
+      <xsl:call-template name="output.item.label"/>
     </li>
   </xsl:template>
 
@@ -363,7 +387,7 @@
       <xsl:choose>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <span class="user btn p-0" style="cursor: default;">
-            [<xsl:value-of select="i18n:translate('component.user2.login.guest')" />]
+            [<xsl:value-of select="i18n:translate('component.user2.login.guest')"/>]
           </span>
         </xsl:when>
         <xsl:otherwise>
@@ -372,24 +396,24 @@
              class="user nav-link dropdown-toggle p-0" style="cursor: default;">
             <xsl:choose>
               <xsl:when test="contains($CurrentUser,'@')">
-                [<xsl:value-of select="substring-before($CurrentUser,'@')" />]
+                [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
               </xsl:when>
               <xsl:otherwise>
-                [<xsl:value-of select="$CurrentUser" />]
+                [<xsl:value-of select="$CurrentUser"/>]
               </xsl:otherwise>
             </xsl:choose>
           </a>
           <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
-            <xsl:call-template name="layout.usernav" />
+            <xsl:call-template name="layout.usernav"/>
           </div>
         </xsl:otherwise>
       </xsl:choose>
-      <xsl:call-template name="orcidUser" />
+      <xsl:call-template name="orcidUser"/>
     </div>
 
     <div class="nav-item mr-2">
       <xsl:choose>
-        <xsl:when test="/webpage/@id='login'" />
+        <xsl:when test="/webpage/@id='login'"/>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
              href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
@@ -405,21 +429,51 @@
       </xsl:choose>
     </div>
 
+    <div class="nav-item">
+      <span class="btn p-0">
+        <a>
+          <xsl:attribute name="href">
+            <xsl:choose>
+              <xsl:when test="$CurrentLang='de'">
+                <xsl:call-template name="UrlSetParam">
+                  <xsl:with-param name="url" select="$RequestURL"/>
+                  <xsl:with-param name="par" select="'lang'"/>
+                  <xsl:with-param name="value" select="'en'"/>
+                </xsl:call-template>
+              </xsl:when>
+              <xsl:when test="$CurrentLang='en'">
+                <xsl:call-template name="UrlSetParam">
+                  <xsl:with-param name="url" select="$RequestURL"/>
+                  <xsl:with-param name="par" select="'lang'"/>
+                  <xsl:with-param name="value" select="'de'"/>
+                </xsl:call-template>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:attribute>
+          <!-- <img src="{$WebApplicationBaseURL}images/lang_{$CurrentLang}.gif" alt="{i18n:translate('navigation.Language')}" /> -->
+          <xsl:value-of select="i18n:translate('navigation.ende')"/>
+        </a>
+      </span>
+    </div>
   </xsl:template>
 
   <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
-  <xsl:param name="MCR.ORCID.LinkURL" />
+  <xsl:param name="MCR.ORCID.LinkURL"/>
 
   <xsl:template name="orcidUser">
 
-    <xsl:variable name="orcidUser" select="orcidSession:getCurrentUser()" xmlns:orcidSession="xalan://org.mycore.orcid.user.MCRORCIDSession" />
-    <xsl:variable name="userStatus" select="orcidUser:getStatus($orcidUser)" xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser" />
-    <xsl:variable name="trustedParty" select="userStatus:weAreTrustedParty($userStatus)" xmlns:userStatus="xalan://org.mycore.orcid.user.MCRUserStatus" />
+    <xsl:variable name="orcidUser" select="orcidSession:getCurrentUser()"
+                  xmlns:orcidSession="xalan://org.mycore.orcid.user.MCRORCIDSession"/>
+    <xsl:variable name="userStatus" select="orcidUser:getStatus($orcidUser)"
+                  xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser"/>
+    <xsl:variable name="trustedParty" select="userStatus:weAreTrustedParty($userStatus)"
+                  xmlns:userStatus="xalan://org.mycore.orcid.user.MCRUserStatus"/>
 
     <xsl:if test="$trustedParty = 'true'">
-      <xsl:variable name="orcid" select="orcidUser:getORCID($orcidUser)" xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser" />
+      <xsl:variable name="orcid" select="orcidUser:getORCID($orcidUser)"
+                    xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser"/>
       <a href="{$MCR.ORCID.LinkURL}{$orcid}" class="hgn-user-orcid">
-        <img alt="ORCID {$orcid}" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon" />
+        <img alt="ORCID {$orcid}" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon"/>
       </a>
     </xsl:if>
   </xsl:template>
@@ -428,7 +482,7 @@
     <div class="card my-3">
       <div class="card-body py-2">
         <h3 id="seitentitel">
-          <xsl:copy-of select="head/title/node()" />
+          <xsl:copy-of select="head/title/node()"/>
         </h3>
       </div>
     </div>
@@ -441,7 +495,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-sm-6 col-lg-8 hgn-footer-menu">
-            <xsl:call-template name="layout.metanav" />
+            <xsl:call-template name="layout.metanav"/>
           </div>
           <div class="col-12 col-sm-6 col-lg-4">
             <xsl:call-template name="powered_by"/>
@@ -452,10 +506,11 @@
   </xsl:template>
 
   <xsl:template name="powered_by">
-    <xsl:variable name="mcr_version" select="concat('MyCoRe ', mcrver:getCompleteVersion())" />
+    <xsl:variable name="mcr_version" select="concat('MyCoRe ', mcrver:getCompleteVersion())"/>
     <div id="powered_by">
       <a href="http://www.mycore.de">
-        <img src="{$WebApplicationBaseURL}images/mycore_logo_small_invert.png" title="{$mcr_version}" alt="powered by MyCoRe" />
+        <img src="{$WebApplicationBaseURL}images/mycore_logo_small_invert.png" title="{$mcr_version}"
+             alt="powered by MyCoRe"/>
       </a>
     </div>
   </xsl:template>
