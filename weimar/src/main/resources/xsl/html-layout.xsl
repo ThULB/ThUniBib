@@ -6,7 +6,8 @@
   xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
   xmlns:encoder="xalan://java.net.URLEncoder"
   xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
-  exclude-result-prefixes="xsl xalan i18n encoder mcrver">
+  xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+  exclude-result-prefixes="xsl xalan i18n encoder mcrver mcrxml">
 
   <xsl:output method="xml" encoding="UTF-8" />
 
@@ -24,6 +25,7 @@
   <!-- additional stylesheets -->
   <xsl:include href="coreFunctions.xsl" />
   <xsl:include href="html-layout-backend.xsl" />
+  <xsl:include href="servicedesk.xsl" />
 
   <!-- ==================== HTML ==================== -->
 
@@ -98,6 +100,12 @@
         </div>
       </div>
     </div>
+
+    <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
+      <xsl:apply-templates select="." mode="servicedesk">
+        <xsl:with-param name="affiliation" select="'16982'"/>
+      </xsl:apply-templates>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="layout.topcontainer">
@@ -403,6 +411,33 @@
           </a>
         </xsl:otherwise>
       </xsl:choose>
+    </div>
+
+    <div class="nav-item">
+      <span class="btn p-0">
+        <a>
+          <xsl:attribute name="href">
+            <xsl:choose>
+              <xsl:when test="$CurrentLang='de'">
+                <xsl:call-template name="UrlSetParam">
+                  <xsl:with-param name="url" select="$RequestURL"/>
+                  <xsl:with-param name="par" select="'lang'"/>
+                  <xsl:with-param name="value" select="'en'"/>
+                </xsl:call-template>
+              </xsl:when>
+              <xsl:when test="$CurrentLang='en'">
+                <xsl:call-template name="UrlSetParam">
+                  <xsl:with-param name="url" select="$RequestURL"/>
+                  <xsl:with-param name="par" select="'lang'"/>
+                  <xsl:with-param name="value" select="'de'"/>
+                </xsl:call-template>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:attribute>
+          <!-- <img src="{$WebApplicationBaseURL}images/lang_{$CurrentLang}.gif" alt="{i18n:translate('navigation.Language')}" /> -->
+          <xsl:value-of select="i18n:translate('navigation.ende')"/>
+        </a>
+      </span>
     </div>
 
   </xsl:template>

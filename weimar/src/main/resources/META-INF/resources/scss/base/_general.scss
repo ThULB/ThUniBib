@@ -69,3 +69,28 @@
 @include media-breakpoint-down(xs) {
   // add/overwrite styles for responsive level xs
 }
+
+#feedback, #servicedesk {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20%;
+  right: -24px;
+  transform: rotate(-90deg);
+  display: block;
+  background: $weimarBlue;
+  padding: 8px 0px;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: solid 1px #002350;
+  border-left: solid 0px #002350;
+  border-right: solid 1px #002350;
+  z-index: 999;
+  width: 90px;
+  text-align: center;
+}
+
+#feedback a, #servicedesk a {
+  color: #fff;
+}

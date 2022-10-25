@@ -5,7 +5,8 @@
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 xmlns:encoder="xalan://java.net.URLEncoder"
-                exclude-result-prefixes="xsl xalan i18n encoder">
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="xsl xalan i18n encoder mcrxml">
 
   <xsl:output method="xml" encoding="UTF-8"/>
 
@@ -24,6 +25,7 @@
   <!-- additional stylesheets -->
   <xsl:include href="coreFunctions.xsl"/>
   <xsl:include href="html-layout-backend.xsl"/>
+  <xsl:include href="servicedesk.xsl"/>
 
   <!-- ==================== HTML ==================== -->
 
@@ -50,18 +52,24 @@
 
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
       <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery/{$jquery.version}/jquery.min.js"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
+      <script type="text/javascript"
+              src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
+      <script type="text/javascript"
+              src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
       <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.min.css" rel="stylesheet"/>
       <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"/>
 
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css" type="text/css"/>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css" type="text/css"/>
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css"
+            type="text/css"/>
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css"
+            type="text/css"/>
 
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css" />
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
 
-      <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';</script>
-      <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang"/>';</script>
+      <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
+      </script>
+      <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang"/>';
+      </script>
 
       <script type="text/javascript" src="{$WebApplicationBaseURL}js/session-polling.js"/>
       <script type="text/javascript" src="{$WebApplicationBaseURL}js/person-popover.js"/>
@@ -96,6 +104,12 @@
         </div>
       </div>
     </div>
+
+    <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
+      <xsl:apply-templates select="." mode="servicedesk">
+        <xsl:with-param name="affiliation" select="'16982'"/>
+      </xsl:apply-templates>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="layout.topcontainer">
