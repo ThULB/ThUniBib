@@ -1,275 +1,291 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ubogenre">
-  <label xml:lang="en" text="genre" description="publication types of university bibliography" />
-  <label xml:lang="de" text="Genre" description="Publikationstypen der Hochschulbibliographie" />
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ubogenre">
+  <label xml:lang="en" text="genre" description="publication types of university bibliography"/>
+  <label xml:lang="de" text="Genre" description="Publikationstypen der Hochschulbibliographie"/>
   <categories>
     <category ID="contribution">
-      <label xml:lang="x-group" text="true" />
-      <label xml:lang="x-marcgt" text="book" />
-      <label xml:lang="en" text="Article / Contribution" />
-      <label xml:lang="de" text="Unselbstständige Werke" />
+      <label xml:lang="x-group" text="true"/>
+      <label xml:lang="x-marcgt" text="book"/>
+      <label xml:lang="en" text="Article / Contribution"/>
+      <label xml:lang="de" text="Unselbstständige Werke"/>
       <category ID="article">
-        <label xml:lang="de" text="Artikel / Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veroeffentlicht in einer wissenschaftlichen Zeitschrift" />
-        <label xml:lang="x-color" text="#7dabd0" />
-        <label xml:lang="x-marcgt" text="article" />
-        <label xml:lang="en" text="journal article" />
-        <label xml:lang="x-hosts" text="journal collection book newspaper video others" />
-    <category ID="review_article">
-      <label xml:lang="x-hosts" text="journal standalone book newspaper video others" />
-      <label xml:lang="en" text="Review article" />
-      <label xml:lang="de" text="Review Artikel" />
-      <label xml:lang="x-marcgt" text="article"/>
-          <label xml:lang="x-color" text="#8671b1" />
-    </category>
+        <label xml:lang="de" text="Artikel / Aufsatz"
+               description="Ein Artikel oder ein redaktioneller Teil veroeffentlicht in einer wissenschaftlichen Zeitschrift"/>
+        <label xml:lang="x-color" text="#7dabd0"/>
+        <label xml:lang="x-marcgt" text="article"/>
+        <label xml:lang="en" text="journal article"/>
+        <label xml:lang="x-hosts" text="journal collection book newspaper video others"/>
+        <category ID="review_article">
+          <label xml:lang="x-hosts" text="journal standalone book newspaper video others"/>
+          <label xml:lang="en" text="Review article"/>
+          <label xml:lang="de" text="Review Artikel"/>
+          <label xml:lang="x-marcgt" text="article"/>
+          <label xml:lang="x-color" text="#8671b1"/>
+        </category>
       </category>
       <category ID="chapter">
-        <label xml:lang="x-hosts" text="collection book newspaper video others" />
-        <label xml:lang="de" text="Buchaufsatz / Kapitel" />
-        <label xml:lang="x-marcgt" text="article" />
-        <label xml:lang="en" text="book chapter" />
-        <label xml:lang="x-color" text="#368dbc" />
+        <label xml:lang="x-hosts" text="collection book newspaper video others"/>
+        <label xml:lang="de" text="Buchaufsatz / Kapitel"/>
+        <label xml:lang="x-marcgt" text="article"/>
+        <label xml:lang="en" text="book chapter"/>
+        <label xml:lang="x-color" text="#368dbc"/>
       </category>
       <category ID="preface">
-        <label xml:lang="de" text="Vorwort / Nachwort" />
-        <label xml:lang="en" text="preface / epilogue" />
-        <label xml:lang="x-color" text="#449cab" />
-        <label xml:lang="x-hosts" text="collection proceedings lexicon journal book newspaper video others" />
+        <label xml:lang="de" text="Vorwort / Nachwort"/>
+        <label xml:lang="en" text="preface / epilogue"/>
+        <label xml:lang="x-color" text="#449cab"/>
+        <label xml:lang="x-hosts" text="collection proceedings lexicon journal book newspaper video others"/>
       </category>
       <category ID="abstract">
-        <label xml:lang="de" text="Abstract (Konferenz / Tagung)" />
-        <label xml:lang="x-marcgt" text="abstract_or_summary" />
-        <label xml:lang="en" text="abstract (conference)" />
-        <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others" />
-        <label xml:lang="x-color" text="#007a8b" />
+        <label xml:lang="de" text="Abstract (Konferenz / Tagung)"/>
+        <label xml:lang="x-marcgt" text="abstract_or_summary"/>
+        <label xml:lang="en" text="abstract (conference)"/>
+        <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others"/>
+        <label xml:lang="x-color" text="#007a8b"/>
       </category>
       <category ID="conference_essay">
-        <label xml:lang="en" text="conference paper" />
-        <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others" />
-        <label xml:lang="x-color" text="#6a9864" />
-        <label xml:lang="de" text="Konferenz- / Tagungsbeitrag" />
+        <label xml:lang="en" text="conference paper"/>
+        <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others"/>
+        <label xml:lang="x-color" text="#6a9864"/>
+        <label xml:lang="de" text="Konferenz- / Tagungsbeitrag"/>
       </category>
       <category ID="entry">
-        <label xml:lang="en" text="lexicon entry" />
-        <label xml:lang="de" text="Lexikoneintrag" />
-        <label xml:lang="x-hosts" text="collection lexicon book newspaper video others" />
-        <label xml:lang="x-color" text="#007836" />
+        <label xml:lang="en" text="lexicon entry"/>
+        <label xml:lang="de" text="Lexikoneintrag"/>
+        <label xml:lang="x-hosts" text="collection lexicon book newspaper video others"/>
+        <label xml:lang="x-color" text="#007836"/>
       </category>
       <category ID="video_contribution">
-        <label xml:lang="x-hosts" text="collection proceedings book newspaper video others" />
-        <label xml:lang="de" text="Video- / Filmbeitrag" />
-        <label xml:lang="x-color" text="#92b869" />
-        <label xml:lang="en" text="video contribution" />
+        <label xml:lang="x-hosts" text="collection proceedings book newspaper video others"/>
+        <label xml:lang="de" text="Video- / Filmbeitrag"/>
+        <label xml:lang="x-color" text="#92b869"/>
+        <label xml:lang="en" text="video contribution"/>
       </category>
       <category ID="blog_entry">
-        <label xml:lang="x-hosts" text="blog book newspaper video others" />
-        <label xml:lang="en" text="blog post" />
-        <label xml:lang="de" text="Blogbeitrag" />
-        <label xml:lang="x-color" text="#559e31" />
+        <label xml:lang="x-hosts" text="blog book newspaper video others"/>
+        <label xml:lang="en" text="blog post"/>
+        <label xml:lang="de" text="Blogbeitrag"/>
+        <label xml:lang="x-color" text="#559e31"/>
       </category>
     </category>
     <category ID="thesis">
-      <label xml:lang="x-group" text="true" />
-      <label xml:lang="de" text="Hochschulschrift" />
-      <label xml:lang="en" text="thesis" />
+      <label xml:lang="x-group" text="true"/>
+      <label xml:lang="de" text="Hochschulschrift"/>
+      <label xml:lang="en" text="thesis"/>
       <category ID="bachelor_thesis">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="de" text="Bachelorarbeit" />
-        <label xml:lang="x-color" text="#e8b65a" />
-        <label xml:lang="en" text="bachelor thesis" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="de" text="Bachelorarbeit"/>
+        <label xml:lang="x-color" text="#e8b65a"/>
+        <label xml:lang="en" text="bachelor thesis"/>
       </category>
       <category ID="master_thesis">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-color" text="#dc9800" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="en" text="master thesis" />
-        <label xml:lang="de" text="Masterarbeit" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#dc9800"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="en" text="master thesis"/>
+        <label xml:lang="de" text="Masterarbeit"/>
       </category>
       <category ID="diploma_thesis">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="en" text="diploma thesis" />
-        <label xml:lang="x-color" text="#eca56e" />
-        <label xml:lang="de" text="Diplomarbeit" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="en" text="diploma thesis"/>
+        <label xml:lang="x-color" text="#eca56e"/>
+        <label xml:lang="de" text="Diplomarbeit"/>
       </category>
       <category ID="magister_thesis">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="en" text="magister thesis" />
-        <label xml:lang="de" text="Magisterarbeit" />
-        <label xml:lang="x-color" text="#dc6413" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="en" text="magister thesis"/>
+        <label xml:lang="de" text="Magisterarbeit"/>
+        <label xml:lang="x-color" text="#dc6413"/>
       </category>
       <category ID="dissertation">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-color" text="#e18271" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="en" text="dissertation" />
-        <label xml:lang="de" text="Dissertation" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#e18271"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="en" text="dissertation"/>
+        <label xml:lang="de" text="Dissertation"/>
       </category>
       <category ID="habilitation">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-color" text="#cb2129" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="de" text="Habilitationsschrift" />
-        <label xml:lang="en" text="habilitation thesis" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#cb2129"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="de" text="Habilitationsschrift"/>
+        <label xml:lang="en" text="habilitation thesis"/>
       </category>
       <category ID="seminar_paper">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="x-color" text="#dc9800" />
-        <label xml:lang="en" text="seminar paper" />
-        <label xml:lang="de" text="Studienarbeit" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="x-color" text="#dc9800"/>
+        <label xml:lang="en" text="seminar paper"/>
+        <label xml:lang="de" text="Studienarbeit"/>
       </category>
       <category ID="state_examination_thesis">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="en" text="state examination thesis" />
-        <label xml:lang="x-marcgt" text="thesis" />
-        <label xml:lang="x-color" text="#eca56e" />
-        <label xml:lang="de" text="Staatsexamensarbeit" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="en" text="state examination thesis"/>
+        <label xml:lang="x-marcgt" text="thesis"/>
+        <label xml:lang="x-color" text="#eca56e"/>
+        <label xml:lang="de" text="Staatsexamensarbeit"/>
       </category>
     </category>
     <category ID="collection">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="x-marcgt" text="book" />
-      <label xml:lang="de" text="Sammelwerk" />
-      <label xml:lang="en" text="book (collection)" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="x-marcgt" text="book"/>
+      <label xml:lang="de" text="Sammelwerk"/>
+      <label xml:lang="en" text="book (collection)"/>
       <category ID="proceedings">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-color" text="#174488" />
-        <label xml:lang="x-marcgt" text="book" />
-        <label xml:lang="de" text="Konferenz- / Tagungsband" />
-        <label xml:lang="en" text="conference proceedings" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#174488"/>
+        <label xml:lang="x-marcgt" text="book"/>
+        <label xml:lang="de" text="Konferenz- / Tagungsband"/>
+        <label xml:lang="en" text="conference proceedings"/>
       </category>
       <category ID="lexicon">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-color" text="#002350" />
-        <label xml:lang="en" text="lexicon" />
-        <label xml:lang="de" text="Lexikon" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#002350"/>
+        <label xml:lang="en" text="lexicon"/>
+        <label xml:lang="de" text="Lexikon"/>
       </category>
     </category>
     <category ID="book">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="x-color" text="#573d90" />
-      <label xml:lang="de" text="Buch (Monographie)" />
-      <label xml:lang="en" text="book (monograph)" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="x-color" text="#573d90"/>
+      <label xml:lang="de" text="Buch (Monographie)"/>
+      <label xml:lang="en" text="book (monograph)"/>
+    </category>
+    <category ID="letter">
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="x-color" text="#573d90"/>
+      <label xml:lang="x-marcgt" text="let"/>
+      <label xml:lang="de" text="Brief"/>
+      <label xml:lang="en" text="Letter"/>
+    </category>
+    <category ID="lec">
+      <label xml:lang="x-hosts" text="journal standalone book newspaper video others"/>
+      <label xml:lang="de" text="Urteilsanmerkung"/>
+      <label xml:lang="en" text="Legal case and case notes"/>
+      <label xml:lang="x-marcgt" text="lec"/>
+      <label xml:lang="x-color" text="#8671b1"/>
     </category>
     <category ID="researchpaper">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="Research Paper" />
-      <label xml:lang="de" text="Forschungsbericht" />
-      <label xml:lang="x-marcgt" text="reporting" />
-      <label xml:lang="x-color" text="#8671b1" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="Research Paper"/>
+      <label xml:lang="de" text="Forschungsbericht"/>
+      <label xml:lang="x-marcgt" text="reporting"/>
+      <label xml:lang="x-color" text="#8671b1"/>
     </category>
     <category ID="research_data">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="de" text="Forschungsdaten" />
-      <label xml:lang="en" text="research data" />
-      <label xml:lang="x-color" text="#8b1878" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="de" text="Forschungsdaten"/>
+      <label xml:lang="en" text="research data"/>
+      <label xml:lang="x-color" text="#8b1878"/>
     </category>
     <category ID="patent">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="x-color" text="#a9609d" />
-      <label xml:lang="en" text="Patent specification" />
-      <label xml:lang="de" text="Patent" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="x-color" text="#a9609d"/>
+      <label xml:lang="en" text="Patent specification"/>
+      <label xml:lang="de" text="Patent"/>
     </category>
     <category ID="review">
-      <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others" />
-      <label xml:lang="x-color" text="#8db5d5" />
-      <label xml:lang="de" text="Rezension" />
-      <label xml:lang="x-marcgt" text="review" />
-      <label xml:lang="en" text="Review" />
+      <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others"/>
+      <label xml:lang="x-color" text="#8db5d5"/>
+      <label xml:lang="de" text="Rezension"/>
+      <label xml:lang="x-marcgt" text="review"/>
+      <label xml:lang="en" text="Review"/>
     </category>
     <category ID="preprint">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="preprint" />
-      <label xml:lang="de" text="Preprint" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="preprint"/>
+      <label xml:lang="de" text="Preprint"/>
     </category>
     <category ID="workingpaper">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="working paper" />
-      <label xml:lang="de" text="Diskussionspapier / Working Paper" />
-      <label xml:lang="x-marcgt" text="book" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="working paper"/>
+      <label xml:lang="de" text="Diskussionspapier / Working Paper"/>
+      <label xml:lang="x-marcgt" text="book"/>
     </category>
     <category ID="poster">
-      <label xml:lang="en" text="Poster" />
-      <label xml:lang="x-hosts" text="proceedings collection standalone book newspaper video others" />
-      <label xml:lang="de" text="Poster" />
+      <label xml:lang="en" text="Poster"/>
+      <label xml:lang="x-hosts" text="proceedings collection standalone book newspaper video others"/>
+      <label xml:lang="de" text="Poster"/>
     </category>
     <category ID="authors_version">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="author's version" />
-      <label xml:lang="de" text="Autorenversion" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="author's version"/>
+      <label xml:lang="de" text="Autorenversion"/>
     </category>
     <category ID="interview">
-      <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others" />
-      <label xml:lang="en" text="interview" />
-      <label xml:lang="de" text="Interview" />
+      <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others"/>
+      <label xml:lang="en" text="interview"/>
+      <label xml:lang="de" text="Interview"/>
     </category>
     <category ID="speech">
-      <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others" />
-      <label xml:lang="en" text="speech / lecture" />
-      <label xml:lang="de" text="Vortrag / Redebeitrag" />
+      <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others"/>
+      <label xml:lang="en" text="speech / lecture"/>
+      <label xml:lang="de" text="Vortrag / Redebeitrag"/>
     </category>
     <category ID="video">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="video / film" />
-      <label xml:lang="de" text="Video / Film" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="video / film"/>
+      <label xml:lang="de" text="Video / Film"/>
     </category>
     <category ID="software">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="software" />
-      <label xml:lang="de" text="Software" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="software"/>
+      <label xml:lang="de" text="Software"/>
     </category>
     <category ID="sheet_music">
-      <label xml:lang="en" text="sheet music" />
-      <label xml:lang="x-hosts" text="collection standalone book newspaper video others" />
-      <label xml:lang="de" text="Noten" />
+      <label xml:lang="en" text="sheet music"/>
+      <label xml:lang="x-hosts" text="collection standalone book newspaper video others"/>
+      <label xml:lang="de" text="Noten"/>
     </category>
     <category ID="image">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="image / picture" />
-      <label xml:lang="de" text="Bild" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="image / picture"/>
+      <label xml:lang="de" text="Bild"/>
     </category>
     <category ID="map">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="map" />
-      <label xml:lang="de" text="Karte" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="map"/>
+      <label xml:lang="de" text="Karte"/>
     </category>
     <category ID="object">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="de" text="Objekt / Artefakt" />
-      <label xml:lang="en" text="object / artifact" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="de" text="Objekt / Artefakt"/>
+      <label xml:lang="en" text="object / artifact"/>
     </category>
     <category ID="others">
-      <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="others" />
-      <label xml:lang="de" text="Sonstiges" />
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="others"/>
+      <label xml:lang="de" text="Sonstiges"/>
     </category>
     <category ID="periodical">
-      <label xml:lang="x-group" text="true" />
-      <label xml:lang="de" text="Fortlaufende Werke" />
-      <label xml:lang="en" text="Periodical" />
+      <label xml:lang="x-group" text="true"/>
+      <label xml:lang="de" text="Fortlaufende Werke"/>
+      <label xml:lang="en" text="Periodical"/>
       <category ID="series">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="de" text="Reihe / Serie" />
-        <label xml:lang="x-color" text="#d13c43" />
-        <label xml:lang="en" text="series" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="de" text="Reihe / Serie"/>
+        <label xml:lang="x-color" text="#d13c43"/>
+        <label xml:lang="en" text="series"/>
       </category>
       <category ID="journal">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="de" text="Zeitschrift" />
-        <label xml:lang="x-color" text="#6aaa4a" />
-        <label xml:lang="en" text="journal" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="de" text="Zeitschrift"/>
+        <label xml:lang="x-color" text="#6aaa4a"/>
+        <label xml:lang="en" text="journal"/>
       </category>
       <category ID="newspaper">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="en" text="newspaper" />
-        <label xml:lang="de" text="Zeitung" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="en" text="newspaper"/>
+        <label xml:lang="de" text="Zeitung"/>
       </category>
       <category ID="blog">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="en" text="website / blog" />
-        <label xml:lang="de" text="Website / Blog" />
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="en" text="website / blog"/>
+        <label xml:lang="de" text="Website / Blog"/>
       </category>
     </category>
   </categories>
