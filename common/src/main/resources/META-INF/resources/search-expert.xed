@@ -95,9 +95,7 @@
             <xed:include uri="webapp:import-search.xed" ref="sortby"/>
             <xed:include uri="webapp:import-search.xed" ref="numPerPage"/>
             <xed:include uri="webapp:import-search.xed" ref="submit"/>
-
           </xed:bind>
-
         </fieldset>
       </xed:form>
     </div>
@@ -277,6 +275,12 @@
             <td>=, contains, like, phrase</td>
           </tr>
           <tr class="background2">
+            <td>note.intern</td>
+            <td>text</td>
+            <td>Kommentarfeld (intern)</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
             <td>genre</td>
             <td>ID</td>
             <td>Typ des Eintrages, z. B.
@@ -346,7 +350,6 @@
         The following search fields are available:
       </p>
       <p>
-
         <table class="editor">
           <tr class="background1">
             <th>search field:</th>
@@ -515,6 +518,12 @@
           </tr>
           <tr class="background2">
             <td>note</td>
+            <td>text</td>
+            <td>comment field</td>
+            <td>=, contains, like, phrase</td>
+          </tr>
+          <tr class="background2">
+            <td>note.intern</td>
             <td>text</td>
             <td>comment field</td>
             <td>=, contains, like, phrase</td>
