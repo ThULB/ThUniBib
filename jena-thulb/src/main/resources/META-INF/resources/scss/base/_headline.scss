@@ -12,14 +12,14 @@ $bg-color-headline: #dbdbdb;
   }
 }
 
-#feedback {
+#feedback, #servicedesk {
   cursor: pointer;
   position: fixed;
   bottom: 20%;
   right: -24px;
   transform: rotate(-90deg);
   display: block;
-  background: #002350;
+  background: $primary;
   padding: 8px 0px;
   font-family: Arial,sans-serif;
   font-size: 14px;
@@ -33,6 +33,6 @@ $bg-color-headline: #dbdbdb;
   text-align: center;
 }
 
-#feedback a {
+#feedback a, #servicedesk a  {
   color: #fff;
 }
