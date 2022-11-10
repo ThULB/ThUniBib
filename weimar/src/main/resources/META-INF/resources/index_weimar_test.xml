@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="dozbib">
+ <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Bauhaus-Universität Weimar</title>
+ <title xml:lang="en">Welcome to Bibliography of Bauhaus-Universität Weimar</title>
+ 
+ <article class="card mb-3" xml:lang="de">
+   <div class="card-body">
+   
+  <p>  Die Universitätsbibliographie ist der zentrale Publikationsnachweis der Bauhaus-Universität Weimar, der online die Publikationstätigkeit der Universitätsangehörigen verzeichnet.
+        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut. <br/>
+        Die Universitätsbibliographie befindet sich derzeit im Aufbau.
+		
+	</p>
+	
+	<p> Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Strategie zur Digitalisierung im Hochschulbereich 
+        gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
+	</p>
+	
+	<h3>Gehören Sie der Bauhaus-Universität Weimar an?</h3>
+
+	<p>
+        Helfen Sie uns bei der Vervollständigung! <br/>
+		<a href="../newPublication.xed">Hier können Sie Ihre Publikationen an die Universitätsbibliographie melden.</a>
+    </p>
+   </div>
+ </article>
+ 
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      
+      <p>
+        The University Bibliography is the central publication record of the Bauhaus University Weimar, which lists online the publication activities of the university members.
+		It is a service of the university library and is editorially supervised by it. <br/>
+		The university bibliography is currently under construction.
+      </p>
+      <p>
+	  The development of the university bibliography is supported by the state of Thuringia as part of the Thuringian strategy for digitization in higher education. 
+        and is being carried out in cooperation with the Head Office of the GBV Common Library Network.
+      </p>
+      <h3>Do you belong to the Bauhaus University Weimar? / As a member of </h3>
+      <p>
+        Help us to complete the bibliography!<br/>
+        <a href="../newPublication.xed">Here you can register your own publication</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3">
+    <div class="card-body">
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">
+        <div class="form-group form-inline mb-0">
+
+          <xed:bind xpath="/query">
+            <xed:bind xpath="@mask" default="index.xed" />
+            <xed:bind xpath="@numPerPage" default="10" />
+            <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
+              <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
+                <label for="input" class="mycore-form-label">
+                  <xed:output i18n="ubo.search.simple" />
+                </label>
+                <input id="input" type="text" class="mycore-form-input form-control-sm mr-2" />
+              </xed:bind>
+
+              <!-- Standard users must only find confirmed publications, admins find all publications -->
+              <xed:choose>
+                <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
+                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
+                </xed:when>
+                <xed:otherwise>
+                  <xed:bind xpath="condition[@field='objectProject'][@operator='='][@value='ubo']" />
+                </xed:otherwise>
+              </xed:choose>
+
+            </xed:bind>
+
+            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]" />
+
+          </xed:bind>
+
+          <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
+            <xed:output i18n="button.search" />
+          </button>
+
+        </div>
+      </xed:form>
+    </div>
+  </article>
+
+  <xinclude uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:%5B2017+TO+2018%5D&amp;rows=4&amp;sort=created+desc,year+desc&amp;facet=false&amp;fl=id,year" />
+  
+  <aside id="sidebar">
+    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0" />
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY" />
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID" />
+ 
+    <article class="card" xml:lang="de">
+      <div class="card-body bg-alternative">
+        <hgroup>
+          <h3>Kontakt:</h3>
+        </hgroup>
+        <p>
+	  <a href="https://www.uni-weimar.de/de/universitaet/struktur/zentrale-einrichtungen/universitaetsbibliothek/kontakt/">
+            <span>Kontakt zur Bauhaus-Universitätsbibliothek Weimar</span>
+          </a>
+        </p>
+        <p>
+          Bauhaus-Universitätsbibliothek Weimar<br/>
+          E-Mail: <a href="mailto:universitaetsbibliographie@ub.uni-weimar.de">universitaetsbibliographie@ub.uni-weimar.de</a><br/>
+          Tel.: +49 3643 582835 
+        </p>
+      </div>
+    </article>
+
+    <article class="card" xml:lang="en">
+      <div class="card-body bg-alternative">
+        <hgroup>
+          <h3>Contact:</h3>
+        </hgroup>
+        <p>
+	  <a href="https://www.uni-weimar.de/en/university/structure/central-university-facilities/university-library/contact/">
+            <span>Contact to Bauhaus-Universitätsbibliothek Weimar</span>
+          </a>
+        </p>
+        <p>
+          Bauhaus-Universitätsbibliothek Weimar<br/>
+          E-Mail: <a href="mailto:universitaetsbibliographie@ub.uni-weimar.de">universitaetsbibliographie@ub.uni-weimar.de</a><br/>
+          Tel.: +49 3643 582835 
+        </p>
+      </div>
+    </article>
+  </aside>
+    
+</webpage>
