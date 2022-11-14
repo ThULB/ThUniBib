@@ -71,7 +71,7 @@
     </category>
     <category ID="thesis">
       <label xml:lang="x-group" text="true"/>
-      <label xml:lang="de" text="Hochschulschrift"/>
+      <label xml:lang="de" text="Hochschulschriften"/>
       <label xml:lang="en" text="thesis"/>
       <category ID="bachelor_thesis">
         <label xml:lang="x-hosts" text="standalone"/>
