@@ -260,11 +260,6 @@
         <label xml:lang="en" text="Object/Artifact"/>
         <label xml:lang="de" text="Objekt/Artefakt"/>
       </category>
-      <category ID="others">
-        <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="en" text="Other"/>
-        <label xml:lang="de" text="Sonstiges"/>
-      </category>
     </category>
     <category ID="periodical">
       <label xml:lang="x-group" text="true"/>
@@ -292,6 +287,11 @@
         <label xml:lang="de" text="Website/Blog"/>
         <label xml:lang="en" text="Website/blog"/>
       </category>
+    </category>
+    <category ID="others">
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="Other"/>
+      <label xml:lang="de" text="Sonstiges"/>
     </category>
   </categories>
 </mycoreclass>
