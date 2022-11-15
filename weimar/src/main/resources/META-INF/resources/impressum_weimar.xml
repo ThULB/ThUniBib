@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE webpage>
+
+<webpage lastModified="$Date$" id="impressum">
+  <title xml:lang="de">Impressum</title>
+  <title xml:lang="en">Imprint</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+
+      <h2>Anbieter</h2>
+        <p>Die Bauhaus-Universität Weimar ist eine Körperschaft des öffentlichen Rechts.</p>
+        <p>Sie wird durch ihren Präsidentin, Frau Prof. Jutta Emes, gesetzlich vertreten.</p>
+        <p>
+			Bauhaus-Universität Weimar<br/>
+			Geschwister-Scholl-Straße 8<br/>
+			99423 Weimar<br/>
+			Germany<br/>
+			
+        </p>
+        <p>
+          Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE 150125131
+        </p>
+    
+      <h2>Zuständige Aufsichtsbehörde</h2>
+        <p>
+          Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft (TMWWDG)<br/>
+          Max-Reger-Straße 4-8<br/>
+          99096 Erfurt
+        </p>
+
+       <h2>Redaktion Universitätsbibliographie</h2>
+        <p>
+        Die Universitätsbibliographie wird von der Universitätsbibliothek Weimar betrieben.
+        <br/>
+        E-Mail: <a href="mailto:universitaetsbibliographie@ub.uni-weimar.de">Universitaetsbibliographie Weimar</a>
+        </p>
+
+      <h2>Technischer Betrieb</h2>
+        <p>Thüringer Universitäts- und Landesbibliothek Jena<br/>
+        Bibliotheksplatz 2<br/>
+        07743 Jena<br/>
+        Tel.: +49 3641 9-404 000<br/>
+        E-Mail: <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
+        </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+      Zu Haftungsfragen, zum Urheberrecht, zum Datenschutz und allen weiteren Angaben nach § 5 Telemediengesetz vgl. das <a href="https://www.uni-weimar.de/de/fs/impressum/">Impressum der Bauhaus-Universität Weimar</a>.
+      </p>
+
+   </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+
+      <h2>Provider</h2>
+        <p>The Bauhaus-Universität Weimar is an independent public law entity and state institution. The president is the legal representative of the university. </p>
+        <p>
+			Bauhaus-Universität Weimar<br>
+			Geschwister-Scholl-Straße 8<br/>
+			99423 Weimar<br/>
+			Germany<br/>
+        </p>
+        <p>
+          Sales tax ID number in accordance with § 27 a of the Federal Sales Tax Act: DE150125131 
+        </p>
+    
+      <h2>Competent supervisory authority</h2>
+        <p>
+          Thuringian State Ministry of Economy, Science and Digital Society <br/>
+          Max-Reger-Straße 4-8<br/>
+          99096 Erfurt
+        </p>
+
+      <h2>Editing University Bibliography</h2>
+        <p>
+        The bibliography is operated by the University Library of the Bauhaus-Universität Weimar<br />
+        E-Mail: <a href="mailto:universitaetsbibliographie@ub.uni-weimar.de">Universitaetsbibliographie Weimar</a>
+        </p>
+
+      <h2>Technical Operation</h2>
+        <p>Thüringer Universitäts- und Landesbibliothek Jena<br/>
+        Bibliotheksplatz 2<br/>
+        07743 Jena<br/>
+        Germany<br/>
+        Phone: +49 3641 9-404 000<br/>
+        Email: <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
+        </p>
+
+      <h2>Liability for contents</h2>
+      <p>
+      For questions of liability, copyright, data protection and all other information in accordance with § 5 of the German Telemedia Act, see the <a href="https://www.uni-weimar.de/de/fs/impressum/">Imprint of the Bauhaus-Universität Weimar</a>.
+      </p>
+
+    </div>
+  </article>
+
+</webpage>
