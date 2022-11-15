@@ -139,6 +139,10 @@
     <xed:include uri="webapp:import-editor.xed" ref="title"/>
     <xed:include uri="webapp:import-editor.xed" ref="author"/>
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="languages"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
     <xed:include uri="webapp:import-editor.xed" ref="url"/>
@@ -156,6 +160,10 @@
     <xed:include uri="webapp:import-editor.xed" ref="title"/>
     <xed:include uri="webapp:import-editor.xed" ref="author"/>
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="languages"/>
+    <xed:include uri="webapp:import-editor.xed" ref="place"/>
+    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
+    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
     <xed:include uri="webapp:import-editor.xed" ref="url"/>
