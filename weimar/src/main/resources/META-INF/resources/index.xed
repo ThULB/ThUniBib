@@ -99,7 +99,7 @@
         uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID"/>
 
     <article class="card" xml:lang="de">
-      <div class="card-body bg-alternative">
+      <div class="card-body">
         <hgroup>
           <h3>Kontakt:</h3>
         </hgroup>
@@ -120,7 +120,7 @@
     </article>
 
     <article class="card" xml:lang="en">
-      <div class="card-body bg-alternative">
+      <div class="card-body">
         <hgroup>
           <h3>Contact:</h3>
         </hgroup>

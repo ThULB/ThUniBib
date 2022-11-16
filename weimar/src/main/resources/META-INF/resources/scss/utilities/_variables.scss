@@ -17,12 +17,14 @@ $weimarRButton:        #9d9d9d;
 $weimarRButtonHover:   #848484;
 $weimarRButtonBorder:  #7e7e7e;
 $weimarText:           #4d4d4d;
-// project variables
 
+// project variables
+$weimarBorder:          $primary;
+$weimarHeadline:        $primary;
 
 // bs overwrite
-$primary:             $weimarBlue;
-$secondary:           $weimarRInfoBack;
+$primary:             #b71a49;
+$secondary:           #009bb4;
 $border-radius:       4px;
 
 $body-bg:             white;
