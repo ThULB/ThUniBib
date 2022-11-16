@@ -6,7 +6,7 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
-  footer {
+footer {
     background-color: $primary;
     color: #fff;
     width: 100%;
@@ -15,9 +15,9 @@
     margin-top: auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
+}
 
-  .hgn-footer-menu {
+.hgn-footer-menu {
     font-family: 'Roboto Condensed',Arial,sans-serif;
     .navbar {
       padding: 0;
@@ -37,12 +37,24 @@
     }
   }
 
-  #powered_by {
+.imprintlinewrapper a {
+    color: white;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    margin-right: 32px;
+}
+
+.imprintlinewrapper a:hover {
+    color: white;
+    text-decoration: underline !important;
+}
+
+#powered_by {
     a {
       display: block;
       text-align: right;
       img {
-        height: 50px;
+        height: 24px;
       }
     }
   }
