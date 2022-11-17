@@ -252,7 +252,7 @@
       <div class="container" id="">
         <div class="row">
           <div class="col header-brand">
-            <a title="Zur Startseite" class="imageLink" href="{$WebApplicationBaseURL}">
+            <a title="Zur Startseite" class="imageLink" href="https://www.uni-weimar.de/{$CurrentLang}/">
               <div id="wordmark"/>
             </a>
           </div>
