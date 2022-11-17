@@ -74,7 +74,11 @@
                 <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
                   <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']"/>
                 </xed:when>
+                <xed:otherwise>
+                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']"/>
+                </xed:otherwise>
               </xed:choose>
+
             </xed:bind>
             <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]"/>
           </xed:bind>
@@ -82,7 +86,6 @@
           <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
             <xed:output i18n="button.search"/>
           </button>
-
         </div>
       </xed:form>
     </div>
