@@ -17,7 +17,7 @@
                description="Ein Artikel oder ein redaktioneller Teil veroeffentlicht in einer wissenschaftlichen Zeitschrift"/>
         <label xml:lang="en" text="Journal article"/>
         <category ID="review_article">
-          <label xml:lang="x-hosts" text="journal standalone book newspaper video others"/>
+          <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
           <label xml:lang="x-marcgt" text="article"/>
           <label xml:lang="x-color" text="#8671b1"/>
           <label xml:lang="en" text="Review article"/>
@@ -71,7 +71,7 @@
     </category>
     <category ID="thesis">
       <label xml:lang="x-group" text="true"/>
-      <label xml:lang="de" text="Hochschulschrift"/>
+      <label xml:lang="de" text="Hochschulschriften"/>
       <label xml:lang="en" text="thesis"/>
       <category ID="bachelor_thesis">
         <label xml:lang="x-hosts" text="standalone"/>
@@ -167,7 +167,7 @@
         <label xml:lang="en" text="Research data"/>
       </category>
       <category ID="interview">
-        <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others"/>
+        <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
         <label xml:lang="en" text="Interview"/>
         <label xml:lang="de" text="Interview"/>
       </category>
@@ -178,7 +178,7 @@
         <label xml:lang="de" text="Patent"/>
       </category>
       <category ID="review">
-        <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others"/>
+        <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
         <label xml:lang="x-marcgt" text="review"/>
         <label xml:lang="x-color" text="#8db5d5"/>
         <label xml:lang="de" text="Rezension"/>
@@ -197,15 +197,15 @@
         <label xml:lang="de" text="Diskussionspapier/Working Paper"/>
         <label xml:lang="en" text="Working paper"/>
       </category>
-      <category ID="lec">
-        <label xml:lang="x-hosts" text="journal standalone book newspaper video others"/>
+      <category ID="case_note">
+        <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
         <label xml:lang="x-marcgt" text="lec"/>
         <label xml:lang="x-color" text="#8671b1"/>
         <label xml:lang="de" text="Urteilsanmerkung"/>
-        <label xml:lang="en" text="Legal case and case notes"/>
+        <label xml:lang="en" text="Case note"/>
       </category>
       <category ID="poster">
-        <label xml:lang="x-hosts" text="proceedings collection standalone book newspaper video others"/>
+        <label xml:lang="x-hosts" text="standalone proceedings collection book newspaper video others"/>
         <label xml:lang="de" text="Poster"/>
         <label xml:lang="en" text="Poster"/>
       </category>
@@ -241,9 +241,9 @@
         <label xml:lang="de" text="Video/Film"/>
       </category>
       <category ID="speech">
+        <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
         <label xml:lang="de" text="Vortrag/Redebeitrag"/>
         <label xml:lang="en" text="Speech/lecture"/>
-        <label xml:lang="x-hosts" text="journal collection standalone book newspaper video others"/>
       </category>
       <category ID="map">
         <label xml:lang="x-hosts" text="standalone"/>
@@ -251,7 +251,7 @@
         <label xml:lang="de" text="Karte"/>
       </category>
       <category ID="sheet_music">
-        <label xml:lang="x-hosts" text="collection standalone book newspaper video others"/>
+        <label xml:lang="x-hosts" text="standalone collection book newspaper video others"/>
         <label xml:lang="en" text="Sheet music"/>
         <label xml:lang="de" text="Noten"/>
       </category>
@@ -259,11 +259,6 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="en" text="Object/Artifact"/>
         <label xml:lang="de" text="Objekt/Artefakt"/>
-      </category>
-      <category ID="others">
-        <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="en" text="Other"/>
-        <label xml:lang="de" text="Sonstiges"/>
       </category>
     </category>
     <category ID="periodical">
@@ -292,6 +287,11 @@
         <label xml:lang="de" text="Website/Blog"/>
         <label xml:lang="en" text="Website/blog"/>
       </category>
+    </category>
+    <category ID="others">
+      <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="en" text="Other"/>
+      <label xml:lang="de" text="Sonstiges"/>
     </category>
   </categories>
 </mycoreclass>
