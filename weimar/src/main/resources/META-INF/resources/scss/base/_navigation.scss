@@ -7,101 +7,120 @@
 // no (xl) media query necessary (desktop first)
 
 // main nav
-  #navigationWrapper {
-    background-color: $primary;
-    .nav-item {
+#navigationWrapper {
+  background-color: $primary;
+
+  .nav-item {
+    .nav-link {
+      color: white;
+    }
+
+    &.active {
       .nav-link {
-        color: white;
-      }
-      &.active {
-        .nav-link {
-          background-color: $weimarBlueHover;
-        }
+        background-color: $weimarBlueHover;
       }
     }
   }
-  li.nav-item.active > a {
-    color: white;
-  }
-  .navbar-nav a {
-    color: black;
-    font-size: 18px;
-  }
-  .navbar-nav .nav-item {
-    padding: 0 .5rem;
-  }
-  a.nav-link:hover {
-    color: $primary;
-    text-decoration: underline;
-  }
-  li.nav-item.active {
-    background-color: $primary;
-  }
-  .nav-login:hover {
-    color: #2285ff;
-  }
-  .nav-item .btn a {
-    color: $primary;
-  }
-  #hauptnavigation i.fas.fa-lg.fa-bars {
-    color: white;
-  }
-  #hauptnavigation .navbar-toggler {
-    padding: 0;
-    font-size: 25px;
-  }
-  #hauptnavigation .navbar-toggler-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .dropdown-menu {
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .1rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
-  }
-  .dropdown-menu a {
-    color: #212529;
-    font-size: 16px;
-  }
-  .hgn-user-orcid {
-    position: absolute;
-    left: -0.5rem;
-    top: 0.25rem;
-  }
+}
+
+li.nav-item.active > a {
+  color: white;
+}
+
+.navbar-nav a {
+  color: black;
+  font-size: 18px;
+}
+
+.navbar-nav .nav-item {
+  padding: 0 .5rem;
+}
+
+a.nav-link:hover {
+  color: $primary;
+  text-decoration: underline;
+}
+
+li.nav-item.active {
+  background-color: $primary;
+}
+
+.nav-login:hover {
+  color: #2285ff;
+}
+
+.nav-item .btn a {
+  color: $primary;
+}
+
+#hauptnavigation i.fas.fa-lg.fa-bars {
+  color: white;
+}
+
+#hauptnavigation .navbar-toggler {
+  padding: 0;
+  font-size: 25px;
+}
+
+#hauptnavigation .navbar-toggler-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropdown-menu {
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: .1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .175);
+}
+
+.dropdown-menu a {
+  color: #212529;
+  font-size: 16px;
+}
+
+.hgn-user-orcid {
+  position: absolute;
+  left: -0.5rem;
+  top: 0.25rem;
+}
 
 // breadcrumb
-  #breadcrumbWrapper {
-    background-color: white;
-  }
-  .breadcrumb {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0;
-      list-style: none;
-      border-radius: 0;
-      font-size: 14px;
-      background-color: $white;
-  }
-  .breadcrumb-item + .breadcrumb-item::before {
-      display: inline-block;
-      padding-right: 0.5rem;
-      content: "/";
-      color: $primary;
-  }
-  .breadcrumb-item, .breadcrumb-item > a {
-      color: $primary;
-  }
+#breadcrumbWrapper {
+  background-color: white;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0;
+  list-style: none;
+  border-radius: 0;
+  font-size: 14px;
+  background-color: $white;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  content: "/";
+  color: $primary;
+}
+
+.breadcrumb-item, .breadcrumb-item > a {
+  color: $primary;
+}
 
 // basketinfo
-  #basketWrapper {
-    a {
-      color: $primary;
-      font-size: 14px;
-    }
-    padding: 0.75rem 0;
+#basketWrapper {
+  a {
+    color: $primary;
+    font-size: 14px;
   }
+
+  padding: 0.75rem 0;
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

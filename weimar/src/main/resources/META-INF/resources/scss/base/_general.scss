@@ -9,21 +9,27 @@
 body {
   min-height: 100vh;
 }
+
 * {
   font-family: 'Fira Sans', sans-serif;
 }
+
 .row .col hr {
   border-top: 0;
 }
+
 h1, h2, h3, h4, h5 {
   color: $primary;
 }
+
 .nameIdentifier {
   @extend .badge, .badge-primary;
+
   a {
     color: white;
     text-transform: capitalize;
   }
+
   vertical-align: top;
   margin-right: 0.25rem;
 }
@@ -40,6 +46,7 @@ h1, h2, h3, h4, h5 {
 .mycore-facet-count {
   margin-right: 0.25rem;
 }
+
 .mycore-facet-exclude,
 .mycore-facet-remove {
   color: $weimarRButton;

@@ -1,35 +1,35 @@
 // web page
-$weimarLink:           #4645A4;
-$weimarVisited:        #6B2906;
-$weimarGray:           #e8e8ea;
-$weimarOldBlue:        #2a2a94;
-$weimarBlue:           #004c97;
-$weimarBlueHover:      #2f6daa;
-$weimarYellow:         rgb(208,168,72);
+$weimarLink: #4645A4;
+$weimarVisited: #6B2906;
+$weimarGray: #e8e8ea;
+$weimarOldBlue: #2a2a94;
+$weimarBlue: #004c97;
+$weimarBlueHover: #2f6daa;
+$weimarYellow: rgb(208, 168, 72);
 
 // reposis
-$weimarRHover:         #6969d4;
-$weimarRLink:          #494999;
-$weimarRLinkAlt:       #3838c2;
-$weimarRLinkHover:     #f39c12;
-$weimarRInfoBack:      #dce4ec;
-$weimarRButton:        #9d9d9d;
-$weimarRButtonHover:   #848484;
-$weimarRButtonBorder:  #7e7e7e;
-$weimarText:           #4d4d4d;
+$weimarRHover: #6969d4;
+$weimarRLink: #494999;
+$weimarRLinkAlt: #3838c2;
+$weimarRLinkHover: #f39c12;
+$weimarRInfoBack: #dce4ec;
+$weimarRButton: #9d9d9d;
+$weimarRButtonHover: #848484;
+$weimarRButtonBorder: #7e7e7e;
+$weimarText: #4d4d4d;
 
 // bs overwrite
-$primary:             #b71a49;
-$secondary:           #009bb4;
+$primary: #b71a49;
+$secondary: #009bb4;
 
 // project variables
-$weimarBorder:          $primary;
-$weimarHeadline:        $primary;
+$weimarBorder: $primary;
+$weimarHeadline: $primary;
 
-$border-radius:       4px;
+$border-radius: 4px;
 
-$body-bg:             white;
-$badge-font-weight:   normal;
+$body-bg: white;
+$badge-font-weight: normal;
 
 $theme-colors: (
   alternative: $secondary
