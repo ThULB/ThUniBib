@@ -38,7 +38,8 @@ li.nav-item.active > a {
 
 a.nav-link:hover {
   color: $primary;
-  text-decoration: underline;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 li.nav-item.active {
@@ -77,6 +78,11 @@ li.nav-item.active {
 .dropdown-menu a {
   color: #212529;
   font-size: 16px;
+}
+
+a.dropdown-item:hover {
+  color: white;
+  background-color: $primary;
 }
 
 .hgn-user-orcid {

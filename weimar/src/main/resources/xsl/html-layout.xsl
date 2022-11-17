@@ -64,9 +64,9 @@
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$font-awesome.version}/css/all.css"
             type="text/css"/>
 
-      <script>var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
-      </script>
-      <script>var currentLang = '<xsl:value-of select="$CurrentLang"/>';
+      <script>
+        var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
+        var currentLang = '<xsl:value-of select="$CurrentLang"/>';
       </script>
 
       <script src="{$WebApplicationBaseURL}js/session-polling.js"/>
@@ -76,7 +76,6 @@
   </xsl:template>
 
   <!-- html body -->
-
   <xsl:template name="layout">
     <body class="d-flex flex-column">
       <!-- <xsl:call-template name="layout.headerline" /> -->
@@ -218,38 +217,7 @@
               </li>
             </ul>
           </nav>
-          <nav class="col col-auto">
-            <a href="#" class="social-toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-               role="button" id="socialDropDownButton">
-              <i class="far fa-fw fa-share-square" aria-hidden="true"></i>
-              <span class="icon-label">Social Media</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" id="navigationSocialContent"
-                 aria-labelledby="socialDropDownButton">
-              <ul>
-                <li>
-                  <a href="https://www.uni-due.de/myude/" class="social social-myude" title="myUDE">
-                    <i class="fab fa-fw fa-myude" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://www.facebook.com/uni.due" class="social social-facebook" title="Facebook">
-                    <i class="fab fa-fw fa-facebook-f" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://twitter.com/unidue" class="social social-twitter" title="Twitter">
-                    <i class="fab fa-fw fa-twitter" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.softec.wiwi.uni-due.de/rss/" class="social social-rss" title="RSS">
-                    <i class="fab fa-fw fa-rss" aria-hidden="true"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+
           <nav class="col col-auto">
             <div class="nav nav-pills">
               <xsl:call-template name="layout.login"/>
@@ -261,7 +229,6 @@
   </xsl:template>
 
   <!-- custom navigation for additional information -->
-
   <xsl:template name="layout.sub.navigation.information">
     <xsl:for-each select="$navigation.tree/item[@menu='information']">
       <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -334,7 +301,6 @@
   </xsl:template>
 
   <!-- Brotkrumen-Navigation -->
-
   <xsl:template name="layout.breadcrumbPath">
     <div id="breadcrumbWrapper">
       <div class="container">
@@ -383,30 +349,23 @@
   <xsl:template name="layout.login">
 
     <div class="nav-item mr-2">
-      <xsl:choose>
-        <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-          <span class="user btn p-0" style="cursor: default;">
-            [<xsl:value-of select="i18n:translate('component.user2.login.guest')"/>]
-          </span>
-        </xsl:when>
-        <xsl:otherwise>
-          <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
-             role="button" id="mcrFunctionsDropdown" href="#"
-             class="user nav-link dropdown-toggle p-0" style="cursor: default;">
-            <xsl:choose>
-              <xsl:when test="contains($CurrentUser,'@')">
-                [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
-              </xsl:when>
-              <xsl:otherwise>
-                [<xsl:value-of select="$CurrentUser"/>]
-              </xsl:otherwise>
-            </xsl:choose>
-          </a>
-          <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
-            <xsl:call-template name="layout.usernav"/>
-          </div>
-        </xsl:otherwise>
-      </xsl:choose>
+      <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
+        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button" id="mcrFunctionsDropdown" href="#"
+           class="user nav-link dropdown-toggle p-0 ubo-hover-pointer">
+          <xsl:choose>
+            <xsl:when test="contains($CurrentUser,'@')">
+              [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
+            </xsl:when>
+            <xsl:otherwise>
+              [<xsl:value-of select="$CurrentUser"/>]
+            </xsl:otherwise>
+          </xsl:choose>
+        </a>
+        <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
+          <xsl:call-template name="layout.usernav"/>
+        </div>
+      </xsl:if>
+
       <xsl:call-template name="orcidUser"/>
     </div>
 
