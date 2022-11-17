@@ -8,7 +8,6 @@
 
 // main nav
   #navigationWrapper {
-    font-family: 'Roboto Condensed', Arial, sans-serif;
     background-color: $primary;
     .nav-item {
       .nav-link {
@@ -83,7 +82,6 @@
       list-style: none;
       border-radius: 0;
       font-size: 14px;
-      font-family: 'Roboto Condensed', Arial, sans-serif;
       background-color: $white;
   }
   .breadcrumb-item + .breadcrumb-item::before {
@@ -101,7 +99,6 @@
     a {
       color: $primary;
       font-size: 14px;
-      font-family: 'Roboto Condensed', Arial, sans-serif;
     }
     padding: 0.75rem 0;
   }

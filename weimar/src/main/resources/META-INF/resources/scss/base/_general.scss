@@ -9,11 +9,14 @@
 body {
   min-height: 100vh;
 }
+* {
+  font-family: 'Fira Sans', sans-serif;
+}
 .row .col hr {
   border-top: 0;
 }
 h1, h2, h3, h4, h5 {
-  color: $weimarHeadline;
+  color: $primary;
 }
 .nameIdentifier {
   @extend .badge, .badge-primary;
@@ -82,7 +85,6 @@ h1, h2, h3, h4, h5 {
   display: block;
   background: $weimarBlue;
   padding: 8px 0px;
-  font-family: Arial,sans-serif;
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
