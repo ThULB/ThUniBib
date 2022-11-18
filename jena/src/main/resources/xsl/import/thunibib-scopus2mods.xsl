@@ -4,6 +4,5 @@
 <!-- http://api.elsevier.com/content/abstract/scopus_id/84946429507?apikey=... -->
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:include href="import/scopus2destatis.xsl"/>
   <xsl:include href="import/thunibib-scopus2mods-common.xsl"/>
 </xsl:stylesheet>
