@@ -275,16 +275,9 @@
 
   <!-- current user and login formular-->
   <xsl:template name="layout.login">
-
     <div class="nav-item mr-2">
-      <xsl:value-of select="'['"/>
-      <xsl:choose>
-        <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-          <span class="user p-0" style="cursor: default;">
-            <xsl:value-of select="i18n:translate('component.user2.login.guest')"/>
-          </span>
-        </xsl:when>
-        <xsl:otherwise>
+        <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
+          <xsl:value-of select="'['"/>
           <xsl:variable name="userData" select="document('user:current')/user"/>
           <xsl:variable name="userId">
             <xsl:choose>
@@ -312,12 +305,11 @@
           <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
             <xsl:call-template name="layout.usernav"/>
           </div>
-        </xsl:otherwise>
-      </xsl:choose>
-      <xsl:value-of select="']'"/>
+          <xsl:value-of select="']'"/>
+        </xsl:if>
       <xsl:call-template name="orcidUser"/>
-
     </div>
+
     <div class="nav-item mr-2">
       <xsl:choose>
         <xsl:when test="/webpage/@id='login'"/>
