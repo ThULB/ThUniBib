@@ -79,10 +79,11 @@
   </xsl:template>
 
   <xsl:template name="ubomodsGenre">
-    <xsl:for-each select="p:datafield[@tag='144Z']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090',text())]">
+    <xsl:for-each select="p:datafield[@tag='144Z' or @tag='013D']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090 105825778',text())]">
       <xsl:variable name="genre" select="text()" />
       <mods:genre type="intern">
         <xsl:choose>
+          <xsl:when test="$genre='105825778'">thesis</xsl:when>
           <xsl:when test="$genre='480926107'">bachelor_thesis</xsl:when>
           <xsl:when test="$genre='477192068'">chapter</xsl:when>
           <xsl:when test="$genre='476643694'">diploma_thesis</xsl:when>
