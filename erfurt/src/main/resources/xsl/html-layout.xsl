@@ -382,32 +382,24 @@
 
   <!-- current user and login formular-->
   <xsl:template name="layout.login">
-
     <div class="nav-item mr-2">
-      <xsl:choose>
-        <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-          <span class="user btn p-0" style="cursor: default;">
-            [<xsl:value-of select="i18n:translate('component.user2.login.guest')"/>]
-          </span>
-        </xsl:when>
-        <xsl:otherwise>
-          <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
-             role="button" id="mcrFunctionsDropdown" href="#"
-             class="user nav-link dropdown-toggle p-0" style="cursor: default;">
-            <xsl:choose>
-              <xsl:when test="contains($CurrentUser,'@')">
-                [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
-              </xsl:when>
-              <xsl:otherwise>
-                [<xsl:value-of select="$CurrentUser"/>]
-              </xsl:otherwise>
-            </xsl:choose>
-          </a>
-          <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
-            <xsl:call-template name="layout.usernav"/>
-          </div>
-        </xsl:otherwise>
-      </xsl:choose>
+      <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
+        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+           role="button" id="mcrFunctionsDropdown" href="#"
+           class="user nav-link dropdown-toggle p-0 ubo-hover-pointer">
+          <xsl:choose>
+            <xsl:when test="contains($CurrentUser,'@')">
+              [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
+            </xsl:when>
+            <xsl:otherwise>
+              [<xsl:value-of select="$CurrentUser"/>]
+            </xsl:otherwise>
+          </xsl:choose>
+        </a>
+        <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
+          <xsl:call-template name="layout.usernav"/>
+        </div>
+      </xsl:if>
       <xsl:call-template name="orcidUser"/>
     </div>
 
