@@ -531,19 +531,33 @@
 
   <xed:template id="corporate.role">
     <xed:repeat xpath="mods:name[@type='corporate']">
-      <div class="form-group form-inline ubo-repeat-group">
-        <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="isb">
-          <label class="mycore-form-label d-flex align-items-center mt-0">
-            <select class="form-control custom-select">
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator_corporation"/>
-            </select>
-            <div class="ml-1">:</div>
-          </label>
+      <div>
+        <div class="form-group form-inline ubo-repeat-group">
+          <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="isb">
+            <label class="mycore-form-label d-flex align-items-center mt-0">
+              <select class="form-control custom-select">
+                <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator_corporation"/>
+              </select>
+              <div class="ml-1">:</div>
+            </label>
+          </xed:bind>
+
+          <xed:bind xpath="mods:namePart">
+            <input id="{xed:generate-id()}" type="text" class="mycore-form-input" placeholder="{i18n:ubo.corporate}"/>
+          </xed:bind>
+
+          <xed:controls/>
+        </div>
+
+        <xed:bind xpath="mods:nameIdentifier[@type = 'gnd']">
+          <div class="col-12 px-0 form-group form-inline mt-n2">
+            <label class="mycore-form-label"/>
+            <label>GND:</label>
+            <div class="col-sm-4">
+              <input class="mycore-form-input" type="text" id="{xed:generate-id()}"/>
+            </div>
+          </div>
         </xed:bind>
-        <xed:bind xpath="mods:namePart">
-          <input id="{xed:generate-id()}" type="text" class="mycore-form-input" placeholder="{i18n:ubo.corporate}"/>
-        </xed:bind>
-        <xed:controls/>
       </div>
     </xed:repeat>
   </xed:template>
