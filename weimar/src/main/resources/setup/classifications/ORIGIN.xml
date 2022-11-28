@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
+<mycoreclass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
   <label xml:lang="de" text="Bauhaus-Universität Weimar"/>
   <label xml:lang="x-place" text="Bauhaus-Universität Weimar | Weimar | Geschwister-Scholl-Straße 8, 99423 Weimar"/>
 
@@ -37,7 +36,7 @@
 
       <category ID="01.05">
         <label xml:lang="de" text="Professur Denkmalpflege und Baugeschichte"/>
-        <label xml:land="en" text="Professorship Conservation and History of Architecture"/>
+        <label xml:lang="en" text="Professorship Conservation and History of Architecture"/>
         <label xml:lang="x-gnd" text="1121823661"/>
       </category>
 
