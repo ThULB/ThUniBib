@@ -79,89 +79,89 @@
 		<label xml:lang="en" text="Professorship Presentation Methodology in Design"/>
 		</category>
 		
-		<category ID="01.10">
+		<category ID="01.13">
 		<label xml:lang="de" text="Professur Entwerfen und Baukonstruktion"/>
 		<label xml:lang="en" text="Professorship Design and Building Construction"/>
 		<label xml:lang="x-gnd" text="16330439-7"/>
 		</category>
 		
-		<category ID="01.11">
+		<category ID="01.14">
 		<label xml:lang="de" text="Professur Bauphysik"/>
 		<label xml:lang="en" text="Professorship Building Physics"/>
 		</category>
 		
-		<category ID="01.12">
+		<category ID="01.15">
 		<label xml:lang="de" text="Professur Konstruktives Entwerfen und Tragwerkslehre"/> 
 		<label xml:lang="en" text="Professorship Structural Design"/>
 		<label xml:lang="x-gnd" text="1200975162"/>
 		</category>
 		
-		<category ID="01.13">
+		<category ID="01.16">
 		<label xml:lang="de" text="Professur Konstruktives Entwerfen und Erproben"/> 
 		<label xml:lang="en" text="Professorship Constructive Design and Experimentation"/>
 		</category>
 		
-		<category ID="01.14">
+		<category ID="01.17">
 		<label xml:lang="de" text="Professur Entwerfen und Wohnungsbau"/>
 		<label xml:lang="en" text="Professorship Design and Housing"/>
 		<label xml:lang="x-gnd" text="10110267-7"/>
 		</category>
 		
-		<category ID="01.15">
+		<category ID="01.18">
 		<label xml:lang="de" text="Professur Entwerfen und Raumgestaltung"/>
 		<label xml:lang="en" text="Professorship Architectural Space and Design"/>
 		<label xml:lang="x-gnd" text="16014840-6"/>
 		</category>
 		
-		<category ID="01.16">
+		<category ID="01.19">
 		<label xml:lang="de" text="Professur Entwerfen und komplexe Gebäudelehre"/>
 		<label xml:lang="en" text="Professorship Design and complex Theory of Buildings"/>
 		</category>
 		
-		<category ID="01.17">
+		<category ID="01.20">
 		<label xml:lang="de" text="Professur Entwerfen und Städtebau I"/>
 		<label xml:lang="en" text="Professorship Urban Design I"/>
 		<label xml:lang="x-gnd" text="10096037-6"/>
 		</category>
 		
-		<category ID="01.18">
+		<category ID="01.21">
 		<label xml:lang="de" text="Professur Entwerfen und StadtArchitektur"/>
 		<label xml:lang="en" text="Professorship Urban architecture"/>
 		</category>
 		
-		<category ID="01.19">
+		<category ID="01.22">
 		<label xml:lang="de" text="Professur Landschaftsarchitektur/Landschaftsplanung"/> 
 		<label xml:lang="en" text="Professorship Landscape Architecture and Planning"/>
 		</category>
 		
-		<category ID="01.20">
+		<category ID="01.23">
 		<label xml:lang="de" text="Professur Stadt Raum Entwerfen"/>
 		<label xml:lang="en" text="Professorship Urban and Regional Design"/>
 		</category>
 		
-		<category ID="01.21">
+		<category ID="01.24">
 		<label xml:lang="de" text="Professur Raumplanung und Raumforschung"/>
 		<label xml:lang="en" text="Professorship Spatial Planning and Research"/>
 		<label xml:lang="x-gnd" text="6041219-7"/>
 		</category>
 	
-		<category ID="01.22">
+		<category ID="01.25">
 		<label xml:lang="de" text="Professur Sozialwissenschaftliche Stadtforschung"/>
 		<label xml:lang="en" text="Professorship Urban Studies and Social Research"/>
 		</category>
 		
-		<category ID="01.23">
+		<category ID="01.26">
 		<label xml:lang="de" text="Professur Stadtplanung"/> 
 		<label xml:lang="en" text="Professorship Urban Planning"/>
 		</category>
 	
-		<category ID="01.24">
+		<category ID="01.27">
 		<label xml:lang="de" text="Professur Baumanagement und Bauwirtschaft"/>
 		<label xml:lang="en" text="Architectural Management"/>
 		<label xml:lang="x-gnd" text="16164472-7"/>
 		</category>
 	
-		<category ID="01.25">
+		<category ID="01.28">
 		<label xml:lang="de" text="Professur European Cities and Urban Heritage"/>
 		<label xml:lang="en" text="Professorship European Cities and Urban Heritage"/>
 		</category>
