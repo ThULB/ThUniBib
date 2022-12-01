@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="$Date$" id="dozbib.new.publication" xmlns:i18n="http://www.mycore.org/i18n">
+<webpage lastModified="$Date$" id="dozbib.new.publication" xmlns:i18n="http://www.mycore.org/i18n" xmlns:xed="http://www.mycore.de/xeditor">
   <title xml:lang="de">Publikation einreichen</title>
   <title xml:lang="en">Registering a publication</title>
 
@@ -135,12 +135,12 @@
           <xed:otherwise>
             <p>
               <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem <a
-                  href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet?url=https%3A%2F%2Fbibliographie.tu-ilmenau.de%2FnewPublication.xed%3Flang%3Dde">
+                  href="servlets/MCRShibbolethLoginServlet?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
                 URZ-Login
               </a> an.
               </i18n:de>
               <i18n:en>If you would like to submit a publication please <a
-                  href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet?url=https%3A%2F%2Fbibliographie.tu-ilmenau.de%2FnewPublication.xed%3Flang%3Dde">
+                  href="servlets/MCRShibbolethLoginServlet?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=en">
                 sign in
               </a> with your URZ
                 credentials.
