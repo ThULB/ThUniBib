@@ -6,46 +6,49 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
-  footer {
-    background-color: $primary;
-    color: #fff;
-    width: 100%;
-    z-index: 100;
-    bottom: 0;
-    margin-top: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+footer {
+  background-color: black;
+  color: #fff;
+  width: 100%;
+  z-index: 100;
+  bottom: 0;
+  margin-top: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.hgn-footer-menu {
+  .navbar {
+    padding: 0;
   }
 
-  .hgn-footer-menu {
-    font-family: 'Roboto Condensed',Arial,sans-serif;
-    .navbar {
-      padding: 0;
-    }
-    a {
+  a {
+    color: white;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+  }
+
+  .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 2rem;
+
+    &:hover {
       color: white;
-      font-size: 0.8125rem;
-      letter-spacing: 0.02em;
-    }
-    .navbar-nav .nav-link {
-      padding-right: 0;
-      padding-left: 0;
-      margin-right: 2rem;
-      &:hover {
-        color:white;
-      }
     }
   }
+}
 
-  #powered_by {
-    a {
-      display: block;
-      text-align: right;
-      img {
-        height: 50px;
-      }
+#powered_by {
+  a {
+    display: block;
+    text-align: right;
+
+    img {
+      height: 24px;
     }
   }
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

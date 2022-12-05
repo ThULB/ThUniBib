@@ -50,13 +50,11 @@
 
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery/{$jquery.version}/jquery.min.js"/>
-      <script type="text/javascript"
-              src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
-      <script type="text/javascript"
-              src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/jquery/{$jquery.version}/jquery.min.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
       <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.min.css" rel="stylesheet"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"/>
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css"
             type="text/css"/>
@@ -65,12 +63,12 @@
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
 
-      <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
+      <script>var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
       </script>
-      <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang"/>';
+      <script>var currentLang = '<xsl:value-of select="$CurrentLang"/>';
       </script>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}js/session-polling.js"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}js/person-popover.js"/>
+      <script src="{$WebApplicationBaseURL}js/session-polling.js"/>
+      <script src="{$WebApplicationBaseURL}js/person-popover.js"/>
 
       <xsl:copy-of select="node()"/>
     </head>
@@ -386,7 +384,7 @@
       <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
         <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
            role="button" id="mcrFunctionsDropdown" href="#"
-           class="user nav-link dropdown-toggle p-0 ubo-hover-pointer">
+           class="user nav-link dropdown-toggle text-white p-0 ubo-hover-pointer">
           <xsl:choose>
             <xsl:when test="contains($CurrentUser,'@')">
               [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
@@ -396,6 +394,7 @@
             </xsl:otherwise>
           </xsl:choose>
         </a>
+
         <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
           <xsl:call-template name="layout.usernav"/>
         </div>
@@ -409,13 +408,13 @@
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
              href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
+            <i class="nav-login text-white fas fa-lg fa-sign-in-alt"/>
           </a>
         </xsl:when>
         <xsl:otherwise>
           <a class="btn btn-link p-0" title="{i18n:translate('login.logOut')}"
              href="{$ServletsBaseURL}logout?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
+            <i class="nav-login text-white fas fa-lg fa-sign-out-alt"/>
           </a>
         </xsl:otherwise>
       </xsl:choose>
