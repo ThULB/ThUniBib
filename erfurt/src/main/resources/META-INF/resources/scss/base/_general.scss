@@ -7,7 +7,7 @@
 // no (xl) media query necessary (desktop first)
 
 body {
-  font-family: 'Noto Sans', Arial, sans-serif;
+  font-family: 'Noto Sans';
   min-height: 100vh;
 }
 
@@ -85,7 +85,6 @@ body {
   display: block;
   background: $erfurtPetrol;
   padding: 8px 0px;
-  font-family: Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
