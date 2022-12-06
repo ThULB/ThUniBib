@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="about" xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:de>Über die Bibliographie</i18n:de>
+    <i18n:en>About the Bibliography</i18n:en>
+  </title>
+
+  <div class="row">
+    <div class="col-12 col-md-8">
+
+      <article class="card mb-3" xml:lang="de">
+        <div class="card-body">
+          <p>
+            Die Universitätsbibliographie ist das digitale Publikationsdokumentationssystem der
+            Universität Erfurt. Es dient der Erfassung, Präsentation und Dokumentation der
+            Publikationsleistungen aller Angehörigen der Universität.
+          </p>
+          <p>
+            Ab dem 01.06.2022 werden in der Universitätsbibliographie sukzessive Publikationen nachgewiesen. Diese
+            gelangen über Datenbanken, manuelle Meldungen oder Listen in die Bibliographie und werden durch die ThULB
+            redaktionell geprüft. Derzeit befindet sich die Universitätsbibliographie im Aufbau und es werden vorrangig
+            aktuelle Publikationen bearbeitet.
+          </p>
+          <p>
+            Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer
+            Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie
+            der Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <h3>FAQ</h3>
+
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Welche Publikationen werden in die Bibliographie eingetragen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                In der Bibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder
+                in digitaler Form erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und
+                Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Wer kann Publikationen eintragen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                Alle Angehörigen der Universität Erfurt können ihre Publikationen an die
+                Universitätsbibliographie Erfurt melden. Dazu ist eine Anmeldung mit dem URZ-Login erforderlich.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Wie kann man Publikationen in die Bibliographie eintragen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                Angehörige der Universität können sich in der Bibliographie anmelden, indem sie auf den Pfeil oben
+                rechts klicken und sich mit ihrem URZ-Login einloggen.
+                Auf der Seite „<a href="newPublication.xed">Publikation einreichen</a>“
+                gelangen Sie mit der Angabe eines Identifier (z.B. DOI) oder mit der Angabe von Autor*in und Titel der
+                Publikation zur Eingabemaske für Publikationen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Warum ist meine eingereichte Publikation nicht sofort in der Bibliographie auffindbar?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                Eingereichte Publikationen werden von einem Redaktionsteam an der ThULB überprüft. Dadurch kann es zu
+                zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und aufgearbeitet, um
+                eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu gewährleisten.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+</webpage>
