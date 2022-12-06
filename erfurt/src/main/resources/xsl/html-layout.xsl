@@ -284,10 +284,22 @@
       <div class="container" id="">
         <div class="row">
           <div class="col header-brand">
-            <a title="Zur Startseite" class="imageLink" href="{$WebApplicationBaseURL}">
+            <xsl:variable name="href">
+              <xsl:choose>
+                <xsl:when test="$CurrentLang = 'de'">
+                  <xsl:value-of select="'https://www.uni-erfurt.de/bibliothek'"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/en/erfurt-university-library'"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+
+            <a title="Zur Startseite" class="imageLink" href="{$href}">
               <div id="wordmark"/>
             </a>
           </div>
+
           <nav class="col col-auto">
             <div class="nav nav-pills">
               <xsl:call-template name="layout.login"/>
