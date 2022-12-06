@@ -90,9 +90,9 @@
 
   <xsl:template name="layout.headline">
     <div id="headlineWrapper">
-      <div class="container w-100 w-sm-50">
+      <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col-12">
             <h3 id="seitentitel">
               <xsl:copy-of select="head/title/node()"/>
             </h3>
@@ -106,26 +106,6 @@
         <xsl:with-param name="affiliation" select="'16982'"/>
       </xsl:apply-templates>
     </xsl:if>
-  </xsl:template>
-
-  <xsl:template name="layout.topcontainer">
-    <div id="topcontainer">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <xsl:call-template name="layout.pageTitle"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-9">
-            <xsl:call-template name="layout.breadcrumbPath"/>
-          </div>
-          <div class="col-lg-3 pl-0">
-            <xsl:call-template name="layout.basket.info"/>
-          </div>
-        </div>
-      </div>
-    </div>
   </xsl:template>
 
   <!-- html body -->
@@ -449,7 +429,7 @@
               </xsl:when>
             </xsl:choose>
           </xsl:attribute>
-          <!-- <img src="{$WebApplicationBaseURL}images/lang_{$CurrentLang}.gif" alt="{i18n:translate('navigation.Language')}" /> -->
+
           <xsl:value-of select="i18n:translate('navigation.ende')"/>
         </a>
       </span>
@@ -477,18 +457,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template name="layout.pageTitle">
-    <div class="card my-3">
-      <div class="card-body py-2">
-        <h3 id="seitentitel">
-          <xsl:copy-of select="head/title/node()"/>
-        </h3>
-      </div>
-    </div>
-  </xsl:template>
-
   <!-- Footer -->
-
   <xsl:template name="layout.footer">
     <footer>
       <div class="container">
