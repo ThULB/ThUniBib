@@ -5,6 +5,9 @@
 // Extra large devices (large desktops)
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
+* {
+  border-radius: 0px !important;
+}
 
 body {
   font-family: 'Noto Sans';
