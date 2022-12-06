@@ -39,6 +39,18 @@ footer {
   }
 }
 
+.footer-menu-wrapper a {
+  color: white;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  margin-right: 32px;
+}
+
+.footer-menu-wrapper a:hover {
+  color: white;
+  text-decoration: underline !important;
+}
+
 #powered_by {
   a {
     display: block;

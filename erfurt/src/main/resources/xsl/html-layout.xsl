@@ -11,9 +11,10 @@
 
   <xsl:output method="xml" encoding="UTF-8"/>
 
+  <xsl:param name="WebApplicationBaseURL"/>
   <xsl:param name="CurrentLang"/>
   <xsl:param name="UBO.Login.Path"/>
-  <xsl:param name="UBO.TestInstance"/>
+  <xsl:param name="ThUniBib.ServiceDesk.enabled"/>
 
   <xsl:variable name="jquery.version" select="'3.3.1'"/>
   <xsl:variable name="jquery-ui.version" select="'1.12.1'"/>
@@ -78,17 +79,12 @@
 
   <xsl:template name="layout">
     <body class="d-flex flex-column">
-      <!-- <xsl:call-template name="layout.headerline" /> -->
       <xsl:call-template name="layout.header"/>
       <xsl:call-template name="layout.navigation"/>
       <xsl:call-template name="layout.breadcrumbPath"/>
       <xsl:call-template name="layout.headline"/>
-      <!-- <xsl:call-template name="layout.topcontainer" /> -->
       <xsl:call-template name="layout.body"/>
       <xsl:call-template name="layout.footer"/>
-      <xsl:if test="contains($UBO.TestInstance, 'true')">
-        <div id="watermark_testenvironment">Testumgebung</div>
-      </xsl:if>
     </body>
   </xsl:template>
 
@@ -498,7 +494,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-sm-6 col-lg-8 hgn-footer-menu">
-            <xsl:call-template name="layout.metanav"/>
+            <xsl:call-template name="layout.imprintline"/>
           </div>
           <div class="col-12 col-sm-6 col-lg-4">
             <xsl:call-template name="powered_by"/>
@@ -506,6 +502,29 @@
         </div>
       </div>
     </footer>
+  </xsl:template>
+
+  <xsl:template name="layout.imprintline">
+    <xsl:variable name="navigation" select="document('webapp:navigation.xml')"/>
+    <div class="footer-menu-wrapper">
+      <xsl:for-each select="$navigation/navigation/item[@role='meta']/item[not(@xml:lang) or lang($CurrentLang)]">
+        <span>
+          <a href="{$WebApplicationBaseURL}{./@ref}">
+            <xsl:attribute name="href">
+              <xsl:choose>
+                <xsl:when test="contains(@ref, '://')">
+                  <xsl:value-of select="@ref"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="concat($WebApplicationBaseURL, @ref)"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <xsl:value-of select="label[lang($CurrentLang)]"/>
+          </a>
+        </span>
+      </xsl:for-each>
+    </div>
   </xsl:template>
 
   <xsl:template name="powered_by">
