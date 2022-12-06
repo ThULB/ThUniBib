@@ -988,10 +988,10 @@
         <xed:output i18n="button.save"/>
       </button>
 
-      <button class="btn btn-sm btn-primary" type="submit" xed:target="cancel">
+      <button class="btn btn-sm btn-secondary" type="submit" xed:target="cancel">
         <xed:output i18n="button.cancel"/>
       </button>
-      <!-- <button class="ml-2 btn btn-sm btn-primary" type="submit" xed:target="debug">Debug</button> -->
+
     </div>
   </xed:template>
 
