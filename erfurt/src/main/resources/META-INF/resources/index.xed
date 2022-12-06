@@ -7,7 +7,8 @@
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">
       <p>
-        Die Universitätsbibliographie ist der zentrale Publikationsnachweis der Universität Erfurt, der online
+        <h3>Die Universitätsbibliographie</h3>
+        ist der zentrale Publikationsnachweis der Universität Erfurt, der online
         die Publikationstätigkeit der Universitätsangehörigen verzeichnet.
         Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut.
         <br/>
@@ -33,7 +34,8 @@
   <article class="card mb-3" xml:lang="en">
     <div class="card-body">
       <p>
-        The University Bibliography is the central publication record of the University Erfurt, which lists
+        <h3>The University Bibliography</h3>
+        is the central publication record of the University Erfurt, which lists
         online the publication activities of the university members.
         It is a service of the university library and is editorially supervised by it.
         <br/>
@@ -115,7 +117,28 @@
           Universitätsbibliothek Erfurt
           <br/>
           E-Mail:
-          <a href="mailto:#">???</a>
+          <a href="mailto:information.ub@uni-erfurt.de">information.ub@uni-erfurt.de</a>
+          <br/>
+          Tel.: +49 3643 582835
+        </p>
+      </div>
+    </article>
+
+    <article class="card" xml:lang="en">
+      <div class="card-body">
+        <hgroup>
+          <h3>Contact:</h3>
+        </hgroup>
+        <p>
+          <a href="#">
+            <span>Contact the University Library of Erfurt</span>
+          </a>
+        </p>
+        <p>
+          Erfurt University Library
+          <br/>
+          E-Mail:
+          <a href="mailto:information.ub@uni-erfurt.de">information.ub@uni-erfurt.de</a>
           <br/>
           Tel.: +49 3643 582835
         </p>
