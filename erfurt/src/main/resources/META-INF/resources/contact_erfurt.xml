@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<webpage lastModified="$Date$" id="contact">
+
+<title xml:lang="de">Kontakt - Universitätsbibliographie</title>
+
+<title xml:lang="en">Contact - University Bibliography</title>
+
+
+
+<article class="card" xml:lang="de">
+
+<div class="card-body">
+
+<h3>Kontakt</h3>
+
+<p>
+
+Haben Sie Fragen zur Universitätsbibliographie oder benötigen Hilfe oder Beratung, melden Sie sich bei uns:
+
+</p>
+
+<p>
+
+E-Mail: <a href="mailto:bibliografie@uni-erfurt.de">bibliografie@uni-erfurt.de</a><br/>
+
+</p>
+
+</div>
+
+</article>
+
+
+
+<article class="card" xml:lang="en">
+
+<div class="card-body">
+
+<h3>Contact</h3>
+
+<p>
+
+If you have questions about the university bibliography, or need support, please contact us:
+
+</p>
+
+<p>
+
+Email: <a href="mailto:bibliografie@uni-erfurt.de">bibliografie@uni-erfurt.de</a><br/>
+
+</p>
+
+</div>
+
+</article>
+
+
+
+</webpage>
