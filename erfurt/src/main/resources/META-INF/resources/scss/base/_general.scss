@@ -5,50 +5,59 @@
 // Extra large devices (large desktops)
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
+* {
+  border-radius: 0px !important;
+}
 
-  body {
-    min-height: 100vh;
-  }
-  .row .col hr {
-    border-top: 0;
-  }
-  .nameIdentifier {
-    @extend .badge, .badge-primary;
-    a {
-      color: white;
-      text-transform: capitalize;
-    }
-    vertical-align: top;
-    margin-right: 0.25rem;
-  }
+body {
+  font-family: 'Noto Sans';
+  min-height: 100vh;
+}
 
-  .nameIdentifier:first-child {
-    margin-left: 0.25rem;
-  }
+.row .col hr {
+  border-top: 0;
+}
 
-  .nameIdentifier:last-child {
-    margin-right: 0rem;
+.nameIdentifier {
+  @extend .badge, .badge-primary;
+
+  a {
+    color: white;
+    text-transform: capitalize;
   }
 
-  // more space after pipe in facett entry
-  .mycore-facet-count {
-    margin-right: 0.25rem;
-  }
-  .mycore-facet-exclude,
-  .mycore-facet-remove {
-    color: $erfurtRButton;
-  }
+  vertical-align: top;
+  margin-right: 0.25rem;
+}
 
-  #watermark_testenvironment {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    opacity: 0.5;
-    z-index: 200;
-    color: #ff8300;;
-    font-size: 32px;
-    font-weight: bold;
-  } 
+.nameIdentifier:first-child {
+  margin-left: 0.25rem;
+}
+
+.nameIdentifier:last-child {
+  margin-right: 0rem;
+}
+
+// more space after pipe in facett entry
+.mycore-facet-count {
+  margin-right: 0.25rem;
+}
+
+.mycore-facet-exclude,
+.mycore-facet-remove {
+  color: $erfurtRButton;
+}
+
+#watermark_testenvironment {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0.5;
+  z-index: 200;
+  color: #ff8300;;
+  font-size: 32px;
+  font-weight: bold;
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
@@ -77,9 +86,8 @@
   right: -24px;
   transform: rotate(-90deg);
   display: block;
-  background: $erfurtBlue;
+  background: $erfurtPetrol;
   padding: 8px 0px;
-  font-family: Arial,sans-serif;
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="dozbib">
+  <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Universität Erfurt</title>
+  <title xml:lang="en">Welcome to Bibliography of University of Erfurt</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <h3>Die Universitätsbibliographie</h3>
+      <p>
+        ist der zentrale Publikationsnachweis der Universität Erfurt, der online die Publikationstätigkeit der
+        Hochschulangehörigen verzeichnet.
+        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut.
+        <br/>
+        Die Universitätsbibliographie befindet sich derzeit im Aufbau.
+      </p>
+      <p>
+        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+        gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
+      </p>
+      <h3>Gehören Sie der Universität Erfurt an?</h3>
+      <p>
+        Helfen Sie uns bei der Vervollständigung!
+        <br/>
+        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliographie melden</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <h3>The University Bibliography</h3>
+      <p>
+        is the central resource of University of Erfurt that lists all publication activities of the university members.
+        It is provided and edited by the university library.
+        <br/>
+        The bibliography is currently under construction.
+      </p>
+      <p>
+        The development of the university bibliography is supported by the State of Thuringia within the framework of
+        the
+        Thuringian Digital Strategy and is being carried out in cooperation with the Head Office of the GBV Common
+        Library Network.
+      </p>
+      <h3>
+        As a member of University of Erfurt
+      </h3>
+      <p>
+        Help us to complete the bibliography!
+        <br/>
+        <a href="../newPublication.xed">Here you can register your own publication</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3">
+    <div class="card-body">
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">
+        <div class="form-group form-inline mb-0">
+
+          <xed:bind xpath="/query">
+            <xed:bind xpath="@mask" default="index.xed"/>
+            <xed:bind xpath="@numPerPage" default="10"/>
+            <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
+              <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
+                <label for="input" class="mycore-form-label">
+                  <xed:output i18n="ubo.search.simple"/>
+                </label>
+                <input id="input" type="text" class="mycore-form-input form-control-sm mr-2"/>
+              </xed:bind>
+
+              <!-- Standard users must only find confirmed publications, admins find all publications -->
+              <xed:choose>
+                <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
+                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']"/>
+                </xed:when>
+                <xed:otherwise>
+                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']"/>
+                </xed:otherwise>
+              </xed:choose>
+
+            </xed:bind>
+            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]"/>
+          </xed:bind>
+
+          <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
+            <xed:output i18n="button.search"/>
+          </button>
+        </div>
+      </xed:form>
+    </div>
+  </article>
+
+  <xinclude
+      uri="xslStyle:response-newest:solr:q=partOf:true+AND+status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
+
+  <aside id="sidebar">
+    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0"/>
+    <xinclude
+        uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
+    <xinclude
+        uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID"/>
+
+    <article class="card" xml:lang="de">
+      <div class="card-body">
+        <hgroup>
+          <h3>Kontakt:</h3>
+        </hgroup>
+        <p>
+          <a href="https://www.uni-erfurt.de/bibliothek/ueber-die-ub/kontakt/ansprechpartner">
+            <span>Kontakt zur Universitätsbibliothek Erfurt</span>
+          </a>
+        </p>
+        <p>
+          Universitätsbibliothek Erfurt
+          <br/>
+          E-Mail:
+          <a href="mailto:bibliografie@uni-erfurt.de">bibliografie@uni-erfurt.de</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card" xml:lang="en">
+      <div class="card-body">
+        <hgroup>
+          <h3>Contact:</h3>
+        </hgroup>
+        <p>
+          <a href="https://www.uni-erfurt.de/en/erfurt-university-library/about-us/contact/contact-persons">
+            <span>Contact the University Library of Erfurt</span>
+          </a>
+        </p>
+        <p>
+          Erfurt University Library
+          <br/>
+          E-Mail:
+          <a href="mailto:bibliografie@uni-erfurt.de">bibliografie@uni-erfurt.de</a>
+        </p>
+      </div>
+    </article>
+  </aside>
+</webpage>

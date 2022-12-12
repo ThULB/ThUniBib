@@ -6,35 +6,33 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
-  $form-color: #251e52;
-  .mycore-form-input, .form-control {
-    border-color: $form-color;
-    border: 1px solid #ced4da;
-    border-radius: .1rem;
-  }
+$form-color: #251e52;
+.mycore-form-input, .form-control {
+  border-color: $form-color;
+  border: 1px solid #ced4da;
+}
 
-  .form-control:focus, .mycore-form-input:focus {
-      color: #495057;
-      background-color: #fff;
-      border-color: #407fdf;
-      outline: 0;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), inset 0 1px 1px rgba(0,0,0,.075), 0 0 2px rgba(23,68,136,.6);
-  }
+.form-control:focus, .mycore-form-input:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #407fdf;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px rgba(23, 68, 136, .6);
+}
 
-  .form-group>.mycore-form-input:not(:last-child) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-right: none !important;
-  }
+.form-group > .mycore-form-input:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none !important;
+}
 
-  .mycore-form-input.form-control-sm.mr-2 {
-    margin-right: 0 !important;
-  }
+.mycore-form-input.form-control-sm.mr-2 {
+  margin-right: 0 !important;
+}
 
-  .form-control-sm {
-      height: calc(1.812rem + 2px);
-  }
-
+.form-control-sm {
+  height: calc(1.812rem + 2px);
+}
 
 
 // Large devices (desktops) and below: <= 1200px

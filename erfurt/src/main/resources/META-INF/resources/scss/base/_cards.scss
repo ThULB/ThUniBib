@@ -6,22 +6,25 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
-  .card-header {
-    border: none; // no need for a second border
-    background-color: transparent; // no background for card header
+.card-header {
+  border: none; // no need for a second border
+  background-color: transparent; // no background for card header
+}
+
+.card-body {
+  padding: 10px 15px; // just to much space
+  h3 {
+    font-size: 1.2rem; // reduce size for facett boxes
   }
-  .card-body {
-    padding: 10px 15px; // just to much space
-    h3 {
-      font-size: 1.2rem; // reduce size for facett boxes
-    }
-    &.bibentry {
-      padding-left: 20px; // align text with badges and buttons
-    }
+
+  &.bibentry {
+    padding-left: 20px; // align text with badges and buttons
   }
-  .card-footer {
-    border: none; // no need for a second border
-  }
+}
+
+.card-footer {
+  border: none; // no need for a second border
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

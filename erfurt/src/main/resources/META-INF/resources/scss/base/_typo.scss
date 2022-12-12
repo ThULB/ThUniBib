@@ -8,13 +8,24 @@
 // no (xl) media query necessary (desktop first)
 
 body {
-  font-family: 'Roboto', sans-serif;
   color: $erfurtText;
 }
 
-h1, .h1 { font-size: 2rem; }
-h2, .h2 { font-size: 1.6rem; }
-h3, .h3 { font-size: 1.4rem; }
+h1, .h1 {
+  font-size: 2rem;
+}
+
+h2, .h2 {
+  font-size: 1.6rem;
+}
+
+h3, .h3 {
+  font-size: 1.4rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Noto Serif';
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

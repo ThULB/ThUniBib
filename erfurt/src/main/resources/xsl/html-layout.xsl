@@ -11,9 +11,10 @@
 
   <xsl:output method="xml" encoding="UTF-8"/>
 
+  <xsl:param name="WebApplicationBaseURL"/>
   <xsl:param name="CurrentLang"/>
   <xsl:param name="UBO.Login.Path"/>
-  <xsl:param name="UBO.TestInstance"/>
+  <xsl:param name="ThUniBib.ServiceDesk.enabled"/>
 
   <xsl:variable name="jquery.version" select="'3.3.1'"/>
   <xsl:variable name="jquery-ui.version" select="'1.12.1'"/>
@@ -50,13 +51,11 @@
 
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery/{$jquery.version}/jquery.min.js"/>
-      <script type="text/javascript"
-              src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
-      <script type="text/javascript"
-              src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/jquery/{$jquery.version}/jquery.min.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/bootstrap/{$bootstrap.version}/js/bootstrap.bundle.min.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.jquery.min.js"/>
       <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$chosen.version}/chosen.min.css" rel="stylesheet"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"/>
+      <script src="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.js"/>
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$jquery-ui.version}/jquery-ui.css"
             type="text/css"/>
@@ -65,12 +64,12 @@
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
 
-      <script type="text/javascript">var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
+      <script>var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
       </script>
-      <script type="text/javascript">var currentLang = '<xsl:value-of select="$CurrentLang"/>';
+      <script>var currentLang = '<xsl:value-of select="$CurrentLang"/>';
       </script>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}js/session-polling.js"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}js/person-popover.js"/>
+      <script src="{$WebApplicationBaseURL}js/session-polling.js"/>
+      <script src="{$WebApplicationBaseURL}js/person-popover.js"/>
 
       <xsl:copy-of select="node()"/>
     </head>
@@ -80,25 +79,20 @@
 
   <xsl:template name="layout">
     <body class="d-flex flex-column">
-      <!-- <xsl:call-template name="layout.headerline" /> -->
       <xsl:call-template name="layout.header"/>
       <xsl:call-template name="layout.navigation"/>
       <xsl:call-template name="layout.breadcrumbPath"/>
       <xsl:call-template name="layout.headline"/>
-      <!-- <xsl:call-template name="layout.topcontainer" /> -->
       <xsl:call-template name="layout.body"/>
       <xsl:call-template name="layout.footer"/>
-      <xsl:if test="contains($UBO.TestInstance, 'true')">
-        <div id="watermark_testenvironment">Testumgebung</div>
-      </xsl:if>
     </body>
   </xsl:template>
 
   <xsl:template name="layout.headline">
     <div id="headlineWrapper">
-      <div class="container w-100 w-sm-50">
+      <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col-12">
             <h3 id="seitentitel">
               <xsl:copy-of select="head/title/node()"/>
             </h3>
@@ -112,26 +106,6 @@
         <xsl:with-param name="affiliation" select="'16982'"/>
       </xsl:apply-templates>
     </xsl:if>
-  </xsl:template>
-
-  <xsl:template name="layout.topcontainer">
-    <div id="topcontainer">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <xsl:call-template name="layout.pageTitle"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-9">
-            <xsl:call-template name="layout.breadcrumbPath"/>
-          </div>
-          <div class="col-lg-3 pl-0">
-            <xsl:call-template name="layout.basket.info"/>
-          </div>
-        </div>
-      </div>
-    </div>
   </xsl:template>
 
   <!-- html body -->
@@ -286,10 +260,22 @@
       <div class="container" id="">
         <div class="row">
           <div class="col header-brand">
-            <a title="Zur Startseite" class="imageLink" href="{$WebApplicationBaseURL}">
+            <xsl:variable name="href">
+              <xsl:choose>
+                <xsl:when test="$CurrentLang = 'de'">
+                  <xsl:value-of select="'https://www.uni-erfurt.de/bibliothek'"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/en/erfurt-university-library'"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+
+            <a title="Zur Startseite" class="imageLink" href="{$href}">
               <div id="wordmark"/>
             </a>
           </div>
+
           <nav class="col col-auto">
             <div class="nav nav-pills">
               <xsl:call-template name="layout.login"/>
@@ -386,7 +372,7 @@
       <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
         <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
            role="button" id="mcrFunctionsDropdown" href="#"
-           class="user nav-link dropdown-toggle p-0 ubo-hover-pointer">
+           class="user nav-link dropdown-toggle text-white p-0 ubo-hover-pointer">
           <xsl:choose>
             <xsl:when test="contains($CurrentUser,'@')">
               [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
@@ -396,6 +382,7 @@
             </xsl:otherwise>
           </xsl:choose>
         </a>
+
         <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
           <xsl:call-template name="layout.usernav"/>
         </div>
@@ -409,13 +396,13 @@
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
              href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
+            <i class="nav-login text-white fas fa-lg fa-sign-in-alt"/>
           </a>
         </xsl:when>
         <xsl:otherwise>
           <a class="btn btn-link p-0" title="{i18n:translate('login.logOut')}"
              href="{$ServletsBaseURL}logout?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
+            <i class="nav-login text-white fas fa-lg fa-sign-out-alt"/>
           </a>
         </xsl:otherwise>
       </xsl:choose>
@@ -442,7 +429,7 @@
               </xsl:when>
             </xsl:choose>
           </xsl:attribute>
-          <!-- <img src="{$WebApplicationBaseURL}images/lang_{$CurrentLang}.gif" alt="{i18n:translate('navigation.Language')}" /> -->
+
           <xsl:value-of select="i18n:translate('navigation.ende')"/>
         </a>
       </span>
@@ -470,24 +457,13 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template name="layout.pageTitle">
-    <div class="card my-3">
-      <div class="card-body py-2">
-        <h3 id="seitentitel">
-          <xsl:copy-of select="head/title/node()"/>
-        </h3>
-      </div>
-    </div>
-  </xsl:template>
-
   <!-- Footer -->
-
   <xsl:template name="layout.footer">
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-12 col-sm-6 col-lg-8 hgn-footer-menu">
-            <xsl:call-template name="layout.metanav"/>
+            <xsl:call-template name="layout.imprintline"/>
           </div>
           <div class="col-12 col-sm-6 col-lg-4">
             <xsl:call-template name="powered_by"/>
@@ -495,6 +471,29 @@
         </div>
       </div>
     </footer>
+  </xsl:template>
+
+  <xsl:template name="layout.imprintline">
+    <xsl:variable name="navigation" select="document('webapp:navigation.xml')"/>
+    <div class="footer-menu-wrapper">
+      <xsl:for-each select="$navigation/navigation/item[@role='meta']/item[not(@xml:lang) or lang($CurrentLang)]">
+        <span>
+          <a href="{$WebApplicationBaseURL}{./@ref}">
+            <xsl:attribute name="href">
+              <xsl:choose>
+                <xsl:when test="contains(@ref, '://')">
+                  <xsl:value-of select="@ref"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="concat($WebApplicationBaseURL, @ref)"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <xsl:value-of select="label[lang($CurrentLang)]"/>
+          </a>
+        </span>
+      </xsl:for-each>
+    </div>
   </xsl:template>
 
   <xsl:template name="powered_by">
