@@ -80,24 +80,20 @@
       <label xml:lang="en">Contact</label>
     </item>
 
-    <item ref="https://www.uni-erfurt.de/impressum" xml:lang="de">
+    <item ref="legal-notice.xml">
       <label xml:lang="de">Impressum</label>
-    </item>
-    <item ref="https://www.uni-erfurt.de/en/legal-notice" xml:lang="en">
       <label xml:lang="en">Legal Notice</label>
     </item>
 
-    <item ref="https://www.uni-erfurt.de/datenschutzerklaerung" xml:lang="de">
+    <item ref="privacy-statement.xml">
       <label xml:lang="de">Datenschutz</label>
-    </item>
-    <item ref="https://www.uni-erfurt.de/en/privacy-policy" xml:lang="en">
       <label xml:lang="en">Privacy Policy</label>
     </item>
 
     <item ref="https://www.uni-erfurt.de/barrierefreiheitserklaerung" xml:lang="de">
       <label xml:lang="de">Barrierefreiheit</label>
     </item>
-    <item ref="https://www.uni-erfurt.de/en/accessibility-declaration" xml:lang="de">
+    <item ref="https://www.uni-erfurt.de/en/accessibility-declaration" xml:lang="en">
       <label xml:lang="en">Accessibility</label>
     </item>
   </item>
