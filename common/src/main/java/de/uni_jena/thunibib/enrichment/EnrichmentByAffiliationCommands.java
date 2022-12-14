@@ -122,6 +122,12 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         List<Element> recordIdentifierElements = r.evaluate(result);
 
         final String numberOfRecordsStr = result.getChildTextNormalize("numberOfRecords", MCRConstants.ZS_NAMESPACE);
+
+        if (numberOfRecordsStr == null) {
+            LOGGER.warn("Could not get '<numberOfRecords/>' element");
+            return new ArrayList<>();
+        }
+
         final int numberOfRecords = Integer.parseInt(numberOfRecordsStr);
         final int start = Integer.parseInt(startStr);
 
