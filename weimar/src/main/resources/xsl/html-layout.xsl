@@ -78,7 +78,6 @@
   <!-- html body -->
   <xsl:template name="layout">
     <body class="d-flex flex-column">
-      <!-- <xsl:call-template name="layout.headerline" /> -->
       <xsl:call-template name="layout.header"/>
       <xsl:call-template name="layout.navigation"/>
       <xsl:call-template name="layout.breadcrumbPath"/>
@@ -173,57 +172,6 @@
             </ul>
           </div>
         </nav>
-      </div>
-    </div>
-  </xsl:template>
-
-  <xsl:template name="layout.headerline">
-    <div id="headerLine" class="d-flex align-items-center bg-white">
-      <div class="container">
-        <div class="row">
-          <nav class="col">
-            <ul class="nav">
-              <li class="">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                   role="button">
-                  <i class="far fa-fw fa-comments"></i>
-                  <span class="icon-label">Kontakt</span>
-                </a>
-                <div class="dropdown-menu" x-placement="bottom-start">
-                  <ul>
-                    <li>
-                      <a href="tel:+492011834031">
-                        <i class="far fa-fw fa-phone"></i>
-                        +49 201 18 34031
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/">
-                        <i class="far fa-fw fa-envelope"></i>
-                        sekretariat.softec@paluno.uni-due.de
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/kontakt/anfahrt-und-postanschrift/">
-                        <i class="far fa-fw fa-map-signs"></i>
-                        Anfahrt und Postanschrift
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li id="navigationStakeholder">
-                <xsl:call-template name="layout.sub.navigation.information"/>
-              </li>
-            </ul>
-          </nav>
-
-          <nav class="col col-auto">
-            <div class="nav nav-pills">
-              <xsl:call-template name="layout.login"/>
-            </div>
-          </nav>
-        </div>
       </div>
     </div>
   </xsl:template>
