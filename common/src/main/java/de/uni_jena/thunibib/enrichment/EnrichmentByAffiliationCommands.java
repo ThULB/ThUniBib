@@ -1,8 +1,27 @@
 package de.uni_jena.thunibib.enrichment;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import de.uni_jena.thunibib.ThUniBibMailer;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,7 +31,6 @@ import org.apache.solr.common.SolrDocumentList;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
-import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
@@ -42,36 +60,15 @@ import org.mycore.solr.MCRSolrUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-
 @MCRCommandGroup(name = "experimental DBT import commands (by affiliation gnd)")
 public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
-    public static final Namespace MODS_NAMESPACE = Namespace.getNamespace("mods",
-            "http://www.loc.gov/mods/v3");
-    public static final Namespace NAMESPACE_ZS = Namespace.getNamespace("zs",
-            "http://www.loc.gov/zing/srw/");
-
     private static final Logger LOGGER = LogManager.getLogger(EnrichmentByAffiliationCommands.class);
+    private static final CommandTracker<String, MCRObject> TRACKER = new CommandTracker<>();
 
     private static final String projectID = MCRConfiguration2.getStringOrThrow("UBO.projectid.default");
 
+    private final static SimpleDateFormat ID_BUILDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final String PPN_IDENTIFIER = "ppn";
 
     private static List<String> DUPLICATE_CHECK_IDS;
@@ -99,57 +96,118 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static final String SRU_DATABASE = MCRConfiguration2.getStringOrThrow("MCR.PICA2MODS.DATABASE");
     private static final String QUERY_PLACEHOLDER = "${query}";
     private static final int BATCH_SIZE = 10;
-    private static final String PICA_URL = "https://sru.k10plus.de/" + SRU_DATABASE + "?version=1.1&operation=searchRetrieve&query="
-        + QUERY_PLACEHOLDER + "&maximumRecords="+BATCH_SIZE+"&recordSchema=mods36";
-    private static final String PICA_IMPORT_SYNTAX = "import by pica query with {0} and start {1} and status {2} and filter {3}";
+    private static final String PICA_URL = "https://sru.k10plus.de/" + SRU_DATABASE
+        + "?version=1.1&operation=searchRetrieve&query="
+        + QUERY_PLACEHOLDER + "&maximumRecords=" + BATCH_SIZE + "&recordSchema=mods36";
+    private static final String PICA_IMPORT_SYNTAX
+        = "import by pica query with {0} and start {1} and status {2} and filter {3}";
+
+    private static final String PICA_IMPORT_SYNTAX_WITH_KEY
+        = "import by pica query with {0} and start {1} and status {2} and filter {3} key {4}";
+
     private static final String ENRICH_PPN_SYNTAX = "enrich ppn {0} with status {1} and filter {2}";
 
-    /* pica.lsw%3Dil */
-    @MCRCommand(syntax = PICA_IMPORT_SYNTAX, help = "imports all objects for a specific query",order = 5)
-    public static List<String> importByPicaQuery(String picaQuery, String startStr, String status, String filterTransformer) {
+    private static final String ENRICH_PPN_SYNTAX_WITH_KEY = "enrich ppn {0} with status {1} and filter {2} key {3}";
+
+    @MCRCommand(syntax = PICA_IMPORT_SYNTAX_WITH_KEY, help = "imports all objects for a specific query", order = 5)
+    public static List<String> importByPicaQueryWithKey(String picaQuery, String startStr, String status,
+        String filterTransformer, String importId) {
+
         final String request = buildRequestURL(picaQuery, startStr);
         final Element result = Objects.requireNonNull(MCRURIResolver.instance().resolve(request));
 
-        XPathExpression<Element> r = XPathFactory.instance().compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
-                Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
+        XPathExpression<Element> r = XPathFactory.instance()
+            .compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
+                Filters.element(), null, MCRConstants.ZS_NAMESPACE, MCRConstants.MODS_NAMESPACE);
         List<Element> recordIdentifierElements = r.evaluate(result);
 
-        List<String> commands = new ArrayList<>(recordIdentifierElements.size());
+        final String numberOfRecordsStr = result.getChildTextNormalize("numberOfRecords", MCRConstants.ZS_NAMESPACE);
 
-        recordIdentifierElements.stream().map(Element::getTextNormalize)
-                .map((ppn) -> ENRICH_PPN_SYNTAX.replace("{0}",ppn).replace("{1}", status).replace("{2}", filterTransformer))
-                .forEach(commands::add);
+        if (numberOfRecordsStr == null) {
+            LOGGER.warn("Could not get '<numberOfRecords/>' element");
+            return new ArrayList<>();
+        }
 
-        final String numberOfRecordsStr = result.getChildTextNormalize("numberOfRecords", NAMESPACE_ZS);
         final int numberOfRecords = Integer.parseInt(numberOfRecordsStr);
         final int start = Integer.parseInt(startStr);
 
-        if((start+BATCH_SIZE)<numberOfRecords){
-            commands.add(PICA_IMPORT_SYNTAX.replace("{0}",picaQuery)
-                    .replace("{1}",""+(start+BATCH_SIZE))
-                    .replace("{2}",status)
-                    .replace("{3}", filterTransformer));
+        TRACKER.trackSize(importId, numberOfRecords);
+
+        List<String> commands = new ArrayList<>(recordIdentifierElements.size());
+        recordIdentifierElements.stream().map(Element::getTextNormalize).forEach(ppn -> {
+            TRACKER.track(importId, ppn);
+            commands.add(
+                ENRICH_PPN_SYNTAX_WITH_KEY.replace("{0}", ppn)
+                    .replace("{1}", status)
+                    .replace("{2}", filterTransformer)
+                    .replace("{3}", importId));
+        });
+
+        if ((start + BATCH_SIZE) < numberOfRecords) {
+            commands.add(PICA_IMPORT_SYNTAX_WITH_KEY.replace("{0}", picaQuery)
+                .replace("{1}", "" + (start + BATCH_SIZE))
+                .replace("{2}", status)
+                .replace("{3}", filterTransformer)
+                .replace("{4}", importId));
         }
 
         return commands;
     }
 
-    @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
-    public static void testEnrichPPN(String ppnID, String status, String filterTransformer) throws IOException, JDOMException, SAXException {
+    @MCRCommand(syntax = PICA_IMPORT_SYNTAX, help = "imports all objects for a specific query", order = 5)
+    public static List<String> importByPicaQuery(String picaQuery, String startStr, String status,
+        String filterTransformer) {
+        String importId = UUID.randomUUID().toString();
+        return importByPicaQueryWithKey(picaQuery, startStr, status, filterTransformer, importId);
+    }
+
+    @MCRCommand(syntax = ENRICH_PPN_SYNTAX_WITH_KEY, help = "Imports document with ppn and enrichment resolver")
+    public static void enrichOrCreateByPPNWithKey(String ppnID, String status, String filterTransformer,
+        String importId) {
+
         // 2. check against Solr (duplicates across multiple imports)
         String ppn_field = "id_" + PPN_IDENTIFIER;
-        if(isAlreadyStored(ppn_field , ppnID)) {
+
+        if (isAlreadyStored(ppn_field, ppnID)) {
             LOGGER.info("Found duplicate in Solr by field {} and value {}", ppn_field, ppnID);
+            TRACKER.decrementTrackSize(importId);
         } else {
-            MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
-            new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
-            LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
-            wrappedMods = transform(wrappedMods, filterTransformer);
-            createOrUpdate(wrappedMods, status);
+            try {
+                MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
+                new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
+                LOGGER.debug(
+                    new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
+                wrappedMods = transform(wrappedMods, filterTransformer);
+                MCRObject mcrObject = createOrUpdate(wrappedMods, status);
+                TRACKER.untrack(importId, ppnID, mcrObject);
+            } catch (Exception e) {
+                TRACKER.decrementTrackSize(importId);
+            }
+        }
+
+        if (TRACKER.isDone(importId)) {
+            List<MCRObject> objects = TRACKER.getItems(importId);
+            TRACKER.clear(importId);
+            // notify via e-mail
+            try {
+                ThUniBibMailer.sendMail(importId, objects, status, SRU_DATABASE.toUpperCase());
+            } catch (Exception e) {
+                LOGGER.error("Could not send email for import job {}", importId, e);
+            }
         }
     }
 
-    public static MCRMODSWrapper transform(MCRMODSWrapper mods, String transformerId) throws IOException, JDOMException, SAXException {
+    @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
+    public static void enrichOrCreateByPPN(String ppnID, String status, String filterTransformer)
+        throws IOException, JDOMException, SAXException {
+
+        String importId = UUID.randomUUID().toString();
+        enrichOrCreateByPPNWithKey(ppnID, status, filterTransformer, importId);
+    }
+
+    public static MCRMODSWrapper transform(MCRMODSWrapper mods, String transformerId)
+        throws IOException, JDOMException, SAXException {
+
         Document xml = mods.getMCRObject().createXML();
         MCRJDOMContent tt = new MCRJDOMContent(xml);
         MCRContentTransformer transformer = MCRContentTransformerFactory.getTransformer(transformerId);
@@ -161,34 +219,32 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return PICA_URL.replace(QUERY_PLACEHOLDER, query) + "&startRecord=" + start;
     }
 
-    private final static SimpleDateFormat ID_BUILDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-
     private static String getImportID() {
         return ID_BUILDER.format(new Date(MCRSessionMgr.getCurrentSession().getLoginTime()));
     }
 
     @MCRCommand(syntax = "test import by affiliation with GND {0} and status {1}",
-            help = "test import of publications by affiliation GND, imported documents get status one of 'confirmed', " +
-                    "'submitted', 'imported'",
-            order = 10
+        help = "test import of publications by affiliation GND, imported documents get status one of 'confirmed', " +
+            "'submitted', 'imported'",
+        order = 10
     )
     public static void testImportByAffiliation(String affiliationGND, String import_status) {
-        final List<String> allowedStatus = Arrays.asList(new String[]{"confirmed", "submitted", "imported"});
+        final List<String> allowedStatus = Arrays.asList(new String[] { "confirmed", "submitted", "imported" });
 
         // HashSets for finding duplicates during the import session, PPN is hard wired, rest is configurable
         Map<String, Set<String>> duplicateCheckSetsMap = setUpDuplicateCheckSets();
 
-        if(allowedStatus.contains(import_status)) {
+        if (allowedStatus.contains(import_status)) {
 
             List<String> affiliatedPersonsGNDs = getAllGNDsOfAffiliatedPersons(affiliationGND);
-            for(String affiliatedPersonGND : affiliatedPersonsGNDs) {
+            for (String affiliatedPersonGND : affiliatedPersonsGNDs) {
                 Map<String, Document> ppnToPublicationMap = getAllPublicationsOfPersonByGND(affiliatedPersonGND);
                 for (String ppnID : ppnToPublicationMap.keySet()) {
-                    if(!checkForDuplicates(ppnID, ppnToPublicationMap.get(ppnID), duplicateCheckSetsMap)) {
+                    if (!checkForDuplicates(ppnID, ppnToPublicationMap.get(ppnID), duplicateCheckSetsMap)) {
                         MCRMODSWrapper wrappedMods = createMinimalMods(ppnID);
                         new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
-                        LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
+                        LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(
+                            wrappedMods.getMCRObject().createXML()));
                         createOrUpdate(wrappedMods, import_status);
                     } else {
                         LOGGER.info("Publication with PPN {} was already imported, import canceled!", ppnID);
@@ -205,7 +261,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static Map<String, Set<String>> setUpDuplicateCheckSets() {
         Map<String, Set<String>> duplicateCheckSetsMap = new HashMap<>();
         duplicateCheckSetsMap.put(PPN_IDENTIFIER, new HashSet<>());
-        for(String checkID : DUPLICATE_CHECK_IDS) {
+        for (String checkID : DUPLICATE_CHECK_IDS) {
             duplicateCheckSetsMap.put(checkID, new HashSet<>());
         }
         return duplicateCheckSetsMap;
@@ -226,11 +282,11 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
      * @return false, if no duplicate was found or true if a duplicate was found
      */
     private static boolean checkForDuplicates(String publication_ppn, Document publication,
-                                              Map<String, Set<String>> duplicateCheckSetsMap) {
+        Map<String, Set<String>> duplicateCheckSetsMap) {
 
         // Check for duplicates using PPN (hard wired)
         // 1. check HashSet (duplicates per import session)
-        if(duplicateCheckSetsMap.get(PPN_IDENTIFIER).contains(publication_ppn)) {
+        if (duplicateCheckSetsMap.get(PPN_IDENTIFIER).contains(publication_ppn)) {
             LOGGER.info("Found duplicate in import session by PPN {}", publication_ppn);
             return true;
         } else {
@@ -238,14 +294,14 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         }
         // 2. check against Solr (duplicates across multiple imports)
         String ppn_field = "id_" + PPN_IDENTIFIER;
-        if(isAlreadyStored(ppn_field , publication_ppn)) {
+        if (isAlreadyStored(ppn_field, publication_ppn)) {
             LOGGER.info("Found duplicate in Solr by field {} and value {}", ppn_field, publication_ppn);
             return true;
         }
 
         // Check for duplicates using configured IDs
         // 1. Check HashSets (duplicates per import session)
-        for(String checkID : DUPLICATE_CHECK_IDS) {
+        for (String checkID : DUPLICATE_CHECK_IDS) {
             List<Element> identifierElements = getIdentifierElementsByType(publication, checkID);
             for (Element identifierElement : identifierElements) {
                 String identifierValue = identifierElement.getValue();
@@ -286,7 +342,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
         XPathFactory xFactory = XPathFactory.instance();
         XPathExpression<Element> identifierElementExpr = xFactory.compile("//mods:identifier[@type='" + type + "']",
-                Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
+            Filters.element(), null, MCRConstants.ZS_NAMESPACE, MCRConstants.MODS_NAMESPACE);
         identifierElements = identifierElementExpr.evaluate(publication);
 
         return identifierElements;
@@ -296,7 +352,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         Map<String, Document> ppnToPublicationMap = new HashMap<>();
 
         String targetURL = "http://sru.k10plus.de/gvk?version=1.1&operation=searchRetrieve&query=pica.nid%3D" +
-                gnd + "&maximumRecords=" + K10PLUS_MAX_RECORDS + "&recordSchema=mods36";
+            gnd + "&maximumRecords=" + K10PLUS_MAX_RECORDS + "&recordSchema=mods36";
         String requestContent = makeRequest(targetURL);
 
         SAXBuilder builder = new SAXBuilder();
@@ -307,16 +363,16 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
             // get all publications of person
             XPathExpression<Element> modsRecordExpr = xFactory.compile("//mods:mods",
-                    Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
+                Filters.element(), null, MCRConstants.ZS_NAMESPACE, MCRConstants.MODS_NAMESPACE);
             List<Element> publicationElements = modsRecordExpr.evaluate(searchResponseXML);
             LOGGER.info("Got {} publications for Person by GND {}", publicationElements.size(), gnd);
 
-            for(Element publication : publicationElements) {
+            for (Element publication : publicationElements) {
                 // get the PPN of each publication and map it
                 XPathExpression<Element> recordIdentifierExpr = xFactory.compile("//mods:recordIdentifier",
-                        Filters.element(), null, NAMESPACE_ZS, MODS_NAMESPACE);
+                    Filters.element(), null, MCRConstants.ZS_NAMESPACE, MCRConstants.MODS_NAMESPACE);
                 Element recordIdentifierElement = recordIdentifierExpr.evaluateFirst(publication);
-                if(recordIdentifierElement != null) {
+                if (recordIdentifierElement != null) {
                     String ppn = recordIdentifierElement.getValue();
                     publication.detach();
                     ppnToPublicationMap.put(ppn, new Document(publication));
@@ -325,7 +381,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("", e);
         }
         return ppnToPublicationMap;
     }
@@ -358,8 +414,8 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
             request.connect();
             content = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(0);
+            LOGGER.error("", e);
+            throw new RuntimeException(e);
         }
         return content;
     }
@@ -368,15 +424,15 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         List<String> affiliatedPersonsGNDs = new ArrayList<>();
 
         String targetURL = "http://lobid.org/gnd/search?q=" + affiliationGND +
-                "&filter=type%3APerson&format=json&size=" + LOBID_MAX_RECORDS;
+            "&filter=type%3APerson&format=json&size=" + LOBID_MAX_RECORDS;
         String requestContent = makeRequest(targetURL);
 
         Gson gson = new Gson();
         JsonElement jsonElement = gson.fromJson(requestContent, JsonElement.class);
         JsonObject jsonObject = jsonElement.getAsJsonObject();
         LOGGER.info("Received information of {} affiliated persons for affiliation GND: {}",
-                jsonObject.get("totalItems"), affiliationGND);
-        for(JsonElement element : jsonObject.getAsJsonArray("member")) {
+            jsonObject.get("totalItems"), affiliationGND);
+        for (JsonElement element : jsonObject.getAsJsonArray("member")) {
             JsonObject member = element.getAsJsonObject();
             String gndIdentifier = member.get("gndIdentifier").getAsString();
             affiliatedPersonsGNDs.add(gndIdentifier);
@@ -389,19 +445,21 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return MCRObjectID.getNextFreeId(projectID, "mods");
     }
 
-    private static void createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
-        wrappedMCRobj.setServiceFlag("importID","SRU-PPN-" + getImportID());
+    private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
+        wrappedMCRobj.setServiceFlag("importID", "SRU-PPN-" + getImportID());
         MCRObject object = wrappedMCRobj.getMCRObject();
         // save object
         try {
             setState(wrappedMCRobj, import_status);
-            if(MCRMetadataManager.exists(object.getId())) {
+            if (MCRMetadataManager.exists(object.getId())) {
                 LOGGER.info("Update object {}!", object.getId().toString());
                 MCRMetadataManager.update(object);
             } else {
                 LOGGER.info("Create object {}!", object.getId().toString());
                 MCRMetadataManager.create(object);
             }
+
+            return object;
         } catch (MCRAccessException e) {
             throw new MCRException("Error while creating " + object.getId().toString(), e);
         }
