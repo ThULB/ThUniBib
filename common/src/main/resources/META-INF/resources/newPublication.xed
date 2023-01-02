@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="$Date$" id="dozbib.new.publication" xmlns:i18n="http://www.mycore.org/i18n">
+<webpage lastModified="$Date$" id="dozbib.new.publication" xmlns:i18n="http://www.mycore.org/i18n"
+         xmlns:xed="http://www.mycore.de/xeditor">
   <title xml:lang="de">Publikation einreichen</title>
   <title xml:lang="en">Registering a publication</title>
 
@@ -134,9 +135,15 @@
           </xed:when>
           <xed:otherwise>
             <p>
-              <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem URZ-Login an.
+              <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem URZ-Login <a
+                  href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
+                hier
+              </a> an.
               </i18n:de>
-              <i18n:en>If you would like to submit a publication please login with your URZ credentials.
+              <i18n:en>If you would like to submit a publication please <a
+                  href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=en">
+                login
+              </a> with your URZ credentials.
               </i18n:en>
             </p>
           </xed:otherwise>
