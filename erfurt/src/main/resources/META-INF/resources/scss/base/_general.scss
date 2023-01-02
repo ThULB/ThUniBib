@@ -14,6 +14,11 @@ body {
   min-height: 100vh;
 }
 
+.badge-secondary {
+  color: black;
+  background-color: hsl(347, 4%, 90%);
+}
+
 .row .col hr {
   border-top: 0;
 }
