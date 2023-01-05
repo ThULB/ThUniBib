@@ -114,8 +114,11 @@
                 <i18n:de>
                   Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Nutzen Sie dazu das
                   <a href="import-list.xed">Formular</a>
-                  oder schreiben Sie uns eine E-Mail an <a href="mailto:unibibliographie_thulb@uni-jena.de">
-                  unibibliographie_thulb@uni-jena.de</a>.
+                  oder schreiben Sie uns eine E-Mail an
+                  <a href="mailto:{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')}">
+                    <xed:output
+                        value="xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')"/>
+                  </a>.
                 </i18n:de>
               </p>
               <p>
