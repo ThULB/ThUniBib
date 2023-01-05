@@ -118,7 +118,8 @@
                   <a href="mailto:{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')}">
                     <xed:output
                         value="xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')"/>
-                  </a>.
+                  </a>
+                  .
                 </i18n:de>
               </p>
               <p>
@@ -127,10 +128,9 @@
                   die <strong>
                   gedruckt oder in digitaler Form
                 </strong> erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge
-                  in
-                  Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>Alle
-                  Angehörigen und ehemaligen Angehörigen
-                </strong> der Friedrich-Schiller-Universität Jena sind eingeladen, ihre Publikationen an die
+                  in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>
+                  Alle Angehörigen und ehemaligen Angehörigen
+                </strong> der <xed:output i18n="thunibib.university.full.name"/> sind eingeladen, ihre Publikationen an die
                   Universitätsbibliographie zu melden.
                 </i18n:de>
               </p>
