@@ -15,7 +15,7 @@
         <label xml:lang="en">Advanced search</label>
         <item id="dozbib.search"/>
       </item>
-      <item id="dozbib.search-expert" ref="search-expert.xed">
+      <item id="dozbib.search-expert" ref="search-expert-solr.xed" role="admin">
         <label xml:lang="de">Expertensuche</label>
         <label xml:lang="en">Expert search</label>
       </item>
