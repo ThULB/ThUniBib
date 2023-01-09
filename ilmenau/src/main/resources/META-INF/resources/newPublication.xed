@@ -113,13 +113,13 @@
             <div class="card-body bg-alternative">
               <p>
                 <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem <a
-                    href="servlets/MCRShibbolethLoginServlet?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
+                    href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
                   URZ-Login
                 </a> an.
                 </i18n:de>
 
                 <i18n:en>If you would like to submit a publication please <a
-                    href="servlets/MCRShibbolethLoginServlet?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=en">
+                    href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=en">
                   sign in
                 </a> with your URZ
                   credentials.
