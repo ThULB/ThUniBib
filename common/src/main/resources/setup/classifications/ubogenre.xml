@@ -72,7 +72,7 @@
     <category ID="thesis">
       <label xml:lang="x-group" text="true"/>
       <label xml:lang="de" text="Hochschulschriften"/>
-      <label xml:lang="en" text="thesis"/>
+      <label xml:lang="en" text="Thesis"/>
       <category ID="bachelor_thesis">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-marcgt" text="thesis"/>
