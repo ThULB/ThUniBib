@@ -2,15 +2,14 @@
 
 <webpage lastModified="$Date$" id="dozbib">
  <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Universität Erfurt</title>
- <title xml:lang="en">Welcome to Bibliography of University of Erfurt</title>
+ <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt</title>
  
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
      <h3>Die Universitätsbibliographie</h3>
       <p>
         ist der zentrale Publikationsnachweis der Universität Erfurt, der online die Publikationstätigkeit der Hochschulangehörigen verzeichnet.
-        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut.<br/>
-        Die Universitätsbibliographie befindet sich derzeit im Aufbau.
+        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut. Die Universitätsbibliographie befindet sich derzeit im Aufbau.<br/>
       </p>
       <p>
         Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
@@ -28,8 +27,8 @@
       <h3>The University Bibliography</h3>
       <p>
         is the central resource of University of Erfurt that lists all publication activities of the university members.
-		 It is provided and edited by the university library.<br/>
-        The bibliography is currently under construction.
+		 It is provided and edited by the university library. The bibliography is currently under construction.<br/>
+        
       </p>
       <p>
         The development of the university bibliography is supported by the State of Thuringia within the framework of the 
