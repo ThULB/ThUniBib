@@ -47,6 +47,7 @@
       <xsl:call-template name="uboTypeOfResource"/>
       <xsl:call-template name="uboPeerReview"/>
       <xsl:call-template name="uboMediaType"/>
+      <xsl:call-template name="uboOriginClassification"/>
     </mods:mods>
   </xsl:template>
 
@@ -178,5 +179,24 @@
   <xsl:template match="zs:searchRetrieveResponse">
     <xsl:apply-templates select="//p:record"/>
   </xsl:template>
+
+  <xsl:template name="uboOriginClassification">
+    <!-- Struktur-Daten aus Ilmenauer Katalogeintrag übernehmen (ID steht in ORIGIN-Klassifikation) -->
+    <!-- Destatis-Mapping für Ilmenau anhand origin.xml -->
+    <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')"/>
+    <xsl:for-each select="./p:datafield[@tag='144Z']">
+      <xsl:for-each select="./p:subfield[@code='9']">
+        <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=.">
+          <xsl:variable name="originCategory"
+                        select="$origin//category[label[@xml:lang='x-lpp'][@text=.]]/@ID" />
+          <xsl:variable name="destatisCategory"
+                        select="$origin//category[label[@xml:lang='x-lpp'][@text=.]]/label[@xml:lang='x-destatis']/@text" />
+          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}" authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN" />
+          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/fachreferate#{$destatisCategory}" authorityURI="{$WebApplicationBaseURL}classifications/fachreferate" />
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:for-each>
+  </xsl:template>
+
 
 </xsl:stylesheet>
