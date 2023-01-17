@@ -161,7 +161,8 @@
              plotOptions: {
                 column: {
                   pointPadding: 0.2,
-                  borderWidth: 0
+                  borderWidth: 0,
+                  minPointLength: 3
                 }
              },
              series: [{
@@ -236,7 +237,7 @@
                  max: <xsl:value-of select="floor(number(int[1]) * 1.05)" /> <!-- +5% -->
               },
               tooltip: { formatter: function() { return '<b>' + this.x +'</b>: '+ this.y; } },
-              plotOptions: { series: { pointWidth: 15 } },
+              plotOptions: { series: { pointWidth: 15, minPointLength: 3 } },
               series: [{
                 name: '<xsl:value-of select="$title" />',
                 data: [
@@ -505,7 +506,7 @@
                max: <xsl:value-of select="floor(number(int[1]) * 1.05)" /> <!-- +5% -->
             },
             tooltip: { formatter: function() { return '<b>' + this.x +'</b>: '+ this.y; } },
-            plotOptions: { series: { pointWidth: 15 } },
+            plotOptions: { series: { pointWidth: 15, minPointLength: 3 } },
             series: [{
               name: '<xsl:value-of select="$title" />',
               data: [
@@ -515,6 +516,7 @@
                   <xsl:if test="position() != last()">, </xsl:if>
                 </xsl:for-each>
               ],
+              color: '<xsl:value-of select="$UBO.Statistics.Color.Bar" />',
               dataLabels: {
                 enabled: true,
                 align: 'right',
@@ -608,7 +610,7 @@
                      max: <xsl:value-of select="floor(number(int[1]) * 1.05)" /> <!-- +5% -->
                   },
                   tooltip: { formatter: function() { return '<b>' + this.x +'</b>: '+ this.y; } },
-                  plotOptions: { series: { pointWidth: 15 } },
+                  plotOptions: { series: { pointWidth: 15, minPointLength: 3 } },
                   series: [{
                     name: '<xsl:value-of select="$title" />',
                     data: [
