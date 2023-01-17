@@ -186,13 +186,19 @@
     <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')"/>
     <xsl:for-each select="./p:datafield[@tag='144Z']">
       <xsl:for-each select="./p:subfield[@code='9']">
-        <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=.">
+
+        <xsl:variable name="text" select="./text()"/>
+
+        <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=$text">
           <xsl:variable name="originCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=.]]/@ID" />
+                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/@ID"/>
           <xsl:variable name="destatisCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=.]]/label[@xml:lang='x-destatis']/@text" />
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}" authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN" />
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/fachreferate#{$destatisCategory}" authorityURI="{$WebApplicationBaseURL}classifications/fachreferate" />
+                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/label[@xml:lang='x-destatis']/@text"/>
+
+          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}"
+                               authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
+          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/fachreferate#{$destatisCategory}"
+                               authorityURI="{$WebApplicationBaseURL}classifications/fachreferate"/>
         </xsl:if>
       </xsl:for-each>
     </xsl:for-each>
