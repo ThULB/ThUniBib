@@ -10,6 +10,8 @@
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 exclude-result-prefixes="xsl mods xlink">
 
+    <xsl:param name="WebApplicationBaseURL"/>
+
     <xsl:template match="/mycoreobject">
         <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods" />
     </xsl:template>
@@ -125,7 +127,7 @@
 
     <xsl:template match="mods:name[contains(@authorityURI,'mir_institutes')]">
         <xsl:variable name="id" select="substring-after(@valueURI,'#')" />
-        <xsl:variable name="uri">https://bibliographie.ub.uni-due.de/classifications/ORIGIN</xsl:variable>
+        <xsl:variable name="uri">{$WebApplicationBaseURL}classifications/ORIGIN</xsl:variable>
         <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$id}" />
     </xsl:template>
 
