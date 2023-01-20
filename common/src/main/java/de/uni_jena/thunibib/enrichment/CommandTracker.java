@@ -73,6 +73,10 @@ class CommandTracker<S, M> {
             List<S> l = new ArrayList<>();
             l.add(value);
             tracks.put(trackId, l);
+
+            // create list for holding tracked objects
+            List<M> itemList = new ArrayList<>();
+            trackedItems.put(trackId, itemList);
         }
     }
 
@@ -87,16 +91,8 @@ class CommandTracker<S, M> {
         if (!tracks.containsKey(trackId)) {
             return;
         }
-
         tracks.get(trackId).remove(value);
-
-        if (trackedItems.containsKey(trackId)) {
-            trackedItems.get(trackId).add(item);
-        } else {
-            List<M> l = new ArrayList<>();
-            l.add(item);
-            trackedItems.put(trackId, l);
-        }
+        trackedItems.get(trackId).add(item);
     }
 
     /**
