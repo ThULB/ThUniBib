@@ -22,12 +22,12 @@ public class ThUniBibMailer {
 
     public static void sendMail(String importId, List<MCRObject> objects, String status, String source)
         throws Exception {
-        LOGGER.info("Sending Mail for import id {}", importId);
 
         if (!(objects.size() > 0 && MAIL_XSL != null)) {
             return;
         }
 
+        LOGGER.info("Sending Mail for import id {}", importId);
         Element xml = new Element(status).setAttribute("source", source);
         for (MCRObject obj : objects) {
             xml.addContent(obj.createXML().detachRootElement());
