@@ -982,7 +982,7 @@
   </xed:template>
 
   <xed:template id="cancel.submit">
-    <div class="form-inline form-group">
+    <div class="form-inline form-group ubo-sticky-editor-buttons">
       <label class="mycore-form-label"></label>
       <button class="btn btn-sm btn-primary mr-2" type="submit" xed:target="servlet" xed:href="DozBibEntryServlet">
         <xed:output i18n="button.save"/>
