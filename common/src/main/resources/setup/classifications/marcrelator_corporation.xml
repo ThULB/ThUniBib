@@ -27,6 +27,10 @@
       <label xml:lang="de" text="Mitwirkende Einrichtung" description="Eine Person oder Institution dessen Arbeit zu einem größeren Werk beiträgt, z. B. eine Anthologie, Serienpublikation oder andere Zusammenstellung individueller Werke. Nicht zu verwenden, wenn spezifischere Rollenangabe möglich ist. " />
       <label xml:lang="en" text="Contributor" description="Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, ..." />
     </category>
+    <category ID="his">
+      <label xml:lang="de" text="Gastgeber Institution" description="Eine Organisation, die ein Veranstaltung hostet." />
+      <label xml:lang="en" text="Host institution" description="An organization hosting an event, exhibit, conference, etc., which gave rise to the resource, but having little or no responsibility for the content of the resource" />
+    </category>
     <category ID="hnr">
       <label xml:lang="de" text="Gefeierte Einrichtung" description="Ein Akteur, der durch ein Werk geehrt wird." />
       <label xml:lang="en" text="Honoree" description="A person, family, or organization honored by a work or item (e.g., the honoree of a festschrift, a person to whom a copy is presented)" />
