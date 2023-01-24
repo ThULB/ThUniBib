@@ -4,8 +4,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:mods="http://www.loc.gov/mods/v3"
-  exclude-result-prefixes="xsl"
->
+  exclude-result-prefixes="xsl">
 
 <xsl:template name="copy-and-apply"> <!-- copy supported elements and attributes calling this template -->
   <xsl:copy>
@@ -150,6 +149,30 @@
 
 <xsl:template match="mods:abstract|mods:abstract/@xml:lang|mods:abstract/@xlink:href">
   <xsl:call-template name="copy-and-apply" />
+</xsl:template>
+
+<xsl:template match="//mods:subject">
+  <xsl:for-each select="mods:topic">
+    <mods:subject>
+      <mods:topic>
+
+        <xsl:if test="@authorityURI and  @valueURI and @authority">
+          <xsl:attribute name="authorityURI">
+            <xsl:value-of select="@authorityURI"/>
+          </xsl:attribute>
+          <xsl:attribute name="valueURI">
+            <xsl:value-of select=" @valueURI"/>
+          </xsl:attribute>
+          <xsl:attribute name="authority">
+            <xsl:value-of  select="@authority"/>
+          </xsl:attribute>
+        </xsl:if>
+
+        <xsl:value-of select="text()"/>
+
+      </mods:topic>
+    </mods:subject>
+  </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>
