@@ -48,8 +48,8 @@
             </legend>
             <xed:bind xpath="metadata/def.modsContainer[@class='MCRMetaXML']/modsContainer/mods:mods">
               <xed:include ref="status" />
-              <xed:include ref="subject" />
               <xed:include ref="origin" />
+              <xed:include ref="subject" />
               <xed:include ref="thunibib.partOf" />
               <xed:include ref="thunibib.comment.intern" />
             </xed:bind>
