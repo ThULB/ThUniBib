@@ -92,8 +92,8 @@
               </legend>
 
               <xed:include ref="status" />
-              <xed:include ref="subject" />
               <xed:include ref="origin" />
+              <xed:include ref="subject" />
             </fieldset>
 
             <fieldset>
