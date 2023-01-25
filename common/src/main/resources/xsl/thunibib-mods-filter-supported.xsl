@@ -116,7 +116,7 @@
   <xsl:call-template name="copy-and-apply" />
 </xsl:template>
 
-<xsl:template match="mods:note">
+<xsl:template match="mods:note[not(contains(text(), 'Scopus-Subject:'))]">
   <xsl:if test="not(@type) or contains('intern source note other', @type)">
     <xsl:call-template name="copy-and-apply" />
   </xsl:if>
