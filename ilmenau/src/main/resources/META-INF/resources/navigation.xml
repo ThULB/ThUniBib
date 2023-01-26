@@ -68,7 +68,7 @@
       <label xml:lang="de">ACL-Editor</label>
       <label xml:lang="en">ACL editor</label>
     </item>
-    <item id="webcli" ref="modules/webcli/launchpad.xml" role="admin">
+    <item id="webcli" ref="rsc/WebCLI/" role="admin">
       <label xml:lang="de">WebCLI</label>
       <label xml:lang="en">WebCLI</label>
     </item>
