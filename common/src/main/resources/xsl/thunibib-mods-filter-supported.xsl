@@ -81,8 +81,17 @@
   <xsl:call-template name="copy-and-apply" />
 </xsl:template>
 
-<xsl:template match="mods:originInfo[1]|mods:publisher[1]|mods:edition[1]|mods:place[1]|mods:placeTerm[@type='text'][1]|mods:placeTerm/@type">
+<xsl:template match="mods:originInfo[1]|mods:edition[1]|mods:place[1]|mods:placeTerm[@type='text'][1]|mods:placeTerm/@type">
   <xsl:call-template name="copy-and-apply" />
+</xsl:template>
+
+<xsl:template match="mods:publisher[1]">
+  <xsl:choose>
+    <xsl:when test="//mods:mods/mods:genre[contains('article', text())] and not(./ancestor::mods:relatedItem) and //mods:relatedItem//mods:publisher"/>
+    <xsl:otherwise>
+      <xsl:call-template name="copy-and-apply"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <xsl:template match="mods:dateIssued[@encoding='w3cdtf'][1]|mods:dateIssued/@encoding">
