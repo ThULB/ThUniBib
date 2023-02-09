@@ -639,18 +639,18 @@
           <label for="{xed:generate-id()}" class="mycore-form-label">
             <xed:output value="concat(i18n:translate('ubo.series.title'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-                 placeholder="{i18n:ubo.series.title.placeholder}"/>
+          <input id="{xed:generate-id()}" type="text" class="mycore-form-input" placeholder="{i18n:ubo.series.title.placeholder}"/>
+
+          <xed:controls/>
         </div>
       </xed:bind>
+
       <xed:bind xpath="mods:part/mods:detail[@type='volume']/mods:number">
         <div class="form-group form-inline">
           <label for="{xed:generate-id()}" class="mycore-form-label">
             <xed:output value="concat(i18n:translate('ubo.series.volume'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" type="text" class="mycore-form-input col-sm-2"
-                 placeholder="{i18n:ubo.series.volume.placeholder}"/>
-          <xed:controls/>
+          <input id="{xed:generate-id()}" type="text" class="mycore-form-input col-sm-2" placeholder="{i18n:ubo.series.volume.placeholder}"/>
         </div>
       </xed:bind>
     </xed:repeat>
