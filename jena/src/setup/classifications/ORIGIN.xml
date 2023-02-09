@@ -13,6 +13,10 @@
         <label xml:lang="de" text="Abbe-Institut für Stiftungswesen"/>
         <url xlink:href="https://www.abbe-institut.de/"/>
       </category>
+      <category ID="1010.05">
+        <label xml:lang="de" text="Forschungsstelle DDR-Recht"/>
+        <url xlink:href="https://www.rewi.uni-jena.de/ddr-recht)"/>
+      </category>
       <category ID="1010.02">
         <label xml:lang="de" text="Institut für Notarrecht"/>
         <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-notarrecht"/>
@@ -43,14 +47,6 @@
       <category ID="1030.03">
         <label xml:lang="de" text="Historisches Institut"/>
         <url xlink:href="https://www.gw.uni-jena.de/histinst"/>
-        <category ID="1030.03.01">
-          <label xml:lang="de" text="Jena Center Geschichte des 20. Jahrhunderts"/>
-          <url xlink:href="https://www.jenacenter.uni-jena.de/"/>
-        </category>
-        <category ID="1030.03.02">
-          <label xml:lang="de" text="Europäisches Kolleg Jena"/>
-          <url xlink:href="https://www.europaeisches-kolleg.uni-jena.de/"/>
-        </category>
       </category>
       <category ID="1030.04">
         <label xml:lang="de" text="Institut für Germanistische Literaturwissenschaft"/>
