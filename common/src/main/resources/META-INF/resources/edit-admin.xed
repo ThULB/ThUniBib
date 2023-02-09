@@ -75,8 +75,8 @@
               <xed:include ref="place" />
               <xed:include ref="publisher" />
               <xed:include ref="extent" />
-              <xed:include ref="series" />
               <xed:include ref="conference" />
+              <xed:include ref="series" />
               <xed:include ref="comment" />
               <xed:include ref="scale" />
               <xed:include ref="coordinates" />
