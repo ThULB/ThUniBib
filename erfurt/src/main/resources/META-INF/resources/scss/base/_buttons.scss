@@ -50,6 +50,19 @@
   }
 }
 
+a.btn-secondary.info-button i {
+  color: white;
+  background-color: $primary;
+  background-image: none;
+  border-color: white;
+}
+
+a.btn-secondary.info-button:hover i {
+  color: black;
+  background-color: transparent;
+  border-color: $primary;
+}
+
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
   // add/overwrite styles for responsive level lg and lower
