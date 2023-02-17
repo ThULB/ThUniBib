@@ -19,6 +19,10 @@
         <label xml:lang="de">Expertensuche</label>
         <label xml:lang="en">Expert search</label>
       </item>
+      <item id="dozbib.enrichment-debugger" ref="enrichmentDebugger.xed" role="admin">
+        <label xml:lang="de">Enrichment Resolver Debugger</label>
+        <label xml:lang="en">Enrichment Debugger</label>
+      </item>
     </item>
     <item ref="list-wizard.xed" id="dozbib.list-wizard">
       <label xml:lang="de">Persönliche Publikationsliste</label>
