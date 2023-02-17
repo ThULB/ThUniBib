@@ -449,8 +449,8 @@
         </xed:choose>
       </span>
       <div class="ml-auto pb-1">
-        <button class="btn btn-xs btn-primary mr-1" type="submit" xed:target="subselect"
-                xed:href="../identitypicker.html?{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}">
+        <button id="{xed:generate-id()}" class="btn btn-xs btn-primary mr-1" type="submit" xed:target="subselect"
+                xed:href="../identitypicker.html?{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}&amp;xEditorHook={xed:generate-id()}">
           <xed:choose>
             <xed:when test="count(mods:nameIdentifier[@type='connection'])&gt;0">
               <xed:output i18n="search.update"/>
