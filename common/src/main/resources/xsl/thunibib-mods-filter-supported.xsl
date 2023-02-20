@@ -73,6 +73,13 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
+  <!-- Map personal name to family name -->
+  <xsl:template match="mods:name[@type='personal']/mods:namePart[not(@type)][1]">
+    <mods:namePart type="family">
+      <xsl:value-of select="."/>
+    </mods:namePart>
+  </xsl:template>
+
   <xsl:template
       match="mods:nameIdentifier[contains('|lsf|orcid|researcherid|gnd|scopus|',concat('|',@type,'|'))]|mods:nameIdentifier/@type">
     <xsl:call-template name="copy-and-apply"/>
