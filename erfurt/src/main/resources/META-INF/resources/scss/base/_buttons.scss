@@ -37,16 +37,16 @@
 }
 
 // export menu buttons
-.btn-outline-primary {
-  color: $primary;
-  background-color: transparent;
+.btn-outline-primary, .btn-secondary {
+  color: white;
+  background-color: $primary;
   background-image: none;
-  border-color: $primary;
+  border-color: white;
 
   &:hover {
-    color: #fff;
-    background-color: $erfurtGray;
-    border-color: $erfurtGray;
+    color: black;
+    background-color: transparent;
+    border-color: $primary;
   }
 }
 
