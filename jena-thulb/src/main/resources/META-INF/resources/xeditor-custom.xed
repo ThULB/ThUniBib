@@ -5,12 +5,35 @@
   -->
   <xed:modify ref="editor-form-fields">
     <!-- add -->
+    <xed:include ref="extension" after="projectInformation"/>
     <xed:include ref="scroll-to-validation-error" after="projectInformation"/>
 
     <!-- remove -->
     <xed:remove ref="thunibib.partOf"/>
     <xed:remove ref="thunibib.comment.intern"/>
   </xed:modify>
+
+  <xed:template id="extension">
+    <xed:if test="mods:extension/field[@name]">
+      <legend>
+        <xed:output value="'mods:extension: '"/>
+      </legend>
+
+      <xed:repeat xpath="mods:extension[field]/field" max="30">
+        <div class="form-inline form-group ubo-repeat-group">
+          <label for="{xed:generate-id()}" class="mycore-form-label">
+            <xed:output value="'mods:field[@name=‛'"/>
+            <strong>
+              <xed:output value="@name"/>
+            </strong>
+            <xed:output value="'‛]: '"/>
+          </label>
+          <input id="{xed:generate-id()}" class="mycore-form-input" type="text" value="{.}"/>
+          <xed:controls/>
+        </div>
+      </xed:repeat>
+    </xed:if>
+  </xed:template>
 
   <!-- overwrite -->
   <xed:template id="relations">
