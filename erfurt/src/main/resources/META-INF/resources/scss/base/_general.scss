@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: 'Noto Sans';
+  font-family: 'Noto Sans Regular';
   min-height: 100vh;
 }
 
@@ -106,4 +106,16 @@ body {
 
 #feedback a, #servicedesk a {
   color: #fff;
+}
+
+.bg-alternative {
+  color: white;
+}
+
+.bg-alternative p a, .bg-alternative p a:hover {
+  color: white;
+}
+
+.ubo-mods-detail-volume {
+  display: none;
 }

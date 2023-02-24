@@ -37,17 +37,30 @@
 }
 
 // export menu buttons
-.btn-outline-primary {
-  color: $primary;
-  background-color: transparent;
+.btn-outline-primary, .btn-secondary {
+  color: white;
+  background-color: $primary;
   background-image: none;
-  border-color: $primary;
+  border-color: white;
 
   &:hover {
-    color: #fff;
-    background-color: $erfurtGray;
-    border-color: $erfurtGray;
+    color: black;
+    background-color: transparent;
+    border-color: $primary;
   }
+}
+
+a.btn-secondary.info-button i {
+  color: white;
+  background-color: $primary;
+  background-image: none;
+  border-color: white;
+}
+
+a.btn-secondary.info-button:hover i {
+  color: black;
+  background-color: transparent;
+  border-color: $primary;
 }
 
 // Large devices (desktops) and below: <= 1200px
