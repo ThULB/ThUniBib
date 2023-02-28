@@ -3,14 +3,14 @@
 <webpage lastModified="$Date: 2016-05-20 08:54:29 +0200 (Fr, 20 Mai 2016) $" id="dozbib.list-wizard"
          xmlns:i18n="http://www.mycore.org/i18n">
   <title>
-    <i18n:de>Persönliche Publikationliste erstellen</i18n:de>
+    <i18n:de>Persönliche Publikationsliste erstellen</i18n:de>
     <i18n:en>Build your personal publication list</i18n:en>
   </title>
 
   <article class="card mb-1">
     <div class="card-body bg-alternative">
       <h3>
-        <i18n:de>Persönliche Publikationliste erstellen</i18n:de>
+        <i18n:de>Persönliche Publikationsliste erstellen</i18n:de>
         <i18n:en>Build your personal publication list</i18n:en>
       </h3>
       <p>
