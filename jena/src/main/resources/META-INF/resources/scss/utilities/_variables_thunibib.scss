@@ -26,13 +26,13 @@ $theme-colors: (
 // accordion indent (for faq)
 $fsu-acc-indent: 1.8rem;
 
-// OpenAccess colors
-$openaccess-closed-color:     #8f989d;
-$openaccess-oa-color:         #f08112;
-$openaccess-green-color:      #0b610b;
-$openaccess-gold-color:       #ffd966;
-$openaccess-platin-color:     #22e4e4;
-$openaccess-hybrid-color:     #4472c4;
-$openaccess-bronze-color:     #cd7f32;
-$openaccess-embargo-color:    #81c14b;
-$openaccess-green-text-color: white;
+// OpenAccess colors based on open access monitor colors
+$oa:              #f08112;
+$oa-closed:       #8f989d;
+$oa-green:        #0b610b;
+$oa-gold:         #ffd966;
+$oa-platin:       #22e4e4;
+$oa-hybrid:       #4472c4;
+$oa-bronze:       #cd7f32;
+$oa-embargo:      #81c14b;
+$oa-unvalidated:  #9467bd;
