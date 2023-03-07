@@ -198,8 +198,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     }
 
     @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
-    public static void enrichOrCreateByPPN(String ppnID, String status, String filterTransformer)
-        throws IOException, JDOMException, SAXException {
+    public static void enrichOrCreateByPPN(String ppnID, String status, String filterTransformer) {
 
         String importId = UUID.randomUUID().toString();
         enrichOrCreateByPPNWithKey(ppnID, status, filterTransformer, importId);
@@ -231,7 +230,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     public static void testImportByAffiliation(String affiliationGND, String import_status) {
         final List<String> allowedStatus = Arrays.asList(new String[] { "confirmed", "submitted", "imported" });
 
-        // HashSets for finding duplicates during the import session, PPN is hard wired, rest is configurable
+        // HashSets for finding duplicates during the import session, PPN is hardwired, rest is configurable
         Map<String, Set<String>> duplicateCheckSetsMap = setUpDuplicateCheckSets();
 
         if (allowedStatus.contains(import_status)) {
