@@ -31,7 +31,7 @@ public class PPNListImportServlet extends MCRServlet {
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder jsonBuilder = new StringBuilder();
 
         Arrays.stream(list.split("\\s"))
             .filter(ppn -> ppn.trim().length() > 0)
@@ -39,12 +39,12 @@ public class PPNListImportServlet extends MCRServlet {
                 LOGGER.info("Importing ppn {}", ppn);
                 try {
                     EnrichmentByAffiliationCommands.enrichOrCreateByPPN(ppn, "imported", "supportedmods");
-                    sb.append(ppn + " ");
+                    jsonBuilder.append("\"" + ppn + "\" ");
                 } catch (Exception e) {
                     LOGGER.error(e.getMessage(), e);
                 }
             });
         job.getResponse().setContentType("application/json");
-        job.getResponse().getWriter().println("{\"list\":[" + sb.toString().trim().replace(" ", ",") + "]}");
+        job.getResponse().getWriter().println("{\"list\":[" + jsonBuilder.toString().trim().replace(" ", ",") + "]}");
     }
 }
