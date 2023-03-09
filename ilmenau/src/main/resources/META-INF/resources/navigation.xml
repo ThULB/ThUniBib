@@ -79,15 +79,15 @@
       <label xml:lang="de">Kontakt</label>
       <label xml:lang="en">Contact</label>
     </item>
-    <item ref="https://www.tu-ilmenau.de/impressum">
+    <item ref="impressum.xml">
       <label xml:lang="de">Impressum</label>
       <label xml:lang="en">Legal Notice</label>
     </item>
-    <item ref="https://www.tu-ilmenau.de/datenschutz">
+    <item ref="privacy.xml">
       <label xml:lang="de">Datenschutz</label>
       <label xml:lang="en">Privacy Notice</label>
     </item>
-    <item ref="https://www.tu-ilmenau.de/barrierefreiheit">
+    <item ref="accessibility.xml">
       <label xml:lang="de">Barrierefreiheit</label>
       <label xml:lang="en">Accessibility</label>
     </item>
