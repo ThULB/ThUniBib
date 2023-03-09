@@ -70,7 +70,7 @@
         Eine Anmeldung (Login) mit persönlichen Daten ist nur zur Bearbeitung der Bibliographie
         durch Hochschulangehörige erforderlich, nicht für die Suche nach oder den lesenden Zugriff
         auf Publikationen.
-        Zur Veröffentlichung melden sich Hochschulangehörige mit ihrer Hochschulkennung an.
+        Zur Meldung von Publikationen registrieren sich Hochschulangehörige mit ihrer Hochschulkennung.
         Unsere Bibliographie verarbeitet und speichert folgende Nutzerdaten:
       </p>  
       <ul>
@@ -170,8 +170,8 @@
       
       <p>
         A login with personal data is only required by university members to edit the bibliography; it is not necessary for
-        the search for publications or to gain reading access. For publication, university members register with their university
-        identifier. The following user data is processed and stored by the bibliography: 
+        the search for publications or to gain reading access. To submit publications, university members register with their university identifier.
+        The following user data is processed and stored by the bibliography: 
       </p>
       <ul>
         <li>Name</li>
