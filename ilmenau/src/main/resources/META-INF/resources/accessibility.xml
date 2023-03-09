@@ -4,7 +4,7 @@
   <title xml:lang="de">Erklärung zur Barrierefreiheit</title>
   <title xml:lang="en">Accessibility declaration</title>
 
-  <section xml:lang="all" title="Erklärung zur Barrierefreiheit">
+  <section xml:lang="de" title="Erklärung zur Barrierefreiheit">
 
     <div class="row">
       <div class="col-md-12" lang="de">
@@ -12,16 +12,13 @@
         <h2>Erklärung zur Barrierefreiheit</h2><div class="card-text">
 
         <p class="mt-4">
-          Die <strong>Universitätsbibliothek Duisburg-Essen</strong> (UB) ist bemüht,
-          die <strong>Universitätsbibliographie</strong>
-          (<a href="https://bibliographie.ub.uni-due.de/">https://bibliographie.ub.uni-due.de/</a>)
-          im Einklang mit den nationalen Rechtsvorschriften zur Umsetzung der Richtlinie (EU) 2016/2102
-          des Europäischen Parlaments und der
-          <a href="https://recht.nrw.de/lmi/owa/br_text_anzeigen?v_id=10000000000000000724" title="Verordnung zur Schaffung barrierefreier Informationstechnik" target="_blank" class="external">
-            Verordnung zur Schaffung barrierefreier Informationstechnik nach dem Behindertengleichstellungsgesetz Nordrhein-Westfalen
-          </a>
-          barrierefrei zugänglich zu machen.
-        </p>
+          Als öffentliche Einrichtung ist die Technische Universität Ilmenau bemüht, ihre Universitätsbibliographie <a href="https://bibliographie.tu-ilmenau.de/">bibliographie.tu-ilmenau.de</a> gemäß folgender nationaler Rechtsvorschriften zur Umsetzung der <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32016L2102">Richtlinie (EU) 2016/2102</a> des Europäischen Parlaments und des Rates vom 26. Oktober 2016 barrierefrei zugänglich zu machen:</p>
+          <ul>
+          <li><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidlines 2.0 (WCAG 2.0)</a></li>
+          <li><a href="http://landesrecht.thueringen.de/jportal/?quelle=jlink&amp;query=BfWebG+TH&amp;psml=bsthueprod.psml&amp;max=true">Thüringer Gesetz über den barrierefreien Zugang zu den Websites und mobilen Anwendungen öffentlicher Stellen (ThürBarrWebG)</a>, Stand 30. Juli 2019</li>
+          <li><a href="http://landesrecht.thueringen.de/jportal/?quelle=jlink&amp;query=BITV+TH&amp;psml=bsthueprod.psml&amp;max=true">Thüringer Verordnung zur Schaffung barrierefreier Informationstechnik (Thüringer Barrierefreie-Informationstechnik-Verordnung -ThürBITVO-)</a>, Stand 28. April 2020</li>
+          </ul>
+          
         </div>
 
       </div>
@@ -33,18 +30,13 @@
         <h3>Stand der Vereinbarkeit mit den Anforderungen</h3>
 
         <p>
-          Die Universitätsbibliographie ist mit der EU-Richtlinie 2016/2102,
-          dem Behindertengleichstellungsgesetz Nordrhein-Westfalen (BGG NRW) und der
-          Barrierefreie-Informationstechnik-Verordnung Nordrhein-Westfalen (BITV NRW)
-          teilweise konform.
+          Diese Website ist teilweise mit den Anforderungen vereinbar.
         </p>
         <p>
-          <strong>Diese Website wird kurzfristig neu gestaltet und überarbeitet.
-          Dies beinhaltet ein neues Layout, das die Barrierefreiheit deutlich verbessern wird.
-          Für die neue Website wird demnächst ein BITV-Test durchgeführt und das Testergebnis an dieser Stelle veröffentlicht.</strong>
+          <strong>Die Website befindet sich im Aufbau und es wird demnächst ein BITV-Test durchgeführt und das Testergebnis an dieser Stelle veröffentlicht.</strong>
         </p>
         <p>
-          Diese Erklärung wurde am 28.09.2020 erstellt und zuletzt geprüft.
+          Diese Erklärung wurde am 09.03.2023 erstellt und zuletzt geprüft.
         </p>
       </div>
     </div>
@@ -55,23 +47,24 @@
        <h3>Kontakt und Feedback</h3>
 
         <p>
-          Sie können uns gern Mängel in Bezug auf die barrierefreie Gestaltung unserer Website mitteilen.
-          Wir sind Ihnen für Hinweise und konkrete Änderungsvorschläge dankbar.
+          Sollten Ihnen Mängel beziehungsweise Verbesserungen in Bezug auf die Einhaltung der Barrierefreiheitsanforderungen auffallen, können Sie sich an die Universitätsbibliothek Ilmenau wenden. Für Hinweise und Verbesserungsvorschläge sind wir stets dankbar. Wir bemühen uns um eine baldige Umsetzung von Korrekturwünschen und Vorschlägen.
         </p>
         <p>
-          Bitte geben Sie bei der Nachricht das Stichwort Bar­ri­e­re­frei­heit an und teilen uns unter Nennung der URL mit,
+          Bitte geben Sie bei der Nachricht das Stichwort Barrierefreiheit an und teilen uns unter Nennung der URL mit,
           auf welchen Inhalt Sie sich beziehen.
         </p>
         <p>
-          Bitte nutzen Sie unser <a href="https://www.uni-due.de/ub/kontakt.php">Kontaktformular</a>.<br/>
-          Per E-Mail erreichen Sie uns unter <a href="mailto:universitaetsbibliographie.ub@uni-due.de">universitaetsbibliographie.ub [at] uni-due.de</a>.<br/>
+          Per E-Mail erreichen Sie uns unter <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a>.
+        </p>
+        <p>
           Unsere Postanschrift lautet:
         </p>
 
         <p class="border-left pl-5">
-          Universitätsbibliothek Duisburg-Essen<br />
-          Universitätsstr. 9 - 11<br />
-          D-45141 Essen
+          Technische Universität Ilmenau<br />
+          Universitätsbibliothek<br />
+          Postfach 10 05 65<br />
+          98684 Ilmenau
         </p>
 
       </div>
@@ -80,33 +73,115 @@
     <div class="row mt-4">
       <div class="col-md-12" lang="de">
 
-        <h3>Ombudsstelle für barrierefreie Informationstechnik des Landes Nordrhein-Westfalen </h3>
+        <h3>Durchsetzungsverfahren</h3>
 
         <p>
-          Sollten Sie auf Mitteilungen oder Anfragen zur barrierefreien Informationstechnik
-          de Universitätsbibliographie innerhalb von sechs Wochen von uns
-          keine zufriedenstellenden Antworten erhalten haben,
-          können Sie die Ombudsstelle für barrierefreie Informationstechnik einschalten.
-          Sie ist der oder dem Beauftragten für die Belange der Menschen mit Behinderung
-          nach § 11 des Behindertengleichstellungsgesetzes Nordrhein-Westfalen zugeordnet.
-          Unter Einbeziehung aller Beteiligten versucht die Ombudsstelle, die Umstände der
-          fehlenden Barrierefreiheit zu ermitteln, damit der Träger diese beheben kann.
+          Sollten Sie der Ansicht sein, durch eine nicht ausreichende barrierefreie Gestaltung von bibliographie.tu-ilmenau.de benachteiligt zu sein oder wenn wir Ihre Rückmeldungen nicht zu Ihrer Befriedigung bearbeiten, können Sie sich an die Durchsetzungsstelle nach dem ThürBarrWebG wenden:
         </p>
         <p>
-          Wenn Sie ein Ombudsverfahren wünschen, füllen Sie bitte den entsprechenden
-          <a href="https://www.mags.nrw/sites/default/files/asset/document/antrag_ombudsverfahren_0.pdf" target="_blank" title="Antrag Ombudsverfahren">Antrag</a>
-          aus und senden ihn per
-          <a href="mailto:ombudsstelle-barrierefreie-it@mags.nrw.de" title="E-Mail Ombudsstelle">E-Mail</a> an die Ombudsstelle.
+            <strong>Der Beauftragte der Thüringer Landesregierung für Menschen mit Behinderungen</strong>
         </p>
         <p class="border-left pl-5">
-          Ombudsstelle für barrierefreie In­for­ma­ti­ons­tech­nik<br/>
-          des Landes Nordrhein-Westfalen bei der<br/>
-          Landesbeauftragten für Men­schen mit Be­hin­de­run­gen<br/>
-          Fürstenwall 25<br />
-          40219 Düsseldorf
+          Joachim Leibiger<br />
+          Werner-Seelenbinder-Straße 6<br />
+          99096 Erfurt
+        </p>
+        <p>
+          Telefon: +49 361 573 811 741<br />
+          E-Mail: <a href="mailto:vz_bmb@tmasgff.thueringen.de">vz_bmb@tmasgff.thueringen.de</a>
         </p>
       </div>
     </div>
   </section>
+
+  <section xml:lang="en" title="Accessibility declaration">
+
+    <div class="row">
+      <div class="col-md-12" lang="en">
+
+        <h2>Accessibility declaration</h2><div class="card-text">
+
+        <p class="mt-4">
+          As a public institution, the Technische Universität Ilmenau is required to make its University Bibliography <a href="https://bibliographie.tu-ilmenau.de/?lang=en">bibliographie.tu-ilmenau.de</a> accessible in accordance with the following national legislation implementing <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32016L2102">Directive (EU) 2016/2102</a> of the European Parliament and of the Council of 26 October 2016:</p>
+          <ul>
+          <li><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidlines 2.0 (WCAG 2.0)</a>.</li>
+          <li><a href="http://landesrecht.thueringen.de/jportal/?quelle=jlink&amp;query=BfWebG+TH&amp;psml=bsthueprod.psml&amp;max=true">Thuringia Act on barrier-free access to the websites and mobile applications of public bodies (ThürBarrWebG)</a>, as of 30 July 2019.</li>
+          <li><a href="http://landesrecht.thueringen.de/jportal/?quelle=jlink&amp;query=BITV+TH&amp;psml=bsthueprod.psml&amp;max=true">Thuringian Ordinance on the Creation of Accessible Information Technology (Thuringian Accessible Information Technology Ordinance -ThürBITVO-)</a>, as of April 28, 2020.</li>
+          </ul>
+          
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12" lang="en">
+
+        <h3>Status of compatibility with the requirements</h3>
+
+        <p>
+          This website is partially compliant with the requirements.
+        </p>
+        <p>
+          <strong>The website is under construction, a BITV test will soon be carried out and the result will be published here.</strong>
+        </p>
+        <p>
+          This statement was issued and last reviewed on March 09, 2023.
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12" lang="en">
+
+       <h3>Contact and Feedback</h3>
+
+        <p>
+          If you notice any deficiencies or improvements with regard to compliance with the accessibility requirements, you can contact the Ilmenau University Library. We are always grateful for tips and suggestions for improvement. We will endeavour to implement requests for corrections and suggestions as soon as possible.
+        </p>
+        <p>
+          Please include the keyword Barrierefreiheit / Accessibility in your message and let us know which content you are referring to by mentioning the URL.
+        </p>
+        <p>
+          You can also send an email to <a href="mailto:unibibliografie.ub@tu-ilmenau.de">unibibliografie.ub@tu-ilmenau.de</a>.
+        </p>
+        <p>
+          Our mailing address is:
+        </p>
+
+        <p class="border-left pl-5">
+          Technische Universität Ilmenau<br />
+          Universitätsbibliothek<br />
+          Postfach 10 05 65<br />
+          98684 Ilmenau
+        </p>
+
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12" lang="en">
+
+        <h3>Enforcement Procedure</h3>
+
+        <p>
+          If you feel that you have been disadvantaged by an inadequate barrier-free design of bibliographie.tu-ilmenau.de or if we do not process your feedback to your satisfaction, you can contact the enforcement body according to the ThürBarrWebG:
+        </p>
+        <p>
+            <strong>The Commissioner of the Thuringian State Government for People with Disabilities</strong>
+        </p>
+        <p class="border-left pl-5">
+          Joachim Leibiger<br />
+          Werner-Seelenbinder-Straße 6<br />
+          99096 Erfurt
+        </p>
+        <p>
+          Phone: +49 361 573 811 741<br />
+          Email: <a href="mailto:vz_bmb@tmasgff.thueringen.de">vz_bmb@tmasgff.thueringen.de</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
 
 </webpage>
