@@ -909,7 +909,7 @@
             </button>
           </xed:if>
           <button class="btn btn-sm btn-primary" type="submit" xed:target="subselect"
-                  xed:href="../search.xed?id_type=id&amp;genre={../mods:genre[@type='intern']}">
+                  xed:href="../search.xed?id_type=id&amp;genre={../mods:genre[@type='intern']}&amp;title={../mods:titleInfo[1]/mods:title[1]}">
             <xed:output i18n="ubo.relatedItem.host.select"/>
           </button>
         </div>
