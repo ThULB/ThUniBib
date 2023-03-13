@@ -56,7 +56,7 @@
                     </select>
                   </xed:bind>
                 </div>
-                <xed:bind xpath="@value">
+                <xed:bind xpath="@value" default="{$title}">
                   <input class="mycore-form-input" type="text"/>
                 </xed:bind>
                 <xed:controls>insert remove</xed:controls>
