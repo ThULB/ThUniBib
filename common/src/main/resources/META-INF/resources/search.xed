@@ -228,7 +228,7 @@
           <xed:include uri="webapp:import-search.xed" ref="sortby" />
           <xed:include uri="webapp:import-search.xed" ref="numPerPage" />
 
-          <div class="form-group form-inline">
+          <div class="form-group form-inline ubo-sticky-editor-buttons">
             <label for="{xed:generate-id()}" class="mycore-form-label">
             </label>
             <div class="cancel-submit">
