@@ -116,29 +116,29 @@
     <xsl:variable name="resourceType" select="p:datafield[@tag='002C']/p:subfield[@code='b']"/>
     <mods:typeOfResource>
       <xsl:choose>
-        <xsl:when test="$resourceType=prm">aud</xsl:when>
-        <xsl:when test="$resourceType=ntv">txt</xsl:when>
         <xsl:when test="$resourceType=cod">dat</xsl:when>
         <xsl:when test="$resourceType=cop">mul</xsl:when>
-        <xsl:when test="$resourceType=tdf">art</xsl:when>
-        <xsl:when test="$resourceType=tdm">mov</xsl:when>
+        <xsl:when test="$resourceType=crd">car</xsl:when>
+        <xsl:when test="$resourceType=crf">car</xsl:when>
+        <xsl:when test="$resourceType=cri">car</xsl:when>
+        <xsl:when test="$resourceType=crm">car</xsl:when>
+        <xsl:when test="$resourceType=crn">car</xsl:when>
+        <xsl:when test="$resourceType=crt">car</xsl:when>
+        <xsl:when test="$resourceType=ntm">not</xsl:when>
+        <xsl:when test="$resourceType=ntv">txt</xsl:when>
+        <xsl:when test="$resourceType=prm">aud</xsl:when>
         <xsl:when test="$resourceType=snd">aud</xsl:when>
         <xsl:when test="$resourceType=spw">aud</xsl:when>
-        <xsl:when test="$resourceType=crf">car</xsl:when>
-        <xsl:when test="$resourceType=crd">car</xsl:when>
-        <xsl:when test="$resourceType=crm">car</xsl:when>
-        <xsl:when test="$resourceType=cri">car</xsl:when>
-        <xsl:when test="$resourceType=crt">car</xsl:when>
-        <xsl:when test="$resourceType=crn">car</xsl:when>
-        <xsl:when test="$resourceType=ntm">not</xsl:when>
-        <xsl:when test="$resourceType=tcn">tac</xsl:when>
-        <xsl:when test="$resourceType=tcf">tac</xsl:when>
-        <xsl:when test="$resourceType=tcm">tac</xsl:when>
-        <xsl:when test="$resourceType=tct">tac</xsl:when>
-        <xsl:when test="$resourceType=tci">tac</xsl:when>
-        <xsl:when test="$resourceType=txt">txt</xsl:when>
         <xsl:when test="$resourceType=sti">img</xsl:when>
+        <xsl:when test="$resourceType=tcf">tac</xsl:when>
+        <xsl:when test="$resourceType=tci">tac</xsl:when>
+        <xsl:when test="$resourceType=tcm">tac</xsl:when>
+        <xsl:when test="$resourceType=tcn">tac</xsl:when>
+        <xsl:when test="$resourceType=tct">tac</xsl:when>
+        <xsl:when test="$resourceType=tdf">art</xsl:when>
         <xsl:when test="$resourceType=tdi">mov</xsl:when>
+        <xsl:when test="$resourceType=tdm">mov</xsl:when>
+        <xsl:when test="$resourceType=txt">txt</xsl:when>
         <xsl:when test="$resourceType=xxx">unk</xsl:when>
         <xsl:when test="$resourceType=zzz">unk</xsl:when>
         <xsl:otherwise>txt</xsl:otherwise>
