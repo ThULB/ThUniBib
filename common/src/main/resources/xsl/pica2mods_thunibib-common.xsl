@@ -8,52 +8,6 @@
                 exclude-result-prefixes="xsl p xlink zs">
   <xsl:mode on-no-match="shallow-copy"/>
 
-  <xsl:import href="default/pica2mods-default-titleInfo.xsl"/>
-  <xsl:import href="default/pica2mods-default-name.xsl"/>
-  <xsl:import href="default/pica2mods-default-identifier.xsl"/>
-  <xsl:import href="default/pica2mods-default-language.xsl"/>
-  <xsl:import href="default/pica2mods-default-location.xsl"/>
-  <xsl:import href="default/pica2mods-default-physicalDescription.xsl"/>
-  <xsl:import href="default/pica2mods-default-originInfo.xsl"/>
-  <xsl:import href="default/pica2mods-default-genre.xsl"/>
-  <xsl:import href="default/pica2mods-default-recordInfo.xsl"/>
-  <xsl:import href="default/pica2mods-default-note.xsl"/>
-  <xsl:import href="default/pica2mods-default-abstract.xsl"/>
-  <xsl:import href="default/pica2mods-default-subject.xsl"/>
-  <xsl:import href="default/pica2mods-default-relatedItem.xsl"/>
-
-  <xsl:import href="_common/pica2mods-pica-PREPROCESSING.xsl"/>
-  <xsl:import href="_common/pica2mods-functions.xsl"/>
-
-  <xsl:include href="pica2mods_thunibib-genre.xsl"/>
-
-  <xsl:param name="MCR.PICA2MODS.CONVERTER_VERSION" select="'Pica2Mods 2.1'"/>
-  <xsl:param name="MCR.PICA2MODS.DATABASE" select="'k10plus'"/>
-  <xsl:param name="WebApplicationBaseURL"/>
-
-  <xsl:template match="p:record">
-    <mods:mods>
-      <xsl:call-template name="modsTitleInfo"/>
-      <xsl:call-template name="modsAbstract"/>
-      <xsl:call-template name="modsName"/>
-      <xsl:call-template name="modsIdentifier"/>
-      <xsl:call-template name="ubomodsLanguage"/>
-      <xsl:call-template name="modsPhysicalDescription"/>
-      <xsl:call-template name="modsOriginInfo"/>
-      <xsl:call-template name="ubomodsGenre"/>
-      <xsl:call-template name="modsLocation"/>
-      <xsl:call-template name="modsRecordInfo"/>
-      <xsl:call-template name="modsNote"/>
-      <xsl:call-template name="modsRelatedItem"/>
-      <xsl:call-template name="modsSubject"/>
-      <xsl:call-template name="uboTypeOfResource"/>
-      <xsl:call-template name="uboPeerReview"/>
-      <xsl:call-template name="uboMediaType"/>
-      <xsl:call-template name="uboOriginClassification"/>
-    </mods:mods>
-  </xsl:template>
-
-
   <!-- copied from pics2mods and changed rfc5646 to rfc4646 -->
   <xsl:template name="ubomodsLanguage">
     <!-- relative Pfade funktionieren nicht für Classpath-Resourcen: <xsl:variable name="rfc5646" select="document('../../_data/rfc5646.xml')" /> -->
@@ -147,34 +101,5 @@
                            authorityURI="{$WebApplicationBaseURL}classifications/peerreviewed"/>
     </xsl:if>
   </xsl:template>
-
-  <xsl:template match="zs:searchRetrieveResponse">
-    <xsl:apply-templates select="//p:record"/>
-  </xsl:template>
-
-  <xsl:template name="uboOriginClassification">
-    <!-- Struktur-Daten aus Ilmenauer Katalogeintrag übernehmen (ID steht in ORIGIN-Klassifikation) -->
-    <!-- Destatis-Mapping für Ilmenau anhand origin.xml -->
-    <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')"/>
-    <xsl:for-each select="./p:datafield[@tag='144Z']">
-      <xsl:for-each select="./p:subfield[@code='9']">
-
-        <xsl:variable name="text" select="./text()"/>
-
-        <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=$text">
-          <xsl:variable name="originCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/@ID"/>
-          <xsl:variable name="destatisCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/label[@xml:lang='x-destatis']/@text"/>
-
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}"
-                               authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/fachreferate#{$destatisCategory}"
-                               authorityURI="{$WebApplicationBaseURL}classifications/fachreferate"/>
-        </xsl:if>
-      </xsl:for-each>
-    </xsl:for-each>
-  </xsl:template>
-
 
 </xsl:stylesheet>
