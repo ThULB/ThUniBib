@@ -1,57 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
-  <label xml:lang="de" text="Universität Erfurt" />
-  <label xml:lang="en" text="University of Erfurt" />
-  <label xml:lang="x-place" text="Universität Erfurt | Erfurt | Nordhäuser Str. 63, 99089 Erfurt" />
+
+  <label xml:lang="de" text="Universität Erfurt"/>
+  <label xml:lang="en" text="University of Erfurt"/>
+  <label xml:lang="x-place" text="Universität Erfurt | Erfurt | Nordhäuser Str. 63, 99089 Erfurt"/>
+
   <categories>
     <category ID="0100">
-      <label xml:lang="de" text="Erziehungswissenschaftliche Fakultät" />
+      <label xml:lang="de" text="Erziehungswissenschaftliche Fakultät"/>
+      <label xml:lang="x-lpp" text="584746008"/>
     </category>
     <category ID="0200">
-      <label xml:lang="de" text="Katholisch-Theologische Fakultät" />
+      <label xml:lang="de" text="Katholisch-Theologische Fakultät"/>
+      <label xml:lang="x-lpp" text="584745664"/>
     </category>
     <category ID="0300">
-      <label xml:lang="de" text="Philosophische Fakultät" />
+      <label xml:lang="de" text="Philosophische Fakultät"/>
+      <label xml:lang="x-lpp" text="584746091"/>
     </category>
     <category ID="0400">
-      <label xml:lang="de" text="Staatswissenschaftliche Fakultät" />
+      <label xml:lang="de" text="Staatswissenschaftliche Fakultät"/>
+      <label xml:lang="x-lpp" text="584745907"/>
     </category>
     <category ID="0500">
-      <label xml:lang="de" text="Max-Weber-Kolleg" />
+      <label xml:lang="de" text="Max-Weber-Kolleg"/>
+      <label xml:lang="x-lpp" text="584746202"/>
     </category>
     <category ID="0600">
-      <label xml:lang="de" text="Erfurt Laboratory for Empirical Research" />
+      <label xml:lang="de" text="Erfurt Laboratory for Empirical Research"/>
     </category>
     <category ID="0700">
-      <label xml:lang="de" text="Erfurt School of Education (ESE)" />
+      <label xml:lang="de" text="Erfurt School of Education (ESE)"/>
+      <label xml:lang="x-lpp" text="890490368"/>
     </category>
     <category ID="0800">
-      <label xml:lang="de" text="Forschungsbibliothek Gotha" />
+      <label xml:lang="de" text="Forschungsbibliothek Gotha"/>
+      <label xml:lang="x-lpp" text="1668137674"/>
+      <label xml:lang="x-lpp" text="584746261"/>
     </category>
     <category ID="0900">
-      <label xml:lang="de" text="Forschungskolleg Transkulturelle Studien" />
+      <label xml:lang="de" text="Forschungskolleg Transkulturelle Studien"/>
     </category>
     <category ID="1000">
-      <label xml:lang="de" text="Forschungszentrum Gotha" />
+      <label xml:lang="de" text="Forschungszentrum Gotha"/>
+      <label xml:lang="x-lpp" text="584746458"/>
     </category>
     <category ID="1100">
-      <label xml:lang="de" text=" Willy Brandt School of Public Policy (WBS)" />
+      <label xml:lang="de" text=" Willy Brandt School of Public Policy (WBS)"/>
+      <label xml:lang="x-lpp" text="877479038"/>
     </category>
     <category ID="1200">
-      <label xml:lang="de" text="Sprachenzentrum" />
+      <label xml:lang="de" text="Sprachenzentrum"/>
     </category>
     <category ID="1300">
-      <label xml:lang="de" text="Universitätsbibliothek Erfurt" />
+      <label xml:lang="de" text="Universitätsbibliothek Erfurt"/>
+      <label xml:lang="x-lpp" text="1668137275"/>
+      <label xml:lang="x-lpp" text="584746261"/>
     </category>
     <category ID="1400">
-      <label xml:lang="de" text="Universitätsrechen- und Medienzentrum" />
+      <label xml:lang="de" text="Universitätsrechen- und Medienzentrum"/>
     </category>
     <category ID="1500">
-      <label xml:lang="de" text="Präsidialbereich" />
+      <label xml:lang="de" text="Präsidialbereich"/>
     </category>
     <category ID="1600">
-      <label xml:lang="de" text="Zentrale Univerwaltung" />
+      <label xml:lang="de" text="Zentrale Univerwaltung"/>
     </category>
   </categories>
 </mycoreclass>
