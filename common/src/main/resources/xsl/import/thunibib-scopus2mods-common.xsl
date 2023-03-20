@@ -73,7 +73,9 @@
       <mods:role>
         <mods:roleTerm type="code" authority="marcrelator">aut</mods:roleTerm>
       </mods:role>
-      <xsl:apply-templates select="scopus:affiliation" />
+      <xsl:apply-templates select="scopus:affiliation">
+        <xsl:with-param name="authorId" select="@auid"/>
+      </xsl:apply-templates>
       <xsl:apply-templates select="//author[@auid=current()/@auid][1]/ce:e-address[@type='email']" />
     </mods:name>
   </xsl:template>
@@ -85,7 +87,8 @@
   </xsl:template>
 
   <xsl:template match="scopus:affiliation">
-    <xsl:apply-templates select="//affiliation[@afid=current()/@id][1]" />
+    <xsl:param name="authorId"/>
+    <xsl:apply-templates select="//author-group[author[@auid = $authorId]]/affiliation[@afid=current()/@id][1]" />
   </xsl:template>
 
   <xsl:template match="affiliation">
