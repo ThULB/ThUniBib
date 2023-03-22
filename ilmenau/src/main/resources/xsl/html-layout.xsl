@@ -15,8 +15,8 @@
   <!-- if current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
   <xsl:param name="MCR.ORCID.LinkURL"/>
 
-  <xsl:variable name="jquery.version" select="'3.3.1'"/>
-  <xsl:variable name="jquery-ui.version" select="'1.12.1'"/>
+  <xsl:variable name="jquery.version" select="'3.5.1'"/>
+  <xsl:variable name="jquery-ui.version" select="'1.13.2'"/>
   <xsl:variable name="chosen.version" select="'1.8.7'"/>
   <xsl:variable name="bootstrap.version" select="'4.4.1'"/>
   <xsl:variable name="font-awesome.version" select="'5.13.0'"/>
