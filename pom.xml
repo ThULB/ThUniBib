@@ -9,7 +9,7 @@
   </parent>
   <groupId>de.uni-jena.thulb.ubo</groupId>
   <artifactId>ThUniBib</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>dev-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>UBO ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
@@ -70,7 +70,7 @@
       <dependency>
         <groupId>de.uni-jena.thulb.ubo</groupId>
         <artifactId>thunibib-common</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>dev-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.mycore</groupId>
