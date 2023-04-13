@@ -123,7 +123,7 @@
   </xed:template>
 
   <xed:template id="subject">
-    <xed:repeat xpath="mods:classification[@classID='fachreferate']" max="5">
+    <xed:repeat xpath="mods:classification[@classID='fachreferate']">
       <div class="form-inline form-group ubo-repeat-group {$xed-validation-marker}">
         <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
           <xed:output value="concat(i18n:translate('ubo.subject'), ': ')"/>
@@ -140,7 +140,7 @@
   </xed:template>
 
   <xed:template id="origin">
-    <xed:repeat xpath="mods:classification[@classID='ORIGIN']" max="10">
+    <xed:repeat xpath="mods:classification[@classID='ORIGIN']">
       <div class="form-inline form-group ubo-repeat-group">
         <label class="mycore-form-label" for="{xed:generate-id()}">
           <xed:if test="$genre_intern = 'dissertation'">
