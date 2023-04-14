@@ -21,13 +21,13 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:statistics-oa:solr:q=partOf:true+AND+status:confirmed+AND+year:[2018+TO+*]&amp;rows=0&amp;json.facet={year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed+AND+year:%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=subject"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=origin"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=genre"/>
+  <xinclude uri="xslStyle:statistics-oa:solr:q=partOf:true+AND+status:(confirmed+OR+unchecked)+AND+year:[2018+TO+*]&amp;rows=0&amp;json.facet={year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+%2B(status:confirmed status:unchecked)+AND+year:%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+%2B(status:confirmed status:unchecked)&amp;rows=0&amp;facet.field=subject"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+%2B(status:confirmed status:unchecked)&amp;rows=0&amp;facet.field=origin"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+%2B(status:confirmed status:unchecked)&amp;rows=0&amp;facet.field=genre"/>
 
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+status:confirmed+AND+year:%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+%2B(status:confirmed status:unchecked)+AND+year:%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
   <xinclude uri="xslStyle:statistics:solr:q=objectKind:name&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
 
 </webpage>
