@@ -62,6 +62,8 @@
             <xed:bind xpath="@mask" default="index.xed"/>
             <xed:bind xpath="@numPerPage" default="10"/>
             <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
+              <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']"/>
+
               <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
                 <label for="input" class="mycore-form-label">
                   <xed:output i18n="ubo.search.simple"/>
@@ -70,15 +72,12 @@
               </xed:bind>
 
               <!-- Standard users must only find confirmed publications, admins find all publications -->
-              <xed:choose>
-                <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
+              <xed:if test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
+                <xed:bind xpath="boolean[@operator='or']">
                   <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']"/>
-                </xed:when>
-                <xed:otherwise>
-                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']"/>
-                </xed:otherwise>
-              </xed:choose>
-
+                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='unchecked']"/>
+                </xed:bind>
+              </xed:if>
             </xed:bind>
             <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]"/>
           </xed:bind>
@@ -91,10 +90,10 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:response-newest:solr:q=partOf:true+AND+status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
+  <xinclude uri="xslStyle:response-newest:solr:q=partOf:true+AND+status:(confirmed+OR+unchecked)+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
 
   <aside id="sidebar">
-    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0"/>
+    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=%2B(status:confirmed status:unchecked)&amp;rows=0"/>
     <xinclude uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
     <xinclude uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID"/>
 
