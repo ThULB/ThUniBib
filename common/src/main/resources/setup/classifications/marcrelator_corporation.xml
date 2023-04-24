@@ -67,5 +67,9 @@
       <label xml:lang="de" text="Anmeldende Einrichtung (Patent)" description="Eine Person oder Organisation, die ein Patent angemeldet hat." />
       <label xml:lang="en" text="Patent applicant" description="A person or organization that applied for a patent." />
     </category>
+    <category ID="oth">
+      <label xml:lang="de" text="Sonstige" description="Eine Rolle die nicht in der Liste vorkommt."/>
+      <label xml:lang="en" text="Other" description="A role that has no equivalent in the list."/>
+    </category>
   </categories>
 </mycoreclass>
