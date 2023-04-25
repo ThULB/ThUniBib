@@ -37,5 +37,10 @@
       <groupId>org.mycore</groupId>
       <artifactId>mycore-user2</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.mycore.ubo</groupId>
+      <artifactId>ubo-common</artifactId>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>
