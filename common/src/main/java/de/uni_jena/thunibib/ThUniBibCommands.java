@@ -4,12 +4,14 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import javax.xml.xpath.XPathFactoryConfigurationException;
+import javax.naming.NamingException;
+import javax.naming.ldap.LdapContext;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -20,20 +22,16 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
-import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
-import org.jdom2.Text;
 import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
-import org.jdom2.input.sax.XMLReaderSAX2Factory;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 import org.mycore.common.MCRException;
@@ -41,11 +39,14 @@ import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.solr.MCRSolrClientFactory;
-import org.mycore.solr.MCRSolrCore;
 import org.mycore.solr.commands.MCRSolrCommands;
+import org.mycore.ubo.ldap.LDAPAuthenticator;
+import org.mycore.ubo.ldap.LDAPObject;
+import org.mycore.ubo.ldap.LDAPSearcher;
 import org.mycore.user2.MCRRealm;
 import org.mycore.user2.MCRRealmFactory;
 import org.mycore.user2.MCRUser;
+import org.mycore.user2.MCRUserAttribute;
 import org.mycore.user2.MCRUserManager;
 
 @MCRCommandGroup(name = "ThUniBib Tools")
@@ -54,6 +55,8 @@ public class ThUniBibCommands {
     private static final Logger LOGGER = LogManager.getLogger(ThUniBibCommands.class);
 
     private static List<String> DEFAULT_ROLES = List.of("submitter", "admin");
+
+    private static final String LDAP_ID_NAME = "id_" + MCRConfiguration2.getString("UBO.projectid.default").get();
 
     @MCRCommand(syntax = "thunibib create editor user {0} with email {1}",
         help = "Creates a scoped shibboleth user with login {0} and {1} as mail address")
@@ -167,5 +170,65 @@ public class ThUniBibCommands {
             attribute != null ? attribute.getValue() : "?", counter.get());
         LOGGER.info("Optimizing project index");
         MCRSolrCommands.optimize(core);
+    }
+
+    @MCRCommand(
+        syntax = "list gone ldap users for realm {0}",
+        help = "List ldap users linked to publications but are not findable via ldap search"
+    )
+    public static void listGoneLDAPUsers(String realm) {
+        boolean noneMatch = MCRRealmFactory.listRealms().stream().noneMatch(r -> r.getID().equals(realm));
+
+        if (noneMatch) {
+            LOGGER.error("Realm '{}' is unknown", realm);
+            return;
+        }
+
+        List<MCRUser> users = MCRUserManager.listUsers(null, realm, null);
+        if (users.size() == 0) {
+            LOGGER.info("No users found for realm '{}'", realm);
+            return;
+        }
+
+        List<MCRUser> missing = new ArrayList<>();
+
+        try {
+            LdapContext ctx = new LDAPAuthenticator().authenticate();
+            LDAPSearcher searcher = new LDAPSearcher();
+            users.forEach(user -> {
+                if (!exists(searcher, ctx, user)) {
+                    missing.add(user);
+                }
+            });
+        } catch (NamingException e) {
+            LOGGER.error("", e);
+        }
+
+        // console output
+        LOGGER.info("{}/{} user(s) of realm '{}' are orphaned", missing.size(), users.size(), realm);
+        if (missing.size() > 0) {
+            LOGGER.info("The following users could not be found in ldap");
+            for (MCRUser u : missing) {
+                LOGGER.info(u.getUserID());
+            }
+        }
+    }
+
+    private static boolean exists(LDAPSearcher searcher, LdapContext ctx, MCRUser user) {
+        Optional<MCRUserAttribute> ldapIdAttr = user.getAttributes().stream()
+            .filter(a -> a.getName().equals(LDAP_ID_NAME))
+            .findFirst();
+
+        if (ldapIdAttr.isEmpty()) {
+            return false;
+        }
+
+        try {
+            String filter = "(&(objectClass=eduPerson)(|(eduPersonUniqueId=" + ldapIdAttr.get().getValue() + ")))";
+            List<LDAPObject> ldapObjects = searcher.searchWithGlobalDN(ctx, filter);
+            return ldapObjects.size() == 1 ? true : false;
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
