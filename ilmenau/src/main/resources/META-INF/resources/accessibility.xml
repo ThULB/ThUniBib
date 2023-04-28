@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage id="accessibility">
+
+<webpage lastModified="$Date$" id="accessibility">
   <title xml:lang="de">Erklärung zur Barrierefreiheit</title>
   <title xml:lang="en">Accessibility declaration</title>
 
-  <section xml:lang="de" title="Erklärung zur Barrierefreiheit">
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
 
-    <div class="row">
-      <div class="col-md-12" lang="de">
+        <h2>Erklärung zur Barrierefreiheit</h2>
 
-        <h2>Erklärung zur Barrierefreiheit</h2><div class="card-text">
-
-        <p class="mt-4">
+          <p>
           Als öffentliche Einrichtung ist die Technische Universität Ilmenau bemüht, ihre Universitätsbibliographie <a href="https://bibliographie.tu-ilmenau.de/">bibliographie.tu-ilmenau.de</a> gemäß folgender nationaler Rechtsvorschriften zur Umsetzung der <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32016L2102">Richtlinie (EU) 2016/2102</a> des Europäischen Parlaments und des Rates vom 26. Oktober 2016 barrierefrei zugänglich zu machen:</p>
           <ul>
           <li><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidlines 2.0 (WCAG 2.0)</a></li>
@@ -19,13 +18,6 @@
           <li><a href="http://landesrecht.thueringen.de/jportal/?quelle=jlink&amp;query=BITV+TH&amp;psml=bsthueprod.psml&amp;max=true">Thüringer Verordnung zur Schaffung barrierefreier Informationstechnik (Thüringer Barrierefreie-Informationstechnik-Verordnung -ThürBITVO-)</a>, Stand 28. April 2020</li>
           </ul>
           
-        </div>
-
-      </div>
-    </div>
-
-    <div class="row mt-4">
-      <div class="col-md-12" lang="de">
 
         <h3>Stand der Vereinbarkeit mit den Anforderungen</h3>
 
@@ -36,15 +28,11 @@
           <strong>Die Website befindet sich im Aufbau und es wird demnächst ein BITV-Test durchgeführt und das Testergebnis an dieser Stelle veröffentlicht.</strong>
         </p>
         <p>
-          Diese Erklärung wurde am 09.03.2023 erstellt und zuletzt geprüft.
+          Diese Erklärung wurde am 28.04.2023 erstellt und zuletzt geprüft.
         </p>
-      </div>
-    </div>
+ 
 
-    <div class="row mt-4">
-      <div class="col-md-12" lang="de">
-
-       <h3>Kontakt und Feedback</h3>
+        <h3>Kontakt und Feedback</h3>
 
         <p>
           Sollten Ihnen Mängel beziehungsweise Verbesserungen in Bezug auf die Einhaltung der Barrierefreiheitsanforderungen auffallen, können Sie sich an die Universitätsbibliothek Ilmenau wenden. Für Hinweise und Verbesserungsvorschläge sind wir stets dankbar. Wir bemühen uns um eine baldige Umsetzung von Korrekturwünschen und Vorschlägen.
@@ -67,11 +55,6 @@
           98684 Ilmenau
         </p>
 
-      </div>
-    </div>
-
-    <div class="row mt-4">
-      <div class="col-md-12" lang="de">
 
         <h3>Durchsetzungsverfahren</h3>
 
@@ -91,17 +74,15 @@
           E-Mail: <a href="mailto:vz_bmb@tmasgff.thueringen.de">vz_bmb@tmasgff.thueringen.de</a>
         </p>
       </div>
-    </div>
-  </section>
 
-  <section xml:lang="en" title="Accessibility declaration">
+  </article>
 
-    <div class="row">
-      <div class="col-md-12" lang="en">
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
 
-        <h2>Accessibility declaration</h2><div class="card-text">
+        <h2>Accessibility declaration</h2>
 
-        <p class="mt-4">
+        <p>
           As a public institution, the Technische Universität Ilmenau is required to make its University Bibliography <a href="https://bibliographie.tu-ilmenau.de/?lang=en">bibliographie.tu-ilmenau.de</a> accessible in accordance with the following national legislation implementing <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32016L2102">Directive (EU) 2016/2102</a> of the European Parliament and of the Council of 26 October 2016:</p>
           <ul>
           <li><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidlines 2.0 (WCAG 2.0)</a>.</li>
@@ -109,13 +90,6 @@
           <li><a href="http://landesrecht.thueringen.de/jportal/?quelle=jlink&amp;query=BITV+TH&amp;psml=bsthueprod.psml&amp;max=true">Thuringian Ordinance on the Creation of Accessible Information Technology (Thuringian Accessible Information Technology Ordinance -ThürBITVO-)</a>, as of April 28, 2020.</li>
           </ul>
           
-        </div>
-
-      </div>
-    </div>
-
-    <div class="row mt-4">
-      <div class="col-md-12" lang="en">
 
         <h3>Status of compatibility with the requirements</h3>
 
@@ -128,11 +102,7 @@
         <p>
           This statement was issued and last reviewed on March 09, 2023.
         </p>
-      </div>
-    </div>
 
-    <div class="row mt-4">
-      <div class="col-md-12" lang="en">
 
        <h3>Contact and Feedback</h3>
 
@@ -156,12 +126,7 @@
           98684 Ilmenau
         </p>
 
-      </div>
-    </div>
-
-    <div class="row mt-4">
-      <div class="col-md-12" lang="en">
-
+ 
         <h3>Enforcement Procedure</h3>
 
         <p>
@@ -180,8 +145,7 @@
           Email: <a href="mailto:vz_bmb@tmasgff.thueringen.de">vz_bmb@tmasgff.thueringen.de</a>
         </p>
       </div>
-    </div>
-  </section>
+  </article>
 
 
 </webpage>
