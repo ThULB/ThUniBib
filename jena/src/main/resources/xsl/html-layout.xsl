@@ -370,7 +370,8 @@
   <xsl:param name="MCR.ORCID.LinkURL"/>
 
   <xsl:template name="orcidUser">
-
+    <xsl:comment>TODO - not implemented</xsl:comment>
+    <!--
     <xsl:variable name="orcidUser" select="orcidSession:getCurrentUser()"
                   xmlns:orcidSession="xalan://org.mycore.orcid.user.MCRORCIDSession"/>
     <xsl:variable name="userStatus" select="orcidUser:getStatus($orcidUser)"
@@ -385,6 +386,7 @@
         <img alt="ORCID {$orcid}" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon"/>
       </a>
     </xsl:if>
+    -->
   </xsl:template>
 
   <xsl:template name="layout.pageTitle">
