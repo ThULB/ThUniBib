@@ -7,6 +7,7 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
+                xmlns:orcidUtils="xalan://org.mycore.ubo.orcid.DozBibORCIDUtils"
                 exclude-result-prefixes="xsl xalan encoder i18n mcrxml mcrver">
 
   <xsl:output method="xml" encoding="UTF-8"/>
@@ -21,6 +22,8 @@
   <xsl:param name="UBO.Frontend.chosen.version" />
   <xsl:param name="UBO.Frontend.bootstrap.version" />
   <xsl:param name="UBO.Frontend.font-awesome.version" />
+
+  <xsl:param name="MCR.ORCID2.LinkURL"/>
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
@@ -367,26 +370,10 @@
   </xsl:template>
 
   <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
-  <xsl:param name="MCR.ORCID.LinkURL"/>
-
   <xsl:template name="orcidUser">
-    <xsl:comment>TODO - not implemented</xsl:comment>
-    <!--
-    <xsl:variable name="orcidUser" select="orcidSession:getCurrentUser()"
-                  xmlns:orcidSession="xalan://org.mycore.orcid.user.MCRORCIDSession"/>
-    <xsl:variable name="userStatus" select="orcidUser:getStatus($orcidUser)"
-                  xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser"/>
-    <xsl:variable name="trustedParty" select="userStatus:weAreTrustedParty($userStatus)"
-                  xmlns:userStatus="xalan://org.mycore.orcid.user.MCRUserStatus"/>
-
-    <xsl:if test="$trustedParty = 'true'">
-      <xsl:variable name="orcid" select="orcidUser:getORCID($orcidUser)"
-                    xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser"/>
-      <a href="{$MCR.ORCID.LinkURL}{$orcid}">
-        <img alt="ORCID {$orcid}" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon"/>
-      </a>
+    <xsl:if test="orcidUtils:weAreTrustedParty() = 'true'">
+      <img alt="ORCID" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon"/>
     </xsl:if>
-    -->
   </xsl:template>
 
   <xsl:template name="layout.pageTitle">
