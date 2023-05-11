@@ -8,7 +8,7 @@
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
                 xmlns:orcidUtils="xalan://org.mycore.ubo.orcid.DozBibORCIDUtils"
-                exclude-result-prefixes="xsl xalan encoder i18n mcrxml mcrver">
+                exclude-result-prefixes="xsl xalan encoder i18n mcrxml mcrver orcidUtils">
 
   <xsl:output method="xml" encoding="UTF-8"/>
 
