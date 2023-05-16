@@ -30,6 +30,8 @@
   <xsl:include href="coreFunctions.xsl"/>
   <xsl:include href="html-layout-backend.xsl"/>
   <xsl:include href="servicedesk.xsl"/>
+  <xsl:include href="thunibib-orcid.xsl"/>
+
 
   <!-- ==================== HTML ==================== -->
 
@@ -367,13 +369,6 @@
       </span>
     </div>
 
-  </xsl:template>
-
-  <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
-  <xsl:template name="orcidUser">
-    <xsl:if test="orcidUtils:weAreTrustedParty() = 'true'">
-      <img alt="ORCID" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon"/>
-    </xsl:if>
   </xsl:template>
 
   <xsl:template name="layout.pageTitle">

@@ -17,11 +17,11 @@
   <xsl:param name="UBO.Login.Path"/>
   <xsl:param name="ThUniBib.ServiceDesk.enabled"/>
 
-  <xsl:param name="UBO.Frontend.jquery.version" />
-  <xsl:param name="UBO.Frontend.jquery-ui.version" />
-  <xsl:param name="UBO.Frontend.chosen.version" />
-  <xsl:param name="UBO.Frontend.bootstrap.version" />
-  <xsl:param name="UBO.Frontend.font-awesome.version" />
+  <xsl:param name="UBO.Frontend.jquery.version"/>
+  <xsl:param name="UBO.Frontend.jquery-ui.version"/>
+  <xsl:param name="UBO.Frontend.chosen.version"/>
+  <xsl:param name="UBO.Frontend.bootstrap.version"/>
+  <xsl:param name="UBO.Frontend.font-awesome.version"/>
 
   <xsl:param name="MCR.ORCID2.LinkURL"/>
 
@@ -30,6 +30,7 @@
   <xsl:include href="coreFunctions.xsl"/>
   <xsl:include href="html-layout-backend.xsl"/>
   <xsl:include href="servicedesk.xsl"/>
+  <xsl:include href="thunibib-orcid.xsl"/>
 
   <!-- ==================== HTML ==================== -->
 
@@ -55,14 +56,18 @@
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
       <script src="{$WebApplicationBaseURL}webjars/jquery/{$UBO.Frontend.jquery.version}/jquery.min.js"/>
-      <script src="{$WebApplicationBaseURL}webjars/bootstrap/{$UBO.Frontend.bootstrap.version}/js/bootstrap.bundle.min.js"/>
+      <script
+          src="{$WebApplicationBaseURL}webjars/bootstrap/{$UBO.Frontend.bootstrap.version}/js/bootstrap.bundle.min.js"/>
       <script src="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.jquery.min.js"/>
-      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.min.css" rel="stylesheet"/>
+      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.min.css"
+            rel="stylesheet"/>
       <script src="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.js"/>
 
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css"
+      <link rel="stylesheet"
+            href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css"
             type="text/css"/>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css"
+      <link rel="stylesheet"
+            href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css"
             type="text/css"/>
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
@@ -300,24 +305,28 @@
   <xsl:template name="layout.login">
     <div class="nav-item mr-2">
       <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
-        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
-           role="button" id="mcrFunctionsDropdown" href="#"
-           class="user nav-link dropdown-toggle text-white p-0 ubo-hover-pointer">
+        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button" id="mcrFunctionsDropdown"
+           href="#" class="user nav-link dropdown-toggle text-white p-0 ubo-hover-pointer">
+
+          <xsl:text>[</xsl:text>
+
           <xsl:choose>
             <xsl:when test="contains($CurrentUser,'@')">
-              [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
+              <xsl:value-of select="substring-before($CurrentUser,'@')"/>
             </xsl:when>
             <xsl:otherwise>
-              [<xsl:value-of select="$CurrentUser"/>]
+              <xsl:value-of select="$CurrentUser"/>
             </xsl:otherwise>
           </xsl:choose>
+          <xsl:call-template name="orcidUser"/>
+
+          <xsl:text>]</xsl:text>
         </a>
 
         <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
           <xsl:call-template name="layout.usernav"/>
         </div>
       </xsl:if>
-      <xsl:call-template name="orcidUser"/>
     </div>
 
     <div class="nav-item mr-2">
@@ -364,13 +373,6 @@
         </a>
       </span>
     </div>
-  </xsl:template>
-
-  <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
-  <xsl:template name="orcidUser">
-    <xsl:if test="orcidUtils:weAreTrustedParty() = 'true'">
-      <img alt="ORCID" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon"/>
-    </xsl:if>
   </xsl:template>
 
   <xsl:template name="layout.pageTitle">
