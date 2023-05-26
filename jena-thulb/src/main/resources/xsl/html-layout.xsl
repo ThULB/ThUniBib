@@ -7,8 +7,7 @@
                 xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
                 xmlns:encoder="xalan://java.net.URLEncoder"
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
-                xmlns:orcidUtils="xalan://org.mycore.ubo.orcid.DozBibORCIDUtils"
-                exclude-result-prefixes="xsl xalan i18n encoder mcrver mcrxml orcidUtils">
+                exclude-result-prefixes="xsl xalan i18n encoder mcrver mcrxml">
 
   <xsl:output method="xml" encoding="UTF-8" />
 
@@ -21,8 +20,6 @@
   <xsl:param name="UBO.Frontend.chosen.version" />
   <xsl:param name="UBO.Frontend.bootstrap.version" />
   <xsl:param name="UBO.Frontend.font-awesome.version" />
-
-  <xsl:param name="MCR.ORCID2.LinkURL"/>
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
