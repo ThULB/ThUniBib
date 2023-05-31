@@ -46,7 +46,7 @@
         "facet.field": [
           "year",
           "subject",
-          "origin",
+          "origin_exact",
           "genre",
           "oa",
           "facet_person",
