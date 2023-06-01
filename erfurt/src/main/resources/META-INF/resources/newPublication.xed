@@ -45,6 +45,7 @@
                             <option value="ppn">GVK PPN</option>
                             <option value="issn">ISSN</option>
                           </xed:if>
+                          <option value="dbt">DBT</option>
                         </select>
                       </xed:bind>
                       :
