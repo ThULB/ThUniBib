@@ -36,6 +36,12 @@
         </xsl:copy>
     </xsl:template>
 
+    <xsl:template match="mycoreobject/@ID">
+        <mods:identifier type="dbt">
+            <xsl:value-of select="."/>
+        </mods:identifier>
+    </xsl:template>
+
     <!-- for dbt -->
     <xsl:template match="mods:genre[contains(@authorityURI, 'mir_genres')]">
         <mods:genre type="intern">
