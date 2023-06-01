@@ -126,8 +126,8 @@
     </xsl:template>
 
     <xsl:template match="mods:name[contains(@authorityURI,'mir_institutes')]">
-        <xsl:variable name="id" select="substring-after(@valueURI,'#')" />
-        <xsl:variable name="uri">{$WebApplicationBaseURL}classifications/ORIGIN</xsl:variable>
+        <xsl:variable name="id" select="substring-after(@valueURI, '#')" />
+        <xsl:variable name="uri" select="concat($WebApplicationBaseURL, 'classifications/ORIGIN')"/>
         <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$id}" />
     </xsl:template>
 
