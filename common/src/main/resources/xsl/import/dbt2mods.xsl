@@ -208,18 +208,6 @@
     </mods:note>
   </xsl:template>
 
-  <xsl:template match="@ID[starts-with(.,'miless')]">
-    <mods:identifier type="duepublico">
-      <xsl:value-of select="number(substring-after(.,'miless_mods_'))"/>
-    </mods:identifier>
-  </xsl:template>
-
-  <xsl:template match="@ID[starts-with(.,'duepublico')]">
-    <mods:identifier type="duepublico2">
-      <xsl:value-of select="."/>
-    </mods:identifier>
-  </xsl:template>
-
   <xsl:template match="mods:identifier[@type='doi']">
     <xsl:copy>
       <xsl:copy-of select="@type"/>
