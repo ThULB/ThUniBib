@@ -10,8 +10,8 @@
 
   <!-- copied from pics2mods and changed rfc5646 to rfc4646 -->
   <xsl:template name="ubomodsLanguage">
-    <!-- relative Pfade funktionieren nicht für Classpath-Resourcen: <xsl:variable name="rfc5646" select="document('../../_data/rfc5646.xml')" /> -->
-    <xsl:variable name="rfc5646" select="document('resource:_data/rfc5646.xml')"/>
+    <xsl:variable name="rfc5646" select="document('resource:mycore-classifications/rfc5646.xml')" />
+
     <xsl:for-each select="./p:datafield[@tag='010@']"> <!-- 1500 Language -->
       <!-- weiter Unterfelder für Originaltext / Zwischenübersetzung nicht abbildbar -->
       <xsl:for-each select="./p:subfield[@code='a']">
