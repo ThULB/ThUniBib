@@ -21,13 +21,13 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:statistics-oa:solr:q=partOf:true+AND+status:confirmed+AND+year:[2018+TO+*]&amp;rows=0&amp;json.facet={year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed+AND+year:%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=subject"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=origin"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+AND+status:confirmed&amp;rows=0&amp;facet.field=genre"/>
+  <xinclude uri="xslStyle:statistics-oa:solr:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet={year%3A{type%3Aterms,field%3Ayear,sort%3A{index%3Aasc},facet%3A{oa%3A{type%3Aterms,field%3Aoa,sort%3A{index%3Aasc}}}}}"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=subject"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=origin_exact"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=genre"/>
 
-  <xinclude uri="xslStyle:statistics:solr:q=partOf:true+status:confirmed+AND+year:%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
-  <xinclude uri="xslStyle:statistics:solr:q=objectKind:name&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
+  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
+  <xinclude uri="xslStyle:statistics:solr:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
 
 </webpage>

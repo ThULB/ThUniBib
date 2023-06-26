@@ -22,7 +22,7 @@
     <xsl:for-each select="lst[@name='facet_counts']">
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='year'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='subject'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='origin'][int]" />
+      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='origin_exact'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='genre'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='oa'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='facet_person'][int]" />
@@ -31,7 +31,7 @@
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template match="lst[@name='facet_fields']/lst[@name='origin']">
+  <xsl:template match="lst[@name='facet_fields']/lst[@name='origin_exact']">
     <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('ubo.department'))"/>
 
     <section class="card mb-3">
@@ -538,9 +538,9 @@
     <!-- The facet is a list of top connected Person IDs matching the restricted query, e.g. status=confirmed, year > 2012 -->
     <!-- To find the corresponding names, build a pivot facet with Connection ID and name variants, use most frequent name  -->
     <xsl:variable name="uri">
-       <xsl:text>solr:q=objectKind:name+AND+(</xsl:text>
+       <xsl:text>solr:q=objectKind%3Aname+AND+(</xsl:text>
        <xsl:for-each select="int">
-         <xsl:text>name_id_connection:</xsl:text>
+         <xsl:text>name_id_connection%3A</xsl:text>
          <xsl:value-of select="@name" />
          <xsl:if test="position() != last()">+OR+</xsl:if>
        </xsl:for-each>

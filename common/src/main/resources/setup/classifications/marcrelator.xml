@@ -164,12 +164,6 @@
         <label xml:lang="de" text="Übersetzer*in"
                description="Eine Person oder Institution, die eine Text von einer Sprache in eine andere, oder eine ältere Form einer Sprache in eine modernere übersetzt."/>
       </category>
-      <category ID="wst">
-        <label xml:lang="en" text="Author of supplementary textual content"
-               description="A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work."/>
-        <label xml:lang="de" text="Autor*in (ergänzender Text)"
-               description="Eine Person oder Institution, die einen ergänzenden Text (z.B. Einleitung oder Vorwort) beiträgt."/>
-      </category>
     </category>
     <category ID="oth">
       <label xml:lang="de" text="Sonstige" description="Eine Rolle die nicht in der Liste vorkommt."/>

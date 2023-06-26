@@ -8,7 +8,6 @@
         "defType": "edismax",
         "qs": "5",
         "mm": "100%",
-        "q.op": "AND",
         "df": "all",
         "rows": 10,
         "fl": "id",
@@ -47,7 +46,7 @@
         "facet.field": [
           "year",
           "subject",
-          "origin",
+          "origin_exact",
           "genre",
           "oa",
           "facet_person",

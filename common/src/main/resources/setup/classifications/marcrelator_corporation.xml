@@ -28,8 +28,8 @@
       <label xml:lang="en" text="Contributor" description="Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, ..." />
     </category>
     <category ID="his">
-      <label xml:lang="de" text="Gastgeber Institution" description="Eine Organisation, die ein Veranstaltung hostet." />
-      <label xml:lang="en" text="Host institution" description="An organization hosting an event, exhibit, conference, etc., which gave rise to the resource, but having little or no responsibility for the content of the resource" />
+      <label xml:lang="de" text="Gastgebende Einrichtung" description="Eine Organisation, die ein Veranstaltung hostet." />
+      <label xml:lang="en" text="Hosting institution" description="An organization hosting an event, exhibit, conference, etc., which gave rise to the resource, but having little or no responsibility for the content of the resource" />
     </category>
     <category ID="hnr">
       <label xml:lang="de" text="Gefeierte Einrichtung" description="Ein Akteur, der durch ein Werk geehrt wird." />
@@ -66,6 +66,10 @@
     <category ID="pta">
       <label xml:lang="de" text="Anmeldende Einrichtung (Patent)" description="Eine Person oder Organisation, die ein Patent angemeldet hat." />
       <label xml:lang="en" text="Patent applicant" description="A person or organization that applied for a patent." />
+    </category>
+    <category ID="oth">
+      <label xml:lang="de" text="Sonstige" description="Eine Rolle die nicht in der Liste vorkommt."/>
+      <label xml:lang="en" text="Other" description="A role that has no equivalent in the list."/>
     </category>
   </categories>
 </mycoreclass>
