@@ -20,3 +20,8 @@
 - #351 Load rfc5646 in pica2mods_thunibib-common.xsl by resource uri resolver
 - Reflect changes in UBOs Java and MyCoRe version
 - UBO-238 Added/altered i18n keys https://github.com/MyCoRe-Org/ubo/pull/278
+
+
+## 2023.04.04
+
+- Enable JSON support for MyCoRe REST-API #316
