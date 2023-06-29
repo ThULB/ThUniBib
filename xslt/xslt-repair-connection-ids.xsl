@@ -9,6 +9,6 @@
   </xsl:template>
 
   <!-- Remove connection id, they will be readded upon save of the publication -->
-  <xsl:template match="mods:name/mods:nameIdentifier[@type = 'id_connection']"/>
+  <xsl:template match="mods:name[@type = 'personal']/mods:nameIdentifier[@type = 'connection']"/>
 
 </xsl:stylesheet>
