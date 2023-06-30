@@ -633,16 +633,16 @@
   <xed:template id="series">
     <xed:repeat xpath="mods:relatedItem[@type='series']" max="3">
       <xed:bind xpath="mods:genre[@type='intern']" default="series"/>
-      <xed:bind xpath="mods:titleInfo/mods:title">
-        <div class="form-group form-inline ubo-repeat-group">
+
+      <div class="form-group form-inline ubo-repeat-group">
+        <xed:bind xpath="mods:titleInfo/mods:title">
           <label for="{xed:generate-id()}" class="mycore-form-label">
             <xed:output value="concat(i18n:translate('ubo.series.title'), ': ')"/>
           </label>
           <input id="{xed:generate-id()}" type="text" class="mycore-form-input" placeholder="{i18n:ubo.series.title.placeholder}"/>
-
-          <xed:controls/>
-        </div>
-      </xed:bind>
+        </xed:bind>
+      <xed:controls/>
+      </div>
 
       <xed:bind xpath="mods:part/mods:detail[@type='volume']/mods:number">
         <div class="form-group form-inline">
