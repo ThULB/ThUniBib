@@ -325,17 +325,16 @@
 
   <xed:template id="conference">
     <xed:repeat xpath="mods:name[@type='conference']">
-      <xed:bind xpath="mods:namePart">
-        <div class="form-group form-inline">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
-            <xed:output value="concat(i18n:translate('ubo.conference'), ': ')"/>
-          </label>
-          <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-                 placeholder="{i18n:ubo.conference.placeholder}"/>
-
-          <xed:controls/>
-        </div>
-      </xed:bind>
+      <div class="form-group form-inline">
+        <xed:bind xpath="mods:namePart">
+            <label for="{xed:generate-id()}" class="mycore-form-label">
+              <xed:output value="concat(i18n:translate('ubo.conference'), ': ')"/>
+            </label>
+            <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
+                   placeholder="{i18n:ubo.conference.placeholder}"/>
+        </xed:bind>
+        <xed:controls/>
+      </div>
     </xed:repeat>
   </xed:template>
 
