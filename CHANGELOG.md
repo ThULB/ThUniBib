@@ -1,16 +1,17 @@
 # Changelog
 
-## 2023.06.26 => 2023.07.10
+## 2023.06.26 => 2023.07.11
 
 - #355 Added xslt-set-partOf-false.xsl
 - #357 Added stylesheet to fix connections ids
 - #362 Added CONTRIBUTING.md
 - #368 Set MCR.user2.IdentityManagement.UserCreation.Unvalidated.Realm = local
-- #371 Provide classification user_attributes.xml for every thunibib instance
+- #371 Provide classification user_attributes.xml for every thunibib instance and unify message properties for local IDs
 - FSU040THUL-618 #360 Anpassungen ADMIN-Editor
 - FSU040THUL-835 #366 Set $primary to #024975 in _variables_ilmenau.scss. Set backround-color to $primary for #navigationWrapper in _navigation.scss
 - Prefer GBV as source (catalog import)
 - Remove local matcher from chain, is always configured
+- Fix MCR.IdentityPicker.strategy, set LDAPWithLocal as default
 - Updated CHANGELOG.md
 ---
 
