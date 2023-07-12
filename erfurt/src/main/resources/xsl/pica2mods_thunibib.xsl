@@ -92,13 +92,24 @@
 
         <xsl:variable name="text" select="./text()"/>
 
-        <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=$text">
-          <xsl:variable name="originCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/@ID"/>
+        <xsl:choose>
+          <xsl:when test="$text = '584746261'">
+            <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#0800"
+                                 authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
+            <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#1300"
+                                 authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
+          </xsl:when>
 
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}"
-                               authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
-        </xsl:if>
+          <xsl:when test="$origin//category/label[@xml:lang = 'x-lpp'][@text = $text]">
+            <xsl:variable name="originCategory" select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/@ID"/>
+
+            <xsl:for-each select="$originCategory">
+              <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{.}"
+                                   authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
+            </xsl:for-each>
+
+          </xsl:when>
+        </xsl:choose>
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
