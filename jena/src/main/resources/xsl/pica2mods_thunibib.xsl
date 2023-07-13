@@ -58,7 +58,8 @@
   </xsl:template>
 
   <xsl:template name="ubomodsGenre">
-    <xsl:for-each select="p:datafield[@tag='144Z' or @tag='013D']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090 105825778',text())]">
+    <xsl:for-each
+        select="p:datafield[@tag='144Z' or @tag='013D']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090 105825778',text())]">
       <!-- ensure values in @tag='144Z' get checked first -->
       <xsl:sort select="../@tag" order="descending"/>
 
@@ -101,13 +102,9 @@
         <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=$text">
           <xsl:variable name="originCategory"
                         select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/@ID"/>
-          <xsl:variable name="destatisCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/label[@xml:lang='x-destatis']/@text"/>
 
           <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}"
                                authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/fachreferate#{$destatisCategory}"
-                               authorityURI="{$WebApplicationBaseURL}classifications/fachreferate"/>
         </xsl:if>
       </xsl:for-each>
     </xsl:for-each>
