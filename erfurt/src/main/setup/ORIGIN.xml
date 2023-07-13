@@ -36,8 +36,7 @@
     </category>
     <category ID="0800">
       <label xml:lang="de" text="Forschungsbibliothek Gotha"/>
-      <label xml:lang="x-lpp" text="1668137674"/>
-      <label xml:lang="x-lpp" text="584746261"/>
+      <label xml:lang="x-lpp" text="584746261 1668137674"/>
     </category>
     <category ID="0900">
       <label xml:lang="de" text="Forschungskolleg Transkulturelle Studien"/>
@@ -55,8 +54,7 @@
     </category>
     <category ID="1300">
       <label xml:lang="de" text="Universitätsbibliothek Erfurt"/>
-      <label xml:lang="x-lpp" text="1668137275"/>
-      <label xml:lang="x-lpp" text="584746261"/>
+      <label xml:lang="x-lpp" text="584746261 1668137275"/>
     </category>
     <category ID="1400">
       <label xml:lang="de" text="Universitätsrechen- und Medienzentrum"/>
