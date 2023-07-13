@@ -58,8 +58,7 @@
   </xsl:template>
 
   <xsl:template name="ubomodsGenre">
-    <xsl:for-each
-        select="p:datafield[@tag='144Z' or @tag='013D']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090 105825778',text())]">
+    <xsl:for-each select="p:datafield[@tag='144Z' or @tag='013D']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090 105825778',text())]">
       <!-- ensure values in @tag='144Z' get checked first -->
       <xsl:sort select="../@tag" order="descending"/>
 
@@ -91,24 +90,19 @@
   </xsl:template>
 
   <xsl:template name="uboOriginClassification">
-    <!-- Struktur-Daten aus Ilmenauer Katalogeintrag übernehmen (ID steht in ORIGIN-Klassifikation) -->
-    <!-- Destatis-Mapping für Ilmenau anhand origin.xml -->
+    <!-- Struktur-Daten aus Jenaer Katalogeintrag übernehmen (ID steht in ORIGIN-Klassifikation) -->
     <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')"/>
     <xsl:for-each select="./p:datafield[@tag='144Z']">
       <xsl:for-each select="./p:subfield[@code='9']">
 
         <xsl:variable name="text" select="./text()"/>
 
-        <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=$text">
-          <xsl:variable name="originCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/@ID"/>
-
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}"
+        <xsl:for-each select="$origin//category[label[@xml:lang='x-lpp' and contains(@text, $text)]]/@ID">
+          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{.}"
                                authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
-        </xsl:if>
+        </xsl:for-each>
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
-
 
 </xsl:stylesheet>
