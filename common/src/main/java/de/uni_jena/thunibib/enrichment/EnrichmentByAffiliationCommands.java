@@ -181,6 +181,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
                 MCRObject mcrObject = createOrUpdate(wrappedMods, status);
                 TRACKER.untrack(importId, ppnID, mcrObject);
             } catch (Exception e) {
+                LOGGER.error("Error while creating mcr object from {}", ppnID, e);
                 TRACKER.decrementTrackSize(importId);
             }
         }
@@ -198,8 +199,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     }
 
     @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
-    public static void enrichOrCreateByPPN(String ppnID, String status, String filterTransformer)
-        throws IOException, JDOMException, SAXException {
+    public static void enrichOrCreateByPPN(String ppnID, String status, String filterTransformer) {
 
         String importId = UUID.randomUUID().toString();
         enrichOrCreateByPPNWithKey(ppnID, status, filterTransformer, importId);

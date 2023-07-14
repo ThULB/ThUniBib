@@ -86,19 +86,18 @@
   </xsl:template>
 
   <xsl:template name="uboOriginClassification">
-    <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')"/>
+    <xsl:variable name="originClass" select="document('classification:metadata:-1:children:ORIGIN')"/>
+
     <xsl:for-each select="./p:datafield[@tag='244Z']">
-      <xsl:for-each select="./p:subfield[@code='9']">
+      <xsl:for-each select="./p:subfield[@code='9']/text()">
 
-        <xsl:variable name="text" select="./text()"/>
+        <xsl:variable name="txt" select="."/>
 
-        <xsl:if test="$origin//category/label[@xml:lang='x-lpp']/@text=$text">
-          <xsl:variable name="originCategory"
-                        select="$origin//category[label[@xml:lang='x-lpp'][@text=$text]]/@ID"/>
-
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}"
+        <xsl:for-each select="$originClass//category[label[@xml:lang='x-lpp' and contains(@text, $txt)]]/@ID">
+          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{.}"
                                authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
-        </xsl:if>
+        </xsl:for-each>
+
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
