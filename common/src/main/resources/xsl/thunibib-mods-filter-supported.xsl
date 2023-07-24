@@ -64,12 +64,12 @@
   <xsl:template match="mods:classification/text()"/>
 
   <xsl:template
-      match="mods:name[@type='personal']|mods:name[@type='corporate']|mods:name[@type='conference'][1]|mods:name/@type">
+      match="mods:name[@type='personal']|mods:name[@type='corporate']|mods:name[@type='conference']|mods:name/@type">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
   <xsl:template
-      match="mods:name[@type='personal']/mods:namePart[@type='family'][1]|mods:name[@type='personal']/mods:namePart[@type='given'][1]|mods:name[@type='corporate']/mods:namePart[not(@type)]|mods:name[@type='conference']/mods:namePart[not(@type)][1]|mods:namePart/@type">
+      match="mods:name[@type='personal']/mods:namePart[@type='family'][1]|mods:name[@type='personal']/mods:namePart[@type='given'][1]|mods:name[@type='corporate']/mods:namePart[not(@type)]|mods:name[@type='conference']/mods:namePart[not(@type)]|mods:namePart/@type">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
