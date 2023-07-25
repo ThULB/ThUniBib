@@ -150,25 +150,13 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
+  <!-- template keeps order of multiple mods:topic within a mods:subject -->
   <xsl:template match="mods:subject">
-    <xsl:for-each select="mods:topic">
-      <mods:subject>
-        <mods:topic>
-          <xsl:if test="@authorityURI and  @valueURI and @authority">
-            <xsl:attribute name="authorityURI">
-              <xsl:value-of select="@authorityURI"/>
-            </xsl:attribute>
-            <xsl:attribute name="valueURI">
-              <xsl:value-of select=" @valueURI"/>
-            </xsl:attribute>
-            <xsl:attribute name="authority">
-              <xsl:value-of select="@authority"/>
-            </xsl:attribute>
-          </xsl:if>
-          <xsl:value-of select="text()"/>
-        </mods:topic>
-      </mods:subject>
-    </xsl:for-each>
+    <mods:subject>
+      <xsl:for-each select="mods:topic">
+        <xsl:copy-of select="."/>
+      </xsl:for-each>
+    </mods:subject>
   </xsl:template>
 
   <xsl:template
