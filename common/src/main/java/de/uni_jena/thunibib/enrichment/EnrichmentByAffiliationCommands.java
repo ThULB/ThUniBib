@@ -161,7 +161,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return importByPicaQueryWithKey(picaQuery, startStr, status, filterTransformer, importId);
     }
 
-    @MCRCommand(syntax = ENRICH_PPN_SYNTAX_WITH_KEY, help = "Imports document with ppn and enrichment resolver")
+    @MCRCommand(syntax = ENRICH_PPN_SYNTAX_WITH_KEY, help = "Imports document with ppn and enrichment resolver", order = 1)
     public static void enrichOrCreateByPPNWithKey(String ppnID, String status, String filterTransformer,
         String importId) {
 
@@ -198,7 +198,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         }
     }
 
-    @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver")
+    @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver", order = 2)
     public static void enrichOrCreateByPPN(String ppnID, String status, String filterTransformer) {
 
         String importId = UUID.randomUUID().toString();
