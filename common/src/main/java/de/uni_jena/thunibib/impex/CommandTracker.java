@@ -1,4 +1,4 @@
-package de.uni_jena.thunibib.enrichment;
+package de.uni_jena.thunibib.impex;
 
 import java.util.ArrayList;
 import java.util.HashMap;

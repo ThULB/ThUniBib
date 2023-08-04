@@ -1,4 +1,4 @@
-package de.uni_jena.thunibib.enrichment;
+package de.uni_jena.thunibib.impex;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -55,12 +55,14 @@ import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.mods.MCRMODSWrapper;
 import org.mycore.mods.enrichment.MCREnrichmentResolver;
+import org.mycore.services.queuedjob.MCRJob;
+import org.mycore.services.queuedjob.MCRJobQueue;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-@MCRCommandGroup(name = "experimental DBT import commands (by affiliation gnd)")
+@MCRCommandGroup(name = "catalog import commands")
 public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     private static final Logger LOGGER = LogManager.getLogger(EnrichmentByAffiliationCommands.class);
@@ -108,6 +110,16 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static final String ENRICH_PPN_SYNTAX = "enrich ppn {0} with status {1} and filter {2}";
 
     private static final String ENRICH_PPN_SYNTAX_WITH_KEY = "enrich ppn {0} with status {1} and filter {2} key {3}";
+
+    @MCRCommand(syntax = "schedule pica import for query {0} and filter {1}", help = "i", order = 6)
+    public static void schedule(String q, String filter) {
+        LOGGER.info("Creating import job for query {} and status imported and filter {}", q, filter);
+        MCRJob job = new MCRJob(ThUniBibImportJobAction.class);
+        job.setParameter("query", q);
+        job.setParameter("status", "imported");
+        job.setParameter("filter", filter);
+        MCRJobQueue.getInstance(ThUniBibImportJobAction.class).offer(job);
+    }
 
     @MCRCommand(syntax = PICA_IMPORT_SYNTAX_WITH_KEY, help = "imports all objects for a specific query", order = 5)
     public static List<String> importByPicaQueryWithKey(String picaQuery, String startStr, String status,
@@ -161,12 +173,14 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return importByPicaQueryWithKey(picaQuery, startStr, status, filterTransformer, importId);
     }
 
-    @MCRCommand(syntax = ENRICH_PPN_SYNTAX_WITH_KEY, help = "Imports document with ppn and enrichment resolver", order = 1)
-    public static void enrichOrCreateByPPNWithKey(String ppnID, String status, String filterTransformer,
+    @MCRCommand(syntax = ENRICH_PPN_SYNTAX_WITH_KEY, help = "Imports document with ppn and enrichment resolver",
+        order = 1)
+    public static MCRObject enrichOrCreateByPPNWithKey(String ppnID, String status, String filterTransformer,
         String importId) {
 
         // 2. check against Solr (duplicates across multiple imports)
         String ppn_field = "id_" + PPN_IDENTIFIER;
+        MCRObject mcrObject = null;
 
         if (isAlreadyStored(ppn_field, ppnID)) {
             LOGGER.info("Found duplicate in Solr by field {} and value {}", ppn_field, ppnID);
@@ -178,7 +192,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
                 LOGGER.debug(
                     new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
                 wrappedMods = transform(wrappedMods, filterTransformer);
-                MCRObject mcrObject = createOrUpdate(wrappedMods, status);
+                mcrObject = createOrUpdate(wrappedMods, status);
                 TRACKER.untrack(importId, ppnID, mcrObject);
             } catch (Exception e) {
                 LOGGER.error("Error while creating mcr object from {}", ppnID, e);
@@ -196,13 +210,14 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
                 LOGGER.error("Could not send email for import job {}", importId, e);
             }
         }
+
+        return mcrObject;
     }
 
     @MCRCommand(syntax = ENRICH_PPN_SYNTAX, help = "Imports document with ppn and enrichment resolver", order = 2)
-    public static void enrichOrCreateByPPN(String ppnID, String status, String filterTransformer) {
-
+    public static MCRObject enrichOrCreateByPPN(String ppnID, String status, String filterTransformer) {
         String importId = UUID.randomUUID().toString();
-        enrichOrCreateByPPNWithKey(ppnID, status, filterTransformer, importId);
+        return enrichOrCreateByPPNWithKey(ppnID, status, filterTransformer, importId);
     }
 
     public static MCRMODSWrapper transform(MCRMODSWrapper mods, String transformerId)
@@ -223,12 +238,12 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return ID_BUILDER.format(new Date(MCRSessionMgr.getCurrentSession().getLoginTime()));
     }
 
-    @MCRCommand(syntax = "test import by affiliation with GND {0} and status {1}",
+    @MCRCommand(syntax = "import by affiliation with GND {0} and status {1}",
         help = "test import of publications by affiliation GND, imported documents get status one of 'confirmed', " +
             "'submitted', 'imported'",
         order = 10
     )
-    public static void testImportByAffiliation(String affiliationGND, String import_status) {
+    public static void importByAffiliation(String affiliationGND, String import_status) {
         final List<String> allowedStatus = Arrays.asList(new String[] { "confirmed", "submitted", "imported" });
 
         // HashSets for finding duplicates during the import session, PPN is hard wired, rest is configurable
@@ -322,11 +337,11 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return false;
     }
 
-    private static boolean isAlreadyStored(String identifier_field, String identifier_value) {
-        LOGGER.info("Check if already stored in Solr using field {} and value {}", identifier_field, identifier_value);
+    public static boolean isAlreadyStored(String identifierField, String identifierValue) {
+        LOGGER.info("Check if already stored in Solr using field {} and value {}", identifierField, identifierValue);
         SolrClient solrClient = MCRSolrClientFactory.getMainSolrClient();
         SolrQuery query = new SolrQuery();
-        query.setQuery(identifier_field + ":" + MCRSolrUtils.escapeSearchValue(identifier_value));
+        query.setQuery(identifierField + ":" + MCRSolrUtils.escapeSearchValue(identifierValue));
         query.setRows(0);
         SolrDocumentList results;
         try {
