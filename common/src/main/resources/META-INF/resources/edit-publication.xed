@@ -30,13 +30,13 @@
           <xed:preload uri="webapp:{$UBO.EditorForms.CustomIncludes}" />
         </xed:if>
 
-        <xed:source uri="xslStyle:mods-preprocessor:mcrobject:{$id}" />
+        <xed:source uri="xslStyle:thunibib-mods-preprocessor:mcrobject:{$id}" />
         <xed:source uri="xslStyle:mods2mycoreobject,mods-preprocessor:session:{$key}" />
 
         <xed:cancel url="servlets/MCRLockServlet?action=unlock&amp;id={$id}&amp;url=DozBibEntryServlet%3Fid={$id}" />
         <xed:cancel url="newPublication.xed" />
 
-        <xed:post-processor xsl="mods-postprocessor.xsl" />
+        <xed:post-processor xsl="thunibib-mods-postprocessor.xsl" />
 
         <xed:bind xpath="/mycoreobject">
           <xed:include ref="editor-form-fields" />
