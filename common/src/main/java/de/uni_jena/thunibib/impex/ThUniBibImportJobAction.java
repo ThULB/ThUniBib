@@ -84,6 +84,7 @@ public class ThUniBibImportJobAction extends MCRJobAction {
         } catch (Throwable throwable) {
             LOGGER.error("Could not run {} for query {}", name(), query, throwable);
             MCRTransactionHelper.rollbackTransaction();
+            // MCRJob remains in state PROCESSING and will be reset to NEW after MCR.QueuedJob.TimeTillReset minutes
             throw throwable;
         } finally {
             if (MCRTransactionHelper.isTransactionActive()) {
