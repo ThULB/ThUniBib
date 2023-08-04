@@ -785,6 +785,10 @@
         <xed:bind xpath="mods:topic">
           <input id="{xed:generate-id(..)}" type="text" class="mycore-form-input"/>
         </xed:bind>
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.mods.subject}">
+          <i class="fas fa-info"/>
+        </a>
         <xed:controls/>
       </div>
     </xed:repeat>
