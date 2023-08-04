@@ -39,6 +39,6 @@ public class ThUniBibMailer {
         HashMap<String, String> parameters = new HashMap<>();
         parameters.put(MAIL_PARAM, MAIL_TO);
 
-        MCRMailer.sendMail(new Document(root.detach()), MAIL_XSL, parameters);
+        MCRMailer.sendMail(new Document(root), MAIL_XSL, parameters);
     }
 }
