@@ -68,6 +68,10 @@
       <label xml:lang="de">ACL-Editor</label>
       <label xml:lang="en">ACL editor</label>
     </item>
+    <item id="mcrjobs" ref="servlets/JobStatusServlet" role="admin">
+      <label xml:lang="de">Übersicht-MCRJobs</label>
+      <label xml:lang="en">Overview-MCRJobs</label>
+    </item>
     <item id="webcli" ref="rsc/WebCLI/" role="admin">
       <label xml:lang="de">WebCLI</label>
       <label xml:lang="en">WebCLI</label>
