@@ -32,6 +32,10 @@ public class ThUniBibMailer {
         root.setAttribute("source", source);
 
         for (MCRObject obj : objects) {
+            if (obj == null) {
+                continue;
+            }
+
             Element xml = obj.createXML().detachRootElement();
             root.addContent(xml);
         }
