@@ -66,7 +66,12 @@ public class ThUniBibImportJobAction extends MCRJobAction {
                 if (!EnrichmentByAffiliationCommands.isAlreadyStored("id_ppn", ppn)) {
                     MCRObject mcrobj = EnrichmentByAffiliationCommands.enrichOrCreateByPPNWithKey(ppn, status, filter,
                         importId);
-                    objects.add(mcrobj);
+
+                    if (mcrobj != null) {
+                        objects.add(mcrobj);
+                    } else {
+                        LOGGER.warn("Could create MCRObject for ppn {}", ppn);
+                    }
                 } else {
                     LOGGER.info("Ignoring ppn {} as it would create a duplicate", ppn);
                     ignoreCount++;
