@@ -27,3 +27,8 @@ body {
 a {
   color: $color-dark-blue;
 }
+
+i.ubo-picker-service-LDAPWithLocalService::before {
+  color: $primary;
+  content: "\f1ad";
+}

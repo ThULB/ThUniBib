@@ -1,5 +1,25 @@
 # Changelog
 
+## 2023.07.11 => 2023.08.11
+
+- #386 Set mycore version to 2022.06.3-SNAPSHOT
+- #388 Add xslt stylesheet to remove eduPersonUniqueId
+- #396 Added command "schedule pica import for query {0} and filter {1}"
+- #398 Added UI to list currently stored MCRJobs
+- #400 Configured MCR.Cronjob.Jobs.UpdateSolrProjectCore
+- Added null check in ThUniBibImportJobAction
+- Added null check in de.uni_jena.thunibib.ThUniBibMailer
+- FSU040THUL-1050 #392 Added order attributes to commands in EnrichmentByAffiliationCommands
+- FSU040THUL-1066 #394 Added i18n ubo.relatedItem.format_other. Sort and formatted messages_en.properties and messages_de.properties
+- FSU040THUL-383 #384 Angabe bei mehrtägiger Konferenzdauer
+- FSU040THUL-841 #341 Import von Schlagwörtern erfolgt nur eingeschränkt
+- FSU040THUL-909 #376 Allow multiple origin entries for a given ppn (Erfurt)
+- FSU040THUL-913 #378 DESTATIS sollte nicht mehr während des Imports gesetzt werden
+- FSU040THUL-914 #381 Aktualisierung Logo Hochschulbibliografie (Ilmenau)
+- FSU040THUL-915 #380 Aktualisierung des Körperschaftsicons im IdentityPicker
+- Set MCR.user2.matching.lead_id.skip = true (Ilmenau)
+
+
 ## 2023.06.26 => 2023.07.11
 
 - #355 Added xslt-set-partOf-false.xsl

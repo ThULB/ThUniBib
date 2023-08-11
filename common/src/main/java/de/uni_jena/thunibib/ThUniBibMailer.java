@@ -28,14 +28,21 @@ public class ThUniBibMailer {
         }
 
         LOGGER.info("Sending Mail for import id {}", importId);
-        Element xml = new Element(status).setAttribute("source", source);
+        Element root = new Element(status);
+        root.setAttribute("source", source);
+
         for (MCRObject obj : objects) {
-            xml.addContent(obj.createXML().detachRootElement());
+            if (obj == null) {
+                continue;
+            }
+
+            Element xml = obj.createXML().detachRootElement();
+            root.addContent(xml);
         }
 
         HashMap<String, String> parameters = new HashMap<>();
         parameters.put(MAIL_PARAM, MAIL_TO);
 
-        MCRMailer.sendMail(new Document(xml), MAIL_XSL, parameters);
+        MCRMailer.sendMail(new Document(root), MAIL_XSL, parameters);
     }
 }
