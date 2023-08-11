@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.uni-jena.thulb.ubo</groupId>
     <artifactId>ThUniBib</artifactId>
-    <version>dev-SNAPSHOT</version>
+    <version>2023.08.11.01</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-ilmenau</artifactId>
