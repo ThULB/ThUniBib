@@ -107,6 +107,8 @@ public class ThUniBibCommands {
                 LOGGER.info("Updating solr core");
                 updateSolrProjectCore(document);
             }
+        } catch (Exception ex) {
+            LOGGER.error("Could not update solr's project core", ex);
         } finally {
             EntityUtils.consume(responseEntity);
         }
