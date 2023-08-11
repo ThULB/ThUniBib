@@ -1,5 +1,10 @@
 # Changelog
 
+## 2023.08.11 => 2023.08.11.01
+
+- FSU40THUL-1048 #402 Added xslt-remove-subject-from-list.xsl
+
+
 ## 2023.07.11 => 2023.08.11
 
 - #386 Set mycore version to 2022.06.3-SNAPSHOT

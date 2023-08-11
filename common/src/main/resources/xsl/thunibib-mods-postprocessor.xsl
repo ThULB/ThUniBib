@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:MCRXMLFunctions="xalan://org.mycore.common.xml.MCRXMLFunctions"
-                exclude-result-prefixes="xalan xsl">
+                exclude-result-prefixes="MCRXMLFunctions xalan xsl">
 
   <xsl:include href="resource:xsl/mods-postprocessor.xsl"/>
   <xsl:include href="resource:xsl/coreFunctions.xsl"/>
