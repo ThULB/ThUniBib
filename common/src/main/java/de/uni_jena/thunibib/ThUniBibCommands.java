@@ -58,6 +58,12 @@ public class ThUniBibCommands {
 
     private static final String LDAP_ID_NAME = "id_" + MCRConfiguration2.getString("UBO.projectid.default").get();
 
+    @MCRCommand(syntax = "thunibib update funding of publications from url {0}",
+        help = "Updates the funding of publications from the given url")
+    public static void updateFunding(String url) {
+        LOGGER.info("Update funding of publications from url \"{}\"", url);
+    }
+
     @MCRCommand(syntax = "thunibib create editor user {0} with email {1}",
         help = "Creates a scoped shibboleth user with login {0} and {1} as mail address")
     public static void createEditorUser(String login, String mail) {
