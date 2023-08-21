@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass ID="fundingType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+  <label xml:lang="de" text="Förderungstyp"/>
+  <label xml:lang="de" text="Type of Funding"/>
+
+  <categories>
+    <category ID="budgetary.resources">
+      <label xml:lang="de" text="Haushaltsmittel"/>
+      <label xml:lang="en" text="Budgetary Resources"/>
+    </category>
+    <category ID="oa.dfg">
+      <label xml:lang="de" text="DFG-Mittel (Programm Open Access)"/>
+      <label xml:lang="en" text="DFG (Open Access Program)"/>
+    </category>
+    <category ID="oa.state.funds">
+      <label xml:lang="de" text="Open-Access-Landesmittel Thüringen"/>
+      <label xml:lang="en" text="Open-Access State Funds Thuringia"/>
+    </category>
+  </categories>
+</mycoreclass>
