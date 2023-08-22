@@ -72,6 +72,16 @@
       <xsl:apply-templates select="@auid" />
       <mods:role>
         <mods:roleTerm type="code" authority="marcrelator">aut</mods:roleTerm>
+        <xsl:variable name="surname" select="ce:surname"/>
+        <xsl:variable name="given-name" select="ce:given-name"/>
+
+        <xsl:if test="//correspondence/person[ce:surname = $surname][ce:given-name = $given-name]">
+          <mods:roleTerm type="text"
+                         valueURI="{$MCR.baseurl}classifications/author_roles#corresponding_author"
+                         authorityURI="{$MCR.baseurl}classifications/author_roles">
+            corresponding_author
+          </mods:roleTerm>
+        </xsl:if>
       </mods:role>
       <xsl:apply-templates select="scopus:affiliation">
         <xsl:with-param name="authorId" select="@auid"/>
