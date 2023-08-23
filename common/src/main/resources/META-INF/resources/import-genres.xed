@@ -687,7 +687,6 @@
       <xed:include uri="webapp:import-editor.xed" ref="conference"/>
     </xed:if>
     <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
-    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
     <xed:include uri="webapp:import-editor.xed" ref="place"/>
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
