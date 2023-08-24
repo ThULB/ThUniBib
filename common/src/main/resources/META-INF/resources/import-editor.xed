@@ -995,6 +995,11 @@
         <xed:output i18n="button.cancel"/>
       </button>
 
+      <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserSuperUser')">
+        <button class="btn btn-sm btn-outline-info ml-2" type="submit" xed:target="debug">
+          <xed:output value="'Debug'"/>
+        </button>
+      </xed:if>
     </div>
   </xed:template>
 
