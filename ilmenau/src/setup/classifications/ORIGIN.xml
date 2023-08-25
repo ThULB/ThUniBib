@@ -312,11 +312,12 @@
             </category>
 
             <category ID="08.010.020.030(1990)">
-               <label xml:lang="de" text="Fachgebiet Festkörperelektronik (2005-2018)"/>
+               <label xml:lang="de" text="Fachgebiet Festkörperelektronik (2005-2022)"/>
                <label xml:lang="x-destatis" text="7140"/>
                <label xml:lang="x-lpp" text="480742081"/>
                <label xml:lang="x-from" text="2005"/>
-               <label xml:lang="x-to" text="2018"/>
+               <label xml:lang="x-to" text="2022"/>
+               <label xml:lang="x-kst" text="2141"/>
             </category>
 
             <category ID="08.010.020.050(2006)">
@@ -506,11 +507,13 @@
             </category>
 
             <category ID="08.010.030.040(1993)">
-               <label xml:lang="de" text="Fachgebiet Elektrothermische Energiewandlung (2004-)"/>
+               <label xml:lang="de" text="Fachgebiet Elektrothermische Energiewandlung (2004-2023)"/>
+               <label xml:lang="en" text="Electrothermal Energy Conversion Group (2004-2023)"/>
                <label xml:lang="x-gnd" text="5240277-0"/>
                <label xml:lang="x-destatis" text="7120"/>
                <label xml:lang="x-lpp" text="480739757"/>
                <label xml:lang="x-from" text="2004"/>
+               <label xml:lang="x-to" text="2023"/>
                <label xml:lang="x-kst" text="2166"/>
             </category>
 
@@ -650,6 +653,7 @@
 
             <category ID="08.010.032.040(1993)">
                <label xml:lang="de" text="Fachgebiet Elektrothermische Energiewandlung (1993-2004) ↗"/>
+               <label xml:lang="en" text="Electrothermal Energy Conversion Group (1993-2004) ↗"/>
                <label xml:lang="x-destatis" text="7120"/>
                <label xml:lang="x-lpp" text="480739757"/>
                <label xml:lang="x-from" text="1993"/>
@@ -784,6 +788,14 @@
                <label xml:lang="x-to" text="2013"/>
             </category>
 
+            <category ID="08.010.040.030(2023)">
+               <label xml:lang="de" text="Juniorprofessur Funktionswerkstoffe (2023-)"/>
+               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-lpp" text="1854444514"/>
+               <label xml:lang="x-from" text="2023"/>
+               <label xml:lang="x-kst" text="2173"/>
+            </category>
+
             <category ID="08.010.040.060(1993)">
                <label xml:lang="de" text="Fachgebiet Werkstoffe der Elektrotechnik (1993-)"/>
                <label xml:lang="x-gnd" text="6059975-3"/>
@@ -883,15 +895,17 @@
                <label xml:lang="x-lpp" text="479848971"/>
                <label xml:lang="x-from" text="2001"/>
                <label xml:lang="x-kst" text="2183"/>
-            </category>
+			</category>
+ 
+			<category ID="08.010.050.050(2019)">
+			   <label xml:lang="de" text="Juniorprofessur Nutzerzentrierte Analyse von Multimediadaten (2019-)"/>
+			   <label xml:lang="en" text="Assistant Professorship User-Centric Analysis of Multimedia Data (2019-)"/>
+			   <label xml:lang="x-destatis" text="6780"/>
+			   <label xml:lang="x-lpp" text="1066783136"/>
+			   <label xml:lang="x-from" text="2019"/>
+			   <label xml:lang="x-kst" text="2185"/>
+			 </category>
 
-            <category ID="08.010.050.050(2019)">
-               <label xml:lang="de" text="Fachgebiet Nutzerzentrierte Analyse von Multimediadaten (2019-)"/>
-               <label xml:lang="x-destatis" text="6780"/>
-               <label xml:lang="x-lpp" text="1066783136"/>
-               <label xml:lang="x-from" text="2019"/>
-               <label xml:lang="x-kst" text="2185"/>
-            </category>
          </category>
 
          <category ID="08.010.100">
@@ -1067,6 +1081,13 @@
                <label xml:lang="x-kst" text="2222"/>
             </category>
 
+            <category ID="08.020.020.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Medizinische Informatik (1992-2002) ↑"/>
+               <label xml:lang="x-lpp" text="512228493"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="2002"/>
+            </category>
+
             <category ID="08.020.020.030(2021)">
                <label xml:lang="de" text="Juniorprofessur Datenanalyse in den Lebenswissenschaften (2021-)"/>
                <label xml:lang="x-gnd" text="1241204845"/>
@@ -1078,6 +1099,7 @@
 
             <category ID="08.020.020.040(2013)">
                <label xml:lang="de" text="Stiftungsprofessur Multimodale Datenanalyse in der Biomedizintechnik (2013-)"/>
+               <label xml:lang="en" text="Endowed Professorship for Multimodal Data Analysis in Biomedical Engineering (2013-)"/>
                <label xml:lang="x-destatis" text="7130"/>
                <label xml:lang="x-lpp" text="751513113"/>
                <label xml:lang="x-from" text="2013"/>
@@ -1198,6 +1220,15 @@
                <label xml:lang="x-lpp" text="479731519"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2008"/>
+            </category>
+
+            <category ID="08.020.030.100(2022)">
+               <label xml:lang="de" text="Juniorprofessur Entwicklung von Systemen für das Internet-of-Things (IoT-Engineering) (2022-)"/>
+               <label xml:lang="en" text="Assistant Professorship for Development of Systems for the Internet-of-Things (IoT Engineering) (2022-)"/>
+               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-lpp" text="1843705532"/>
+               <label xml:lang="x-from" text="2022"/>
+               <label xml:lang="x-kst" text="2237"/>
             </category>
          </category>
 
@@ -1464,6 +1495,15 @@
                <label xml:lang="x-lpp" text="532799763"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
+            </category>
+
+            <category ID="08.020.060.030(2023)">
+               <label xml:lang="de" text="Fachgebiet Medizinische Informatik (2023-)"/>
+               <label xml:lang="en" text="Computational Medicine Group (2023-)"/>
+               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-lpp" text="1844654494"/>
+               <label xml:lang="x-from" text="2023"/>
+               <label xml:lang="x-kst" text="2257"/>
             </category>
 
             <category ID="08.020.060.050(2012)">
@@ -1745,13 +1785,6 @@
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="238"/>
 
-            <category ID="08.030.080.010(2013)">
-               <label xml:lang="de" text="Fachgebiet Aerodynamik (2013-)"/>
-               <label xml:lang="x-destatis" text="6900"/>
-               <label xml:lang="x-lpp" text="774035323"/>
-               <label xml:lang="x-from" text="2013"/>
-               <label xml:lang="x-kst" text="2349"/>
-            </category>
 
             <category ID="08.030.080.060(2013)">
                <label xml:lang="de" text="Fachgebiet Strömungsmechanik (2013-)"/>
@@ -1922,7 +1955,7 @@
 
             <category ID="08.030.090.090(2023)">
                <label xml:lang="de" text="Fachgebiet Mechanik Nachgiebiger Systeme (2023-)"/>
-               <label xml:lang="en" text="Mechanics of Compliant Systems (2023-)"/>
+               <label xml:lang="en" text="Mechanics of Compliant Systems Group (2023-)"/>
                <label xml:lang="x-gnd" text="0"/>
                <label xml:lang="x-destatis" text="6900"/>
                <label xml:lang="x-lpp" text="1839204036"/>
@@ -2322,10 +2355,12 @@
             </category>
 
             <category ID="08.040.010.060(1993)">
-               <label xml:lang="de" text="Fachgebiet Grundlagen der Mathematik (1993-)"/>
+               <label xml:lang="de" text="Fachgebiet Grundlagen der Mathematik (1993-2023)"/>
+               <label xml:lang="en" text="Group for Fundamentals of Mathematics (1993-2023)"/>
                <label xml:lang="x-destatis" text="3400"/>
                <label xml:lang="x-lpp" text="479743207"/>
                <label xml:lang="x-from" text="1993"/>
+               <label xml:lang="x-to" text="2023"/>
                <label xml:lang="x-kst" text="2418"/>
             </category>
 
@@ -2479,7 +2514,14 @@
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
             </category>
-         </category>
+
+            <category ID="08.040.010.180(2023)">
+               <label xml:lang="de" text="Juniorprofessur Differentialgleichungen (2023-)"/>
+               <label xml:lang="x-lpp" text="1854447963"/>
+               <label xml:lang="x-from" text="2023"/>
+               <label xml:lang="x-kst" text="2481"/>
+            </category>
+		 </category>
 
          <category ID="08.040.020">
             <label xml:lang="de" text="Institut für Physik (1992-)"/>
@@ -3402,6 +3444,7 @@
             </category>
          </category>
       </category>
+
 
       <category ID="08.200">
          <label xml:lang="de" text="Zentrale Einrichtungen (1992-)"/>
