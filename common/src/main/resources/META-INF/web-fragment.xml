@@ -2,6 +2,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-fragment_6_0.xsd"
               metadata-complete="true">
+
   <name>thunibib-common</name>
 
   <servlet>
@@ -14,5 +15,13 @@
     <url-pattern>/servlets/JobStatusServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ListVanishedLDAPUsersServlet</servlet-name>
+    <servlet-class>de.uni_jena.thunibib.user.ListVanishedLDAPUsersServlet</servlet-class>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>ListVanishedLDAPUsersServlet</servlet-name>
+    <url-pattern>/servlets/ListVanishedLDAPUsersServlet</url-pattern>
+  </servlet-mapping>
 </web-fragment>
