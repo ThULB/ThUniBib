@@ -68,17 +68,13 @@
       <label xml:lang="de">Nutzer anlegen</label>
       <label xml:lang="en">Create new User</label>
     </item>
-    <item id="mcrjobs" ref="servlets/ListVanishedLDAPUsersServlet" role="admin">
-      <label xml:lang="de">Übersicht: nicht über LDAP findbare Nutzer</label>
-      <label xml:lang="en">Overview: vanished LDAP Users</label>
-    </item>
     <item id="acleditor" ref="rsc/ACLE/start" role="admin">
       <label xml:lang="de">ACL-Editor</label>
       <label xml:lang="en">ACL editor</label>
     </item>
     <item id="mcrjobs" ref="servlets/JobStatusServlet" role="admin">
-      <label xml:lang="de">Übersicht: MCRJobs</label>
-      <label xml:lang="en">Overview: MCRJobs</label>
+      <label xml:lang="de">Übersicht-MCRJobs</label>
+      <label xml:lang="en">Overview-MCRJobs</label>
     </item>
     <item id="webcli" ref="rsc/WebCLI/" role="admin">
       <label xml:lang="de">WebCLI</label>

@@ -66,7 +66,7 @@ public class ListVanishedLDAPUsersServlet extends MCRServlet {
 
     @Override
     protected void doPost(MCRServletJob job) throws Exception {
-        if (!MCRXMLFunctions.isCurrentUserInRole("admin")) {
+        if (!MCRXMLFunctions.isCurrentUserSuperUser()) {
             job.getResponse().sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
         }

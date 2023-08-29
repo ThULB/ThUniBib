@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
-                exclude-result-prefixes="i18n">
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="i18n mcrxml">
 
   <xsl:param name="UBO.projectid.default"/>
   <xsl:param name="WebApplicationBaseURL"/>
@@ -12,7 +13,9 @@
       <title xml:lang="en">Overview: vanished LDAP Users</title>
 
       <article>
-        <script src="{$WebApplicationBaseURL}js/LDAPUserManagement.js"/>
+        <xsl:if test="mcrxml:isCurrentUserSuperUser()">
+          <script src="{$WebApplicationBaseURL}js/LDAPUserManagement.js"/>
+        </xsl:if>
 
         <div class="card-body">
           <xsl:value-of select="i18n:translate('thunibib.vanished.users.intro')"/>
@@ -69,11 +72,13 @@
         </span>
       </div>
 
-      <div class="col">
-        <a class="btn btn-outline-danger" onclick="LDAPUserManagement.moveToLocalRealm('{id}')">
-          <xsl:value-of select="i18n:translate('thunibib.vanished.users.move')"/>
-        </a>
-      </div>
+      <xsl:if test="mcrxml:isCurrentUserSuperUser()">
+        <div class="col">
+          <a class="btn btn-outline-danger" onclick="LDAPUserManagement.moveToLocalRealm('{id}')">
+            <xsl:value-of select="i18n:translate('thunibib.vanished.users.move')"/>
+          </a>
+        </div>
+      </xsl:if>
     </div>
   </xsl:template>
 
