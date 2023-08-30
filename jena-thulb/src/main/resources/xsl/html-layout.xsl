@@ -370,16 +370,6 @@
     </div>
   </xsl:template>
 
-  <xsl:template name="layout.pageTitle">
-    <div class="card my-3">
-      <div class="card-body py-2">
-        <h3 id="seitentitel">
-          <xsl:copy-of select="head/title/node()" />
-        </h3>
-      </div>
-    </div>
-  </xsl:template>
-
   <!-- Footer -->
 
   <xsl:template name="layout.footer">
