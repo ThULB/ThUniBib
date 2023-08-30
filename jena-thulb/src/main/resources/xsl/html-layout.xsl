@@ -7,7 +7,7 @@
                 xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
                 xmlns:encoder="xalan://java.net.URLEncoder"
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
-                exclude-result-prefixes="xsl xalan i18n mcrver encoder mcrxml">
+                exclude-result-prefixes="xsl xalan i18n encoder mcrver mcrxml">
 
   <xsl:output method="xml" encoding="UTF-8" />
 
@@ -26,6 +26,7 @@
   <xsl:include href="coreFunctions.xsl" />
   <xsl:include href="html-layout-backend.xsl" />
   <xsl:include href="servicedesk.xsl"/>
+  <xsl:include href="user-orcid.xsl"/>
 
   <!-- ==================== HTML ==================== -->
 
@@ -359,25 +360,14 @@
 
   </xsl:template>
 
-  <!-- If current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
-  <xsl:param name="MCR.ORCID.LinkURL" />
-
-  <xsl:template name="orcidUser">
-
-    <xsl:variable name="orcidUser" select="orcidSession:getCurrentUser()"
-                  xmlns:orcidSession="xalan://org.mycore.orcid.user.MCRORCIDSession" />
-    <xsl:variable name="userStatus" select="orcidUser:getStatus($orcidUser)"
-                  xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser" />
-    <xsl:variable name="trustedParty" select="userStatus:weAreTrustedParty($userStatus)"
-                  xmlns:userStatus="xalan://org.mycore.orcid.user.MCRUserStatus" />
-
-    <xsl:if test="$trustedParty = 'true'">
-      <xsl:variable name="orcid" select="orcidUser:getORCID($orcidUser)"
-                    xmlns:orcidUser="xalan://org.mycore.orcid.user.MCRORCIDUser" />
-      <a href="{$MCR.ORCID.LinkURL}{$orcid}">
-        <img alt="ORCID {$orcid}" src="{$WebApplicationBaseURL}images/orcid_icon.svg" class="orcid-icon" />
-      </a>
-    </xsl:if>
+  <xsl:template name="layout.pageTitle">
+    <div class="card my-3">
+      <div class="card-body py-2">
+        <h3 id="seitentitel">
+          <xsl:copy-of select="head/title/node()"/>
+        </h3>
+      </div>
+    </div>
   </xsl:template>
 
   <xsl:template name="layout.pageTitle">
