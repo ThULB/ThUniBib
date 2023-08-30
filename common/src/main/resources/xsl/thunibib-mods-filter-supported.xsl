@@ -79,7 +79,7 @@
   </xsl:template>
 
   <xsl:template
-      match="mods:role[1]|mods:roleTerm[@type='code'][@authority='marcrelator'][1]|mods:role[1]|mods:roleTerm[@type='text']|mods:roleTerm/@valueURI|mods:roleTerm/@authorityURI|mods:roleTerm/@type|mods:roleTerm/@authority">
+      match="mods:role[1]|mods:roleTerm[@type='code'][@authority='marcrelator'][1]|mods:role[1]|mods:roleTerm[@type='text']|mods:role[mods:roleTerm/text() = 'corresponding_author']|mods:roleTerm/@valueURI|mods:roleTerm/@authorityURI|mods:roleTerm/@type|mods:roleTerm/@authority">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
