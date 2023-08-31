@@ -123,6 +123,16 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
+  <xsl:template match="mods:identifier[@type='url'][not(//mods:identifier[@type = 'doi'])]">
+    <mods:location>
+      <xsl:for-each select=".">
+        <mods:url>
+          <xsl:value-of select="."/>
+        </mods:url>
+      </xsl:for-each>
+    </mods:location>
+  </xsl:template>
+
   <xsl:template match="mods:relatedItem[@type='host'][1]|mods:relatedItem[@type='series']">
     <xsl:copy>
       <xsl:copy-of select="@type"/>
