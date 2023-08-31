@@ -62,6 +62,36 @@
     </xed:repeat>
   </xed:template>
 
+  <xed:template id="peerreviewed">
+    <xed:bind xpath="mods:classification[@classID='peerreviewed']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="ubo.peerreviewed" />:</label>
+        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
+          <option value=""><xed:output i18n="search.select" /></option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:peerreviewed" />
+        </select>
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:ubo.help.peerreviewed}">
+          <i class="fas fa-info"></i>
+        </a>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="accessRights">
+    <xed:bind xpath="mods:classification[@classID='accessrights']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label"><xed:output i18n="ubo.accessrights" />:</label>
+        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
+          <option value=""><xed:output i18n="search.select" /></option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:accessrights" />
+        </select>
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:ubo.help.accessrights}">
+          <i class="fas fa-info"></i>
+        </a>
+      </div>
+    </xed:bind>
+  </xed:template>
+
   <xed:template id="thunibib.typeOfResource">
     <xed:bind xpath="mods:typeOfResource" default="txt">
       <div class="form-group form-inline">
