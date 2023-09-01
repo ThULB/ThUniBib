@@ -156,7 +156,7 @@
   </xsl:template>
 
   <!-- no shelflocator supported in thunibib -->
-  <xsl:template match="mods:location|mods:location/mods:url">
+  <xsl:template match="mods:location|mods:location[not(//mods:identifier[@type = 'doi'])][//mods:classification[contains(@valueURI, 'closed')] or not(//mods:classification[contains(@authorityURI, 'classifications/oa')])]/mods:url">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
