@@ -155,6 +155,35 @@
           </div>
         </div>
 
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"></i>
+                <i class="fas fa-minus-circle"></i>
+                Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
+              </button>
+            </h2>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+            <div class="card-body">
+              <dl>
+
+                <dt>Open Access</dt>
+                <dd><strong>Offener Zugang:</strong> Eine Ressource ist Open Access wenn sie sofort und dauerhaft online und für alle im Web kostenlos und ohne finanzielle und technische Hindernisse verfügbar ist.</dd>
+
+                <dt>Embargoed access</dt>
+                <dd><strong>Zugang unterliegt Embargo:</strong> Eine Ressource, die einem Embargo unterliegt, wird ab einem bestimmten Datum für den offenen Zugriff freigegeben. Bis dahin können nur die Metadaten angezeigt werden. Embargos können von Herausgeber- und Geldgeberrichtlinien verlangt oder vom Autor festgelegt werden.</dd>
+
+                <dt>Restricted access</dt>
+                <dd><strong>Eingeschränkter Zugang:</strong> Ressource, die in einem System verfügbar ist, jedoch eine gewisse Einschränkung für den vollständigen offenen Zugriff aufweist.</dd>
+
+                <dt>Metadata only access</dt>
+                <dd><strong>Nur Metadaten:</strong> Eine Ressource, bei der der Zugriff nur auf Metadaten beschränkt ist. Die Ressource selbst wird durch die Metadaten beschrieben, ist jedoch weder direkt über das System noch über die Plattform verfügbar.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </article>
