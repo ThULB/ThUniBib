@@ -60,6 +60,7 @@
                 <xed:output value="concat(i18n:translate('thunibib.editor.label.publication'), ': ')" />
               </legend>
               <xed:include ref="genre" />
+              <xed:include ref="thunibib.accessRights" />
               <xed:include ref="thunibib.typeOfResource" />
               <xed:include ref="thunibib.mediaType" />
               <xed:include ref="oa" />
