@@ -13,6 +13,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.naming.NamingException;
 import javax.naming.ldap.LdapContext;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -34,6 +36,7 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRException;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.frontend.cli.annotation.MCRCommand;
@@ -181,21 +184,21 @@ public class ThUniBibCommands {
     }
 
     @MCRCommand(
-        syntax = "list gone ldap users for realm {0}",
+        syntax = "list vanished ldap users for realm {0}",
         help = "List ldap users linked to publications but are not findable via ldap search"
     )
-    public static void listGoneLDAPUsers(String realm) {
+    public static List<MCRUser> listVanishedLDAPUsers(String realm) {
         boolean noneMatch = MCRRealmFactory.listRealms().stream().noneMatch(r -> r.getID().equals(realm));
 
         if (noneMatch) {
             LOGGER.error("Realm '{}' is unknown", realm);
-            return;
+            return null;
         }
 
         List<MCRUser> users = MCRUserManager.listUsers(null, realm, null);
         if (users.size() == 0) {
             LOGGER.info("No users found for realm '{}'", realm);
-            return;
+            return users;
         }
 
         List<MCRUser> missing = new ArrayList<>();
@@ -203,16 +206,18 @@ public class ThUniBibCommands {
         try {
             LdapContext ctx = new LDAPAuthenticator().authenticate();
             LDAPSearcher searcher = new LDAPSearcher();
-            users.forEach(user -> {
-                if (!exists(searcher, ctx, user)) {
-                    missing.add(user);
-                }
-            });
+            users.stream()
+                .filter(user -> getLeadIdAttribute(user).isPresent())
+                .forEach(user -> {
+                    String leadId = getLeadIdAttribute(user).get().getValue();
+                    if (!exists(searcher, ctx, leadId)) {
+                        missing.add(user);
+                    }
+                });
         } catch (NamingException e) {
             LOGGER.error("", e);
         }
 
-        // console output
         LOGGER.info("{}/{} user(s) of realm '{}' are orphaned", missing.size(), users.size(), realm);
         if (missing.size() > 0) {
             LOGGER.info("The following users could not be found in ldap");
@@ -220,19 +225,56 @@ public class ThUniBibCommands {
                 LOGGER.info(u.getUserID());
             }
         }
+        return missing;
     }
 
-    private static boolean exists(LDAPSearcher searcher, LdapContext ctx, MCRUser user) {
-        Optional<MCRUserAttribute> ldapIdAttr = user.getAttributes().stream()
-            .filter(a -> a.getName().equals(LDAP_ID_NAME))
-            .findFirst();
-
-        if (ldapIdAttr.isEmpty()) {
+    @MCRCommand(syntax = "move user {0} to realm {1}", help = "Moves the given user to the given realm")
+    public static boolean moveUserToRealm(String userName, String toRealmId) {
+        if (userName == null || toRealmId == null) {
+            LOGGER.error("Neither username or realmId may be null");
             return false;
         }
 
+        MCRUser mcrUser = MCRUserManager.getUser(userName);
+        if (mcrUser == null) {
+            LOGGER.error("User {} could not be found", userName);
+            return false;
+        }
+
+        MCRRealm toRealm = MCRRealmFactory.getRealm(toRealmId);
+        if (toRealm == null) {
+            LOGGER.error("{} is unknown", toRealmId);
+            return false;
+        }
+
+        MCRRealm fromRealm = MCRRealmFactory.getRealm(userName.split("@")[1]);
+        if (fromRealm == null) {
+            LOGGER.error("{} is unknown", fromRealm);
+            return false;
+        }
+
+        EntityManager em = MCREntityManagerProvider.getCurrentEntityManager();
+        Query query = em.createQuery("UPDATE MCRUser SET realmID = :realmId WHERE userName = :userName");
+        query.setParameter("realmId", toRealmId);
+        query.setParameter("userName", mcrUser.getUserName());
+
+        LOGGER.info("Moving user '{}' from realm '{}' to realm '{}'", userName, fromRealm.getID(), toRealm.getID());
+        int updateCount = query.executeUpdate();
+
+        return updateCount > 0;
+    }
+
+    private static Optional<MCRUserAttribute> getLeadIdAttribute(MCRUser user) {
+        Optional<MCRUserAttribute> attribute = user.getAttributes()
+            .stream()
+            .filter(a -> a.getName().equals(LDAP_ID_NAME))
+            .findFirst();
+        return attribute;
+    }
+
+    private static boolean exists(LDAPSearcher searcher, LdapContext ctx, String ldapIdAttr) {
         try {
-            String filter = "(&(objectClass=eduPerson)(|(eduPersonUniqueId=" + ldapIdAttr.get().getValue() + ")))";
+            String filter = "(&(objectClass=eduPerson)(|(eduPersonUniqueId=" + ldapIdAttr + ")))";
             List<LDAPObject> ldapObjects = searcher.searchWithGlobalDN(ctx, filter);
             return ldapObjects.size() == 1 ? true : false;
         } catch (NamingException e) {
