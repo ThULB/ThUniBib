@@ -26,7 +26,7 @@
   <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=subject"/>
   <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=origin_exact"/>
   <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=genre"/>
-
+  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=fundingType"/>
   <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
   <xinclude uri="xslStyle:statistics:solr:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
 
