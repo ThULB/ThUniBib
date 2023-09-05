@@ -24,6 +24,7 @@
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='subject'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='origin_exact'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='genre'][int]" />
+      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='fundingType'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='oa'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='facet_person'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
@@ -342,6 +343,89 @@
              }]
          });
      });
+        </script>
+      </div>
+    </section>
+  </xsl:template>
+
+  <xsl:variable name="fundingType" select="document('classification:metadata:-1:children:fundingType')/mycoreclass/categories" />
+  <xsl:template match="lst[@name='facet_fields']/lst[@name='fundingType']">
+    <xsl:variable name="title" select="i18n:translate('thunibib.funding.type')" />
+    <section class="card mb-3">
+      <div class="card-body">
+        <div id="chartFundingType" style="width:100%; height:350px" />
+
+        <script type="text/javascript">
+          $(document).ready(function() {
+          Highcharts.getOptions().plotOptions.pie.colors = [
+            <xsl:for-each select="int">
+              <xsl:sort select="text()" data-type="number" order="descending" />
+              <xsl:sort data-type="number" order="descending" />
+              <xsl:text>'</xsl:text>
+              <xsl:value-of select="$fundingType//category[@ID=current()/@name]/label[lang('x-color')]/@text" />
+              <xsl:text>'</xsl:text>
+              <xsl:if test="position() != last()">, </xsl:if>
+            </xsl:for-each>
+            ];
+          new Highcharts.Chart({
+            chart: {
+              renderTo: 'chartFundingType',
+              type: 'pie',
+              backgroundColor: 'transparent',
+              borderWidth: 0,
+              shadow: false,
+              plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false,
+              events: {
+                click: function(e) {
+                  $('#chartDialog').dialog({
+                    position: 'center',
+                    width: $(window).width() - 80,
+                    height: $(window).height() - 80,
+                    draggable: false,
+                    resizable: false,
+                    modal: false
+                  });
+                var dialogOptions = this.options;
+                dialogOptions.chart.renderTo = 'chartDialog';
+                dialogOptions.chart.events = null;
+                dialogOptions.chart.zoomType = 'x';
+                new Highcharts.Chart(dialogOptions);
+              }
+            }
+          },
+          title: { text: '<xsl:value-of select="$title" />' },
+          legend: { enabled: false },
+          tooltip: {
+            formatter: function() {
+              return '<b>'+ this.point.name +'</b>: '+ this.y;
+            }
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                enabled: true,
+                formatter: function() {
+                  return '<b>'+ this.point.name +'</b>: '+ this.y;
+                }
+              }
+            }
+          },
+          series: [{
+            name: '<xsl:value-of select="$title" />',
+            data: [
+              <xsl:for-each select="int">
+                <xsl:sort select="text()" data-type="number" order="descending" />
+                ['<xsl:value-of select="$fundingType//category[@ID=current()/@name]/label[lang($CurrentLang)]/@text"/>' , <xsl:value-of select="text()"/>]
+                <xsl:if test="position()!=last()">,</xsl:if>
+              </xsl:for-each>
+              ]
+            }]
+           });
+          });
         </script>
       </div>
     </section>

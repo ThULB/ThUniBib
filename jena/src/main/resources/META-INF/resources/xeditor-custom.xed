@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xed:template xmlns:xed="http://www.mycore.de/xeditor">
+  <!--
+    as of https://cmswiki.rrz.uni-hamburg.de/hummel/MyCoRe/Organisation/AnwenderWorkshop2018?action=AttachFile&do=view&target=MyCoRe+XEditor+Erweiterungen+2018-11-14.pdf
+  -->
+  <xed:modify ref="editor-form-fields">
+    <xed:include ref="fundingType" after="projectInformation"/>
+  </xed:modify>
+
+  <xed:template id="fundingType">
+    <xed:bind xpath="mods:classification[@classID='fundingType']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output value="concat(i18n:translate('thunibib.funding.type'), ': ')"/>
+        </label>
+        <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:fundingType"/>
+        </select>
+      </div>
+    </xed:bind>
+  </xed:template>
+
+</xed:template>
