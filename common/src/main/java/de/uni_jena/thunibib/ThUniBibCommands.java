@@ -3,6 +3,8 @@ package de.uni_jena.thunibib;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +26,10 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
@@ -36,9 +40,18 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import org.mycore.access.MCRAccessException;
+import org.mycore.common.MCRConstants;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRException;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.datamodel.classifications2.MCRCategory;
+import org.mycore.datamodel.classifications2.MCRCategoryID;
+import org.mycore.datamodel.classifications2.impl.MCRCategoryDAOImpl;
+import org.mycore.datamodel.metadata.MCRMetadataManager;
+import org.mycore.datamodel.metadata.MCRObject;
+import org.mycore.datamodel.metadata.MCRObjectID;
+import org.mycore.frontend.MCRFrontendUtil;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.solr.MCRSolrClientFactory;
@@ -52,6 +65,8 @@ import org.mycore.user2.MCRUser;
 import org.mycore.user2.MCRUserAttribute;
 import org.mycore.user2.MCRUserManager;
 
+import static org.mycore.common.MCRConstants.XPATH_FACTORY;
+
 @MCRCommandGroup(name = "ThUniBib Tools")
 
 public class ThUniBibCommands {
@@ -63,8 +78,76 @@ public class ThUniBibCommands {
 
     @MCRCommand(syntax = "thunibib update funding of publications from url {0}",
         help = "Updates the funding of publications from the given url")
-    public static void updateFunding(String url) {
+    public static void updateFunding(String url) throws MalformedURLException {
         LOGGER.info("Update funding of publications from url \"{}\"", url);
+        try {
+            SAXBuilder b = new SAXBuilder();
+            Document document = b.build(new URL(url));
+
+            XPATH_FACTORY.compile("//publication[identifier[@type = 'doi']]", Filters.element()).evaluate(document)
+                .forEach(publication -> {
+                    String doi = publication.getChild("identifier").getText();
+
+                    documentsByDOI(doi).forEach(doc -> {
+                        MCRObjectID id = MCRObjectID.getInstance(doc.get("id").toString());
+                        Document mcrObject = MCRMetadataManager.retrieveMCRObject(id).createXML();
+
+                        getFundings(publication)
+                            .stream()
+                            .map(MCRCategory::getId)
+                            .map(MCRCategoryID::getID)
+                            .forEach(funding -> {
+                                LOGGER.info("{}: adding \"{}\" as funding information", id, funding);
+                                addFundingInformation(mcrObject, funding);
+                            });
+
+                        try {
+                            MCRMetadataManager.update(new MCRObject(mcrObject));
+                        } catch (MCRAccessException e) {
+                            LOGGER.error("Could not update {} with funding information ", id);
+                        }
+                    });
+                });
+        } catch (JDOMException | IOException e) {
+            LOGGER.error("Could not create document from url {}", url, e);
+        }
+    }
+
+    private static void addFundingInformation(Document mcrObject, String categId) {
+        String url = MCRFrontendUtil.getBaseURL() + "classifications/fundingType";
+        XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
+            MCRConstants.MODS_NAMESPACE);
+
+        Element classification = new Element("classification", MCRConstants.MODS_NAMESPACE);
+        classification.setAttribute("authorityURI", url);
+        classification.setAttribute("valueURI", url + "#" + categId);
+        mods.evaluateFirst(mcrObject).addContent(classification);
+    }
+
+    private static List<MCRCategory> getFundings(Element publication) {
+        XPathExpression<Attribute> expr = XPATH_FACTORY.compile("fundings/funding/@type", Filters.attribute());
+
+        List<MCRCategory> list = new ArrayList<>();
+        MCRCategoryDAOImpl categoryDAO = new MCRCategoryDAOImpl();
+
+        expr.evaluate(publication).stream()
+            .map(Attribute::getValue)
+            .forEach(type -> {
+                list.addAll(categoryDAO.getCategoriesByLabel("de", type));
+            });
+
+        return list;
+    }
+
+    private static List<SolrDocument> documentsByDOI(String doi) {
+        SolrQuery solrQuery = new SolrQuery("-fundingType:[* TO *] +id_doi:" + doi);
+        solrQuery.setRows(Integer.MAX_VALUE);
+        try {
+            return MCRSolrClientFactory.getMainSolrClient().query(solrQuery).getResults();
+        } catch (SolrServerException | IOException e) {
+            LOGGER.error("Could not execute solr query {}", solrQuery);
+            return new ArrayList<>();
+        }
     }
 
     @MCRCommand(syntax = "thunibib create editor user {0} with email {1}",
