@@ -1,28 +1,15 @@
 package de.uni_jena.thunibib;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.naming.NamingException;
-import javax.naming.ldap.LdapContext;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,18 +18,14 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
-import org.jdom2.Attribute;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.Namespace;
+import org.jdom2.*;
 import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 import org.mycore.access.MCRAccessException;
-import org.mycore.common.MCRConstants;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
+import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.classifications2.MCRCategory;
@@ -59,11 +42,19 @@ import org.mycore.solr.commands.MCRSolrCommands;
 import org.mycore.ubo.ldap.LDAPAuthenticator;
 import org.mycore.ubo.ldap.LDAPObject;
 import org.mycore.ubo.ldap.LDAPSearcher;
-import org.mycore.user2.MCRRealm;
-import org.mycore.user2.MCRRealmFactory;
-import org.mycore.user2.MCRUser;
-import org.mycore.user2.MCRUserAttribute;
-import org.mycore.user2.MCRUserManager;
+import org.mycore.user2.*;
+
+import javax.naming.NamingException;
+import javax.naming.ldap.LdapContext;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
@@ -78,11 +69,17 @@ public class ThUniBibCommands {
 
     @MCRCommand(syntax = "thunibib update funding of publications from url {0}",
         help = "Updates the funding of publications from the given url")
-    public static void updateFunding(String url) throws MalformedURLException {
+    public static void updateFunding(String url) {
+
         LOGGER.info("Update funding of publications from url \"{}\"", url);
+
         try {
-            SAXBuilder b = new SAXBuilder();
-            Document document = b.build(new URL(url));
+            Document document = ThUniBibCommands.getDocument(url);
+
+            if (document == null) {
+                LOGGER.error("Document is null, nothing to do");
+                return;
+            }
 
             XPATH_FACTORY.compile("//publication[identifier[@type = 'doi']]", Filters.element()).evaluate(document)
                 .forEach(publication -> {
@@ -122,6 +119,37 @@ public class ThUniBibCommands {
         classification.setAttribute("authorityURI", url);
         classification.setAttribute("valueURI", url + "#" + categId);
         mods.evaluateFirst(mcrObject).addContent(classification);
+    }
+
+    private static Document getDocument(String url) throws IOException, JDOMException {
+        HttpGet get = new HttpGet(url);
+        String property = "ThUniBib.Commands.Funding.PrivateToken";
+        Optional<String> token = MCRConfiguration2.getString(property);
+
+        if (token.isPresent()) {
+            get.setHeader("PRIVATE-TOKEN", token.get());
+        } else {
+            LOGGER.warn("No token in property {} set", property);
+        }
+
+        HttpEntity entity = null;
+        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+            CloseableHttpResponse httpResponse = httpclient.execute(get);
+
+            if (httpResponse.getStatusLine().getStatusCode() != 200) {
+                LOGGER.warn("Could not read from url because: {}", httpResponse.getStatusLine().getReasonPhrase());
+                return null;
+            }
+
+            entity = httpResponse.getEntity();
+            try (InputStream is = entity.getContent()) {
+                return new SAXBuilder().build(is);
+            }
+        } finally {
+            if (entity != null) {
+                EntityUtils.consume(entity);
+            }
+        }
     }
 
     private static List<MCRCategory> getFundings(Element publication) {
