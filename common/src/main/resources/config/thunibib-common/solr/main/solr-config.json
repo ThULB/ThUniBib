@@ -24,7 +24,8 @@
           "genre",
           "origin_exact",
           "facet_host_title",
-          "oa"
+          "oa",
+          "fundingType"
         ],
         "wt": "xml"
       }
