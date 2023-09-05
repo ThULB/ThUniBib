@@ -12,8 +12,6 @@
 
   <xsl:param name="CurrentLang"/>
   <xsl:param name="UBO.Login.Path"/>
-  <!-- if current user has ORCID and we are his trusted party, display ORCID icon to indicate that -->
-  <xsl:param name="MCR.ORCID.LinkURL"/>
 
   <xsl:param name="UBO.Frontend.jquery.version" />
   <xsl:param name="UBO.Frontend.jquery-ui.version" />
