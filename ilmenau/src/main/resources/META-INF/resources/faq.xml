@@ -204,13 +204,13 @@
 
         <div class="card">
           <div class="card-header" id="headingFive">
-            <h2 class="mb-0">
+            <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
               </button>
-            </h2>
+            </h3>
           </div>
           <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
             <div class="card-body">
