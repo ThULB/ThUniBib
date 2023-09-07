@@ -23,7 +23,6 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
-import org.mycore.access.MCRAccessException;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
@@ -115,10 +114,29 @@ public class ThUniBibCommands {
         XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
             MCRConstants.MODS_NAMESPACE);
 
-        Element classification = new Element("classification", MCRConstants.MODS_NAMESPACE);
-        classification.setAttribute("authorityURI", url);
-        classification.setAttribute("valueURI", url + "#" + categId);
-        mods.evaluateFirst(mcrObject).addContent(classification);
+        Element modsElement = mods.evaluateFirst(mcrObject);
+
+        if (mods == null) {
+            return;
+        }
+
+        /* Remove all previously set funding not matching the funding id (categId) */
+        modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
+            .filter(classElem -> !classElem.getAttributeValue("valueURI").contains("fundingType#" + categId))
+            .forEach(classElem -> classElem.detach());
+
+        /* Add funding when funding not already set */
+        if (modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .noneMatch(classElem -> classElem.getAttributeValue("valueURI").contains("fundingType#" + categId))) {
+
+            Element classification = new Element("classification", MCRConstants.MODS_NAMESPACE);
+            classification.setAttribute("authorityURI", url);
+            classification.setAttribute("valueURI", url + "#" + categId);
+            modsElement.addContent(classification);
+        }
     }
 
     private static Document getDocument(String url) throws IOException, JDOMException {
