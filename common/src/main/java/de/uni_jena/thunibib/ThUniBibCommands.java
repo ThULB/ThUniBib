@@ -100,7 +100,7 @@ public class ThUniBibCommands {
 
                         try {
                             MCRMetadataManager.update(new MCRObject(mcrObject));
-                        } catch (MCRAccessException e) {
+                        } catch (Exception e) {
                             LOGGER.error("Could not update {} with funding information ", id);
                         }
                     });
