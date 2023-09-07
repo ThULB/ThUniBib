@@ -110,7 +110,6 @@ public class ThUniBibCommands {
     }
 
     private static void addFundingInformation(Document mcrObject, String categId) {
-        String url = MCRFrontendUtil.getBaseURL() + "classifications/fundingType";
         XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
             MCRConstants.MODS_NAMESPACE);
 
@@ -120,17 +119,13 @@ public class ThUniBibCommands {
             return;
         }
 
-        /* Remove all previously set funding not matching the funding id (categId) */
-        modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
-            .stream()
-            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
-            .filter(classElem -> !classElem.getAttributeValue("valueURI").contains("fundingType#" + categId))
-            .forEach(classElem -> classElem.detach());
-
         /* Add funding when funding not already set */
         if (modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
             .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
             .noneMatch(classElem -> classElem.getAttributeValue("valueURI").contains("fundingType#" + categId))) {
+
+            String url = MCRFrontendUtil.getBaseURL() + "classifications/fundingType";
 
             Element classification = new Element("classification", MCRConstants.MODS_NAMESPACE);
             classification.setAttribute("authorityURI", url);
