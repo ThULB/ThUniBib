@@ -8,7 +8,7 @@
   </xed:modify>
 
   <xed:template id="fundingType">
-    <xed:bind xpath="mods:classification[@classID='fundingType']">
+    <xed:repeat xpath="mods:classification[@classID='fundingType']" max="3">
       <div class="form-group form-inline">
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output value="concat(i18n:translate('thunibib.funding.type'), ': ')"/>
@@ -19,8 +19,10 @@
           </option>
           <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:fundingType"/>
         </select>
+
+        <xed:controls/>
       </div>
-    </xed:bind>
+    </xed:repeat>
   </xed:template>
 
 </xed:template>

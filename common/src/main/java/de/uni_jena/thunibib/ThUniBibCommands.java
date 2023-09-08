@@ -23,7 +23,6 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
-import org.mycore.access.MCRAccessException;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
@@ -111,14 +110,28 @@ public class ThUniBibCommands {
     }
 
     private static void addFundingInformation(Document mcrObject, String categId) {
-        String url = MCRFrontendUtil.getBaseURL() + "classifications/fundingType";
         XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
             MCRConstants.MODS_NAMESPACE);
 
-        Element classification = new Element("classification", MCRConstants.MODS_NAMESPACE);
-        classification.setAttribute("authorityURI", url);
-        classification.setAttribute("valueURI", url + "#" + categId);
-        mods.evaluateFirst(mcrObject).addContent(classification);
+        Element modsElement = mods.evaluateFirst(mcrObject);
+
+        if (mods == null) {
+            return;
+        }
+
+        /* Add funding when funding not already set */
+        if (modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
+            .noneMatch(classElem -> classElem.getAttributeValue("valueURI").contains("fundingType#" + categId))) {
+
+            String url = MCRFrontendUtil.getBaseURL() + "classifications/fundingType";
+
+            Element classification = new Element("classification", MCRConstants.MODS_NAMESPACE);
+            classification.setAttribute("authorityURI", url);
+            classification.setAttribute("valueURI", url + "#" + categId);
+            modsElement.addContent(classification);
+        }
     }
 
     private static Document getDocument(String url) throws IOException, JDOMException {
