@@ -45,10 +45,9 @@ import org.mycore.user2.*;
 
 import javax.naming.NamingException;
 import javax.naming.ldap.LdapContext;
-import java.io.ByteArrayInputStream;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -157,12 +156,15 @@ public class ThUniBibCommands {
             entity = httpResponse.getEntity();
             try (InputStream is = entity.getContent()) {
                 return new SAXBuilder().build(is);
+            } catch (Exception ex) {
+                LOGGER.error("Could not parse xml from url {}", url);
             }
         } finally {
             if (entity != null) {
                 EntityUtils.consume(entity);
             }
         }
+        return null;
     }
 
     private static List<MCRCategory> getFundings(Element publication) {
@@ -219,10 +221,10 @@ public class ThUniBibCommands {
         p.setHeader("authorization", MCRConfiguration2.getStringOrThrow("ThUniBib.FactScienceConnect.Authorization"));
         p.setHeader("Content-Type", "application/json");
 
+        LOGGER.info("Fetching from {}", MCRConfiguration2.getString("ThUniBib.FactScienceConnect.ReportURL").get());
         HttpEntity responseEntity = null;
-        try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
-            LOGGER.info("Fetching from {}", MCRConfiguration2.getString("ThUniBib.FactScienceConnect.ReportURL").get());
-            CloseableHttpResponse httpResponse = client.execute(p);
+        try (CloseableHttpClient client = HttpClientBuilder.create().build();
+            CloseableHttpResponse httpResponse = client.execute(p)) {
 
             if (httpResponse.getStatusLine().getStatusCode() != 200) {
                 LOGGER.warn(httpResponse.getStatusLine());
@@ -230,12 +232,9 @@ public class ThUniBibCommands {
             }
 
             responseEntity = httpResponse.getEntity();
-            String source = EntityUtils.toString(responseEntity, "UTF-8");
-
-            SAXBuilder b = new SAXBuilder();
-            try (InputStream is = new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8))) {
+            try (InputStream is = new BufferedInputStream(responseEntity.getContent())) {
                 LOGGER.info("Parsing response...");
-                Document document = b.build(is);
+                Document document = new SAXBuilder().build(is);
                 LOGGER.info("Parsing response...done");
                 LOGGER.info("Updating solr core");
                 updateSolrProjectCore(document);
@@ -243,7 +242,9 @@ public class ThUniBibCommands {
         } catch (Exception ex) {
             LOGGER.error("Could not update solr's project core", ex);
         } finally {
-            EntityUtils.consume(responseEntity);
+            if (responseEntity != null) {
+                EntityUtils.consume(responseEntity);
+            }
         }
     }
 
