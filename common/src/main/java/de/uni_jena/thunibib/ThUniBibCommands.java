@@ -156,12 +156,15 @@ public class ThUniBibCommands {
             entity = httpResponse.getEntity();
             try (InputStream is = entity.getContent()) {
                 return new SAXBuilder().build(is);
+            } catch (Exception ex) {
+                LOGGER.error("Could not parse xml from url {}", url);
             }
         } finally {
             if (entity != null) {
                 EntityUtils.consume(entity);
             }
         }
+        return null;
     }
 
     private static List<MCRCategory> getFundings(Element publication) {
