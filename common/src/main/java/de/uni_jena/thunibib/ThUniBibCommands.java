@@ -27,6 +27,7 @@ import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.common.xml.MCRXMLFunctions;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
 import org.mycore.datamodel.classifications2.impl.MCRCategoryDAOImpl;
@@ -86,11 +87,20 @@ public class ThUniBibCommands {
             return;
         }
 
+        // check validity of category id
+        for (String fundingId : fundingList) {
+            if (!MCRXMLFunctions.isCategoryID("fundingType", fundingId)) {
+                LOGGER.error("fundingType:{} is not a valid category id. Object {} remains unchanged.", fundingId,
+                    mcrObjectID);
+                return;
+            }
+        }
+
         // remove old funding information
         ThUniBibCommands.removeFundingInformation(mcrObject);
         // set new funding
-        for (String funding : fundingList) {
-            ThUniBibCommands.addFundingInformation(mcrObject, funding);
+        for (String fundingId : fundingList) {
+            ThUniBibCommands.addFundingInformation(mcrObject, fundingId);
         }
 
         try {
@@ -183,6 +193,11 @@ public class ThUniBibCommands {
     }
 
     private static void addFundingInformation(Document mcrObject, String categId) {
+        if (!MCRXMLFunctions.isCategoryID("fundingType", categId)) {
+            LOGGER.warn("fundingType:{} is not a valid category id", categId);
+            return;
+        }
+
         XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
             MCRConstants.MODS_NAMESPACE);
 
