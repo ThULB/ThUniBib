@@ -18,7 +18,11 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
-import org.jdom2.*;
+import org.jdom2.Attribute;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
@@ -42,7 +46,11 @@ import org.mycore.solr.commands.MCRSolrCommands;
 import org.mycore.ubo.ldap.LDAPAuthenticator;
 import org.mycore.ubo.ldap.LDAPObject;
 import org.mycore.ubo.ldap.LDAPSearcher;
-import org.mycore.user2.*;
+import org.mycore.user2.MCRRealm;
+import org.mycore.user2.MCRRealmFactory;
+import org.mycore.user2.MCRUser;
+import org.mycore.user2.MCRUserAttribute;
+import org.mycore.user2.MCRUserManager;
 
 import javax.naming.NamingException;
 import javax.naming.ldap.LdapContext;
@@ -51,14 +59,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-import static org.mycore.common.MCRConstants.XPATH_FACTORY;
+import static org.mycore.common.MCRConstants.*;
 
 @MCRCommandGroup(name = "ThUniBib Tools")
 
@@ -170,7 +177,7 @@ public class ThUniBibCommands {
                 currentFundings.add(value);
             });
 
-        return !currentFundings.containsAll(newFundings);
+        return !(currentFundings.containsAll(newFundings) && currentFundings.size() == newFundings.size());
     }
 
     /**
