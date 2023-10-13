@@ -18,7 +18,11 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
-import org.jdom2.*;
+import org.jdom2.Attribute;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
@@ -27,6 +31,7 @@ import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.common.xml.MCRXMLFunctions;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
 import org.mycore.datamodel.classifications2.impl.MCRCategoryDAOImpl;
@@ -41,7 +46,11 @@ import org.mycore.solr.commands.MCRSolrCommands;
 import org.mycore.ubo.ldap.LDAPAuthenticator;
 import org.mycore.ubo.ldap.LDAPObject;
 import org.mycore.ubo.ldap.LDAPSearcher;
-import org.mycore.user2.*;
+import org.mycore.user2.MCRRealm;
+import org.mycore.user2.MCRRealmFactory;
+import org.mycore.user2.MCRUser;
+import org.mycore.user2.MCRUserAttribute;
+import org.mycore.user2.MCRUserManager;
 
 import javax.naming.NamingException;
 import javax.naming.ldap.LdapContext;
@@ -49,12 +58,14 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
-import static org.mycore.common.MCRConstants.XPATH_FACTORY;
+import static org.mycore.common.MCRConstants.*;
 
 @MCRCommandGroup(name = "ThUniBib Tools")
 
@@ -65,18 +76,60 @@ public class ThUniBibCommands {
 
     private static final String LDAP_ID_NAME = "id_" + MCRConfiguration2.getString("UBO.projectid.default").get();
 
+    private static final String FUNDING_SEPARATOR_CHAR = "#";
+
+    @MCRCommand(syntax = "thunibib update object {0} with fundings {1}",
+        help =
+            "Updates the funding of of the given object in {0} with the fundings in {1}. Multiple fundings should be separated by "
+                + ThUniBibCommands.FUNDING_SEPARATOR_CHAR)
+    public static void updateFundingForObject(String mcrid, String fundings) {
+        LOGGER.info("Updating funding of {} with {}", mcrid, fundings);
+
+        MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
+        Document mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID).createXML();
+        List<String> fundingList = Arrays.asList(fundings.split(ThUniBibCommands.FUNDING_SEPARATOR_CHAR));
+
+        if (!ThUniBibCommands.fundingChanged(mcrObject, fundingList)) {
+            LOGGER.info("The funding information of {} did not change, nothing to do", mcrObjectID);
+            return;
+        }
+
+        // check validity of category id
+        for (String fundingId : fundingList) {
+            if (!MCRXMLFunctions.isCategoryID("fundingType", fundingId)) {
+                LOGGER.error("fundingType:{} is not a valid category id. Object {} remains unchanged.", fundingId,
+                    mcrObjectID);
+                return;
+            }
+        }
+
+        // remove old funding information
+        ThUniBibCommands.removeFundingInformation(mcrObject);
+        // set new funding
+        for (String fundingId : fundingList) {
+            ThUniBibCommands.addFundingInformation(mcrObject, fundingId);
+        }
+
+        try {
+            MCRMetadataManager.update(new MCRObject(mcrObject));
+        } catch (Exception e) {
+            LOGGER.error("Could not update {} with funding information ", mcrObjectID);
+        }
+    }
+
     @MCRCommand(syntax = "thunibib update funding of publications from url {0}",
         help = "Updates the funding of publications from the given url")
-    public static void updateFunding(String url) {
-
+    public static List<String> updateFunding(String url) {
         LOGGER.info("Update funding of publications from url \"{}\"", url);
+
+        List<String> commands = new ArrayList<>();
 
         try {
             Document document = ThUniBibCommands.getDocument(url);
 
             if (document == null) {
                 LOGGER.error("Document is null, nothing to do");
-                return;
+                return commands;
             }
 
             XPATH_FACTORY.compile("//publication[identifier[@type = 'doi']]", Filters.element()).evaluate(document)
@@ -84,31 +137,74 @@ public class ThUniBibCommands {
                     String doi = publication.getChild("identifier").getText();
 
                     documentsByDOI(doi).forEach(doc -> {
-                        MCRObjectID id = MCRObjectID.getInstance(doc.get("id").toString());
-                        Document mcrObject = MCRMetadataManager.retrieveMCRObject(id).createXML();
-
-                        getFundings(publication)
-                            .stream()
+                        String id = doc.get("id").toString();
+                        String fundings = getFundings(publication).stream()
                             .map(MCRCategory::getId)
                             .map(MCRCategoryID::getID)
-                            .forEach(funding -> {
-                                LOGGER.info("{}: adding \"{}\" as funding information", id, funding);
-                                addFundingInformation(mcrObject, funding);
-                            });
+                            .map(n -> String.valueOf(n))
+                            .collect(Collectors.joining(ThUniBibCommands.FUNDING_SEPARATOR_CHAR));
 
-                        try {
-                            MCRMetadataManager.update(new MCRObject(mcrObject));
-                        } catch (Exception e) {
-                            LOGGER.error("Could not update {} with funding information ", id);
-                        }
+                        commands.add("thunibib update object " + id + " with fundings " + fundings);
                     });
                 });
         } catch (JDOMException | IOException e) {
             LOGGER.error("Could not create document from url {}", url, e);
         }
+
+        return commands;
+    }
+
+    /**
+     * Checks if the fundings provided are already set in the given mcr object
+     * */
+    private static boolean fundingChanged(Document mcrObject, List<String> newFundings) {
+        XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
+            MCRConstants.MODS_NAMESPACE);
+
+        Element modsElement = mods.evaluateFirst(mcrObject);
+
+        if (mods == null) {
+            return true;
+        }
+
+        List<String> currentFundings = new ArrayList<>();
+        modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
+            .forEach(classElem -> {
+                String valueURI = classElem.getAttributeValue("valueURI");
+                String value = valueURI.substring(classElem.getAttributeValue("valueURI").indexOf("#") + 1);
+                currentFundings.add(value);
+            });
+
+        return !(currentFundings.containsAll(newFundings) && currentFundings.size() == newFundings.size());
+    }
+
+    /**
+     * Removes any funding currently set.
+     * */
+    private static void removeFundingInformation(Document mcrObject) {
+        XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
+            MCRConstants.MODS_NAMESPACE);
+
+        Element modsElement = mods.evaluateFirst(mcrObject);
+
+        if (mods == null) {
+            return;
+        }
+
+        modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
+            .forEach(funding -> funding.detach());
     }
 
     private static void addFundingInformation(Document mcrObject, String categId) {
+        if (!MCRXMLFunctions.isCategoryID("fundingType", categId)) {
+            LOGGER.warn("fundingType:{} is not a valid category id", categId);
+            return;
+        }
+
         XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
             MCRConstants.MODS_NAMESPACE);
 
@@ -182,9 +278,16 @@ public class ThUniBibCommands {
         return list;
     }
 
+    /**
+     * Finds all documents with the given doi.
+     *
+     * @return the list of documents
+     * */
     private static List<SolrDocument> documentsByDOI(String doi) {
-        SolrQuery solrQuery = new SolrQuery("-fundingType:[* TO *] +id_doi:" + doi);
+        SolrQuery solrQuery = new SolrQuery("+id_doi:" + doi);
         solrQuery.setRows(Integer.MAX_VALUE);
+        solrQuery.setSort("id", SolrQuery.ORDER.asc);
+
         try {
             return MCRSolrClientFactory.getMainSolrClient().query(solrQuery).getResults();
         } catch (SolrServerException | IOException e) {
