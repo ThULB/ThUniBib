@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-                xmlns:acl="xalan://org.mycore.access.MCRAccessManager"
+<xsl:stylesheet version="3.0"
+                xmlns:fn="http://www.w3.org/2005/xpath-functions"
                 xmlns:mods="http://www.loc.gov/mods/v3"
-                xmlns:ThUniBibUtils="xalan://de.uni_jena.thunibib.user.ThUniBibUtils"
-                xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:mcracl="http://www.mycore.de/xslt/acl"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                exclude-result-prefixes="acl ThUniBibUtils xalan xsl">
+                exclude-result-prefixes="mcracl fn xsl">
+
+  <xsl:include href="resource:xsl/functions/acl.xsl"/>
 
   <xsl:output method="xml" indent="yes"/>
 
@@ -19,17 +20,17 @@
 
   <xsl:template match="mods:name[mods:nameIdentifier[@type = 'connection']]">
     <xsl:variable name="connection-id" select="mods:nameIdentifier[@type = 'connection']"/>
-    <xsl:variable name="lead-id" select="ThUniBibUtils:getLeadId('id_connection', $connection-id)"/>
+    <xsl:variable name="lead-id" select="fn:document(concat('thunibib:de.uni_jena.thunibib.user.ThUniBibUtils:getLeadId:id_connection:', $connection-id))"/>
 
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
 
-      <xsl:if test="acl:checkPermission('POOLPRIVILEGE', 'read-user-attributes') and $lead-id != 'null'">
+      <xsl:if
+        test="mcracl:check-permission('POOLPRIVILEGE', 'read-user-attributes') and string-length($lead-id) &gt; 0">
         <mods:nameIdentifier type="{$MCR.user2.matching.lead_id}">
           <xsl:value-of select="$lead-id"/>
         </mods:nameIdentifier>
       </xsl:if>
-
     </xsl:copy>
   </xsl:template>
 </xsl:stylesheet>
