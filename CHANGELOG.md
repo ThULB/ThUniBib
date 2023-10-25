@@ -1,11 +1,39 @@
 # Changelog
 
-## 2023.08.11 => 2023.08.11.01
+## 2023.10.25
+
+- #330 Add ORCID integration from base UBO
+- #425 Fixed error duplicate template 'layout.pageTitle'
+- #441 Fixed resource leak in de.uni_jena.thunibib.ThUniBibCommands.updateProjects
+- #443 Added classification nameIdentifier for each instance
+- #455 Implement transformer for detailed mods:name metadata
+- FSU040THUL-1197 #421 Fehlender Link bei Online-Publikation ohne DOI
+- FSU040THUL-1214 Probleme bei Import: Konferenz-/Tagungsband im Standardformular
+- FSU040THUL-1243 #417 Added field connection_nid_text as facet
+- FSU040THUL-1278 #427 PPN Import: Corresponding Author wird beim Enrichment über Scopus ignoriert
+- FSU040THUL-1281 #429 Für KDSF-Konformität nötige Erfassungsfelder ergänzen
+- FSU040THUL-1281 #436 Position "Access Rights" sollte zwischen "Open Access" und "Lizenztyp" liegen
+- FSU040THUL-1564  Eingabemaske "Access Rights" und "Open Access"
+- FSU040THUL-206 #433 Anreicherung mit URL nur bei Closed Access Publikationen
+- FSU040THUL-405 #423 "Lücke" in den Ergebnissen der Personensuche
+- FSU040THUL-972 Allow to set multiple fundings during import, made fundingType repeatable in form
+- FSU40THUL-1017 #413 Mark corresponding author during scopus import
+- FSU40THUL-1155 #404 Ergänzung ORIGIN.xml (Erfurt)
+- FSU40THUL-1198 #406 Schriftfarbe anpassen "Es gibt eventuell eine Dublette" und "Damit verbunden: 1 Publikation(en)"
+- FSU40THUL-1218 #411 Erweiterung CSV-Export
+- FSU40THUL-972 #408 Added command stub "thunibib update funding of publications from url {0}"
+- Updated ORIGIN.xml (Ilmenau)
+- Adopt font of bibentries export in html to CD of TU Ilmenau
+- Minor layout improvements
+---
+
+## 2023.08.11.01
 
 - FSU40THUL-1048 #402 Added xslt-remove-subject-from-list.xsl
+---
 
 
-## 2023.07.11 => 2023.08.11
+## 2023.08.11
 
 - #386 Set mycore version to 2022.06.3-SNAPSHOT
 - #388 Add xslt stylesheet to remove eduPersonUniqueId
@@ -23,9 +51,9 @@
 - FSU040THUL-914 #381 Aktualisierung Logo Hochschulbibliografie (Ilmenau)
 - FSU040THUL-915 #380 Aktualisierung des Körperschaftsicons im IdentityPicker
 - Set MCR.user2.matching.lead_id.skip = true (Ilmenau)
+---
 
-
-## 2023.06.26 => 2023.07.11
+## 2023.07.11
 
 - #355 Added xslt-set-partOf-false.xsl
 - #357 Added stylesheet to fix connections ids
@@ -40,8 +68,7 @@
 - Updated CHANGELOG.md
 ---
 
-
-## 2023.04.04 => 2023.06.26
+## 2023.06.26
 
 - #266 Removed role 'wst', updated text for role 'his' and added role 'oth' to marcrelator-corporation.xml
 - #306 Mapping K10+ Import Uni Erfurt
@@ -62,7 +89,6 @@
 - Reflect changes in UBOs Java and MyCoRe version
 - UBO-238 Added/altered i18n keys https://github.com/MyCoRe-Org/ubo/pull/278
 ---
-
 
 ## 2023.04.04
 
