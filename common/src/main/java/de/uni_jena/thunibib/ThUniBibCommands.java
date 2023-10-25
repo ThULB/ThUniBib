@@ -193,10 +193,14 @@ public class ThUniBibCommands {
             return;
         }
 
-        modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+        List<Element> elementList = modsElement.getChildren("classification", MODS_NAMESPACE)
             .stream()
             .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
-            .forEach(funding -> funding.detach());
+            .collect(Collectors.toList());
+
+        for (Element element : elementList) {
+            element.detach();
+        }
     }
 
     private static void addFundingInformation(Document mcrObject, String categId) {
