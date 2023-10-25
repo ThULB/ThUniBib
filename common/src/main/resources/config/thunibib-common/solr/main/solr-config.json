@@ -19,11 +19,13 @@
           "importID",
           "year",
           "facet_person",
+          "connection_nid_text",
           "subject",
           "genre",
           "origin_exact",
           "facet_host_title",
-          "oa"
+          "oa",
+          "fundingType"
         ],
         "wt": "xml"
       }
@@ -50,6 +52,7 @@
           "genre",
           "oa",
           "facet_person",
+          "connection_nid_text",
           "nid_connection"
         ],
         "json.facet": "{year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}"

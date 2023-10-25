@@ -62,7 +62,7 @@ import org.mycore.solr.MCRSolrUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-@MCRCommandGroup(name = "catalog import commands")
+@MCRCommandGroup(name = "Catalog Import Commands")
 public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     private static final Logger LOGGER = LogManager.getLogger(EnrichmentByAffiliationCommands.class);

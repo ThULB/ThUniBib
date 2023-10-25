@@ -62,6 +62,7 @@
               <xed:include ref="genre" />
               <xed:include ref="thunibib.typeOfResource" />
               <xed:include ref="thunibib.mediaType" />
+              <xed:include ref="thunibib.accessRights" />
               <xed:include ref="oa" />
               <xed:include ref="thunibib.license" />
               <xed:include ref="thunibib.peerreviewed" />

@@ -1,29 +1,22 @@
 package de.uni_jena.thunibib;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.naming.NamingException;
-import javax.naming.ldap.LdapContext;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
@@ -34,8 +27,18 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import org.mycore.backend.jpa.MCREntityManagerProvider;
+import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.common.xml.MCRXMLFunctions;
+import org.mycore.datamodel.classifications2.MCRCategory;
+import org.mycore.datamodel.classifications2.MCRCategoryID;
+import org.mycore.datamodel.classifications2.impl.MCRCategoryDAOImpl;
+import org.mycore.datamodel.metadata.MCRMetadataManager;
+import org.mycore.datamodel.metadata.MCRObject;
+import org.mycore.datamodel.metadata.MCRObjectID;
+import org.mycore.frontend.MCRFrontendUtil;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.solr.MCRSolrClientFactory;
@@ -49,6 +52,21 @@ import org.mycore.user2.MCRUser;
 import org.mycore.user2.MCRUserAttribute;
 import org.mycore.user2.MCRUserManager;
 
+import javax.naming.NamingException;
+import javax.naming.ldap.LdapContext;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+
+import static org.mycore.common.MCRConstants.*;
+
 @MCRCommandGroup(name = "ThUniBib Tools")
 
 public class ThUniBibCommands {
@@ -57,6 +75,226 @@ public class ThUniBibCommands {
     private static List<String> DEFAULT_ROLES = List.of("submitter", "admin");
 
     private static final String LDAP_ID_NAME = "id_" + MCRConfiguration2.getString("UBO.projectid.default").get();
+
+    private static final String FUNDING_SEPARATOR_CHAR = "#";
+
+    @MCRCommand(syntax = "thunibib update object {0} with fundings {1}",
+        help =
+            "Updates the funding of of the given object in {0} with the fundings in {1}. Multiple fundings should be separated by "
+                + ThUniBibCommands.FUNDING_SEPARATOR_CHAR)
+    public static void updateFundingForObject(String mcrid, String fundings) {
+        LOGGER.info("Updating funding of {} with {}", mcrid, fundings);
+
+        MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
+        Document mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID).createXML();
+        List<String> fundingList = Arrays.asList(fundings.split(ThUniBibCommands.FUNDING_SEPARATOR_CHAR));
+
+        if (!ThUniBibCommands.fundingChanged(mcrObject, fundingList)) {
+            LOGGER.info("The funding information of {} did not change, nothing to do", mcrObjectID);
+            return;
+        }
+
+        // check validity of category id
+        for (String fundingId : fundingList) {
+            if (!MCRXMLFunctions.isCategoryID("fundingType", fundingId)) {
+                LOGGER.error("fundingType:{} is not a valid category id. Object {} remains unchanged.", fundingId,
+                    mcrObjectID);
+                return;
+            }
+        }
+
+        // remove old funding information
+        ThUniBibCommands.removeFundingInformation(mcrObject);
+        // set new funding
+        for (String fundingId : fundingList) {
+            ThUniBibCommands.addFundingInformation(mcrObject, fundingId);
+        }
+
+        try {
+            MCRMetadataManager.update(new MCRObject(mcrObject));
+        } catch (Exception e) {
+            LOGGER.error("Could not update {} with funding information ", mcrObjectID);
+        }
+    }
+
+    @MCRCommand(syntax = "thunibib update funding of publications from url {0}",
+        help = "Updates the funding of publications from the given url")
+    public static List<String> updateFunding(String url) {
+        LOGGER.info("Update funding of publications from url \"{}\"", url);
+
+        List<String> commands = new ArrayList<>();
+
+        try {
+            Document document = ThUniBibCommands.getDocument(url);
+
+            if (document == null) {
+                LOGGER.error("Document is null, nothing to do");
+                return commands;
+            }
+
+            XPATH_FACTORY.compile("//publication[identifier[@type = 'doi']]", Filters.element()).evaluate(document)
+                .forEach(publication -> {
+                    String doi = publication.getChild("identifier").getText();
+
+                    documentsByDOI(doi).forEach(doc -> {
+                        String id = doc.get("id").toString();
+                        String fundings = getFundings(publication).stream()
+                            .map(MCRCategory::getId)
+                            .map(MCRCategoryID::getID)
+                            .map(n -> String.valueOf(n))
+                            .collect(Collectors.joining(ThUniBibCommands.FUNDING_SEPARATOR_CHAR));
+
+                        commands.add("thunibib update object " + id + " with fundings " + fundings);
+                    });
+                });
+        } catch (JDOMException | IOException e) {
+            LOGGER.error("Could not create document from url {}", url, e);
+        }
+
+        return commands;
+    }
+
+    /**
+     * Checks if the fundings provided are already set in the given mcr object
+     * */
+    private static boolean fundingChanged(Document mcrObject, List<String> newFundings) {
+        XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
+            MCRConstants.MODS_NAMESPACE);
+
+        Element modsElement = mods.evaluateFirst(mcrObject);
+
+        if (mods == null) {
+            return true;
+        }
+
+        List<String> currentFundings = new ArrayList<>();
+        modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
+            .forEach(classElem -> {
+                String valueURI = classElem.getAttributeValue("valueURI");
+                String value = valueURI.substring(classElem.getAttributeValue("valueURI").indexOf("#") + 1);
+                currentFundings.add(value);
+            });
+
+        return !(currentFundings.containsAll(newFundings) && currentFundings.size() == newFundings.size());
+    }
+
+    /**
+     * Removes any funding currently set.
+     * */
+    private static void removeFundingInformation(Document mcrObject) {
+        XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
+            MCRConstants.MODS_NAMESPACE);
+
+        Element modsElement = mods.evaluateFirst(mcrObject);
+
+        if (mods == null) {
+            return;
+        }
+
+        modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
+            .forEach(funding -> funding.detach());
+    }
+
+    private static void addFundingInformation(Document mcrObject, String categId) {
+        if (!MCRXMLFunctions.isCategoryID("fundingType", categId)) {
+            LOGGER.warn("fundingType:{} is not a valid category id", categId);
+            return;
+        }
+
+        XPathExpression<Element> mods = XPATH_FACTORY.compile("//mods:mods", Filters.element(), null,
+            MCRConstants.MODS_NAMESPACE);
+
+        Element modsElement = mods.evaluateFirst(mcrObject);
+
+        if (mods == null) {
+            return;
+        }
+
+        /* Add funding when funding not already set */
+        if (modsElement.getChildren("classification", MCRConstants.MODS_NAMESPACE)
+            .stream()
+            .filter(classElem -> classElem.getAttributeValue("authorityURI").contains("fundingType"))
+            .noneMatch(classElem -> classElem.getAttributeValue("valueURI").contains("fundingType#" + categId))) {
+
+            String url = MCRFrontendUtil.getBaseURL() + "classifications/fundingType";
+
+            Element classification = new Element("classification", MCRConstants.MODS_NAMESPACE);
+            classification.setAttribute("authorityURI", url);
+            classification.setAttribute("valueURI", url + "#" + categId);
+            modsElement.addContent(classification);
+        }
+    }
+
+    private static Document getDocument(String url) throws IOException, JDOMException {
+        HttpGet get = new HttpGet(url);
+        String property = "ThUniBib.Commands.Funding.PrivateToken";
+        Optional<String> token = MCRConfiguration2.getString(property);
+
+        if (token.isPresent()) {
+            get.setHeader("PRIVATE-TOKEN", token.get());
+        } else {
+            LOGGER.warn("No token in property {} set", property);
+        }
+
+        HttpEntity entity = null;
+        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+            CloseableHttpResponse httpResponse = httpclient.execute(get);
+
+            if (httpResponse.getStatusLine().getStatusCode() != 200) {
+                LOGGER.warn("Could not read from url because: {}", httpResponse.getStatusLine().getReasonPhrase());
+                return null;
+            }
+
+            entity = httpResponse.getEntity();
+            try (InputStream is = entity.getContent()) {
+                return new SAXBuilder().build(is);
+            } catch (Exception ex) {
+                LOGGER.error("Could not parse xml from url {}", url);
+            }
+        } finally {
+            if (entity != null) {
+                EntityUtils.consume(entity);
+            }
+        }
+        return null;
+    }
+
+    private static List<MCRCategory> getFundings(Element publication) {
+        XPathExpression<Attribute> expr = XPATH_FACTORY.compile("fundings/funding/@type", Filters.attribute());
+
+        List<MCRCategory> list = new ArrayList<>();
+        MCRCategoryDAOImpl categoryDAO = new MCRCategoryDAOImpl();
+
+        expr.evaluate(publication).stream()
+            .map(Attribute::getValue)
+            .forEach(type -> {
+                list.addAll(categoryDAO.getCategoriesByLabel("de", type));
+            });
+
+        return list;
+    }
+
+    /**
+     * Finds all documents with the given doi.
+     *
+     * @return the list of documents
+     * */
+    private static List<SolrDocument> documentsByDOI(String doi) {
+        SolrQuery solrQuery = new SolrQuery("+id_doi:" + doi);
+        solrQuery.setRows(Integer.MAX_VALUE);
+        solrQuery.setSort("id", SolrQuery.ORDER.asc);
+
+        try {
+            return MCRSolrClientFactory.getMainSolrClient().query(solrQuery).getResults();
+        } catch (SolrServerException | IOException e) {
+            LOGGER.error("Could not execute solr query {}", solrQuery);
+            return new ArrayList<>();
+        }
+    }
 
     @MCRCommand(syntax = "thunibib create editor user {0} with email {1}",
         help = "Creates a scoped shibboleth user with login {0} and {1} as mail address")
@@ -86,10 +324,10 @@ public class ThUniBibCommands {
         p.setHeader("authorization", MCRConfiguration2.getStringOrThrow("ThUniBib.FactScienceConnect.Authorization"));
         p.setHeader("Content-Type", "application/json");
 
+        LOGGER.info("Fetching from {}", MCRConfiguration2.getString("ThUniBib.FactScienceConnect.ReportURL").get());
         HttpEntity responseEntity = null;
-        try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
-            LOGGER.info("Fetching from {}", MCRConfiguration2.getString("ThUniBib.FactScienceConnect.ReportURL").get());
-            CloseableHttpResponse httpResponse = client.execute(p);
+        try (CloseableHttpClient client = HttpClientBuilder.create().build();
+            CloseableHttpResponse httpResponse = client.execute(p)) {
 
             if (httpResponse.getStatusLine().getStatusCode() != 200) {
                 LOGGER.warn(httpResponse.getStatusLine());
@@ -97,12 +335,9 @@ public class ThUniBibCommands {
             }
 
             responseEntity = httpResponse.getEntity();
-            String source = EntityUtils.toString(responseEntity, "UTF-8");
-
-            SAXBuilder b = new SAXBuilder();
-            try (InputStream is = new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8))) {
+            try (InputStream is = new BufferedInputStream(responseEntity.getContent())) {
                 LOGGER.info("Parsing response...");
-                Document document = b.build(is);
+                Document document = new SAXBuilder().build(is);
                 LOGGER.info("Parsing response...done");
                 LOGGER.info("Updating solr core");
                 updateSolrProjectCore(document);
@@ -110,7 +345,9 @@ public class ThUniBibCommands {
         } catch (Exception ex) {
             LOGGER.error("Could not update solr's project core", ex);
         } finally {
-            EntityUtils.consume(responseEntity);
+            if (responseEntity != null) {
+                EntityUtils.consume(responseEntity);
+            }
         }
     }
 
@@ -175,21 +412,21 @@ public class ThUniBibCommands {
     }
 
     @MCRCommand(
-        syntax = "list gone ldap users for realm {0}",
+        syntax = "list vanished ldap users for realm {0}",
         help = "List ldap users linked to publications but are not findable via ldap search"
     )
-    public static void listGoneLDAPUsers(String realm) {
+    public static List<MCRUser> listVanishedLDAPUsers(String realm) {
         boolean noneMatch = MCRRealmFactory.listRealms().stream().noneMatch(r -> r.getID().equals(realm));
 
         if (noneMatch) {
             LOGGER.error("Realm '{}' is unknown", realm);
-            return;
+            return null;
         }
 
         List<MCRUser> users = MCRUserManager.listUsers(null, realm, null);
         if (users.size() == 0) {
             LOGGER.info("No users found for realm '{}'", realm);
-            return;
+            return users;
         }
 
         List<MCRUser> missing = new ArrayList<>();
@@ -197,16 +434,18 @@ public class ThUniBibCommands {
         try {
             LdapContext ctx = new LDAPAuthenticator().authenticate();
             LDAPSearcher searcher = new LDAPSearcher();
-            users.forEach(user -> {
-                if (!exists(searcher, ctx, user)) {
-                    missing.add(user);
-                }
-            });
+            users.stream()
+                .filter(user -> getLeadIdAttribute(user).isPresent())
+                .forEach(user -> {
+                    String leadId = getLeadIdAttribute(user).get().getValue();
+                    if (!exists(searcher, ctx, leadId)) {
+                        missing.add(user);
+                    }
+                });
         } catch (NamingException e) {
             LOGGER.error("", e);
         }
 
-        // console output
         LOGGER.info("{}/{} user(s) of realm '{}' are orphaned", missing.size(), users.size(), realm);
         if (missing.size() > 0) {
             LOGGER.info("The following users could not be found in ldap");
@@ -214,19 +453,56 @@ public class ThUniBibCommands {
                 LOGGER.info(u.getUserID());
             }
         }
+        return missing;
     }
 
-    private static boolean exists(LDAPSearcher searcher, LdapContext ctx, MCRUser user) {
-        Optional<MCRUserAttribute> ldapIdAttr = user.getAttributes().stream()
-            .filter(a -> a.getName().equals(LDAP_ID_NAME))
-            .findFirst();
-
-        if (ldapIdAttr.isEmpty()) {
+    @MCRCommand(syntax = "move user {0} to realm {1}", help = "Moves the given user to the given realm")
+    public static boolean moveUserToRealm(String userName, String toRealmId) {
+        if (userName == null || toRealmId == null) {
+            LOGGER.error("Neither username or realmId may be null");
             return false;
         }
 
+        MCRUser mcrUser = MCRUserManager.getUser(userName);
+        if (mcrUser == null) {
+            LOGGER.error("User {} could not be found", userName);
+            return false;
+        }
+
+        MCRRealm toRealm = MCRRealmFactory.getRealm(toRealmId);
+        if (toRealm == null) {
+            LOGGER.error("{} is unknown", toRealmId);
+            return false;
+        }
+
+        MCRRealm fromRealm = MCRRealmFactory.getRealm(userName.split("@")[1]);
+        if (fromRealm == null) {
+            LOGGER.error("{} is unknown", fromRealm);
+            return false;
+        }
+
+        EntityManager em = MCREntityManagerProvider.getCurrentEntityManager();
+        Query query = em.createQuery("UPDATE MCRUser SET realmID = :realmId WHERE userName = :userName");
+        query.setParameter("realmId", toRealmId);
+        query.setParameter("userName", mcrUser.getUserName());
+
+        LOGGER.info("Moving user '{}' from realm '{}' to realm '{}'", userName, fromRealm.getID(), toRealm.getID());
+        int updateCount = query.executeUpdate();
+
+        return updateCount > 0;
+    }
+
+    private static Optional<MCRUserAttribute> getLeadIdAttribute(MCRUser user) {
+        Optional<MCRUserAttribute> attribute = user.getAttributes()
+            .stream()
+            .filter(a -> a.getName().equals(LDAP_ID_NAME))
+            .findFirst();
+        return attribute;
+    }
+
+    private static boolean exists(LDAPSearcher searcher, LdapContext ctx, String ldapIdAttr) {
         try {
-            String filter = "(&(objectClass=eduPerson)(|(eduPersonUniqueId=" + ldapIdAttr.get().getValue() + ")))";
+            String filter = "(&(objectClass=eduPerson)(|(eduPersonUniqueId=" + ldapIdAttr + ")))";
             List<LDAPObject> ldapObjects = searcher.searchWithGlobalDN(ctx, filter);
             return ldapObjects.size() == 1 ? true : false;
         } catch (NamingException e) {

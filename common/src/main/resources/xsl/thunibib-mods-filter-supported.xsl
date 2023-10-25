@@ -79,7 +79,7 @@
   </xsl:template>
 
   <xsl:template
-      match="mods:role[1]|mods:roleTerm[@type='code'][@authority='marcrelator'][1]|mods:roleTerm/@type|mods:roleTerm/@authority">
+      match="mods:role[1]|mods:roleTerm[@type='code'][@authority='marcrelator'][1]|mods:role[1]|mods:roleTerm[@type='text']|mods:role[mods:roleTerm/text() = 'corresponding_author']|mods:roleTerm/@valueURI|mods:roleTerm/@authorityURI|mods:roleTerm/@type|mods:roleTerm/@authority">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
@@ -123,6 +123,16 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
+  <xsl:template match="mods:identifier[@type='url'][not(//mods:identifier[@type = 'doi'])]">
+    <mods:location>
+      <xsl:for-each select=".">
+        <mods:url>
+          <xsl:value-of select="."/>
+        </mods:url>
+      </xsl:for-each>
+    </mods:location>
+  </xsl:template>
+
   <xsl:template match="mods:relatedItem[@type='host'][1]|mods:relatedItem[@type='series']">
     <xsl:copy>
       <xsl:copy-of select="@type"/>
@@ -146,7 +156,7 @@
   </xsl:template>
 
   <!-- no shelflocator supported in thunibib -->
-  <xsl:template match="mods:location|mods:location/mods:url">
+  <xsl:template match="mods:location|mods:location[not(//mods:identifier[@type = 'doi'])][//mods:classification[contains(@valueURI, 'closed')] or not(//mods:classification[contains(@authorityURI, 'classifications/oa')])]/mods:url">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 

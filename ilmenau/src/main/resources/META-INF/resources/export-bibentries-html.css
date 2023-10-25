@@ -1,0 +1,21 @@
+ul.bibentries li {
+  padding-bottom: 1ex;
+}
+
+div.bibentry {
+  padding: 0 2ex 0 2ex;
+  font: 1rem/1.4 Arial, sans-serif;
+}
+
+div.bibentry div.authors {
+  font-style: italic;
+}
+
+div.bibentry div.title {
+  font-weight: bold;
+}
+
+div.bibentry div.labels {
+  font-style: italic;
+  padding: 1ex 0 1ex 0;
+}

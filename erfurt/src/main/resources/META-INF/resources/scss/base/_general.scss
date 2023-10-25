@@ -64,26 +64,6 @@ body {
   font-weight: bold;
 }
 
-// Large devices (desktops) and below: <= 1200px
-@include media-breakpoint-down(lg) {
-  // add/overwrite styles for responsive level lg and lower
-}
-
-// Medium devices (tablets) and below: <= 992px
-@include media-breakpoint-down(md) {
-  // add/overwrite styles for responsive level md and lower
-}
-
-// Small devices (landscape phones) and below: <= 768px
-@include media-breakpoint-down(sm) {
-  // add/overwrite styles for responsive level sm and lower
-}
-
-// Extra small devices (portrait phones): <= 576px
-@include media-breakpoint-down(xs) {
-  // add/overwrite styles for responsive level xs
-}
-
 #feedback, #servicedesk {
   cursor: pointer;
   position: fixed;
@@ -119,3 +99,52 @@ body {
 .ubo-mods-detail-volume {
   display: none;
 }
+
+.counter-length {
+  &-1 {
+    .mycore-facet-count { width: 25px; }
+    .mycore-facet-value { width: 210px; }
+  }
+  &-2 {
+    .mycore-facet-count { width: 35px; }
+    .mycore-facet-value { width: 200px; }
+  }
+  &-3 {
+    .mycore-facet-count { width: 40px; }
+    .mycore-facet-value { width: 195px; }
+  }
+  &-4 {
+    .mycore-facet-count { width: 55px; }
+    .mycore-facet-value { width: 180px; }
+  }
+  &-5 {
+    .mycore-facet-count { width: 60px; }
+    .mycore-facet-value { width: 175px; }
+  }
+  &-6 {
+    .mycore-facet-count { width: 75px; }
+    .mycore-facet-value { width: 160px; }
+  }
+}
+
+
+// Large devices (desktops) and below: <= 1200px
+@include media-breakpoint-down(lg) {
+  // add/overwrite styles for responsive level lg and lower
+}
+
+// Medium devices (tablets) and below: <= 992px
+@include media-breakpoint-down(md) {
+  // add/overwrite styles for responsive level md and lower
+}
+
+// Small devices (landscape phones) and below: <= 768px
+@include media-breakpoint-down(sm) {
+  // add/overwrite styles for responsive level sm and lower
+}
+
+// Extra small devices (portrait phones): <= 576px
+@include media-breakpoint-down(xs) {
+  // add/overwrite styles for responsive level xs
+}
+
