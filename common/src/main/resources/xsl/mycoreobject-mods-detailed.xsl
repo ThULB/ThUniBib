@@ -20,7 +20,7 @@
 
   <xsl:template match="mods:name[mods:nameIdentifier[@type = 'connection']]">
     <xsl:variable name="connection-id" select="mods:nameIdentifier[@type = 'connection']"/>
-    <xsl:variable name="lead-id" select="fn:document(concat('thunibib:de.uni_jena.thunibib.user.ThUniBibUtils:getLeadId:id_connection:', $connection-id))"/>
+    <xsl:variable name="lead-id" select="fn:document(concat('callJava:de.uni_jena.thunibib.user.ThUniBibUtils:getLeadId:id_connection:', $connection-id))"/>
 
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
