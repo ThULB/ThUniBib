@@ -462,31 +462,31 @@
       </div>
     </div>
     <xed:controls/>
-    <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-      <xed:repeat xpath="mods:nameIdentifier[not(@type=$MCR.user2.matching.lead_id)][not(@type='connection')]">
-        <div class="form-group form-inline col-12 px-0 mb-2 mt-2 ubo-repeat-group">
-          <label class="mycore-form-label">
-          </label>
-          <xed:bind xpath="@type">
-            <select class="form-control col-sm-2 custom-select">
-              <option value="">
-                <xed:output i18n="search.select"/>
-              </option>
-              <xed:include uri="xslStyle:filterOutLeadAndConnectionID,items2options:classification:editor:-1:children:nameIdentifier"/>
-            </select>
-          </xed:bind>
-          <input type="text" class="{$xed-validation-marker} form-control col-sm-4"/>
-          <xed:controls>insert remove</xed:controls>
-        </div>
-      </xed:repeat>
-      <div class="form-group form-inline col-12 px-0">
-        <xed:repeat xpath="mods:affiliation">
-          <label class="mycore-form-label">
-          </label>
-          <textarea class="mycore-form-input" placeholder="Institutionelle Zugehörigkeit"/>
-        </xed:repeat>
+
+    <xed:repeat xpath="mods:nameIdentifier[not(@type=$MCR.user2.matching.lead_id)][not(@type='connection')]">
+      <div class="form-group form-inline col-12 px-0 mb-2 mt-2 ubo-repeat-group">
+        <label class="mycore-form-label">
+        </label>
+        <xed:bind xpath="@type">
+          <select class="form-control col-sm-2 custom-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:filterOutLeadAndConnectionID,items2options:classification:editor:-1:children:nameIdentifier"/>
+          </select>
+        </xed:bind>
+        <input type="text" class="{$xed-validation-marker} form-control col-sm-4"/>
+        <xed:controls>insert remove</xed:controls>
       </div>
-    </xed:if>
+    </xed:repeat>
+
+    <div class="form-group form-inline col-12 px-0">
+      <xed:repeat xpath="mods:affiliation">
+        <label class="mycore-form-label">
+        </label>
+        <textarea class="mycore-form-input" placeholder="Institutionelle Zugehörigkeit"/>
+      </xed:repeat>
+    </div>
   </xed:template>
 
   <xed:template id="book.contributors">
