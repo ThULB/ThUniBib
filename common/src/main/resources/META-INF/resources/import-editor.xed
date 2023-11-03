@@ -370,7 +370,7 @@
         max="99">
       <div class="form-group form-inline ubo-repeat-group">
         <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
-          <xed:output value="concat(i18:translate('ubo.role.interviewee'), ': ')"/>
+          <xed:output value="concat(i18n:translate('ubo.role.interviewee'), ': ')"/>
         </label>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
       </div>
