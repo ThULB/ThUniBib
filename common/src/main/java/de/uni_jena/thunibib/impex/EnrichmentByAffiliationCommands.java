@@ -57,6 +57,7 @@ import org.mycore.mods.MCRMODSWrapper;
 import org.mycore.mods.enrichment.MCREnrichmentResolver;
 import org.mycore.services.queuedjob.MCRJob;
 import org.mycore.services.queuedjob.MCRJobQueue;
+import org.mycore.services.queuedjob.MCRJobQueueManager;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrUtils;
 import org.xml.sax.InputSource;
@@ -118,7 +119,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         job.setParameter("query", q);
         job.setParameter("status", "imported");
         job.setParameter("filter", filter);
-        MCRJobQueue.getInstance(ThUniBibImportJobAction.class).offer(job);
+        MCRJobQueueManager.getInstance().getJobQueue(ThUniBibImportJobAction.class).offer(job);
     }
 
     @MCRCommand(syntax = PICA_IMPORT_SYNTAX_WITH_KEY, help = "imports all objects for a specific query", order = 5)
@@ -457,7 +458,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     }
 
     private static MCRObjectID nextFreeID() {
-        return MCRObjectID.getNextFreeId(projectID, "mods");
+        return MCRMetadataManager.getMCRObjectIDGenerator().getNextFreeId(projectID, "mods");
     }
 
     private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
