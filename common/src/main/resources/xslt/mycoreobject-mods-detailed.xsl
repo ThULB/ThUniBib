@@ -6,7 +6,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 exclude-result-prefixes="mcracl fn xsl">
 
-  <xsl:include href="resource:xsl/functions/acl.xsl"/>
+  <xsl:include href="resource:xslt/functions/acl.xsl"/>
 
   <xsl:output method="xml" indent="yes"/>
 
