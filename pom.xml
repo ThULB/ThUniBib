@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.mycore</groupId>
     <artifactId>mycore-parent</artifactId>
-    <version>49</version>
+    <version>52</version>
     <relativePath/>
   </parent>
   <groupId>de.uni-jena.thulb.ubo</groupId>
@@ -19,7 +19,7 @@
 
   <properties>
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
-    <mycore.version>2022.06.3-SNAPSHOT</mycore.version>
+    <mycore.version>2023.06.0-SNAPSHOT</mycore.version>
     <oaipmh.version>2.1</oaipmh.version>
     <solr.version>8.11.1</solr.version>
     <ubo.version>dev-SNAPSHOT</ubo.version>
