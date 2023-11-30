@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<mycoreclass ID="orcidWorkType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+  <!--
+        https://info.orcid.org/ufaqs/what-work-types-does-orcid-support
+
+        ORCID allows for the addition of several types of works. Below is a list of the work types that are currently
+        supported, which is largely consistent with the CASRAI Output Standard.
+   -->
+
+  <label xml:lang="de" text="ORCID Werktyp"/>
+  <label xml:lang="en" text="ORCID work type"/>
+  <categories>
+    <category ID="book">
+      <label xml:lang="de" text="Buch"/>
+      <label xml:lang="en" text="Book"
+             description="Books written by a single author or collaboratively based on research or scholarly findings generally derived from peer reviewed funding."/>
+    </category>
+    <category ID="book-chapter">
+      <label xml:lang="de" text="Buchkapitel"/>
+      <label xml:lang="en" text="Book chapter"
+             description="Texts written by a single author or collaboratively based on research or scholarly findings and expertise in a field."/>
+    </category>
+    <category ID="book-review">
+      <label xml:lang="de" text="Buchrezension"/>
+      <label xml:lang="en" text="Book review"
+             description="Critical review of works of fiction or non-fiction highlighting the contributions to an art, field or discipline."/>
+    </category>
+    <category ID="dictionary-entry">
+      <label xml:lang="de" text="Wörterbucheintrag"/>
+      <label xml:lang="en" text="Dictionary entry"
+             description="Entries of new words, new meanings of existing words, changes in spelling and hyphenation over a longer period of time, and grammatical changes."/>
+    </category>
+    <category ID="dissertation">
+      <label xml:lang="de" text="Dissertation"/>
+      <label xml:lang="en" text="Dissertation"
+             description="Treatise advancing an original point of view resulting from research: a requirement for a doctoral degree. This is only available with API v2.x"/>
+    </category>
+    <category ID="dissertation-thesis">
+      <label xml:lang="de" text="Dissertation These"/>
+      <label xml:lang="en" text="Dissertation thesis"
+             description="A paper that is typically based on original research and that gives evidence of the candidate's mastery both of their own subject and of scholarly method. This is only available with API v3.0+"/>
+    </category>
+    <category ID="edited-book">
+      <label xml:lang="de" text="Herausgegebenes Buch"/>
+      <label xml:lang="en" text="Edited book"
+             description="Books edited by a single author or collaboratively for the dissemination of research or scholarly findings that generally result from peer reviewed funding."/>
+    </category>
+    <category ID="encyclopaedia-entry">
+      <label xml:lang="de" text="Enzyklopädieeintrag"/>
+      <label xml:lang="en" text="Encyclopaedia entry"
+             description="Authored entries in a reference work or a compendium focusing on a particular domain or on all branches of knowledge."/>
+    </category>
+    <category ID="journal-article">
+      <label xml:lang="de" text="Zeitschriftenartikel"/>
+      <label xml:lang="en" text="Journal article"
+             description="Articles in peer-reviewed publications that disseminate the results of original research and scholarship."/>
+    </category>
+    <category ID="journal-issue">
+      <label xml:lang="de" text="Zeitschriftenausgabe"/>
+      <label xml:lang="en" text="Journal issue"
+             description="Periodical publications aimed at fostering intellectual debate and inquiry."/>
+    </category>
+    <category ID="magazine-article">
+      <label xml:lang="de" text="Magazin Artikel"/>
+      <label xml:lang="en" text="Magazine article"
+             description="Articles in thematic publications published at fixed intervals."/>
+    </category>
+    <category ID="manual">
+      <label xml:lang="de" text="Handbuch"/>
+      <label xml:lang="en" text="Manual" description="Course and assignment materials produced for teaching purposes."/>
+    </category>
+    <category ID="newsletter-article">
+      <label xml:lang="de" text="Newsletter Artikel"/>
+      <label xml:lang="en" text="Newsletter article"
+             description="Articles in publications aimed at researchers, decision-makers, professionals and the public that report on a research project or on the activities of a research chair or a research center."/>
+    </category>
+    <category ID="newspaper-article">
+      <label xml:lang="de" text="Zeitungsartikel"/>
+      <label xml:lang="en" text="Newspaper article"
+             description="Articles in a daily, weekly or monthly publication reporting on news and social issues aimed at the public."/>
+    </category>
+    <category ID="online-resource">
+      <label xml:lang="de" text="Online Ressource"/>
+      <label xml:lang="en" text="Online resource"
+             description="Information accessible only on the web via traditional technical methods"/>
+    </category>
+    <category ID="preprint">
+      <label xml:lang="de" text="Preprint"/>
+      <label xml:lang="en" text="Preprint"
+             description="Version of a paper made publicly available before formal peer review and publication. This is only available with API v3.0+ "/>
+    </category>
+    <category ID="report">
+      <label xml:lang="de" text="Bericht"/>
+      <label xml:lang="en" text="Report"
+             description="Reports disseminating the outcomes and deliverables of a research contract."/>
+    </category>
+    <category ID="research-tool">
+      <label xml:lang="de" text="Forschungswerkzeug"/>
+      <label xml:lang="en" text="Research tool"
+             description="Series of observations, measurements or facts identified from the research."/>
+    </category>
+    <category ID="review">
+      <label xml:lang="de" text="Review"/>
+      <label xml:lang="en" text="Review"
+             description="A formal assessment of another&#x2019;s work. This is only available with API v3.0+"/>
+    </category>
+    <category ID="supervised-student-publication">
+      <label xml:lang="de" text="Betreute studentische Publikation"/>
+      <label xml:lang="en" text="Supervised student publication"
+             description="Articles on research findings published jointly with or supervised by the thesis adviser."/>
+    </category>
+    <category ID="test">
+      <label xml:lang="de" text="Test"/>
+      <label xml:lang="en" text="Test"
+             description="Assessments that include tests designed for general university selection, selection into specific courses or other evaluation purposes."/>
+    </category>
+    <category ID="translation">
+      <label xml:lang="de" text="Übersetzung"/>
+      <label xml:lang="en" text="Translation"
+             description="Translations of books and articles that identify modifications to the original edition, such as a new or revised preface."/>
+    </category>
+    <category ID="website">
+      <label xml:lang="de" text="Website"/>
+      <label xml:lang="en" text="Website"
+             description="Stand-alone locations on the web where multiple types of information on a specific theme are available."/>
+    </category>
+    <category ID="working-paper">
+      <label xml:lang="de" text="Arbeitspapier"/>
+      <label xml:lang="en" text="working paper"
+             description="Preliminary versions of articles that have not undergone review but that may be shared for comment."/>
+    </category>
+  </categories>
+</mycoreclass>
