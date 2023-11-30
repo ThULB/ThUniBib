@@ -7,7 +7,7 @@
     <category ID="contribution">
       <label xml:lang="x-group" text="true"/>
       <label xml:lang="x-marcgt" text="book"/>
-      <label xml:lang="x-mapping" text="marcgt:book orcid:journal-article"/>
+      <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:journal-article"/>
       <label xml:lang="de" text="Artikel/Beiträge"/>
       <label xml:lang="en" text="Article/Contribution"/>
 
@@ -15,7 +15,7 @@
         <label xml:lang="x-hosts" text="journal collection book newspaper video others"/>
         <label xml:lang="x-color" text="#7dabd0"/>
         <label xml:lang="x-marcgt" text="article"/>
-        <label xml:lang="x-mapping" text="marcgt:article orcid:journal-article"/>
+        <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
         <label xml:lang="de" text="Artikel/Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
         <label xml:lang="en" text="Journal article"/>
 
@@ -23,7 +23,7 @@
           <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
           <label xml:lang="x-color" text="#8671b1"/>
           <label xml:lang="x-marcgt" text="article"/>
-          <label xml:lang="x-mapping" text="marcgt:article orcid:journal-article"/>
+          <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
 
           <label xml:lang="de" text="Review Artikel"/>
           <label xml:lang="en" text="Review article"/>
@@ -33,7 +33,7 @@
         <label xml:lang="x-hosts" text="collection book newspaper video others"/>
         <label xml:lang="x-color" text="#368dbc"/>
         <label xml:lang="x-marcgt" text="article"/>
-        <label xml:lang="x-mapping" text="marcgt:article orcid:book-chapter"/>
+        <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:book-chapter"/>
 
         <label xml:lang="de" text="Buchaufsatz/Kapitel"/>
         <label xml:lang="en" text="Book chapter"/>
@@ -41,7 +41,7 @@
       <category ID="preface">
         <label xml:lang="x-hosts" text="collection proceedings lexicon journal book newspaper video others"/>
         <label xml:lang="x-color" text="#449cab"/>
-        <label xml:lang="x-mapping" text="orcid:annotation"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:annotation"/>
 
         <label xml:lang="de" text="Vorwort/Nachwort"/>
         <label xml:lang="en" text="Preface/epilogue"/>
@@ -50,7 +50,7 @@
         <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others"/>
         <label xml:lang="x-color" text="#007a8b"/>
         <label xml:lang="x-marcgt" text="abstract_or_summary"/>
-        <label xml:lang="x-mapping" text="marcgt:abstract_or_summary orcid:annotation"/>
+        <label xml:lang="x-mapping" text="marcgt:abstract_or_summary orcidWorkType:annotation"/>
 
         <label xml:lang="de" text="Abstract (Konferenz/Tagung)"/>
         <label xml:lang="en" text="Abstract (conference)"/>
@@ -58,7 +58,7 @@
       <category ID="conference_essay">
         <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others"/>
         <label xml:lang="x-color" text="#6a9864"/>
-        <label xml:lang="x-mapping" text="orcid:conference-paper"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:conference-paper"/>
 
         <label xml:lang="de" text="Konferenz-/Tagungsbeitrag"/>
         <label xml:lang="en" text="Conference paper"/>
@@ -66,7 +66,7 @@
       <category ID="blog_entry">
         <label xml:lang="x-hosts" text="blog book newspaper video others"/>
         <label xml:lang="x-color" text="#559e31"/>
-        <label xml:lang="x-mapping" text="orcid:online-resource"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:online-resource"/>
 
         <label xml:lang="de" text="Blogbeitrag"/>
         <label xml:lang="en" text="Blog post"/>
@@ -82,7 +82,7 @@
       <category ID="video_contribution">
         <label xml:lang="x-hosts" text="collection proceedings book newspaper video others"/>
         <label xml:lang="x-color" text="#92b869"/>
-        <label xml:lang="x-mapping" text="orcid:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Video-/Filmbeitrag"/>
         <label xml:lang="en" text="Video contribution"/>
@@ -97,7 +97,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#e8b65a"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:dissertation-thesis"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
 
         <label xml:lang="de" text="Bachelorarbeit"/>
         <label xml:lang="en" text="Bachelor thesis"/>
@@ -106,7 +106,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#dc9800"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:dissertation-thesis"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
         <label xml:lang="de" text="Masterarbeit"/>
         <label xml:lang="en" text="Master thesis"/>
       </category>
@@ -114,7 +114,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#eca56e"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:dissertation-thesis"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
 
         <label xml:lang="de" text="Diplomarbeit"/>
         <label xml:lang="en" text="Diploma thesis"/>
@@ -123,7 +123,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#dc6413"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:dissertation-thesis"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
 
         <label xml:lang="de" text="Magisterarbeit"/>
         <label xml:lang="en" text="Magister thesis"/>
@@ -132,7 +132,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#e18271"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:dissertation-thesis"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
 
         <label xml:lang="de" text="Dissertation"/>
         <label xml:lang="en" text="Dissertation"/>
@@ -141,7 +141,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#cb2129"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:dissertation-thesis"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
 
         <label xml:lang="de" text="Habilitationsschrift"/>
         <label xml:lang="en" text="Habilitation thesis"/>
@@ -150,7 +150,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#eca56e"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:dissertation-thesis"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
 
         <label xml:lang="de" text="Staatsexamensarbeit"/>
         <label xml:lang="en" text="State examination thesis"/>
@@ -159,7 +159,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#dc9800"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcid:working-paper"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:working-paper"/>
 
         <label xml:lang="de" text="Studienarbeit"/>
         <label xml:lang="en" text="Seminar paper"/>
@@ -172,7 +172,7 @@
       <category ID="book">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#573d90"/>
-        <label xml:lang="x-mapping" text="orcid:book"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:book"/>
 
         <label xml:lang="de" text="Buch (Monographie)"/>
         <label xml:lang="en" text="Book (monograph)"/>
@@ -181,7 +181,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#174488"/>
         <label xml:lang="x-marcgt" text="book"/>
-        <label xml:lang="x-mapping" text="marcgt:book orcid:book"/>
+        <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:book"/>
 
         <label xml:lang="de" text="Konferenz-/Tagungsband"/>
         <label xml:lang="en" text="Conference proceedings"/>
@@ -189,7 +189,7 @@
       <category ID="collection">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-marcgt" text="book"/>
-        <label xml:lang="x-mapping" text="marcgt:book orcid:book"/>
+        <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:book"/>
 
         <label xml:lang="de" text="Sammelwerk"/>
         <label xml:lang="en" text="Book (collection)"/>
@@ -198,7 +198,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#8671b1"/>
         <label xml:lang="x-marcgt" text="reporting"/>
-        <label xml:lang="x-mapping" text="marcgt:reporting orcid:report"/>
+        <label xml:lang="x-mapping" text="marcgt:reporting orcidWorkType:report"/>
 
         <label xml:lang="de" text="Forschungsbericht"/>
         <label xml:lang="en" text="Research Paper"/>
@@ -206,14 +206,14 @@
       <category ID="research_data">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#8b1878"/>
-        <label xml:lang="x-mapping" text="orcid:data-set"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:data-set"/>
 
         <label xml:lang="de" text="Forschungsdaten"/>
         <label xml:lang="en" text="Research data"/>
       </category>
       <category ID="interview">
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
-        <label xml:lang="x-mapping" text="orcid:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Interview"/>
         <label xml:lang="en" text="Interview"/>
@@ -221,7 +221,7 @@
       <category ID="patent">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#a9609d"/>
-        <label xml:lang="x-mapping" text="orcid:patent"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:patent"/>
 
         <label xml:lang="de" text="Patent"/>
         <label xml:lang="en" text="Patent specification"/>
@@ -230,7 +230,7 @@
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
         <label xml:lang="x-color" text="#8db5d5"/>
         <label xml:lang="x-marcgt" text="review"/>
-        <label xml:lang="x-mapping" text="marcgt:review orcid:book-review"/>
+        <label xml:lang="x-mapping" text="marcgt:review orcidWorkType:book-review"/>
 
         <label xml:lang="de" text="Rezension"/>
         <label xml:lang="en" text="Review"/>
@@ -239,7 +239,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#573d90"/>
         <label xml:lang="x-marcgt" text="let"/>
-        <label xml:lang="x-mapping" text="marcgt:let orcid:other"/>
+        <label xml:lang="x-mapping" text="marcgt:let orcidWorkType:other"/>
 
         <label xml:lang="de" text="Brief"/>
         <label xml:lang="en" text="Letter"/>
@@ -247,7 +247,7 @@
       <category ID="workingpaper">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-marcgt" text="book"/>
-        <label xml:lang="x-mapping" text="marcgt:book orcid:working-paper"/>
+        <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:working-paper"/>
 
         <label xml:lang="de" text="Diskussionspapier/Working Paper"/>
         <label xml:lang="en" text="Working paper"/>
@@ -256,21 +256,21 @@
         <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
         <label xml:lang="x-color" text="#8671b1"/>
         <label xml:lang="x-marcgt" text="lec"/>
-        <label xml:lang="x-mapping" text="marcgt:lec orcid:annotation"/>
+        <label xml:lang="x-mapping" text="marcgt:lec orcidWorkType:annotation"/>
 
         <label xml:lang="de" text="Urteilsanmerkung"/>
         <label xml:lang="en" text="Case note"/>
       </category>
       <category ID="poster">
         <label xml:lang="x-hosts" text="standalone proceedings collection book newspaper video others"/>
-        <label xml:lang="x-mapping" text="orcid:conference-poster"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:conference-poster"/>
 
         <label xml:lang="de" text="Poster"/>
         <label xml:lang="en" text="Poster"/>
       </category>
       <category ID="preprint">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:preprint"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:preprint"/>
 
         <label xml:lang="de" text="Preprint"/>
         <label xml:lang="en" text="Preprint"/>
@@ -285,56 +285,56 @@
       <category ID="lexicon">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#002350"/>
-        <label xml:lang="x-mapping" text="orcid:book"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:book"/>
 
         <label xml:lang="de" text="Lexikon"/>
         <label xml:lang="en" text="Lexicon"/>
       </category>
       <category ID="image">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Bild"/>
         <label xml:lang="en" text="Image/picture"/>
       </category>
       <category ID="software">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:software"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:software"/>
 
         <label xml:lang="de" text="Software"/>
         <label xml:lang="en" text="Software"/>
       </category>
       <category ID="video">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Video/Film"/>
         <label xml:lang="en" text="Video/film"/>
       </category>
       <category ID="speech">
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
-        <label xml:lang="x-mapping" text="orcid:lecture-speech"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:lecture-speech"/>
 
         <label xml:lang="de" text="Vortrag/Redebeitrag"/>
         <label xml:lang="en" text="Speech/lecture"/>
       </category>
       <category ID="map">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Karte"/>
         <label xml:lang="en" text="Map"/>
       </category>
       <category ID="sheet_music">
         <label xml:lang="x-hosts" text="standalone collection book newspaper video others"/>
-        <label xml:lang="x-mapping" text="orcid:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Noten"/>
         <label xml:lang="en" text="Sheet music"/>
       </category>
       <category ID="object">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:physical-object"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:physical-object"/>
 
         <label xml:lang="de" text="Objekt/Artefakt"/>
         <label xml:lang="en" text="Object/Artifact"/>
@@ -348,7 +348,7 @@
       <category ID="series">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#d13c43"/>
-        <label xml:lang="x-mapping" text="orcid:journal-issue"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
 
         <label xml:lang="de" text="Reihe/Serie"/>
         <label xml:lang="en" text="series"/>
@@ -356,21 +356,21 @@
       <category ID="journal">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#6aaa4a"/>
-        <label xml:lang="x-mapping" text="orcid:journal-issue"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
 
         <label xml:lang="de" text="Zeitschrift"/>
         <label xml:lang="en" text="Journal"/>
       </category>
       <category ID="newspaper">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:newspaper-article"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:newspaper-article"/>
 
         <label xml:lang="de" text="Zeitung"/>
         <label xml:lang="en" text="Newspaper"/>
       </category>
       <category ID="blog">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="orcid:website"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:website"/>
 
         <label xml:lang="de" text="Website/Blog"/>
         <label xml:lang="en" text="Website/blog"/>
@@ -378,7 +378,7 @@
     </category>
     <category ID="others">
       <label xml:lang="x-hosts" text="standalone"/>
-      <label xml:lang="x-mapping" text="orcid:other"/>
+      <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
       <label xml:lang="de" text="Sonstiges"/>
       <label xml:lang="en" text="Other"/>
