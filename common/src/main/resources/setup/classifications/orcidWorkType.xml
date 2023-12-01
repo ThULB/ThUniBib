@@ -6,10 +6,11 @@
         ORCID allows for the addition of several types of works. Below is a list of the work types that are currently
         supported, which is largely consistent with the CASRAI Output Standard.
    -->
-
   <label xml:lang="de" text="ORCID Werktyp"/>
   <label xml:lang="en" text="ORCID work type"/>
+
   <categories>
+    <!-- Publication-->
     <category ID="book">
       <label xml:lang="de" text="Buch"/>
       <label xml:lang="en" text="Book"
@@ -129,5 +130,115 @@
       <label xml:lang="en" text="working paper"
              description="Preliminary versions of articles that have not undergone review but that may be shared for comment."/>
     </category>
+
+    <!-- Conference -->
+    <category ID="conference-abstract">
+      <label xml:lang="de" text="Konferenz Abstrakt"/>
+      <label xml:lang="en" text="Conference abstract"
+             description="Texts of a specified length that states the issue to be discussed in a proposed conference paper."/>
+    </category>
+    <category ID="conference-paper">
+      <label xml:lang="de" text="Konferenzpapier"/>
+      <label xml:lang="en" text="Conference paper"
+             description="Papers written alone or collaboratively, presented at an academic conference, and published in the proceedings (not in scholarly journals)."/>
+    </category>
+    <category ID="conference-poster">
+      <label xml:lang="de" text="Konferenzposter"/>
+      <label xml:lang="en" text="Conference poster"
+             description="Posters displayed in a conference setting and conveying research highlights in an efficient manner by compelling graphics."/>
+    </category>
+
+    <!-- Intellectual Property -->
+    <category ID="disclosure">
+      <label xml:lang="de" text="Offenlegung"/>
+      <label xml:lang="en" text="Disclosure"
+             description="Publications that establish inventions as prior art thereby preventing others from patenting the same invention or concept."/>
+    </category>
+    <category ID="license">
+      <label xml:lang="de" text="Lizenz"/>
+      <label xml:lang="en" text="License"
+             description="Signed agreements to exploit a piece of IP such as a process, product, data, or software."/>
+    </category>
+    <category ID="patent">
+      <label xml:lang="de" text="Patent"/>
+      <label xml:lang="en" text="Patent"
+             description="A form of IP protection that defines the exclusive right by law for inventors and assignees to make use of and exploit their inventions, products or processes, for a limited period of time."/>
+    </category>
+    <category ID="registered-copyright">
+      <label xml:lang="de" text="eingetragenes Urheberrecht"/>
+      <label xml:lang="en" text="Registered copyright"
+             description="Registered ownership of rights under a system of laws for promoting both the creation of and access to artistic, literary, musical, dramatic and other creative works."/>
+    </category>
+    <category ID="trademark">
+      <label xml:lang="de" text="Warenzeichen"/>
+      <label xml:lang="en" text="Trademark"
+             description="Marks such as a name, word, phrase, logo, symbol, design, image of a product or service that indicates the source and provides the right to control the use of the identifier."/>
+    </category>
+
+    <!-- Other -->
+    <category ID="annotation">
+      <label xml:lang="de" text="Anmerkung"/>
+      <label xml:lang="en" text="Annotation"
+             description="Annotations contain comments or descriptions about another resource. This is only available with API v3.0+"/>
+    </category>
+    <category ID="artistic-performance">
+      <label xml:lang="de" text="künstlerische Darbietung"/>
+      <label xml:lang="en" text="Artistic performance"
+             description="Collection of information records that, in combination, represent a full and up-to-date history of artistic or performance outputs resulting from, or related to, the person&#x2019;s research or scholarly activities."/>
+    </category>
+    <category ID="data-management-pla">
+      <label xml:lang="de" text="Datenmanagementplan"/>
+      <label xml:lang="en" text="Data management plan"
+             description="A formal statement describing how research data will be managed and documented throughout a research project and the terms regarding the subsequent deposit of the data with a data repository for long-term management and preservation. This is only available with API v3.0+"/>
+    </category>
+    <category ID="data-set">
+      <label xml:lang="de" text="Datenset"/>
+      <label xml:lang="en" text="Data set"
+             description="A series of structured observations, measurements or facts identified from the research which can be stored in a database medium."/>
+    </category>
+    <category ID="inventio">
+      <label xml:lang="de" text="Erfindung"/>
+      <label xml:lang="en" text="Inventio" description="Practical and original outputs arising from research."/>
+    </category>
+    <category ID="lecture-speech">
+      <label xml:lang="de" text="Vortragsrede"/>
+      <label xml:lang="en" text="Lecture speech"
+             description="An informative talk related to research delivered to an audience."/>
+    </category>
+    <category ID="physical-object">
+      <label xml:lang="de" text="physisches Objekt"/>
+      <label xml:lang="en" text="Physical object"
+             description="A specimen, sample, or other physical object used for research purposes; an inanimate three-dimensional object or substance. This is only available with API v3.0+"/>
+    </category>
+    <category ID="research-technique">
+      <label xml:lang="de" text="Forschungstechnik"/>
+      <label xml:lang="en" text="Research technique"
+             description="A practical methods or skills applied to particular tasks identified as part of the research."/>
+    </category>
+    <category ID="software">
+      <label xml:lang="de" text="Software"/>
+      <label xml:lang="en" text="Software"
+             description="A program used to operate a computer or other technical device."/>
+    </category>
+    <category ID="spin-off-company">
+      <label xml:lang="de" text="Spin-off-Unternehmen"/>
+      <label xml:lang="en" text="Spin off company"
+             description="A company set up by a Research Organization to make commercial use of the results and findings of the Research project."/>
+    </category>
+    <category ID="standards-and-policy">
+      <label xml:lang="de" text="Standards und Richtlinien"/>
+      <label xml:lang="en" text="Standards and policy"
+             description="The development of a rule or principle that is used as a basis for judgement."/>
+    </category>
+    <category ID="technical-standard">
+      <label xml:lang="de" text="technischer Standard"/>
+      <label xml:lang="en" text="Technical standard"
+             description="Technical Standards (industrial or otherwise) that have originated from the research projects in which new protocols, methods or materials may be developed."/>
+    </category>
+    <category ID="other">
+      <label xml:lang="de" text="Andere"/>
+      <label xml:lang="en" text="Other" description="Any other type of work."/>
+    </category>
+
   </categories>
 </mycoreclass>
