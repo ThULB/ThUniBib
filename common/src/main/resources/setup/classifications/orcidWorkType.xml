@@ -186,7 +186,7 @@
       <label xml:lang="en" text="Artistic performance"
              description="Collection of information records that, in combination, represent a full and up-to-date history of artistic or performance outputs resulting from, or related to, the person&#x2019;s research or scholarly activities."/>
     </category>
-    <category ID="data-management-pla">
+    <category ID="data-management-plan">
       <label xml:lang="de" text="Datenmanagementplan"/>
       <label xml:lang="en" text="Data management plan"
              description="A formal statement describing how research data will be managed and documented throughout a research project and the terms regarding the subsequent deposit of the data with a data repository for long-term management and preservation. This is only available with API v3.0+"/>
