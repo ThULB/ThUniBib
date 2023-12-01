@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mycoreclass ID="ubogenre" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<mycoreclass ID="ubogenre" xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
   <label xml:lang="en" text="Genre" description="Publication types of university bibliography"/>
   <label xml:lang="de" text="Genre" description="Publikationstypen der Hochschulbibliographie"/>
@@ -16,7 +17,8 @@
         <label xml:lang="x-color" text="#7dabd0"/>
         <label xml:lang="x-marcgt" text="article"/>
         <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
-        <label xml:lang="de" text="Artikel/Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
+        <label xml:lang="de" text="Artikel/Aufsatz"
+               description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
         <label xml:lang="en" text="Journal article"/>
 
         <category ID="review_article">
@@ -50,7 +52,7 @@
         <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others"/>
         <label xml:lang="x-color" text="#007a8b"/>
         <label xml:lang="x-marcgt" text="abstract_or_summary"/>
-        <label xml:lang="x-mapping" text="marcgt:abstract_or_summary orcidWorkType:annotation"/>
+        <label xml:lang="x-mapping" text="marcgt:abstract_or_summary orcidWorkType:conference-abstract"/>
 
         <label xml:lang="de" text="Abstract (Konferenz/Tagung)"/>
         <label xml:lang="en" text="Abstract (conference)"/>
@@ -378,7 +380,8 @@
     </category>
     <category ID="others">
       <label xml:lang="x-hosts" text="standalone"/>
-      <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+      <label xml:lang="x-mapping"
+             text="orcidWorkType:other orcidWorkType:disclosure orcidWorkType:license orcidWorkType:registered-copyright orcidWorkType:trademark orcidWorkType:artistic-performance orcidWorkType:data-management-plan orcidWorkType:inventio orcidWorkType:research-technique orcidWorkType:spin-off-company orcidWorkType:standards-and-policy orcidWorkType:technical-standard"/>
 
       <label xml:lang="de" text="Sonstiges"/>
       <label xml:lang="en" text="Other"/>
