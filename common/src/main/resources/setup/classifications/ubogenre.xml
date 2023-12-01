@@ -277,7 +277,7 @@
       </category>
       <category ID="authors_version">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-mapping" text="journal-article"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:journal-article"/>
 
         <label xml:lang="de" text="Autorenversion"/>
         <label xml:lang="en" text="Author's version"/>
