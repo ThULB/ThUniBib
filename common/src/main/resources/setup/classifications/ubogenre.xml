@@ -74,7 +74,7 @@
       <category ID="entry">
         <label xml:lang="x-hosts" text="collection lexicon book newspaper video others"/>
         <label xml:lang="x-color" text="#007836"/>
-        <label xml:lang="x-mapping" text="encyclopedia-entry"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:encyclopedia-entry orcidWorkType:dictionary-entry"/>
 
         <label xml:lang="de" text="Lexikoneintrag"/>
         <label xml:lang="en" text="Lexicon entry"/>
