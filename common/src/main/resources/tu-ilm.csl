@@ -4,8 +4,7 @@
     <title>tu-ilm</title>
     <id>http://www.zotero.org/styles/tu-ilm</id>
     <link href="http://www.zotero.org/styles/tu-ilm" rel="self"/>
-    <link href="http://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE_Reference_Guide.pdf" rel="documentation"/>
-    <link href="https://journals.ieeeauthorcenter.ieee.org/your-role-in-article-production/ieee-editorial-style-manual/" rel="documentation"/>
+    <link href="https://bibliographie.tu-ilmenau.de/faq.xml?lang=en" rel="documentation"/>
     <author>
       <name>Philipp Sterzing</name>
       <email>philipp.sterzing@tu-ilmenau.de</email>
@@ -17,8 +16,10 @@
     <category citation-format="numeric"/>
     <category field="engineering"/>
     <category field="generic-base"/>
-    <updated>2023-04-18T00:52:46+10:00</updated>
-    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <updated>2023-12-04T11:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">
+        This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License
+    </rights>
   </info>
 <locale xml:lang="en">
     <date form="text">
