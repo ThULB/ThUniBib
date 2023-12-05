@@ -1,5 +1,41 @@
 # Changelog
 
+## 2023.12.05
+
+- #330 Add ORCID integration from base UBO
+- #425 Fixed error duplicate template 'layout.pageTitle'
+- #441 Fixed resource leak in de.uni_jena.thunibib.ThUniBibCommands.updateProjects (#442)
+- #443 Added classification nameIdentifier for each instance (#444)
+- #451 Fixed error when multiple fundings are removed
+- #455 Directory structure in thunibib-weimar/erfurt does not meet 'ubo-ansible' requirements
+- #455 Implement transformer for detailed mods:name metadata
+- #457 Applied changes needed to match orcid member api requirements
+- FSU040THUL-1197 #421 Fehlender Link bei Online-Publikation ohne DOI
+- FSU040THUL-1214 Probleme bei Import: Konferenz-/Tagungsband im Standardformular
+- FSU040THUL-1243 #417 Added field connection_nid_text as facet
+- FSU040THUL-1278 #427 PPN Import: Corresponding Author wird beim Enrichment über Scopus ignoriert
+- FSU040THUL-1281 #429 Für KDSF-Konformität nötige Erfassungsfelder ergänzen (#430)
+- FSU040THUL-1281 #436 Position "Access Rights" sollte zwischen "Open Access" und "Lizenztyp" liegen
+- FSU040THUL-1405 #460 Falsche Bezeichnung der Auflage als Ausgabe behoben
+- FSU040THUL-1564  Eingabemaske "Access Rights" und "Open Access" (#448)
+- FSU040THUL-1971 #467 Added i18n 'ubo.interviewer.abbreviated' (#468)
+- FSU040THUL-206 #433 Anreicherung mit URL nur bei Closed Access Publikationen
+- FSU040THUL-405 #423 "Lücke" in den Ergebnissen der Personensuche (#424)
+- FSU040THUL-972 Allow to set multiple fundings during import, made fundingType repeatable in form
+- FSU40THUL-1017 #413 Mark corresponding author during scopus import
+- FSU40THUL-1155 #404 Ergänzung ORIGIN.xml (Erfurt)
+- FSU40THUL-1198 #406 Schriftfarbe anpassen "Es gibt eventuell eine Dublette" und "Damit verbunden: 1 Publikation(en)"
+- FSU40THUL-1218 #411 Erweiterung CSV-Export
+- FSU40THUL-972 #408 Added command stub "thunibib update funding of publications from url {0}"
+- Update impressum.xml for Weimar
+- Updated CHANGELOG.md
+- Updated ORIGIN.xml (Ilmenau)
+- Updated contact.xml in thunibib-weimar
+- add first version of KDSF mapping for ilmenau
+- adopt font of bibentries export in html to CD of TU Ilmenau
+- minor layout improvements: (#435)
+---
+
 ## 2023.10.25
 
 - #330 Add ORCID integration from base UBO

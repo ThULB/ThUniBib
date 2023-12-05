@@ -1,0 +1,41 @@
+﻿Quelle;Priorität;Enthält Publikationstyp aus Quelle;Enthält Dokumenttyp aus Quelle;Ziel-Publikationstyp;Ziel-Dokumenttyp;Peer reviewed
+default;1;abstract;journal;Meeting Abstract;;aus Quelle
+default;2;abstract;proceedings;Meeting Abstract;;aus Quelle
+default;3;article;journal;Journalartikel;Wissenschaftlicher Artikel;aus Quelle
+default;4;article;;Sonstiger Publikationstyp;;aus Quelle
+default;5;book;book;Monographie;;aus Quelle
+default;6;book;series;Monographie;;aus Quelle
+default;7;book;;Monographie;;aus Quelle
+default;8;chapter;lexicon;Sammelbandbeitrag;Wissenschaftlicher Artikel;aus Quelle
+default;9;chapter;collection;Sammelbandbeitrag;Wissenschaftlicher Artikel;aus Quelle
+default;10;collection;series;Sammelband;;aus Quelle
+default;11;collection;journal;Sammelband;;aus Quelle
+default;12;collection;collection;Sammelband;;aus Quelle
+default;13;collection;;Sammelband;;aus Quelle
+default;14;conference_essay;journal;Konferenzpaper;Wissenschaftlicher Artikel;aus Quelle
+default;15;conference_essay;proceedings;Konferenzpaper;Wissenschaftlicher Artikel;aus Quelle
+default;16;conference_essay;;Konferenzpaper;Wissenschaftlicher Artikel;aus Quelle
+default;17;dissertation;series;Monographie;;aus Quelle
+default;18;dissertation;;Monographie;;aus Quelle
+default;19;entry;lexicon;Sammelbandbeitrag;;aus Quelle
+default;20;habilitation;series;Monographie;;aus Quelle
+default;21;habilitation;;Monographie;;aus Quelle
+default;22;image;;;;aus Quelle
+default;23;interview;journal;Beitrag in nicht-wissenschaftlichen Medien;;aus Quelle
+default;24;journal;;nicht importieren;;aus Quelle
+default;25;poster;journal;Konferenzposter;;aus Quelle
+default;26;poster;proceedings;Konferenzposter;;aus Quelle
+default;27;poster;;Konferenzposter;;aus Quelle
+default;28;preface;proceedings;Konferenzpaper;Editorial;aus Quelle
+default;29;preface;journal;Journalartikel;Editorial;aus Quelle
+default;30;preface;collection;Sammelbandbeitrag;Editorial;aus Quelle
+default;31;preface;book;Sammelbandbeitrag;Editorial;aus Quelle
+default;32;preprint;series;Preprint;;aus Quelle
+default;33;proceedings;series;Konferenzband;;aus Quelle
+default;34;proceedings;;Konferenzband;;aus Quelle
+default;35;researchpaper;series;Arbeitspapier/Forschungsbericht;;aus Quelle
+default;36;researchpaper;;Arbeitspapier/Forschungsbericht;;aus Quelle
+default;37;review;journal;Journalartikel;Rezension;aus Quelle
+default;38;review_article;journal;Journalartikel;Review;aus Quelle
+default;39;workingpaper;series;Arbeitspapier/Forschungsbericht;;aus Quelle
+default;40;workingpaper;;Arbeitspapier/Forschungsbericht;;aus Quelle
