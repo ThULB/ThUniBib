@@ -452,9 +452,9 @@ public class ThUniBibCommands {
 
         LOGGER.info("{}/{} user(s) of realm '{}' are orphaned", missing.size(), users.size(), realm);
         if (missing.size() > 0) {
-            LOGGER.info("The following users could not be found in ldap");
+            LOGGER.debug("The following users could not be found in ldap");
             for (MCRUser u : missing) {
-                LOGGER.info(u.getUserID());
+                LOGGER.debug(u.getUserID());
             }
         }
         return missing;
