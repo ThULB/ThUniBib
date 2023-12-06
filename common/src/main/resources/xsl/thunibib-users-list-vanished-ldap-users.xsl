@@ -22,7 +22,7 @@
         </div>
 
         <div class="card-body">
-          <xsl:apply-templates mode="heading"/>
+          <xsl:call-template name="heading"/>
           <xsl:apply-templates select="user"/>
         </div>
 
@@ -30,7 +30,7 @@
     </webpage>
   </xsl:template>
 
-  <xsl:template match="*" mode="heading">
+  <xsl:template name="heading">
     <div class="row font-weight-bold border-bottom pb-2 pt-2">
       <div class="col-2 text-truncate">
         <xsl:value-of select="'name'"/>
