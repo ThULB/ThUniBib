@@ -13,19 +13,28 @@
       <title xml:lang="en">Overview: vanished LDAP Users</title>
 
       <article>
-        <xsl:if test="mcrxml:isCurrentUserSuperUser()">
-          <script src="{$WebApplicationBaseURL}js/LDAPUserManagement.js"/>
-        </xsl:if>
+        <xsl:choose>
+          <xsl:when test="not(mcrxml:isCurrentUserInRole('admin'))">
+            <h5>
+              <xsl:value-of select="i18n:translate('component.base.webpage.notLoggedIn')"/>
+            </h5>
+          </xsl:when>
 
-        <div class="card-body">
-          <xsl:value-of select="i18n:translate('thunibib.vanished.users.intro')"/>
-        </div>
+          <xsl:otherwise>
+            <xsl:if test="mcrxml:isCurrentUserSuperUser()">
+              <script src="{$WebApplicationBaseURL}js/LDAPUserManagement.js"/>
+            </xsl:if>
 
-        <div class="card-body">
-          <xsl:call-template name="heading"/>
-          <xsl:apply-templates select="user"/>
-        </div>
+            <div class="card-body">
+              <xsl:value-of select="i18n:translate('thunibib.vanished.users.intro')"/>
+            </div>
 
+            <div class="card-body">
+              <xsl:call-template name="heading"/>
+              <xsl:apply-templates select="user"/>
+            </div>
+          </xsl:otherwise>
+        </xsl:choose>
       </article>
     </webpage>
   </xsl:template>

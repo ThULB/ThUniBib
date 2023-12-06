@@ -30,8 +30,9 @@ public class ListVanishedLDAPUsersServlet extends MCRServlet {
 
     @Override
     protected void doGet(MCRServletJob job) throws Exception {
+        Document xml = new Document(new Element("vanished-ldap-users"));
         if (!MCRXMLFunctions.isCurrentUserInRole("admin")) {
-            job.getResponse().sendError(HttpServletResponse.SC_FORBIDDEN);
+            getLayoutService().doLayout(job.getRequest(), job.getResponse(), new MCRJDOMContent(xml));
             return;
         }
 
@@ -41,7 +42,6 @@ public class ListVanishedLDAPUsersServlet extends MCRServlet {
             .map(MCRRealm::getID)
             .collect(Collectors.toList());
 
-        Document xml = new Document(new Element("vanished-ldap-users"));
         realmIDs.forEach(r -> {
             ThUniBibCommands.listVanishedLDAPUsers(r).forEach(user -> {
                 Element userElem = new Element("user");
