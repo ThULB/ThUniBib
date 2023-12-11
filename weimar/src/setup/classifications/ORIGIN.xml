@@ -694,6 +694,13 @@
         <label xml:lang="x-destatis" text="3520"/>
       </category>
 
+      <category ID="04.20.001">
+        <label xml:lang="de" text="Professur Informationssicherheit und Kryptographie (2024)"/>
+
+        <label xml:lang="x-destatis" text="3520"/>
+        <label xml:lang="x-from" text="2024"/>
+      </category>
+
       <category ID="04.20">
         <label xml:lang="de" text="Professur Mediensicherheit (-2023)"/>
         <label xml:lang="en" text="Professorship Media Security"/>
@@ -705,6 +712,13 @@
         <label xml:lang="de" text="Professur Informationssicherheit und Kryptographie (2023-)"/>
         <label xml:lang="x-destatis" text="3520"/>
         <label xml:lang="x-from" text="2023"/>
+      </category>
+
+      <category ID="04.22.001">
+        <label xml:lang="de" text="Professur Virtuelle Realität und Visualisierung (2024-)"/>
+
+        <label xml:lang="x-destatis" text="3520"/>
+        <label xml:lang="x-from" text="2024"/>
       </category>
 
       <category ID="04.22">
@@ -719,7 +733,12 @@
         <label xml:lang="x-destatis" text="3520"/>
         <label xml:lang="x-from" text="2023"/>
       </category>
-
+      <category ID="04.24.001">
+        <label xml:lang="de" text="Professur Intelligente Informationssysteme (2024-)"/>
+        <label xml:lang="x-gnd" text="1079423087"/>
+        <label xml:lang="x-destatis" text="3520"/>
+        <label xml:lang="x-from" text="2024"/>
+      </category>
       <category ID="04.24">
         <label xml:lang="de" text="Professur Content Management und Webtechnologien (-2023)"/>
         <label xml:lang="en" text="Professorship Web Technology and Information Systems"/>
