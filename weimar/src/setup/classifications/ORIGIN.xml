@@ -347,10 +347,17 @@
         <label xml:lang="x-gnd" text="1058690981"/>
         <label xml:lang="x-destatis" text="7550"/>
 
-        <category ID="02.05.01">
-          <label xml:lang="de" text="Professur Technologien urbaner Stoffstromnutzungen"/>
-          <label xml:lang="en" text="Professorship Urban Bioengineering for Resource Recovery"/>
+        <category ID="02.05.01.001">
+          <label xml:lang="de" text="Siedlungswasserwirtschaft und Technologien urbaner Stoffstromnutzungen (2024-)"/>
           <label xml:lang="x-destatis" text="7550"/>
+          <label xml:lang="x-from" text="2024"/>
+
+          <category ID="02.05.01">
+            <label xml:lang="de" text="Professur Technologien urbaner Stoffstromnutzungen (-2023)"/>
+            <label xml:lang="en" text="Professorship Urban Bioengineering for Resource Recovery (-2023)"/>
+            <label xml:lang="x-destatis" text="7550"/>
+            <label xml:lang="x-to" text="2023"/>
+          </category>
         </category>
 
         <category ID="02.05.02">
@@ -367,11 +374,20 @@
           <label xml:lang="x-destatis" text="7550"/>
         </category>
 
-        <category ID="02.05.04">
-          <label xml:lang="de" text="Professur Biotechnologie in der Ressourcenwirtschaft"/>
-          <label xml:lang="en" text="Professorship Biotechnology in Resources Management"/>
+        <category ID="02.05.04.001">
+          <label xml:lang="de" text="Professur Ressourcenwirtschaft (2024-)"/>
+
           <label xml:lang="x-gnd" text="1041307950"/>
           <label xml:lang="x-destatis" text="7550"/>
+          <label xml:lang="x-from" text="2024"/>
+
+          <category ID="02.05.04">
+            <label xml:lang="de" text="Professur Biotechnologie in der Ressourcenwirtschaft (-2023)"/>
+            <label xml:lang="en" text="Professorship Biotechnology in Resources Management"/>
+            <label xml:lang="x-gnd" text="1041307950"/>
+            <label xml:lang="x-destatis" text="7550"/>
+            <label xml:lang="x-to" text="2023"/>
+          </category>
         </category>
 
         <category ID="02.05.05">
@@ -585,17 +601,17 @@
         <label xml:lang="x-destatis" text="0130"/>
       </category>
 
-      <category ID="04.02">
-        <label xml:lang="de" text="Professur Mediensoziologie (-2023)"/>
-        <label xml:lang="en" text="Professorship of Media Sociology"/>
+      <category ID="04.02.001">
+        <label xml:lang="de" text="Professur Kultur- und Mediensoziologie (2024-)"/>
         <label xml:lang="x-destatis" text="0130"/>
-        <label xml:lang="x-to" text="2023"/>
-      </category>
+        <label xml:lang="x-from" text="2024"/>
 
-      <category ID="04.03">
-        <label xml:lang="de" text="Professur Kultur- und Mediensoziologie (2023-)"/>
-        <label xml:lang="x-destatis" text="0130"/>
-        <label xml:lang="x-from" text="2023"/>
+        <category ID="04.02">
+          <label xml:lang="de" text="Professur Mediensoziologie (-2023)"/>
+          <label xml:lang="en" text="Professorship of Media Sociology"/>
+          <label xml:lang="x-destatis" text="0130"/>
+          <label xml:lang="x-to" text="2023"/>
+        </category>
       </category>
 
       <category ID="04.04">
@@ -610,16 +626,16 @@
         <label xml:lang="x-destatis" text="0130"/>
       </category>
 
-      <category ID="04.06">
-        <label xml:lang="de" text="Professur Philosophie audiovisueller Medien (-2023)"/>
+      <category ID="04.06.001">
+        <label xml:lang="de" text="Professur Philosophie und Ästhetik (2024-)"/>
         <label xml:lang="x-destatis" text="0130"/>
-        <label xml:lang="x-to" text="2023"/>
-      </category>
+        <label xml:lang="x-from" text="2024"/>
 
-      <category ID="04.07">
-        <label xml:lang="de" text="Professur Philosophie und Ästhetik (2023-)"/>
-        <label xml:lang="x-destatis" text="0130"/>
-        <label xml:lang="x-from" text="2023"/>
+        <category ID="04.06">
+          <label xml:lang="de" text="Professur Philosophie audiovisueller Medien (-2023)"/>
+          <label xml:lang="x-destatis" text="0130"/>
+          <label xml:lang="x-to" text="2023"/>
+        </category>
       </category>
 
       <category ID="04.08">
@@ -699,19 +715,13 @@
 
         <label xml:lang="x-destatis" text="3520"/>
         <label xml:lang="x-from" text="2024"/>
-      </category>
 
-      <category ID="04.20">
-        <label xml:lang="de" text="Professur Mediensicherheit (-2023)"/>
-        <label xml:lang="en" text="Professorship Media Security"/>
-        <label xml:lang="x-destatis" text="3520"/>
-        <label xml:lang="x-to" text="2023"/>
-      </category>
-
-      <category ID="04.21">
-        <label xml:lang="de" text="Professur Informationssicherheit und Kryptographie (2023-)"/>
-        <label xml:lang="x-destatis" text="3520"/>
-        <label xml:lang="x-from" text="2023"/>
+        <category ID="04.20">
+          <label xml:lang="de" text="Professur Mediensicherheit (-2023)"/>
+          <label xml:lang="en" text="Professorship Media Security"/>
+          <label xml:lang="x-destatis" text="3520"/>
+          <label xml:lang="x-to" text="2023"/>
+        </category>
       </category>
 
       <category ID="04.22.001">
@@ -719,39 +729,28 @@
 
         <label xml:lang="x-destatis" text="3520"/>
         <label xml:lang="x-from" text="2024"/>
+
+        <category ID="04.22">
+          <label xml:lang="de" text="Professur Systeme der Virtuellen Realität (-2023)"/>
+          <label xml:lang="en" text="Professorship Virtual Reality Systems and Visualization Research"/>
+          <label xml:lang="x-destatis" text="3520"/>
+          <label xml:lang="x-to" text="2023"/>
+        </category>
       </category>
 
-      <category ID="04.22">
-        <label xml:lang="de" text="Professur Systeme der Virtuellen Realität (-2023)"/>
-        <label xml:lang="en" text="Professorship Virtual Reality Systems and Visualization Research"/>
-        <label xml:lang="x-destatis" text="3520"/>
-        <label xml:lang="x-to" text="2023"/>
-      </category>
-
-      <category ID="04.23">
-        <label xml:lang="de" text="Professur Virtuelle Realität und Visualisierung (2023-)"/>
-        <label xml:lang="x-destatis" text="3520"/>
-        <label xml:lang="x-from" text="2023"/>
-      </category>
       <category ID="04.24.001">
         <label xml:lang="de" text="Professur Intelligente Informationssysteme (2024-)"/>
         <label xml:lang="x-gnd" text="1079423087"/>
         <label xml:lang="x-destatis" text="3520"/>
         <label xml:lang="x-from" text="2024"/>
-      </category>
-      <category ID="04.24">
-        <label xml:lang="de" text="Professur Content Management und Webtechnologien (-2023)"/>
-        <label xml:lang="en" text="Professorship Web Technology and Information Systems"/>
-        <label xml:lang="x-gnd" text="1079423087"/>
-        <label xml:lang="x-destatis" text="3520"/>
-        <label xml:lang="x-to" text="2023"/>
-      </category>
 
-      <category ID="04.25">
-        <label xml:lang="de" text="Professur Intelligente Informationssysteme (2023-)"/>
-        <label xml:lang="x-gnd" text="1079423087"/>
-        <label xml:lang="x-destatis" text="3520"/>
-        <label xml:lang="x-from" text="2023"/>
+        <category ID="04.24">
+          <label xml:lang="de" text="Professur Content Management und Webtechnologien (-2023)"/>
+          <label xml:lang="en" text="Professorship Web Technology and Information Systems"/>
+          <label xml:lang="x-gnd" text="1079423087"/>
+          <label xml:lang="x-destatis" text="3520"/>
+          <label xml:lang="x-to" text="2023"/>
+        </category>
       </category>
 
       <category ID="04.26">
