@@ -650,11 +650,18 @@
         <label xml:lang="x-destatis" text="0130"/>
       </category>
 
-      <category ID="04.10">
-        <label xml:lang="de" text="Professur Medientheorie und Wissenschaftsgeschichte (2023-)"/>
+      <category ID="04.10.001">
+        <label xml:lang="de" text="Professur Medientheorie und Wissenschaftsgeschichte (2024-)"/>
         <label xml:lang="en" text="Professorship Media Theory and History of Science"/>
         <label xml:lang="x-destatis" text="0130"/>
-        <label xml:lang="x-from" text="2023"/>
+        <label xml:lang="x-from" text="2024"/>
+
+        <category ID="04.10">
+          <label xml:lang="de" text="Professur MTheorie medialer Welten (-2023)"/>
+          <label xml:lang="en" text="Professorship Media Theory and History of Science"/>
+          <label xml:lang="x-destatis" text="0130"/>
+          <label xml:lang="x-to" text="2023"/>
+        </category>
       </category>
 
       <category ID="04.11">
