@@ -1,5 +1,13 @@
 # Changelog
 
+## 2024.01.02
+
+- #469 table header in list of vanished ldap users is generated to often (#470)
+- #475 Added properties MCR.user2.IdentityManagement.UserCreation.Affiliation and MCR.user2.IdentityManagement.UserCreation.LDAP.Realm (#477)
+- #475 Removed MCR.user2.matching.chain=org.mycore.ubo.matcher.MCRUserMatcherDummy (#476)
+- FSU040THUL-2021 #471 Update funding of publications via cron job, disabled by default (#472)
+---
+
 ## 2023.12.05
 
 - #330 Add ORCID integration from base UBO
