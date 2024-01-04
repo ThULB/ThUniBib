@@ -93,7 +93,7 @@
 
 <xsl:template match="mods:publisher[1]">
   <xsl:choose>
-    <xsl:when test="//mods:mods/mods:genre[contains('article', text())] and not(./ancestor::mods:relatedItem) and //mods:relatedItem//mods:publisher"/>
+    <xsl:when test="//mods:mods/mods:genre[contains(@valueURI, 'article')] and not(./ancestor::mods:relatedItem) and //mods:relatedItem//mods:publisher"/>
     <xsl:otherwise>
       <xsl:call-template name="copy-and-apply"/>
     </xsl:otherwise>
