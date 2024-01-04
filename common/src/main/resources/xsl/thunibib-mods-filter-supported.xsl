@@ -52,7 +52,7 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
-  <xsl:template match="mods:genre[@type='intern'][1]|mods:genre/@type">
+  <xsl:template match="mods:genre[@type='intern'][1]|mods:genre/@type|mods:genre/@authorityURI|mods:genre/@valueURI">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
