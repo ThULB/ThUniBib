@@ -513,4 +513,44 @@ public class ThUniBibCommands {
             throw new RuntimeException(e);
         }
     }
+
+    @MCRCommand(syntax = "thunibib set username of {0} to lead id",
+        help = "Renames the user to its lead id. The realm of the user must be provided even if its the local realm")
+    public static boolean convertUsernameToEduPersonUniqueId(String userName) {
+        if (userName == null) {
+            LOGGER.error("Username is null");
+            return false;
+        }
+
+        MCRUser mcrUser = MCRUserManager.getUser(userName);
+        if (mcrUser == null) {
+            LOGGER.error("User {} could not be found", userName);
+            return false;
+        }
+
+        if (MCRRealmFactory.getLocalRealm().equals(mcrUser.getRealm())) {
+            LOGGER.warn("Renaming users in {} is not supported", MCRRealmFactory.getLocalRealm().getID());
+            return false;
+        }
+
+        Optional<MCRUserAttribute> leadIdAttribute = getLeadIdAttribute(mcrUser);
+        if (leadIdAttribute.isEmpty()) {
+            LOGGER.warn("Lead id attribute is empty for user {}", userName);
+            return false;
+        }
+
+        String attributeValue = leadIdAttribute.get().getValue();
+        int index = attributeValue.indexOf("@");
+        String leadIdValue = index == -1 ? attributeValue : attributeValue.substring(0, index);
+
+        EntityManager em = MCREntityManagerProvider.getCurrentEntityManager();
+        Query query = em.createQuery("UPDATE MCRUser SET userName = :leadIdValue WHERE userName = :userName");
+        query.setParameter("leadIdValue", leadIdValue);
+        query.setParameter("userName", mcrUser.getUserName());
+        int updateCount = query.executeUpdate();
+
+        LOGGER.info("Renamed username '{}' from '{}' to '{}'", userName, userName, leadIdValue);
+
+        return updateCount > 0;
+    }
 }
