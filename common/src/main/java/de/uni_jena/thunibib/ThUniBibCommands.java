@@ -50,6 +50,7 @@ import org.mycore.user2.MCRRealm;
 import org.mycore.user2.MCRRealmFactory;
 import org.mycore.user2.MCRUser;
 import org.mycore.user2.MCRUserAttribute;
+import org.mycore.user2.MCRUserCommands;
 import org.mycore.user2.MCRUserManager;
 
 import javax.naming.NamingException;
@@ -59,6 +60,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -512,5 +514,96 @@ public class ThUniBibCommands {
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @MCRCommand(syntax = "thunibib set username of {0} to lead id",
+        help = "Renames the user to its lead id. The realm of the user must be provided even if its the local realm")
+    public static List<String> renameUsernameOfUserToLeadId(String userToRename) {
+        if (userToRename == null) {
+            LOGGER.error("Username is null");
+            return null;
+        }
+
+        MCRUser mcrUser = MCRUserManager.getUser(userToRename);
+        if (mcrUser == null) {
+            LOGGER.error("User {} could not be found", userToRename);
+            return null;
+        }
+
+        if (MCRRealmFactory.getLocalRealm().equals(mcrUser.getRealm())) {
+            LOGGER.warn("Renaming users in {} is not supported", MCRRealmFactory.getLocalRealm().getID());
+            return null;
+        }
+
+        Optional<MCRUserAttribute> leadIdAttribute = getLeadIdAttribute(mcrUser);
+        if (leadIdAttribute.isEmpty()) {
+            LOGGER.warn("Lead id attribute is empty for user {}", userToRename);
+            return null;
+        }
+
+        String scopedAttributeValue = leadIdAttribute.get().getValue();
+        int index = scopedAttributeValue.indexOf("@");
+        String unscopedAttributeValue = index == -1 ? scopedAttributeValue
+                                                    : scopedAttributeValue.substring(0, index);
+
+        if (mcrUser.getUserName().equals(unscopedAttributeValue)) {
+            LOGGER.info("User {} ({}) was not renamed as it has already its lead id as username", userToRename,
+                mcrUser.getRealName());
+            return null;
+        }
+
+        if (MCRUserManager.exists(unscopedAttributeValue, mcrUser.getRealm().getID())) {
+            LOGGER.warn("Cannot rename {} as it would duplicate user {}", userToRename, scopedAttributeValue);
+            return null;
+        }
+
+        // remove user with old username from roles
+        List<String> roleIDs = mcrUser.getSystemRoleIDs().stream().toList();
+        for (String roleId : roleIDs) {
+            MCRUserCommands.unassignUserFromRole(userToRename, roleId);
+        }
+
+        // set the new username
+        EntityManager em = MCREntityManagerProvider.getCurrentEntityManager();
+        Query query = em.createQuery("UPDATE MCRUser SET userName = :leadIdValue WHERE userName = :userName");
+        query.setParameter("leadIdValue", unscopedAttributeValue);
+        query.setParameter("userName", mcrUser.getUserName());
+        query.executeUpdate();
+
+        LOGGER.info("Renamed username '{} ({})' from '{}' to '{}'", userToRename, mcrUser.getRealName(),
+            userToRename, scopedAttributeValue);
+
+        // assign new user roles previously saved
+        List<String> commands = new ArrayList<>();
+        for (String roleId : roleIDs) {
+            commands.add("assign user " + scopedAttributeValue + " to role " + roleId);
+        }
+
+        return commands;
+    }
+
+    @MCRCommand(syntax = "thunibib set usernames of users in realm {0} to their lead id",
+        help = "Renames username of all users to their lead ids")
+    public static List<String> renameUsernamesToLeadId(String realmId) {
+        MCRRealm mcrRealm = MCRRealmFactory.getRealm(realmId);
+
+        if (MCRRealmFactory.getLocalRealm().equals(mcrRealm)) {
+            LOGGER.warn("Renaming users in realm '{}' is not supported", MCRRealmFactory.getLocalRealm().getID());
+            return null;
+        }
+
+        if (mcrRealm == null) {
+            LOGGER.error("The realm '{}' cannot be found", realmId);
+            return null;
+        }
+
+        List<String> list = new ArrayList<>();
+        MCRUserManager.listUsers(null, mcrRealm.getID(), null).forEach(mcrUser -> {
+            String username = mcrUser.getUserName();
+            String realm = mcrUser.getRealm().getID();
+            list.add("thunibib set username of " + username + "@" + realm + " to lead id");
+        });
+
+        return list;
     }
 }
