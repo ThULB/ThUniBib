@@ -29,14 +29,14 @@
       <article class="card mb-3" xml:lang="en">
         <div class="card-body">
           <p>
-            The publications of members of the TU Ilmenau are listed in the University Bibliography. The publications must have been produced in connection with an activity at the university. If the university library owns the publications, you will find a corresponding link into the library catalogue.
+            The publications of members of the TU Ilmenau are listed in the University Bibliography. The publications must have been produced in connection with an activity at the university. If the university library owns the publications, you will find a corresponding link into the library catalog.
           </p>
           <p>
             The publications enter the bibliography via databases, manual notifications or lists and are editorially checked by the Ilmenau Universtiy Library.<br />
             Members of the TU Ilmenau can also submit the bibliographic data of their publications directly via the <a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">registration form</a>.
           </p>
           <p>
-            To ensure that the cataloguing is uniform and bibliographically accurate, the departments provide the University Library with complete copies of articles from journals that <a href="https://opac.lbs-ilmenau.gbv.de/LNG=DU/DB=1/">not available in the library's holdings</a> for cataloging. For all other publications that are also not in the library's holdings, we ask that they be made available for inspection or that a voucher copy be provided for the library's holdings.
+            To ensure that the cataloging is uniform and bibliographically accurate, the departments provide the University Library with complete copies of articles from journals that <a href="https://opac.lbs-ilmenau.gbv.de/LNG=EN/DB=1/">not available in the library's holdings</a> for cataloging. For all other publications that are also not in the library's holdings, we ask that they be made available for inspection or that a voucher copy be provided for the library's holdings.
           </p>
           <p>
             The development of the university bibliography is supported by the state of Thuringia as part of the Thuringian digital strategy. And it is being done in cooperation with the Library Service Center Thuringia as well as the Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
@@ -55,7 +55,7 @@
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Welche Publikationen werden in die Universitätsbibliographie eingetragen?
@@ -74,7 +74,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -85,7 +85,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                Alle Angehörigen und Mitglieder der Technischen Universität Ilmenau können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine <a href="servlets/MCRShibbolethLoginServlet">Anmeldung mit dem UniRZ-Login</a> erforderlich.
+                Alle Angehörigen und Mitglieder der TU Ilmenau können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine <a href="servlets/MCRShibbolethLoginServlet">Anmeldung mit dem UniRZ-Login</a> erforderlich.
               </p>
             </div>
           </div>
@@ -114,7 +114,7 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -132,23 +132,23 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingFour">
+          <div class="card-header" id="headingFive">
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Was bedeuten die einzelnen Publikationstypen?
               </button>
             </h3>
           </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
             <div class="card-body">
               <dl>
-                <dt>Artikel/Aufsatz</dt>
+                <dt>Artikel / Aufsatz</dt>
                 <dd>Ein Artikel oder Aufsatz ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen in einer Zeitschrift veröffentlicht wurde.</dd>
-                <dt>Konferenz-/Tagungsbeitrag</dt>
-                <dd>Ein Konferenz-/Tagungsbeitrag ist eine Konferenzschrift, die im Rahmen einer Konferenz entstanden ist und in einem Tagungsband, einer Zeitschrift oder einem Repositorium publiziert wurde.</dd>
+                <dt>Konferenz- / Tagungsbeitrag</dt>
+                <dd>Ein Konferenz- / Tagungsbeitrag ist eine Konferenzschrift, die im Rahmen einer Konferenz entstanden ist und in einem Tagungsband, einer Zeitschrift oder einem Repositorium publiziert wurde.</dd>
                 <dt>Buchaufsatz / Kapitel</dt>
                 <dd>Ein Buchaufsatz oder Kapitel ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einem Buch veröffentlicht wurde.</dd>
                 <dt>Abstract (Konferenz/Tagung)</dt>
@@ -161,12 +161,12 @@
                 <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
                 <dt>Tagungsband</dt>
                 <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge einer wissenschaftlichen Tagung in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
-                <dt>Diskussionspapier/Working paper</dt>
+                <dt>Diskussionspapier / Working paper</dt>
                 <dd>Diskussionspapiere oder Arbeitspapiere (engl. Working Paper) sind meist mehrseitige Veröffentlichungen von Wissenschaftlern, die nicht in Fachzeitschriften oder Fachbüchern erscheinen, sondern als projekteigene Veröffentlichungen verbreitet werden, z. B. über das Repositorium einer Hochschule.</dd>
                 <dt>Forschungsbericht</dt>
                 <dd>Die Kategorie “Bericht” umfasst öffentliche wissenschaftliche Publikationen, die entweder von der Institution herausgegeben wurde, in der die Forschung stattfindet, oder im Auftrag einer Institution angefertigt wurden. Arbeitspapiere, Gutachten, Forschungs- und Abschlussberichte z.B. von Projekten öffentlicher Einrichtungen können hier erfasst werden.</dd>
                 <dt>Forschungsdaten</dt>
-                <dd>Forschungsdaten sind Daten, die bei Planung, Durchführung und Dokumentation wissenschaftlicher Vorhaben entstehen oder bei einem solchen Vorhaben Verwendung finden. Sie bilden ein wesentliches Fundament wissenschaftlicher Arbeiten und dokumentieren deren Ergebnisse. Auswertung, Analyse und Interpretation der Forschungsdaten ermöglicht Schlussfolgerungen, erzeugt Information und liefert neue Erkenntnisse.</dd>
+                <dd>Forschungsdaten sind Daten, die bei der Planung, der Durchführung und der Dokumentation wissenschaftlicher Vorhaben entstehen oder bei einem solchen Vorhaben Verwendung finden. Sie bilden ein wesentliches Fundament wissenschaftlicher Arbeiten und dokumentieren deren Ergebnisse. Auswertung, Analyse und Interpretation der Forschungsdaten ermöglicht Schlussfolgerungen, erzeugt Informationen und liefert neue Erkenntnisse.</dd>
                 <dt>Interview</dt>
                 <dd>Interviews mit Bezug auf wissenschaftliche Tätigkeiten, die in Zeitschriften, Zeitungen, Blogs, Rundfunk oder Fernsehen veröffentlicht wurden, können hier angegeben werden.</dd>
                 <dt>Lexikon</dt>
@@ -195,7 +195,7 @@
                 <dd>Eine Reihe oder Serie ist ein fortlaufendes Sammelwerk, welches mehrere Publikationen, die jeweils in sich abgeschlossen sind, aber in einem allgemeinen thematischen Bezug zueinander stehen, umfasst.</dd>
                 <dt>Zeitung</dt>
                 <dd>Eine Zeitung ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge mit aktuellem und universellem Inhalt erscheinen.</dd>
-                <dt>Wesite/Blog</dt>
+                <dt>Website / Blog</dt>
                 <dd>Ein Blog ist eine tagebuchartige, öffentlich zugängliche Webseite, die ständig um Kommentare und Notizen zu bestimmten wissenschaftlichen Themen ergänzt wird.</dd>
               </dl>
             </div>
@@ -203,9 +203,9 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingFive">
+          <div class="card-header" id="headingSix">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
@@ -217,7 +217,7 @@
               <dl>
 
                 <dt>Open Access</dt>
-                <dd><strong>Offener Zugang:</strong> Eine Ressource ist Open Access wenn sie sofort und dauerhaft online und für alle im Web kostenlos und ohne finanzielle und technische Hindernisse verfügbar ist.</dd>
+                <dd><strong>Offener Zugang:</strong> Eine Ressource ist Open Access, wenn sie sofort und dauerhaft online und für alle im Web kostenlos und ohne finanzielle und technische Hindernisse verfügbar ist.</dd>
 
                 <dt>Embargoed access</dt>
                 <dd><strong>Zugang unterliegt Embargo:</strong> Eine Ressource, die einem Embargo unterliegt, wird ab einem bestimmten Datum für den offenen Zugriff freigegeben. Bis dahin können nur die Metadaten angezeigt werden. Embargos können von Herausgeber- und Geldgeberrichtlinien verlangt oder vom Autor festgelegt werden.</dd>
@@ -245,7 +245,7 @@
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Which publications are entered in the university bibliography?
@@ -275,7 +275,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                All members and affiliates of the Technische Universität Ilmenau can report their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the URMZ login</a>.
+                All members and affiliates of the TU Ilmenau can report their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>.
               </p>
             </div>
           </div>
@@ -295,7 +295,7 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                On the page„<a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
+                On the page „<a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
               </p>
             </div>
           </div>
@@ -322,29 +322,29 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingFour">
+          <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 What do separate publication types mean?
               </button>
             </h3>
           </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
 
 			<div class="card-body">
               <dl>
                 <dt>Essay / Article</dt>
-                <dd>An essay/article is a self-contained, dependent contribution to a specific topic/question that has been published together with other contributions in a journal.</dd>
+                <dd>An essay / article is a self-contained, dependent contribution to a specific topic / question that has been published together with other contributions in a journal.</dd>
                 <dt>Conference paper</dt>
                 <dd>A conference paper is a paper that was produced as part of a conference and has been published in a conference proceedings, journal, or repository.</dd>
                 <dt>Book essay / Chapter</dt>
                 <dd>A book essay / chapter is a self-contained, dependent contribution to a specific topic / question that has been published together with other contributions, for example in a book.</dd>
                 <dt>Abstract</dt>
                 <dd>An abstract is a short text summarizing a presentation at a conference and published either in a scientific journal or in conference proceedings.</dd>
-                <dt>Preface / Epilogue</dt>
+                <dt>Preface / Epilog</dt>
                 <dd>A preface / epilog is a self-contained, dependent contribution to the introduction or conclusion of a topic in a journal or book.</dd>
                 <dt>Book (monograph)</dt>
                 <dd>A book, written by one or more authors, dedicated to a specific topic and presenting it comprehensively and in consideration of the relevant research results.</dd>
@@ -386,7 +386,7 @@
                 <dd>A series is an ongoing collective work comprising several publications, each of which is self-contained but with a general thematic reference to each other.</dd>
                 <dt>Newspaper</dt>
                 <dd>A newspaper is a regularly published serial that includes articles with current and universal content.</dd>
-                <dt>Wesite/Blog</dt>
+                <dt>Website / Blog</dt>
                 <dd>A blog is a diary-like, publicly accessible website that is constantly updated with comments and notes on specific scientific topics.</dd>
               </dl>
 
@@ -394,6 +394,36 @@
 
          </div>
 
+        </div>
+		
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"></i>
+                <i class="fas fa-minus-circle"></i>
+                What is the difference between different Access Rights options?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+            <div class="card-body">
+              <dl>
+
+                <dt>Open Access</dt>
+                <dd>Open access refers to a resource that is immediately and permanently online, and free for all on the Web, without financial and technical barriers.</dd>
+
+                <dt>Embargoed access</dt>
+                <dd>Embargoed access refers to a resource that is metadata only access until released for open access on a certain date. Embargoes can be required by publishers and funders policies, or set by the author.	</dd>
+
+                <dt>Restricted access</dt>
+                <dd>Restricted access refers to a resource that is available in a system but with some type of restriction for full open access.</dd>
+
+                <dt>Metadata only access</dt>
+                <dd>Metadata only access refers to a resource in which access is limited to metadata only. The resource itself is described by the metadata, but neither is directly available through the system or platform.</dd>
+              </dl>
+            </div>
+          </div>
         </div>
 
       </div>
