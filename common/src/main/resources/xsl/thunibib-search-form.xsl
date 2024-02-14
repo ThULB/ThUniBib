@@ -4,18 +4,13 @@
                 xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 exclude-result-prefixes="i18n mcrxsl mods xsl xalan">
 
+  <xsl:include href="resource:xsl/response-get-handler.xsl"/>
+
   <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:template match="/landing-page">
     <xsl:variable name="handler">
-      <xsl:choose>
-        <xsl:when test="mcrxsl:isCurrentUserInRole('admin')">
-          <xsl:value-of select="'search-all'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="'search'"/>
-        </xsl:otherwise>
-      </xsl:choose>
+      <xsl:call-template name="get-solr-request-handler"/>
     </xsl:variable>
 
     <form role="form" method="get" action="servlets/solr/{$handler}">
