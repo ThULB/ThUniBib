@@ -10,10 +10,10 @@
     <xsl:variable name="handler">
       <xsl:choose>
         <xsl:when test="mcrxsl:isCurrentUserInRole('admin')">
-          <xsl:value-of select="'thunibib'"/>
+          <xsl:value-of select="'search-all'"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="'thunibib-public'"/>
+          <xsl:value-of select="'search'"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>

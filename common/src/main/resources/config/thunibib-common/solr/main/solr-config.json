@@ -69,7 +69,7 @@
   },
   {
     "add-requestHandler": {
-      "name": "/thunibib",
+      "name": "/search-all",
       "class": "solr.SearchHandler",
       "defaults": {
         "echoParams": "explicit",
@@ -105,7 +105,7 @@
   },
   {
     "add-requestHandler": {
-      "name": "/thunibib-public",
+      "name": "/search",
       "class": "solr.SearchHandler",
       "defaults": {
         "echoParams": "explicit",
