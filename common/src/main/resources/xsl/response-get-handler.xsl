@@ -5,7 +5,7 @@
                 xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 exclude-result-prefixes="mcrxsl xalan xsl">
 
-  <xsl:template name="get-solr-request-handler">
+  <xsl:variable name="solrRequestHandler">
     <xsl:choose>
       <xsl:when test="mcrxsl:isCurrentUserInRole('admin')">
         <xsl:value-of select="'search-all?'"/>
@@ -14,6 +14,6 @@
         <xsl:value-of select="'search?'"/>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:template>
+  </xsl:variable>
 
 </xsl:stylesheet>

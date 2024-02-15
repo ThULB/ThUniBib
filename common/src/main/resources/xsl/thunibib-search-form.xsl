@@ -9,11 +9,7 @@
   <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:template match="/landing-page">
-    <xsl:variable name="handler">
-      <xsl:call-template name="get-solr-request-handler"/>
-    </xsl:variable>
-
-    <form role="form" method="get" action="servlets/solr/{$handler}">
+    <form role="form" method="get" action="servlets/solr/{$solrRequestHandler}">
       <div class="form-group form-inline mb-0">
         <label for="input" class="mycore-form-label">
           <xsl:value-of select="i18n:translate('ubo.search.simple')"/>
