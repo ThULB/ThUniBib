@@ -8,37 +8,7 @@
 
   <article class="card mb-3">
     <div class="card-body">
-      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">
-        <div class="form-group form-inline mb-0">
-          <xed:bind xpath="/query">
-            <xed:bind xpath="@mask" default="index.xed" />
-            <xed:bind xpath="@numPerPage" default="10" />
-            <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
-              <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
-                <input id="input" type="text" class="w-75 border rounded-0 form-control"
-                       placeholder="{i18n:translate('editor.search.search')}" />
-              </xed:bind>
-
-              <!-- Standard users must only find confirmed publications, admins find all publications -->
-              <xed:choose>
-                <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
-                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
-                </xed:when>
-                <xed:otherwise>
-                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']" />
-                </xed:otherwise>
-              </xed:choose>
-            </xed:bind>
-            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]" />
-          </xed:bind>
-
-          <button class="btn btn btn-primary rounded-0" type="submit" xed:target="servlet"
-                  xed:href="MCRQLSearchServlet">
-            <xed:output i18n="button.search" />
-          </button>
-
-        </div>
-      </xed:form>
+      <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
     </div>
   </article>
 
