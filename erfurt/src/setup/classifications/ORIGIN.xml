@@ -66,5 +66,15 @@
     <category ID="1600">
       <label xml:lang="de" text="Zentrale Univerwaltung"/>
     </category>
+    <category ID="1700">
+      <label xml:lang="de" text="Erfurt Laboratory for Empirical Research"/>
+      <label xml:lang="en" text="Erfurt Laboratory for Empirical Research"/>
+      <label xml:lang="x-lpp" text="1880877716"/>
+    </category>
+    <category ID="1800">
+      <label xml:lang="de" text="Institute for Planetary Health Behaviour"/>
+      <label xml:lang="en" text="Institute for Planetary Health Behaviour"/>
+      <label xml:lang="x-lpp" text="1880879557"/>
+    </category>
   </categories>
 </mycoreclass>
