@@ -1,5 +1,14 @@
 # Changelog
 
+## 2024.02.19
+
+- #480 Added class ThUniBibMatcherLDAP (#481)
+- #487 Update faq.xml (#486)
+- #494 Removed property UBO.Login.Path from mycore.properties (Erfurt) (#495)
+- FSU040THUL-2604 #490 Overwrite i18n ubo.person.connected of base UBO (#491)
+- FSU040THUL-2609 #492 Updated ORIGIN.xml (Erfurt) (#493)
+---
+
 ## 2024.01.02
 
 - #469 table header in list of vanished ldap users is generated to often (#470)
