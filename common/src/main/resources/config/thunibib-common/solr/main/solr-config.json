@@ -8,6 +8,7 @@
         "defType": "edismax",
         "qs": "5",
         "mm": "100%",
+        "q.alt": "*:*",
         "df": "all",
         "rows": 10,
         "fl": "id",
@@ -63,6 +64,79 @@
         "rows": "0",
         "facet": "true",
         "facet.mincount": "1"
+      }
+    }
+  },
+  {
+    "add-requestHandler": {
+      "name": "/search-all",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "qs": "5",
+        "mm": "100%",
+        "q.alt": "*:*",
+        "df": "all",
+        "rows": 10,
+        "fl": "id",
+        "facet": "true",
+        "facet.mincount": "1",
+        "facet.field": [
+          "status",
+          "partOf",
+          "importID",
+          "year",
+          "facet_person",
+          "connection_nid_text",
+          "subject",
+          "genre",
+          "origin_exact",
+          "facet_host_title",
+          "oa",
+          "fundingType"
+        ],
+        "wt": "xml"
+      },
+      "appends": {
+        "fq": "+objectType:mods "
+      }
+    }
+  },
+  {
+    "add-requestHandler": {
+      "name": "/search",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "qs": "5",
+        "mm": "100%",
+        "q.alt": "*:*",
+        "df": "all",
+        "rows": 10,
+        "fl": "id",
+        "facet": "true",
+        "facet.mincount": "1",
+        "facet.field": [
+          "status",
+          "partOf",
+          "importID",
+          "year",
+          "facet_person",
+          "connection_nid_text",
+          "subject",
+          "genre",
+          "origin_exact",
+          "facet_host_title",
+          "oa",
+          "fundingType"
+        ],
+        "wt": "xml"
+      },
+      "appends": {
+        "fq": "+objectType:mods",
+        "fq": "status:unchecked OR status:confirmed"
       }
     }
   }

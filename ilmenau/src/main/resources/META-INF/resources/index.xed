@@ -46,38 +46,7 @@
 
   <article class="card mb-3">
     <div class="card-body">
-      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">
-        <div class="form-group form-inline mb-0">
-
-          <xed:bind xpath="/query">
-            <xed:bind xpath="@mask" default="index.xed"/>
-            <xed:bind xpath="@numPerPage" default="10"/>
-            <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
-              <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']"/>
-
-              <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
-                <label for="input" class="mycore-form-label">
-                  <xed:output i18n="ubo.search.simple"/>
-                </label>
-                <input id="input" type="text" class="mycore-form-input form-control-sm mr-2"/>
-              </xed:bind>
-
-              <!-- Standard users must only find confirmed publications, admins find all publications -->
-              <xed:if test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
-                <xed:bind xpath="boolean[@operator='or']">
-                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']"/>
-                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='unchecked']"/>
-                </xed:bind>
-              </xed:if>
-            </xed:bind>
-            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]"/>
-          </xed:bind>
-
-          <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
-            <xed:output i18n="button.search"/>
-          </button>
-        </div>
-      </xed:form>
+      <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
     </div>
   </article>
 
