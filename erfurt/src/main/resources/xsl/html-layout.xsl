@@ -300,13 +300,11 @@
 
   <!-- current user and login formular-->
   <xsl:template name="layout.login">
-    <div class="nav-item mr-2">
+    <div class="nav-item mr-2 text-white">
       <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
-        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button" id="mcrFunctionsDropdown"
-           href="#" class="user nav-link dropdown-toggle text-white p-0 ubo-hover-pointer">
-
-          <xsl:text>[</xsl:text>
-
+        <xsl:value-of select="'['"/>
+        <xsl:variable name="userData" select="document('user:current')/user"/>
+        <xsl:variable name="userId">
           <xsl:choose>
             <xsl:when test="contains($CurrentUser,'@')">
               <xsl:value-of select="substring-before($CurrentUser,'@')"/>
@@ -315,15 +313,25 @@
               <xsl:value-of select="$CurrentUser"/>
             </xsl:otherwise>
           </xsl:choose>
-          <xsl:call-template name="orcidUser"/>
-
-          <xsl:text>]</xsl:text>
+        </xsl:variable>
+        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+           role="button" id="mcrFunctionsDropdown" href="#"
+           class="user nav-link dropdown-toggle p-0 d-inline-block text-white ml-1 ubo-curser-pointer">
+          <xsl:choose>
+            <xsl:when test="$userData/realName">
+              <xsl:value-of select="$userData/realName"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$userId"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </a>
-
         <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
           <xsl:call-template name="layout.usernav"/>
         </div>
+        <xsl:value-of select="']'"/>
       </xsl:if>
+      <xsl:call-template name="orcidUser"/>
     </div>
 
     <div class="nav-item mr-2">
