@@ -273,7 +273,6 @@
   <xsl:template name="layout.login">
 
     <div class="nav-item mr-2">
-      <xsl:value-of select="'['" />
       <xsl:choose>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <span class="user p-0" style="cursor: default;">
@@ -294,8 +293,7 @@
           </xsl:variable>
           <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
              role="button" id="mcrFunctionsDropdown" href="#"
-             class="user nav-link dropdown-toggle p-0"
-             style="cursor: pointer; display: inline-block; margin-left: 0.3em;">
+             class="user nav-link dropdown-toggle p-0 d-inline-block ubo-hover-pointer">
             <xsl:choose>
               <xsl:when test="$userData/realName">
                 <xsl:value-of select="$userData/realName" />
@@ -310,10 +308,9 @@
           </div>
         </xsl:otherwise>
       </xsl:choose>
-      <xsl:value-of select="']'" />
       <xsl:call-template name="orcidUser" />
-
     </div>
+
     <div class="nav-item mr-2">
       <xsl:choose>
         <xsl:when test="/webpage/@id='login'" />
