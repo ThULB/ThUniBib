@@ -16,11 +16,11 @@
   <xsl:param name="RequestURL"/>
   <xsl:param name="ThUniBib.ServiceDesk.enabled"/>
 
-  <xsl:param name="UBO.Frontend.jquery.version" />
-  <xsl:param name="UBO.Frontend.jquery-ui.version" />
-  <xsl:param name="UBO.Frontend.chosen.version" />
-  <xsl:param name="UBO.Frontend.bootstrap.version" />
-  <xsl:param name="UBO.Frontend.font-awesome.version" />
+  <xsl:param name="UBO.Frontend.jquery.version"/>
+  <xsl:param name="UBO.Frontend.jquery-ui.version"/>
+  <xsl:param name="UBO.Frontend.chosen.version"/>
+  <xsl:param name="UBO.Frontend.bootstrap.version"/>
+  <xsl:param name="UBO.Frontend.font-awesome.version"/>
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
@@ -58,12 +58,15 @@
               src="{$WebApplicationBaseURL}webjars/bootstrap/{$UBO.Frontend.bootstrap.version}/js/bootstrap.bundle.min.js"></script>
       <script type="text/javascript"
               src="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.jquery.min.js"></script>
-      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.min.css" rel="stylesheet"/>
+      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.min.css"
+            rel="stylesheet"/>
       <script type="text/javascript"
               src="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.js"></script>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css"
+      <link rel="stylesheet"
+            href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css"
             type="text/css"/>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css"
+      <link rel="stylesheet"
+            href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css"
             type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
 
@@ -104,7 +107,7 @@
       </div>
       <xsl:choose>
         <xsl:when
-            test="(string-length($UBO.Mail.Feedback) &gt; 0 and not(mcrxml:isCurrentUserInRole('admin')) or $ThUniBib.ServiceDesk.enabled = 'false')">
+          test="(string-length($UBO.Mail.Feedback) &gt; 0 and not(mcrxml:isCurrentUserInRole('admin')) or $ThUniBib.ServiceDesk.enabled = 'false')">
           <xsl:call-template name="feedback"/>
         </xsl:when>
         <xsl:otherwise>
@@ -288,37 +291,35 @@
   <!-- current user and login formular-->
   <xsl:template name="layout.login">
     <div class="nav-item mr-2">
-        <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
-          <xsl:value-of select="'['"/>
-          <xsl:variable name="userData" select="document('user:current')/user"/>
-          <xsl:variable name="userId">
-            <xsl:choose>
-              <xsl:when test="contains($CurrentUser,'@')">
-                <xsl:value-of select="substring-before($CurrentUser,'@')"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="$CurrentUser"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:variable>
-          <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
-             role="button" id="mcrFunctionsDropdown" href="#"
-             class="user nav-link dropdown-toggle p-0"
-             style="cursor: pointer; display: inline-block; margin-left: 0.3em;">
-            <xsl:choose>
-              <xsl:when test="$userData/realName">
-                <xsl:value-of select="$userData/realName"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="$userId"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </a>
-          <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
-            <xsl:call-template name="layout.usernav"/>
-          </div>
-          <xsl:value-of select="']'"/>
-        </xsl:if>
+      <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
+        <xsl:variable name="userData" select="document('user:current')/user"/>
+        <xsl:variable name="userId">
+          <xsl:choose>
+            <xsl:when test="contains($CurrentUser,'@')">
+              <xsl:value-of select="substring-before($CurrentUser,'@')"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$CurrentUser"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+           role="button" id="mcrFunctionsDropdown" href="#"
+           class="user nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block">
+          <xsl:choose>
+            <xsl:when test="$userData/realName">
+              <xsl:value-of select="$userData/realName"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$userId"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </a>
+        <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
+          <xsl:call-template name="layout.usernav"/>
+        </div>
+      </xsl:if>
+
       <xsl:call-template name="orcidUser"/>
     </div>
 
@@ -454,7 +455,7 @@
         </xsl:choose>
       </xsl:variable>
       <xsl:value-of
-          select="concat('mailto:', $UBO.Mail.Feedback, '?subject=[Feedback]: ', $title.abbrev, '&amp;body=Rückmeldung%20zu: ', $title, '%0D%0A', encoder:encode($RequestURL))"/>
+        select="concat('mailto:', $UBO.Mail.Feedback, '?subject=[Feedback]: ', $title.abbrev, '&amp;body=Rückmeldung%20zu: ', $title, '%0D%0A', encoder:encode($RequestURL))"/>
     </xsl:attribute>
   </xsl:template>
 

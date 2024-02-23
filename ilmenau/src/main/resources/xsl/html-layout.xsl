@@ -13,11 +13,11 @@
   <xsl:param name="CurrentLang"/>
   <xsl:param name="UBO.Login.Path"/>
 
-  <xsl:param name="UBO.Frontend.jquery.version" />
-  <xsl:param name="UBO.Frontend.jquery-ui.version" />
-  <xsl:param name="UBO.Frontend.chosen.version" />
-  <xsl:param name="UBO.Frontend.bootstrap.version" />
-  <xsl:param name="UBO.Frontend.font-awesome.version" />
+  <xsl:param name="UBO.Frontend.jquery.version"/>
+  <xsl:param name="UBO.Frontend.jquery-ui.version"/>
+  <xsl:param name="UBO.Frontend.chosen.version"/>
+  <xsl:param name="UBO.Frontend.bootstrap.version"/>
+  <xsl:param name="UBO.Frontend.font-awesome.version"/>
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
@@ -50,17 +50,22 @@
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
 
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery/{$UBO.Frontend.jquery.version}/jquery.min.js"/>
+      <script type="text/javascript"
+              src="{$WebApplicationBaseURL}webjars/jquery/{$UBO.Frontend.jquery.version}/jquery.min.js"/>
       <script type="text/javascript"
               src="{$WebApplicationBaseURL}webjars/bootstrap/{$UBO.Frontend.bootstrap.version}/js/bootstrap.bundle.min.js"/>
       <script type="text/javascript"
               src="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.jquery.min.js"/>
-      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.min.css" rel="stylesheet"/>
-      <script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.js"/>
+      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.min.css"
+            rel="stylesheet"/>
+      <script type="text/javascript"
+              src="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.js"/>
 
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css"
+      <link rel="stylesheet"
+            href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css"
             type="text/css"/>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css"
+      <link rel="stylesheet"
+            href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css"
             type="text/css"/>
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
@@ -304,23 +309,23 @@
   <!-- current user and login formular-->
   <xsl:template name="layout.login">
     <div class="nav-item mr-2">
-        <xsl:if test="not ($CurrentUser = $MCR.Users.Guestuser.UserName)">
-          <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
-             role="button" id="mcrFunctionsDropdown" href="#"
-             class="user nav-link dropdown-toggle p-0 ubo-hover-pointer">
-            <xsl:choose>
-              <xsl:when test="contains($CurrentUser,'@')">
-                [<xsl:value-of select="substring-before($CurrentUser,'@')"/>]
-              </xsl:when>
-              <xsl:otherwise>
-                [<xsl:value-of select="$CurrentUser"/>]
-              </xsl:otherwise>
-            </xsl:choose>
-          </a>
-          <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
-            <xsl:call-template name="layout.usernav"/>
-          </div>
-        </xsl:if>
+      <xsl:if test="not ($CurrentUser = $MCR.Users.Guestuser.UserName)">
+        <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+           role="button" id="mcrFunctionsDropdown" href="#"
+           class="user nav-link dropdown-toggle p-0 d-inline-block ubo-hover-pointer">
+          <xsl:choose>
+            <xsl:when test="contains($CurrentUser,'@')">
+              <xsl:value-of select="substring-before($CurrentUser,'@')"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$CurrentUser"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </a>
+        <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
+          <xsl:call-template name="layout.usernav"/>
+        </div>
+      </xsl:if>
       <xsl:call-template name="orcidUser"/>
     </div>
 
@@ -330,13 +335,13 @@
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
              href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-in-alt"></i>
+            <i class="nav-login fas fa-lg fa-sign-in-alt"/>
           </a>
         </xsl:when>
         <xsl:otherwise>
           <a class="btn btn-link p-0" title="{i18n:translate('login.logOut')}"
              href="{$ServletsBaseURL}logout?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-out-alt"></i>
+            <i class="nav-login fas fa-lg fa-sign-out-alt"/>
           </a>
         </xsl:otherwise>
       </xsl:choose>
