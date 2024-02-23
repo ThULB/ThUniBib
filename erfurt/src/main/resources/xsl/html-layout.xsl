@@ -302,7 +302,6 @@
   <xsl:template name="layout.login">
     <div class="nav-item mr-2 text-white">
       <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
-        <xsl:value-of select="'['"/>
         <xsl:variable name="userData" select="document('user:current')/user"/>
         <xsl:variable name="userId">
           <xsl:choose>
@@ -314,9 +313,10 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
+
         <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
            role="button" id="mcrFunctionsDropdown" href="#"
-           class="user nav-link dropdown-toggle p-0 d-inline-block text-white ml-1 ubo-curser-pointer">
+           class="user nav-link dropdown-toggle p-0 d-inline-block text-white ubo-curser-pointer">
           <xsl:choose>
             <xsl:when test="$userData/realName">
               <xsl:value-of select="$userData/realName"/>
@@ -329,7 +329,7 @@
         <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
           <xsl:call-template name="layout.usernav"/>
         </div>
-        <xsl:value-of select="']'"/>
+
       </xsl:if>
       <xsl:call-template name="orcidUser"/>
     </div>
