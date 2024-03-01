@@ -45,7 +45,7 @@
                             <option value="ppn">GVK PPN</option>
                             <option value="issn">ISSN</option>
                           </xed:if>
-                          <option value="dbt">DBT</option>
+                          <option value="dbt">DBT ID</option>
                         </select>
                       </xed:bind>
                       :
@@ -113,17 +113,14 @@
           <xed:otherwise>
             <div class="card-body bg-alternative">
               <p>
-                <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem <a
+                <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden Sie sich bitte mit Ihrem <a
                     href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
-                  URZ-Login
-                </a> an.
+                  URZ-Login </a> an.
                 </i18n:de>
 
                 <i18n:en>If you would like to submit a publication please <a
                     href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=en">
-                  sign in
-                </a> with your URZ
-                  credentials.
+                  sign in </a> with your URZ credentials.
                 </i18n:en>
               </p>
             </div>
@@ -133,10 +130,14 @@
         <div class="card-body bg-alternative">
           <p>
             <i18n:de>
-              Sollten Sie bereis <strong>Literaturlisten</strong> besitzen, die noch nicht in der
+              Sollten Sie bereits <strong>Literaturlisten</strong> besitzen, die noch nicht in der
               Universitätsbibliographie nachgewiesen sind, so <a href="contact.xml">setzen Sie sich bitte mit uns in
               Verbindung</a>.
             </i18n:de>
+
+			<i18n:en>
+              If you already have <strong>literature lists</strong> that are not yet listed in the university bibliography, please <a href="contact.xml">contact us</a>.
+            </i18n:en>
           </p>
 
           <p>
@@ -148,10 +149,14 @@
             </strong> der Technischen Universität Ilmenau (und Ihrer Vorgängerinstitutionen) sind eingeladen, ihre
               Publikationen an die Universitätsbibliographie zu melden.
             </i18n:de>
+
+			<i18n:en>
+              The bibliography records independent and dependent publications that have appeared in printed or digital form. These can be monographs, articles in journals and contributions to anthologies, for example, but also audio documents and multimedia, digital publications. 
+			  <strong>All members and former members</strong> of Technische Universität Ilmenau (and its predecessor institutions) are invited to submit their publications to the university bibliography.
+            </i18n:en>
           </p>
 
-        </div>
-      </xed:form>
+        </div>      </xed:form>
     </div>
   </article>
 </webpage>
