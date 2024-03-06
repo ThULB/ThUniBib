@@ -13,7 +13,7 @@
 
       <category ID="01.01">
         <label xml:lang="de" text="Bauhaus.Institut für experimentelle Architektur"/>
-        <laben xml:lang="en" text="bauhaus.institute for experimental architecture"/>
+        <label xml:lang="en" text="Bauhaus Institute for experimental architecture"/>
         <label xml:lang="x-gnd" text="1174941308"/>
         <label xml:lang="x-destatis" text="7395"/>
       </category>
