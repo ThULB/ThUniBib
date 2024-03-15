@@ -481,7 +481,13 @@ public class ThUniBibCommands {
             return false;
         }
 
-        MCRRealm fromRealm = MCRRealmFactory.getRealm(userName.split("@")[1]);
+        String[] nameParts = userName.split("@");
+        if (!(nameParts.length > 0)) {
+            LOGGER.warn("User {} provided without realm. Did you mean {}@{}", userName, userName,
+                MCRRealmFactory.getLocalRealm().getID());
+        }
+
+        MCRRealm fromRealm = MCRRealmFactory.getRealm(nameParts[1]);
         if (fromRealm == null) {
             LOGGER.error("{} is unknown", fromRealm);
             return false;
