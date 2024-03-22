@@ -24,7 +24,7 @@
     <category citation-format="author-title"/>
     <category field="technology"/>
     <summary>Zitierstil Vorstellungen der UB Ilmenau</summary>
-    <updated>2024-02-12T12:30:12+00:00</updated>
+    <updated>2024-03-21T13:46:25+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 License</rights>
     <link/>
   </info>
@@ -53,7 +53,7 @@
     </terms>
   </locale>
   <macro name="anon">
-    <text term="anonymous" form="short" strip-periods="false"/>
+    <text term="anonymous" form="short" text-case="capitalize-first" strip-periods="false" prefix="[" suffix="]"/>
   </macro>
   <macro name="author">
     <names variable="author">
@@ -111,15 +111,15 @@
   <macro name="title">
     <choose>
       <if type="bill book graphic legal_case legislation motion_picture report song thesis" match="any">
-        <text variable="title" font-weight="bold" suffix="&#10;"/>
+        <text variable="title" font-weight="bold"/>
       </if>
       <else>
-        <text variable="title" font-weight="bold" suffix="&#10;"/>
+        <text variable="title" font-weight="bold"/>
       </else>
     </choose>
   </macro>
   <macro name="publisher">
-    <group suffix="&amp;#10;">
+    <group>
       <text variable="publisher-place"/>
       <text variable="publisher" prefix=" : "/>
       <text macro="year-date" prefix=", "/>
@@ -309,23 +309,23 @@
           <group prefix=" ">
             <text macro="title" prefix=" "/>
           </group>
-          <group display="block">
-            <text term="in" text-case="sentence" suffix=": "/>
-            <text variable="container-title" suffix=". - "/>
+          <group display="block" prefix=" ">
+            <text term="in" text-case="capitalize-first" suffix=": "/>
+            <text variable="container-title" font-style="italic" suffix=". - "/>
             <text macro="publisher"/>
             <text variable="ISBN" prefix=". - ISBN "/>
           </group>
-          <group display="block">
+          <group display="block" prefix=" ">
             <text macro="event-title"/>
           </group>
-          <group display="block">
+          <group display="block" prefix=" ">
             <text macro="collection"/>
           </group>
         </else-if>
         <else-if type="thesis">
           <group display="block" delimiter=". - " prefix=" ">
             <text macro="title"/>
-            <text variable="genre" suffix="&amp;#10;"/>
+            <text variable="genre"/>
           </group>
           <group display="block">
             <text macro="publisher"/>
@@ -373,7 +373,7 @@
           </group>
         </else>
       </choose>
-      <group display="block">
+      <group display="block" prefix=" ">
         <text macro="access"/>
       </group>
     </layout>
