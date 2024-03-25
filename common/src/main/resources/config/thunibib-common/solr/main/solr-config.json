@@ -26,6 +26,8 @@
           "origin_exact",
           "facet_host_title",
           "oa",
+          "accessrights",
+          "peerreviewed",
           "fundingType"
         ],
         "wt": "xml"
@@ -94,6 +96,8 @@
           "origin_exact",
           "facet_host_title",
           "oa",
+          "accessrights",
+          "peerreviewed",
           "fundingType"
         ],
         "wt": "xml"
@@ -130,6 +134,8 @@
           "origin_exact",
           "facet_host_title",
           "oa",
+          "accessrights",
+          "peerreviewed",
           "fundingType"
         ],
         "wt": "xml"
