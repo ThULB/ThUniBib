@@ -28,6 +28,7 @@
           "oa",
           "accessrights",
           "peerreviewed",
+          "mediaType",
           "fundingType"
         ],
         "wt": "xml"
@@ -98,6 +99,7 @@
           "oa",
           "accessrights",
           "peerreviewed",
+          "mediaType",
           "fundingType"
         ],
         "wt": "xml"
@@ -136,6 +138,7 @@
           "oa",
           "accessrights",
           "peerreviewed",
+          "mediaType",
           "fundingType"
         ],
         "wt": "xml"
