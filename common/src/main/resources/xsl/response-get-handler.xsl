@@ -16,4 +16,15 @@
     </xsl:choose>
   </xsl:variable>
 
+  <xsl:variable name="solrStatisticRequestHandler">
+    <xsl:choose>
+      <xsl:when test="mcrxsl:isCurrentUserInRole('admin')">
+        <xsl:value-of select="'statistics-all?'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="'statistics?'"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
 </xsl:stylesheet>
