@@ -271,14 +271,14 @@
           </xed:bind>
           <span class="mx-2 align-self-center">in</span>
           <xed:bind xpath="@xml:lang">
-            <select class="mycore-form-input-double custom-select">
+            <select class="autocomplete mycore-form-input-double custom-select">
               <option value="">
                 <xed:output i18n="search.select"/>
               </option>
-              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:de"/>
-              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:en"/>
-              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:fr"/>
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc4646"/>
+              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:de"/>
+              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:en"/>
+              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:fr"/>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc5646"/>
             </select>
           </xed:bind>
         </div>
@@ -840,15 +840,15 @@
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output value="concat(i18n:translate('ubo.language'), ': ')"/>
         </label>
-        <xed:bind xpath="mods:languageTerm[@type='code'][@authority='rfc4646']">
-          <select id="{xed:generate-id(..)}" class="mycore-form-input custom-select">
+        <xed:bind xpath="mods:languageTerm[@type='code'][@authority='rfc5646']">
+          <select id="{xed:generate-id(..)}" class="autocomplete mycore-form-input custom-select">
             <option value="">
               <xed:output i18n="search.select"/>
             </option>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:de"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:en"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:fr"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc4646"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:de"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:en"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:fr"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc5646"/>
           </select>
         </xed:bind>
         <xed:controls/>
@@ -863,14 +863,14 @@
           <label for="{xed:generate-id()}" class="mycore-form-label">
             <xed:output value="concat(i18n:translate('ubo.abstract.in'), ': ')"/>
           </label>
-          <select class="mycore-form-input custom-select">
+          <select class="autocomplete mycore-form-input custom-select">
             <option value="">
               <xed:output i18n="search.select"/>
             </option>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:de"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:en"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc4646:fr"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc4646"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:de"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:en"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:fr"/>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc5646"/>
           </select>
         </xed:bind>
         <xed:controls/>

@@ -170,7 +170,7 @@
   </xsl:template>
 
   <xsl:template
-      match="mods:language|mods:languageTerm[@type='code'][@authority='rfc4646']|mods:languageTerm/@type|mods:languageTerm/@authority">
+      match="mods:language|mods:languageTerm[@type='code'][@authority='rfc5646']|mods:languageTerm/@type|mods:languageTerm/@authority">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
