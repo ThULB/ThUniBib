@@ -87,9 +87,9 @@
       <label xml:lang="de">Impressum</label>
       <label xml:lang="en">Legal Notice</label>
     </item>
-    <item ref="privacy.xml">
+    <item ref="privacy-statement.xml">
       <label xml:lang="de">Datenschutz</label>
-      <label xml:lang="en">Privacy Notice</label>
+      <label xml:lang="en">Privacy Statement</label>
     </item>
     <item ref="accessibility.xml">
       <label xml:lang="de">Barrierefreiheit</label>

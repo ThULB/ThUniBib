@@ -2,9 +2,9 @@
 
 <navigation root="true">
 
-  <item id="home" />
-  <item id="login" />
-  <item id="dozbib" />
+  <item id="home"/>
+  <item id="login"/>
+  <item id="dozbib"/>
 
   <item menu="main">
     <item ref="search.xed">
@@ -13,7 +13,7 @@
       <item id="dozbib.search-simple" ref="search.xed">
         <label xml:lang="de">Erweiterte Suche</label>
         <label xml:lang="en">Advanced search</label>
-        <item id="dozbib.search" />
+        <item id="dozbib.search"/>
       </item>
       <item id="dozbib.search-expert" ref="search-expert-solr.xed" role="admin">
         <label xml:lang="de">Expertensuche</label>
@@ -27,7 +27,7 @@
     <item ref="newPublication.xed" id="dozbib.new.publication">
       <label xml:lang="de">Publikation einreichen</label>
       <label xml:lang="en">Registering a publication</label>
-      <item id="dozbib.edit.publication" />
+      <item id="dozbib.edit.publication"/>
     </item>
     <item ref="statistics.xml" id="dozbib.stats">
       <label xml:lang="de">Statistiken</label>
@@ -87,10 +87,8 @@
       <label xml:lang="de">Impressum</label>
       <label xml:lang="en">Legal Notice</label>
     </item>
-    <item ref="#" xml:lang="de">
+    <item ref="privacy-statement.xml">
       <label xml:lang="de">Datenschutz</label>
-    </item>
-    <item ref="#" xml:lang="en">
       <label xml:lang="en">Privacy Statement</label>
     </item>
     <item ref="#">
@@ -98,5 +96,4 @@
       <label xml:lang="en">Accessibility</label>
     </item>
   </item>
-
 </navigation>
