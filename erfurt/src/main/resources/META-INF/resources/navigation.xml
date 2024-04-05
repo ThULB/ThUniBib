@@ -91,7 +91,7 @@
 
     <item ref="privacy-statement.xml">
       <label xml:lang="de">Datenschutz</label>
-      <label xml:lang="en">Privacy Policy</label>
+      <label xml:lang="en">Privacy Statement</label>
     </item>
 
     <item ref="https://www.uni-erfurt.de/barrierefreiheitserklaerung" xml:lang="de">
