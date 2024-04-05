@@ -28,10 +28,10 @@
         Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.
       </p>
 
-      <h2>II. Verbindungsdaten und Logfiles</h2>
+      <h2>II. Verbindungsdaten und Log-Dateien</h2>
 
       <p>
-        Bei jedem Aufruf der Webseiten dieser Bibliographie überträgt Ihr Web-Browser automatisch Daten des aufrufenden
+        Bei jedem Aufruf der Webseiten dieser Bibliographie überträgt Ihr Webbrowser automatisch Daten des aufrufenden
         Rechners.
         Dies ist eine Grundfunktion des World Wide Web und nicht durch uns beeinflussbar.
         Dabei werden folgende Daten übertragen und in Log-Dateien gespeichert:
@@ -39,26 +39,21 @@
       <ul>
         <li>Datum und Uhrzeit des Zugriffs</li>
         <li>Adressen der aufgerufenen Webseiten</li>
-        <li>IP-Adresse des Nutzers, daraus ableitbar die Herkunft des Webseitenaufrufs (Land, Stadt oder Organisation,
-          Internet Service Provider)
-        </li>
+        <li>IP-Adresse des Nutzers</li>
         <li>Informationen zum verwendeten Betriebssystem und Browsertyp</li>
-        <li>Adressen der Webseiten, von denen aus Sie auf unsere Webseiten gelangt sind</li>
       </ul>
       <p>
         Die vorübergehende Verarbeitung dieser Verbindungsdaten ist zur Bereitstellung der Plattform technisch zwingend
         erforderlich.
         Die Speicherung in Log-Dateien erfolgt zur Optimierung und Sicherstellung der Funktionsfähigkeit und Sicherheit
         der Plattform.
-        Die Daten in den Log-Dateien werden regelmäßig in anonymisierter Form zu statistischen Zwecken
-        weiterverarbeitet.
-        Personenbezogene Zugriffsdaten werden nach 7 Tagen gelöscht.
+        Personenbezogene Zugriffsdaten werden nach 28 Tagen gelöscht.
       </p>
 
-      <h2>III. Session Cookies</h2>
+      <h2>III. Session-Cookies</h2>
 
       <p>
-        Die Universitätsbibliographie verwendet sogenannte Session Cookies.
+        Die Universitätsbibliographie verwendet sogenannte Session-Cookies.
         Session-Cookies sind kleine Informationseinheiten, die ein Webserver
         im Arbeitsspeicher des Computers des Besuchers speichert.
         In einem Session-Cookie wird eine zufällig erzeugte
@@ -68,10 +63,10 @@
         Die von uns eingesetzten Session-Cookies sind für die Funktion unserer Webseite
         notwendig, damit Ihr Browser auch nach einem Seitenwechsel wiedererkannt wird.
         Sie werden automatisch gelöscht, wenn Sie Ihren Webbrowser schließen.
-        Session Cookies werden nicht zur Erstellung von Nutzerprofilen verwendet.
+        Session-Cookies werden nicht zur Erstellung von Nutzerprofilen verwendet.
       </p>
 
-      <h2>IV. Anmelde-Daten</h2>
+      <h2>IV. AnmeldeDaten</h2>
 
       <p>
         Eine Anmeldung (Login) mit persönlichen Daten ist nur zur Bearbeitung der Bibliographie
@@ -83,7 +78,7 @@
       <ul>
         <li>Name</li>
         <li>Benutzerkennung (nur zur Authentifizierung, wird nicht gespeichert)</li>
-        <li>EDU-Person-Unique-ID</li>
+        <li>eduPersonUniqueID</li>
         <li>Uhrzeit und Datum des letzten Logins</li>
         <li>Benutzerrollen (z.B. Administrator*innen, die Rollen werden in der Bibliographie zugewiesen)</li>
         <li>Verknüpfung zu den in dieser Bibliographie erfassten Publikationen, inkl. Datum und Uhrzeit der letzten
@@ -164,11 +159,8 @@
       <ul>
         <li>Date and time of access</li>
         <li>Addresses of the accessed web pages</li>
-        <li>IP address of the user, from which the origin of the web page access can be derived (country, town or
-          organization, Internet service provider)
-        </li>
+        <li>IP address of the user</li>
         <li>Information on the operating system and browser type used</li>
-        <li>Addresses of the web pages that led to our bibliography website</li>
       </ul>
       <p>
         The temporary processing of this connection data is technically mandatory for the provision of the platform. The
@@ -178,20 +170,20 @@
         the log file data is regularly processed in anonymized form. Personal access data is deleted after 7 days.
       </p>
 
-      <h2>III. Session Cookies</h2>
+      <h2>III. Session-Cookies</h2>
 
       <p>
-        The University Bibliography uses so-called session cookies. These are small information units stored by a web
+        The University Bibliography uses so-called Session-Cookies. These are small information units stored by a web
         server
-        in the working memory of the visitor’s computer. In session cookies, a randomly generated and unique
+        in the working memory of the visitor’s computer. In Session-Cookies, a randomly generated and unique
         identification
         number – a so-called session ID – is stored. A cookie also contains information on its origin and retention
         period.
-        These cookies cannot store any other data. The session cookies we use are essential for the function of our
+        These cookies cannot store any other data. The Session-Cookies we use are essential for the function of our
         website,
         so that your browser can be recognized after a web page change. They are automatically deleted when you close
         your web
-        browser. Session cookies are not used to create user profiles.
+        browser. Session-Cookies are not used to create user profiles.
       </p>
 
       <h2>IV. Login Data</h2>
@@ -206,7 +198,7 @@
       <ul>
         <li>Name</li>
         <li>User ID (for authentication only, not stored)</li>
-        <li>EDU-Person-Unique-ID</li>
+        <li>eduPersonUniqueID</li>
         <li>Time and date of the last login</li>
         <li>User roles (e.g. administrator, the roles are assigned within the bibliography)</li>
         <li>Links to the publications recorded in the bibliography, incl. date and time of the last modification</li>
