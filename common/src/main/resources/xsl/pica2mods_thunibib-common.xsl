@@ -8,7 +8,6 @@
                 exclude-result-prefixes="xsl p xlink zs">
   <xsl:mode on-no-match="shallow-copy"/>
 
-  <!-- copied from pics2mods and changed rfc5646 to rfc4646 -->
   <xsl:template name="ubomodsLanguage">
     <xsl:variable name="rfc5646" select="document('resource:mycore-classifications/rfc5646.xml')" />
 
@@ -19,7 +18,7 @@
           <xsl:variable name="l" select="."/>
           <xsl:choose>
             <xsl:when test="$rfc5646/mycoreclass/categories//category[label[@xml:lang='x-bibl']/@text=$l]">
-              <mods:languageTerm type="code" authority="rfc4646">
+              <mods:languageTerm type="code" authority="rfc5646">
                 <xsl:value-of
                     select="$rfc5646/mycoreclass/categories//category[label[@xml:lang='x-bibl']/@text=$l]/@ID"/>
               </mods:languageTerm>

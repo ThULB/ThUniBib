@@ -50,7 +50,7 @@
   <xsl:param name="MIR.xMetaDissPlus.rights.rightsReserved2free" select="''" />
   
 
-  <xsl:variable name="languages" select="document('classification:metadata:-1:children:rfc4646')" />
+  <xsl:variable name="languages" select="document('classification:metadata:-1:children:rfc5646')" />
   <xsl:variable name="marcrelator" select="document('classification:metadata:-1:children:marcrelator')" />
   <xsl:variable name="licenses" select="document('classification:metadata:-1:children:licenses')" />
 
@@ -59,7 +59,7 @@
 
   <xsl:variable name="language">
     <xsl:variable name="lang"
-      select="/mycoreobject/metadata/def.modsContainer/modsContainer/mods:mods/mods:language/mods:languageTerm[@authority='rfc4646']/text()" />
+      select="/mycoreobject/metadata/def.modsContainer/modsContainer/mods:mods/mods:language/mods:languageTerm[@authority='rfc5646']/text()" />
     <xsl:choose>
       <xsl:when test="$lang">
         <xsl:call-template name="translate_Lang">
