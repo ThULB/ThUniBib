@@ -60,7 +60,7 @@
           "connection_nid_text",
           "nid_connection"
         ],
-        "json.facet": "{year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
+        "json.facet": "{year:{type:terms,field:year,limit:100,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
         "fq": "+objectType:mods",
         "fq": "status:unchecked OR status:confirmed"
       },
@@ -98,7 +98,7 @@
           "connection_nid_text",
           "nid_connection"
         ],
-        "json.facet": "{year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
+        "json.facet": "{year:{type:terms,field:year,limit:100,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
         "fq": "+objectType:mods"
       },
       "invariants": {
