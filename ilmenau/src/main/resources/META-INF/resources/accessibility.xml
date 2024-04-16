@@ -39,11 +39,12 @@
 
       <h4>Noch bestehende Mängel</h4>
       <ul>
-        <li>foo</li>
-        <li>bar</li>
+        <li>Formularsteuerelemente unterscheiden sich nicht ausreichend von ihrer Umgebung</li>
+        <li>Nicht immer sind ID-Attribute von HTML-Elementen auf einer Seite eindeutig</li>
+        <li>Die Farbe des Textes hat nicht immer einen ausreichenden Kontrast zur Hintergrundfarbe.</li>
       </ul>
       <p>
-        Diese Erklärung wurde am <strong>16.04.2024</strong> erstellt und zuletzt geprüft.
+        Diese Erklärung wurde am <strong>17.04.2024</strong> erstellt und zuletzt geprüft.
       </p>
 
       <h3>Kontakt und Feedback</h3>
