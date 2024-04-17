@@ -25,7 +25,7 @@
       <p>
         Diese Webseite ist mit der Richtlinie (EU) 2016/2102 und mit den
         <strong>Web Content Accessibility Guidelines 2.2</strong>
-        teilweise vereinbar. Noch nicht eingeschlossen ist die Prüfung von PDF- und Word-Dokumenten.
+        teilweise vereinbar.
       </p>
       <p>
         Grundlage der Erstellung dieser Erklärung zur Barrierefreiheit sind die vorgenommenen Bewertungen von Dritten in
@@ -41,7 +41,7 @@
       <ul>
         <li>Formularsteuerelemente unterscheiden sich nicht ausreichend von ihrer Umgebung</li>
         <li>Nicht immer sind ID-Attribute von HTML-Elementen auf einer Seite eindeutig</li>
-        <li>Die Farbe des Textes hat nicht immer einen ausreichenden Kontrast zur Hintergrundfarbe.</li>
+        <li>Die Farbe des Textes hat nicht immer einen ausreichenden Kontrast zur Hintergrundfarbe</li>
       </ul>
       <p>
         Diese Erklärung wurde am <strong>17.04.2024</strong> erstellt und zuletzt geprüft.
