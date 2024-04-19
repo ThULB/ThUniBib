@@ -221,8 +221,8 @@
     </category>
 
     <category ID="02">
-      <label xml:lang="de" text="Fakultät Bauingenieurwesen"/>
-      <label xml:lang="en" text="Faculty of Civil Engineering"/>
+      <label xml:lang="de" text="Fakultät Bau- und Umweltingenieurwissenschaften (vormals Bauingenieurwesen)"/>
+      <label xml:lang="en" text="Faculty of Civil and environmental engineering (formerly Civil Engineering)"/>
       <label xml:lang="x-gnd" text="2160175-6"/>
 
       <category ID="02.01">
