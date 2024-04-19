@@ -456,6 +456,7 @@
       <label xml:lang="de" text="[ALT] Bauhaus-Universität Weimar"/>
       <label xml:lang="en" text="[ALT] Bauhaus-Universität Weimar"/>
       <label xml:lang="x-place" text="Bauhaus-Universität Weimar | Weimar | Geschwister-Scholl-Straße 8, 99423 Weimar"/>
+
       <category ID="01">
         <label xml:lang="de" text="Fakultät Architektur und Urbanistik"/>
         <label xml:lang="en" text="Faculty of Architecture and Urbanism"/>
@@ -656,24 +657,24 @@
           <label xml:lang="x-destatis" text="7540"/>
         </category>
 
-      <category ID="01.31">
-        <label xml:lang="de" text="Professur European Cities and Urban Heritage"/>
-        <label xml:lang="en" text="Professorship European Cities and Urban Heritage"/>
-        <label xml:lang="x-destatis" text="2375"/>
-      </category>
-      
-      <category ID="01.32">
-		    <label xml:lang="de" text="Professur Raumplanung und Raumforschung II"/>
-		    <label xml:lang="en" text="Professorship Spatial Planning and Research II"/>
-		    <label xml:lang="x-destatis" text="7400"/>
-		  </category>
-    
-    </category>
+        <category ID="01.31">
+          <label xml:lang="de" text="Professur European Cities and Urban Heritage"/>
+          <label xml:lang="en" text="Professorship European Cities and Urban Heritage"/>
+          <label xml:lang="x-destatis" text="2375"/>
+        </category>
 
-    <category ID="02">
-      <label xml:lang="de" text="Fakultät Bau- und Umweltingenieurwissenschaften (vormals Bauingenieurwesen)"/>
-      <label xml:lang="en" text="Faculty of Civil and environmental engineering (formerly Civil Engineering)"/>
-      <label xml:lang="x-gnd" text="2160175-6"/>
+        <category ID="01.32">
+          <label xml:lang="de" text="Professur Raumplanung und Raumforschung II"/>
+          <label xml:lang="en" text="Professorship Spatial Planning and Research II"/>
+          <label xml:lang="x-destatis" text="7400"/>
+        </category>
+
+      </category>
+
+      <category ID="02">
+        <label xml:lang="de" text="Fakultät Bau- und Umweltingenieurwissenschaften (vormals Bauingenieurwesen)"/>
+        <label xml:lang="en" text="Faculty of Civil and environmental engineering (formerly Civil Engineering)"/>
+        <label xml:lang="x-gnd" text="2160175-6"/>
 
         <category ID="02.01">
           <label xml:lang="de" text="Institut für Strukturmechanik (ISM)"/>
@@ -878,8 +879,7 @@
           </category>
 
           <category ID="02.05.08">
-            <label xml:lang="de"
-                   text="Professur Siedlungswasserwirtschaft und Technologien urbaner Stoffstromnutzungen"/>
+            <label xml:lang="de" text="Professur Siedlungswasserwirtschaft und Technologien urbaner Stoffstromnutzungen"/>
             <label xml:lang="x-destatis" text="7550"/>
           </category>
 
@@ -910,6 +910,7 @@
 
         </category>
       </category>
+
       <category ID="03">
         <label xml:lang="de" text="Fakultät Kunst und Gestaltung"/>
         <label xml:lang="en" text="Faculty of Art and Design"/>
@@ -1075,6 +1076,7 @@
         </category>
 
       </category>
+
       <category ID="04">
         <label xml:lang="de" text="Fakultät Medien"/>
         <label xml:lang="x-gnd" text="5327596-2"/>
@@ -1285,6 +1287,7 @@
         </category>
 
       </category>
+
       <category ID="05">
         <label xml:lang="de" text="Sonstige Institute (Fakultätsübergreifende Einrichtungen)"/>
 
@@ -1314,6 +1317,7 @@
         </category>
 
       </category>
+
       <category ID="06">
         <label xml:lang="de" text="Universitätsleitung/Universitätsverwaltung"/>
         <label xml:lang="en" text="University Management Team"/>
@@ -1345,6 +1349,7 @@
         </category>
 
       </category>
+
       <category ID="07">
         <label xml:lang="de" text="Zentrale Einrichtungen"/>
         <label xml:lang="en" text="Central University Facilities"/>
@@ -1376,6 +1381,7 @@
         </category>
 
       </category>
+
     </category>
   </categories>
 </mycoreclass>
