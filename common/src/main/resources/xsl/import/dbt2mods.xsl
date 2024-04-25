@@ -11,6 +11,7 @@
                 exclude-result-prefixes="xsl mods xlink">
 
   <xsl:param name="WebApplicationBaseURL"/>
+  <xsl:param name="MCR.user2.IdentityManagement.UserCreation.Affiliation"/>
 
   <xsl:template match="/mycoreobject">
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods"/>
@@ -31,6 +32,7 @@
       <xsl:copy-of select="mods:language"/>
       <xsl:apply-templates select="mods:subject"/>
       <xsl:apply-templates select="mods:abstract"/>
+      <xsl:apply-templates select="mods:note"/>
       <xsl:apply-templates select="mods:relatedItem"/>
       <xsl:apply-templates select="mods:identifier[@type='uri'][contains(. ,'ppn')]"/>
       <xsl:apply-templates select="mods:physicalDescription"/>
@@ -287,8 +289,7 @@
 
   <xsl:template match="mods:dateOther">
     <mods:note>
-      <xsl:text>Dissertation, Friedrich-Schiller-Universitaet Jena, </xsl:text>
-      <xsl:value-of select="substring-before(.,'-')"/>
+      <xsl:value-of select="concat('Dissertation, ', $MCR.user2.IdentityManagement.UserCreation.Affiliation, ', ', substring-before(.,'-'))"/>
     </mods:note>
   </xsl:template>
 
@@ -317,6 +318,10 @@
   </xsl:template>
 
   <xsl:template match="mods:physicalDescription">
+    <xsl:copy-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="mods:note">
     <xsl:copy-of select="."/>
   </xsl:template>
 
