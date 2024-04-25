@@ -110,7 +110,7 @@
       <xsl:apply-templates select="mods:titleInfo"/>
       <!-- omitting "conference" -> mods:name[@type='conference']/mods:namePart, seemingly not in DBT data -->
       <xsl:apply-templates
-          select="mods:name[@type='personal'][contains('aut ths rev',mods:role/mods:roleTerm)]"/> <!-- unclear if this is in DBT -->
+        select="mods:name[@type='personal'][contains('aut ths rev',mods:role/mods:roleTerm)]"/> <!-- unclear if this is in DBT -->
       <xsl:apply-templates select="mods:part"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='publication']"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='creation']"/>
@@ -142,9 +142,10 @@
     <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$id}"/>
   </xsl:template>
 
-  <xsl:template match="mods:identifier[@type='uri'][contains(. ,'ppn')]">
-    <mods:identifier type="ppn">
-      <xsl:value-of select="text()"/>
+  <xsl:template match="mods:identifier[@type='uri'][contains(. , 'ppn')]">
+    <mods:identifier type="uri">
+      <!-- convert http:// uris to https:// uris -->
+      <xsl:value-of select="concat('https://', substring-after(., '://'))"/>
     </mods:identifier>
   </xsl:template>
 
