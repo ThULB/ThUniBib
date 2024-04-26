@@ -22,6 +22,7 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
+      <xsl:apply-templates select="/mycoreobject/@ID"/>
       <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]"/>
       <xsl:apply-templates
         select="mods:name[contains(@authorityURI, 'mir_institutes')][@valueURI][@type = 'corporate'][1]"/>
@@ -31,14 +32,14 @@
       <xsl:apply-templates select="mods:originInfo[@eventType='creation']"/>
       <xsl:apply-templates select="mods:identifier[@type='doi']"/>
       <xsl:copy-of select="mods:identifier[@type='urn']"/>
-      <xsl:apply-templates select="/mycoreobject/@ID"/>
+      <xsl:apply-templates select="mods:identifier[@type='uri'][contains(. ,'ppn')]"/>
       <xsl:copy-of select="mods:language"/>
       <xsl:apply-templates select="mods:subject"/>
       <xsl:apply-templates select="mods:abstract"/>
       <xsl:apply-templates select="mods:note"/>
       <xsl:apply-templates select="mods:relatedItem"/>
-      <xsl:apply-templates select="mods:identifier[@type='uri'][contains(. ,'ppn')]"/>
       <xsl:apply-templates select="mods:physicalDescription"/>
+      <xsl:apply-templates select="mods:accessCondition"/>
     </xsl:copy>
   </xsl:template>
 
@@ -114,8 +115,10 @@
       </xsl:when>
       <!-- try matching via string comparison -->
       <xsl:otherwise>
-        <xsl:variable name="textFromDBT" select="document(concat('notnull:', @valueURI))//category[@ID = $categId]/label[@xml:lang = $CurrentLang]/@text"/>
-        <xsl:variable name="guessedOriginCategId" select="document('notnull:classification:metadata:-1:children:ORIGIN')//category[@text = $textFromDBT]/@ID[1]"/>
+        <xsl:variable name="textFromDBT"
+                      select="document(concat('notnull:', @valueURI))//category[@ID = $categId]/label[@xml:lang = $CurrentLang]/@text"/>
+        <xsl:variable name="guessedOriginCategId"
+                      select="document('notnull:classification:metadata:-1:children:ORIGIN')//category[@text = $textFromDBT]/@ID[1]"/>
 
         <xsl:if test="string-length($guessedOriginCategId) &gt; 0">
           <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$guessedOriginCategId}"/>
@@ -222,6 +225,10 @@
   </xsl:template>
 
   <xsl:template match="mods:note">
+    <xsl:copy-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="mods:accessCondition">
     <xsl:copy-of select="."/>
   </xsl:template>
 
