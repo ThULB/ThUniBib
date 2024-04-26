@@ -8,10 +8,13 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="xsl mods xlink">
+                xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="mcrxml mods xsl xalan xlink">
 
-  <xsl:param name="WebApplicationBaseURL"/>
+  <xsl:param name="CurrentLang"/>
   <xsl:param name="MCR.user2.IdentityManagement.UserCreation.Affiliation"/>
+  <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:template match="/mycoreobject">
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods"/>
@@ -19,9 +22,9 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
-      <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][2]"/>
-      <xsl:copy-of select="mods:classification[contains(@valueURI,'classifications/ORIGIN#')]"/>
-      <xsl:apply-templates select="mods:name[contains(@authorityURI,'mir_institutes')]"/>
+      <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]"/>
+      <xsl:apply-templates
+        select="mods:name[contains(@authorityURI, 'mir_institutes')][@valueURI][@type = 'corporate'][1]"/>
       <xsl:apply-templates select="mods:titleInfo"/>
       <xsl:apply-templates select="mods:name[@type='personal'][contains('aut ths rev',mods:role/mods:roleTerm)]"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='publication']"/>
@@ -100,10 +103,25 @@
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template match="mods:name[contains(@authorityURI,'mir_institutes')]">
-    <xsl:variable name="id" select="substring-after(@valueURI, '#')"/>
+  <xsl:template match="mods:name[contains(@authorityURI, 'mir_institutes')]">
+    <xsl:variable name="categId" select="substring-after(@valueURI, '#')"/>
     <xsl:variable name="uri" select="concat($WebApplicationBaseURL, 'classifications/ORIGIN')"/>
-    <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$id}"/>
+
+    <xsl:choose>
+      <!-- check for matching ids mir_institutes <=> ORIGIN, applies to Weimar only -->
+      <xsl:when test="mcrxml:isCategoryID('ORIGIN', $categId)">
+        <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$categId}"/>
+      </xsl:when>
+      <!-- try matching via string comparison -->
+      <xsl:otherwise>
+        <xsl:variable name="textFromDBT" select="document(concat('notnull:', @valueURI))//category[@ID = $categId]/label[@xml:lang = $CurrentLang]/@text"/>
+        <xsl:variable name="guessedOriginCategId" select="document('notnull:classification:metadata:-1:children:ORIGIN')//category[@text = $textFromDBT]/@ID[1]"/>
+
+        <xsl:if test="string-length($guessedOriginCategId) &gt; 0">
+          <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$guessedOriginCategId}"/>
+        </xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="mods:identifier[@type='uri'][contains(. , 'ppn')]">
