@@ -43,7 +43,7 @@
   <xsl:template match="mods:mods">
     <xsl:copy>
       <xsl:apply-templates
-          select="mods:genre|mods:titleInfo|mods:typeOfResource|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:physicalDescription|mods:identifier|mods:relatedItem|mods:note|mods:extension|mods:location|mods:subject|mods:abstract|mods:language"/>
+          select="mods:genre|mods:accessCondition|mods:titleInfo|mods:typeOfResource|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:physicalDescription|mods:identifier|mods:relatedItem|mods:note|mods:extension|mods:location|mods:subject|mods:abstract|mods:language"/>
     </xsl:copy>
   </xsl:template>
 
@@ -137,7 +137,7 @@
     <xsl:copy>
       <xsl:copy-of select="@type"/>
       <xsl:apply-templates
-          select="mods:genre|mods:titleInfo|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:identifier|mods:relatedItem|mods:location|mods:part"/>
+          select="mods:genre|mods:accessCondition|mods:titleInfo|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:identifier|mods:relatedItem|mods:location|mods:part"/>
     </xsl:copy>
   </xsl:template>
 
@@ -175,6 +175,11 @@
   </xsl:template>
 
   <xsl:template match="mods:abstract|mods:abstract/@xml:lang|mods:abstract/@xlink:href">
+    <xsl:call-template name="copy-and-apply"/>
+  </xsl:template>
+
+  <xsl:template
+    match="mods:accessCondition|mods:accessCondition[@type='use and reproduction']|mods:accessCondition/@type|mods:accessCondition/@xlink:href|mods:accessCondition/@xlink:type">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
