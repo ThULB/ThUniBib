@@ -224,8 +224,8 @@
     <xsl:copy-of select="."/>
   </xsl:template>
 
-  <xsl:template match="mods:accessCondition">
-    <xsl:copy-of select="."/>
+  <xsl:template match="mods:accessCondition[@type = 'use and reproduction']">
+    <mods:accessCondition type="use and reproduction"
+                          xlink:href="{$WebApplicationBaseURL}classifications/licenses#{substring-after(@xlink:href, '#')}"/>
   </xsl:template>
-
 </xsl:stylesheet>
