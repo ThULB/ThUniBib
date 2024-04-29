@@ -889,7 +889,7 @@
           <xed:output value="concat(i18n:translate('ubo.abstract.ortext'), ': ')"/>
         </label>
         <textarea id="{xed:generate-id()}" class="mycore-form-input" linewrap="on"
-                  placeholder="{i18n:ubo.abstract.placeholder}"/>
+                  placeholder="{i18n:ubo.abstract.placeholder}" rows="10"/>
       </div>
     </xed:repeat>
   </xed:template>
