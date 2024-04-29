@@ -69,7 +69,7 @@
           <xsl:value-of select="./@xlink:type"/>
         </xsl:attribute>
       </xsl:if>
-      <xsl:apply-templates select="mods:genre[contains(@authorityURI,'mir_genres')][1]"/>
+      <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]"/>
       <!-- Open Access omitted -->
       <xsl:apply-templates select="mods:titleInfo"/>
       <!-- omitting "conference" -> mods:name[@type='conference']/mods:namePart, seemingly not in DBT data -->
@@ -80,9 +80,9 @@
       <xsl:apply-templates select="mods:originInfo[@eventType='creation']"/>
 
       <!-- only using doi, issn and urn but from DBT also come at least: zdbib, oclc and more-->
-      <xsl:apply-templates select="mods:identifier[@type='doi']"/>
-      <xsl:apply-templates select="mods:identifier[@type='issn']"/>
-      <xsl:apply-templates select="mods:identifier[@type='urn']"/>
+      <xsl:copy-of select="mods:identifier[@type='doi']"/>
+      <xsl:copy-of select="mods:identifier[@type='issn']"/>
+      <xsl:copy-of select="mods:identifier[@type='urn']"/>
 
       <!-- omitting mods:location with "Library shelfmark -> mods:shelfLocator" and "WWW URL -> mods:url -->
       <xsl:apply-templates select="mods:subject"/>
