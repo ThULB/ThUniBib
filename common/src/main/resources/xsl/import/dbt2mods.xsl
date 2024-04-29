@@ -55,10 +55,6 @@
     <mods:genre type="intern">
       <xsl:value-of select="$genre"/>
     </mods:genre>
-
-    <!-- matches mods:genre in editor form -->
-    <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre"
-                valueURI="{$WebApplicationBaseURL}classifications/ubogenre#{$genre}"/>
   </xsl:template>
 
   <xsl:template match="mods:relatedItem">
