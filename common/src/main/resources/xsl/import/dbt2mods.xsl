@@ -27,7 +27,7 @@
       <xsl:apply-templates
         select="mods:name[contains(@authorityURI, 'mir_institutes')][@valueURI][@type = 'corporate'][1]"/>
       <xsl:apply-templates select="mods:titleInfo"/>
-      <xsl:apply-templates select="mods:name[@type='personal'][contains('aut ths rev',mods:role/mods:roleTerm)]"/>
+      <xsl:apply-templates select="mods:name[@type='personal']"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='publication']"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='creation']"/>
       <xsl:apply-templates select="mods:identifier[@type='doi']"/>
@@ -155,21 +155,13 @@
       <xsl:copy-of select="@type"/>
       <xsl:copy-of select="mods:role"/>
       <xsl:copy-of select="mods:namePart"/>
-      <xsl:apply-templates select="@valueURI"/>
-      <xsl:copy-of select="mods:nameIdentifier[@type='lsf']"/>
-      <xsl:copy-of select="mods:nameIdentifier[@type='gnd']"/>
-      <xsl:copy-of select="mods:nameIdentifier[@type='orcid']"/>
-    </mods:name>
-  </xsl:template>
 
-  <!-- get LSF PID via legalEntityID -->
-  <xsl:template match="mods:name/@valueURI">
-    <xsl:variable name="legalEntityID" select="substring-after(.,'#')"/>
-    <xsl:for-each select="document(concat('notnull:legalEntity:',$legalEntityID))/legalEntity/@pid">
-      <mods:nameIdentifier type="lsf">
-        <xsl:value-of select="."/>
-      </mods:nameIdentifier>
-    </xsl:for-each>
+      <xsl:for-each select="mods:nameIdentifier[@type]">
+        <mods:nameIdentifier type="{@type}">
+          <xsl:value-of select="."/>
+        </mods:nameIdentifier>
+      </xsl:for-each>
+    </mods:name>
   </xsl:template>
 
   <xsl:template match="mods:originInfo[@eventType='publication']">
