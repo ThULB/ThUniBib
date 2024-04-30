@@ -1,454 +1,468 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd"
-             ID="mir_institutes">
-  <label xml:lang="x-uri" text="https://www.db-thueringen.de/rsc/classifications/export/mir_institutes" />
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="mir_institutes">
   <label xml:lang="de" text="Hochschule/Fachbereich" />
+  <label xml:lang="x-uri" text="https://www.db-thueringen.de/rsc/classifications/export/mir_institutes" />
   <categories>
+    <category ID="22000">
+      <label xml:lang="de" text="Duale Hochschule Gera-Eisenach" />
+      <label xml:lang="en" text="Duale Hochschule Gera-Eisenach" />
+      <category ID="22030">
+        <label xml:lang="de" text="Fachbereich Soziales" />
+        <label xml:lang="en" text="Fachbereich Soziales" />
+      </category>
+      <category ID="22020">
+        <label xml:lang="de" text="Fachbereich Technik" />
+        <label xml:lang="en" text="Fachbereich Technik" />
+      </category>
+      <category ID="22010">
+        <label xml:lang="de" text="Fachbereich Wirtschaft" />
+        <label xml:lang="en" text="Fachbereich Wirtschaft" />
+      </category>
+    </category>
     <category ID="3">
       <label xml:lang="de" text="Bauhaus-Universität Weimar" />
       <label xml:lang="x-place" text="Bauhaus-Universität Weimar | Weimar | Geschwister-Scholl-Straße 8, 99423 Weimar" />
       <category ID="3000">
-        <label xml:lang="de" text="Fakultät Architektur und Urbanistik"/>
+        <label xml:lang="de" text="Fakultät Architektur und Urbanistik" />
         <category ID="3001">
-          <label xml:lang="de" text="Bauhaus.Institut für experimentelle architektur"/>
+          <label xml:lang="de" text="Bauhaus.Institut für experimentelle architektur" />
         </category>
         <category ID="3002">
-          <label xml:lang="de" text="Bauhaus-Institut für Geschichte und Theorie der Architektur und Planung"/>
+          <label xml:lang="de" text="Bauhaus-Institut für Geschichte und Theorie der Architektur und Planung" />
         </category>
         <category ID="3003">
-          <label xml:lang="de" text="Graduiertenkolleg &quot;Identität und Erbe&quot;"/>
+          <label xml:lang="de" text="Graduiertenkolleg &quot;Identität und Erbe&quot;" />
         </category>
         <category ID="3004">
-          <label xml:lang="de" text="Gropius-Professur"/>
+          <label xml:lang="de" text="Gropius-Professur" />
         </category>
         <category ID="3005">
-          <label xml:lang="de" text="Institut für Europäische Urbanistik"/>
+          <label xml:lang="de" text="Institut für Europäische Urbanistik" />
         </category>
         <category ID="3006">
-          <label xml:lang="de" text="Professur Architekturheorie"/>
+          <label xml:lang="de" text="Professur Architekturheorie" />
         </category>
         <category ID="3007">
-          <label xml:lang="de" text="Professur Computational Architecture"/>
+          <label xml:lang="de" text="Professur Computational Architecture" />
         </category>
         <category ID="3008">
-          <label xml:lang="de" text="Professur Landschaftsarchitektur/Landschaftsplanung"/>
+          <label xml:lang="de" text="Professur Landschaftsarchitektur/Landschaftsplanung" />
         </category>
         <category ID="3009">
-          <label xml:lang="de" text="Professur Bauaufnahme und Baudenkmalpflege"/>
+          <label xml:lang="de" text="Professur Bauaufnahme und Baudenkmalpflege" />
         </category>
         <category ID="3010">
-          <label xml:lang="de" text="Professur Bauformenlehre"/>
+          <label xml:lang="de" text="Professur Bauformenlehre" />
         </category>
         <category ID="3011">
-          <label xml:lang="de" text="Professur Bauklimatik"/>
+          <label xml:lang="de" text="Professur Bauklimatik" />
         </category>
         <category ID="3012">
-          <label xml:lang="de" text="Professur Denkmalpflege und Baugeschichte"/>
+          <label xml:lang="de" text="Professur Denkmalpflege und Baugeschichte" />
         </category>
         <category ID="3013">
-          <label xml:lang="de" text="Professur Baumanagement und Bauwirtschaft"/>
+          <label xml:lang="de" text="Professur Baumanagement und Bauwirtschaft" />
         </category>
         <category ID="3014">
-          <label xml:lang="de" text="Professur Darstellungsmethodik"/>
+          <label xml:lang="de" text="Professur Darstellungsmethodik" />
         </category>
         <category ID="3015">
-          <label xml:lang="de" text="Professur Entwerfen und Architekturtheorie"/>
+          <label xml:lang="de" text="Professur Entwerfen und Architekturtheorie" />
         </category>
         <category ID="3016">
-          <label xml:lang="de" text="Professur Entwerfen und Baugestaltung"/>
+          <label xml:lang="de" text="Professur Entwerfen und Baugestaltung" />
         </category>
         <category ID="3017">
-          <label xml:lang="de" text="Professur Entwerfen und Baukonstruktion"/>
+          <label xml:lang="de" text="Professur Entwerfen und Baukonstruktion" />
         </category>
         <category ID="3018">
-          <label xml:lang="de" text="Professur Entwerfen und Gebäudekunde"/>
+          <label xml:lang="de" text="Professur Entwerfen und Gebäudekunde" />
         </category>
         <category ID="3019">
-          <label xml:lang="de" text="Professur Entwerfen und komplexe Gebäudelehre"/>
+          <label xml:lang="de" text="Professur Entwerfen und komplexe Gebäudelehre" />
         </category>
         <category ID="3020">
-          <label xml:lang="de" text="Professur Entwerfen und Industriebau"/>
+          <label xml:lang="de" text="Professur Entwerfen und Industriebau" />
         </category>
         <category ID="3021">
-          <label xml:lang="de" text="Professur Entwerfen und Innenraumgestaltung"/>
+          <label xml:lang="de" text="Professur Entwerfen und Innenraumgestaltung" />
         </category>
         <category ID="3022">
-          <label xml:lang="de" text="Professur Entwerfen und ländliches Bauen"/>
+          <label xml:lang="de" text="Professur Entwerfen und ländliches Bauen" />
         </category>
         <category ID="3023">
-          <label xml:lang="de" text="Professur Entwerfen und Raumgestaltung"/>
+          <label xml:lang="de" text="Professur Entwerfen und Raumgestaltung" />
         </category>
         <category ID="3024">
-          <label xml:lang="de" text="Professur Entwerfen und StadtArchitektur"/>
+          <label xml:lang="de" text="Professur Entwerfen und StadtArchitektur" />
         </category>
         <category ID="3025">
-          <label xml:lang="de" text="Professur Entwerfen und Städtebau I"/>
+          <label xml:lang="de" text="Professur Entwerfen und Städtebau I" />
         </category>
         <category ID="3026">
-          <label xml:lang="de" text="Professur Entwerfen und Städtebau II"/>
+          <label xml:lang="de" text="Professur Entwerfen und Städtebau II" />
         </category>
         <category ID="3027">
-          <label xml:lang="de" text="Professur Entwerfen und Wohnungsbau"/>
+          <label xml:lang="de" text="Professur Entwerfen und Wohnungsbau" />
         </category>
         <category ID="3028">
-          <label xml:lang="de" text="Professur Entwerfen und Tragwerkskonstruktion"/>
+          <label xml:lang="de" text="Professur Entwerfen und Tragwerkskonstruktion" />
         </category>
         <category ID="3029">
-          <label xml:lang="de" text="Professur Gebäudetechnik"/>
+          <label xml:lang="de" text="Professur Gebäudetechnik" />
         </category>
         <category ID="3030">
-          <label xml:lang="de" text="Professur Grundlagen des Entwerfens"/>
+          <label xml:lang="de" text="Professur Grundlagen des Entwerfens" />
         </category>
         <category ID="3031">
-          <label xml:lang="de" text="Professur Informatik in der Architektur"/>
+          <label xml:lang="de" text="Professur Informatik in der Architektur" />
         </category>
         <category ID="3032">
-          <label xml:lang="de" text="Professur Sozialwissenschaftliche Stadtforschung"/>
+          <label xml:lang="de" text="Professur Sozialwissenschaftliche Stadtforschung" />
         </category>
         <category ID="3033">
-          <label xml:lang="de" text="Professur Tragwerkslehre"/>
+          <label xml:lang="de" text="Professur Tragwerkslehre" />
         </category>
         <category ID="3034">
-          <label xml:lang="de" text="Professur Raumplanung und Raumforschung"/>
+          <label xml:lang="de" text="Professur Raumplanung und Raumforschung" />
         </category>
         <category ID="3035">
-          <label xml:lang="de" text="Professur Soziologie und Sozialgeschichte der Stadt"/>
+          <label xml:lang="de" text="Professur Soziologie und Sozialgeschichte der Stadt" />
         </category>
         <category ID="3036">
-          <label xml:lang="de" text="Professur Stadtplanung"/>
+          <label xml:lang="de" text="Professur Stadtplanung" />
         </category>
         <category ID="3037">
-          <label xml:lang="de" text="Professur Theorie und Geschichte der modernen Architektur"/>
+          <label xml:lang="de" text="Professur Theorie und Geschichte der modernen Architektur" />
         </category>
       </category>
       <category ID="3100">
-        <label xml:lang="de" text="Fakultät Bau- und Umweltingenieurwissenschaften (vormals Bauingenieurwesen)"/>
+        <label xml:lang="de" text="Fakultät Bau- und Umweltingenieurwissenschaften (vormals Bauingenieurwesen)" />
         <category ID="3101">
-          <label xml:lang="de" text="Bauhaus-Institut für zukunftsweisende Infrastruktursysteme (b.is)"/>
+          <label xml:lang="de" text="Bauhaus-Institut für zukunftsweisende Infrastruktursysteme (b.is)" />
         </category>
         <category ID="3102">
-          <label xml:lang="de" text="Professur Baumechanik"/>
+          <label xml:lang="de" text="Professur Baumechanik" />
         </category>
         <category ID="3103">
-          <label xml:lang="de" text="Professur Baustatik und Bauteilfestigkeit"/>
+          <label xml:lang="de" text="Professur Baustatik und Bauteilfestigkeit" />
         </category>
         <category ID="3104">
-          <label xml:lang="de" text="Professur Massivbau I"/>
+          <label xml:lang="de" text="Professur Massivbau I" />
         </category>
         <category ID="3105">
-          <label xml:lang="de" text="Professur Massivbau II"/>
+          <label xml:lang="de" text="Professur Massivbau II" />
         </category>
         <category ID="3106">
-          <label xml:lang="de" text="Professur Modellierung und Simulation - Konstruktion"/>
+          <label xml:lang="de" text="Professur Modellierung und Simulation - Konstruktion" />
         </category>
         <category ID="3107">
-          <label xml:lang="de" text="Professur Modellierung und Simulation - Mechanik"/>
+          <label xml:lang="de" text="Professur Modellierung und Simulation - Mechanik" />
         </category>
         <category ID="3108">
-          <label xml:lang="de" text="Professur Stahlbau"/>
+          <label xml:lang="de" text="Professur Stahlbau" />
         </category>
         <category ID="3109">
-          <label xml:lang="de" text="Professur Planung von Ingenieurbauten"/>
+          <label xml:lang="de" text="Professur Planung von Ingenieurbauten" />
         </category>
         <category ID="3110">
-          <label xml:lang="de" text="Professur Holz- und Mauerwerksbau"/>
+          <label xml:lang="de" text="Professur Holz- und Mauerwerksbau" />
         </category>
         <category ID="3111">
-          <label xml:lang="de" text="Professur Allgemeine Baustoffkunde"/>
+          <label xml:lang="de" text="Professur Allgemeine Baustoffkunde" />
         </category>
         <category ID="3112">
-          <label xml:lang="de" text="Professur Angewandte Mathematik"/>
+          <label xml:lang="de" text="Professur Angewandte Mathematik" />
         </category>
         <category ID="3113">
-          <label xml:lang="de" text="Professur Bauphysik"/>
+          <label xml:lang="de" text="Professur Bauphysik" />
         </category>
         <category ID="3114">
-          <label xml:lang="de" text="Professur Wasserbau"/>
+          <label xml:lang="de" text="Professur Wasserbau" />
         </category>
         <category ID="3115">
-          <label xml:lang="de" text="Weiterbildender Studiengang Wasser und Umwelt"/>
+          <label xml:lang="de" text="Weiterbildender Studiengang Wasser und Umwelt" />
         </category>
         <category ID="3116">
-          <label xml:lang="de" text="Professur Werkstoffe des Bauens"/>
+          <label xml:lang="de" text="Professur Werkstoffe des Bauens" />
         </category>
         <category ID="3117">
-          <label xml:lang="de" text="Professur Strömungsmechanik"/>
+          <label xml:lang="de" text="Professur Strömungsmechanik" />
         </category>
         <category ID="3118">
-          <label xml:lang="de" text="Professur Bauchemie und Polymere Werkstoffe"/>
+          <label xml:lang="de" text="Professur Bauchemie und Polymere Werkstoffe" />
         </category>
         <category ID="3119">
-          <label xml:lang="de" text="Professur Verfahren und Umwelt"/>
+          <label xml:lang="de" text="Professur Verfahren und Umwelt" />
         </category>
         <category ID="3120">
-          <label xml:lang="de" text="Professur Verkehrsplanung und Verkehrstechnik"/>
+          <label xml:lang="de" text="Professur Verkehrsplanung und Verkehrstechnik" />
         </category>
         <category ID="3121">
-          <label xml:lang="de" text="Professur Verkehrssystemplanung"/>
+          <label xml:lang="de" text="Professur Verkehrssystemplanung" />
         </category>
         <category ID="3122">
-          <label xml:lang="de" text="Professur Verkehrsbau"/>
+          <label xml:lang="de" text="Professur Verkehrsbau" />
         </category>
         <category ID="3123">
-          <label xml:lang="de" text="Professur Siedlungswasserwirtschaft"/>
+          <label xml:lang="de" text="Professur Siedlungswasserwirtschaft" />
         </category>
         <category ID="3124">
-          <label xml:lang="de" text="Professur Abfallwirtschaft"/>
+          <label xml:lang="de" text="Professur Abfallwirtschaft" />
         </category>
         <category ID="3125">
-          <label xml:lang="de" text="Professur Aufbereitung von Baustoffen und Wiederverwertung"/>
+          <label xml:lang="de" text="Professur Aufbereitung von Baustoffen und Wiederverwertung" />
         </category>
         <category ID="3126">
-          <label xml:lang="de" text="Professur Grundbau"/>
+          <label xml:lang="de" text="Professur Grundbau" />
         </category>
         <category ID="3127">
-          <label xml:lang="de" text="Professur Bodenmechanik"/>
+          <label xml:lang="de" text="Professur Bodenmechanik" />
         </category>
         <category ID="3128">
-          <label xml:lang="de" text="Professur Computer Vision in Engineering"/>
+          <label xml:lang="de" text="Professur Computer Vision in Engineering" />
         </category>
         <category ID="3129">
-          <label xml:lang="de" text="Professur Baubetrieb und Bauverfahren"/>
+          <label xml:lang="de" text="Professur Baubetrieb und Bauverfahren" />
         </category>
         <category ID="3130">
-          <label xml:lang="de" text="Professur Informations- und Wissensverarbeitung"/>
+          <label xml:lang="de" text="Professur Informations- und Wissensverarbeitung" />
         </category>
         <category ID="3131">
-          <label xml:lang="de" text="Professur Informatik im Bauwesen"/>
+          <label xml:lang="de" text="Professur Informatik im Bauwesen" />
         </category>
         <category ID="3132">
-          <label xml:lang="de" text="Professur Betriebswirtschaftslehre im Bauwesen"/>
+          <label xml:lang="de" text="Professur Betriebswirtschaftslehre im Bauwesen" />
         </category>
         <category ID="3133">
-          <label xml:lang="de" text="Professur Biotechnologie in der Ressourcenwirtschaft"/>
+          <label xml:lang="de" text="Professur Biotechnologie in der Ressourcenwirtschaft" />
         </category>
         <category ID="3134">
-          <label xml:lang="de" text="Professur Experimentelle Konstruktions- und Materialanalyse"/>
+          <label xml:lang="de" text="Professur Experimentelle Konstruktions- und Materialanalyse" />
         </category>
         <category ID="3135">
-          <label xml:lang="de" text="Professur Simulation und Experiment"/>
+          <label xml:lang="de" text="Professur Simulation und Experiment" />
         </category>
         <category ID="3136">
-          <label xml:lang="de" text="Professur Stochastik und Optimierung"/>
+          <label xml:lang="de" text="Professur Stochastik und Optimierung" />
         </category>
         <category ID="3137">
-          <label xml:lang="de" text="Professur Urban Energy Systems"/>
+          <label xml:lang="de" text="Professur Urban Energy Systems" />
         </category>
         <category ID="3138">
-          <label xml:lang="de" text="Professur Volkswirtschaftslehre - Infrastrukturökonomie-Infrastrukturmanagement"/>
+          <label xml:lang="de" text="Professur Volkswirtschaftslehre - Infrastrukturökonomie-Infrastrukturmanagement" />
         </category>
         <category ID="3139">
-          <label xml:lang="de" text="Professur Erdbebenzentrum"/>
+          <label xml:lang="de" text="Professur Erdbebenzentrum" />
         </category>
         <category ID="3140">
-          <label xml:lang="de" text="Finger-Institut für Baustoffkunde (FIB)"/>
+          <label xml:lang="de" text="Finger-Institut für Baustoffkunde (FIB)" />
         </category>
         <category ID="3141">
-          <label xml:lang="de" text="Institut für Strukturmechanik (ISM)"/>
+          <label xml:lang="de" text="Institut für Strukturmechanik (ISM)" />
         </category>
         <category ID="3142">
-          <label xml:lang="de" text="Institut Geotechnik Weimar"/>
+          <label xml:lang="de" text="Professur Geotechnik" />
         </category>
         <category ID="3143">
-          <label xml:lang="de" text="Institut für Konstruktiven Ingenieurbau (IKI)"/>
+          <label xml:lang="de" text="Institut für Konstruktiven Ingenieurbau (IKI)" />
         </category>
         <category ID="3144">
-          <label xml:lang="de" text="Institut für Bauinformatik, Mathematik und Bauphysik (IBMB)"/>
+          <label xml:lang="de" text="Institut für Bauinformatik, Mathematik und Bauphysik (IBMB)" />
         </category>
         <category ID="3145">
-          <label xml:lang="de" text="Professur Polymere Bindemittel und Baustoffe im Bauwesen"/>
+          <label xml:lang="de" text="Professur Polymere Bindemittel und Baustoffe im Bauwesen" />
         </category>
         <category ID="3146">
-          <label xml:lang="de" text="Professur CAD in der Bauinformatik"/>
+          <label xml:lang="de" text="Professur CAD in der Bauinformatik" />
         </category>
         <category ID="3147">
-          <label xml:lang="de" text="Professur Biotechnologie in der Abfallwirtschaft"/>
+          <label xml:lang="de" text="Professur Biotechnologie in der Abfallwirtschaft" />
         </category>
         <category ID="3148">
-          <label xml:lang="de" text="Graduiertenkolleg 1462"/>
+          <label xml:lang="de" text="Graduiertenkolleg 1462" />
         </category>
       </category>
       <category ID="3200">
-        <label xml:lang="de" text="Fakultät Kunst und Gestaltung"/>
+        <label xml:lang="de" text="Fakultät Kunst und Gestaltung" />
         <category ID="3201">
-          <label xml:lang="de" text="Architekturgeschichte"/>
+          <label xml:lang="de" text="Architekturgeschichte" />
         </category>
         <category ID="3202">
-          <label xml:lang="de" text="Ästhetik"/>
+          <label xml:lang="de" text="Ästhetik" />
         </category>
         <category ID="3203">
-          <label xml:lang="de" text="Freie Kunst"/>
+          <label xml:lang="de" text="Freie Kunst" />
         </category>
         <category ID="3204">
-          <label xml:lang="de" text="Professur Theorie und Geschichte des Design"/>
+          <label xml:lang="de" text="Professur Theorie und Geschichte des Design" />
         </category>
         <category ID="3205">
-          <label xml:lang="de" text="Professur Geschichte und Theorie der Kunst"/>
+          <label xml:lang="de" text="Professur Geschichte und Theorie der Kunst" />
         </category>
         <category ID="3206">
-          <label xml:lang="de" text="Professur Geschichte und Theorie der Visuellen Kommunikation"/>
+          <label xml:lang="de" text="Professur Geschichte und Theorie der Visuellen Kommunikation" />
         </category>
         <category ID="3207">
-          <label xml:lang="de" text="Instructional Design - Didaktik medialer Lernumgebungen"/>
+          <label xml:lang="de" text="Instructional Design - Didaktik medialer Lernumgebungen" />
         </category>
         <category ID="3208">
-          <label xml:lang="de" text="Professur Kulturgeschichte der Moderne"/>
+          <label xml:lang="de" text="Professur Kulturgeschichte der Moderne" />
         </category>
         <category ID="3209">
-          <label xml:lang="de" text="Professur Kunst und ihre Didaktik"/>
+          <label xml:lang="de" text="Professur Kunst und ihre Didaktik" />
         </category>
         <category ID="3210">
-          <label xml:lang="de" text="Lehramt an Gymnasien: Kunsterziehung"/>
+          <label xml:lang="de" text="Lehramt an Gymnasien: Kunsterziehung" />
         </category>
         <category ID="3211">
-          <label xml:lang="de" text="Medienkunst/Mediengestaltung"/>
+          <label xml:lang="de" text="Medienkunst/Mediengestaltung" />
         </category>
         <category ID="3212">
-          <label xml:lang="de" text="Produktdesign"/>
+          <label xml:lang="de" text="Produktdesign" />
         </category>
         <category ID="3213">
-          <label xml:lang="de" text="Promotionsstudiengang Kunst und Design-Freie Kunst-Medienkunst (Ph.D)"/>
+          <label xml:lang="de" text="Promotionsstudiengang Kunst und Design-Freie Kunst-Medienkunst (Ph.D)" />
         </category>
         <category ID="3215">
-          <label xml:lang="de" text="Visuelle Kommunikation"/>
+          <label xml:lang="de" text="Visuelle Kommunikation" />
         </category>
       </category>
       <category ID="3300">
-        <label xml:lang="de" text="Fakultät Medien"/>
+        <label xml:lang="de" text="Fakultät Medien" />
         <category ID="3301">
-          <label xml:lang="de" text="Professur Medieninformatik"/>
+          <label xml:lang="de" text="Professur Medieninformatik" />
         </category>
         <category ID="3302">
-          <label xml:lang="de" text="Professur Medienkunst-Mediengestaltung"/>
+          <label xml:lang="de" text="Professur Medienkunst-Mediengestaltung" />
         </category>
         <category ID="3303">
-          <label xml:lang="de" text="Professur Medienphilosophie"/>
+          <label xml:lang="de" text="Professur Medienphilosophie" />
         </category>
         <category ID="3304">
-          <label xml:lang="de" text="Professur Geschichte und Theorie künstlicher Welten"/>
+          <label xml:lang="de" text="Professur Geschichte und Theorie künstlicher Welten" />
         </category>
         <category ID="3305">
-          <label xml:lang="de" text="Professur Medienmanagement"/>
+          <label xml:lang="de" text="Professur Medienmanagement" />
         </category>
         <category ID="3306">
-          <label xml:lang="de" text="Professur Medienwissenschaft"/>
+          <label xml:lang="de" text="Professur Medienwissenschaft" />
         </category>
         <category ID="3307">
-          <label xml:lang="de" text="Professur Gestaltung medialer Umgebungen"/>
+          <label xml:lang="de" text="Professur Gestaltung medialer Umgebungen" />
         </category>
         <category ID="3308">
-          <label xml:lang="de" text="Professur Moden und öffentliche Erscheinungsbilder"/>
+          <label xml:lang="de" text="Professur Moden und öffentliche Erscheinungsbilder" />
         </category>
         <category ID="3309">
-          <label xml:lang="de" text="Professur Medienereignisse"/>
+          <label xml:lang="de" text="Professur Medienereignisse" />
         </category>
         <category ID="3310">
-          <label xml:lang="de" text="Professur Multimediales Erzählen"/>
+          <label xml:lang="de" text="Professur Multimediales Erzählen" />
         </category>
         <category ID="3311">
-          <label xml:lang="de" text="Professur Interface Design"/>
+          <label xml:lang="de" text="Professur Interface Design" />
         </category>
         <category ID="3312">
-          <label xml:lang="de" text="Professur Experimentelles Radio"/>
+          <label xml:lang="de" text="Professur Experimentelles Radio" />
         </category>
         <category ID="3313">
-          <label xml:lang="de" text="Professur Graphische Datenverarbeitung"/>
+          <label xml:lang="de" text="Professur Graphische Datenverarbeitung" />
         </category>
         <category ID="3314">
-          <label xml:lang="de" text="Professur Elektroakkustische Komposition und Klanggestaltung"/>
+          <label xml:lang="de" text="Professur Elektroakkustische Komposition und Klanggestaltung" />
         </category>
         <category ID="3315">
-          <label xml:lang="de" text="Professur Systeme der Virtuellen Realität"/>
+          <label xml:lang="de" text="Professur Systeme der Virtuellen Realität" />
         </category>
         <category ID="3316">
-          <label xml:lang="de" text="Professur Organisation und vernetzte Medien"/>
+          <label xml:lang="de" text="Professur Organisation und vernetzte Medien" />
         </category>
         <category ID="3317">
-          <label xml:lang="de" text="Professur Datenbanken und Kommunikationssysteme"/>
+          <label xml:lang="de" text="Professur Datenbanken und Kommunikationssysteme" />
         </category>
         <category ID="3318">
-          <label xml:lang="de"
-                 text="Professur Wahrnehmungslehre, Geschichte und Theorie der Kommunikation und der Medien"/>
+          <label xml:lang="de" text="Professur Wahrnehmungslehre, Geschichte und Theorie der Kommunikation und der Medien" />
         </category>
         <category ID="3319">
-          <label xml:lang="de" text="Professur Computergestütztes kooperatives Arbeiten"/>
+          <label xml:lang="de" text="Professur Computergestütztes kooperatives Arbeiten" />
         </category>
         <category ID="3320">
-          <label xml:lang="de" text="Professur Content Management und Webtechnologien"/>
+          <label xml:lang="de" text="Professur Content Management und Webtechnologien" />
         </category>
         <category ID="3321">
-          <label xml:lang="de" text="Professur Mediensoziologie"/>
+          <label xml:lang="de" text="Professur Mediensoziologie" />
         </category>
         <category ID="3322">
-          <label xml:lang="de" text="Professur Europäische Medienkultur"/>
+          <label xml:lang="de" text="Professur Europäische Medienkultur" />
         </category>
         <category ID="3323">
-          <label xml:lang="de" text="Professur Geschichte und Theorie der Bildmedien"/>
+          <label xml:lang="de" text="Professur Geschichte und Theorie der Bildmedien" />
         </category>
         <category ID="3324">
-          <label xml:lang="de" text="Professur Strategisches Management und digitale Ökonomie"/>
+          <label xml:lang="de" text="Professur Strategisches Management und digitale Ökonomie" />
         </category>
         <category ID="3325">
-          <label xml:lang="de" text="Professur Ökonomische Theorie und Politik der Medien"/>
+          <label xml:lang="de" text="Professur Ökonomische Theorie und Politik der Medien" />
         </category>
         <category ID="3326">
-          <label xml:lang="de" text="Professur Geschichte und Theorie der Kulturtechniken"/>
+          <label xml:lang="de" text="Professur Geschichte und Theorie der Kulturtechniken" />
         </category>
         <category ID="3327">
-          <label xml:lang="de" text="Professur Marketing und Medien"/>
+          <label xml:lang="de" text="Professur Marketing und Medien" />
         </category>
         <category ID="3328">
-          <label xml:lang="de" text="Professur Medienökonomie und internationales Management"/>
+          <label xml:lang="de" text="Professur Medienökonomie und internationales Management" />
         </category>
         <category ID="3329">
-          <label xml:lang="de" text="Professur Mediensicherheit"/>
+          <label xml:lang="de" text="Professur Mediensicherheit" />
         </category>
         <category ID="3330">
-          <label xml:lang="de" text="Professur Psychophysiologie und Wahrnehmung"/>
+          <label xml:lang="de" text="Professur Psychophysiologie und Wahrnehmung" />
         </category>
         <category ID="3331">
-          <label xml:lang="de" text="Professur Augmented Reality"/>
+          <label xml:lang="de" text="Professur Augmented Reality" />
         </category>
         <category ID="3332">
-          <label xml:lang="de" text="Professur Experimentelle Television"/>
+          <label xml:lang="de" text="Professur Experimentelle Television" />
         </category>
         <category ID="3333">
-          <label xml:lang="de" text="Internationales Kolleg für Kulturtechnikforschung und Medienphilosophie (IKKM)"/>
+          <label xml:lang="de" text="Internationales Kolleg für Kulturtechnikforschung und Medienphilosophie (IKKM)" />
         </category>
       </category>
       <category ID="3400">
-        <label xml:lang="de" text="Zentrale Einrichtungen, Büro des Präsidenten, Dezernate"/>
+        <label xml:lang="de" text="Zentrale Einrichtungen, Büro des Präsidenten, Dezernate" />
         <category ID="3401">
-          <label xml:lang="de" text="Servicezentrum für Computersysteme und –kommunikation"/>
+          <label xml:lang="de" text="Servicezentrum für Computersysteme und –kommunikation" />
         </category>
         <category ID="3402">
-          <label xml:lang="de" text="Sprachenzentrum"/>
+          <label xml:lang="de" text="Sprachenzentrum" />
         </category>
         <category ID="3403">
-          <label xml:lang="de" text="Universitätsbibliothek"/>
+          <label xml:lang="de" text="Universitätsbibliothek" />
         </category>
       </category>
       <category ID="3500">
-        <label xml:lang="de" text="An-Institute"/>
+        <label xml:lang="de" text="An-Institute" />
         <category ID="3501">
-          <label xml:lang="de" text="Materialforschungs- und -prüfanstalt an der Bauhaus-Universität"/>
+          <label xml:lang="de" text="Materialforschungs- und -prüfanstalt an der Bauhaus-Universität" />
         </category>
         <category ID="3502">
-          <label xml:lang="de" text="Bauhaus Weiterbildungsakademie e.V."/>
+          <label xml:lang="de" text="Bauhaus Weiterbildungsakademie e.V." />
         </category>
         <category ID="3503">
-          <label xml:lang="de" text="KNOTEN WEIMAR - Internationale Transferstelle Umwelttechnologien"/>
+          <label xml:lang="de" text="KNOTEN WEIMAR - Internationale Transferstelle Umwelttechnologien" />
         </category>
       </category>
       <category ID="3600">
-        <label xml:lang="de" text="Hochschule für Musik FRANZ LISZT"/>
+        <label xml:lang="de" text="Hochschule für Musik FRANZ LISZT" />
       </category>
     </category>
     <category ID="1">
       <label xml:lang="de" text="Friedrich-Schiller-Universität Jena" />
       <label xml:lang="x-place" text="Friedrich-Schiller-Universität Jena | Jena | Fürstengraben 1, 07743 Jena" />
       <category ID="6010">
-        <label xml:lang="de" text="Biologisch-Pharmazeutische Fakultät" />
+        <label xml:lang="de" text="Fakultät für Biowissenschaften" />
       </category>
       <category ID="6000">
         <label xml:lang="de" text="Chemisch-Geowissenschaftliche Fakultät" />
@@ -458,6 +472,10 @@
       </category>
       <category ID="1040">
         <label xml:lang="de" text="Fakultät für Sozial- und Verhaltenswissenschaften" />
+      </category>
+      <category ID="1086">
+        <label xml:lang="de" text="Abteilung Hochschulkommunikation" />
+        <label xml:lang="en" text="Communications and Marketing" />
       </category>
       <category ID="7000">
         <label xml:lang="de" text="Medizinische Fakultät" />
@@ -503,8 +521,8 @@
       </category>
     </category>
     <category ID="5">
-      <label xml:lang="x-place" text="Universität Erfurt | Erfurt | Nordhäuser Str. 63, 99089 Erfurt" />
       <label xml:lang="de" text="Pädagogische Hochschule Erfurt" />
+      <label xml:lang="x-place" text="Universität Erfurt | Erfurt | Nordhäuser Str. 63, 99089 Erfurt" />
       <category ID="9990">
         <label xml:lang="de" text="alle Fakultäten" />
       </category>
@@ -550,13 +568,13 @@
       </category>
     </category>
     <category ID="2">
-      <label xml:lang="x-place" text="Universität Erfurt | Erfurt | Nordhäuser Str. 63, 99089 Erfurt" />
       <label xml:lang="de" text="Universität Erfurt" />
+      <label xml:lang="x-place" text="Universität Erfurt | Erfurt | Nordhäuser Str. 63, 99089 Erfurt" />
       <category ID="9110">
         <label xml:lang="de" text="Erfurt School of Education (ESE)" />
       </category>
       <category ID="9120">
-        <label xml:lang="de" text="Erfurt School of Public Policy (ESPP)" />
+        <label xml:lang="de" text="Willy Brandt School of Public Policy (WBS)" />
       </category>
       <category ID="9300">
         <label xml:lang="de" text="Erziehungswissenschaftliche Fakultät" />
@@ -592,10 +610,10 @@
         <label xml:lang="de" text="Theologische Fakultät" />
       </category>
       <category ID="9410">
-        <label xml:lang="de" text="Universitäts- und Forschungsbibliothek" />
+        <label xml:lang="de" text="Universitätsbibliothek" />
       </category>
       <category ID="9460">
-        <label xml:lang="de" text="Universitäts- und Forschungsbibliothek, FB Gotha" />
+        <label xml:lang="de" text="Forschungsbibliothek Gotha" />
       </category>
       <category ID="9450">
         <label xml:lang="de" text="Verwaltung" />
@@ -796,6 +814,9 @@
       </category>
       <category ID="20010">
         <label xml:lang="de" text="Archive" />
+        <category ID="20012">
+          <label xml:lang="de" text="Lippmann + Rau-Musikarchiv " />
+        </category>
         <category ID="20011">
           <label xml:lang="de" text="Thüringisches Staatsarchiv Rudolstadt" />
         </category>
@@ -832,6 +853,9 @@
       </category>
       <category ID="20060">
         <label xml:lang="de" text="Vereine/Organisationen" />
+        <category ID="20062">
+          <label xml:lang="de" text="Jenaer Kunstverein e.V." />
+        </category>
         <category ID="20061">
           <label xml:lang="de" text="Landesverband Thüringen im Deutschen Bibliotheksverbund e.V." />
         </category>

@@ -15,7 +15,7 @@
         <category ID="3000">
           <label xml:lang="de" text="Fakultät Architektur und Urbanistik" />
           <category ID="3001">
-            <label xml:lang="de" text="Bauhaus.Institut für experimentelle Architektur" />
+            <label xml:lang="de" text="Bauhaus.Institut für experimentelle architektur" />
           </category>
           <category ID="3002">
             <label xml:lang="de" text="Bauhaus-Institut für Geschichte und Theorie der Architektur und Planung" />
@@ -30,7 +30,7 @@
             <label xml:lang="de" text="Institut für Europäische Urbanistik" />
           </category>
           <category ID="3006">
-            <label xml:lang="de" text="Professur Architekturtheorie" />
+            <label xml:lang="de" text="Professur Architekturheorie" />
           </category>
           <category ID="3007">
             <label xml:lang="de" text="Professur Computational Architecture" />
@@ -127,7 +127,7 @@
           </category>
         </category>
         <category ID="3100">
-          <label xml:lang="de" text="Fakultät Bauingenieurwesen" />
+          <label xml:lang="de" text="Fakultät Bau- und Umweltingenieurwissenschaften (vormals Bauingenieurwesen)" />
           <category ID="3101">
             <label xml:lang="de" text="Bauhaus-Institut für zukunftsweisende Infrastruktursysteme (b.is)" />
           </category>
@@ -237,13 +237,13 @@
             <label xml:lang="de" text="Professur Stochastik und Optimierung" />
           </category>
           <category ID="3137">
-            <label xml:lang="de" text="Professur Energiesysteme" />
+            <label xml:lang="de" text="Professur Urban Energy Systems" />
           </category>
           <category ID="3138">
             <label xml:lang="de" text="Professur Volkswirtschaftslehre - Infrastrukturökonomie-Infrastrukturmanagement" />
           </category>
           <category ID="3139">
-            <label xml:lang="de" text="Erdbebenzentrum" />
+            <label xml:lang="de" text="Professur Erdbebenzentrum" />
           </category>
           <category ID="3140">
             <label xml:lang="de" text="Finger-Institut für Baustoffkunde (FIB)" />
@@ -252,13 +252,13 @@
             <label xml:lang="de" text="Institut für Strukturmechanik (ISM)" />
           </category>
           <category ID="3142">
-            <label xml:lang="de" text="Institut Geotechnik Weimar" />
+            <label xml:lang="de" text="Professur Geotechnik" />
           </category>
           <category ID="3143">
             <label xml:lang="de" text="Institut für Konstruktiven Ingenieurbau (IKI)" />
           </category>
           <category ID="3144">
-            <label xml:lang="de" text="Institut für Bauinformatik, Mathematik und Bauphysik (IMBM)" />
+            <label xml:lang="de" text="Institut für Bauinformatik, Mathematik und Bauphysik (IBMB)" />
           </category>
           <category ID="3145">
             <label xml:lang="de" text="Professur Polymere Bindemittel und Baustoffe im Bauwesen" />
@@ -314,9 +314,6 @@
           <category ID="3213">
             <label xml:lang="de" text="Promotionsstudiengang Kunst und Design-Freie Kunst-Medienkunst (Ph.D)" />
           </category>
-          <category ID="3214">
-            <label xml:lang="de" text="Professur Theorie und Geschichte des Design" />
-          </category>
           <category ID="3215">
             <label xml:lang="de" text="Visuelle Kommunikation" />
           </category>
@@ -348,7 +345,7 @@
             <label xml:lang="de" text="Professur Moden und öffentliche Erscheinungsbilder" />
           </category>
           <category ID="3309">
-            <label xml:lang="de" text="Professur Medien-Ereignisse" />
+            <label xml:lang="de" text="Professur Medienereignisse" />
           </category>
           <category ID="3310">
             <label xml:lang="de" text="Professur Multimediales Erzählen" />
@@ -426,7 +423,7 @@
         <category ID="3400">
           <label xml:lang="de" text="Zentrale Einrichtungen, Büro des Präsidenten, Dezernate" />
           <category ID="3401">
-            <label xml:lang="de" text="Servicezentrum für Computersysteme und -Kommunikation" />
+            <label xml:lang="de" text="Servicezentrum für Computersysteme und –kommunikation" />
           </category>
           <category ID="3402">
             <label xml:lang="de" text="Sprachenzentrum" />
@@ -451,6 +448,7 @@
           <label xml:lang="de" text="Hochschule für Musik FRANZ LISZT" />
         </category>
       </category>
+
     <category ID="x-old">
       <label xml:lang="x-group" text="[ALT] Bauhaus-Universität Weimar"/>
       <label xml:lang="de" text="[ALT] Bauhaus-Universität Weimar"/>
