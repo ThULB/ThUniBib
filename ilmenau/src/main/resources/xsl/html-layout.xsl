@@ -100,9 +100,9 @@
       <div class="container w-100 w-sm-50">
         <div class="row">
           <div class="col">
-            <h3 id="seitentitel">
+            <h1 class="h3" id="seitentitel">
               <xsl:copy-of select="head/title/node()"/>
-            </h3>
+            </h1>
           </div>
         </div>
       </div>

@@ -734,9 +734,9 @@
 
           <table class="table table-bordered">
             <tr class="text-center">
-              <th>/</th>
+              <th scope="col">/</th>
               <xsl:for-each select="$base/lst">
-                <th>
+                <th scope="col">
                   <xsl:value-of select="translate(str[@name='value'],'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
                 </th>
               </xsl:for-each>
@@ -744,7 +744,7 @@
             <xsl:for-each select="$base/lst">
               <xsl:variable name="a" select="str[@name='value']" />
               <tr class="text-right">
-                <th class="identifier">
+                <th class="identifier" scope="row">
                   <xsl:value-of select="translate(str[@name='value'],'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
                 </th>
                 <xsl:for-each select="$base/lst">
