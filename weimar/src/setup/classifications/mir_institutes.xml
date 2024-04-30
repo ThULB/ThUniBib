@@ -431,7 +431,11 @@
         </category>
       </category>
       <category ID="3400">
-        <label xml:lang="de" text="Zentrale Einrichtungen, Büro des Präsidenten, Dezernate" />
+        <label xml:lang="de" text="Sonstige Institute (Fakultätsübergreifende Einrichtungen)" />
+        <category ID="3404">
+          <label xml:lang="de" text="Gründerzentrum Neudeli" />
+          <label xml:lang="en" text="Gründerzentrum Neudeli" />
+        </category>
         <category ID="3401">
           <label xml:lang="de" text="Servicezentrum für Computersysteme und –kommunikation" />
         </category>
