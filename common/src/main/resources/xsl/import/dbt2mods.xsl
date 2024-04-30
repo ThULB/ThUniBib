@@ -57,6 +57,12 @@
     </mods:genre>
   </xsl:template>
 
+  <xsl:template match="mods:genre[contains(@authorityURI, 'mir_genres')]" mode="relatedItem">
+    <xsl:variable name="genre" select="substring-after(@valueURI, '#')"/>
+    <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre"
+                valueURI="{$WebApplicationBaseURL}classifications/ubogenre#{$genre}"/>
+  </xsl:template>
+
   <xsl:template match="mods:relatedItem">
     <mods:relatedItem>
       <xsl:if test="./@type">
@@ -69,7 +75,7 @@
           <xsl:value-of select="./@xlink:type"/>
         </xsl:attribute>
       </xsl:if>
-      <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]"/>
+      <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]" mode="relatedItem"/>
       <!-- Open Access omitted -->
       <xsl:apply-templates select="mods:titleInfo"/>
       <!-- omitting "conference" -> mods:name[@type='conference']/mods:namePart, seemingly not in DBT data -->
