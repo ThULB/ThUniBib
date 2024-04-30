@@ -249,8 +249,8 @@
         </category>
       </category>
       <category ID="3100">
-        <label xml:lang="de" text="Fakultät Bauingenieurwesen"/>
-        <label xml:lang="en" text="Faculty of Civil Engineering"/>
+        <label xml:lang="de" text="Fakultät Bau- und Umweltingenieurwissenschaften (vormals Bauingenieurwesen)"/>
+        <label xml:lang="en" text="Faculty of Civil and environmental engineering (formerly Civil Engineering)"/>
         <label xml:lang="x-gnd" text="2160175-6"/>
         <category ID="3101">
           <label xml:lang="de" text="Bauhaus-Institut für zukunftsweisende Infrastruktursysteme"/>
@@ -777,7 +777,29 @@
         </category>
       </category>
       <category ID="3300">
-        <label xml:lang="de" text="Medien"/>
+        <label xml:lang="de" text="Fakultät Medien"/>
+        <category ID="333">
+          <label xml:lang="de" text="Professur Organisation und vernetzte Medien"/>
+          <label xml:lang="en" text="Professorship Organization and Networked Media"/>
+          <label xml:lang="x-destatis" text="2985"/>
+        </category>
+        <category ID="3337">
+          <label xml:lang="de" text="Professur Usability"/>
+          <label xml:lang="en" text="Professorship Usability"/>
+          <label xml:lang="x-destatis" text="3520"/>
+        </category>
+        <category ID="3336">
+          <label xml:lang="de" text="Professur Bildtheorie"/>
+          <label xml:lang="en" text="Professorship Image Theory"/>
+          <label xml:lang="x-destatis" text="0130"/>
+        </category>
+        <category ID="3335">
+          <label xml:lang="de" text="Dozentur Gesellschaft und Digitalisierung"/>
+        </category>
+        <category ID="3334">
+          <label xml:lang="de" text="Professur Medienökonomik"/>
+          <label xml:lang="en" text="Professorship Media Economics"/>
+        </category>
         <category ID="3301">
           <label xml:lang="de" text="Professur Medieninformatik"/>
         </category>
@@ -840,10 +862,15 @@
           <label xml:lang="de" text="Professur Content Management - Web-Technologien"/>
         </category>
         <category ID="3321">
-          <label xml:lang="de" text="Juniorprofessur Mediensoziologie"/>
+          <label xml:lang="de" text="Professur Mediensoziologie"/>
         </category>
         <category ID="3322">
-          <label xml:lang="de" text="Juniorprofessur Europäische Medienkultur"/>
+          <label xml:lang="de" text="Professur Europäische Medienkultur"/>
+          <label xml:lang="x-destatis" text="0130"/>
+        </category>
+        <category ID="3338">
+          <label xml:lang="de" text="Professur Philosophie audiovisueller Medien"/>
+          <label xml:lang="x-destatis" text="0130"/>
         </category>
         <category ID="3323">
           <label xml:lang="de" text="Juniorprofessur Geschichte und Theorie der Bildmedien"/>
