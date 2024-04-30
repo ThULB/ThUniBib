@@ -172,10 +172,19 @@
 
   <xsl:template match="mods:originInfo[@eventType='publication']">
     <mods:originInfo>
-      <mods:place>
-        <mods:placeTerm type="text">Jena</mods:placeTerm>
-      </mods:place>
-      <xsl:copy-of select="mods:dateIssued"/>
+      <xsl:copy-of select="mods:place"/>
+      <xsl:choose>
+        <!-- check for year -->
+        <xsl:when test="string-length(mods:dateIssued/text()) = 4">
+          <xsl:copy-of select="mods:dateIssued"/>
+        </xsl:when>
+        <!-- UBO supports only year of publication, full ISO dates must be converted -->
+        <xsl:when test="string-length(mods:dateIssued/text()) &gt; 4 ">
+          <mods:dateIssued encoding="{mods:dateIssued/@encoding}">
+            <xsl:value-of select="substring-before(mods:dateIssued/text(), '-')"/>
+          </mods:dateIssued>
+        </xsl:when>
+      </xsl:choose>
     </mods:originInfo>
   </xsl:template>
 
