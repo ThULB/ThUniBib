@@ -172,19 +172,23 @@
   <xsl:template match="mods:originInfo[@eventType='publication']">
     <mods:originInfo>
       <xsl:copy-of select="mods:place"/>
-      <xsl:choose>
-        <!-- check for year -->
-        <xsl:when test="string-length(mods:dateIssued/text()) = 4">
-          <xsl:copy-of select="mods:dateIssued"/>
-        </xsl:when>
-        <!-- UBO supports only year of publication, full ISO dates must be converted -->
-        <xsl:when test="string-length(mods:dateIssued/text()) &gt; 4 ">
-          <mods:dateIssued encoding="{mods:dateIssued/@encoding}">
-            <xsl:value-of select="substring-before(mods:dateIssued/text(), '-')"/>
-          </mods:dateIssued>
-        </xsl:when>
-      </xsl:choose>
+      <xsl:apply-templates select="mods:dateIssued"/>
     </mods:originInfo>
+  </xsl:template>
+
+  <xsl:template match="mods:dateIssued">
+    <xsl:choose>
+      <!-- check for year -->
+      <xsl:when test="string-length(text()) = 4">
+        <xsl:copy-of select="."/>
+      </xsl:when>
+      <!-- UBO supports only year of publication, full ISO dates must be converted -->
+      <xsl:when test="string-length(text()) &gt; 4 ">
+        <mods:dateIssued encoding="{@encoding}">
+          <xsl:value-of select="substring-before(text(), '-')"/>
+        </mods:dateIssued>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="mods:originInfo[@eventType='creation']">
