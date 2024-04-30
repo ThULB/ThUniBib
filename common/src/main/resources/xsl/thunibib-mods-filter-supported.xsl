@@ -179,7 +179,7 @@
   </xsl:template>
 
   <xsl:template
-    match="mods:accessCondition|mods:accessCondition[@type='use and reproduction']|mods:accessCondition/@type|mods:accessCondition/@xlink:href|mods:accessCondition/@xlink:type">
+    match="mods:accessCondition|mods:accessCondition[@type='use and reproduction']|mods:accessCondition/@type|mods:accessCondition/@xlink:href[contains(.,'classifications/licenses')]|mods:accessCondition/@xlink:type">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
