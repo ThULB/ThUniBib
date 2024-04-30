@@ -78,9 +78,8 @@
       <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]" mode="relatedItem"/>
       <!-- Open Access omitted -->
       <xsl:apply-templates select="mods:titleInfo"/>
-      <!-- omitting "conference" -> mods:name[@type='conference']/mods:namePart, seemingly not in DBT data -->
       <xsl:apply-templates
-        select="mods:name[@type='personal'][contains('aut ths rev',mods:role/mods:roleTerm)]"/> <!-- unclear if this is in DBT -->
+        select="mods:name[@type='personal'][mcrxml:isCategoryID('marcrelator', mods:role/mods:roleTerm)]"/>
       <xsl:apply-templates select="mods:part"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='publication']"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='creation']"/>
