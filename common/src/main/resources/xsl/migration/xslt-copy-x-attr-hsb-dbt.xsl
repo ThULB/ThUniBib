@@ -26,15 +26,15 @@
       <xsl:variable name="x-destatis" select="//category[label[@text = $text-de]]/label[@xml:lang = 'x-destatis']/@text[1]"/>
       <xsl:variable name="x-gnd" select="//category[label[@text = $text-de]]/label[@xml:lang = 'x-gnd']/@text[1]"/>
 
-      <xsl:if test="string-length($text-en) &gt; 0">
+      <xsl:if test="not(label[@xml:lang = 'en']) and string-length($text-en) &gt; 0">
         <label xml:lang="en" text="{$text-en}"/>
       </xsl:if>
 
-      <xsl:if test="string-length($x-gnd) &gt; 0">
+      <xsl:if test="not(label[@xml:lang = 'x-gnd']) and string-length($x-gnd) &gt; 0">
         <label xml:lang="x-gnd" text="{$x-gnd}"/>
       </xsl:if>
 
-      <xsl:if test="string-length($x-destatis) &gt; 0">
+      <xsl:if test="not(label[@xml:lang = 'x-destatis']) and string-length($x-destatis) &gt; 0">
         <label xml:lang="x-destatis" text="{$x-destatis}"/>
       </xsl:if>
     </xsl:copy>
