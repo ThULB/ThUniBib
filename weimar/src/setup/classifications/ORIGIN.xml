@@ -211,11 +211,6 @@
           <label xml:lang="de" text="Professur Bauentwurfslehre"/>
           <label xml:lang="x-destatis" text="7320"/>
         </category>
-        <category ID="3000.01.17">
-          <label xml:lang="de" text="Professur Bauphysik"/>
-          <label xml:lang="en" text="Professorship Building Physics"/>
-          <label xml:lang="x-destatis" text="7330"/>
-        </category>
         <category ID="3000.01.18">
           <label xml:lang="de" text="Professur Konstruktives Entwerfen und Tragwerkslehre"/>
           <label xml:lang="en" text="Professorship Structural Design"/>
@@ -435,16 +430,6 @@
           <label xml:lang="en" text="Institute for Structural Mechanics (ISM)"/>
           <label xml:lang="x-destatis" text="7550"/>
           <label xml:lang="x-gnd" text="2152898-6"/>
-          <category ID="3100.02.01.01">
-            <label xml:lang="de" text="Professur Baustatik und Bauteilfestigkeit"/>
-            <label xml:lang="en" text="Professorship Structural Analysis and Component Strength"/>
-            <label xml:lang="x-destatis" text="7550"/>
-          </category>
-          <category ID="3100.02.01.02">
-            <label xml:lang="de" text="Professur Modellierung und Simulation - Mechanik"/>
-            <label xml:lang="en" text="Professorship Computational Mechanics"/>
-            <label xml:lang="x-destatis" text="7550"/>
-          </category>
           <category ID="3100.02.01.03">
             <label xml:lang="de" text="Professur Stochastik und Optimierung"/>
             <label xml:lang="en" text="Professorship Stochastics and Optimization"/>
@@ -469,10 +454,6 @@
           </category>
           <category ID="3100.02.02.03">
             <label xml:lang="de" text="Professur Versuchstechnische Einrichtung"/>
-            <label xml:lang="x-destatis" text="7510"/>
-          </category>
-          <category ID="3100.02.02.04">
-            <label xml:lang="de" text="Professur Modellierung und Simulation - Konstruktion"/>
             <label xml:lang="x-destatis" text="7510"/>
           </category>
           <category ID="3100.02.02.05">
@@ -501,17 +482,6 @@
           <label xml:lang="en" text="Finger Institute for Building Material Engineering (FIB)"/>
           <label xml:lang="x-destatis" text="7700"/>
           <label xml:lang="x-gnd" text="1082224960"/>
-          <category ID="3100.02.03.01">
-            <label xml:lang="de" text="Professur Werkstoffe des Bauens"/>
-            <label xml:lang="x-destatis" text="7700"/>
-            <label xml:lang="x-gnd" text="1112139613"/>
-          </category>
-          <category ID="3100.02.03.02">
-            <label xml:lang="de" text="Professur Bauchemie und Polymere Werkstoffe"/>
-            <label xml:lang="en" text="Professorship Construction Chemistry and Polymer Materials"/>
-            <label xml:lang="x-destatis" text="7700"/>
-            <label xml:lang="x-gnd" text="1160412456"/>
-          </category>
           <category ID="3100.02.03.03">
             <label xml:lang="de" text="Professur Werkstoffmechanik"/>
             <label xml:lang="en" text="Professorship material mechanics"/>
@@ -520,16 +490,6 @@
         </category>
         <category ID="3100.02.04">
           <label xml:lang="de" text="Institut für Bauinformatik, Mathematik und Bauphysik (IMBM)"/>
-          <category ID="3100.02.04.01">
-            <label xml:lang="de" text="Professur Bauphysik"/>
-            <label xml:lang="en" text="Professorship Building Physics"/>
-            <label xml:lang="x-destatis" text="7550"/>
-          </category>
-          <category ID="3100.02.04.02">
-            <label xml:lang="de" text="Professur Angewandte Mathematik"/>
-            <label xml:lang="en" text="Professorship Applied Mathematics"/>
-            <label xml:lang="x-destatis" text="3470"/>
-          </category>
           <category ID="3100.02.04.03">
             <label xml:lang="de" text="Professur Data Engineering im Bauwesen"/>
             <label xml:lang="en" text="Professorship of Data Engineering in Civil Engineering"/>
@@ -539,12 +499,6 @@
             <label xml:lang="de" text="Professur Computer Vision in Engineering"/>
             <label xml:lang="en" text="Professorship Computer Vision in Engineering"/>
             <label xml:lang="x-destatis" text="7580"/>
-          </category>
-          <category ID="3100.02.04.05">
-            <label xml:lang="de" text="Professur Informatik im Bauwesen"/>
-            <label xml:lang="en" text="Professorship Computing in Civil Engineering"/>
-            <label xml:lang="x-destatis" text="7580"/>
-            <label xml:lang="x-gnd" text="1167313151"/>
           </category>
           <category ID="3100.02.04.06">
             <label xml:lang="de" text="Professur Intelligentes Technisches Design"/>
@@ -561,24 +515,6 @@
             <label xml:lang="de" text="Professur Technologien urbaner Stoffstromnutzungen"/>
             <label xml:lang="en" text="Professorship Urban Bioengineering for Resource Recovery"/>
             <label xml:lang="x-destatis" text="7550"/>
-          </category>
-          <category ID="3100.02.05.02">
-            <label xml:lang="de" text="Professur Verkehrssystemplanung"/>
-            <label xml:lang="en" text="Professorship Transport System Planning"/>
-            <label xml:lang="x-destatis" text="7530"/>
-            <label xml:lang="x-gnd" text="1228058229"/>
-          </category>
-          <category ID="3100.02.05.03">
-            <label xml:lang="de" text="Professur Siedlungswasserwirtschaft"/>
-            <label xml:lang="en" text="Professorship Urban Water Management and Sanitation"/>
-            <label xml:lang="x-destatis" text="7550"/>
-            <label xml:lang="x-gnd" text="5195722-X"/>
-          </category>
-          <category ID="3100.02.05.04">
-            <label xml:lang="de" text="Professur Biotechnologie in der Ressourcenwirtschaft"/>
-            <label xml:lang="en" text="Professorship Biotechnology in Resources Management"/>
-            <label xml:lang="x-destatis" text="7550"/>
-            <label xml:lang="x-gnd" text="1041307950"/>
           </category>
           <category ID="3100.02.05.05">
             <label xml:lang="de" text="Professur Energiesysteme"/>
@@ -605,12 +541,6 @@
         <category ID="3100.02.06">
           <label xml:lang="de" text="BuiltEnvironment-Management Institute (B-M-I)"/>
           <label xml:lang="x-destatis" text="7540"/>
-          <category ID="3100.02.06.01">
-            <label xml:lang="de" text="Professur Baubetrieb und Bauverfahren"/>
-            <label xml:lang="en" text="Professorship Construction Engineering and Management"/>
-            <label xml:lang="x-destatis" text="7540"/>
-            <label xml:lang="x-gnd" text="10006717-7"/>
-          </category>
           <category ID="3100.02.06.02">
             <label xml:lang="de" text="Professur Immobilienwirtschaft und -management"/>
             <label xml:lang="en" text="Professorship Management in the Built Environment"/>
@@ -1111,12 +1041,6 @@
           <label xml:lang="de" text="Professur Entwerfen und Baukonstruktion"/>
           <label xml:lang="en" text="Professorship Design and Building Construction"/>
           <label xml:lang="x-gnd" text="16330439-7"/>
-          <label xml:lang="x-destatis" text="7330"/>
-        </category>
-
-        <category ID="01.17">
-          <label xml:lang="de" text="Professur Bauphysik"/>
-          <label xml:lang="en" text="Professorship Building Physics"/>
           <label xml:lang="x-destatis" text="7330"/>
         </category>
 
