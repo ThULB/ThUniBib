@@ -260,18 +260,25 @@
         </category>
         <category ID="3103">
           <label xml:lang="de" text="Professur Baustatik und Bauteilfestigkeit"/>
+          <label xml:lang="en" text="Professorship Structural Analysis and Component Strength"/>
+          <label xml:lang="x-destatis" text="7550"/>
         </category>
         <category ID="3104">
           <label xml:lang="de" text="Professur Massivbau I"/>
         </category>
         <category ID="3105">
           <label xml:lang="de" text="Professur Massivbau II"/>
+          <label xml:lang="x-gnd" text="16339559-7"/>
+          <label xml:lang="x-destatis" text="7510"/>
         </category>
         <category ID="3106">
           <label xml:lang="de" text="Professur Modellierung und Simulation - Konstruktion"/>
+          <label xml:lang="x-destatis" text="7510"/>
         </category>
         <category ID="3107">
           <label xml:lang="de" text="Professur Modellierung und Simulation - Mechanik"/>
+          <label xml:lang="en" text="Professorship Computational Mechanics"/>
+          <label xml:lang="x-destatis" text="7550"/>
         </category>
         <category ID="3108">
           <label xml:lang="de" text="Professur Stahlbau"/>
@@ -287,6 +294,8 @@
         </category>
         <category ID="3112">
           <label xml:lang="de" text="Professur Angewandte Mathematik"/>
+          <label xml:lang="en" text="Professorship Applied Mathematics"/>
+          <label xml:lang="x-destatis" text="3470"/>
         </category>
         <category ID="3113">
           <label xml:lang="de" text="Professur Bauphysik"/>
@@ -301,12 +310,17 @@
         </category>
         <category ID="3116">
           <label xml:lang="de" text="Professur Werkstoffe des Bauens"/>
+          <label xml:lang="x-gnd" text="1112139613"/>
+          <label xml:lang="x-destatis" text="7700"/>
         </category>
         <category ID="3117">
           <label xml:lang="de" text="Professur Strömungsmechanik"/>
         </category>
         <category ID="3118">
           <label xml:lang="de" text="Professur Bauchemie und Polymere Werkstoffe"/>
+          <label xml:lang="en" text="Professorship Construction Chemistry and Polymer Materials"/>
+          <label xml:lang="x-gnd" text="1160412456"/>
+          <label xml:lang="x-destatis" text="7700"/>
         </category>
         <category ID="3119">
           <label xml:lang="de" text="Professur Verfahren und Umwelt"/>
@@ -316,12 +330,18 @@
         </category>
         <category ID="3121">
           <label xml:lang="de" text="Professur Verkehrssystemplanung"/>
+          <label xml:lang="en" text="Professorship Transport System Planning"/>
+          <label xml:lang="x-gnd" text="1228058229"/>
+          <label xml:lang="x-destatis" text="7530"/>
         </category>
         <category ID="3122">
           <label xml:lang="de" text="Professur Verkehrsbau"/>
         </category>
         <category ID="3123">
           <label xml:lang="de" text="Professur Siedlungswasserwirtschaft"/>
+          <label xml:lang="en" text="Professorship Urban Water Management and Sanitation"/>
+          <label xml:lang="x-gnd" text="5195722-X"/>
+          <label xml:lang="x-destatis" text="7550"/>
         </category>
         <category ID="3124">
           <label xml:lang="de" text="Professur Abfallwirtschaft"/>
@@ -342,18 +362,27 @@
         </category>
         <category ID="3129">
           <label xml:lang="de" text="Professur Baubetrieb und Bauverfahren"/>
+          <label xml:lang="en" text="Professorship Construction Engineering and Management"/>
+          <label xml:lang="x-gnd" text="10006717-7"/>
+          <label xml:lang="x-destatis" text="7540"/>
         </category>
         <category ID="3130">
           <label xml:lang="de" text="Professur Informations- und Wissensverarbeitung"/>
         </category>
         <category ID="3131">
           <label xml:lang="de" text="Professur Informatik im Bauwesen"/>
+          <label xml:lang="en" text="Professorship Computing in Civil Engineering"/>
+          <label xml:lang="x-gnd" text="1167313151"/>
+          <label xml:lang="x-destatis" text="7580"/>
         </category>
         <category ID="3132">
           <label xml:lang="de" text="Professur Betriebswirtschaftslehre im Bauwesen"/>
         </category>
         <category ID="3133">
           <label xml:lang="de" text="Professur Biotechnologie in der Ressourcenwirtschaft"/>
+          <label xml:lang="en" text="Professorship Biotechnology in Resources Management"/>
+          <label xml:lang="x-gnd" text="1041307950"/>
+          <label xml:lang="x-destatis" text="7550"/>
         </category>
         <category ID="3134">
           <label xml:lang="de" text="Professur Experimentelle Konstruktions- und Materialanalyse"/>
@@ -795,10 +824,12 @@
         </category>
         <category ID="3335">
           <label xml:lang="de" text="Dozentur Gesellschaft und Digitalisierung"/>
+          <label xml:lang="x-destatis" text="0130"/>
         </category>
         <category ID="3334">
           <label xml:lang="de" text="Professur Medienökonomik"/>
           <label xml:lang="en" text="Professorship Media Economics"/>
+          <label xml:lang="x-destatis" text="2985"/>
         </category>
         <category ID="3301">
           <label xml:lang="de" text="Professur Medieninformatik"/>
@@ -808,18 +839,24 @@
         </category>
         <category ID="3303">
           <label xml:lang="de" text="Professur Medienphilosophie"/>
+          <label xml:lang="en" text="Professorship Media Philosophy"/>
+          <label xml:lang="x-destatis" text="0130"/>
         </category>
         <category ID="3304">
           <label xml:lang="de" text="Professur Geschichte und Theorie künstlicher Welten"/>
         </category>
         <category ID="3305">
           <label xml:lang="de" text="Professur Medienmanagement"/>
+          <label xml:lang="x-gnd" text="16152869-7"/>
+          <label xml:lang="x-destatis" text="2985"/>
         </category>
         <category ID="3306">
           <label xml:lang="de" text="Professur Medienwissenschaft"/>
         </category>
         <category ID="3307">
           <label xml:lang="de" text="Professur Gestaltung medialer Umgebungen"/>
+          <label xml:lang="en" text="Professorship Media Environments"/>
+          <label xml:lang="x-destatis" text="8050"/>
         </category>
         <category ID="3308">
           <label xml:lang="de" text="Professur Moden und öffentliche Erscheinungsbilder"/>
@@ -832,18 +869,27 @@
         </category>
         <category ID="3311">
           <label xml:lang="de" text="Professur Interface Design"/>
+          <label xml:lang="en" text="Professorship Interface Design"/>
+          <label xml:lang="x-destatis" text="8010"/>
         </category>
         <category ID="3312">
           <label xml:lang="de" text="Professur Experimentelles Radio"/>
+          <label xml:lang="en" text="Professorship Experimental Radio"/>
+          <label xml:lang="x-gnd" text="6054047-3"/>
+          <label xml:lang="x-destatis" text="8050"/>
         </category>
         <category ID="3313">
           <label xml:lang="de" text="Professur Graphische Datenverarbeitung"/>
+          <label xml:lang="en" text="Professorship Computer Graphics"/>
+          <label xml:lang="x-destatis" text="3520"/>
         </category>
         <category ID="3314">
           <label xml:lang="de" text="Professur Elektroakustische Komposition und Klanggestaltung"/>
         </category>
         <category ID="3315">
           <label xml:lang="de" text="Professur Systeme der Virtuellen Realität"/>
+          <label xml:lang="en" text="Professorship Virtual Reality Systems and Visualization Research"/>
+          <label xml:lang="x-destatis" text="3520"/>
         </category>
         <category ID="3316">
           <label xml:lang="de" text="Professur Vernetzte Medien"/>
@@ -863,10 +909,13 @@
         </category>
         <category ID="3321">
           <label xml:lang="de" text="Professur Mediensoziologie"/>
+          <label xml:lang="en" text="Professorship of Media Sociology"/>
+          <label xml:lang="x-destatis" text="0130"/>
         </category>
         <category ID="3322">
           <label xml:lang="de" text="Professur Europäische Medienkultur"/>
           <label xml:lang="x-destatis" text="0130"/>
+          <label xml:lang="en" text="Professorship European Media Culture"/>
         </category>
         <category ID="3338">
           <label xml:lang="de" text="Professur Philosophie audiovisueller Medien"/>
@@ -883,15 +932,21 @@
         </category>
         <category ID="3326">
           <label xml:lang="de" text="Professur Geschichte und Theorie der Kulturtechniken"/>
+          <label xml:lang="en" text="Professorship History and Theory of Cultural Technologies"/>
+          <label xml:lang="x-destatis" text="0130"/>
         </category>
         <category ID="3327">
           <label xml:lang="de" text="Professur Marketing und Medien"/>
+          <label xml:lang="en" text="Professorship Marketing and Media Research"/>
+          <label xml:lang="x-destatis" text="2985"/>
         </category>
         <category ID="3328">
           <label xml:lang="de" text="Professur Medienökonomie und internationales Management"/>
         </category>
         <category ID="3329">
           <label xml:lang="de" text="Professur Mediensicherheit"/>
+          <label xml:lang="en" text="Professorship Media Security"/>
+          <label xml:lang="x-destatis" text="3520"/>
         </category>
         <category ID="3330">
           <label xml:lang="de" text="Juniorprofessur Psychophysiologie und Wahrnehmung"/>
@@ -905,11 +960,14 @@
         <category ID="3333">
           <label xml:lang="de" text="Internationales Kolleg für Kulturtechnikforschung und Medienphilosophie (IKKM)"/>
         </category>
+        <label xml:lang="x-gnd" text="5327596-2"/>
       </category>
       <category ID="3400">
         <label xml:lang="de" text="Sonstige Institute (Fakultätsübergreifende Einrichtungen)"/>
         <category ID="3404">
           <label xml:lang="de" text="Gründerzentrum Neudeli"/>
+          <label xml:lang="x-gnd" text="1086629590"/>
+          <label xml:lang="x-destatis" text="9200"/>
         </category>
         <category ID="3401">
           <label xml:lang="de" text="Servicezentrum für Computersysteme und –kommunikation"/>
@@ -919,6 +977,9 @@
         </category>
         <category ID="3403">
           <label xml:lang="de" text="Universitätsbibliothek"/>
+          <label xml:lang="en" text="University Library"/>
+          <label xml:lang="x-gnd" text="5082992-0"/>
+          <label xml:lang="x-destatis" text="9000"/>
         </category>
       </category>
       <category ID="3500">
