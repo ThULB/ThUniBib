@@ -905,6 +905,9 @@
         </category>
         <category ID="3403">
           <label xml:lang="de" text="Universitätsbibliothek"/>
+          <label xml:lang="en" text="University Library"/>
+          <label xml:lang="x-gnd" text="5082992-0"/>
+          <label xml:lang="x-destatis" text="9000"/>
         </category>
         <category ID="3405">
           <label xml:lang="de" text="Universitätskommunikation"/>
