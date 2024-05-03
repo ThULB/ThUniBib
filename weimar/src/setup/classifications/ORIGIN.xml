@@ -17,6 +17,8 @@
         <label xml:lang="x-gnd" text="1047352591"/>
         <category ID="3001">
           <label xml:lang="de" text="Bauhaus.Institut für experimentelle architektur"/>
+          <label xml:lang="x-gnd" text="1174941308"/>
+          <label xml:lang="x-destatis" text="7395"/>
         </category>
         <category ID="3002">
           <label xml:lang="de" text="Bauhaus-Institut für Geschichte und Theorie der Architektur und Planung"/>
