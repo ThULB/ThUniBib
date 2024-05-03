@@ -185,11 +185,6 @@
           <label xml:lang="x-gnd" text="1121823661"/>
           <label xml:lang="x-destatis" text="7335"/>
         </category>
-        <category ID="3056">
-          <label xml:lang="de" text="Professur Kulturgeschichte der Moderne"/>
-          <label xml:lang="en" text="Professorship Cultural History"/>
-          <label xml:lang="x-destatis" text="7310"/>
-        </category>
         <category ID="3057">
           <label xml:lang="de" text="Professur Kunst- und Kulturgeschichte"/>
           <label xml:lang="en" text="Chair for Art and Cultural History"/>
@@ -208,11 +203,6 @@
         <category ID="3065">
           <label xml:lang="de" text="Professur Bauentwurfslehre"/>
           <label xml:lang="x-destatis" text="7320"/>
-        </category>
-        <category ID="3067">
-          <label xml:lang="de" text="Professur Bauphysik"/>
-          <label xml:lang="en" text="Professorship Building Physics"/>
-          <label xml:lang="x-destatis" text="7330"/>
         </category>
         <category ID="3068">
           <label xml:lang="de" text="Professur Konstruktives Entwerfen und Tragwerkslehre"/>
@@ -260,7 +250,7 @@
             <label xml:lang="en" text="Professorship Urban Bioengineering for Resource Recovery"/>
             <label xml:lang="x-destatis" text="7550"/>
           </category>
-          <category ID="3101.02">
+          <category ID="3121">
             <label xml:lang="de" text="Professur Verkehrssystemplanung"/>
             <label xml:lang="en" text="Professorship Transport System Planning"/>
             <label xml:lang="x-gnd" text="1228058229"/>
@@ -360,12 +350,6 @@
         </category>
         <category ID="3120">
           <label xml:lang="de" text="Professur Verkehrsplanung und Verkehrstechnik"/>
-        </category>
-        <category ID="3121">
-          <label xml:lang="de" text="Professur Verkehrssystemplanung"/>
-          <label xml:lang="en" text="Professorship Transport System Planning"/>
-          <label xml:lang="x-gnd" text="1228058229"/>
-          <label xml:lang="x-destatis" text="7530"/>
         </category>
         <category ID="3122">
           <label xml:lang="de" text="Professur Verkehrsbau"/>
@@ -887,11 +871,6 @@
         <category ID="3347">
           <label xml:lang="de" text="Professur Medienökonomik"/>
           <label xml:lang="en" text="Professorship Media Economics"/>
-          <label xml:lang="x-destatis" text="2985"/>
-        </category>
-        <category ID="3348">
-          <label xml:lang="de" text="Professur Organisation und vernetzte Medien"/>
-          <label xml:lang="en" text="Professorship Organization and Networked Media"/>
           <label xml:lang="x-destatis" text="2985"/>
         </category>
         <category ID="3349">
