@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass ID="importSourceType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+
+  <label xml:lang="en" text="Typ der Importquelle"/>
+  <label xml:lang="de" text="Type of import source"/>
+
+  <categories>
+    <category ID="BibTeX">
+      <label xml:lang="de" text="BibTeX Quellcode"/>
+      <label xml:lang="en" text="BibTeX source code"/>
+    </category>
+    <category ID="ORCID">
+      <label xml:lang="de" text="Publikationen aus dem ORCID Profil"/>
+      <label xml:lang="en" text="Publications from the ORCID profile"/>
+    </category>
+    <category ID="PPNList">
+      <label xml:lang="de" text="Literaturliste im PPN-Listenformat"/>
+      <label xml:lang="en" text="Bibliography in PPN list format"/>
+    </category>
+    <category ID="DOIList">
+      <label xml:lang="de" text="Literaturliste im DOI-Listenformat"/>
+      <label xml:lang="en" text="Bibliography in DOI list format"/>
+    </category>
+    <category ID="DBTList">
+      <label xml:lang="de" text="Literaturliste im DBT-ID-Listenformat"/>
+      <label xml:lang="en" text="Bibliography in DBT-ID list format"/>
+    </category>
+  </categories>
+</mycoreclass>
