@@ -534,6 +534,7 @@
       </category>
       <category ID="3200">
         <label xml:lang="de" text="Fakultät Kunst und Gestaltung"/>
+        <label xml:lang="en" text="Faculty of Art and Design"/>
         <label xml:lang="x-gnd" text="1102202495"/>
         <category ID="3201">
           <label xml:lang="de" text="Architekturgeschichte"/>
@@ -699,10 +700,11 @@
           <label xml:lang="en" text="Professorship Immersive Media"/>
           <label xml:lang="x-destatis" text="7800"/>
         </category>
-        <label xml:lang="en" text="Faculty of Art and Design"/>
+
       </category>
       <category ID="3300">
         <label xml:lang="de" text="Fakultät Medien"/>
+        <label xml:lang="x-gnd" text="5327596-2"/>
         <category ID="3301">
           <label xml:lang="de" text="Professur Medieninformatik"/>
         </category>
@@ -948,7 +950,6 @@
           <label xml:lang="de" text="Professur Computational Social Science"/>
           <label xml:lang="x-destatis" text="3520"/>
         </category>
-        <label xml:lang="x-gnd" text="5327596-2"/>
       </category>
       <category ID="3800">
         <label xml:lang="de" text="Sonstige Institute (Fakultätsübergreifende Einrichtungen)"/>
