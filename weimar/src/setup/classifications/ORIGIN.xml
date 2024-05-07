@@ -220,11 +220,6 @@
           <label xml:lang="en" text="Professorship Urban and Regional Design"/>
           <label xml:lang="x-destatis" text="7395"/>
         </category>
-        <category ID="3079">
-          <label xml:lang="de" text="Professur Stadtplanung"/>
-          <label xml:lang="en" text="Professorship Urban Planning"/>
-          <label xml:lang="x-destatis" text="7430"/>
-        </category>
         <category ID="3081">
           <label xml:lang="de" text="Professur European Cities and Urban Heritage"/>
           <label xml:lang="en" text="Professorship European Cities and Urban Heritage"/>
