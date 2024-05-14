@@ -76,6 +76,10 @@
       <label xml:lang="de">WebCLI</label>
       <label xml:lang="en">WebCLI</label>
     </item>
+    <item id="signout" ref="servlets/logout" display-divider="top">
+      <label xml:lang="de">Abmelden</label>
+      <label xml:lang="en">Sign out</label>
+    </item>
   </item>
 
   <item role="meta">
