@@ -6,7 +6,8 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 xmlns:encoder="xalan://java.net.URLEncoder"
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
-                exclude-result-prefixes="xsl xalan i18n encoder mcrxml">
+                xmlns:utilities="xalan://de.uni_jena.thunibib.Utilities"
+                exclude-result-prefixes="encoder i18n mcrxml utilities xalan xsl">
 
   <xsl:output method="xml" encoding="UTF-8"/>
 
@@ -308,7 +309,7 @@
 
   <!-- current user and login formular-->
   <xsl:template name="layout.login">
-    <div class="nav-item mr-2 text-white">
+    <div class="nav-item mr-2">
       <xsl:if test="not($CurrentUser = $MCR.Users.Guestuser.UserName)">
         <xsl:variable name="userData" select="document('user:current')/user"/>
         <xsl:variable name="userId">
@@ -321,10 +322,9 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
-
         <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
            role="button" id="mcrFunctionsDropdown" href="#"
-           class="user nav-link dropdown-toggle p-0 d-inline-block ubo-curser-pointer">
+           class="user nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block">
           <xsl:choose>
             <xsl:when test="$userData/realName">
               <xsl:value-of select="$userData/realName"/>
@@ -337,8 +337,8 @@
         <div aria-labeledby="mcrFunctionsDropdown" class="dropdown-menu">
           <xsl:call-template name="layout.usernav"/>
         </div>
-
       </xsl:if>
+
       <xsl:call-template name="orcidUser"/>
     </div>
 
@@ -348,45 +348,60 @@
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
           <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
              href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-in-alt"/>
+            <xsl:value-of select="i18n:translate('thunibib.signIn')"/>
           </a>
         </xsl:when>
-        <xsl:otherwise>
-          <a class="btn btn-link p-0" title="{i18n:translate('login.logOut')}"
-             href="{$ServletsBaseURL}logout?url={encoder:encode($RequestURL)}">
-            <i class="nav-login fas fa-lg fa-sign-out-alt"/>
-          </a>
-        </xsl:otherwise>
       </xsl:choose>
-    </div>
-
-    <div class="nav-item">
-      <span class="btn p-0">
-        <a>
-          <xsl:attribute name="href">
-            <xsl:choose>
-              <xsl:when test="$CurrentLang='de'">
-                <xsl:call-template name="UrlSetParam">
-                  <xsl:with-param name="url" select="$RequestURL"/>
-                  <xsl:with-param name="par" select="'lang'"/>
-                  <xsl:with-param name="value" select="'en'"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:when test="$CurrentLang='en'">
-                <xsl:call-template name="UrlSetParam">
-                  <xsl:with-param name="url" select="$RequestURL"/>
-                  <xsl:with-param name="par" select="'lang'"/>
-                  <xsl:with-param name="value" select="'de'"/>
-                </xsl:call-template>
-              </xsl:when>
-            </xsl:choose>
-          </xsl:attribute>
-          <!-- <img src="{$WebApplicationBaseURL}images/lang_{$CurrentLang}.gif" alt="{i18n:translate('navigation.Language')}" /> -->
-          <xsl:value-of select="i18n:translate('navigation.ende')"/>
-        </a>
+      <span class="ml-2 mr-1">
+        <xsl:value-of select="'|'"/>
       </span>
     </div>
 
+    <div class="nav-item dropdown">
+      <xsl:variable name="href-lang-toggle">
+        <xsl:choose>
+          <xsl:when test="$CurrentLang='de'">
+            <xsl:call-template name="UrlSetParam">
+              <xsl:with-param name="url" select="$RequestURL"/>
+              <xsl:with-param name="par" select="'lang'"/>
+              <xsl:with-param name="value" select="'en'"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="$CurrentLang='en'">
+            <xsl:call-template name="UrlSetParam">
+              <xsl:with-param name="url" select="$RequestURL"/>
+              <xsl:with-param name="par" select="'lang'"/>
+              <xsl:with-param name="value" select="'de'"/>
+            </xsl:call-template>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:variable>
+      <span class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="border flag flag-{$CurrentLang}" style="vertical-align:middle"/>
+        <span class="align-middle">
+          <xsl:value-of select="utilities:toUpperCase($CurrentLang)"/>
+        </span>
+      </span>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{$href-lang-toggle}">
+          <xsl:variable name="other-lang">
+            <xsl:choose>
+              <xsl:when test="$CurrentLang = 'de'">
+                <xsl:value-of select="'en'"/>
+              </xsl:when>
+              <xsl:when test="$CurrentLang = 'en'">
+                <xsl:value-of select="'de'"/>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:variable>
+          <i class="border flag flag-{$other-lang}"/>
+          <span class="align-middle">
+            <xsl:value-of select="i18n:translate('navigation.ende')"/>
+          </span>
+        </a>
+      </div>
+    </div>
   </xsl:template>
 
   <xsl:template name="layout.pageTitle">
