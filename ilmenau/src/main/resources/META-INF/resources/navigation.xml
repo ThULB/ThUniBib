@@ -76,6 +76,10 @@
       <label xml:lang="de">WebCLI</label>
       <label xml:lang="en">WebCLI</label>
     </item>
+    <item id="signout" ref="servlets/logout" display-divider="top">
+      <label xml:lang="de">Abmelden</label>
+      <label xml:lang="en">Sign out</label>
+    </item>
   </item>
 
   <item role="meta">
@@ -87,9 +91,9 @@
       <label xml:lang="de">Impressum</label>
       <label xml:lang="en">Legal Notice</label>
     </item>
-    <item ref="privacy.xml">
+    <item ref="privacy-statement.xml">
       <label xml:lang="de">Datenschutz</label>
-      <label xml:lang="en">Privacy Notice</label>
+      <label xml:lang="en">Privacy Statement</label>
     </item>
     <item ref="accessibility.xml">
       <label xml:lang="de">Barrierefreiheit</label>

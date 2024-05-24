@@ -33,6 +33,12 @@
       <label xml:lang="x-display" text="true"/>
       <label xml:lang="x-uri" text="https://orcid.org/"/>
     </category>
+    <category ID="viaf">
+      <label xml:lang="de" text="VIAF" description="Virtuelle internationale Normdatei"/>
+      <label xml:lang="en" text="VIAF" description="Virtual International Authority File"/>
+      <label xml:lang="x-display" text="true"/>
+      <label xml:lang="x-uri" text="https://viaf.org/viaf/"/>
+    </category>
     <category ID="connection">
       <label xml:lang="de" text="Connection ID"/>
       <label xml:lang="en" text="Connection ID"/>

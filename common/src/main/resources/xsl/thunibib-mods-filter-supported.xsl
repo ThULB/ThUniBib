@@ -43,7 +43,7 @@
   <xsl:template match="mods:mods">
     <xsl:copy>
       <xsl:apply-templates
-          select="mods:genre|mods:titleInfo|mods:typeOfResource|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:physicalDescription|mods:identifier|mods:relatedItem|mods:note|mods:extension|mods:location|mods:subject|mods:abstract|mods:language"/>
+          select="mods:genre|mods:accessCondition|mods:titleInfo|mods:typeOfResource|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:physicalDescription|mods:identifier|mods:relatedItem|mods:note|mods:extension|mods:location|mods:subject|mods:abstract|mods:language"/>
     </xsl:copy>
   </xsl:template>
 
@@ -52,7 +52,7 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
-  <xsl:template match="mods:genre[@type='intern'][1]|mods:genre/@type">
+  <xsl:template match="mods:genre[@type='intern'][1]|mods:genre/@type|mods:genre/@authorityURI|mods:genre/@valueURI">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
@@ -93,7 +93,7 @@
 
 <xsl:template match="mods:publisher[1]">
   <xsl:choose>
-    <xsl:when test="//mods:mods/mods:genre[contains('article', text())] and not(./ancestor::mods:relatedItem) and //mods:relatedItem//mods:publisher"/>
+    <xsl:when test="//mods:mods/mods:genre[contains(@valueURI, 'article')] and not(./ancestor::mods:relatedItem) and //mods:relatedItem//mods:publisher"/>
     <xsl:otherwise>
       <xsl:call-template name="copy-and-apply"/>
     </xsl:otherwise>
@@ -137,7 +137,7 @@
     <xsl:copy>
       <xsl:copy-of select="@type"/>
       <xsl:apply-templates
-          select="mods:genre|mods:titleInfo|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:identifier|mods:relatedItem|mods:location|mods:part"/>
+          select="mods:genre|mods:accessCondition|mods:titleInfo|mods:name|mods:classification|mods:originInfo|mods:dateIssued|mods:identifier|mods:relatedItem|mods:location|mods:part"/>
     </xsl:copy>
   </xsl:template>
 
@@ -170,11 +170,16 @@
   </xsl:template>
 
   <xsl:template
-      match="mods:language|mods:languageTerm[@type='code'][@authority='rfc4646']|mods:languageTerm/@type|mods:languageTerm/@authority">
+      match="mods:language|mods:languageTerm[@type='code'][@authority='rfc5646']|mods:languageTerm/@type|mods:languageTerm/@authority">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
   <xsl:template match="mods:abstract|mods:abstract/@xml:lang|mods:abstract/@xlink:href">
+    <xsl:call-template name="copy-and-apply"/>
+  </xsl:template>
+
+  <xsl:template
+    match="mods:accessCondition|mods:accessCondition[@type='use and reproduction']|mods:accessCondition/@type|mods:accessCondition/@xlink:href[contains(.,'classifications/licenses')]|mods:accessCondition/@xlink:type">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 

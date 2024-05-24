@@ -42,6 +42,7 @@
       "defaults": {
         "echoParams": "explicit",
         "defType": "edismax",
+        "q.alt": "*:*",
         "qs": "5",
         "mm": "100%",
         "q.op": "AND",
@@ -59,7 +60,46 @@
           "connection_nid_text",
           "nid_connection"
         ],
-        "json.facet": "{year:{type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}"
+        "json.facet": "{year:{type:terms,field:year,limit:100,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
+        "fq": "+objectType:mods",
+        "fq": "status:unchecked OR status:confirmed"
+      },
+      "invariants": {
+        "fl": "",
+        "start": "0",
+        "rows": "0",
+        "facet": "true",
+        "facet.mincount": "1"
+      }
+    }
+  },
+  {
+    "add-requestHandler": {
+      "name": "/statistics-all",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "q.alt": "*:*",
+        "qs": "5",
+        "mm": "100%",
+        "q.op": "AND",
+        "df": "all",
+        "wt": "xml"
+      },
+      "appends": {
+        "facet.field": [
+          "year",
+          "subject",
+          "origin_exact",
+          "genre",
+          "oa",
+          "facet_person",
+          "connection_nid_text",
+          "nid_connection"
+        ],
+        "json.facet": "{year:{type:terms,field:year,limit:100,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
+        "fq": "+objectType:mods"
       },
       "invariants": {
         "fl": "",
@@ -105,7 +145,7 @@
         "wt": "xml"
       },
       "appends": {
-        "fq": "+objectType:mods "
+        "fq": "+objectType:mods"
       }
     }
   },

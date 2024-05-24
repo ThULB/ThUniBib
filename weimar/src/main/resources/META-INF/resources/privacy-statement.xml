@@ -8,8 +8,8 @@
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">
       <p>
-        Es gelten die <a href="https://www.uni-erfurt.de/datenschutzerklaerung">Datenschutzbestimmungen der Universität
-        Erfurt</a>,
+        Es gelten die <a href="https://www.uni-weimar.de/de/fs/datenschutz/">Datenschutzbestimmungen der
+        Bauhaus-Universität Weimar</a>,
         zusätzlich gilt:
       </p>
 
@@ -17,7 +17,7 @@
 
       <p>
         Zweck der Universitätsbibliographie ist die Bereitstellung einer weitgehend vollständigen Publikationsliste
-        aller Angehörigen der Universität Erfurt.
+        aller Angehörigen der Bauhaus-Universität Weimar.
         Wir verarbeiten personenbezogene Daten unserer Nutzenden grundsätzlich nur, soweit dies
         zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist.
         Dies geschieht zur Wahrnehmung der uns übertragenen Aufgabe der Unterstützung von Lehre und Forschung
@@ -66,7 +66,7 @@
         Session-Cookies werden nicht zur Erstellung von Nutzerprofilen verwendet.
       </p>
 
-      <h2>IV. Anmeldedaten</h2>
+      <h2>IV. AnmeldeDaten</h2>
 
       <p>
         Eine Anmeldung (Login) mit persönlichen Daten ist nur zur Bearbeitung der Bibliographie
@@ -100,7 +100,7 @@
 
       <p>
         Zweck dieser Bibliographie ist die weltweite Bereitstellung einer weitgehend vollständigen Publikationsliste der
-        Angehörigen der Universität Erfurt. Dazu speichern, verarbeiten und veröffentlichen
+        Angehörigen der Bauhaus-Universität Weimar. Dazu speichern, verarbeiten und veröffentlichen
         wir auch personenbezogene Daten der an Publikationen beteiligten Personen:
       </p>
       <ul>
@@ -198,7 +198,7 @@
       <ul>
         <li>Name</li>
         <li>User ID (for authentication only, not stored)</li>
-        <li>eduPersonUniqueIDD</li>
+        <li>eduPersonUniqueID</li>
         <li>Time and date of the last login</li>
         <li>User roles (e.g. administrator, the roles are assigned within the bibliography)</li>
         <li>Links to the publications recorded in the bibliography, incl. date and time of the last modification</li>

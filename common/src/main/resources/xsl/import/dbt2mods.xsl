@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ==================================================
- Übernahme einer E-Dissertation von DuEPublico zur Universitätsbibliographie
- ================================================== -->
+<!-- ==============================================================================
+ Ãœbernahme einer E-Dissertation von db-thueringen.de zur UniversitÃ¤tsbibliographie
+ =============================================================================== -->
 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="xsl mods xlink">
+                xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="mcrxml mods xsl xalan xlink">
 
+  <xsl:param name="CurrentLang"/>
+  <xsl:param name="MCR.user2.IdentityManagement.UserCreation.Affiliation"/>
   <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:template match="/mycoreobject">
@@ -18,21 +22,24 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
-      <xsl:apply-templates select="mods:genre[contains(@authorityURI,'mir_genres')][1]"/>
-      <xsl:copy-of select="mods:classification[contains(@valueURI,'classifications/ORIGIN#')]"/>
-      <xsl:apply-templates select="mods:name[contains(@authorityURI,'mir_institutes')]"/>
+      <xsl:apply-templates select="/mycoreobject/@ID"/>
+      <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]"/>
+      <xsl:apply-templates
+        select="mods:name[contains(@authorityURI, 'mir_institutes')][@valueURI][@type = 'corporate'][1]"/>
       <xsl:apply-templates select="mods:titleInfo"/>
-      <xsl:apply-templates select="mods:name[@type='personal'][contains('aut ths rev',mods:role/mods:roleTerm)]"/>
+      <xsl:apply-templates select="mods:name[@type='personal']"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='publication']"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='creation']"/>
       <xsl:apply-templates select="mods:identifier[@type='doi']"/>
       <xsl:copy-of select="mods:identifier[@type='urn']"/>
-      <xsl:apply-templates select="/mycoreobject/@ID"/>
+      <xsl:apply-templates select="mods:identifier[@type='uri'][contains(. ,'ppn')]"/>
       <xsl:copy-of select="mods:language"/>
       <xsl:apply-templates select="mods:subject"/>
       <xsl:apply-templates select="mods:abstract"/>
+      <xsl:apply-templates select="mods:note"/>
       <xsl:apply-templates select="mods:relatedItem"/>
-      <xsl:apply-templates select="mods:identifier[@type='uri'][contains(. ,'ppn')]"/>
+      <xsl:apply-templates select="mods:physicalDescription"/>
+      <xsl:apply-templates select="mods:accessCondition"/>
     </xsl:copy>
   </xsl:template>
 
@@ -42,53 +49,18 @@
     </mods:identifier>
   </xsl:template>
 
-  <!-- for dbt -->
   <xsl:template match="mods:genre[contains(@authorityURI, 'mir_genres')]">
+    <xsl:variable name="genre" select="substring-after(@valueURI, '#')"/>
+    <!-- matches mods:genre in select-genre.xed -->
     <mods:genre type="intern">
-      <xsl:variable name="genre" select="substring-after(@valueURI,'#')"/>
-      <xsl:choose>
-        <xsl:when test="$genre='article'">article</xsl:when>
-        <xsl:when test="$genre='chapter'">chapter</xsl:when>
-        <xsl:when test="$genre='entry'">entry</xsl:when>
-        <xsl:when test="$genre='preface'">preface</xsl:when>
-        <xsl:when test="$genre='speech'">speech</xsl:when>
-        <xsl:when test="$genre='review'">review</xsl:when>
-        <xsl:when test="$genre='thesis'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='exam'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='dissertation'">dissertation</xsl:when>
-        <xsl:when test="$genre='habilitation'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='diploma_thesis'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='master_thesis'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='bachelor_thesis'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='student_research_project'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='magister_thesis'">dissertation</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='collection'">collection</xsl:when>
-        <xsl:when test="$genre='festschrift'">festschrift</xsl:when>
-        <xsl:when test="$genre='proceedings'">proceedings</xsl:when>
-        <xsl:when test="$genre='lexicon'">lexicon</xsl:when>
-        <xsl:when test="$genre='report'">article</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='research_results'">researchpaper</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='in_house'">workingpaper</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='press_release'">article</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='declaration'">article</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='teaching_material'">article</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='lecture_resource'">article</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='course_resources'">article</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='book'">book</xsl:when>
-        <xsl:when test="$genre='journal'">journal</xsl:when>
-        <xsl:when test="$genre='newspaper'">article</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='series'">series</xsl:when>
-        <xsl:when test="$genre='interview'">interview</xsl:when>
-        <xsl:when test="$genre='research_data'">researchpaper</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='patent'">researchpaper</xsl:when> <!-- ? -->
-        <xsl:when test="$genre='poster'">poster</xsl:when>
-        <xsl:when test="$genre='audio'">audio</xsl:when> <!-- ? to be filtered -->
-        <xsl:when test="$genre='video'">video</xsl:when> <!-- ? to be filtered -->
-        <xsl:when test="$genre='picture'">picture</xsl:when> <!-- ? to be filtered -->
-        <xsl:when test="$genre='broadcasting'">broadcasting</xsl:when> <!-- ? to be filtered -->
-        <xsl:when test="$genre='lecture'">article</xsl:when> <!-- ? -->
-      </xsl:choose>
+      <xsl:value-of select="$genre"/>
     </mods:genre>
+  </xsl:template>
+
+  <xsl:template match="mods:genre[contains(@authorityURI, 'mir_genres')]" mode="relatedItem">
+    <xsl:variable name="genre" select="substring-after(@valueURI, '#')"/>
+    <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre"
+                valueURI="{$WebApplicationBaseURL}classifications/ubogenre#{$genre}"/>
   </xsl:template>
 
   <xsl:template match="mods:relatedItem">
@@ -103,20 +75,19 @@
           <xsl:value-of select="./@xlink:type"/>
         </xsl:attribute>
       </xsl:if>
-      <xsl:apply-templates select="mods:genre[contains(@authorityURI,'mir_genres')][1]"/>
+      <xsl:apply-templates select="mods:genre[contains(@authorityURI, 'mir_genres')][1]" mode="relatedItem"/>
       <!-- Open Access omitted -->
       <xsl:apply-templates select="mods:titleInfo"/>
-      <!-- omitting "conference" -> mods:name[@type='conference']/mods:namePart, seemingly not in DBT data -->
       <xsl:apply-templates
-          select="mods:name[@type='personal'][contains('aut ths rev',mods:role/mods:roleTerm)]"/> <!-- unclear if this is in DBT -->
+        select="mods:name[@type='personal'][mcrxml:isCategoryID('marcrelator', mods:role/mods:roleTerm)]"/>
       <xsl:apply-templates select="mods:part"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='publication']"/>
       <xsl:apply-templates select="mods:originInfo[@eventType='creation']"/>
 
       <!-- only using doi, issn and urn but from DBT also come at least: zdbib, oclc and more-->
-      <xsl:apply-templates select="mods:identifier[@type='doi']"/>
-      <xsl:apply-templates select="mods:identifier[@type='issn']"/>
-      <xsl:apply-templates select="mods:identifier[@type='urn']"/>
+      <xsl:copy-of select="mods:identifier[@type='doi']"/>
+      <xsl:copy-of select="mods:identifier[@type='issn']"/>
+      <xsl:copy-of select="mods:identifier[@type='urn']"/>
 
       <!-- omitting mods:location with "Library shelfmark -> mods:shelfLocator" and "WWW URL -> mods:url -->
       <xsl:apply-templates select="mods:subject"/>
@@ -134,15 +105,33 @@
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template match="mods:name[contains(@authorityURI,'mir_institutes')]">
-    <xsl:variable name="id" select="substring-after(@valueURI, '#')"/>
+  <xsl:template match="mods:name[contains(@authorityURI, 'mir_institutes')]">
+    <xsl:variable name="categId" select="substring-after(@valueURI, '#')"/>
     <xsl:variable name="uri" select="concat($WebApplicationBaseURL, 'classifications/ORIGIN')"/>
-    <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$id}"/>
+
+    <xsl:choose>
+      <!-- check for matching ids mir_institutes <=> ORIGIN, applies to Weimar only -->
+      <xsl:when test="mcrxml:isCategoryID('ORIGIN', $categId)">
+        <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$categId}"/>
+      </xsl:when>
+      <!-- try matching via string comparison -->
+      <xsl:otherwise>
+        <xsl:variable name="textFromDBT"
+                      select="document(concat('notnull:', @valueURI))//category[@ID = $categId]/label[@xml:lang = $CurrentLang]/@text"/>
+        <xsl:variable name="guessedOriginCategId"
+                      select="document('notnull:classification:metadata:-1:children:ORIGIN')//category[@text = $textFromDBT]/@ID[1]"/>
+
+        <xsl:if test="string-length($guessedOriginCategId) &gt; 0">
+          <mods:classification authorityURI="{$uri}" valueURI="{$uri}#{$guessedOriginCategId}"/>
+        </xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="mods:identifier[@type='uri'][contains(. ,'ppn')]">
-    <mods:identifier type="ppn">
-      <xsl:value-of select="text()"/>
+  <xsl:template match="mods:identifier[@type='uri'][contains(. , 'ppn')]">
+    <mods:identifier type="uri">
+      <!-- convert http:// uris to https:// uris -->
+      <xsl:value-of select="concat('https://', substring-after(., '://'))"/>
     </mods:identifier>
   </xsl:template>
 
@@ -171,30 +160,35 @@
       <xsl:copy-of select="@type"/>
       <xsl:copy-of select="mods:role"/>
       <xsl:copy-of select="mods:namePart"/>
-      <xsl:apply-templates select="@valueURI"/>
-      <xsl:copy-of select="mods:nameIdentifier[@type='lsf']"/>
-      <xsl:copy-of select="mods:nameIdentifier[@type='gnd']"/>
-      <xsl:copy-of select="mods:nameIdentifier[@type='orcid']"/>
-    </mods:name>
-  </xsl:template>
 
-  <!-- get LSF PID via legalEntityID -->
-  <xsl:template match="mods:name/@valueURI">
-    <xsl:variable name="legalEntityID" select="substring-after(.,'#')"/>
-    <xsl:for-each select="document(concat('notnull:legalEntity:',$legalEntityID))/legalEntity/@pid">
-      <mods:nameIdentifier type="lsf">
-        <xsl:value-of select="."/>
-      </mods:nameIdentifier>
-    </xsl:for-each>
+      <xsl:for-each select="mods:nameIdentifier[@type]">
+        <mods:nameIdentifier type="{@type}">
+          <xsl:value-of select="."/>
+        </mods:nameIdentifier>
+      </xsl:for-each>
+    </mods:name>
   </xsl:template>
 
   <xsl:template match="mods:originInfo[@eventType='publication']">
     <mods:originInfo>
-      <mods:place>
-        <mods:placeTerm type="text">Jena</mods:placeTerm>
-      </mods:place>
-      <xsl:copy-of select="mods:dateIssued"/>
+      <xsl:copy-of select="mods:place"/>
+      <xsl:apply-templates select="mods:dateIssued"/>
     </mods:originInfo>
+  </xsl:template>
+
+  <xsl:template match="mods:dateIssued">
+    <xsl:choose>
+      <!-- check for year -->
+      <xsl:when test="string-length(text()) = 4">
+        <xsl:copy-of select="."/>
+      </xsl:when>
+      <!-- UBO supports only year of publication, full ISO dates must be converted -->
+      <xsl:when test="string-length(text()) &gt; 4 ">
+        <mods:dateIssued encoding="{@encoding}">
+          <xsl:value-of select="substring-before(text(), '-')"/>
+        </mods:dateIssued>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="mods:originInfo[@eventType='creation']">
@@ -203,8 +197,8 @@
 
   <xsl:template match="mods:dateOther">
     <mods:note>
-      <xsl:text>Dissertation, Friedrich-Schiller-Universitaet Jena, </xsl:text>
-      <xsl:value-of select="substring-before(.,'-')"/>
+      <xsl:value-of
+        select="concat('Dissertation, ', $MCR.user2.IdentityManagement.UserCreation.Affiliation, ', ', substring-before(.,'-'))"/>
     </mods:note>
   </xsl:template>
 
@@ -232,4 +226,16 @@
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="mods:physicalDescription">
+    <xsl:copy-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="mods:note">
+    <xsl:copy-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="mods:accessCondition[@type = 'use and reproduction']">
+    <mods:accessCondition type="use and reproduction"
+                          xlink:href="{$WebApplicationBaseURL}classifications/licenses#{substring-after(@xlink:href, '#')}"/>
+  </xsl:template>
 </xsl:stylesheet>

@@ -76,6 +76,10 @@
       <label xml:lang="de">WebCLI</label>
       <label xml:lang="en">WebCLI</label>
     </item>
+    <item id="signout" ref="servlets/logout" display-divider="top">
+      <label xml:lang="de">Abmelden</label>
+      <label xml:lang="en">Sign out</label>
+    </item>
   </item>
 
   <item role="meta">
@@ -91,7 +95,7 @@
 
     <item ref="privacy-statement.xml">
       <label xml:lang="de">Datenschutz</label>
-      <label xml:lang="en">Privacy Policy</label>
+      <label xml:lang="en">Privacy Statement</label>
     </item>
 
     <item ref="https://www.uni-erfurt.de/barrierefreiheitserklaerung" xml:lang="de">

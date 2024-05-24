@@ -1,5 +1,19 @@
 # Changelog
 
+## 2024.05.24
+- [#462](https://github.com/ThULB/ThUniBib/issues/462) Enable genre mapping to/from orcid (#463)
+- [#478](https://github.com/ThULB/ThUniBib/issues/478) Reflect changes of mods:genre handling in base UBO (#479)
+- [#527](https://github.com/ThULB/ThUniBib/issues/527) Made request handler for statistics dynamic by adding /statistics-all handler (#528)
+- [#531](https://github.com/ThULB/ThUniBib/issues/531) Added property MCR.user2.LDAP.Mapping.labeledURI.id_viaf.schema (#532)
+- [#533](https://github.com/ThULB/ThUniBib/issues/533) Unified name of file containing the privacy statement for all instances, added and linked first version of privacy statement for Weimar (#534)
+- [#537](https://github.com/ThULB/ThUniBib/issues/537) Add accessibility statement (Ilmenau) and improved overall accessibility(#538)
+- [#541](https://github.com/ThULB/ThUniBib/issues/541) Improve import from DBT (#542)
+- [FSU040THUL-2373](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-2373) [#535](https://github.com/ThULB/ThUniBib/issues/535) Updated json.facet parameter in for statistic request handlers in solr-config.json (#536)
+- [FSU040THUL-292](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-292) [#529](https://github.com/ThULB/ThUniBib/issues/529) Adopted template <xed:template id="languages"/> to rfc5646 (#530)
+- [FSU040THUL-2947](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-2947) [#525](https://github.com/ThULB/ThUniBib/issues/525) Updated ORIGIN.xml (Weimar) (#540)
+- [FSU040THUL-3377](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-3377) [#543](https://github.com/ThULB/ThUniBib/issues/543) Überarbeitung Anmeldelink und Sprachauswahl (#544)
+---
+
 ## 2024.03.26
 - #359 Enable typo3 plugin for publication lists (#466)
 - #484 Do not use MCRQL for querying solr on landing page (#485)
