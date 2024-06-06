@@ -113,14 +113,11 @@
             <div class="card-body bg-alternative">
               <p>
                 <i18n:de>
-                  Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Nutzen Sie dazu das
-                  <a href="import-list.xed">Formular</a>
-                  oder schreiben Sie uns eine E-Mail an
+                  Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Schreiben Sie uns dafür eine E-Mail an
                   <a href="mailto:{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')}">
                     <xed:output
                         value="xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')"/>
-                  </a>
-                  .
+                  </a>.
                 </i18n:de>
               </p>
               <p>
