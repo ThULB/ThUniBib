@@ -352,7 +352,7 @@
           </a>
         </xsl:when>
       </xsl:choose>
-      <span class="ml-2 mr-1">
+      <span class="text-primary ml-2 mr-1">
         <xsl:value-of select="'|'"/>
       </span>
     </div>
