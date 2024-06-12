@@ -20,19 +20,26 @@ package de.uni_jena.thunibib.common.content.transformer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.JDOMException;
 import org.jdom2.filter.Filters;
+import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 public class PublicationHisResTransformer extends MCRToJSONTransformer {
+    private static final Logger LOGGER = LogManager.getLogger(PublicationHisResTransformer.class);
+
+    static final String HIS_IN_ONE_BASE_URL = MCRConfiguration2.getStringOrThrow("ThUniBib.HISinOne.BaseURL");
 
     protected JsonObject toJSON(MCRContent source) throws IOException {
         try {
@@ -59,13 +66,18 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
 
     private void addLanguages(JsonObject jsonObject, Document xml) {
         final JsonArray languages = new JsonArray();
-        XPATH_FACTORY.compile("//mods:language/mods:languageTerm[@type='code']/text()", Filters.text(), null,
-                MODS_NAMESPACE)
-            .evaluate(xml)
+
+        XPATH_FACTORY.compile(
+                "//mods:language/mods:languageTerm[@authorityURI='" + HIS_IN_ONE_BASE_URL + "']/text()",
+                Filters.text(), null, MODS_NAMESPACE).evaluate(xml)
             .forEach(text -> {
-                JsonObject item = new JsonObject();
-                item.addProperty("id", "TODO-GET-ID-FROM-HIS---" + text.getText());
-                languages.add(item);
+                try {
+                    JsonObject item = new JsonObject();
+                    item.addProperty("id", Integer.parseInt(text.getText()));
+                    languages.add(item);
+                } catch (NumberFormatException e) {
+                    LOGGER.error(e);
+                }
             });
 
         if (languages.size() > 0) {
