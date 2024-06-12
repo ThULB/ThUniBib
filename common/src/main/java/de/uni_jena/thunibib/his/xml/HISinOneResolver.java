@@ -1,4 +1,4 @@
-package de.uni_jena.thunibib.common.xml;
+package de.uni_jena.thunibib.his.xml;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

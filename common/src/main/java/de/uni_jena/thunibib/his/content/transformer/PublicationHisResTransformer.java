@@ -16,7 +16,7 @@
  * along with MyCoRe.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.uni_jena.thunibib.common.content.transformer;
+package de.uni_jena.thunibib.his.content.transformer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -31,7 +31,6 @@ import org.mycore.common.content.transformer.MCRToJSONTransformer;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
