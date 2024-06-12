@@ -39,18 +39,37 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             Document xml = source.asXML();
             JsonObject jsonObject = new JsonObject();
 
-            add(jsonObject, "//mods:mods/mods:titleInfo/mods:title", xml, "title");
-            add(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle");
-            add(jsonObject, "//mods:mods/mods:originInfo/mods:edition", xml, "edition");
-            add(jsonObject, "//mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear");
-            add(jsonObject, "//mods:mods/mods:originInfo/mods:publisher", xml, "publisher");
             add(jsonObject, "//mods:mods/mods:abstract", xml, "textAbstract");
+            add(jsonObject, "//mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear");
+            add(jsonObject, "//mods:mods/mods:originInfo/mods:edition", xml, "edition");
+            add(jsonObject, "//mods:mods/mods:originInfo/mods:publisher", xml, "publisher");
+            add(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle");
+            add(jsonObject, "//mods:mods/mods:titleInfo/mods:title", xml, "title");
+            add(jsonObject, "//mods:physicalDescription/mods:extent", xml, "numberOfPages");
+
             addCreators(jsonObject, xml);
+            addLanguages(jsonObject, xml);
 
             return jsonObject;
         } catch (JDOMException | SAXException e) {
             throw new IOException(
                 "Could not generate JSON from " + source.getClass().getSimpleName() + ": " + source.getSystemId(), e);
+        }
+    }
+
+    private void addLanguages(JsonObject jsonObject, Document xml) {
+        final JsonArray languages = new JsonArray();
+        XPATH_FACTORY.compile("//mods:language/mods:languageTerm[@type='code']/text()", Filters.text(), null,
+                MODS_NAMESPACE)
+            .evaluate(xml)
+            .forEach(text -> {
+                JsonObject item = new JsonObject();
+                item.addProperty("id", "TODO-GET-ID-FROM-HIS---" + text.getText());
+                languages.add(item);
+            });
+
+        if (languages.size() > 0) {
+            jsonObject.add("languages", languages);
         }
     }
 
@@ -61,6 +80,10 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             .evaluate(xml)
             .forEach(nameElement -> {
                 final JsonObject name = new JsonObject();
+
+                /* id of person in HISinOne */
+                name.addProperty("id", "TODO-GET-ID-FROM-HIS");
+
                 /* nameParts */
                 nameElement
                     .getChildren("namePart", MODS_NAMESPACE)
