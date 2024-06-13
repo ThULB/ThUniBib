@@ -44,54 +44,28 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             Document xml = source.asXML();
             JsonObject jsonObject = new JsonObject();
 
-            add(jsonObject, "//modsContainer/mods:mods/mods:abstract", xml, "textAbstract");
-            add(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear");
-            add(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:edition", xml, "edition");
-            add(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:publisher", xml, "publisher");
-            add(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle");
-            add(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:title", xml, "title");
-            add(jsonObject, "//modsContainer/mods:physicalDescription/mods:extent", xml, "numberOfPages");
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:abstract", xml, "textAbstract");
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear");
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:edition", xml, "edition");
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:publisher", xml, "publisher");
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle");
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:title", xml, "title");
+            addProperty(jsonObject, "//modsContainer/mods:physicalDescription/mods:extent", xml, "numberOfPages");
 
             addCreators(jsonObject, xml);
-            addLanguages(jsonObject, xml);
-            addPublicationType(jsonObject, xml);
+            addQualifiedObjectID(jsonObject, "//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']",
+                xml, "publicationType");
+            addQualifiedObjectID(jsonObject,
+                "//servflag[@type='status'][@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']",
+                xml, "status");
+            addQualifiedObjectIDs(jsonObject,
+                "//mods:language/mods:languageTerm[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']", xml,
+                "languages");
 
             return jsonObject;
         } catch (JDOMException | SAXException e) {
             throw new IOException(
                 "Could not generate JSON from " + source.getClass().getSimpleName() + ": " + source.getSystemId(), e);
-        }
-    }
-
-    private void addPublicationType(JsonObject jsonObject, Document xml) {
-        Optional.ofNullable(
-                XPATH_FACTORY.compile("//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']/text()",
-                    Filters.text(), null, MODS_NAMESPACE).evaluateFirst(xml))
-            .ifPresent(genre -> {
-                JsonObject documentType = new JsonObject();
-                documentType.addProperty("id", Integer.parseInt(genre.getText()));
-                jsonObject.add("publicationType", documentType);
-            });
-    }
-
-    private void addLanguages(JsonObject jsonObject, Document xml) {
-        final JsonArray languages = new JsonArray();
-
-        XPATH_FACTORY.compile(
-                "//mods:language/mods:languageTerm[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']/text()",
-                Filters.text(), null, MODS_NAMESPACE).evaluate(xml)
-            .forEach(text -> {
-                try {
-                    JsonObject item = new JsonObject();
-                    item.addProperty("id", Integer.parseInt(text.getText()));
-                    languages.add(item);
-                } catch (NumberFormatException e) {
-                    LOGGER.error(e);
-                }
-            });
-
-        if (languages.size() > 0) {
-            jsonObject.add("languages", languages);
         }
     }
 
@@ -155,9 +129,66 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         }
     }
 
-    private void add(JsonObject jsonObject, String xpath, Document xml, String name) {
+    private void addProperty(JsonObject jsonObject, String xpath, Document xml, String name) {
         XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE)
             .evaluate(xml)
             .forEach(e -> jsonObject.addProperty(name, e.getText()));
+    }
+
+    /**
+     * @param jsonObject the json object
+     * @param xpath the xpath
+     * @param xml the xml
+     * @param propertyName the name of the property
+     *
+     *  <pre>
+     *     "propertyName": [
+     *     {
+     *       "id": 5
+     *     },
+     *     {
+     *      "id
+     *     }, ...]
+     *  </pre>
+     * */
+    private void addQualifiedObjectIDs(JsonObject jsonObject, String xpath, Document xml, String propertyName) {
+        final JsonArray jsonArray = new JsonArray();
+
+        XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE).evaluate(xml)
+            .forEach(text -> {
+                try {
+                    JsonObject item = new JsonObject();
+                    item.addProperty("id", Integer.parseInt(text.getText()));
+                    jsonArray.add(item);
+                } catch (NumberFormatException e) {
+                    LOGGER.error(e);
+                }
+            });
+
+        if (jsonArray.size() > 0) {
+            jsonObject.add(propertyName, jsonArray);
+        }
+    }
+
+    /**
+     * @param jsonObject the json object
+     * @param xpath the xpath
+     * @param xml the xml
+     * @param propertyName the name of the property
+     *
+     *  <pre>
+     *     "propertyName": {
+     *     "id": integer value determined by xpath
+     *   }
+     *  </pre>
+     * */
+    private void addQualifiedObjectID(JsonObject jsonObject, String xpath, Document xml, String propertyName) {
+        Optional.ofNullable(
+                XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE).evaluateFirst(xml))
+            .ifPresent(genre -> {
+                JsonObject documentType = new JsonObject();
+                documentType.addProperty("id", Integer.parseInt(genre.getText()));
+                jsonObject.add(propertyName, documentType);
+            });
     }
 }

@@ -4,6 +4,7 @@ import de.uni_jena.thunibib.his.api.HISInOneClient;
 import de.uni_jena.thunibib.his.api.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
+import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +22,7 @@ import java.util.Optional;
 public class HISinOneResolver implements URIResolver {
 
     public enum SUPPORTED_URI_PARTS {
-        language, genre
+        language, genre, state
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -39,9 +40,33 @@ public class HISinOneResolver implements URIResolver {
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value))));
             case genre:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value))));
+            case state:
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value))));
         }
 
         throw new TransformerException("Unknown entity: " + entity);
+    }
+
+    private int resolveState(String value) {
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("fs/res/state/publication")) {
+
+            List<PublicationState> pubState = response.readEntity(
+                new GenericType<List<PublicationState>>() {
+                });
+
+            return switch (value) {
+                case "confirmed", "unchecked" ->
+                    pubState.stream().filter(state -> "validiert" .equals(state.getUniqueName())).findFirst().get()
+                        .getId();
+                case "review" ->
+                    pubState.stream().filter(state -> "Dateneingabe" .equals(state.getUniqueName())).findFirst().get()
+                        .getId();
+                default ->
+                    pubState.stream().filter(state -> "zur Validierung" .equals(state.getUniqueName())).findFirst()
+                        .get().getId();
+            };
+        }
     }
 
     private int resolveGenre(String ubogenre) {
@@ -60,7 +85,7 @@ public class HISinOneResolver implements URIResolver {
             int id;
             if (tpv.isEmpty()) {
                 id = pubTypeValues.stream()
-                    .filter(pubType -> "Sonstiger Publikationstyp".equals(pubType.getUniqueName()))
+                    .filter(pubType -> "Sonstiger Publikationstyp" .equals(pubType.getUniqueName()))
                     .findFirst().get().getId();
             } else {
                 id = tpv.get().getId();
