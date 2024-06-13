@@ -18,6 +18,20 @@
     </xsl:copy>
   </xsl:template>
 
+  <xsl:template match="mods:genre[not(parent::mods:relatedItem)]">
+    <xsl:copy>
+      <xsl:copy-of select="*|@*"/>
+    </xsl:copy>
+
+    <xsl:variable name="genre" select="fn:substring-after(@valueURI, '#')"/>
+    <xsl:variable name="his-key" select="fn:document(concat('HISinOne:genre:', $genre))"/>
+    <xsl:if test="$his-key">
+      <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" type="code">
+        <xsl:value-of select="$his-key"/>
+      </mods:genre>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="mods:language">
     <xsl:variable name="rfc5646" select="mods:languageTerm[@type='code'][@authority='rfc5646']"/>
 
