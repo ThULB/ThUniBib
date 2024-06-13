@@ -31,6 +31,7 @@ import org.mycore.common.content.transformer.MCRToJSONTransformer;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
@@ -43,22 +44,34 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             Document xml = source.asXML();
             JsonObject jsonObject = new JsonObject();
 
-            add(jsonObject, "//mods:mods/mods:abstract", xml, "textAbstract");
-            add(jsonObject, "//mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear");
-            add(jsonObject, "//mods:mods/mods:originInfo/mods:edition", xml, "edition");
-            add(jsonObject, "//mods:mods/mods:originInfo/mods:publisher", xml, "publisher");
-            add(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle");
-            add(jsonObject, "//mods:mods/mods:titleInfo/mods:title", xml, "title");
-            add(jsonObject, "//mods:physicalDescription/mods:extent", xml, "numberOfPages");
+            add(jsonObject, "//modsContainer/mods:mods/mods:abstract", xml, "textAbstract");
+            add(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear");
+            add(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:edition", xml, "edition");
+            add(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:publisher", xml, "publisher");
+            add(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle");
+            add(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:title", xml, "title");
+            add(jsonObject, "//modsContainer/mods:physicalDescription/mods:extent", xml, "numberOfPages");
 
             addCreators(jsonObject, xml);
             addLanguages(jsonObject, xml);
+            addPublicationType(jsonObject, xml);
 
             return jsonObject;
         } catch (JDOMException | SAXException e) {
             throw new IOException(
                 "Could not generate JSON from " + source.getClass().getSimpleName() + ": " + source.getSystemId(), e);
         }
+    }
+
+    private void addPublicationType(JsonObject jsonObject, Document xml) {
+        Optional.ofNullable(
+                XPATH_FACTORY.compile("//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']/text()",
+                    Filters.text(), null, MODS_NAMESPACE).evaluateFirst(xml))
+            .ifPresent(genre -> {
+                JsonObject documentType = new JsonObject();
+                documentType.addProperty("id", Integer.parseInt(genre.getText()));
+                jsonObject.add("publicationType", documentType);
+            });
     }
 
     private void addLanguages(JsonObject jsonObject, Document xml) {
