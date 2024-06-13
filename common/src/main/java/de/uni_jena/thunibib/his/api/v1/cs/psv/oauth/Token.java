@@ -2,6 +2,11 @@ package de.uni_jena.thunibib.his.api.v1.cs.psv.oauth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.Instant;
+
+/**
+ * Path: <code>/api/v1/cs/psv/oauth/token</code>
+ * */
 public class Token {
 
     @JsonProperty("access_token")
@@ -13,39 +18,30 @@ public class Token {
     @JsonProperty("expires_in")
     String expiresIn;
 
+    Instant createdAt;
+
     public Token() {
+        createdAt = Instant.now();
     }
 
     public String getAccessToken() {
         return accessToken;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
     public String getScope() {
         return scope;
-    }
-
-    public void setScope(String scope) {
-        this.scope = scope;
     }
 
     public String getExpiresIn() {
         return expiresIn;
     }
 
-    public void setExpiresIn(String expiresIn) {
-        this.expiresIn = expiresIn;
-    }
-
     public String getTokenType() {
         return tokenType;
     }
 
-    public void setTokenType(String tokenType) {
-        this.tokenType = tokenType;
+    public Instant getCreatedAt() {
+        return createdAt;
     }
 
     @Override
