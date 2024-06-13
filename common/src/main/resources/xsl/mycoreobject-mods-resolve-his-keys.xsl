@@ -46,4 +46,20 @@
       </xsl:if>
     </xsl:copy>
   </xsl:template>
+
+  <xsl:template match="//servflags/servflag[@type='status']">
+    <xsl:copy>
+      <xsl:copy-of select="*|@*"/>
+    </xsl:copy>
+
+    <xsl:variable name="status" select="."/>
+    <xsl:variable name="his-key" select="fn:document(concat('HISinOne:state:', $status))"/>
+
+    <xsl:if test="$his-key">
+      <servflag type="status" authorityURI="{$ThUniBib.HISinOne.BaseURL}">
+        <xsl:value-of select="$his-key"/>
+      </servflag>
+    </xsl:if>
+  </xsl:template>
+
 </xsl:stylesheet>
