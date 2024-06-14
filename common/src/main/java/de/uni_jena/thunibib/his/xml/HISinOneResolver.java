@@ -3,6 +3,7 @@ package de.uni_jena.thunibib.his.xml;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
@@ -19,14 +20,16 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.util.List;
 import java.util.Optional;
+
 /**
- * Usage:<br/>
- * <code>HISinOne:[language | genre | state | visibility]:[value]</code>
+ * Usage:
+ * <br/><br/>
+ * <code>HISinOne:[creatorType | genre | language | state | visibility]:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
 
     public enum SUPPORTED_URI_PARTS {
-        language, genre, state, visibility
+        creatorType, genre, language, state, visibility
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -40,20 +43,37 @@ public class HISinOneResolver implements URIResolver {
         String value = parts[2];
 
         switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
-            case language:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value))));
+            case creatorType:
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveCreatorType(value))));
             case genre:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value))));
+            case language:
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value))));
             case state:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value))));
             case visibility:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value))));
+            default:
+                throw new TransformerException("Unknown entity: " + entity);
         }
-
-        throw new TransformerException("Unknown entity: " + entity);
     }
 
-    private int resolveVisibility(String value) {
+    protected int resolveCreatorType(String value) {
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("cs/sys/values/publicationCreatorTypeValue")) {
+
+            List<PublicationCreatorTypeValue> creatorTypes = response.readEntity(
+                new GenericType<List<PublicationCreatorTypeValue>>() {
+                });
+
+            return switch (value) {
+                default -> creatorTypes.stream().filter(state -> "Autor/-in" .equals(state.getUniqueName())).findFirst()
+                    .get().getId();
+            };
+        }
+    }
+
+    protected int resolveVisibility(String value) {
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/visibilityValue")) {
 
@@ -71,7 +91,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    private int resolveState(String value) {
+    protected int resolveState(String value) {
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("fs/res/state/publication")) {
 
@@ -93,7 +113,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    private int resolveGenre(String ubogenre) {
+    protected int resolveGenre(String ubogenre) {
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/publicationTypeValue")) {
 
@@ -119,7 +139,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    private int resolveLanguage(String rfc5646) {
+    protected int resolveLanguage(String rfc5646) {
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/languageValue")) {
 
