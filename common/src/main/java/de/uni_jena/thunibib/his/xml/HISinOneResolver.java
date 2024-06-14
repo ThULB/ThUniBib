@@ -15,10 +15,6 @@ import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
 import org.mycore.common.xml.MCRXMLFunctions;
-import org.mycore.datamodel.classifications2.MCRCategory;
-import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
-import org.mycore.datamodel.classifications2.MCRCategoryID;
-import org.mycore.datamodel.classifications2.MCRLabel;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
@@ -79,17 +75,6 @@ public class HISinOneResolver implements URIResolver {
             return SUBJECT_AREA_TYPE_MAP.get(value);
         }
 
-        MCRCategoryID destatis = MCRCategoryID.fromString("fachreferate:" + value);
-        MCRCategory category = MCRCategoryDAOFactory.getInstance().getCategory(destatis, 1);
-        Optional<MCRLabel> label = category.getLabel("de");
-
-        if (label.isEmpty()) {
-            return -1;
-        }
-
-        String labelText = label.get().getText();
-        String normalizedLabelText = labelText.substring(labelText.indexOf(" ") + 1);
-
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/subjectAreaValue")) {
 
@@ -98,7 +83,7 @@ public class HISinOneResolver implements URIResolver {
                 });
 
             Optional<SubjectAreaValue> areaValue = subjectAreas.stream()
-                .filter(subjectAreaValue -> normalizedLabelText.equals(subjectAreaValue.getShortText()))
+                .filter(subjectAreaValue -> value.equals(subjectAreaValue.getUniqueName()))
                 .findFirst();
 
             if (areaValue.isPresent()) {
