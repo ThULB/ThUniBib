@@ -5,6 +5,7 @@ import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
@@ -14,6 +15,10 @@ import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
 import org.mycore.common.xml.MCRXMLFunctions;
+import org.mycore.datamodel.classifications2.MCRCategory;
+import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
+import org.mycore.datamodel.classifications2.MCRCategoryID;
+import org.mycore.datamodel.classifications2.MCRLabel;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
@@ -26,7 +31,7 @@ import java.util.Optional;
 /**
  * Usage:
  * <br/><br/>
- * <code>HISinOne:[creatorType | genre | language | state | visibility]:[value]</code>
+ * <code>HISinOne:[creatorType | genre | language | subjectArea | state | visibility]:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
 
@@ -34,10 +39,11 @@ public class HISinOneResolver implements URIResolver {
     private static Map<String, Integer> GENRE_TYPE_MAP = new HashMap<>();
     private static Map<String, Integer> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static Map<String, Integer> STATE_TYPE_MAP = new HashMap<>();
+    private static Map<String, Integer> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
     private static Map<String, Integer> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
-        creatorType, genre, language, state, visibility
+        creatorType, genre, language, state, subjectArea, visibility
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -59,10 +65,47 @@ public class HISinOneResolver implements URIResolver {
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value))));
             case state:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value))));
+            case subjectArea:
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value))));
             case visibility:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value))));
             default:
                 throw new TransformerException("Unknown entity: " + entity);
+        }
+    }
+
+    private int resolveSubjectArea(String value) {
+        if (SUBJECT_AREA_TYPE_MAP.containsKey(value)) {
+            return SUBJECT_AREA_TYPE_MAP.get(value);
+        }
+
+        MCRCategoryID destatis = MCRCategoryID.fromString("fachreferate:" + value);
+        MCRCategory category = MCRCategoryDAOFactory.getInstance().getCategory(destatis, 1);
+        Optional<MCRLabel> label = category.getLabel("de");
+
+        if (label.isEmpty()) {
+            return -1;
+        }
+
+        String labelText = label.get().getText();
+        String normalizedLabelText = labelText.substring(labelText.indexOf(" ") + 1);
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("cs/sys/values/subjectAreaValue")) {
+
+            List<SubjectAreaValue> subjectAreas = response.readEntity(
+                new GenericType<List<SubjectAreaValue>>() {
+                });
+
+            Optional<SubjectAreaValue> areaValue = subjectAreas.stream()
+                .filter(subjectAreaValue -> normalizedLabelText.equals(subjectAreaValue.getShortText()))
+                .findFirst();
+
+            if (areaValue.isPresent()) {
+                SUBJECT_AREA_TYPE_MAP.put(value, areaValue.get().getId());
+                return areaValue.get().getId();
+            }
+            return -1;
         }
     }
 
