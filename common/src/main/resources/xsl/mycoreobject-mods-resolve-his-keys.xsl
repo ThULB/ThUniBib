@@ -18,6 +18,13 @@
     </xsl:copy>
   </xsl:template>
 
+  <!--
+   Maps the ubo genre to the his publicationType.
+
+   TODO In HISinOne there is an additional documentType. Possible values are depending on the publicationType.
+   TODO GET /fs/res/publication/documentTypes/article
+   TODO GET /fs/res/publication/documentTypes/book
+  -->
   <xsl:template match="mods:genre[not(parent::mods:relatedItem)]">
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
