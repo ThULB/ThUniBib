@@ -4,6 +4,7 @@ import de.uni_jena.thunibib.his.api.HISInOneClient;
 import de.uni_jena.thunibib.his.api.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
@@ -18,11 +19,14 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Usage:<br/>
+ * <code>HISinOne:[language | genre | state | visibility]:[value]</code>
+ * */
 public class HISinOneResolver implements URIResolver {
 
     public enum SUPPORTED_URI_PARTS {
-        language, genre, state
+        language, genre, state, visibility
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -42,9 +46,29 @@ public class HISinOneResolver implements URIResolver {
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value))));
             case state:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value))));
+            case visibility:
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value))));
         }
 
         throw new TransformerException("Unknown entity: " + entity);
+    }
+
+    private int resolveVisibility(String value) {
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("cs/sys/values/visibilityValue")) {
+
+            List<VisibilityValue> visState = response.readEntity(
+                new GenericType<List<VisibilityValue>>() {
+                });
+
+            return switch (value) {
+                case "confirmed", "unchecked" ->
+                    visState.stream().filter(state -> "public" .equals(state.getUniqueName())).findFirst().get()
+                        .getId();
+                default -> visState.stream().filter(state -> "hidden" .equals(state.getUniqueName())).findFirst()
+                    .get().getId();
+            };
+        }
     }
 
     private int resolveState(String value) {
