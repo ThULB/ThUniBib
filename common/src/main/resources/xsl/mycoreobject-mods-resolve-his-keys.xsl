@@ -21,6 +21,18 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
+      <!-- Set subjectArea class -->
+      <xsl:for-each select="//mods:classification[contains(@authorityURI, 'fachreferate')]/@valueURI">
+        <xsl:variable name="subject-area" select="fn:substring-after(., '#')"/>
+        <xsl:variable name="subject-area-his-key" select="fn:document(concat('HISinOne:subjectArea:', $subject-area))"/>
+
+        <xsl:if test="$subject-area-his-key">
+          <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/subjectAreaValue">
+            <xsl:value-of select="$subject-area-his-key"/>
+          </mods:classification>
+        </xsl:if>
+      </xsl:for-each>
+
       <!-- Set state class -->
       <xsl:variable name="status" select="//servflags/servflag[@type='status']"/>
       <xsl:variable name="status-his-key" select="fn:document(concat('HISinOne:state:', $status))"/>

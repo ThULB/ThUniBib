@@ -57,6 +57,8 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, '/cs/sys/values/visibilityValue')]",  xml, "visibilityValue");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, '/fs/res/state/publication')]",  xml, "status");
             addQualifiedObjectID(jsonObject, "//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']", xml, "publicationType");
+
+            addQualifiedObjectIDs(jsonObject, "//mods:classification[contains(@valueURI, '/cs/sys/values/subjectAreaValue')]",  xml, "subjectAreas");
             addQualifiedObjectIDs(jsonObject,"//mods:language/mods:languageTerm[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']", xml,"languages");
 
             return jsonObject;
