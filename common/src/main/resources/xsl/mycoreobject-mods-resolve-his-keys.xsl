@@ -11,9 +11,27 @@
   <xsl:output method="xml" indent="yes"/>
 
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
+  <xsl:param name="ThUniBib.HISinOne.BaseURL.API.Path"/>
 
   <xsl:template match="@*|node()">
     <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:mods">
+    <xsl:copy>
+      <!-- add state classification element -->
+      <xsl:variable name="status" select="//servflags/servflag[@type='status']"/>
+      <xsl:variable name="status-his-key" select="fn:document(concat('HISinOne:state:', $status))"/>
+
+      <xsl:if test="$status-his-key">
+        <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/state/publication">
+          <xsl:value-of select="$status-his-key"/>
+        </mods:classification>
+      </xsl:if>
+
+      <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
@@ -53,20 +71,4 @@
       </xsl:if>
     </xsl:copy>
   </xsl:template>
-
-  <xsl:template match="//servflags/servflag[@type='status']">
-    <xsl:copy>
-      <xsl:copy-of select="*|@*"/>
-    </xsl:copy>
-
-    <xsl:variable name="status" select="."/>
-    <xsl:variable name="his-key" select="fn:document(concat('HISinOne:state:', $status))"/>
-
-    <xsl:if test="$his-key">
-      <servflag type="status" authorityURI="{$ThUniBib.HISinOne.BaseURL}">
-        <xsl:value-of select="$his-key"/>
-      </servflag>
-    </xsl:if>
-  </xsl:template>
-
 </xsl:stylesheet>
