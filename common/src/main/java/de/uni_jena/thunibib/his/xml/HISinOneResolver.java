@@ -18,7 +18,9 @@ import org.mycore.common.xml.MCRXMLFunctions;
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -27,6 +29,12 @@ import java.util.Optional;
  * <code>HISinOne:[creatorType | genre | language | state | visibility]:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
+
+    private static Map<String, Integer> CREATOR_TYPE_MAP = new HashMap<>();
+    private static Map<String, Integer> GENRE_TYPE_MAP = new HashMap<>();
+    private static Map<String, Integer> LANGUAGE_TYPE_MAP = new HashMap<>();
+    private static Map<String, Integer> STATE_TYPE_MAP = new HashMap<>();
+    private static Map<String, Integer> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
         creatorType, genre, language, state, visibility
@@ -59,6 +67,10 @@ public class HISinOneResolver implements URIResolver {
     }
 
     protected int resolveCreatorType(String value) {
+        if (CREATOR_TYPE_MAP.containsKey(value)) {
+            return CREATOR_TYPE_MAP.get(value);
+        }
+
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/publicationCreatorTypeValue")) {
 
@@ -66,14 +78,21 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<PublicationCreatorTypeValue>>() {
                 });
 
-            return switch (value) {
+            var id = switch (value) {
                 default -> creatorTypes.stream().filter(state -> "Autor/-in" .equals(state.getUniqueName())).findFirst()
                     .get().getId();
             };
+
+            CREATOR_TYPE_MAP.put(value, id);
+            return id;
         }
     }
 
     protected int resolveVisibility(String value) {
+        if (VISIBILITY_TYPE_MAP.containsKey(value)) {
+            return VISIBILITY_TYPE_MAP.get(value);
+        }
+
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/visibilityValue")) {
 
@@ -81,17 +100,24 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<VisibilityValue>>() {
                 });
 
-            return switch (value) {
+            var id = switch (value) {
                 case "confirmed", "unchecked" ->
                     visState.stream().filter(state -> "public" .equals(state.getUniqueName())).findFirst().get()
                         .getId();
                 default -> visState.stream().filter(state -> "hidden" .equals(state.getUniqueName())).findFirst()
                     .get().getId();
             };
+
+            VISIBILITY_TYPE_MAP.put(value, id);
+            return id;
         }
     }
 
     protected int resolveState(String value) {
+        if (STATE_TYPE_MAP.containsKey(value)) {
+            return STATE_TYPE_MAP.get(value);
+        }
+
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("fs/res/state/publication")) {
 
@@ -99,7 +125,7 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<PublicationState>>() {
                 });
 
-            return switch (value) {
+            var id = switch (value) {
                 case "confirmed", "unchecked" ->
                     pubState.stream().filter(state -> "validiert" .equals(state.getUniqueName())).findFirst().get()
                         .getId();
@@ -110,10 +136,17 @@ public class HISinOneResolver implements URIResolver {
                     pubState.stream().filter(state -> "zur Validierung" .equals(state.getUniqueName())).findFirst()
                         .get().getId();
             };
+
+            STATE_TYPE_MAP.put(value, id);
+            return id;
         }
     }
 
     protected int resolveGenre(String ubogenre) {
+        if (GENRE_TYPE_MAP.containsKey(ubogenre)) {
+            return GENRE_TYPE_MAP.get(ubogenre);
+        }
+
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/publicationTypeValue")) {
 
@@ -135,11 +168,16 @@ public class HISinOneResolver implements URIResolver {
                 id = tpv.get().getId();
             }
 
+            GENRE_TYPE_MAP.put(ubogenre, id);
             return id;
         }
     }
 
     protected int resolveLanguage(String rfc5646) {
+        if (LANGUAGE_TYPE_MAP.containsKey(rfc5646)) {
+            return LANGUAGE_TYPE_MAP.get(rfc5646);
+        }
+
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/languageValue")) {
 
@@ -152,6 +190,7 @@ public class HISinOneResolver implements URIResolver {
                 .findFirst()
                 .get()
                 .getId();
+            LANGUAGE_TYPE_MAP.put(rfc5646, id);
             return id;
         }
     }
