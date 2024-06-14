@@ -1,8 +1,8 @@
-package de.uni_jena.thunibib.his.api.v1;
+package de.uni_jena.thunibib.his.api.v1.cs.sys.values;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-abstract public class CommonType {
+abstract public class SysValue {
     @JsonProperty("id")
     private int id;
     @JsonProperty("lockVersion")
