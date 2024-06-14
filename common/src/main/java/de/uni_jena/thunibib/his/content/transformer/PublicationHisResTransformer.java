@@ -20,7 +20,7 @@ package de.uni_jena.thunibib.his.content.transformer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import de.uni_jena.thunibib.his.api.HISInOneClient;
+import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;

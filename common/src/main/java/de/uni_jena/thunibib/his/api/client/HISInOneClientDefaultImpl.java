@@ -1,4 +1,4 @@
-package de.uni_jena.thunibib.his.api;
+package de.uni_jena.thunibib.his.api.client;
 
 import de.uni_jena.thunibib.his.api.v1.cs.psv.oauth.Token;
 import de.uni_jena.thunibib.his.xml.HISinOneResolver;

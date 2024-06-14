@@ -1,4 +1,4 @@
-package de.uni_jena.thunibib.his.api;
+package de.uni_jena.thunibib.his.api.client;
 
 import jakarta.ws.rs.core.Response;
 import org.mycore.common.config.MCRConfiguration2;

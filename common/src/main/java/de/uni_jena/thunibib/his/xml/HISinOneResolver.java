@@ -1,7 +1,7 @@
 package de.uni_jena.thunibib.his.xml;
 
-import de.uni_jena.thunibib.his.api.HISInOneClient;
-import de.uni_jena.thunibib.his.api.HISinOneClientFactory;
+import de.uni_jena.thunibib.his.api.client.HISInOneClient;
+import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;

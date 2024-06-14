@@ -1,4 +1,4 @@
-package de.uni_jena.thunibib.his.api;
+package de.uni_jena.thunibib.his.api.client;
 
 public class HISinOneClientFactory {
 
