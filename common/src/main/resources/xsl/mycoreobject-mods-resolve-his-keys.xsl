@@ -13,6 +13,8 @@
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL.API.Path"/>
 
+  <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')/mycoreclass/categories" />
+
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
@@ -22,12 +24,26 @@
   <xsl:template match="mods:mods">
     <xsl:copy>
       <!-- Set subjectArea class -->
+      <xsl:variable name="subject-area-value-uri" select="'cs/sys/values/subjectAreaValue'"/>
+      <xsl:variable name="origin-id" select="fn:substring-after(mods:classification[contains(@valueURI, 'ORIGIN')]/@valueURI, '#')"/>
+      <xsl:variable name="destatis-from-origin" select="$origin//category[@ID=$origin-id]/label[@xml:lang='x-destatis']/@text"/>
+
+      <xsl:if test="$destatis-from-origin">
+        <xsl:variable name="subject-area-his-key" select="fn:document(concat('HISinOne:subjectArea:', $destatis-from-origin))"/>
+
+        <xsl:if test="$subject-area-his-key">
+          <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}{$subject-area-value-uri}">
+            <xsl:value-of select="$subject-area-his-key"/>
+          </mods:classification>
+        </xsl:if>
+      </xsl:if>
+
       <xsl:for-each select="//mods:classification[contains(@authorityURI, 'fachreferate')]/@valueURI">
         <xsl:variable name="subject-area" select="fn:substring-after(., '#')"/>
         <xsl:variable name="subject-area-his-key" select="fn:document(concat('HISinOne:subjectArea:', $subject-area))"/>
 
         <xsl:if test="$subject-area-his-key">
-          <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/subjectAreaValue">
+          <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}{$subject-area-value-uri}">
             <xsl:value-of select="$subject-area-his-key"/>
           </mods:classification>
         </xsl:if>
