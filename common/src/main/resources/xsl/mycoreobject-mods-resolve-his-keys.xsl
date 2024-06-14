@@ -21,13 +21,21 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
-      <!-- add state classification element -->
+      <!-- Set state class -->
       <xsl:variable name="status" select="//servflags/servflag[@type='status']"/>
       <xsl:variable name="status-his-key" select="fn:document(concat('HISinOne:state:', $status))"/>
 
       <xsl:if test="$status-his-key">
         <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/state/publication">
           <xsl:value-of select="$status-his-key"/>
+        </mods:classification>
+      </xsl:if>
+
+      <!-- Set visibility class -->
+      <xsl:variable name="visibility-his-key" select="fn:document(concat('HISinOne:visibility:', $status))"/>
+      <xsl:if test="$visibility-his-key">
+        <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/visibilityValue">
+          <xsl:value-of select="$visibility-his-key"/>
         </mods:classification>
       </xsl:if>
 
