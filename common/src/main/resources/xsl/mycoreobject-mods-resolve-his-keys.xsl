@@ -39,6 +39,15 @@
         </mods:classification>
       </xsl:if>
 
+      <!-- Set publicationCreatorType class -->
+      <!-- TODO find the proper source value, currently mapping is fixed to 'Autor/-in'-->
+      <xsl:variable name="creator-type-his-key" select="fn:document('HISinOne:creatorType:aut')"/>
+      <xsl:if test="$creator-type-his-key">
+        <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationCreatorTypeValue">
+          <xsl:value-of select="$creator-type-his-key"/>
+        </mods:classification>
+      </xsl:if>
+
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
