@@ -23,6 +23,9 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
+      <!-- Set research areas as of KDSF -->
+      <xsl:call-template name="researchArea"/>
+
       <!-- Set subjectArea class -->
       <xsl:call-template name="subjectArea"/>
 
@@ -38,6 +41,23 @@
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="researchArea">
+    <xsl:choose>
+      <xsl:when test="mods:classification[contains(@valueURI, 'researchAreaKdsf#')]">
+        <xsl:for-each select="fn:substring-after(mods:classification[contains(@valueURI, 'researchAreaKdsf#')]/@valueURI, '#')">
+          <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/researchAreaKdsfValue">
+            <xsl:value-of select="."/>
+          </mods:classification>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/researchAreaKdsfValue">
+          <xsl:value-of select="number(61)"/>
+        </mods:classification>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- TODO find the proper source value, currently mapping is fixed to 'Autor/-in'-->
