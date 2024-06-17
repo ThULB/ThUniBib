@@ -1063,4 +1063,18 @@
     </xed:bind>
   </xed:template>
 
+  <xed:template id="researchAreaKdsf">
+    <xed:repeat xpath="mods:classification[@classID='researchAreaKdsf']" initially="61">
+      <div class="form-inline form-group ubo-repeat-group {$xed-validation-marker}">
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+          <xed:output value="concat(i18n:translate('ubo.researchAreaKdsf'), ': ')"/>
+        </label>
+        <select id="{xed:generate-id()}" class="autocomplete mycore-form-input">
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:researchAreaKdsf"/>
+        </select>
+        <xed:controls/>
+      </div>
+    </xed:repeat>
+  </xed:template>
+
 </xed:template>
