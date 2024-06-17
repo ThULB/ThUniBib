@@ -234,17 +234,17 @@ public class HISinOneResolver implements URIResolver {
                 .filter(pubType -> pubType.getUniqueName().equals(MCRXMLFunctions.getDisplayName("ubogenre", ubogenre)))
                 .findFirst();
 
-            SysValue id;
+            SysValue sysValue;
             if (tpv.isEmpty()) {
-                id = pubTypeValues.stream()
-                    .filter(pubType -> "Sonstiger Publikationstyp".equals(pubType.getUniqueName()))
+                sysValue = pubTypeValues.stream()
+                    .filter(pubType -> "Monographie".equals(pubType.getUniqueName()))
                     .findFirst().get();
             } else {
-                id = tpv.get();
+                sysValue = tpv.get();
             }
 
-            GENRE_TYPE_MAP.put(ubogenre, id);
-            return id;
+            GENRE_TYPE_MAP.put(ubogenre, sysValue);
+            return sysValue;
         }
     }
 
