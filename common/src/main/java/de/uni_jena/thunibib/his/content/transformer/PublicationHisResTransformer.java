@@ -56,7 +56,8 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, '/cs/sys/values/publicationCreatorTypeValue')]",  xml, "publicationCreatorType");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, '/cs/sys/values/visibilityValue')]",  xml, "visibilityValue");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, '/fs/res/state/publication')]",  xml, "status");
-            addQualifiedObjectID(jsonObject, "//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']", xml, "publicationType");
+            addQualifiedObjectID(jsonObject, "//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'publicationTypeValue')]", xml, "publicationType");
+            addQualifiedObjectID(jsonObject, "//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'qualificationThesisValue')]",  xml, "qualificationThesis");
 
             addQualifiedObjectIDs(jsonObject, "//mods:classification[contains(@valueURI, '/cs/sys/values/researchAreaKdsfValue')]",  xml, "researchAreasKdsf");
             addQualifiedObjectIDs(jsonObject, "//mods:classification[contains(@valueURI, '/cs/sys/values/subjectAreaValue')]",  xml, "subjectAreas");
