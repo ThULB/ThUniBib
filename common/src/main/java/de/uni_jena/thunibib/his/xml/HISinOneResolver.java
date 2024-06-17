@@ -5,6 +5,7 @@ import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.QualificationThesisValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
@@ -15,6 +16,9 @@ import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
 import org.mycore.common.xml.MCRXMLFunctions;
+import org.mycore.datamodel.classifications2.MCRCategory;
+import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
+import org.mycore.datamodel.classifications2.MCRCategoryID;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
@@ -27,7 +31,7 @@ import java.util.Optional;
 /**
  * Usage:
  * <br/><br/>
- * <code>HISinOne:[creatorType | genre | language | subjectArea | state | visibility]:[value]</code>
+ * <code>HISinOne:&lt;creatorType | genre | language | subjectArea | state | visibility&gt;:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
 
@@ -36,10 +40,11 @@ public class HISinOneResolver implements URIResolver {
     private static Map<String, Integer> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static Map<String, Integer> STATE_TYPE_MAP = new HashMap<>();
     private static Map<String, Integer> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
+    private static Map<String, Integer> THESIS_TYPE_MAP = new HashMap<>();
     private static Map<String, Integer> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
-        creatorType, genre, language, state, subjectArea, visibility
+        creatorType, genre, language, state, subjectArea, thesisType, visibility
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -63,10 +68,51 @@ public class HISinOneResolver implements URIResolver {
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value))));
             case subjectArea:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value))));
+            case thesisType:
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveThesisType(value))));
             case visibility:
                 return new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value))));
             default:
                 throw new TransformerException("Unknown entity: " + entity);
+        }
+    }
+
+    private int resolveThesisType(String ubogenre) {
+        if (THESIS_TYPE_MAP.containsKey(ubogenre)) {
+            return THESIS_TYPE_MAP.get(ubogenre);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("cs/sys/values/qualificationThesisValue")) {
+
+            List<QualificationThesisValue> thesisValues = response.readEntity(
+                new GenericType<List<QualificationThesisValue>>() {
+                });
+
+            MCRCategoryID categId = MCRCategoryID.fromString("ubogenre:" + ubogenre);
+            MCRCategoryID thesisCategId = MCRCategoryID.fromString("ubogenre:thesis");
+            List<MCRCategory> children = MCRCategoryDAOFactory.getInstance().getChildren(thesisCategId);
+            boolean isThesis = children.stream().filter(c -> c.getId().equals(categId)).findAny().isPresent();
+
+            int id = -1;
+            if (isThesis) {
+                String text = MCRCategoryDAOFactory
+                    .getInstance()
+                    .getCategory(categId, -1).getLabel("de").get()
+                    .getText();
+
+                Optional<QualificationThesisValue> qtv = thesisValues.stream()
+                    .filter(tv -> text.equals(tv.getDefaultText())).findFirst();
+
+                if (qtv.isPresent()) {
+                    id = qtv.get().getHisKeyId();
+                }
+            } else {
+                id = thesisValues.stream()
+                    .filter(tv -> "nicht zutreffend".equals(tv.getDefaultText())).findFirst().get().getHisKeyId();
+            }
+            THESIS_TYPE_MAP.put(ubogenre, id);
+            return id;
         }
     }
 
@@ -107,7 +153,7 @@ public class HISinOneResolver implements URIResolver {
                 });
 
             var id = switch (value) {
-                default -> creatorTypes.stream().filter(state -> "Autor/-in" .equals(state.getUniqueName())).findFirst()
+                default -> creatorTypes.stream().filter(state -> "Autor/-in".equals(state.getUniqueName())).findFirst()
                     .get().getId();
             };
 
@@ -130,9 +176,9 @@ public class HISinOneResolver implements URIResolver {
 
             var id = switch (value) {
                 case "confirmed", "unchecked" ->
-                    visState.stream().filter(state -> "public" .equals(state.getUniqueName())).findFirst().get()
+                    visState.stream().filter(state -> "public".equals(state.getUniqueName())).findFirst().get()
                         .getId();
-                default -> visState.stream().filter(state -> "hidden" .equals(state.getUniqueName())).findFirst()
+                default -> visState.stream().filter(state -> "hidden".equals(state.getUniqueName())).findFirst()
                     .get().getId();
             };
 
@@ -155,13 +201,13 @@ public class HISinOneResolver implements URIResolver {
 
             var id = switch (value) {
                 case "confirmed", "unchecked" ->
-                    pubState.stream().filter(state -> "validiert" .equals(state.getUniqueName())).findFirst().get()
+                    pubState.stream().filter(state -> "validiert".equals(state.getUniqueName())).findFirst().get()
                         .getId();
                 case "review" ->
-                    pubState.stream().filter(state -> "Dateneingabe" .equals(state.getUniqueName())).findFirst().get()
+                    pubState.stream().filter(state -> "Dateneingabe".equals(state.getUniqueName())).findFirst().get()
                         .getId();
                 default ->
-                    pubState.stream().filter(state -> "zur Validierung" .equals(state.getUniqueName())).findFirst()
+                    pubState.stream().filter(state -> "zur Validierung".equals(state.getUniqueName())).findFirst()
                         .get().getId();
             };
 
@@ -190,7 +236,7 @@ public class HISinOneResolver implements URIResolver {
             int id;
             if (tpv.isEmpty()) {
                 id = pubTypeValues.stream()
-                    .filter(pubType -> "Sonstiger Publikationstyp" .equals(pubType.getUniqueName()))
+                    .filter(pubType -> "Sonstiger Publikationstyp".equals(pubType.getUniqueName()))
                     .findFirst().get().getId();
             } else {
                 id = tpv.get().getId();
