@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<mycoreclass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="researchAreaKdsf" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+  <label xml:lang="de" text="KDSF Forschungsfelder"/>
+  <label xml:lang="en" text="KDSF research area"/>
+  <categories>
+    <category ID="42">
+      <label xml:lang="de" text="Arbeit und Wirtschaft - Allgemein" description="Forschung über Aspekte von Arbeit und Wirtschaft im Allgemeinen"/>
+      <label xml:lang="en" text="Work and economy - general" description="Research on aspects of work and economy in general"/>
+    </category>
+    <category ID="92">
+      <label xml:lang="de" text="Arbeitswelt und -gestaltung" description="Forschung über alle Formen der Arbeit und des Arbeitsmarkts und wie diese sich wandeln; neben Erwerbsarbeit und Nichterwerbsarbeit auch neue Formen der Beschäftigung; Arbeitsteilung; Auswirkungen auf Gesundheit und andere Aspekte des Lebens"/>
+      <label xml:lang="en" text="Workplace and workplace design" description="Research on all forms of work, the labour market and the changes these are undergoing; paid and unpaid work as well as new forms of employment and work; job sharing; effects on people's health and other aspects of their lives"/>
+    </category>
+    <category ID="85">
+      <label xml:lang="de" text="Digitale Wirtschaft" description="Forschung zu ökonomischen Fragestellungen, die sich mit Digitalisierung und deren Auswirkung beschäftigen; zu Konzepten der Digitalisierung von Wirtschaft"/>
+      <label xml:lang="en" text="Digital economy" description="Research on economic issues concerning digitalisation and its effects; research on concepts for digitising the economy"/>
+    </category>
+    <category ID="36">
+      <label xml:lang="de" text="Erde und Kosmos - Allgemein" description="Forschung über den Planeten Erde und den ihn umgebenden Kosmos im weitesten Sinne sowie Materie"/>
+      <label xml:lang="en" text="Earth and cosmos - general" description="Research on planet Earth and the cosmos around it in the broadest sense as well as on matter"/>
+    </category>
+    <category ID="75">
+      <label xml:lang="de" text="Materie" description="Forschung zu Eigenschaften, Verhalten und Nutzung von Materie in unterschiedlichen Aggregatzuständen; zu Teilchen, deren Funktion, Nutzbarmachung und Eigenschaften; zu Teilchengemischen wie Plasma; zu Strukturen von Materie"/>
+      <label xml:lang="en" text="Matter" description="Research on properties, behaviour and use of matter in different states; on particles, their functions, utilisation and properties; on particle mixtures such as plasma; on structures of matter"/>
+    </category>
+    <category ID="95">
+      <label xml:lang="de" text="Planet Erde" description="Forschung zu globalen Phänomenen des Planeten Erde, zu globalen (Stoff-)Kreisläufen, zu Luft, Land, Wasser auf der Erde; zum tiefen Erduntergrund sowie Wetter"/>
+      <label xml:lang="en" text="Planet Earth" description="Research on global phenomena of planet Earth, on global (material) cycles, on air, land and water on Earth, on the deep underground as well as weather"/>
+    </category>
+    <category ID="101">
+      <label xml:lang="de" text="Regionen der Erde" description="Forschung zu wissenschaftlichen Erkundungen von Gebieten der Erde"/>
+      <label xml:lang="en" text="Regions of the Earth" description="Research on scientific explorations of regions"/>
+    </category>
+    <category ID="46">
+      <label xml:lang="de" text="Weltraum" description="Forschung über den Weltraum sowie Forschung über die Erde vom Weltraum aus"/>
+      <label xml:lang="en" text="Space" description="Research on outer space and exploration of Earth from space"/>
+    </category>
+    <category ID="97">
+      <label xml:lang="de" text="Globalisierung und Nachhaltigkeit - Allgemein" description="Forschung zur Globalisierung und deren Auswirkung auf Wirtschaft, Gesellschaft und Umwelt sowie zur nachhaltigen Entwicklung dieser Bereiche; regionale Aspekte bzw. Entwicklung verschiedener Regionen der Erde unter internationalen Rahmenbedingungen"/>
+      <label xml:lang="en" text="Globalisation and sustainability - general" description="Research on globalisation and its impact on the economy, society and environment as well as the sustainable development of these fields; regional aspects and the development of different regions of the world within an international framework"/>
+    </category>
+    <category ID="37">
+      <label xml:lang="de" text="Entwicklungszusammenarbeit" description="Forschung zur technischen, finanziellen, personellen, nationalen oder internationalen Zusammenarbeit; zu Bekämpfung von Armut sowie globalen und regionalen Partnerschaften"/>
+      <label xml:lang="en" text="Development cooperation" description="Research on technological, financial, personnel-related, national or international cooperation; research on poverty reduction as well as global and regional partnerships"/>
+    </category>
+    <category ID="76">
+      <label xml:lang="de" text="Migration" description="Forschung zu Migration und deren Auswirkung auf Mensch und Gesellschaft; Fluchtforschung; Flüchtlingsschutz; Asyl und Migration"/>
+      <label xml:lang="en" text="Migration" description="Research on migration and its impact on people and society; research on forced migration; refugee protection; asylum and migration"/>
+    </category>
+    <category ID="70">
+      <label xml:lang="de" text="Nachhaltigkeit" description="Forschung zur Nachhaltigkeit im weitesten Sinne und wie diese in verschiedenen Bereichen, Gebieten und Ländern erreicht werden kann; dazu zählt auch verantwortungsbewusstes Handeln und die Forschung zu Prinzipien der langfristigen Nutzung und Wirkung von Aktionen/Projekten; zu nachhaltigem Wirtschaftswachstum, nachhaltigem Konsum und nachhaltiger Produktion"/>
+      <label xml:lang="en" text="Sustainability" description="Research on sustainability in the broadest sense and how it can be achieved in various fields, areas and countries; this includes acting responsibly and research on principles of long-term use and impact of activities/projects; research on sustainable economic growth, sustainable consumption and sustainable production"/>
+    </category>
+    <category ID="82">
+      <label xml:lang="de" text="Industrie - Allgemein" description="Forschung zu Technologien und Verfahren der gewerblichen Verarbeitung von Rohstoffen im Allgemeinen"/>
+      <label xml:lang="en" text="Industry - general" description="Research on technologies and methods of industrial processing of raw materials in general"/>
+    </category>
+    <category ID="53">
+      <label xml:lang="de" text="Entsorgung und Recycling" description="Forschung zu Recyclingprozessen und -verfahren; zu Entsorgung von Abfallprodukten und nuklearem Müll, Stoffkreisläufen und Lebenszyklen von Materialien"/>
+      <label xml:lang="en" text="Waste disposal and recycling" description="Research on recycling processes and methods; on the disposal of waste products and nuclear waste, on material cycles and life cycles of materials"/>
+    </category>
+    <category ID="96">
+      <label xml:lang="de" text="Intelligente Produktion" description="Forschung über den gesamten Prozess der Entwicklung, Konstruktion, Fertigung und das Produzieren von Maschinen und Systemen, sowie Entwicklung neuer Prozesse für die Produktion mit modernster Informations- und Kommunikationstechnik, zur Digitalisierung in der industriellen Produktion und deren Prozessen durch intelligente und vernetzte Systeme und die Automatisierung von Prozessen"/>
+      <label xml:lang="en" text="Intelligent manufacturing" description="Research on the entire process of design, development and manufacturing of machines and systems, as well as the development of new processes for production with the most modern information and communication technology, for digitalisation in manufacturing and its processes through intelligent and interconnected systems and automation of processes"/>
+    </category>
+    <category ID="27">
+      <label xml:lang="de" text="Robotik" description="Forschung zu Robotern und humanoiden Robotern"/>
+      <label xml:lang="en" text="Robotics" description="Research on robots and humanoid robots"/>
+    </category>
+    <category ID="33">
+      <label xml:lang="de" text="Informationstechnologie - Allgemein" description="Forschung zur Technologie und zum Einsatz dieser für die Informationsverarbeitung"/>
+      <label xml:lang="en" text="Information technology - general" description="Research on technology and its use in information processing"/>
+    </category>
+    <category ID="29">
+      <label xml:lang="de" text="Informationssicherheit" description="Forschung zu Sicherheit im digitalen Raum, Schutz vor Kriminalität im Internet, Hacking, Verteidigung gegen Angriffe auf digitale Systeme, Cybersicherheit"/>
+      <label xml:lang="en" text="Information security" description="Research on security in the digital space, protection against cybercrime, hacking, defence against cyber-attacks, cyber security"/>
+    </category>
+    <category ID="21">
+      <label xml:lang="de" text="Informationssysteme" description="Forschung über Systeme zur Informationsgenerierung und -verarbeitung, auch im Hinblick auf die Schnittstelle zum Menschen und darauf bezogene Geschäftsprozesse; Cloud-Systeme und verteilte Systeme"/>
+      <label xml:lang="en" text="Information systems" description="Research on systems of information generation and processing, also with regard to human interfaces and related business processes; cloud systems and distributed systems"/>
+    </category>
+    <category ID="87">
+      <label xml:lang="de" text="Informationstechnik" description="Forschung zu Technik und Hardware für die Datenverarbeitung"/>
+      <label xml:lang="en" text="Information technology engineering" description="Research on technology and hardware for data processing"/>
+    </category>
+    <category ID="31">
+      <label xml:lang="de" text="Internet der Dinge" description="Forschung zur Vernetzung von Gegenständen im analogen und virtuellen Raum mit dem Ziel des Informationsaustauschs zwischen den Gegenständen; nicht industrielle Produktion"/>
+      <label xml:lang="en" text="Internet of things" description="Research on the electronic interconnection of things in analogue and virtual space with the aim of information exchange between objects; non-industrial production"/>
+    </category>
+    <category ID="49">
+      <label xml:lang="de" text="Künstliche Intelligenz und Big Data" description="Forschung zur Verarbeitung großer Mengen an und/oder wenig strukturierter Daten zur automatisierten Entscheidungsfindung sowie der dafür benötigten Technologien und Algorithmen"/>
+      <label xml:lang="en" text="Artificial intelligence and big data" description="Research on the processing of large amounts of data and/or semi-structured data for automated decision making as well as the technologies and algorithms required for this"/>
+    </category>
+    <category ID="91">
+      <label xml:lang="de" text="Simulationsforschung" description="Forschung zur Abbildung komplexer Systeme oder Prozesse in Modellen und Vorhersagen über die Zukunft mit dem Ziel des Erkenntnisgewinns über reale Systeme mit Mitteln der Informationstechnologie; simulationsbasierte Optimierung"/>
+      <label xml:lang="en" text="Simulation research" description="Research on modelling complex systems or processes and predictions about the future with the aim of gaining knowledge about real systems by means of information technology; simulation-based optimisation"/>
+    </category>
+    <category ID="56">
+      <label xml:lang="de" text="Infrastruktur - Allgemein" description="Forschung zu Infrastrukturen, die zur Versorgung und Nutzung gebraucht werden; zu Nachhaltigkeit und Resilienz kritischer Infrastrukturen"/>
+      <label xml:lang="en" text="Infrastructure - general" description="Research on infrastructures required for supply and use; on sustainability and resilience of critical infrastructures"/>
+    </category>
+    <category ID="63">
+      <label xml:lang="de" text="Ballungsräume und Stadtentwicklung" description="Forschung zu Stadtentwicklung und Leben in der Stadt und Ballungsräumen; Smart City-Forschung"/>
+      <label xml:lang="en" text="Metropolitan areas and urban development" description="Research on urban development and life in cities and metropolitan areas; smart city research"/>
+    </category>
+    <category ID="23">
+      <label xml:lang="de" text="Bauen und Wohnen" description="Forschung zu neuen, auch automatisierten, Verfahren und Techniken für den Bau von Gebäuden und Bauwerken, deren Ausstattung; zum nutzungsgerechten Bauen und das damit verbundene Wohnen in Gebäuden"/>
+      <label xml:lang="en" text="Building and living" description="Research on new, also automated, methods and techniques for the construction of buildings and structures and their equipment; on use-oriented construction and living in buildings"/>
+    </category>
+    <category ID="78">
+      <label xml:lang="de" text="Infrastruktur und Netze" description="Forschung zu Infrastrukturen der Daseinsvorsorge, wie Stromnetze, Gasnetze, Kommunikationsnetze, Anlagen, Strukturen, Systeme"/>
+      <label xml:lang="en" text="Infrastructure and networks" description="Research on infrastructures of public services, such as power grids, gas networks, communication networks, facilities, structures, systems"/>
+    </category>
+    <category ID="41">
+      <label xml:lang="de" text="Mobilität, Transport und Verkehr" description="Forschung zur Umsetzung von Mobilität im Raum, der Entwicklung von Fortbewegungsmitteln für den Transport von Gütern oder Personen"/>
+      <label xml:lang="en" text="Mobility, transport and traffic" description="Research on the implementation of mobility in public space; the development of means of transport for the movement of goods or people"/>
+    </category>
+    <category ID="74">
+      <label xml:lang="de" text="Kognition und Wissen - Allgemein" description="Forschung zu Verfahren zur Generierung von Wissen; zum Verständnis, der Wahrnehmung und Funktionsweise von Wissen und Wissenssystemen; auch Bildung zur nachhaltigen Entwicklung"/>
+      <label xml:lang="en" text="Cognition and knowledge - general" description="Research on methods of knowledge generation; on understanding, perception, and the functioning of knowledge and knowledge systems; also education for sustainable development"/>
+    </category>
+    <category ID="100">
+      <label xml:lang="de" text="Innovation" description="Forschung zu innovationsunterstützenden Maßnahmen und dem Entstehen von Innovationen und neuen Ideen"/>
+      <label xml:lang="en" text="Innovation" description="Research on measures to support innovation and the creation of innovation and new ideas"/>
+    </category>
+    <category ID="67">
+      <label xml:lang="de" text="Lernen und Lernprozesse" description="Forschung zu lebenslangem und zukunftsorientiertem, individuellem und soziologischem Lernen; zu Vermittlung von Wissen und Fähigkeiten mit technologischer Unterstützung; zu neuen Formen des Lernens, zu digitalem Lernen, Kompetenzen und Fähigkeiten"/>
+      <label xml:lang="en" text="Learning and learning processes" description="Research on lifelong and future-oriented, individual and sociological learning; on the transfer of knowledge and skills with technological support; on new forms of learning; on digital learning, capabilities and skills"/>
+    </category>
+    <category ID="83">
+      <label xml:lang="de" text="Menschliches Gehirn" description="Forschung zur Verarbeitung von Information, Signalen, Gefühlen, Wahrnehmungen im menschlichen Gehirn"/>
+      <label xml:lang="en" text="Human brain" description="Research on the processing of information, signals, emotions, perceptions in the human brain"/>
+    </category>
+    <category ID="26">
+      <label xml:lang="de" text="Sprache und Spracherlernen" description="Forschung zu Sprachen, zur Sprachentwicklung und Spracherkennung, zum Erlernen von Sprachen beim Menschen und Maschinen"/>
+      <label xml:lang="en" text="Language and language learning" description="Research on languages, language development and speech recognition, in the context of language learning by people and machines"/>
+    </category>
+    <category ID="99">
+      <label xml:lang="de" text="Wissenstransfer und Wissensrepräsentation" description="Forschung zur Generierung von Wissen; zu Abbildung, Weitergabe und Erhalt von Wissen"/>
+      <label xml:lang="en" text="Knowledge transfer and knowledge representation" description="Research on the generation of knowledge; on the representation, transfer and preservation of knowledge"/>
+    </category>
+    <category ID="94">
+      <label xml:lang="de" text="Kultur - Allgemein" description="Forschung, die die verschiedenen Gebiete der Kultur zum Gegenstand hat; zu kulturellen Identitäten; zu Regionen in Bezug auf Kultur, deren Entwicklung und Manifestation"/>
+      <label xml:lang="en" text="Culture - general" description="Research focusing on various fields of culture; on cultural identities; on regions with regard to culture, their development and manifestation"/>
+    </category>
+    <category ID="44">
+      <label xml:lang="de" text="Kreativität und Darbietung" description="Forschung zu Ausdruck und Form menschlicher Kreativität, geistiger Anstrengung und ihrer Manifestationen in Werken und Produkten des Alltags; zu ästhetischen und gestalterischen Aspekten"/>
+      <label xml:lang="en" text="Creativity and performance" description="Research on expressions and forms of human creativity, mental effort and its manifestation in works (of art) and everyday products; on aesthetic and artistic aspects"/>
+    </category>
+    <category ID="58">
+      <label xml:lang="de" text="Kulturgüter und kulturelles Erbe" description="Forschung zu materiellen und immateriellen kulturellen Objekten (bewegliche und unbewegliche), deren Gebrauch (früher und heute), Erschließung, Interpretation, Aufbewahrung und Dokumentation sowie dem Zugang im physischen als auch im digitalen Raum"/>
+      <label xml:lang="en" text="Cultural heritage objects and cultural heritage" description="Research on material and immaterial cultural assets (tangible and intangible), their use (in the past and present), development, interpretation, storage and documentation as well as their accessibility in the physical and digital space"/>
+    </category>
+    <category ID="47">
+      <label xml:lang="de" text="Medien" description="Forschung zu verschiedenen Medienformen und deren Einsatz als Kommunikationsmittel, deren Erstellung, Nutzung und Anwendung"/>
+      <label xml:lang="en" text="Media" description="Research on various forms of media and their use as means of communication, their creation, use and application"/>
+    </category>
+    <category ID="39">
+      <label xml:lang="de" text="Leben und Wohlergehen - Allgemein" description="Forschung zu präventiven Maßnahmen und Lebensqualität, langem Leben durch körperliches und geistiges Wohlbefinden sowie physischer und psychischer Funktions- und Leistungsfähigkeit; zu Leben und Lebewesen im Allgemeinen"/>
+      <label xml:lang="en" text="Life and well-being - general" description="Research on preventive measures and quality of life, longevity through physical and mental well-being as well as physical and mental function and performance; on life and living creatures in general"/>
+    </category>
+    <category ID="25">
+      <label xml:lang="de" text="Künstliches oder synthetisches Leben" description="Forschung zur Entwicklung neuer Geräte, Bauteile, Systeme aus organischen Stoffen; zur Rekonstruktion bzw. Neugestaltung von in der Natur bereits vorkommenden Systemen"/>
+      <label xml:lang="en" text="Artificial and synthetic life" description="Research on the development of new devices, components, systems made of organic materials; on reconstruction or redesign of systems occurring in nature"/>
+    </category>
+    <category ID="79">
+      <label xml:lang="de" text="Lebewesen" description="Forschung zu Lebewesen und deren Entwicklung"/>
+      <label xml:lang="en" text="Living beings" description="Research on living beings and their development"/>
+    </category>
+    <category ID="20">
+      <label xml:lang="de" text="Prävention von Krankheiten" description="Forschung zur Prävention von Krankheiten; zum Erhalt der Lebensqualität über einen langen Zeitraum hinweg"/>
+      <label xml:lang="en" text="Disease prevention" description="Research on the prevention of disease; on maintaining quality of life over a long period"/>
+    </category>
+    <category ID="80">
+      <label xml:lang="de" text="Therapie und Heilung" description="Forschung zur Heilung; zu verschiedenen Therapieformen für Menschen; zu Medikamenten und ganzheitlichen Ansätzen"/>
+      <label xml:lang="en" text="Therapy and healing" description="Research on healing; on different forms of therapy for people, on medication and holistic approaches"/>
+    </category>
+    <category ID="48">
+      <label xml:lang="de" text="Zellen und Gene" description="Forschung zu Funktionen der Zelle und ihrer Bestandteile; zur Kommunikation innerhalb und außerhalb der Zelle; zu Genen und Proteinen als besonderer Teil der Zellforschung; zu Reaktionen von zellulären Prozessen auf äußere Einflüsse"/>
+      <label xml:lang="en" text="Cells and genes" description="Research on functions of the cell and its components; on communication within and outside the cell; on genes and proteins as a special part of cell research; on reactions of cellular processes to external influences"/>
+    </category>
+    <category ID="104">
+      <label xml:lang="de" text="Materialien - Allgemein" description="Forschung zu Eigenschaften, Nutzung und Herstellung verschiedener Materialien mit organischen und anorganischen Anteilen; zu hybriden und aktiven Materialien und biofunktionalisierten Materialien"/>
+      <label xml:lang="en" text="Materials - general" description="Research on properties, use and manufacture of different materials with organic and inorganic components; on hybrid and active materials and biofunctionalised materials"/>
+    </category>
+    <category ID="52">
+      <label xml:lang="de" text="Oberflächen und Grenzflächen" description="Forschung zu Oberflächen von Materialien oder Festkörpern sowie dem Übergang zwischen verschiedenen Festkörpern oder Materialien"/>
+      <label xml:lang="en" text="Surfaces and interfaces" description="Research on surfaces of materials or solids as well as the transition between different solids and materials"/>
+    </category>
+    <category ID="103">
+      <label xml:lang="de" text="Polymere" description="Forschung zu Eigenschaften und Funktionen von Polymeren und deren Anwendung, zu Entwicklung und Optimierung von Innovativen und nachhaltigen Materialien, Prozesshilfsmitteln, Verfahren und Technologien"/>
+      <label xml:lang="en" text="Polymers" description="Research on properties and functions of polymers and their use; on development and optimisation of innovative and sustainable materials, processes and technologies"/>
+    </category>
+    <category ID="38">
+      <label xml:lang="de" text="Werkstoffe" description="Forschung zu Werkstoffen, deren Herstellung, Verfahren und Techniken im Umgang mit Werkstoffen; zu Fertigungsverfahren wie Bohren, Schweißen, Gießen, etc."/>
+      <label xml:lang="en" text="Engineering materials" description="Research on engineering materials, their manufacture, processes and techniques when dealing with engineering materials; on manufacturing processes like drilling, welding, casting, etc."/>
+    </category>
+    <category ID="93">
+      <label xml:lang="de" text="Mensch und Gesellschaft - Allgemein" description="Forschung zu Aspekten der gesellschaftlichen Struktur und des gesellschaftlichen Zusammenhalts; zur Organisation und Struktur von Institutionen; zum Individuum und seiner persönliche Lebensgestaltung"/>
+      <label xml:lang="en" text="People and society - general" description="Research on aspects of social structure and social cohesion; on the organisation and structure of institutions; on individuals and their personal lifestyles"/>
+    </category>
+    <category ID="81">
+      <label xml:lang="de" text="Demographischer Wandel" description="Forschung zu verschiedenen Aspekten des demographischen Wandels (wie Alterung und Zuwanderung), dessen Folgen und Lösungsansätzen"/>
+      <label xml:lang="en" text="Demographic change" description="Research on various aspects of demographic change (such as aging and immigration), on its consequences and possible solutions"/>
+    </category>
+    <category ID="77">
+      <label xml:lang="de" text="Gewalt, Konflikte und Gefahrenabwehr" description="Forschung zur Bekämpfung von Kriminalität und Gewalt; zu Gefahren und Konflikten in einem Land und zwischen Ländern; zu politischer Diplomatie und Lösungen; zu friedlichen Gesellschaften"/>
+      <label xml:lang="en" text="Violence, conflicts and crisis prevention" description="Research on combating crime and violence; on dangers and conflicts in a country and between nations; on political diplomacy and solutions; on peaceful societies"/>
+    </category>
+    <category ID="40">
+      <label xml:lang="de" text="Gleichstellung, Diversität und Inklusion" description="Forschung zu Aspekten von Gleichstellung und Diversität in der Gesellschaft; zur sozialer Ungleichheit; zur Inklusion in Bildung und Gesellschaft; zu Gender und Feminismus"/>
+      <label xml:lang="en" text="Equality, diversity and inclusion" description="Research on aspects of equality and diversity in society; on social inequality; on inclusion in education and society; on gender and feminism"/>
+    </category>
+    <category ID="98">
+      <label xml:lang="de" text="Politische Ordnung" description="Forschung zu politischen Ordnungen, deren Institutionen und den durch diese ausgeführten Funktionen, die das Zusammenleben von Bürgern in einem Staat gestalten; zu Demokratie, Recht und Gesetz, Verbraucherschutz und Auswirkungen politischer Entscheidungen auf das gesellschaftliche Zusammenleben; zur Förderung von Institutionen"/>
+      <label xml:lang="en" text="Political order" description="Research on political orders, their institutions and the functions executed by them, which shape the coexistence of citizens in a state; on democracy, law and order, consumer protection and effects of political decisions on social coexistence; on the promotion of institutions"/>
+    </category>
+    <category ID="57">
+      <label xml:lang="de" text="Transparenz und Verantwortung" description="Forschung zur gesellschaftlichen Verantwortung; zu sittlichen Normen sowie Fragen der Ethik von Funktionsträgern, Personen, Organisationen, Einrichtungen; zu Regelungen und Prozessen in Gesellschaft und Wirtschaft"/>
+      <label xml:lang="en" text="Transparency and responsibility" description="Research on social responsibility; on moral standards and questions of ethics of functionaries, people, organisations, institutions; on regulations and processes in society and economy"/>
+    </category>
+    <category ID="28">
+      <label xml:lang="de" text="Werte und Wandel" description="Forschung zu Werten und Normen eines Individuums und sozialen Kategorien einer Gesellschaft, sowie deren Wandel; zu zwischenmenschlichen Beziehungen und Kindererziehung"/>
+      <label xml:lang="en" text="Values and change" description="Research on values and norms of an individual and social categories of a society as well as how these change; on interpersonal relationships and parenting"/>
+    </category>
+    <category ID="22">
+      <label xml:lang="de" text="Natur und Umwelt - Allgemein" description="Forschung zu Umwelt und belebter und unbelebter Natur im weitesten Sinne, deren (Ver-)anderung und darin enthaltenen Lebewesen"/>
+      <label xml:lang="en" text="Nature and environment - general" description="Research on the environment and animate and inanimate nature in the broadest sense, their change and living beings contained in them"/>
+    </category>
+    <category ID="69">
+      <label xml:lang="de" text="Klimaveränderung" description="Forschung zu Auswirkungen der Klimaveränderung auf die Umwelt und die existierende Biodiversität; zur Anpassung der Umwelt und der existierenden Biodiversität"/>
+      <label xml:lang="en" text="Climate change" description="Research on the effects of climate change on the environment and the existing biodiversity; on the adaptation of the environment and the existing biodiversity"/>
+    </category>
+    <category ID="102">
+      <label xml:lang="de" text="Nahrung und Versorgung" description="Forschung zu Anbau, Produktion und Versorgung von und mit Lebensmitteln"/>
+      <label xml:lang="en" text="Food and supply" description="Research on the cultivation, production and supply of food"/>
+    </category>
+    <category ID="86">
+      <label xml:lang="de" text="Natürliche Ressourcen" description="Forschung zum Abbau, Nutzung, Wiederverwendung und von Rohstoffen sowie Wasser, Boden, Luft, Biomasse; zum Zugang zu sauberem Wasser"/>
+      <label xml:lang="en" text="Natural resources" description="Research on extraction, use, reuse of natural resources as well as water, soil, air, biomass; on access to clean water"/>
+    </category>
+    <category ID="105">
+      <label xml:lang="de" text="Nutzung und Pflege von Naturräumen und Landschaften" description="Forschung zu Regionalentwicklung, Landnutzung und Entwicklung von Naturräumen sowie dem Schutz, der Pflege und der Entwicklung von Landschaften"/>
+      <label xml:lang="en" text="Use and management of natural spaces and landscapes" description="Research on regional development, land use and development of natural spaces as well as the protection, management and planning of landscapes"/>
+    </category>
+    <category ID="54">
+      <label xml:lang="de" text="Ökosysteme und Biodiversität" description="Forschung zu Ökosystemen und Biodiversität, deren Rolle, Funktion(sfähigkeit), Veränderung und Erhaltung; zu Maßnahmen zum Schutz von Ökosystemen und Biodiversität"/>
+      <label xml:lang="en" text="Ecosystems and biodiversity" description="Research on ecosystems and biodiversity, their role, function(ality), change and preservation of ecosystems; on measures to protect ecosystems and biodiversity"/>
+    </category>
+    <category ID="68">
+      <label xml:lang="de" text="Schutz und Sicherheit vor Naturgefahren und Reaktorsicherheit" description="Forschung zur Minimierung von Risiken durch Naturgefahren; zum Umgang mit Naturkatastrophen; zur Reaktorsicherheit"/>
+      <label xml:lang="en" text="Protection and hazard safety, reactor security" description="Research on minimising risks from natural hazards; on dealing with natural disasters; on reactor safety"/>
+    </category>
+    <category ID="45">
+      <label xml:lang="de" text="Technologie - Allgemein" description="Forschung zu Technologien, die einen wichtigen Fortschritt gegenüber dem Status Quo darstellen; zu verschiedenen Bauteilen und Elementen, zusammengesetzten Werkzeugen oder Maschinen"/>
+      <label xml:lang="en" text="Technology - general" description="Research on technologies which represent an important improvement on the status quo; on different components and elements, composite tools or machines"/>
+    </category>
+    <category ID="72">
+      <label xml:lang="de" text="Energieerzeugung und Energieumwandlung" description="Forschung zu (neuen) Energieformen und erneuerbaren Energien und ihrer Erzeugung aus verschiedenen Quellen sowie der dazugehörigen Technologie zur Umwandlung und Umformung von Energie"/>
+      <label xml:lang="en" text="Energy generation and energy conversion" description="Research on (new) forms of energy and renewable energies and their generation from different sources as well as related technologies for the conversion and transformation of energy"/>
+    </category>
+    <category ID="32">
+      <label xml:lang="de" text="Halbleitertechnologie" description="Forschung zur technischen Herstellung mikroelektronischer und lichttechnischer Bauelemente und mikroelektronischer Baugruppen; zu Elementen wie Silizium"/>
+      <label xml:lang="en" text="Semiconductor technology" description="Research on the technical manufacture of microelectronic and lighting components and microelectronic modules; on elements such as silicon"/>
+    </category>
+    <category ID="66">
+      <label xml:lang="de" text="Mikro- und Nanosysteme" description="Forschung zu Technologien bzw. Technik, die sich mit Strukturen und Prozessen im Mikro- und Nanometerbereich befasst"/>
+      <label xml:lang="en" text="Micro- and nanosystems" description="Research on technologies or methods which deal with structures and processes at the micro and nano scale"/>
+    </category>
+    <category ID="90">
+      <label xml:lang="de" text="Optik und Photonik" description="Forschung zu Grundlagen und Anwendungen optischer Verfahren und Technologien; zur Photonik, zum Licht als Transportmittel"/>
+      <label xml:lang="en" text="Optics and photonics" description="Research on basics and applications of optical processes and technologies; on photonics, on light as a means of transport"/>
+    </category>
+    <category ID="30">
+      <label xml:lang="de" text="Quantentechnologien" description="Forschung zu Quanteneffekten, -technologien, -materialien und -anwendungen"/>
+      <label xml:lang="en" text="Quantum technologies" description="Research on quantum effects, technologies, materials and uses"/>
+    </category>
+    <category ID="59">
+      <label xml:lang="de" text="Wissenschaft - Allgemein" description="Forschung zur Wissenschaft, deren Prozesse und Akteuren und Veränderungen im Wissenschaftsprozess"/>
+      <label xml:lang="en" text="Science - general" description="Research on science, its processes and actors and changes in the scientific process"/>
+    </category>
+    <category ID="71">
+      <label xml:lang="de" text="Infrastrukturen der Wissenschaft" description="Forschung zur Veränderung (z.B. Ausbau und Verbesserung) von Infrastrukturen zur Informationsversorgung und -verarbeitung für die Wissenschaft"/>
+      <label xml:lang="en" text="Research infrastructures" description="Research on changes (e.g. development and improvement) of infrastructures for information provision and processing for research"/>
+    </category>
+    <category ID="24">
+      <label xml:lang="de" text="Open Science" description="Forschung zur Öffnung des Zugangs zu Daten und Forschungsergebnissen; zu Inklusion und Chancengleichheit in der Wissenschaft und der Öffnung des kompletten Forschungsprozesses"/>
+      <label xml:lang="en" text="Open science" description="Research on Open Access to data and research findings; on inclusion and equal opportunities in science and opening up of the entire research process"/>
+    </category>
+    <category ID="62">
+      <label xml:lang="de" text="Wissenschaftsforschung" description="Forschung zu den verschiedenen Aspekten von Wissenschaft, deren Funktion, deren Prozesse und Akteure"/>
+      <label xml:lang="en" text="Science studies" description="Research on different aspects of science, their functions, their processes and actors"/>
+    </category>
+    <category ID="61">
+      <label xml:lang="de" text="Anderes Forschungsfeld" description="Die Forschungsaktivität lässt sich problemorientiert mit einem thematisch abgrenzbaren Gegenstandsbereich, der quer zu Disziplinen liegt, beschreiben. Es ist jedoch keine Zuordnung zu den aufgeführten Forschungsfeldern möglich. Es wird darum gebeten, in diesem Fall einen Vorschlag für ein neues Forschungsfeld einzureichen. Dieser sollte eine klare und möglichst allgemeine Definition wie auch die Abgrenzung von ähnlichen bereits vorliegenden Forschungsfeldern enthalten."/>
+      <label xml:lang="en" text="Other research field" description="The research activity can be described as problem-oriented with a thematically definable subject area that cuts across disciplines. However, no assignment to the listed research fields is possible. In this case, you are asked to submit a proposal for a new research field. This should contain a clear definition that is as general as possible, as well as the demarcation from similar already listed research fields."/>
+    </category>
+    <category ID="50">
+      <label xml:lang="de" text="Disziplinäre Forschung" description="Die Forschungsaktivität ist über eine disziplinäre Klassifikation passend abgebildet. Eine Zuordnung zu Forschungsfeldern, die quer zu Disziplinen liegen, ist nicht erforderlich."/>
+      <label xml:lang="en" text="Disciplinary research" description="The research activity is suitably mapped by means of a disciplinary classification. An assignment to research fields that cut across disciplines is not necessary."/>
+    </category>
+  </categories>
+</mycoreclass>
