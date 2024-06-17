@@ -23,6 +23,7 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
+
       <!-- Set research areas as of KDSF -->
       <xsl:call-template name="researchArea"/>
 
@@ -126,17 +127,28 @@
    TODO GET /fs/res/publication/documentTypes/book
   -->
   <xsl:template match="mods:genre[not(parent::mods:relatedItem)]">
+    <xsl:param name="genre" select="fn:substring-after(@valueURI, '#')"/>
+
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
     </xsl:copy>
 
-    <xsl:variable name="genre" select="fn:substring-after(@valueURI, '#')"/>
-    <xsl:variable name="his-key" select="fn:document(concat('HISinOne:genre:', $genre))"/>
-    <xsl:if test="$his-key">
-      <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" type="code">
-        <xsl:value-of select="$his-key"/>
+    <!-- publicationTypeValue -->
+    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('HISinOne:genre:', $genre))"/>
+    <xsl:if test="$his-key-publication-type-value">
+      <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationTypeValue" type="code">
+        <xsl:value-of select="$his-key-publication-type-value"/>
       </mods:genre>
     </xsl:if>
+
+    <!-- qualificationThesisValue -->
+    <xsl:variable name="his-key-qualification-thesis-type-value" select="fn:document(concat('HISinOne:thesisType:', $genre))"/>
+    <xsl:if test="$his-key-publication-type-value">
+      <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/qualificationThesisValue" type="code">
+        <xsl:value-of select="$his-key-qualification-thesis-type-value"/>
+      </mods:genre>
+    </xsl:if>
+
   </xsl:template>
 
   <xsl:template match="mods:language">
