@@ -5,7 +5,7 @@
     <groupId>org.mycore</groupId>
     <artifactId>mycore-parent</artifactId>
     <version>52</version>
-    <relativePath/>
+    <relativePath />
   </parent>
   <groupId>de.uni-jena.thulb.ubo</groupId>
   <artifactId>ThUniBib</artifactId>
