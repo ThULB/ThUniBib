@@ -1,15 +1,5 @@
 package de.uni_jena.thunibib.impex;
 
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
-import java.util.Vector;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import de.uni_jena.thunibib.ThUniBibMailer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,19 +16,19 @@ import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.services.queuedjob.MCRJob;
 import org.mycore.services.queuedjob.MCRJobAction;
-import org.mycore.services.queuedjob.MCRJobQueue;
-import org.mycore.services.queuedjob.MCRJobStatus;
 
-import static org.mycore.common.MCRConstants.XPATH_FACTORY;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
+
+import static org.mycore.common.MCRConstants.*;
 
 public class ThUniBibImportJobAction extends MCRJobAction {
 
     protected static final Logger LOGGER = LogManager.getLogger(ThUniBibImportJobAction.class);
     protected static final String SRU_CATALOG = MCRConfiguration2.getString("MCR.PICA2MODS.DATABASE").orElse("gvk");
     protected static final int BATCH_SIZE = 10;
-
-    public ThUniBibImportJobAction() {
-    }
 
     public ThUniBibImportJobAction(MCRJob job) {
         super(job);
