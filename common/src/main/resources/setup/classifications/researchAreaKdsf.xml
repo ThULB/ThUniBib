@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <mycoreclass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="researchAreaKdsf" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
-  <label xml:lang="de" text="KDSF Forschungsfelder"/>
-  <label xml:lang="en" text="KDSF research area"/>
+  <label xml:lang="de" text="KDSF Forschungsfelder" description="Klassifikation für interdisziplinäre Forschungsfelder im Rahmen des Kerndatensatz Forschung (Version 1.0.0)"/>
+  <label xml:lang="en" text="KDSF research area" description="Classification for interdisciplinary research fields within the core research data set (version 1.0.0)"/>
+  <label xml:lang="x-uri" text="https://w3id.org/kdsf-ffk/"/>
+
   <categories>
     <category ID="42">
       <label xml:lang="de" text="Arbeit und Wirtschaft - Allgemein" description="Forschung über Aspekte von Arbeit und Wirtschaft im Allgemeinen"/>
