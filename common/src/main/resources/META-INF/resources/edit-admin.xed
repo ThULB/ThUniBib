@@ -50,6 +50,7 @@
               <xed:include ref="status" />
               <xed:include ref="origin" />
               <xed:include ref="subject" />
+              <xed:include ref="researchAreaKdsf"/>
               <xed:include ref="thunibib.partOf" />
               <xed:include ref="thunibib.comment.intern" />
             </xed:bind>
