@@ -7,6 +7,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.QualificationThesisValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
@@ -35,13 +36,13 @@ import java.util.Optional;
  * */
 public class HISinOneResolver implements URIResolver {
 
-    private static Map<String, Integer> CREATOR_TYPE_MAP = new HashMap<>();
-    private static Map<String, Integer> GENRE_TYPE_MAP = new HashMap<>();
-    private static Map<String, Integer> LANGUAGE_TYPE_MAP = new HashMap<>();
-    private static Map<String, Integer> STATE_TYPE_MAP = new HashMap<>();
-    private static Map<String, Integer> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
-    private static Map<String, Integer> THESIS_TYPE_MAP = new HashMap<>();
-    private static Map<String, Integer> VISIBILITY_TYPE_MAP = new HashMap<>();
+    private static Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
         creatorType, genre, language, state, subjectArea, thesisType, visibility
@@ -59,25 +60,26 @@ public class HISinOneResolver implements URIResolver {
 
         switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
             case creatorType:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveCreatorType(value))));
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveCreatorType(value).getId())));
             case genre:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value))));
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value).getId())));
             case language:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value))));
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value).getId())));
             case state:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value))));
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value).getId())));
             case subjectArea:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value))));
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value).getId())));
             case thesisType:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveThesisType(value))));
+                return new JDOMSource(
+                    new Element("int").setText(String.valueOf(resolveThesisType(value).getHisKeyId())));
             case visibility:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value))));
+                return new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value).getId())));
             default:
                 throw new TransformerException("Unknown entity: " + entity);
         }
     }
 
-    private int resolveThesisType(String ubogenre) {
+    private SysValue resolveThesisType(String ubogenre) {
         if (THESIS_TYPE_MAP.containsKey(ubogenre)) {
             return THESIS_TYPE_MAP.get(ubogenre);
         }
@@ -94,7 +96,7 @@ public class HISinOneResolver implements URIResolver {
             List<MCRCategory> children = MCRCategoryDAOFactory.getInstance().getChildren(thesisCategId);
             boolean isThesis = children.stream().filter(c -> c.getId().equals(categId)).findAny().isPresent();
 
-            int id = -1;
+            QualificationThesisValue sysValue = null;
             if (isThesis) {
                 String text = MCRCategoryDAOFactory
                     .getInstance()
@@ -105,18 +107,18 @@ public class HISinOneResolver implements URIResolver {
                     .filter(tv -> text.equals(tv.getDefaultText())).findFirst();
 
                 if (qtv.isPresent()) {
-                    id = qtv.get().getHisKeyId();
+                    sysValue = qtv.get();
                 }
             } else {
-                id = thesisValues.stream()
-                    .filter(tv -> "nicht zutreffend".equals(tv.getDefaultText())).findFirst().get().getHisKeyId();
+                sysValue = thesisValues.stream()
+                    .filter(tv -> "nicht zutreffend".equals(tv.getDefaultText())).findFirst().get();
             }
-            THESIS_TYPE_MAP.put(ubogenre, id);
-            return id;
+            THESIS_TYPE_MAP.put(ubogenre, sysValue);
+            return sysValue;
         }
     }
 
-    private int resolveSubjectArea(String value) {
+    private SysValue resolveSubjectArea(String value) {
         if (SUBJECT_AREA_TYPE_MAP.containsKey(value)) {
             return SUBJECT_AREA_TYPE_MAP.get(value);
         }
@@ -133,14 +135,14 @@ public class HISinOneResolver implements URIResolver {
                 .findFirst();
 
             if (areaValue.isPresent()) {
-                SUBJECT_AREA_TYPE_MAP.put(value, areaValue.get().getId());
-                return areaValue.get().getId();
+                SUBJECT_AREA_TYPE_MAP.put(value, areaValue.get());
+                return areaValue.get();
             }
-            return -1;
+            return null;
         }
     }
 
-    protected int resolveCreatorType(String value) {
+    protected SysValue resolveCreatorType(String value) {
         if (CREATOR_TYPE_MAP.containsKey(value)) {
             return CREATOR_TYPE_MAP.get(value);
         }
@@ -153,8 +155,10 @@ public class HISinOneResolver implements URIResolver {
                 });
 
             var id = switch (value) {
-                default -> creatorTypes.stream().filter(state -> "Autor/-in".equals(state.getUniqueName())).findFirst()
-                    .get().getId();
+                default -> creatorTypes.stream()
+                    .filter(state -> "Autor/-in".equals(state.getUniqueName()))
+                    .findFirst()
+                    .get();
             };
 
             CREATOR_TYPE_MAP.put(value, id);
@@ -162,7 +166,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected int resolveVisibility(String value) {
+    protected SysValue resolveVisibility(String value) {
         if (VISIBILITY_TYPE_MAP.containsKey(value)) {
             return VISIBILITY_TYPE_MAP.get(value);
         }
@@ -176,10 +180,9 @@ public class HISinOneResolver implements URIResolver {
 
             var id = switch (value) {
                 case "confirmed", "unchecked" ->
-                    visState.stream().filter(state -> "public".equals(state.getUniqueName())).findFirst().get()
-                        .getId();
+                    visState.stream().filter(state -> "public".equals(state.getUniqueName())).findFirst().get();
                 default -> visState.stream().filter(state -> "hidden".equals(state.getUniqueName())).findFirst()
-                    .get().getId();
+                    .get();
             };
 
             VISIBILITY_TYPE_MAP.put(value, id);
@@ -187,7 +190,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected int resolveState(String value) {
+    protected SysValue resolveState(String value) {
         if (STATE_TYPE_MAP.containsKey(value)) {
             return STATE_TYPE_MAP.get(value);
         }
@@ -201,14 +204,12 @@ public class HISinOneResolver implements URIResolver {
 
             var id = switch (value) {
                 case "confirmed", "unchecked" ->
-                    pubState.stream().filter(state -> "validiert".equals(state.getUniqueName())).findFirst().get()
-                        .getId();
+                    pubState.stream().filter(state -> "validiert".equals(state.getUniqueName())).findFirst().get();
                 case "review" ->
-                    pubState.stream().filter(state -> "Dateneingabe".equals(state.getUniqueName())).findFirst().get()
-                        .getId();
+                    pubState.stream().filter(state -> "Dateneingabe".equals(state.getUniqueName())).findFirst().get();
                 default ->
                     pubState.stream().filter(state -> "zur Validierung".equals(state.getUniqueName())).findFirst()
-                        .get().getId();
+                        .get();
             };
 
             STATE_TYPE_MAP.put(value, id);
@@ -216,7 +217,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected int resolveGenre(String ubogenre) {
+    protected SysValue resolveGenre(String ubogenre) {
         if (GENRE_TYPE_MAP.containsKey(ubogenre)) {
             return GENRE_TYPE_MAP.get(ubogenre);
         }
@@ -233,13 +234,13 @@ public class HISinOneResolver implements URIResolver {
                 .filter(pubType -> pubType.getUniqueName().equals(MCRXMLFunctions.getDisplayName("ubogenre", ubogenre)))
                 .findFirst();
 
-            int id;
+            SysValue id;
             if (tpv.isEmpty()) {
                 id = pubTypeValues.stream()
                     .filter(pubType -> "Sonstiger Publikationstyp".equals(pubType.getUniqueName()))
-                    .findFirst().get().getId();
+                    .findFirst().get();
             } else {
-                id = tpv.get().getId();
+                id = tpv.get();
             }
 
             GENRE_TYPE_MAP.put(ubogenre, id);
@@ -247,7 +248,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected int resolveLanguage(String rfc5646) {
+    protected LanguageValue resolveLanguage(String rfc5646) {
         if (LANGUAGE_TYPE_MAP.containsKey(rfc5646)) {
             return LANGUAGE_TYPE_MAP.get(rfc5646);
         }
@@ -258,14 +259,14 @@ public class HISinOneResolver implements URIResolver {
             List<LanguageValue> languageValues = response.readEntity(new GenericType<List<LanguageValue>>() {
             });
 
-            int id = languageValues
+            LanguageValue languageValue = languageValues
                 .stream()
                 .filter(lv -> lv.getIso6391().equals(rfc5646))
                 .findFirst()
-                .get()
-                .getId();
-            LANGUAGE_TYPE_MAP.put(rfc5646, id);
-            return id;
+                .get();
+
+            LANGUAGE_TYPE_MAP.put(rfc5646, languageValue);
+            return languageValue;
         }
     }
 }
