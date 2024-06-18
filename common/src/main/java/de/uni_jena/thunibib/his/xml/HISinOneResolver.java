@@ -10,6 +10,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.DocumentType;
+import de.uni_jena.thunibib.his.api.v1.fs.res.publication.GlobalIdentifierType;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
@@ -27,13 +28,14 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
 /**
  * Usage:
  * <br/><br/>
- * <code>HISinOne:&lt;creatorType | genre | language | subjectArea | state | visibility&gt;:[value]</code>
+ * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | subjectArea | state | thesisType | visibility&gt;:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
 
@@ -41,13 +43,14 @@ public class HISinOneResolver implements URIResolver {
     private static Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> DOCUMENT_TYPE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> IDENTIFIER_TYPE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
-        creatorType, documentType, genre, language, state, subjectArea, thesisType, visibility
+        creatorType, documentType, genre, globalIdentifiers, language, state, subjectArea, thesisType, visibility
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -63,18 +66,45 @@ public class HISinOneResolver implements URIResolver {
         return switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
             case creatorType ->
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveCreatorType(value).getId())));
-            case documentType -> new JDOMSource(
-                new Element("int").setText(String.valueOf(resolveDocumentType(value).getHisKeyId())));
+            case globalIdentifiers ->
+                new JDOMSource(new Element("int").setText(String.valueOf(resolveIdentifierType(value).getId())));
+            case documentType ->
+                new JDOMSource(new Element("int").setText(String.valueOf(resolveDocumentType(value).getHisKeyId())));
             case genre -> new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value).getId())));
             case language -> new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value).getId())));
             case state -> new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value).getId())));
             case subjectArea ->
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value).getId())));
             case thesisType -> new JDOMSource(
-                new Element("int").setText(String.valueOf(resolveThesisType(value).getHisKeyId())));
+                new Element("int").setText(String.valueOf(resolveThesisType(value).getId())));
             case visibility ->
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value).getId())));
         };
+    }
+
+    private SysValue resolveIdentifierType(String identifierType) {
+        if (IDENTIFIER_TYPE_TYPE_MAP.containsKey(identifierType)) {
+            return IDENTIFIER_TYPE_TYPE_MAP.get(identifierType);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("fs/res/publication/globalIdentifierType")) {
+
+            List<GlobalIdentifierType> availableTypes = response.readEntity(
+                new GenericType<List<GlobalIdentifierType>>() {
+                });
+
+            Optional<GlobalIdentifierType> type = availableTypes
+                .stream()
+                .filter(t -> identifierType.toUpperCase(Locale.ROOT).equals(t.getUniqueName().toUpperCase(Locale.ROOT)))
+                .findFirst();
+
+            if (type.isPresent()) {
+                DOCUMENT_TYPE_TYPE_MAP.put(identifierType, type.get());
+                return type.get();
+            }
+            return null;
+        }
     }
 
     /**
