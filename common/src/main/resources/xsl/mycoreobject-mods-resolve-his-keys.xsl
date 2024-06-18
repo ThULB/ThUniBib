@@ -60,6 +60,7 @@
     </mods:identifier>
   </xsl:template>
 
+  <!-- TODO obtain from /api/v1/cs/sys/values/researchAreaKdsfValue -->
   <xsl:template name="researchArea">
     <xsl:choose>
       <xsl:when test="mods:classification[contains(@valueURI, 'researchAreaKdsf#')]">
