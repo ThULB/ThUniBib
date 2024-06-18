@@ -12,6 +12,7 @@
 
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL.API.Path"/>
+  <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')/mycoreclass/categories" />
 
@@ -23,6 +24,7 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
+      <xsl:call-template name="globalIdentifiers"/>
 
       <!-- Set research areas as of KDSF -->
       <xsl:call-template name="researchArea"/>
@@ -44,6 +46,20 @@
     </xsl:copy>
   </xsl:template>
 
+  <xsl:template name="globalIdentifiers">
+    <xsl:for-each select="mods:identifier[contains('doi scopus url', @type)]">
+      <xsl:variable name="global-identifier-type-id" select="fn:document(concat('hisinone:globalIdentifiers:', @type))"/>
+      <mods:identifier type="{@type}" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$global-identifier-type-id}">
+        <xsl:value-of select="."/>
+      </mods:identifier>
+    </xsl:for-each>
+
+    <xsl:variable name="url-type-id" select="fn:document('hisinone:globalIdentifiers:url')"/>
+    <mods:identifier type="url" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$url-type-id}">
+      <xsl:value-of select="concat($WebApplicationBaseURL, 'receive/', //mycoreobject/@ID)"/>
+    </mods:identifier>
+  </xsl:template>
+
   <xsl:template name="researchArea">
     <xsl:choose>
       <xsl:when test="mods:classification[contains(@valueURI, 'researchAreaKdsf#')]">
@@ -63,7 +79,7 @@
 
   <!-- TODO find the proper source value, currently mapping is fixed to 'Autor/-in'-->
   <xsl:template name="creatorType">
-    <xsl:variable name="creator-type-his-key" select="fn:document('HISinOne:creatorType:aut')"/>
+    <xsl:variable name="creator-type-his-key" select="fn:document('hisinone:creatorType:aut')"/>
     <xsl:if test="$creator-type-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationCreatorTypeValue">
         <xsl:value-of select="$creator-type-his-key"/>
@@ -77,7 +93,7 @@
     <xsl:variable name="destatis-from-origin" select="$origin//category[@ID=$origin-id]/label[@xml:lang='x-destatis']/@text"/>
 
     <xsl:if test="$destatis-from-origin">
-      <xsl:variable name="subject-area-his-key" select="fn:document(concat('HISinOne:subjectArea:', $destatis-from-origin))"/>
+      <xsl:variable name="subject-area-his-key" select="fn:document(concat('hisinone:subjectArea:', $destatis-from-origin))"/>
 
       <xsl:if test="$subject-area-his-key">
         <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}{$subject-area-value-uri}">
@@ -88,7 +104,7 @@
 
     <xsl:for-each select="//mods:classification[contains(@authorityURI, 'fachreferate')]/@valueURI">
       <xsl:variable name="subject-area" select="fn:substring-after(., '#')"/>
-      <xsl:variable name="subject-area-his-key" select="fn:document(concat('HISinOne:subjectArea:', $subject-area))"/>
+      <xsl:variable name="subject-area-his-key" select="fn:document(concat('hisinone:subjectArea:', $subject-area))"/>
 
       <xsl:if test="$subject-area-his-key">
         <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}{$subject-area-value-uri}">
@@ -100,7 +116,7 @@
 
   <xsl:template name="visibility">
     <xsl:param name="status" select="//servflags/servflag[@type='status']"/>
-    <xsl:variable name="visibility-his-key" select="fn:document(concat('HISinOne:visibility:', $status))"/>
+    <xsl:variable name="visibility-his-key" select="fn:document(concat('hisinone:visibility:', $status))"/>
     <xsl:if test="$visibility-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/visibilityValue">
         <xsl:value-of select="$visibility-his-key"/>
@@ -110,7 +126,7 @@
 
   <xsl:template name="state">
     <xsl:param name="status" select="//servflags/servflag[@type='status']"/>
-    <xsl:variable name="status-his-key" select="fn:document(concat('HISinOne:state:', $status))"/>
+    <xsl:variable name="status-his-key" select="fn:document(concat('hisinone:state:', $status))"/>
 
     <xsl:if test="$status-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/state/publication">
@@ -130,7 +146,7 @@
     </xsl:copy>
 
     <!-- publicationTypeValue -->
-    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('HISinOne:genre:', $genre))"/>
+    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:genre:', $genre))"/>
     <xsl:if test="$his-key-publication-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationTypeValue" type="code">
         <xsl:value-of select="$his-key-publication-type-value"/>
@@ -138,7 +154,7 @@
     </xsl:if>
 
     <!-- qualificationThesisValue -->
-    <xsl:variable name="his-key-qualification-thesis-type-value" select="fn:document(concat('HISinOne:thesisType:', $genre))"/>
+    <xsl:variable name="his-key-qualification-thesis-type-value" select="fn:document(concat('hisinone:thesisType:', $genre))"/>
     <xsl:if test="$his-key-publication-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/qualificationThesisValue" type="code">
         <xsl:value-of select="$his-key-qualification-thesis-type-value"/>
@@ -152,7 +168,7 @@
       TODO GET /fs/res/publication/documentTypes/article
       TODO GET /fs/res/publication/documentTypes/book
     -->
-    <xsl:variable name="his-key-document-type-type-value" select="fn:document(concat('HISinOne:documentType:', $genre))"/>
+    <xsl:variable name="his-key-document-type-type-value" select="fn:document(concat('hisinone:documentType:', $genre))"/>
     <xsl:if test="$his-key-document-type-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/documentTypes" type="code">
         <xsl:value-of select="$his-key-document-type-type-value"/>
@@ -166,7 +182,7 @@
 
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
-      <xsl:variable name="his-key" select="fn:document(concat('HISinOne:language:', $rfc5646))"/>
+      <xsl:variable name="his-key" select="fn:document(concat('hisinone:language:', $rfc5646))"/>
 
       <xsl:if test="$his-key">
         <mods:languageTerm authorityURI="{$ThUniBib.HISinOne.BaseURL}" type="code">
