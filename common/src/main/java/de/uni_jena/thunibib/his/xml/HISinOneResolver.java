@@ -9,6 +9,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.QualificationThesisValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
+import de.uni_jena.thunibib.his.api.v1.fs.res.publication.DocumentType;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
@@ -38,6 +39,7 @@ public class HISinOneResolver implements URIResolver {
 
     private static Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> DOCUMENT_TYPE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
@@ -45,7 +47,7 @@ public class HISinOneResolver implements URIResolver {
     private static Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
-        creatorType, genre, language, state, subjectArea, thesisType, visibility
+        creatorType, documentType, genre, language, state, subjectArea, thesisType, visibility
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -58,24 +60,44 @@ public class HISinOneResolver implements URIResolver {
         String entity = parts[1];
         String value = parts[2];
 
-        switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
-            case creatorType:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveCreatorType(value).getId())));
-            case genre:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value).getId())));
-            case language:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value).getId())));
-            case state:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value).getId())));
-            case subjectArea:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value).getId())));
-            case thesisType:
-                return new JDOMSource(
-                    new Element("int").setText(String.valueOf(resolveThesisType(value).getHisKeyId())));
-            case visibility:
-                return new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value).getId())));
-            default:
-                throw new TransformerException("Unknown entity: " + entity);
+        return switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
+            case creatorType ->
+                new JDOMSource(new Element("int").setText(String.valueOf(resolveCreatorType(value).getId())));
+            case documentType -> new JDOMSource(
+                new Element("int").setText(String.valueOf(resolveDocumentType(value).getHisKeyId())));
+            case genre -> new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value).getId())));
+            case language -> new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value).getId())));
+            case state -> new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value).getId())));
+            case subjectArea ->
+                new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value).getId())));
+            case thesisType -> new JDOMSource(
+                new Element("int").setText(String.valueOf(resolveThesisType(value).getHisKeyId())));
+            case visibility ->
+                new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value).getId())));
+        };
+    }
+
+    /**
+     * Determines the documentType on base of ubogenre/publicationType. Is currently fixed to 'Bibliographie'
+     * */
+    private SysValue resolveDocumentType(String ubogenre) {
+        if (DOCUMENT_TYPE_TYPE_MAP.containsKey(ubogenre)) {
+            return DOCUMENT_TYPE_TYPE_MAP.get(ubogenre);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("fs/res/publication/documentTypes/book")) {
+
+            List<DocumentType> documentTypeValues = response.readEntity(
+                new GenericType<List<DocumentType>>() {
+                });
+
+            DocumentType documentType = documentTypeValues.stream()
+                .filter(v -> v.getUniqueName().equals("Bibliographie"))
+                .findFirst().get();
+
+            DOCUMENT_TYPE_TYPE_MAP.put(ubogenre, documentType);
+            return documentType;
         }
     }
 
@@ -118,9 +140,9 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    private SysValue resolveSubjectArea(String value) {
-        if (SUBJECT_AREA_TYPE_MAP.containsKey(value)) {
-            return SUBJECT_AREA_TYPE_MAP.get(value);
+    private SysValue resolveSubjectArea(String destatisId) {
+        if (SUBJECT_AREA_TYPE_MAP.containsKey(destatisId)) {
+            return SUBJECT_AREA_TYPE_MAP.get(destatisId);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
@@ -131,11 +153,11 @@ public class HISinOneResolver implements URIResolver {
                 });
 
             Optional<SubjectAreaValue> areaValue = subjectAreas.stream()
-                .filter(subjectAreaValue -> value.equals(subjectAreaValue.getUniqueName()))
+                .filter(subjectAreaValue -> destatisId.equals(subjectAreaValue.getUniqueName()))
                 .findFirst();
 
             if (areaValue.isPresent()) {
-                SUBJECT_AREA_TYPE_MAP.put(value, areaValue.get());
+                SUBJECT_AREA_TYPE_MAP.put(destatisId, areaValue.get());
                 return areaValue.get();
             }
             return null;
