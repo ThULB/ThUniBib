@@ -120,11 +120,7 @@
   </xsl:template>
 
   <!--
-   Maps the ubo genre to the his publicationType.
-
-   TODO In HISinOne there is an additional documentType. Possible values are depending on the publicationType.
-   TODO GET /fs/res/publication/documentTypes/article
-   TODO GET /fs/res/publication/documentTypes/book
+   Maps the ubo genre to the HISinOne publicationType.
   -->
   <xsl:template match="mods:genre[not(parent::mods:relatedItem)]">
     <xsl:param name="genre" select="fn:substring-after(@valueURI, '#')"/>
@@ -146,6 +142,20 @@
     <xsl:if test="$his-key-publication-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/qualificationThesisValue" type="code">
         <xsl:value-of select="$his-key-qualification-thesis-type-value"/>
+      </mods:genre>
+    </xsl:if>
+
+    <!--
+      documentType
+
+      TODO In HISinOne there is an additional documentType. Possible values are depending on the publicationType.
+      TODO GET /fs/res/publication/documentTypes/article
+      TODO GET /fs/res/publication/documentTypes/book
+    -->
+    <xsl:variable name="his-key-document-type-type-value" select="fn:document(concat('HISinOne:documentType:', $genre))"/>
+    <xsl:if test="$his-key-document-type-type-value">
+      <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/documentTypes" type="code">
+        <xsl:value-of select="$his-key-document-type-type-value"/>
       </mods:genre>
     </xsl:if>
 
