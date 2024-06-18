@@ -59,4 +59,8 @@ public class LanguageValue {
     public String toString() {
         return id + ":" + uniqueName;
     }
+
+    static public String getPath() {
+        return "cs/sys/values/languageValue";
+    }
 }
