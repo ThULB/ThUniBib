@@ -87,11 +87,18 @@ public class HISinOneResolver implements URIResolver {
         };
     }
 
+    /**
+     * Resolves the his-id by the given research area id.
+     *
+     * @param areaCategId the id of the research area
+     *
+     * @return the id of that research area in HISinOne
+     * */
     private SysValue resolveResearchAreaKdsf(String areaCategId) {
         if (RESEARCH_AREA_TYPE_MAP.containsKey(areaCategId)) {
             return RESEARCH_AREA_TYPE_MAP.get(areaCategId);
         }
-        
+
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/researchAreaKdsfValue")) {
             List<ResearchAreaKdsfValue> availableTypes = response.readEntity(
@@ -109,7 +116,7 @@ public class HISinOneResolver implements URIResolver {
             }
         }
 
-        return null;
+        return SysValue.EmptySysValue;
     }
 
     private SysValue resolveIdentifierType(String identifierType) {
@@ -133,7 +140,7 @@ public class HISinOneResolver implements URIResolver {
                 DOCUMENT_TYPE_TYPE_MAP.put(identifierType, type.get());
                 return type.get();
             }
-            return null;
+            return SysValue.EmptySysValue;
         }
     }
 
@@ -220,7 +227,7 @@ public class HISinOneResolver implements URIResolver {
                 SUBJECT_AREA_TYPE_MAP.put(destatisId, areaValue.get());
                 return areaValue.get();
             }
-            return null;
+            return SysValue.EmptySysValue;
         }
     }
 
