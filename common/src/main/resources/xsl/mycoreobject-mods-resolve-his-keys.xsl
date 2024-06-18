@@ -27,7 +27,7 @@
       <xsl:call-template name="globalIdentifiers"/>
 
       <!-- Set research areas as of KDSF -->
-      <xsl:call-template name="researchArea"/>
+      <xsl:call-template name="researchAreaKdsf"/>
 
       <!-- Set subjectArea class -->
       <xsl:call-template name="subjectArea"/>
@@ -60,19 +60,20 @@
     </mods:identifier>
   </xsl:template>
 
-  <!-- TODO obtain from /api/v1/cs/sys/values/researchAreaKdsfValue -->
-  <xsl:template name="researchArea">
+  <xsl:template name="researchAreaKdsf">
     <xsl:choose>
       <xsl:when test="mods:classification[contains(@valueURI, 'researchAreaKdsf#')]">
         <xsl:for-each select="fn:substring-after(mods:classification[contains(@valueURI, 'researchAreaKdsf#')]/@valueURI, '#')">
+          <xsl:variable name="research-area-kdsf-his-key" select="fn:document(concat('hisinone:researchAreaKdsf:', .))"/>
           <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/researchAreaKdsfValue">
-            <xsl:value-of select="."/>
+            <xsl:value-of select="$research-area-kdsf-his-key"/>
           </mods:classification>
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:variable name="research-area-kdsf-his-key" select="fn:document('hisinone:researchAreaKdsf:001')"/>
         <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/researchAreaKdsfValue">
-          <xsl:value-of select="number(61)"/>
+          <xsl:value-of select="$research-area-kdsf-his-key"/>
         </mods:classification>
       </xsl:otherwise>
     </xsl:choose>

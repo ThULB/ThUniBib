@@ -6,6 +6,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.QualificationThesisValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.ResearchAreaKdsfValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
@@ -35,7 +36,7 @@ import java.util.Optional;
 /**
  * Usage:
  * <br/><br/>
- * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | subjectArea | state | thesisType | visibility&gt;:[value]</code>
+ * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | researchAreaKdsf | subjectArea | state | thesisType | visibility&gt;:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
 
@@ -44,13 +45,15 @@ public class HISinOneResolver implements URIResolver {
     private static Map<String, SysValue> DOCUMENT_TYPE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> IDENTIFIER_TYPE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
-        creatorType, documentType, genre, globalIdentifiers, language, state, subjectArea, thesisType, visibility
+        creatorType, documentType, genre, globalIdentifiers, language, researchAreaKdsf, state, subjectArea, thesisType,
+        visibility
     }
 
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -72,6 +75,8 @@ public class HISinOneResolver implements URIResolver {
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveDocumentType(value).getHisKeyId())));
             case genre -> new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value).getId())));
             case language -> new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value).getId())));
+            case researchAreaKdsf ->
+                new JDOMSource(new Element("int").setText(String.valueOf(resolveResearchAreaKdsf(value).getId())));
             case state -> new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value).getId())));
             case subjectArea ->
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value).getId())));
@@ -80,6 +85,31 @@ public class HISinOneResolver implements URIResolver {
             case visibility ->
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value).getId())));
         };
+    }
+
+    private SysValue resolveResearchAreaKdsf(String areaCategId) {
+        if (RESEARCH_AREA_TYPE_MAP.containsKey(areaCategId)) {
+            return RESEARCH_AREA_TYPE_MAP.get(areaCategId);
+        }
+        
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get("cs/sys/values/researchAreaKdsfValue")) {
+            List<ResearchAreaKdsfValue> availableTypes = response.readEntity(
+                new GenericType<List<ResearchAreaKdsfValue>>() {
+                });
+
+            Optional<ResearchAreaKdsfValue> raKdsfValue = availableTypes
+                .stream()
+                .filter(v -> areaCategId.equals(v.getUniqueName()))
+                .findFirst();
+
+            if (raKdsfValue.isPresent()) {
+                RESEARCH_AREA_TYPE_MAP.put(areaCategId, raKdsfValue.get());
+                return raKdsfValue.get();
+            }
+        }
+
+        return null;
     }
 
     private SysValue resolveIdentifierType(String identifierType) {
