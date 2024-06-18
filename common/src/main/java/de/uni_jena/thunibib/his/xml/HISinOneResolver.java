@@ -119,6 +119,13 @@ public class HISinOneResolver implements URIResolver {
         return SysValue.EmptySysValue;
     }
 
+    /**
+     * Resolves the HISinOne id of the given identifier.
+     *
+     * @param identifierType the type of the identifier, like doi, urn, ...
+     *
+     * @return the SysValue containing the id of that identifier.
+     * */
     private SysValue resolveIdentifierType(String identifierType) {
         if (IDENTIFIER_TYPE_TYPE_MAP.containsKey(identifierType)) {
             return IDENTIFIER_TYPE_TYPE_MAP.get(identifierType);
