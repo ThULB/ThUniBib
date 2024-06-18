@@ -100,7 +100,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("cs/sys/values/researchAreaKdsfValue")) {
+            Response response = hisClient.get(ResearchAreaKdsfValue.getPath())) {
             List<ResearchAreaKdsfValue> availableTypes = response.readEntity(
                 new GenericType<List<ResearchAreaKdsfValue>>() {
                 });
@@ -125,7 +125,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("fs/res/publication/globalIdentifierType")) {
+            Response response = hisClient.get(GlobalIdentifierType.getPath())) {
 
             List<GlobalIdentifierType> availableTypes = response.readEntity(
                 new GenericType<List<GlobalIdentifierType>>() {
@@ -153,7 +153,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("fs/res/publication/documentTypes/book")) {
+            Response response = hisClient.get(DocumentType.getPath() + "/book")) {
 
             List<DocumentType> documentTypeValues = response.readEntity(
                 new GenericType<List<DocumentType>>() {
@@ -174,7 +174,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("cs/sys/values/qualificationThesisValue")) {
+            Response response = hisClient.get(QualificationThesisValue.getPath())) {
 
             List<QualificationThesisValue> thesisValues = response.readEntity(
                 new GenericType<List<QualificationThesisValue>>() {
@@ -213,7 +213,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("cs/sys/values/subjectAreaValue")) {
+            Response response = hisClient.get(SubjectAreaValue.getPath())) {
 
             List<SubjectAreaValue> subjectAreas = response.readEntity(
                 new GenericType<List<SubjectAreaValue>>() {
@@ -261,7 +261,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("cs/sys/values/visibilityValue")) {
+            Response response = hisClient.get(VisibilityValue.getPath())) {
 
             List<VisibilityValue> visState = response.readEntity(
                 new GenericType<List<VisibilityValue>>() {
@@ -312,7 +312,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("cs/sys/values/publicationTypeValue")) {
+            Response response = hisClient.get(PublicationTypeValue.getPath())) {
 
             List<PublicationTypeValue> pubTypeValues = response.readEntity(
                 new GenericType<List<PublicationTypeValue>>() {
@@ -343,7 +343,7 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("cs/sys/values/languageValue")) {
+            Response response = hisClient.get(LanguageValue.getPath())) {
 
             List<LanguageValue> languageValues = response.readEntity(new GenericType<List<LanguageValue>>() {
             });
