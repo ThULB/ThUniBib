@@ -38,7 +38,14 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
             .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH)
             .path(path);
 
-        Token token = fetchToken();
+        Token token;
+        try {
+            token = fetchToken();
+        } catch (Exception e) {
+            LOGGER.error("Could not fetch token", e);
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+
         Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
         invocationBuilder.header("Authorization", getAuthorizationHeaderValue(AuthType.Bearer, token.getAccessToken()));
 
