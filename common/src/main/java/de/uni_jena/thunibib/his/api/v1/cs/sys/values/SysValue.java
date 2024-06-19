@@ -3,7 +3,7 @@ package de.uni_jena.thunibib.his.api.v1.cs.sys.values;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-abstract public class SysValue {
+abstract public class SysValue implements HisValue{
     @JsonProperty("id")
     private int id;
     @JsonProperty("lockVersion")
@@ -79,6 +79,19 @@ abstract public class SysValue {
         @Override
         public int getId() {
             return -1;
+        }
+    };
+
+    @JsonIgnore
+    public static final SysValue NotObtainedSysValue = new SysValue() {
+        @Override
+        public int getHisKeyId() {
+            return -2;
+        }
+
+        @Override
+        public int getId() {
+            return -2;
         }
     };
 }

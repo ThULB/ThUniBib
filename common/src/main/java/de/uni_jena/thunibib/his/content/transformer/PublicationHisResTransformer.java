@@ -53,6 +53,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addProperty(jsonObject, "//modsContainer/mods:physicalDescription/mods:extent", xml, "numberOfPages");
 
             addCreators(jsonObject, xml);
+            addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml, "peerReviewed");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, 'publicationAccessTypeValue')]", xml, "access");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, 'publicationCreatorTypeValue')]", xml, "publicationCreatorType");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, 'visibilityValue')]", xml, "visibilityValue");

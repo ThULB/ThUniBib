@@ -25,6 +25,10 @@
   <xsl:template match="mods:mods">
     <xsl:copy>
       <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
+
+      <!-- PeerReviewedValue -->
+      <xsl:call-template name="peerReviewed"/>
+
       <!-- PublicationAccessType (Zugangsrecht nach KDSF) -->
       <xsl:call-template name="publicationAccessType"/>
 
@@ -50,6 +54,17 @@
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="peerReviewed">
+    <xsl:if test="mods:classification[fn:contains(@valueURI, 'peerreviewed#')]">
+      <xsl:variable name="categId" select="fn:substring-after(mods:classification[fn:contains(@valueURI, 'peerreviewed#')]/@valueURI, '#')"/>
+      <xsl:variable name="publication-peerreviewed-type-his-id" select="fn:document(concat('hisinone:peerReviewed:', $categId))"/>
+
+      <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/peerReviewedValue">
+        <xsl:value-of select="$publication-peerreviewed-type-his-id"/>
+      </mods:classification>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="publicationAccessType">

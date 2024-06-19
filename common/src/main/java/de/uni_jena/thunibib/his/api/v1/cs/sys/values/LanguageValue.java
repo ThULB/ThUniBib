@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Path: <code>/api/v1/cs/sys/values/languageValue</code>
  * */
-public class LanguageValue {
+public class LanguageValue implements HisValue {
     @JsonProperty("id")
     int id;
     @JsonProperty("lockVersion")
-    String lockVersion;
+    int lockVersion;
     @JsonProperty("shorttext")
     String shortText;
     @JsonProperty("text")
@@ -27,7 +27,7 @@ public class LanguageValue {
         return id;
     }
 
-    public String getLockVersion() {
+    public int getLockVersion() {
         return lockVersion;
     }
 

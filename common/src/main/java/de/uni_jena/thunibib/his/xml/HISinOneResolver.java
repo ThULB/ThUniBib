@@ -3,6 +3,7 @@ package de.uni_jena.thunibib.his.xml;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PeerReviewedValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationAccessTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
@@ -38,15 +39,17 @@ import java.util.Optional;
 /**
  * Usage:
  * <br/><br/>
- * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | publicationAccessType | researchAreaKdsf | subjectArea | state | thesisType | visibility&gt;:[value]</code>
+ * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | peerReviewed | publicationAccessType | researchAreaKdsf | subjectArea | state | thesisType | visibility&gt;:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
+    private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
 
     private static Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> DOCUMENT_TYPE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> IDENTIFIER_TYPE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
@@ -60,6 +63,7 @@ public class HISinOneResolver implements URIResolver {
         genre,
         globalIdentifiers,
         language,
+        peerReviewed,
         publicationAccessType,
         researchAreaKdsf,
         state,
@@ -68,37 +72,61 @@ public class HISinOneResolver implements URIResolver {
         visibility
     }
 
-    private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
-
     @Override
     public Source resolve(String href, String base) throws TransformerException {
-        LOGGER.info("Resolving '{}'", href);
+        LOGGER.debug("Resolving '{}'", href);
 
         String[] parts = href.split(":");
         String entity = parts[1];
         String value = parts[2];
 
-        return switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
-            case creatorType ->
-                new JDOMSource(new Element("int").setText(String.valueOf(resolveCreatorType(value).getId())));
-            case globalIdentifiers ->
-                new JDOMSource(new Element("int").setText(String.valueOf(resolveIdentifierType(value).getId())));
-            case documentType ->
-                new JDOMSource(new Element("int").setText(String.valueOf(resolveDocumentType(value).getHisKeyId())));
-            case genre -> new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value).getId())));
-            case language -> new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value).getId())));
-            case publicationAccessType ->
-                new JDOMSource(new Element("int").setText(String.valueOf(resolvePublicationAccessType(value).getId())));
-            case researchAreaKdsf ->
-                new JDOMSource(new Element("int").setText(String.valueOf(resolveResearchAreaKdsf(value).getId())));
-            case state -> new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value).getId())));
-            case subjectArea ->
-                new JDOMSource(new Element("int").setText(String.valueOf(resolveSubjectArea(value).getId())));
-            case thesisType -> new JDOMSource(
-                new Element("int").setText(String.valueOf(resolveThesisType(value).getId())));
-            case visibility ->
-                new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value).getId())));
+        var sysValue = switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
+            case creatorType -> resolveCreatorType(value);
+            case documentType -> resolveDocumentType(value);
+            case genre -> resolveGenre(value);
+            case globalIdentifiers -> resolveIdentifierType(value);
+            case language -> resolveLanguage(value);
+            case peerReviewed -> resolvePeerReviewedType(value);
+            case publicationAccessType -> resolvePublicationAccessType(value);
+            case researchAreaKdsf -> resolveResearchAreaKdsf(value);
+            case state -> resolveState(value);
+            case subjectArea -> resolveSubjectArea(value);
+            case thesisType -> resolveThesisType(value);
+            case visibility -> resolveVisibility(value);
         };
+
+        LOGGER.info("Resolved {} to  {}", href, sysValue.getId());
+        return new JDOMSource(new Element("int").setText(String.valueOf(sysValue.getId())));
+    }
+
+    private SysValue resolvePeerReviewedType(String peerReviewedCategId) {
+        if (PEER_REVIEWED_TYPE_MAP.containsKey(peerReviewedCategId)) {
+            return PEER_REVIEWED_TYPE_MAP.get(peerReviewedCategId);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(PeerReviewedValue.getPath())) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return SysValue.NotObtainedSysValue;
+            }
+
+            List<PeerReviewedValue> prTypes = response.readEntity(
+                new GenericType<List<PeerReviewedValue>>() {
+                });
+
+            String text = "true".equals(peerReviewedCategId) ? "ja" : "nein";
+            Optional<PeerReviewedValue> peerReviewedValue = prTypes
+                .stream()
+                .filter(t -> text.equals(t.getUniqueName()))
+                .findFirst();
+            if (peerReviewedValue.isPresent()) {
+                PEER_REVIEWED_TYPE_MAP.put(peerReviewedCategId, peerReviewedValue.get());
+                return peerReviewedValue.get();
+            }
+        }
+
+        return SysValue.EmptySysValue;
     }
 
     /**
@@ -184,8 +212,8 @@ public class HISinOneResolver implements URIResolver {
      * @return the SysValue containing the id of that identifier.
      * */
     private SysValue resolveIdentifierType(String identifierType) {
-        if (IDENTIFIER_TYPE_TYPE_MAP.containsKey(identifierType)) {
-            return IDENTIFIER_TYPE_TYPE_MAP.get(identifierType);
+        if (IDENTIFIER_TYPE_MAP.containsKey(identifierType)) {
+            return IDENTIFIER_TYPE_MAP.get(identifierType);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
@@ -201,7 +229,7 @@ public class HISinOneResolver implements URIResolver {
                 .findFirst();
 
             if (type.isPresent()) {
-                DOCUMENT_TYPE_TYPE_MAP.put(identifierType, type.get());
+                IDENTIFIER_TYPE_MAP.put(identifierType, type.get());
                 return type.get();
             }
             return SysValue.EmptySysValue;
@@ -212,8 +240,8 @@ public class HISinOneResolver implements URIResolver {
      * Determines the documentType on base of ubogenre/publicationType. Is currently fixed to 'Bibliographie'
      * */
     private SysValue resolveDocumentType(String ubogenre) {
-        if (DOCUMENT_TYPE_TYPE_MAP.containsKey(ubogenre)) {
-            return DOCUMENT_TYPE_TYPE_MAP.get(ubogenre);
+        if (DOCUMENT_TYPE_MAP.containsKey(ubogenre)) {
+            return DOCUMENT_TYPE_MAP.get(ubogenre);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
@@ -227,7 +255,7 @@ public class HISinOneResolver implements URIResolver {
                 .filter(v -> v.getUniqueName().equals("Bibliographie"))
                 .findFirst().get();
 
-            DOCUMENT_TYPE_TYPE_MAP.put(ubogenre, documentType);
+            DOCUMENT_TYPE_MAP.put(ubogenre, documentType);
             return documentType;
         }
     }
