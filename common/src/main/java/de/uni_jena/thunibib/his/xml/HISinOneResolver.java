@@ -95,10 +95,17 @@ public class HISinOneResolver implements URIResolver {
             case visibility -> resolveVisibility(value);
         };
 
-        LOGGER.info("Resolved {} to  {}", href, sysValue.getId());
+        LOGGER.info("Resolved {} to {}", href, sysValue.getId());
         return new JDOMSource(new Element("int").setText(String.valueOf(sysValue.getId())));
     }
 
+    /**
+     * Resolves the his-id by the given peerreviewed category id.
+     *
+     * @param peerReviewedCategId the categ id category 'peerreviewed';
+     *
+     * @return {@link SysValue}
+     * */
     private SysValue resolvePeerReviewedType(String peerReviewedCategId) {
         if (PEER_REVIEWED_TYPE_MAP.containsKey(peerReviewedCategId)) {
             return PEER_REVIEWED_TYPE_MAP.get(peerReviewedCategId);
