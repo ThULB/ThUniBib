@@ -44,18 +44,18 @@ import java.util.Optional;
 public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
 
-    private static Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
-    private static Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
+    private static final Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
         creatorType,
