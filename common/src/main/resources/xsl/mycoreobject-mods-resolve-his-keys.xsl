@@ -24,6 +24,7 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
+      <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
       <!-- PublicationAccessType (Zugangsrecht nach KDSF) -->
       <xsl:call-template name="publicationAccessType"/>
 
@@ -45,6 +46,7 @@
       <!-- Map identifiers like doi, urn, ... -->
       <xsl:call-template name="globalIdentifiers"/>
 
+      <xsl:comment>End - transformer 'mods-resolve-his-keys'</xsl:comment>
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
@@ -163,6 +165,8 @@
       <xsl:copy-of select="*|@*"/>
     </xsl:copy>
 
+    <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
+
     <!-- publicationTypeValue -->
     <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:genre:', $genre))"/>
     <xsl:if test="$his-key-publication-type-value">
@@ -193,6 +197,7 @@
       </mods:genre>
     </xsl:if>
 
+    <xsl:comment>End - transformer 'mods-resolve-his-keys'</xsl:comment>
   </xsl:template>
 
   <xsl:template match="mods:language">
@@ -203,9 +208,13 @@
       <xsl:variable name="his-key" select="fn:document(concat('hisinone:language:', $rfc5646))"/>
 
       <xsl:if test="$his-key">
+        <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
+
         <mods:languageTerm authorityURI="{$ThUniBib.HISinOne.BaseURL}" type="code">
           <xsl:value-of select="$his-key"/>
         </mods:languageTerm>
+
+        <xsl:comment>End - transformer 'mods-resolve-his-keys'</xsl:comment>
       </xsl:if>
     </xsl:copy>
   </xsl:template>
