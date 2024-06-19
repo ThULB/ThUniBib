@@ -3,6 +3,7 @@ package de.uni_jena.thunibib.his.xml;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationAccessTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.QualificationThesisValue;
@@ -23,6 +24,7 @@ import org.mycore.common.xml.MCRXMLFunctions;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
+import org.mycore.datamodel.classifications2.MCRLabel;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
@@ -36,7 +38,7 @@ import java.util.Optional;
 /**
  * Usage:
  * <br/><br/>
- * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | researchAreaKdsf | subjectArea | state | thesisType | visibility&gt;:[value]</code>
+ * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | publicationAccessType | researchAreaKdsf | subjectArea | state | thesisType | visibility&gt;:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
 
@@ -45,6 +47,7 @@ public class HISinOneResolver implements URIResolver {
     private static Map<String, SysValue> DOCUMENT_TYPE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> IDENTIFIER_TYPE_TYPE_MAP = new HashMap<>();
+    private static Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
     private static Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
@@ -52,7 +55,16 @@ public class HISinOneResolver implements URIResolver {
     private static Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
 
     public enum SUPPORTED_URI_PARTS {
-        creatorType, documentType, genre, globalIdentifiers, language, researchAreaKdsf, state, subjectArea, thesisType,
+        creatorType,
+        documentType,
+        genre,
+        globalIdentifiers,
+        language,
+        publicationAccessType,
+        researchAreaKdsf,
+        state,
+        subjectArea,
+        thesisType,
         visibility
     }
 
@@ -75,6 +87,8 @@ public class HISinOneResolver implements URIResolver {
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveDocumentType(value).getHisKeyId())));
             case genre -> new JDOMSource(new Element("int").setText(String.valueOf(resolveGenre(value).getId())));
             case language -> new JDOMSource(new Element("int").setText(String.valueOf(resolveLanguage(value).getId())));
+            case publicationAccessType ->
+                new JDOMSource(new Element("int").setText(String.valueOf(resolvePublicationAccessType(value).getId())));
             case researchAreaKdsf ->
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveResearchAreaKdsf(value).getId())));
             case state -> new JDOMSource(new Element("int").setText(String.valueOf(resolveState(value).getId())));
@@ -85,6 +99,49 @@ public class HISinOneResolver implements URIResolver {
             case visibility ->
                 new JDOMSource(new Element("int").setText(String.valueOf(resolveVisibility(value).getId())));
         };
+    }
+
+    /**
+     * Resolves the his-id by the given research area id.
+     *
+     * @param accessRightsCategId the id of the category Access Rights - KDSF
+     *
+     * @return {@link SysValue}
+     * */
+    private SysValue resolvePublicationAccessType(String accessRightsCategId) {
+        if (PUBLICATION_ACCESS_TYPE_MAP.containsKey(accessRightsCategId)) {
+            return PUBLICATION_ACCESS_TYPE_MAP.get(accessRightsCategId);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(PublicationAccessTypeValue.getPath())) {
+
+            List<PublicationAccessTypeValue> accessTypes = response.readEntity(
+                new GenericType<List<PublicationAccessTypeValue>>() {
+                });
+
+            MCRCategoryID mcrCategoryID = MCRCategoryID.fromString("accessrights:" + accessRightsCategId);
+            MCRCategory mcrCategory = MCRCategoryDAOFactory.getInstance().getCategory(mcrCategoryID, 1);
+
+            Optional<MCRLabel> label = mcrCategory.getLabel("en");
+
+            if (!label.isPresent()) {
+                return SysValue.EmptySysValue;
+            }
+
+            String text = label.get().getText().toLowerCase(Locale.ROOT);
+            Optional<PublicationAccessTypeValue> first = accessTypes
+                .stream()
+                .filter(patv -> text.equals(patv.getDefaultText().toLowerCase(Locale.ROOT)))
+                .findFirst();
+
+            if (first.isEmpty()) {
+                return SysValue.EmptySysValue;
+            }
+
+            PUBLICATION_ACCESS_TYPE_MAP.put(accessRightsCategId, first.get());
+            return first.get();
+        }
     }
 
     /**
@@ -262,9 +319,16 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected SysValue resolveVisibility(String value) {
-        if (VISIBILITY_TYPE_MAP.containsKey(value)) {
-            return VISIBILITY_TYPE_MAP.get(value);
+    /**
+     * Resolves the HISinOne visibiltyValue by the current hsb publication status.
+     *
+     * @param statusCategId the current status category id of the publication
+     *
+     * @return the {@link SysValue}
+     * */
+    protected SysValue resolveVisibility(String statusCategId) {
+        if (VISIBILITY_TYPE_MAP.containsKey(statusCategId)) {
+            return VISIBILITY_TYPE_MAP.get(statusCategId);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
@@ -274,31 +338,38 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<VisibilityValue>>() {
                 });
 
-            var id = switch (value) {
+            var id = switch (statusCategId) {
                 case "confirmed", "unchecked" ->
                     visState.stream().filter(state -> "public".equals(state.getUniqueName())).findFirst().get();
                 default -> visState.stream().filter(state -> "hidden".equals(state.getUniqueName())).findFirst()
                     .get();
             };
 
-            VISIBILITY_TYPE_MAP.put(value, id);
+            VISIBILITY_TYPE_MAP.put(statusCategId, id);
             return id;
         }
     }
 
-    protected SysValue resolveState(String value) {
-        if (STATE_TYPE_MAP.containsKey(value)) {
-            return STATE_TYPE_MAP.get(value);
+    /**
+     * Resolves the HISinOne {@link PublicationState} by the current hsb publication status.
+     *
+     * @param statusCategId the current status category id of the publication
+     *
+     * @return the {@link SysValue}
+     * */
+    protected SysValue resolveState(String statusCategId) {
+        if (STATE_TYPE_MAP.containsKey(statusCategId)) {
+            return STATE_TYPE_MAP.get(statusCategId);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get("fs/res/state/publication")) {
+            Response response = hisClient.get(PublicationState.getPath())) {
 
             List<PublicationState> pubState = response.readEntity(
                 new GenericType<List<PublicationState>>() {
                 });
 
-            var id = switch (value) {
+            var id = switch (statusCategId) {
                 case "confirmed", "unchecked" ->
                     pubState.stream().filter(state -> "validiert".equals(state.getUniqueName())).findFirst().get();
                 case "review" ->
@@ -308,7 +379,7 @@ public class HISinOneResolver implements URIResolver {
                         .get();
             };
 
-            STATE_TYPE_MAP.put(value, id);
+            STATE_TYPE_MAP.put(statusCategId, id);
             return id;
         }
     }
