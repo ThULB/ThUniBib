@@ -24,6 +24,10 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
+      <!-- PublicationAccessType (Zugangsrecht nach KDSF) -->
+      <xsl:call-template name="publicationAccessType"/>
+
+      <!-- Map identifiers like doi, urn, ... -->
       <xsl:call-template name="globalIdentifiers"/>
 
       <!-- Set research areas as of KDSF -->
@@ -44,6 +48,18 @@
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="publicationAccessType">
+    <xsl:if test="mods:classification[fn:contains(@valueURI, 'accessrights#')]">
+
+      <xsl:variable name="categId" select="fn:substring-after(mods:classification[fn:contains(@valueURI, 'accessrights#')]/@valueURI, '#')"/>
+      <xsl:variable name="publication-access-type-his-id" select="fn:document(concat('hisinone:publicationAccessType:', $categId))"/>
+
+      <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationAccessTypeValue">
+        <xsl:value-of select="$publication-access-type-his-id"/>
+      </mods:classification>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="globalIdentifiers">
