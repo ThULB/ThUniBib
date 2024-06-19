@@ -27,9 +27,6 @@
       <!-- PublicationAccessType (Zugangsrecht nach KDSF) -->
       <xsl:call-template name="publicationAccessType"/>
 
-      <!-- Map identifiers like doi, urn, ... -->
-      <xsl:call-template name="globalIdentifiers"/>
-
       <!-- Set research areas as of KDSF -->
       <xsl:call-template name="researchAreaKdsf"/>
 
@@ -44,6 +41,9 @@
 
       <!-- Set publicationCreatorType class -->
       <xsl:call-template name="creatorType"/>
+
+      <!-- Map identifiers like doi, urn, ... -->
+      <xsl:call-template name="globalIdentifiers"/>
 
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
