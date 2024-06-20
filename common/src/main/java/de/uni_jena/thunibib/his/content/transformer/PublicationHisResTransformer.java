@@ -24,6 +24,7 @@ import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
+import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.filter.Filters;
 import org.mycore.common.content.MCRContent;
@@ -31,30 +32,35 @@ import org.mycore.common.content.transformer.MCRToJSONTransformer;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
-import static org.eclipse.jetty.util.LazyList.addArray;
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 public class PublicationHisResTransformer extends MCRToJSONTransformer {
     private static final Logger LOGGER = LogManager.getLogger(PublicationHisResTransformer.class);
 
+    protected static final String PARSEABLE_INT = "[+-]?\\d+";
+
     @Override
     protected JsonObject toJSON(MCRContent source) throws IOException {
+
         try {
             Document xml = source.asXML();
             JsonObject jsonObject = new JsonObject();
 
-            addProperty(jsonObject, "//modsContainer/mods:mods/mods:abstract", xml, "textAbstract");
-            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear");
-            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:edition", xml, "edition");
-            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:publisher", xml, "publisher");
-            addProperty(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle");
-            addProperty(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:title", xml, "title");
-            addProperty(jsonObject, "//modsContainer/mods:physicalDescription/mods:extent", xml, "numberOfPages");
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:abstract", xml, "textAbstract", true);
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear", true);
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:edition", xml, "edition", true);
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:originInfo/mods:publisher", xml, "publisher", true);
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle", true);
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:titleInfo/mods:title", xml, "title", true);
+            addProperty(jsonObject, "//modsContainer/mods:mods/mods:note[not(@type='intern')]", xml, "commentary", false);
 
+            addExtent(jsonObject, xml);
             addCreators(jsonObject, xml);
+
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml, "peerReviewed");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, 'publicationAccessTypeValue')]", xml, "access");
             addQualifiedObjectID(jsonObject, "//mods:classification[contains(@valueURI, 'publicationCreatorTypeValue')]", xml, "publicationCreatorType");
@@ -76,6 +82,20 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             throw new IOException(
                 "Could not generate JSON from " + source.getClass().getSimpleName() + ": " + source.getSystemId(), e);
         }
+    }
+
+    private void addExtent(JsonObject jsonObject, Document xml) {
+        Optional
+            .ofNullable(XPATH_FACTORY
+                .compile("//modsContainer/mods:mods/mods:physicalDescription/mods:extent", Filters.element(), null,
+                    MODS_NAMESPACE)
+                .evaluateFirst(xml))
+            .ifPresent(extent -> {
+                String text = extent.getText().trim();
+                if (text.matches(PublicationHisResTransformer.PARSEABLE_INT)) {
+                    jsonObject.addProperty("numberOfPages", Integer.parseInt(extent.getText()));
+                }
+            });
     }
 
     private void addGlobalIdentifiers(JsonObject jsonObject, Document xml) {
@@ -162,10 +182,20 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         }
     }
 
-    private void addProperty(JsonObject jsonObject, String xpath, Document xml, String name) {
-        XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE)
-            .evaluate(xml)
-            .forEach(e -> jsonObject.addProperty(name, e.getText()));
+    private void addProperty(JsonObject jsonObject, String xpath, Document xml, String pName, boolean single) {
+        List<Element> list = XPATH_FACTORY
+            .compile(xpath, Filters.element(), null, MODS_NAMESPACE)
+            .evaluate(xml);
+
+        if (single) {
+            list.forEach(e -> jsonObject.addProperty(pName, e.getText()));
+        } else {
+            if (!list.isEmpty()) {
+                StringBuilder builder = new StringBuilder();
+                list.forEach(e -> builder.append(e.getText() + "\n"));
+                jsonObject.addProperty(pName, builder.toString().trim());
+            }
+        }
     }
 
     /**
@@ -193,7 +223,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             .forEach(text -> {
                 JsonObject item = new JsonObject();
                 try {
-                    if (text.getText().matches("[+-]?\\d+")) {
+                    if (text.getText().matches(PublicationHisResTransformer.PARSEABLE_INT)) {
                         item.addProperty(kName, Integer.parseInt(text.getText()));
                     } else {
                         item.addProperty(kName, text.getText());
