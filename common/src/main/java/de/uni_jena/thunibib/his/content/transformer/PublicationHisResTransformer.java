@@ -40,6 +40,7 @@ import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 public class PublicationHisResTransformer extends MCRToJSONTransformer {
     private static final Logger LOGGER = LogManager.getLogger(PublicationHisResTransformer.class);
 
+    @Override
     protected JsonObject toJSON(MCRContent source) throws IOException {
         try {
             Document xml = source.asXML();
