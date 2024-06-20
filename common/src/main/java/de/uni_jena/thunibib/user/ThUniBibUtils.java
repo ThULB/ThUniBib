@@ -25,7 +25,7 @@ import java.util.Optional;
 
 public class ThUniBibUtils {
 
-    protected static final Logger LOGGER = LogManager.getLogger(ThUniBibUtils.class);
+    private static final Logger LOGGER = LogManager.getLogger(ThUniBibUtils.class);
 
     protected static final String LEAD_ID_NAME = "id_" + MCRConfiguration2.getString("MCR.user2.matching.lead_id")
         .get();
