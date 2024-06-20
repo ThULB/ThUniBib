@@ -33,6 +33,7 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.util.Optional;
 
+import static org.eclipse.jetty.util.LazyList.addArray;
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
@@ -62,9 +63,10 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addQualifiedObjectID(jsonObject, "//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'documentTypes')]", xml, "documentType");
             addQualifiedObjectID(jsonObject, "//mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'qualificationThesisValue')]", xml, "qualificationThesis");
 
-            addQualifiedObjectIDs(jsonObject, "//mods:classification[contains(@valueURI, 'researchAreaKdsfValue')]", xml, "researchAreasKdsf");
-            addQualifiedObjectIDs(jsonObject, "//mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml,"subjectAreas");
-            addQualifiedObjectIDs(jsonObject, "//mods:language/mods:languageTerm[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']", xml,"languages");
+            addQualifiedObjectIDs(jsonObject, "//mods:classification[contains(@valueURI, 'researchAreaKdsfValue')]", xml, "researchAreasKdsf","id");
+            addQualifiedObjectIDs(jsonObject, "//mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml,"subjectAreas","id");
+            addQualifiedObjectIDs(jsonObject, "//mods:language/mods:languageTerm[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']", xml,"languages","id");
+            addQualifiedObjectIDs(jsonObject, "//mods:subject[not(ancestor::mods:relatedItem)]/mods:topic", xml,"keyWords","defaulttext");
 
             addGlobalIdentifiers(jsonObject, xml);
 
@@ -169,26 +171,32 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
      * @param jsonObject the json object
      * @param xpath the xpath
      * @param xml the xml
-     * @param propertyName the name of the property
+     * @param pName the name of the property
+     * @param kName
      *
      *  <pre>
-     *     "propertyName": [
+     *     "pName": [
      *     {
-     *       "id": 5
+     *       "kName": 5
      *     },
      *     {
-     *      "id
+     *      "kName": 6
      *     }, ...]
      *  </pre>
      * */
-    private void addQualifiedObjectIDs(JsonObject jsonObject, String xpath, Document xml, String propertyName) {
+    private void addQualifiedObjectIDs(JsonObject jsonObject, String xpath, Document xml, String pName, String kName) {
         final JsonArray jsonArray = new JsonArray();
 
-        XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE).evaluate(xml)
+        XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE)
+            .evaluate(xml)
             .forEach(text -> {
+                JsonObject item = new JsonObject();
                 try {
-                    JsonObject item = new JsonObject();
-                    item.addProperty("id", Integer.parseInt(text.getText()));
+                    if (text.getText().matches("[+-]?\\d+")) {
+                        item.addProperty(kName, Integer.parseInt(text.getText()));
+                    } else {
+                        item.addProperty(kName, text.getText());
+                    }
                     jsonArray.add(item);
                 } catch (NumberFormatException e) {
                     LOGGER.error(e);
@@ -196,7 +204,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             });
 
         if (jsonArray.size() > 0) {
-            jsonObject.add(propertyName, jsonArray);
+            jsonObject.add(pName, jsonArray);
         }
     }
 
@@ -217,8 +225,12 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                 XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE).evaluateFirst(xml))
             .ifPresent(genre -> {
                 JsonObject documentType = new JsonObject();
-                documentType.addProperty("id", Integer.parseInt(genre.getText()));
-                jsonObject.add(propertyName, documentType);
+                try {
+                    documentType.addProperty("id", Integer.parseInt(genre.getText()));
+                    jsonObject.add(propertyName, documentType);
+                } catch (NumberFormatException e) {
+                    LOGGER.error(e);
+                }
             });
     }
 }
