@@ -6,45 +6,55 @@
     <i18n:en>About the Bibliography</i18n:en>
   </title>
 
-  <div class="row">
-    <div class="col-12 col-md-8">
+  
+  
 
-      <article class="card mb-3" xml:lang="de">
-        <div class="card-body">
-          <p>
-            In der Universitätsbibliographie werden die Publikationen der Angehörigen der TU Ilmenau nachgewiesen. Dabei müssen die Veröffentlichungen im Zusammenhang mit einer Tätigkeit an der Universität entstanden sein. Wenn die Universitätsbibliothek die Publikationen besitzt, finden Sie einen Link zum Katalog der Bibliothek.
-          </p>
-          <p>
-            Die Publikationen gelangen über Datenbanken, manuelle Meldungen oder Listen in die Bibliographie und werden durch die UB Ilmenau redaktionell geprüft.<br />
-            Die Angehörigen der TU Ilmenau können die bibliographischen Daten ihrer Publikationen auch direkt über das <a href="newPublication.xed">Meldeformular</a> einreichen.
-          </p>
-          <p>
-            Damit die Erfassung einheitlich und bibliographisch exakt erfolgen kann, stellen die Fachgebiete der Universitätsbibliothek vollständige Kopien der Aufsätze aus Zeitschriften, die <a href="https://opac.lbs-ilmenau.gbv.de/LNG=DU/DB=1/">nicht im Bestand der Bibliothek</a> verfügbar sind, für die Katalogisierung zur Verfügung. Bei allen anderen Veröffentlichungen, die sich ebenfalls nicht im Bestand der Bibliothek befinden, bitten wir um Einsichtnahme oder um ein Belegexemplar für den Bestand der UB.
-          </p>
-          <p>
-            Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie der Verbundzentrale des Gemeinsamen Bibliotheksverbundes. Alle Eintragungen werden von der Universitätsbibliothek überprüft, ggf. korrigiert und final freigegeben.
-          </p>
-        </div>
-      </article>
-      <article class="card mb-3" xml:lang="en">
-        <div class="card-body">
-          <p>
-            The publications of members of the TU Ilmenau are listed in the University Bibliography. The publications must have been produced in connection with an activity at the university. If the university library owns the publications, you will find a corresponding link into the library catalog.
-          </p>
-          <p>
-            The publications enter the bibliography via databases, manual notifications or lists and are editorially checked by the Ilmenau Universtiy Library.<br />
-            Members of the TU Ilmenau can also submit the bibliographic data of their publications directly via the <a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">registration form</a>.
-          </p>
-          <p>
-            To ensure that the cataloging is uniform and bibliographically accurate, the departments provide the University Library with complete copies of articles from journals that <a href="https://opac.lbs-ilmenau.gbv.de/LNG=EN/DB=1/">not available in the library's holdings</a> for cataloging. For all other publications that are also not in the library's holdings, we ask that they be made available for inspection or that a voucher copy be provided for the library's holdings.
-          </p>
-          <p>
-            The development of the university bibliography is supported by the state of Thuringia as part of the Thuringian digital strategy. And it is being done in cooperation with the Library Service Center Thuringia as well as the Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
-          </p>
-        </div>
-      </article>
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <p>
+        In der Universitätsbibliographie werden die Veröffentlichungen (Publikationen) der Angehörigen der TU Ilmenau nachgewiesen. Eine Ausnahme bildet der Nachweis von Abschlussarbeiten. Dabei müssen die Veröffentlichungen im Zusammenhang mit einer Tätigkeit an der Universität entstanden sein. Wenn die Universitätsbibliothek die Publikationen besitzt, finden Sie einen Link zum Katalog der Bibliothek. 
+      </p>
+      <p>
+        Dabei bedeutet „Veröffentlichung“:<br />
+        Das Dokument ist einer breiten Öffentlichkeit in gedruckter oder elektronischer Form zugänglich.<br />
+        Bei einer gedruckten Form ist das regelmäßig dann der Fall, wenn die Publikation im Buchhandel erhältlich ist oder war. Die elektronische Form setzt eine stabile und langfristige Verfügbarkeit im Internet voraus (z.B. auf den Archivservern der Bibliotheken oder Verlage).
+      </p>
+      <p>
+        Die Publikationen gelangen über Datenbanken, manuelle Meldungen oder Listen in die Bibliographie und werden durch die UB Ilmenau redaktionell geprüft.<br />
+        Die Angehörigen der TU Ilmenau können die bibliographischen Daten ihrer Publikationen auch direkt über das <a href="newPublication.xed">Meldeformular</a> einreichen.
+      </p>
+      <p>
+        Damit die Erfassung einheitlich und bibliographisch exakt erfolgen kann, stellen die Fachgebiete der Universitätsbibliothek vollständige Kopien der Aufsätze aus Zeitschriften, die <a href="https://opac.lbs-ilmenau.gbv.de/LNG=DU/DB=1/">nicht im Bestand der Bibliothek</a> verfügbar sind, für die Katalogisierung zur Verfügung. Bei allen anderen Veröffentlichungen, die sich ebenfalls nicht im Bestand der Bibliothek befinden, bitten wir um Einsichtnahme oder um ein Belegexemplar für den Bestand der UB.
+      </p>
+      <p>
+        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie der Verbundzentrale des Gemeinsamen Bibliotheksverbundes. Alle Eintragungen werden von der Universitätsbibliothek überprüft, ggf. korrigiert und final freigegeben.
+      </p>
     </div>
-  </div>
+  </article>
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <p>
+        The publications of members of the TU Ilmenau are listed in the University Bibliography. An exception is the record of graduation theses. The publications must have been produced in connection with an activity at the university. If the University Library owns the publications, you will find a corresponding link into the library catalogue.
+      </p>
+      <p>
+        Here, "publication" means:<br />
+        The document is accessible to the general public in printed or electronic form.<br />
+        In the case of a printed form, this is usually the case if the publication is or was available in bookstores. The electronic form requires stable and long-term availability on the Internet (e.g. on the archive servers of libraries or publishers).
+      </p>
+      <p>
+        The publications enter the bibliography via databases, manual notifications or lists and are editorially checked by the Ilmenau Universtiy Library.<br />
+        Members of the TU Ilmenau can also submit the bibliographic data of their publications directly via the <a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">registration form</a>.
+      </p>
+      <p>
+        To ensure that the cataloging is uniform and bibliographically accurate, the departments provide the University Library with complete copies of articles from journals that <a href="https://opac.lbs-ilmenau.gbv.de/LNG=EN/DB=1/">not available in the library's holdings</a> for cataloging. For all other publications that are also not in the library's holdings, we ask that they be made available for inspection or that a voucher copy be provided for the library's holdings.
+      </p>
+      <p>
+        The development of the university bibliography is supported by the state of Thuringia as part of the Thuringian digital strategy. And it is being done in cooperation with the Library Service Center Thuringia as well as the Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
+      </p>
+    </div>
+  </article>
+    
+  
 
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">
@@ -334,7 +344,7 @@
           </div>
           <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
 
-			<div class="card-body">
+      <div class="card-body">
               <dl>
                 <dt>Essay / Article</dt>
                 <dd>An essay / article is a self-contained, dependent contribution to a specific topic / question that has been published together with other contributions in a journal.</dd>
@@ -395,7 +405,7 @@
          </div>
 
         </div>
-		
+
         <div class="card">
           <div class="card-header" id="headingSix">
             <h3 class="mb-0">
