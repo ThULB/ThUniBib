@@ -39,7 +39,7 @@
           Nehmen Sie <a href="contact.xml">Kontakt mit uns auf,</a> falls Publikationen korrigiert werden müssen.
         </i18n:de>
         <i18n:en>
-          You can use the following form to create your personal publication list directly from university bibliography data to link it or output it in various formats. You can <a href="newPublication.xed">submit</a> missing publications at any time.</a><br /> 
+          You can use the following form to create your personal publication list directly from university bibliography data to link it or output it in various formats. You can <a href="newPublication.xed">submit</a> missing publications at any time.<br />
           If entries have to be corrected, please <a href="contact.xml">contact us.</a>
         </i18n:en>
       </p>

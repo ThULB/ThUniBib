@@ -1,102 +1,102 @@
-  <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE webpage>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE webpage>
 
-  <webpage lastModified="$Date$" id="impressum">
-    <title xml:lang="de">Impressum</title>
-    <title xml:lang="en">Legal Notice</title>
+<webpage lastModified="$Date$" id="impressum">
+  <title xml:lang="de">Impressum</title>
+  <title xml:lang="en">Legal Notice</title>
 
-    <article class="card mb-3" xml:lang="de">
-      <div class="card-body">
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
 
-        <h2>Anbieter</h2>
-          <p>Die Technische Universität Ilmenau ist eine Körperschaft des öffentlichen Rechts.</p>
-          <p>Sie wird durch den Präsidenten der Universität, Univ.-Prof. Dr.-Ing. habil. Kai-Uwe Sattler, gesetzlich vertreten.</p>
-          <p>
-            TU Ilmenau<br/>
-            Ehrenbergstraße 29<br/>
-            98693 Ilmenau<br/>
-            Germany<br/>
-            Telefon: +49 3677 69-0<br/>
-          </p>
-          <p>
-            USt-Id-Nr. nach § 27 a UStG: DE 195 822 483
-          </p>
-      
-        <h2>Zuständige Aufsichtsbehörde</h2>
-          <p>
-            Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft (TMWWDG)<br/>
-            Max-Reger-Straße 4-8<br/>
-            99096 Erfurt
-          </p>
-
-         <h2>Redaktion Universitätsbibliographie</h2>
-          <p>
-          Die Universitätsbibliographie wird von der Universitätsbibliothek Ilmenau betrieben.
-          <br/>
-          E-Mail: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a>
-          </p>
-
-        <h2>Technischer Betrieb</h2>
-          <p>Thüringer Universitäts- und Landesbibliothek Jena<br/>
-          Bibliotheksplatz 2<br/>
-          07743 Jena<br/>
-          Tel.: +49 3641 9-404 000<br/>
-          E-Mail: <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
-          </p>
-
-        <h2>Haftung für Inhalte</h2>
+      <h2>Anbieter</h2>
+        <p>Die Technische Universität Ilmenau ist eine Körperschaft des öffentlichen Rechts.</p>
+        <p>Sie wird durch den Präsidenten der Universität, Univ.-Prof. Dr.-Ing. habil. Kai-Uwe Sattler, gesetzlich vertreten.</p>
         <p>
-        Zu Haftungsfragen, zum Urheberrecht, zum Datenschutz und allen weiteren Angaben nach § 5 Telemediengesetz vgl. das <a href="https://www.tu-ilmenau.de/impressum">Impressum der Technischen Universität Ilmenau</a>.
-        </p>
-
-     </div>
-    </article>
-
-    <article class="card mb-3" xml:lang="en">
-      <div class="card-body">
-
-        <h2>Provider</h2>
-          <p>Technische Universität Ilmenau is a public corporation.</p>
-          <p>It is legally represented by the President of the University, Univ.-Prof. Dr.-Ing. habil. Kai-Uwe Sattler, legally represents the university.</p>
-          <p>
-            TU Ilmenau<br/>
-            Ehrenbergstraße 29<br/>
-            98693 Ilmenau<br/>
-            Germany<br/>
-            Phone: +49 3677 69-0<br/>
-          </p>
-          <p>
-            VAT-Id-No. according to § 27 a UStG: DE 195 822 483
-          </p>
-      
-        <h2>Competent supervisory authority</h2>
-          <p>
-            Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft (TMWWDG)<br/>
-            Max-Reger-Straße 4-8<br/>
-            99096 Erfurt
-          </p>
-
-        <h2>Editing University Bibliography</h2>
-          <p>
-          The bibliography is operated by the Ilmenau University Library<br />
-          Email: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a>
-          </p>
-
-        <h2>Technical Operation</h2>
-          <p>Thüringer Universitäts- und Landesbibliothek Jena<br/>
-          Bibliotheksplatz 2<br/>
-          07743 Jena<br/>
+          TU Ilmenau<br/>
+          Ehrenbergstraße 29<br/>
+          98693 Ilmenau<br/>
           Germany<br/>
-          Phone: +49 3641 9-404 000<br/>
-          Email: <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
-          </p>
-
-        <h2>Liability for contents</h2>
+          Telefon: +49 3677 69-0<br/>
+        </p>
         <p>
-        For questions of liability, copyright, data protection and all other information in accordance with § 5 of the German Telemedia Act, see the <a href="https://www.tu-ilmenau.de/en/imprint">Imprint of the Technische Universität Ilmenau</a>.
+          USt-Id-Nr. nach § 27 a UStG: DE 195 822 483
+        </p>
+    
+      <h2>Zuständige Aufsichtsbehörde</h2>
+        <p>
+          Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft (TMWWDG)<br/>
+          Max-Reger-Straße 4-8<br/>
+          99096 Erfurt
         </p>
 
-      </div>
-    </article>
+       <h2>Redaktion Universitätsbibliographie</h2>
+        <p>
+        Die Universitätsbibliographie wird von der Universitätsbibliothek Ilmenau betrieben.
+        <br/>
+        E-Mail: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a>
+        </p>
 
-  </webpage>
+      <h2>Technischer Betrieb</h2>
+        <p>Thüringer Universitäts- und Landesbibliothek Jena<br/>
+        Bibliotheksplatz 2<br/>
+        07743 Jena<br/>
+        Tel.: +49 3641 9-404 000<br/>
+        E-Mail: <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
+        </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+      Zu Haftungsfragen, zum Urheberrecht, zum Datenschutz und allen weiteren Angaben nach § 5 Telemediengesetz vgl. das <a href="https://www.tu-ilmenau.de/impressum">Impressum der Technischen Universität Ilmenau</a>.
+      </p>
+
+   </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+
+      <h2>Provider</h2>
+        <p>Technische Universität Ilmenau is a public corporation.</p>
+        <p>It is legally represented by the President of the University, Univ.-Prof. Dr.-Ing. habil. Kai-Uwe Sattler, legally represents the university.</p>
+        <p>
+          TU Ilmenau<br/>
+          Ehrenbergstraße 29<br/>
+          98693 Ilmenau<br/>
+          Germany<br/>
+          Phone: +49 3677 69-0<br/>
+        </p>
+        <p>
+          VAT-Id-No. according to § 27 a UStG: DE 195 822 483
+        </p>
+    
+      <h2>Competent supervisory authority</h2>
+        <p>
+          Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft (TMWWDG)<br/>
+          Max-Reger-Straße 4-8<br/>
+          99096 Erfurt
+        </p>
+
+      <h2>Editing University Bibliography</h2>
+        <p>
+        The bibliography is operated by the Ilmenau University Library<br />
+        Email: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a>
+        </p>
+
+      <h2>Technical Operation</h2>
+        <p>Thüringer Universitäts- und Landesbibliothek Jena<br/>
+        Bibliotheksplatz 2<br/>
+        07743 Jena<br/>
+        Germany<br/>
+        Phone: +49 3641 9-404 000<br/>
+        Email: <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
+        </p>
+
+      <h2>Liability for contents</h2>
+      <p>
+      For questions of liability, copyright, data protection and all other information in accordance with § 5 of the German Telemedia Act, see the <a href="https://www.tu-ilmenau.de/en/imprint">Imprint of the Technische Universität Ilmenau</a>.
+      </p>
+
+    </div>
+  </article>
+
+</webpage>
