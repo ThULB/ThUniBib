@@ -18,8 +18,8 @@
         <i18n:en>A publication list can easily be integrated into TU Ilmenau websites created with the content management system Typo3 by using the plug-in "Literaturlisten UB".</i18n:en>
       </p>
       <p>
-        <i18n:de>Dieses Typo3 Plug-In kann die Publikationsliste einer Struktureinheit oder einer Person durch die Eingabe auch komplexerer Suchanfragen (URLs von Trefferlisten aus der Universitätsbibliographie als Suchstring) darstellen.</i18n:de>
-        <i18n:en>This Typo3 plug-in can display the publication list of a structural unit or a person as a search string by entering even more complex search queries (as URLs of hit lists from the University Bibliography).</i18n:en>
+        <i18n:de>Dieses Liste können die Publikationen von Struktureinheiten oder Personen beinhalten.</i18n:de>
+        <i18n:en>This list can contain the publications of structural units or persons.</i18n:en>
       </p>
       <p>
         <i18n:de>Hilfe zur Nutzung des Plug-Ins finden Sie auf den <a href="https://www.tu-ilmenau.de/?id=990" target="_blank">Hilfe-Seiten der Universitätsbibliothek</a> – oder fragen Sie uns: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a></i18n:de>
@@ -35,11 +35,11 @@
         <i18n:en>Build your personal publication lists</i18n:en>
       </h3>
       <p>
-        <i18n:de>Über das folgende Formular können Sie persönliche Publikationslisten direkt aus der Universitätsbibliographie heraus erstellen und in verschiedenen Formaten ausgeben. Fehlende Publikationen können Sie jederzeit <a href="newPublication.xed">einreichen.</a><br />
+        <i18n:de>Über das folgende Formular können Sie persönliche Publikationslisten direkt aus der Universitätsbibliographie heraus erstellen und in verschiedenen Formaten ausgeben. Fehlende Publikationen können Sie jederzeit <a href="newPublication.xed">melden.</a><br />
           Nehmen Sie <a href="contact.xml">Kontakt mit uns auf,</a> falls Publikationen korrigiert werden müssen.
         </i18n:de>
         <i18n:en>
-          You can use the following form to create your personal publication list directly from university bibliography data to link it or output it in various formats. You can <a href="newPublication.xed">submit</a> missing publications at any time.<br />
+          You can use the following form to create your personal publication list directly from university bibliography data to link it or output it in various formats. You can <a href="newPublication.xed">register</a> missing publications at any time.<br />
           If entries have to be corrected, please <a href="contact.xml">contact us.</a>
         </i18n:en>
       </p>
