@@ -22,8 +22,8 @@
         <i18n:en>This list can contain the publications of structural units or persons.</i18n:en>
       </p>
       <p>
-        <i18n:de>Hilfe zur Nutzung des Plug-Ins finden Sie auf den <a href="https://www.tu-ilmenau.de/?id=990" target="_blank">Hilfe-Seiten der Universitätsbibliothek</a> – oder fragen Sie uns: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a></i18n:de>
-        <i18n:en>You can find assistance on using the plug-in on the <a href="https://www.tu-ilmenau.de/?id=990" target="_blank">help pages of the University Library</a> - or ask us: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a></i18n:en>
+        <i18n:de>Hilfe zur Nutzung des Plug-Ins finden Sie auf den <a href="https://www.tu-ilmenau.de/?id=990">Hilfe-Seiten der Universitätsbibliothek</a> – oder fragen Sie uns: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a></i18n:de>
+        <i18n:en>You can find assistance on using the plug-in on the <a href="https://www.tu-ilmenau.de/?id=990">help pages of the University Library</a> - or ask us: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a></i18n:en>
       </p>
     </div>
   </article>
