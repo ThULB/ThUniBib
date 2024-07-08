@@ -4,8 +4,8 @@
          xmlns:i18n="http://www.mycore.org/i18n"
          xmlns:xed="http://www.mycore.de/xeditor">
   <title>
-    <i18n:de>Publikation einreichen</i18n:de>
-    <i18n:en>Registering a publication</i18n:en>
+    <i18n:de>Publikation melden</i18n:de>
+    <i18n:en>Register a publication</i18n:en>
   </title>
 
   <article class="card mb-1">
@@ -118,7 +118,7 @@
               <p>
                 <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden Sie sich bitte mit Ihrem 
                 <a href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
-                  UniRZ-Login</a> an.
+                  UniRZ-Login </a> an.
                 </i18n:de>
 
                 <i18n:en>If you would like to submit a publication, please 
@@ -145,16 +145,11 @@
 
           <p>
             <i18n:de>
-              In der Bibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder
-              in digitaler Form erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und
-              Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>
-              Alle Angehörigen und ehemaligen Angehörigen
-            </strong> der TU Ilmenau (und Ihrer Vorgängerinstitutionen) sind eingeladen, ihre
-              Publikationen an die Universitätsbibliographie zu melden.
+              In der Bibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder in digitaler Form erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>Alle Mitglieder, Angehörige und ehemalige Angehörige</strong> der TU Ilmenau (und Ihrer Vorgängerinstitutionen) sind eingeladen, ihre Publikationen, die im Zusammenhang mit einer Tätigkeit an der Universität entstanden sind, an die Universitätsbibliographie zu melden.
             </i18n:de>
 
             <i18n:en>
-              The bibliography records independent and dependent publications that have appeared in printed or digital form. These can be monographs, articles in journals and contributions to anthologies, for example, but also audio documents and multimedia, digital publications. <strong>All members and former members of TU Ilmenau</strong> (and its predecessor institutions) are invited to submit their publications to the university bibliography.
+              The bibliography records independent and dependent publications that have appeared in printed or digital form. These can be monographs, articles in journals and contributions to anthologies, for example, but also audio documents and multimedia, digital publications. <strong>All members, affiliates and former affiliates of TU Ilmenau</strong> (and its predecessor institutions) are invited to register their publications, which were produced in connection with an activity at the university, to the university bibliography.
             </i18n:en>
           </p>
 
