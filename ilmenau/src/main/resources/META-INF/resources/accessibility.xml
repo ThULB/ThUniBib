@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="2024-04-16" id="accessibility">
+<webpage lastModified="$Date$" id="accessibility">
   <title xml:lang="de">Erklärung zur Barrierefreiheit</title>
   <title xml:lang="en">Accessibility declaration</title>
 
@@ -49,8 +49,8 @@
 
       <h3>Kontakt und Feedback</h3>
       <p>
-        Sollten Ihnen Mängel beziehungsweise Verbesserungen in Bezug auf die Einhaltung der
-        Barrierefreiheitsanforderungen auffallen, können Sie sich an die Universitätsbibliothek Ilmenau wenden. Für
+        Sollten Ihnen Mängel auffallen, beziehungsweise Sie Verbesserungsvorschläge in Bezug auf die Einhaltung der 
+        Barrierefreiheitsanforderungen haben, können Sie sich an die Universitätsbibliothek Ilmenau wenden. Für
         Hinweise und Verbesserungsvorschläge sind wir stets dankbar. Wir bemühen uns um eine baldige Umsetzung von
         Korrekturwünschen und Vorschlägen.
       </p>
@@ -59,14 +59,14 @@
         auf welchen Inhalt Sie sich beziehen.
       </p>
       <p>
-        Per E-Mail erreichen Sie uns unter <a href="mailto:unibibliografie.ub@tu-ilmenau.de">
-        unibibliografie.ub@tu-ilmenau.de</a>.
+        Per E-Mail erreichen Sie uns unter <a href="mailto:bibliographie.ub@tu-ilmenau.de">
+        bibliographie.ub@tu-ilmenau.de</a>.
       </p>
       <p>
         Unsere Postanschrift lautet:
       </p>
 
-      <p class="text-monospace pl-5">
+      <p class="pl-5">
         Technische Universität Ilmenau
         <br/>
         Universitätsbibliothek
@@ -78,13 +78,13 @@
 
       <h3>Durchsetzungsverfahren</h3>
       <p>
-        Sollten Sie der Ansicht sein, durch eine nicht ausreichende barrierefreie Gestaltung von
+        Sollten Sie der Ansicht sein, durch eine nicht ausreichend barrierefreie Gestaltung von
         <a href="https://bibliographie.tu-ilmenau.de">https://bibliographie.tu-ilmenau.de</a>
         benachteiligt zu sein oder wenn wir Ihre Rückmeldungen nicht zu Ihrer Befriedigung bearbeiten, können Sie sich
         an die Durchsetzungsstelle nach dem ThürBarrWebG wenden:
       </p>
 
-      <p class="text-monospace pl-5">
+      <p class="pl-5">
         Thüringer Landesbeauftragter für Menschen mit Behinderungen
         <br/>
         Herr Joachim Leibiger
@@ -99,10 +99,10 @@
           Telefon:
         </div>
         <div class="col">
-          <a href="tel:+49 361 573 11 8000" title="Telefonnummer">+49 361 573 11 8000</a>
+          +49 361 573118000
         </div>
       </div>
-      <div class="row pl-5">
+      <div class="row pl-5">  
         <div class="col-1">
           E-Mail:
         </div>

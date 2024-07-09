@@ -1,0 +1,27 @@
+[
+  {
+    "add-field": {
+      "name": "note.wc",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": false
+    },
+    "add-field": {
+      "name": "note.intern.wc",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": false
+    },
+    "add-copy-field": {
+      "source": "note",
+      "dest": "note.wc"
+    },
+    "add-copy-field": {
+      "source": "note.intern",
+      "dest": "note.intern.wc"
+    }
+  }
+]
+

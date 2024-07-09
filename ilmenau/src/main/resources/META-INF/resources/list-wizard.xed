@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="dozbib.list-wizard"
+         xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:de>Persönliche Publikationsliste erstellen</i18n:de>
+    <i18n:en>Build your personal publication list</i18n:en>
+  </title>
+  
+  <article class="card mb-1">
+    <div class="card-body">
+      <h3>
+        <i18n:de>Publikationslisten für Typo3-Webseiten</i18n:de>
+        <i18n:en>Publication lists for Typo3 web pages</i18n:en>
+      </h3>
+      <p>
+        <i18n:de>In Webseiten der TU Ilmenau, die mit dem Content-Management-System Typo3 erstellt sind, kann ganz einfach durch Verwendung des Plug-Ins "Literaturlisten UB" eine Publikationsliste eingebunden werden.</i18n:de>
+        <i18n:en>A publication list can easily be integrated into TU Ilmenau websites created with the content management system Typo3 by using the plug-in "Literaturlisten UB".</i18n:en>
+      </p>
+      <p>
+        <i18n:de>Dieses Liste können die Publikationen von Struktureinheiten oder Personen beinhalten.</i18n:de>
+        <i18n:en>This list can contain the publications of structural units or persons.</i18n:en>
+      </p>
+      <p>
+        <i18n:de>Hilfe zur Nutzung des Plug-Ins finden Sie auf den <a href="https://www.tu-ilmenau.de/?id=990">Hilfe-Seiten der Universitätsbibliothek</a> – oder fragen Sie uns: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a></i18n:de>
+        <i18n:en>You can find assistance on using the plug-in on the <a href="https://www.tu-ilmenau.de/?id=990">help pages of the University Library</a> - or ask us: <a href="mailto:bibliographie.ub@tu-ilmenau.de">bibliographie.ub@tu-ilmenau.de</a></i18n:en>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3">
+    <div class="card-body">
+      <h3>
+        <i18n:de>Persönliche Publikationslisten erstellen</i18n:de>
+        <i18n:en>Build your personal publication lists</i18n:en>
+      </h3>
+      <p>
+        <i18n:de>Über das folgende Formular können Sie persönliche Publikationslisten direkt aus der Universitätsbibliographie heraus erstellen und in verschiedenen Formaten ausgeben. Fehlende Publikationen können Sie jederzeit <a href="newPublication.xed">melden.</a><br />
+          Nehmen Sie <a href="contact.xml">Kontakt mit uns auf,</a> falls Publikationen korrigiert werden müssen.
+        </i18n:de>
+        <i18n:en>
+          You can use the following form to create your personal publication list directly from university bibliography data to link it or output it in various formats. You can <a href="newPublication.xed">register</a> missing publications at any time.<br />
+          If entries have to be corrected, please <a href="contact.xml">contact us.</a>
+        </i18n:en>
+      </p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form" style="z-index: 99">
+        <script src="{$WebApplicationBaseURL}vue/vue.min.js"/>
+        <script src="{$WebApplicationBaseURL}vue/publication-list/publicationList.umd.min.js"/>
+        <link href="{$WebApplicationBaseURL}vue/publication-list/publicationList.css" rel="stylesheet"/>
+
+        <div id="publicationList">
+          <pl baseurl="{$WebApplicationBaseURL}"
+              leadid="{$MCR.user2.matching.lead_id}" roles="{$UBO.Search.PersonalList.Roles}"
+              personids="{$UBO.Search.PersonalList.Ids}"
+          ></pl>
+        </div>
+
+        <script>
+          <![CDATA[
+            new Vue({
+              components: {
+                pl: publicationList
+              }
+            }).$mount('#publicationList');
+          ]]>
+        </script>
+      </xed:form>
+    </div>
+  </article>
+
+</webpage>
