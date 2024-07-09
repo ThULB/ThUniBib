@@ -1,5 +1,13 @@
 # Changelog
 
+## 2024.07.09
+- [#545](https://github.com/ThULB/ThUniBib/issues/545) Added flags indicating current language as svg graphics (#546)
+- [#548](https://github.com/ThULB/ThUniBib/issues/548) [FSU040THUL-3594](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-3594) Use gvk for imports by ISBN (#549)
+- [#553](https://github.com/ThULB/ThUniBib/issues/553) Updated maven-publish.yml and added maven-pr.yml (#554)
+- [#567](https://github.com/ThULB/ThUniBib/issues/567) Update .*xed files for Ilmenau (#568)
+- [#570](https://github.com/ThULB/ThUniBib/issues/570) [FSU040THUL-3728](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-3728) Added solr field to support wildcard queries in mods:note elements (#571)
+___
+
 ## 2024.05.24
 - [#462](https://github.com/ThULB/ThUniBib/issues/462) Enable genre mapping to/from orcid (#463)
 - [#478](https://github.com/ThULB/ThUniBib/issues/478) Reflect changes of mods:genre handling in base UBO (#479)
