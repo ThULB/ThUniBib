@@ -128,7 +128,10 @@
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Eingereichte Publikationen werden von einem Redaktionsteam an der Universitätsbibliothek überprüft. Dadurch kann es zu zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und aufgearbeitet, um eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu gewährleisten.
+                Eingereichte Publikationen werden von einem Redaktionsteam in der Universitätsbibliothek überprüft.
+                Dadurch kann es zu zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und
+                aufgearbeitet, um eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu
+                gewährleisten.
               </p>
             </div>
           </div>
