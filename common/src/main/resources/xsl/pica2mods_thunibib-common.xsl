@@ -101,7 +101,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template name="thunibib-gvk-uri-to-ppn">
+  <xsl:template name="thunibib-ppn-to-identifier">
     <xsl:for-each select="./p:datafield[@tag='003@']/p:subfield[@code='0']">
       <mods:identifier type="ppn">
         <xsl:value-of select="."/>

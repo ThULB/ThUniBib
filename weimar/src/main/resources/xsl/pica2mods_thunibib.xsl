@@ -54,7 +54,7 @@
       <xsl:call-template name="uboPeerReview"/>
       <xsl:call-template name="uboMediaType"/>
       <xsl:call-template name="uboOriginClassification"/>
-      <xsl:call-template name="thunibib-gvk-uri-to-ppn"/>
+      <xsl:call-template name="thunibib-ppn-to-identifier"/>
     </mods:mods>
   </xsl:template>
 
