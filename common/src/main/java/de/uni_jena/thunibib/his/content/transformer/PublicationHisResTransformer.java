@@ -53,7 +53,6 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addProperty(jsonObject, "//mods:mods/mods:abstract", xml, "textAbstract", true);
             addProperty(jsonObject, "//mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear", true);
             addProperty(jsonObject, "//mods:mods/mods:originInfo/mods:edition", xml, "edition", true);
-            addProperty(jsonObject, "//mods:mods/mods:originInfo/mods:publisher", xml, "publisher", true);
             addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle", true);
             addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:title", xml, "title", true);
             addProperty(jsonObject, "//mods:mods/mods:note[not(@type='intern')]", xml, "commentary", false);
@@ -61,6 +60,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addExtent(jsonObject, xml);
             addCreators(jsonObject, xml);
 
+            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publisher')]", xml, "publisher");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml, "peerReviewed");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationAccessTypeValue')]", xml, "access");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationCreatorTypeValue')]", xml, "publicationCreatorType");
