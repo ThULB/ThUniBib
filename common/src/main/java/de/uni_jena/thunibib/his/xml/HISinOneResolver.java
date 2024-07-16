@@ -61,7 +61,11 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
 
-    public enum SUPPORTED_URI_PARTS {
+    public enum Mode {
+        resolve, create
+    }
+
+    public enum ResolvableTypes {
         creatorType,
         documentType,
         genre,
@@ -82,16 +86,18 @@ public class HISinOneResolver implements URIResolver {
         LOGGER.debug("Resolving '{}'", href);
 
         String[] parts = href.split(":");
-        String entity = parts[1];
-        String value = parts[2];
 
-        var sysValue = switch (SUPPORTED_URI_PARTS.valueOf(entity)) {
+        Mode mode = Mode.valueOf(parts[1]);
+        String entity = parts[2];
+        String value = parts[3];
+
+        var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case creatorType -> resolveCreatorType(value);
             case documentType -> resolveDocumentType(value);
             case genre -> resolveGenre(value);
             case globalIdentifiers -> resolveIdentifierType(value);
             case language -> resolveLanguage(value);
-            case publisher -> resolvePublisher(value);
+            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(value) : SysValue.NotObtainedSysValue;
             case peerReviewed -> resolvePeerReviewedType(value);
             case publicationAccessType -> resolvePublicationAccessType(value);
             case researchAreaKdsf -> resolveResearchAreaKdsf(value);
