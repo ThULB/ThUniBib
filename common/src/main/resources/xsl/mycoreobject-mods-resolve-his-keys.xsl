@@ -26,6 +26,9 @@
     <xsl:copy>
       <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
 
+      <!-- Publisher -->
+      <xsl:call-template name="publisher"/>
+
       <!-- PeerReviewedValue -->
       <xsl:call-template name="peerReviewed"/>
 
@@ -54,6 +57,17 @@
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="publisher">
+    <xsl:if test="mods:originInfo/mods:publisher">
+      <xsl:variable name="publisher-text" select="fn:encode-for-uri(mods:originInfo/mods:publisher)"/>
+      <xsl:variable name="publisher-id" select="fn:document(concat('hisinone:publisher:', $publisher-text))"/>
+
+      <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publisher">
+        <xsl:value-of select="$publisher-id"/>
+      </mods:classification>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="peerReviewed">
