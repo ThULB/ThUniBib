@@ -17,6 +17,7 @@ import org.mycore.common.events.MCRShutdownHandler;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.Map;
 
 class HISInOneClientDefaultImpl implements HISInOneClient {
 
@@ -33,10 +34,17 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
         MCRShutdownHandler.getInstance().addCloseable(this);
     }
 
-    public Response get(String path) {
+    public Response get(String path, Map<String, String> parameters) {
         WebTarget webTarget = getJerseyClient()
-            .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH)
-            .path(path);
+            .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH);
+
+        if (parameters != null) {
+            for (Map.Entry<String, String> entry : parameters.entrySet()) {
+                webTarget = webTarget.queryParam(entry.getKey(), entry.getValue());
+            }
+        }
+
+        webTarget = webTarget.path(path);
 
         Token token;
         try {
@@ -51,6 +59,10 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
 
         Response response = invocationBuilder.get();
         return response;
+    }
+
+    public Response get(String path) {
+        return get(path, null);
     }
 
     protected Token fetchToken() {
