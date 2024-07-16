@@ -12,6 +12,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.ResearchAreaKdsfValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.publisher.PublisherWrappedValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.DocumentType;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.GlobalIdentifierType;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
@@ -30,6 +31,8 @@ import org.mycore.datamodel.classifications2.MCRLabel;
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -49,6 +52,7 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> PUBLISHER_MAP = new HashMap<>();
     private static final Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
@@ -64,6 +68,7 @@ public class HISinOneResolver implements URIResolver {
         globalIdentifiers,
         language,
         peerReviewed,
+        publisher,
         publicationAccessType,
         researchAreaKdsf,
         state,
@@ -86,6 +91,7 @@ public class HISinOneResolver implements URIResolver {
             case genre -> resolveGenre(value);
             case globalIdentifiers -> resolveIdentifierType(value);
             case language -> resolveLanguage(value);
+            case publisher -> resolvePublisher(value);
             case peerReviewed -> resolvePeerReviewedType(value);
             case publicationAccessType -> resolvePublicationAccessType(value);
             case researchAreaKdsf -> resolveResearchAreaKdsf(value);
@@ -97,6 +103,39 @@ public class HISinOneResolver implements URIResolver {
 
         LOGGER.info("Resolved {} to {}", href, sysValue.getId());
         return new JDOMSource(new Element("int").setText(String.valueOf(sysValue.getId())));
+    }
+
+    private SysValue resolvePublisher(String value) {
+        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+
+        if (PUBLISHER_MAP.containsKey(decodedValue)) {
+            return PUBLISHER_MAP.get(decodedValue);
+        }
+
+        Map<String, String> params = new HashMap<>();
+        params.put("q", decodedValue);
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(PublisherWrappedValue.getPath(), params)) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return SysValue.NotObtainedSysValue;
+            }
+
+            List<PublisherWrappedValue> publishers = response.readEntity(
+                new GenericType<List<PublisherWrappedValue>>() {
+                });
+
+            List<PublisherWrappedValue> resultList = publishers.stream()
+                .filter(pwv -> pwv.getUniqueName().equals(decodedValue))
+                .toList();
+
+            SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.EmptySysValue;
+            if (r instanceof PublisherWrappedValue) {
+                PUBLISHER_MAP.put(decodedValue, r);
+            }
+            return r;
+        }
     }
 
     /**
