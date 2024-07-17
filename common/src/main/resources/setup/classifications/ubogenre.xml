@@ -17,8 +17,13 @@
         <label xml:lang="x-color" text="#7dabd0"/>
         <label xml:lang="x-marcgt" text="article"/>
         <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
-        <label xml:lang="de" text="Artikel/Aufsatz"
-               description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
+
+        <!-- Mapping Publikationstyp: x-host == journal ? Journalartikel : Sonstiger Publikationstyp -->
+        <label xml:lang="x-mapping-his-genre" text="journal:[Journalartikel] default:[Sonstiger Publikationstyp]"/>
+        <!-- Mapping Dokumenttyp: x-host == journal ? Wissenschaftlicher Artikel : Sonstiger Dokumenttyp -->
+        <label xml:lang="x-mapping-his-docType" text="journal:[Wissenschaftlicher Artikel] default:[Sonstiger Dokumenttyp]"/>
+
+        <label xml:lang="de" text="Artikel/Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
         <label xml:lang="en" text="Journal article"/>
 
         <category ID="review_article">
@@ -53,6 +58,9 @@
         <label xml:lang="x-color" text="#007a8b"/>
         <label xml:lang="x-marcgt" text="abstract_or_summary"/>
         <label xml:lang="x-mapping" text="marcgt:abstract_or_summary orcidWorkType:conference-abstract"/>
+
+        <!-- Mapping Publikationstyp: x-host == journal ? Meeting Abstract : ? -->
+        <label xml:lang="x-mapping-his-genre" text="journal:[Meeting Abstract] proceedings:[Meeting Abstract]"/>
 
         <label xml:lang="de" text="Abstract (Konferenz/Tagung)"/>
         <label xml:lang="en" text="Abstract (conference)"/>

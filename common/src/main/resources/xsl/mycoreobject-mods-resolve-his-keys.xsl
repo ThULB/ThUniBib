@@ -204,14 +204,6 @@
       </mods:genre>
     </xsl:if>
 
-    <!-- qualificationThesisValue -->
-    <xsl:variable name="his-key-qualification-thesis-type-value" select="fn:document(concat('hisinone:resolve:thesisType:', $genre))"/>
-    <xsl:if test="$his-key-publication-type-value">
-      <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/qualificationThesisValue" type="code">
-        <xsl:value-of select="$his-key-qualification-thesis-type-value"/>
-      </mods:genre>
-    </xsl:if>
-
     <!--
       documentType
 
@@ -223,6 +215,14 @@
     <xsl:if test="$his-key-document-type-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/documentTypes" type="code">
         <xsl:value-of select="$his-key-document-type-type-value"/>
+      </mods:genre>
+    </xsl:if>
+
+    <!-- qualificationThesisValue -->
+    <xsl:variable name="his-key-qualification-thesis-type-value" select="fn:document(concat('hisinone:resolve:thesisType:', $genre))"/>
+    <xsl:if test="$his-key-publication-type-value">
+      <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/qualificationThesisValue" type="code">
+        <xsl:value-of select="$his-key-qualification-thesis-type-value"/>
       </mods:genre>
     </xsl:if>
 
