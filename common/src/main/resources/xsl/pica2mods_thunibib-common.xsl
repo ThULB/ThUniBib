@@ -101,4 +101,11 @@
     </xsl:if>
   </xsl:template>
 
+  <xsl:template name="thunibib-ppn-to-identifier">
+    <xsl:for-each select="./p:datafield[@tag='003@']/p:subfield[@code='0']">
+      <mods:identifier type="ppn">
+        <xsl:value-of select="."/>
+      </mods:identifier>
+    </xsl:for-each>
+  </xsl:template>
 </xsl:stylesheet>

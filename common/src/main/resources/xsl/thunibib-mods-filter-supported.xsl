@@ -118,8 +118,7 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
-  <xsl:template
-      match="mods:identifier[contains('|isbn|issn|doi|urn|pubmed|ieee|arxiv|hdl|zdb|isi|evaluna|hbz|mms|scopus|duepublico|duepublico2|dbt|uri|',concat('|',@type,'|'))]|mods:identifier/@type">
+  <xsl:template match="mods:identifier[contains('isbn issn doi urn pubmed ieee arxiv hdl zdb isi evaluna hbz mms scopus duepublico duepublico2 dbt uri', @type)]|mods:identifier/@type">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
