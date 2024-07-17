@@ -320,6 +320,39 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
+    protected SysValue resolvePublicationType(String ubogenre) {
+        if (PUBLICATION_TYPE_MAP.containsKey(ubogenre)) {
+            return PUBLICATION_TYPE_MAP.get(ubogenre);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(PublicationTypeValue.getPath())) {
+
+            List<PublicationTypeValue> pubTypeValues = response.readEntity(
+                new GenericType<List<PublicationTypeValue>>() {
+                });
+
+            Optional<PublicationTypeValue> tpv = pubTypeValues
+                .stream()
+                .filter(pubType -> pubType.getUniqueName().equals(MCRXMLFunctions.getDisplayName("ubogenre", ubogenre)))
+                .findFirst();
+
+            String expectedType = PublicationAndDocTypeMapper.getPublicationTypeName(ubogenre);
+
+            SysValue sysValue;
+            if (tpv.isEmpty()) {
+                sysValue = pubTypeValues.stream()
+                    .filter(pubType -> expectedType.equals(pubType.getUniqueName()))
+                    .findFirst().get();
+            } else {
+                sysValue = tpv.get();
+            }
+
+            PUBLICATION_TYPE_MAP.put(ubogenre, sysValue);
+            return sysValue;
+        }
+    }
+
     /**
      * Determines the documentType on base of ubogenre/publicationType. Is currently fixed to 'Bibliographie'
      * */
@@ -336,7 +369,7 @@ public class HISinOneResolver implements URIResolver {
                 });
 
             DocumentType documentType = documentTypeValues.stream()
-                .filter(v -> v.getUniqueName().equals("Bibliographie"))
+                .filter(v -> v.getUniqueName().equals(PublicationAndDocTypeMapper.getDocumentTypeName(ubogenre)))
                 .findFirst().get();
 
             DOCUMENT_TYPE_MAP.put(ubogenre, documentType);
@@ -493,37 +526,6 @@ public class HISinOneResolver implements URIResolver {
 
             STATE_TYPE_MAP.put(statusCategId, id);
             return id;
-        }
-    }
-
-    protected SysValue resolvePublicationType(String ubogenre) {
-        if (PUBLICATION_TYPE_MAP.containsKey(ubogenre)) {
-            return PUBLICATION_TYPE_MAP.get(ubogenre);
-        }
-
-        try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(PublicationTypeValue.getPath())) {
-
-            List<PublicationTypeValue> pubTypeValues = response.readEntity(
-                new GenericType<List<PublicationTypeValue>>() {
-                });
-
-            Optional<PublicationTypeValue> tpv = pubTypeValues
-                .stream()
-                .filter(pubType -> pubType.getUniqueName().equals(MCRXMLFunctions.getDisplayName("ubogenre", ubogenre)))
-                .findFirst();
-
-            SysValue sysValue;
-            if (tpv.isEmpty()) {
-                sysValue = pubTypeValues.stream()
-                    .filter(pubType -> "Monographie".equals(pubType.getUniqueName()))
-                    .findFirst().get();
-            } else {
-                sysValue = tpv.get();
-            }
-
-            PUBLICATION_TYPE_MAP.put(ubogenre, sysValue);
-            return sysValue;
         }
     }
 
