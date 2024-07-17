@@ -197,7 +197,7 @@
     <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
 
     <!-- publicationTypeValue -->
-    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:resolve:genre:', $genre))"/>
+    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:resolve:publicationType:', $genre))"/>
     <xsl:if test="$his-key-publication-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationTypeValue" type="code">
         <xsl:value-of select="$his-key-publication-type-value"/>

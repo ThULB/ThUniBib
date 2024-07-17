@@ -43,7 +43,7 @@ import java.util.Optional;
 /**
  * Usage:
  * <br/><br/>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|genre|globalIdentifiers|language|peerReviewed|publicationAccessType|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publicationType|globalIdentifiers|language|peerReviewed|publicationAccessType|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -51,11 +51,11 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
-    private static final Map<String, SysValue> GENRE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
-    private static final Map<String, SysValue> PUBLISHER_MAP = new HashMap<>();
     private static final Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> PUBLICATION_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> PUBLISHER_MAP = new HashMap<>();
     private static final Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
@@ -69,12 +69,12 @@ public class HISinOneResolver implements URIResolver {
     public enum ResolvableTypes {
         creatorType,
         documentType,
-        genre,
         globalIdentifiers,
         language,
         peerReviewed,
-        publisher,
         publicationAccessType,
+        publicationType,
+        publisher,
         researchAreaKdsf,
         state,
         subjectArea,
@@ -95,12 +95,12 @@ public class HISinOneResolver implements URIResolver {
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case creatorType -> resolveCreatorType(value);
             case documentType -> resolveDocumentType(value);
-            case genre -> resolveGenre(value);
             case globalIdentifiers -> resolveIdentifierType(value);
             case language -> resolveLanguage(value);
-            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(value) : createPublisher(value);
             case peerReviewed -> resolvePeerReviewedType(value);
             case publicationAccessType -> resolvePublicationAccessType(value);
+            case publicationType -> resolvePublicationType(value);
+            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(value) : createPublisher(value);
             case researchAreaKdsf -> resolveResearchAreaKdsf(value);
             case state -> resolveState(value);
             case subjectArea -> resolveSubjectArea(value);
@@ -496,9 +496,9 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected SysValue resolveGenre(String ubogenre) {
-        if (GENRE_TYPE_MAP.containsKey(ubogenre)) {
-            return GENRE_TYPE_MAP.get(ubogenre);
+    protected SysValue resolvePublicationType(String ubogenre) {
+        if (PUBLICATION_TYPE_MAP.containsKey(ubogenre)) {
+            return PUBLICATION_TYPE_MAP.get(ubogenre);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
@@ -522,7 +522,7 @@ public class HISinOneResolver implements URIResolver {
                 sysValue = tpv.get();
             }
 
-            GENRE_TYPE_MAP.put(ubogenre, sysValue);
+            PUBLICATION_TYPE_MAP.put(ubogenre, sysValue);
             return sysValue;
         }
     }
