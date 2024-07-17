@@ -1,5 +1,6 @@
 package de.uni_jena.thunibib.his.xml;
 
+import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
@@ -97,7 +98,7 @@ public class HISinOneResolver implements URIResolver {
             case genre -> resolveGenre(value);
             case globalIdentifiers -> resolveIdentifierType(value);
             case language -> resolveLanguage(value);
-            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(value) : SysValue.NotObtainedSysValue;
+            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(value) : createPublisher(value);
             case peerReviewed -> resolvePeerReviewedType(value);
             case publicationAccessType -> resolvePublicationAccessType(value);
             case researchAreaKdsf -> resolveResearchAreaKdsf(value);
@@ -125,7 +126,7 @@ public class HISinOneResolver implements URIResolver {
             Response response = hisClient.get(PublisherWrappedValue.getPath(), params)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                return SysValue.NotObtainedSysValue;
+                return SysValue.ErroneousSysValue;
             }
 
             List<PublisherWrappedValue> publishers = response.readEntity(
@@ -133,14 +134,45 @@ public class HISinOneResolver implements URIResolver {
                 });
 
             List<PublisherWrappedValue> resultList = publishers.stream()
-                .filter(pwv -> pwv.getUniqueName().equals(decodedValue))
+                .filter(pwv -> decodedValue.equals(pwv.getUniqueName()))
                 .toList();
 
-            SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.EmptySysValue;
+            SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.UnresolvedSysValue;
             if (r instanceof PublisherWrappedValue) {
                 PUBLISHER_MAP.put(decodedValue, r);
             }
             return r;
+        }
+    }
+
+    /**
+     * Creates a new publisher. Default language is <em>German</em> and default place is <em>unknown/unbekannt</em>.
+     * */
+    private SysValue createPublisher(String value) {
+        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+
+        if (PUBLISHER_MAP.containsKey(decodedValue)) {
+            return PUBLISHER_MAP.get(decodedValue);
+        }
+
+        LanguageValue languageValue = resolveLanguage("de");
+
+        JsonObject language = new JsonObject();
+        language.addProperty("id", languageValue.getId());
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("defaulttext", decodedValue);
+        jsonObject.addProperty("uniquename", decodedValue);
+        jsonObject.add("language", language);
+        jsonObject.addProperty("place", "unbekannt");
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response resp = hisClient.post(PublisherWrappedValue.getPath(PublisherWrappedValue.PathType.create),
+                jsonObject.toString())) {
+
+            PublisherWrappedValue publisher = resp.readEntity(PublisherWrappedValue.class);
+            PUBLISHER_MAP.put(decodedValue, publisher);
+            return publisher;
         }
     }
 
@@ -160,7 +192,7 @@ public class HISinOneResolver implements URIResolver {
             Response response = hisClient.get(PeerReviewedValue.getPath())) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                return SysValue.NotObtainedSysValue;
+                return SysValue.ErroneousSysValue;
             }
 
             List<PeerReviewedValue> prTypes = response.readEntity(
@@ -178,7 +210,7 @@ public class HISinOneResolver implements URIResolver {
             }
         }
 
-        return SysValue.EmptySysValue;
+        return SysValue.UnresolvedSysValue;
     }
 
     /**
@@ -206,7 +238,7 @@ public class HISinOneResolver implements URIResolver {
             Optional<MCRLabel> label = mcrCategory.getLabel("en");
 
             if (!label.isPresent()) {
-                return SysValue.EmptySysValue;
+                return SysValue.UnresolvedSysValue;
             }
 
             String text = label.get().getText().toLowerCase(Locale.ROOT);
@@ -216,7 +248,7 @@ public class HISinOneResolver implements URIResolver {
                 .findFirst();
 
             if (first.isEmpty()) {
-                return SysValue.EmptySysValue;
+                return SysValue.UnresolvedSysValue;
             }
 
             PUBLICATION_ACCESS_TYPE_MAP.put(accessRightsCategId, first.get());
@@ -253,7 +285,7 @@ public class HISinOneResolver implements URIResolver {
             }
         }
 
-        return SysValue.EmptySysValue;
+        return SysValue.UnresolvedSysValue;
     }
 
     /**
@@ -284,7 +316,7 @@ public class HISinOneResolver implements URIResolver {
                 IDENTIFIER_TYPE_MAP.put(identifierType, type.get());
                 return type.get();
             }
-            return SysValue.EmptySysValue;
+            return SysValue.UnresolvedSysValue;
         }
     }
 
@@ -371,7 +403,7 @@ public class HISinOneResolver implements URIResolver {
                 SUBJECT_AREA_TYPE_MAP.put(destatisId, areaValue.get());
                 return areaValue.get();
             }
-            return SysValue.EmptySysValue;
+            return SysValue.UnresolvedSysValue;
         }
     }
 

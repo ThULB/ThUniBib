@@ -14,6 +14,10 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
  * */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PublisherWrappedValue extends SysValue {
+    public enum PathType {
+        search, create
+    }
+
     @JsonProperty("_foreigntext")
     String _foreigntext;
 
@@ -39,6 +43,13 @@ public class PublisherWrappedValue extends SysValue {
     }
 
     public static String getPath() {
-        return "fs/res/wrapped/publisher";
+        return getPath(PathType.search);
+    }
+
+    public static String getPath(PathType type) {
+        return switch (type) {
+            case create -> "fs/res/publisher";
+            case search -> "fs/res/wrapped/publisher";
+        };
     }
 }
