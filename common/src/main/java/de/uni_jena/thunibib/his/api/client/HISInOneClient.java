@@ -18,4 +18,6 @@ public interface HISInOneClient extends MCRShutdownHandler.Closeable, AutoClosea
     Response get(String path, Map<String, String> params);
 
     Response get(String path);
+
+    Response post(String path, String body);
 }
