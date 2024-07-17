@@ -43,7 +43,7 @@ import java.util.Optional;
 /**
  * Usage:
  * <br/><br/>
- * <code>HISinOne:&lt;creatorType | documentType | genre | globalIdentifiers | language | peerReviewed | publicationAccessType | researchAreaKdsf | subjectArea | state | thesisType | visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|genre|globalIdentifiers|language|peerReviewed|publicationAccessType|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * */
 public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
