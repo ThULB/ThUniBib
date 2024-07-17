@@ -5,21 +5,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 abstract public class SysValue implements HisValue {
     @JsonProperty("id")
-    private int id;
+    protected int id;
     @JsonProperty("lockVersion")
     private int lockVersion;
     @JsonProperty("objGuid")
     private String objGuid;
     @JsonProperty("shorttext")
-    private String shortText;
+    protected String shortText;
     @JsonProperty("defaulttext")
-    private String defaultText;
+    protected String defaultText;
     @JsonProperty("longtext")
-    private String longText;
+    protected String longText;
     @JsonProperty("text")
-    private String text;
+    protected String text;
     @JsonProperty("hiskeyId")
-    private int hisKeyId;
+    protected int hisKeyId;
     @JsonProperty("sortorder")
     private int sortOrder;
     @JsonProperty("uniquename")
@@ -69,8 +69,11 @@ abstract public class SysValue implements HisValue {
         return id + ":" + uniqueName;
     }
 
+    /**
+     * This {@link SysValue} indicates an unresolved value in case a proper hisKeyId could not be obtained from HISinOne.
+     * */
     @JsonIgnore
-    public static final SysValue EmptySysValue = new SysValue() {
+    public static final SysValue UnresolvedSysValue = new SysValue() {
         @Override
         public int getHisKeyId() {
             return -1;
@@ -82,8 +85,12 @@ abstract public class SysValue implements HisValue {
         }
     };
 
+    /**
+     * This {@link SysValue} indicates an unresolved value in case an error occured during the resolving of the key from
+     * HISinOne.
+     * */
     @JsonIgnore
-    public static final SysValue NotObtainedSysValue = new SysValue() {
+    public static final SysValue ErroneousSysValue = new SysValue() {
         @Override
         public int getHisKeyId() {
             return -2;
