@@ -197,7 +197,20 @@
     <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
 
     <!-- publicationTypeValue -->
-    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:resolve:publicationType:', $genre))"/>
+
+    <xsl:variable name="related-item-genre">
+      <xsl:choose>
+        <xsl:when test="string-length(substring-after(../mods:relatedItem[@type]/mods:genre/@valueURI, '#')) &gt; 0">
+          <xsl:value-of select="substring-after(../mods:relatedItem[@type]/mods:genre/@valueURI, '#')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="'none'"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+
+    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:resolve:publicationType:', $genre,':', $related-item-genre))"/>
     <xsl:if test="$his-key-publication-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationTypeValue" type="code">
         <xsl:value-of select="$his-key-publication-type-value"/>
