@@ -7,7 +7,14 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
  * */
 public class DocumentType extends SysValue {
 
-    final static public String getPath() {
-        return "fs/res/publication/documentTypes";
+    public enum PathType {
+        article, book
+    }
+
+    public static String getPath(DocumentType.PathType type) {
+        return switch (type) {
+            case article -> "fs/res/publication/documentTypes/article";
+            case book -> "fs/res/publication/documentTypes/book";
+        };
     }
 }
