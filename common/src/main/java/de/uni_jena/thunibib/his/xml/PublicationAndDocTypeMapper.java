@@ -11,6 +11,32 @@ import org.mycore.datamodel.classifications2.MCRLabel;
 import java.util.Arrays;
 import java.util.Optional;
 
+/**
+ * <p>
+ * Maps the ubo genre to a type name (publication or document type) from HISinOne-RES.
+ * </p>
+ * <p>
+ * The mapping is expected to be provided as {@link MCRLabel} attribute. For publication type mapping use <code>x-mapping-his-genre</code>
+ * and for document type mapping use <code>x-mapping-his-docType</code>.
+ * </p>
+ *
+ *  <h5>
+ *  Example:
+ *  </h5>
+ *
+ * <p>
+ *  <code>
+ *  &lt;label xml:lang="x-mapping-his-genre" text="journal:Journalartikel, default:Sonstiger Publikationstyp"/&gt;<br/>
+ *  &lt;label xml:lang="x-mapping-his-docType" text="journal:Wissenschaftlicher Artikel, default:Sonstiger Dokumenttyp"/&gt;
+ *  </code>
+ * </p>
+ *
+ *  <p>
+ *  The <code>x-mapping-his-docType</code> might be omitted as some publication types do not require a document type.
+ *  </p>
+ *
+ * @author shermann (Silvio Hermann)
+ * */
 public class PublicationAndDocTypeMapper {
 
     private static final Logger LOGGER = LogManager.getLogger(PublicationAndDocTypeMapper.class);
@@ -24,12 +50,43 @@ public class PublicationAndDocTypeMapper {
      * @param hostGenre the genre of the mods:relatedItem of a publication
      *
      * @return the HISinOne-RES type name
+     *
+     * @throw {@link RuntimeException} when a default mapping is missing in classification ubogenre
      * */
     public static String getPublicationTypeName(String ubogenreId, String hostGenre) {
-        return getPublicationTypeName("x-mapping-his-genre", ubogenreId, hostGenre);
+        return getTypeNameFromXLabel("x-mapping-his-genre", ubogenreId, hostGenre);
     }
 
-    private static String getPublicationTypeName(String xLabelName, String ubogenreId, String hostGenre) {
+    /**
+     * Determines the HISinOne document type name by examining the genre and the host type.
+     *
+     * @param ubogenreId the genre of a publication
+     * @param hostGenre the genre of the mods:relatedItem of a publication
+     *
+     * @return the HISinOne-RES document type name or <code>null</code>
+     * */
+    public static String getDocumentTypeName(String ubogenreId, String hostGenre) {
+        try {
+            return getTypeNameFromXLabel("x-mapping-his-docType", ubogenreId, hostGenre);
+        } catch (RuntimeException e) {
+            LOGGER.info("Could not determine document type for '{}' and related item of type '{}'", ubogenreId,
+                hostGenre);
+            return null;
+        }
+    }
+
+    /**
+     * Returns the default publication type name for the given genre.
+     *
+     * @param ubogenreId the ubogenre to check
+     *
+     * @throw {@link RuntimeException} when a default mapping is missing in classification ubogenre
+     * */
+    public static String getDefaultPublicationTypeName(String ubogenreId) {
+        return PublicationAndDocTypeMapper.getPublicationTypeName(ubogenreId, "none");
+    }
+
+    private static String getTypeNameFromXLabel(String xLabelName, String ubogenreId, String hostGenre) {
         MCRCategory genre = DAO.getCategory(MCRCategoryID.fromString("ubogenre:" + ubogenreId), 0);
         MCRLabel label = genre.getLabel(xLabelName).orElseThrow(() -> new RuntimeException(
             "No '" + xLabelName + "' for genre '" + ubogenreId + "' and related item of type '" + hostGenre + "'"));
@@ -41,16 +98,11 @@ public class PublicationAndDocTypeMapper {
         }
 
         Optional<String> name = getMapping(label, hostGenre);
-        return name.isPresent() ? name.get() : getDefaultPublicationTypeName(ubogenreId);
+        return name.isPresent() ? name.get() : getDefaultTypeNameFromXLabel(xLabelName, ubogenreId);
     }
 
-    /**
-     * Returns the default publication type name for the given genre.
-     *
-     * @param ubogenreId the ubogenre to check
-     * */
-    public static String getDefaultPublicationTypeName(String ubogenreId) {
-        return PublicationAndDocTypeMapper.getPublicationTypeName(ubogenreId, "none");
+    private static String getDefaultTypeNameFromXLabel(String xLabelName, String ubogenreId) {
+        return getTypeNameFromXLabel(xLabelName, ubogenreId, "none");
     }
 
     private static Optional<String> getMapping(MCRLabel label, String hostGenre) {
@@ -61,9 +113,5 @@ public class PublicationAndDocTypeMapper {
             .findFirst();
 
         return !defaultMapping.isEmpty() ? defaultMapping : Optional.empty();
-    }
-
-    public static String getDocumentTypeName(String ubogenreId) {
-        return "Bibliographie";
     }
 }
