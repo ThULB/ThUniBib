@@ -92,7 +92,9 @@ public class HISinOneResolver implements URIResolver {
         String fromValue;
         String hostGenre = null;
 
-        if (ResolvableTypes.publicationType.name().equals(entity)) {
+        if (ResolvableTypes.publicationType.name().equals(entity) || ResolvableTypes.documentType.name()
+            .equals(entity)) {
+
             fromValue = parts[3];
             hostGenre = parts[4];
         } else {
@@ -101,7 +103,7 @@ public class HISinOneResolver implements URIResolver {
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case creatorType -> resolveCreatorType(fromValue);
-            case documentType -> resolveDocumentType(fromValue);
+            case documentType -> resolveDocumentType(fromValue, hostGenre);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
@@ -354,20 +356,25 @@ public class HISinOneResolver implements URIResolver {
     /**
      * Determines the documentType on base of ubogenre/publicationType. Is currently fixed to 'Bibliographie'
      * */
-    private SysValue resolveDocumentType(String ubogenre) {
+    private SysValue resolveDocumentType(String ubogenre, String hostGenre) {
         if (DOCUMENT_TYPE_MAP.containsKey(ubogenre)) {
             return DOCUMENT_TYPE_MAP.get(ubogenre);
         }
 
+        String documentTypeName = PublicationAndDocTypeMapper.getDocumentTypeName(ubogenre, hostGenre);
+        if (documentTypeName == null) {
+            return SysValue.UnresolvedSysValue;
+        }
+
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(DocumentType.getPath() + "/book")) {
+            Response response = hisClient.get(DocumentType.getPath(DocumentType.PathType.book))) {
 
             List<DocumentType> documentTypeValues = response.readEntity(
                 new GenericType<List<DocumentType>>() {
                 });
 
             DocumentType documentType = documentTypeValues.stream()
-                .filter(v -> v.getUniqueName().equals(PublicationAndDocTypeMapper.getDocumentTypeName(ubogenre)))
+                .filter(v -> v.getUniqueName().equals(documentTypeName))
                 .findFirst().get();
 
             DOCUMENT_TYPE_MAP.put(ubogenre, documentType);
