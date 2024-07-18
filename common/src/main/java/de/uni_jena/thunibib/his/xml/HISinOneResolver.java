@@ -23,7 +23,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
-import org.mycore.common.xml.MCRXMLFunctions;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
@@ -90,22 +89,30 @@ public class HISinOneResolver implements URIResolver {
 
         Mode mode = Mode.valueOf(parts[1]);
         String entity = parts[2];
-        String value = parts[3];
+        String fromValue;
+        String hostGenre = null;
+
+        if (ResolvableTypes.publicationType.name().equals(entity)) {
+            fromValue = parts[3];
+            hostGenre = parts[4];
+        } else {
+            fromValue = parts[3];
+        }
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
-            case creatorType -> resolveCreatorType(value);
-            case documentType -> resolveDocumentType(value);
-            case globalIdentifiers -> resolveIdentifierType(value);
-            case language -> resolveLanguage(value);
-            case peerReviewed -> resolvePeerReviewedType(value);
-            case publicationAccessType -> resolvePublicationAccessType(value);
-            case publicationType -> resolvePublicationType(value);
-            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(value) : createPublisher(value);
-            case researchAreaKdsf -> resolveResearchAreaKdsf(value);
-            case state -> resolveState(value);
-            case subjectArea -> resolveSubjectArea(value);
-            case thesisType -> resolveThesisType(value);
-            case visibility -> resolveVisibility(value);
+            case creatorType -> resolveCreatorType(fromValue);
+            case documentType -> resolveDocumentType(fromValue);
+            case globalIdentifiers -> resolveIdentifierType(fromValue);
+            case language -> resolveLanguage(fromValue);
+            case peerReviewed -> resolvePeerReviewedType(fromValue);
+            case publicationAccessType -> resolvePublicationAccessType(fromValue);
+            case publicationType -> resolvePublicationType(fromValue, hostGenre);
+            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(fromValue) : createPublisher(fromValue);
+            case researchAreaKdsf -> resolveResearchAreaKdsf(fromValue);
+            case state -> resolveState(fromValue);
+            case subjectArea -> resolveSubjectArea(fromValue);
+            case thesisType -> resolveThesisType(fromValue);
+            case visibility -> resolveVisibility(fromValue);
         };
 
         LOGGER.info("Resolved {} to {}", href, sysValue.getId());
@@ -320,7 +327,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected SysValue resolvePublicationType(String ubogenre) {
+    protected SysValue resolvePublicationType(String ubogenre, String hostGenre) {
         if (PUBLICATION_TYPE_MAP.containsKey(ubogenre)) {
             return PUBLICATION_TYPE_MAP.get(ubogenre);
         }
@@ -332,24 +339,15 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<PublicationTypeValue>>() {
                 });
 
+            String expectedType = PublicationAndDocTypeMapper.getPublicationTypeName(ubogenre, hostGenre);
+
             Optional<PublicationTypeValue> tpv = pubTypeValues
                 .stream()
-                .filter(pubType -> pubType.getUniqueName().equals(MCRXMLFunctions.getDisplayName("ubogenre", ubogenre)))
+                .filter(pubType -> pubType.getUniqueName().equals(expectedType))
                 .findFirst();
 
-            String expectedType = PublicationAndDocTypeMapper.getPublicationTypeName(ubogenre);
-
-            SysValue sysValue;
-            if (tpv.isEmpty()) {
-                sysValue = pubTypeValues.stream()
-                    .filter(pubType -> expectedType.equals(pubType.getUniqueName()))
-                    .findFirst().get();
-            } else {
-                sysValue = tpv.get();
-            }
-
-            PUBLICATION_TYPE_MAP.put(ubogenre, sysValue);
-            return sysValue;
+            PUBLICATION_TYPE_MAP.put(ubogenre, tpv.get());
+            return tpv.get();
         }
     }
 
