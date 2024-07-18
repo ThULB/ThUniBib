@@ -26,7 +26,7 @@ import java.util.Optional;
  *
  * <p>
  *  <code>
- *  &lt;label xml:lang="x-mapping-his-genre" text="journal:Journalartikel, default:Sonstiger Publikationstyp"/&gt;<br/>
+ *  &lt;label xml:lang="x-mapping-his-genre" text="journal:Journalartikel, default:Sonstiger Publikationstyp, standalone:Sonstiger Publikationstyp"/&gt;<br/>
  *  &lt;label xml:lang="x-mapping-his-docType" text="journal:Wissenschaftlicher Artikel, default:Sonstiger Dokumenttyp"/&gt;
  *  </code>
  * </p>
@@ -83,7 +83,7 @@ public class PublicationAndDocTypeMapper {
      * @throw {@link RuntimeException} when a default mapping is missing in classification ubogenre
      * */
     public static String getDefaultPublicationTypeName(String ubogenreId) {
-        return PublicationAndDocTypeMapper.getPublicationTypeName(ubogenreId, "none");
+        return PublicationAndDocTypeMapper.getPublicationTypeName(ubogenreId, "default");
     }
 
     private static String getTypeNameFromXLabel(String xLabelName, String ubogenreId, String hostGenre) {
@@ -92,7 +92,7 @@ public class PublicationAndDocTypeMapper {
             "No '" + xLabelName + "' for genre '" + ubogenreId + "' and related item of type '" + hostGenre + "'"));
 
         // get default mapping
-        if ("none".equals(hostGenre)) {
+        if ("default".equals(hostGenre)) {
             return getMapping(label, "default")
                 .orElseThrow(() -> new RuntimeException("No default mapping for genre " + ubogenreId));
         }
@@ -102,7 +102,7 @@ public class PublicationAndDocTypeMapper {
     }
 
     private static String getDefaultTypeNameFromXLabel(String xLabelName, String ubogenreId) {
-        return getTypeNameFromXLabel(xLabelName, ubogenreId, "none");
+        return getTypeNameFromXLabel(xLabelName, ubogenreId, "default");
     }
 
     private static Optional<String> getMapping(MCRLabel label, String hostGenre) {
