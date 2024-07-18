@@ -33,6 +33,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -367,13 +368,15 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(DocumentType.getPath(DocumentType.PathType.book))) {
+            Response bookResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.book));
+            Response articleResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.article))) {
 
-            List<DocumentType> documentTypeValues = response.readEntity(
-                new GenericType<List<DocumentType>>() {
-                });
+            List<DocumentType> combined = new ArrayList<>();
+            combined.addAll(bookResp.readEntity(new GenericType<List<DocumentType>>() {}));
+            combined.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {}));
 
-            DocumentType documentType = documentTypeValues.stream()
+            DocumentType documentType = combined
+                .stream()
                 .filter(v -> v.getUniqueName().equals(documentTypeName))
                 .findFirst().get();
 
