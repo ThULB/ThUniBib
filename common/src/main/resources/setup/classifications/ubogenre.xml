@@ -29,7 +29,8 @@
           <label xml:lang="x-color" text="#8671b1"/>
           <label xml:lang="x-marcgt" text="article"/>
           <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
-          <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+          <label xml:lang="x-mapping-his-genre" text="journal:Journalartikel ,default:Sonstiger Publikationstyp"/>
+          <label xml:lang="x-mapping-his-docType" text="journal:Review"/>
 
           <label xml:lang="de" text="Review Artikel"/>
           <label xml:lang="en" text="Review article"/>
@@ -40,7 +41,8 @@
         <label xml:lang="x-color" text="#368dbc"/>
         <label xml:lang="x-marcgt" text="article"/>
         <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:book-chapter"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Sammelbandbeitrag"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Wissenschaftlicher Artikel"/>
 
         <label xml:lang="de" text="Buchaufsatz/Kapitel"/>
         <label xml:lang="en" text="Book chapter"/>
@@ -49,7 +51,8 @@
         <label xml:lang="x-hosts" text="collection proceedings lexicon journal book newspaper video others"/>
         <label xml:lang="x-color" text="#449cab"/>
         <label xml:lang="x-mapping" text="orcidWorkType:annotation"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="proceedings:Konferenzpaper, journal:Journalartikel, collection:Sammelbandbeitrag, book:Sammelbandbeitrag,default:Konferenzpaper"/>
+        <label xml:lang="x-mapping-his-docType" text="journal:Editorial, collection:Editorial, book:Editorial"/>
 
         <label xml:lang="de" text="Vorwort/Nachwort"/>
         <label xml:lang="en" text="Preface/epilogue"/>
@@ -68,7 +71,7 @@
         <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others"/>
         <label xml:lang="x-color" text="#6a9864"/>
         <label xml:lang="x-mapping" text="orcidWorkType:conference-paper"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Konferenzpaper"/>
 
         <label xml:lang="de" text="Konferenz-/Tagungsbeitrag"/>
         <label xml:lang="en" text="Conference paper"/>
@@ -86,7 +89,8 @@
         <label xml:lang="x-hosts" text="collection lexicon book newspaper video others"/>
         <label xml:lang="x-color" text="#007836"/>
         <label xml:lang="x-mapping" text="orcidWorkType:encyclopedia-entry orcidWorkType:dictionary-entry"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="lexicon:Sammelbandbeitrag, default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="lexicon:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Lexikoneintrag"/>
         <label xml:lang="en" text="Lexicon entry"/>
@@ -223,7 +227,8 @@
         <label xml:lang="x-color" text="#174488"/>
         <label xml:lang="x-marcgt" text="book"/>
         <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:book"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Konferenzband"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Konferenz-/Tagungsband"/>
         <label xml:lang="en" text="Conference proceedings"/>
@@ -233,7 +238,8 @@
         <label xml:lang="x-color" text="#174490"/>
         <label xml:lang="x-marcgt" text="book"/>
         <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:book"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Sammelband"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Sammelwerk"/>
         <label xml:lang="en" text="Book (collection)"/>
@@ -252,7 +258,7 @@
         <label xml:lang="x-color" text="#8671b1"/>
         <label xml:lang="x-marcgt" text="reporting"/>
         <label xml:lang="x-mapping" text="marcgt:reporting orcidWorkType:report"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Arbeitspapier/Forschungsbericht"/>
 
         <label xml:lang="de" text="Forschungsbericht"/>
         <label xml:lang="en" text="Research Paper"/>
@@ -270,7 +276,7 @@
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
         <label xml:lang="x-color" text="#e02f8b"/>
         <label xml:lang="x-mapping" text="orcidWorkType:other"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="journal:Beitrag in nicht-wissenschaftlichen Medien, default:Sonstiger Publikationstyp"/>
 
         <label xml:lang="de" text="Interview"/>
         <label xml:lang="en" text="Interview"/>
@@ -289,7 +295,8 @@
         <label xml:lang="x-color" text="#8db5d5"/>
         <label xml:lang="x-marcgt" text="review"/>
         <label xml:lang="x-mapping" text="marcgt:review orcidWorkType:book-review"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="journal:Journalartikel, default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="journal:Rezension"/>
 
         <label xml:lang="de" text="Rezension"/>
         <label xml:lang="en" text="Review"/>
@@ -309,7 +316,7 @@
         <label xml:lang="x-color" text="#953a4b"/>
         <label xml:lang="x-marcgt" text="book"/>
         <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:working-paper"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Arbeitspapier/Forschungsbericht"/>
 
         <label xml:lang="de" text="Diskussionspapier/Working Paper"/>
         <label xml:lang="en" text="Working paper"/>
@@ -328,7 +335,7 @@
         <label xml:lang="x-hosts" text="standalone proceedings collection book newspaper video others"/>
         <label xml:lang="x-color" text="#7671b1"/>
         <label xml:lang="x-mapping" text="orcidWorkType:conference-poster"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Konferenzposter"/>
 
         <label xml:lang="de" text="Poster"/>
         <label xml:lang="en" text="Poster"/>
