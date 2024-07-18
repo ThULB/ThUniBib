@@ -20,9 +20,9 @@ import java.util.Optional;
  * and for document type mapping use <code>x-mapping-his-docType</code>.
  * </p>
  *
- *  <h5>
- *  Example:
- *  </h5>
+ *  <p>
+ *      <strong>Example:</strong>
+ *  </p>
  *
  * <p>
  *  <code>
