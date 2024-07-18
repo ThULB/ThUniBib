@@ -69,8 +69,7 @@ public class PublicationAndDocTypeMapper {
         try {
             return getTypeNameFromXLabel("x-mapping-his-docType", ubogenreId, hostGenre);
         } catch (RuntimeException e) {
-            LOGGER.info("Could not determine document type for '{}' and related item of type '{}'", ubogenreId,
-                hostGenre);
+            LOGGER.warn(e.getMessage());
             return null;
         }
     }
