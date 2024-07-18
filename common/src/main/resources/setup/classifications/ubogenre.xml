@@ -18,7 +18,7 @@
         <label xml:lang="x-color" text="#7dabd0"/>
         <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
         <label xml:lang="x-mapping-his-genre" text="journal:Journalartikel, default:Sonstiger Publikationstyp"/>
-        <label xml:lang="x-mapping-his-docType" text="journal:Wissenschaftlicher Artikel, default:Sonstiger Dokumenttyp"/>
+        <label xml:lang="x-mapping-his-docType" text="journal:Wissenschaftlicher Artikel"/>
         <label xml:lang="x-marcgt" text="article"/>
 
         <label xml:lang="de" text="Artikel/Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
@@ -111,7 +111,8 @@
         <label xml:lang="x-color" text="#e8b65a"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Bachelorarbeit"/>
         <label xml:lang="en" text="Bachelor thesis"/>
@@ -121,7 +122,8 @@
         <label xml:lang="x-color" text="#dc9800"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Masterarbeit"/>
         <label xml:lang="en" text="Master thesis"/>
@@ -131,7 +133,8 @@
         <label xml:lang="x-color" text="#eca56e"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Diplomarbeit"/>
         <label xml:lang="en" text="Diploma thesis"/>
@@ -141,7 +144,8 @@
         <label xml:lang="x-color" text="#dc6413"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Magisterarbeit"/>
         <label xml:lang="en" text="Magister thesis"/>
@@ -151,7 +155,8 @@
         <label xml:lang="x-color" text="#e18271"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Dissertation"/>
         <label xml:lang="en" text="Dissertation"/>
@@ -161,7 +166,8 @@
         <label xml:lang="x-color" text="#cb2129"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Habilitationsschrift"/>
         <label xml:lang="en" text="Habilitation thesis"/>
@@ -171,7 +177,8 @@
         <label xml:lang="x-color" text="#eca56e"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:dissertation-thesis"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Staatsexamensarbeit"/>
         <label xml:lang="en" text="State examination thesis"/>
@@ -181,7 +188,8 @@
         <label xml:lang="x-color" text="#dc9800"/>
         <label xml:lang="x-marcgt" text="thesis"/>
         <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:working-paper"/>
-        <label xml:lang="x-mapping-his-genre" text="default:Sonstiger Publikationstyp"/>
+        <label xml:lang="x-mapping-his-genre" text="default:Monographie"/>
+        <label xml:lang="x-mapping-his-docType" text="default:Sonstiger Dokumenttyp"/>
 
         <label xml:lang="de" text="Studienarbeit"/>
         <label xml:lang="en" text="Seminar paper"/>

@@ -204,7 +204,7 @@
           <xsl:value-of select="substring-after(../mods:relatedItem[@type]/mods:genre/@valueURI, '#')"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="'none'"/>
+          <xsl:value-of select="'standalone'"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
