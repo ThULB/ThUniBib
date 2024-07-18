@@ -33,12 +33,12 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -383,13 +383,18 @@ public class HISinOneResolver implements URIResolver {
             Response bookResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.book));
             Response articleResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.article))) {
 
-            List<DocumentType> combined = new ArrayList<>();
-            combined.addAll(bookResp.readEntity(new GenericType<List<DocumentType>>() {
-            }));
-            combined.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {
-            }));
+            List<DocumentType> ofBook = bookResp.readEntity(new GenericType<List<DocumentType>>() {});
+            ofBook.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {}));
 
-            DocumentType documentType = combined
+            // remove duplicates
+            List<DocumentType> list = ofBook
+                .stream()
+                .collect(Collectors.toMap(DocumentType::getId, existing -> existing, (existing, replace) -> existing))
+                .values()
+                .stream()
+                .toList();
+
+            DocumentType documentType = list
                 .stream()
                 .filter(v -> v.getUniqueName().equals(documentTypeName))
                 .findFirst().get();
