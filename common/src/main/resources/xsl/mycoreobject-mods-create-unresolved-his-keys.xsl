@@ -31,6 +31,7 @@
     </xsl:copy>
   </xsl:template>
 
+  <!-- Create unresolved publisher -->
   <xsl:template match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]" mode="create">
     <xsl:variable name="publisher-text" select="fn:encode-for-uri(../mods:originInfo/mods:publisher)"/>
     <xsl:variable name="publisher-id" select="fn:document(concat('hisinone:create:publisher:', $publisher-text))"/>
