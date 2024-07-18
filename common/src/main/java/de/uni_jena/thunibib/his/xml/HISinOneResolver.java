@@ -41,9 +41,21 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Usage:
- * <br/><br/>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publicationType|globalIdentifiers|language|peerReviewed|publicationAccessType|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <p>
+ * This resolver allows to resolve internal keys used by HISinOne to address its entities.
+ * </p>
+ *
+ * Usage
+ * <p>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publicationType|globalIdentifiers|language|peerReviewed|publicationAccessType|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * </p>
+ *
+ * Note
+ * <p>
+ * The <strong><code>create:</code></strong> uri part is supported for <strong><code>publisher:</code></strong> uri part only.
+ * </p>
+ *
+ * @author shermann (Silvio Hermann)
  * */
 public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
@@ -372,8 +384,10 @@ public class HISinOneResolver implements URIResolver {
             Response articleResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.article))) {
 
             List<DocumentType> combined = new ArrayList<>();
-            combined.addAll(bookResp.readEntity(new GenericType<List<DocumentType>>() {}));
-            combined.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {}));
+            combined.addAll(bookResp.readEntity(new GenericType<List<DocumentType>>() {
+            }));
+            combined.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {
+            }));
 
             DocumentType documentType = combined
                 .stream()
