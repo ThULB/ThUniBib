@@ -2,7 +2,6 @@ package de.uni_jena.thunibib.his.xml;
 
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
 
-import static de.uni_jena.thunibib.his.api.client.HISInOneClient.API_PATH;
 import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE_URL;
 
 public class HISInOneServiceFlag {
@@ -10,6 +9,6 @@ public class HISInOneServiceFlag {
     }
 
     public static String getName() {
-        return HIS_IN_ONE_BASE_URL + API_PATH + Publication.getPath();
+        return "his-id";
     }
 }
