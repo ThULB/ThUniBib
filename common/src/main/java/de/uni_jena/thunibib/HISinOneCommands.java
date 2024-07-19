@@ -1,5 +1,9 @@
 package de.uni_jena.thunibib;
 
+import de.uni_jena.thunibib.his.api.client.HISInOneClient;
+import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
+import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
+import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
@@ -13,6 +17,8 @@ import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 
 import java.io.IOException;
+
+import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE_URL;
 
 @MCRCommandGroup(name = "HISinOne Commands")
 public class HISinOneCommands {
@@ -36,7 +42,13 @@ public class HISinOneCommands {
         Document mods = MCRMetadataManager.retrieveMCRObject(mcrObjectID).createXML();
         try {
             MCRContent transformed = transformer.transform(new MCRJDOMContent(mods));
-            LOGGER.info("JSON: {}", transformed.asString());
+            String json = transformed.asString();
+            LOGGER.debug("JSON: {}", json);
+            try (HISInOneClient client = HISinOneClientFactory.create();
+                Response response = client.post(Publication.getPath(), json)) {
+                Publication publication = response.readEntity(Publication.class);
+                LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL, publication.getId());
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
