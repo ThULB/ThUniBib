@@ -219,10 +219,6 @@
 
     <!--
       documentType
-
-      TODO In HISinOne there is an additional documentType. Possible values are depending on the publicationType.
-      TODO GET /fs/res/publication/documentTypes/article
-      TODO GET /fs/res/publication/documentTypes/book
     -->
     <xsl:variable name="his-key-document-type-type-value" select="fn:document(concat('hisinone:resolve:documentType:',  $genre, ':', $related-item-genre))"/>
     <xsl:if test="$his-key-document-type-type-value">
@@ -258,6 +254,18 @@
 
         <xsl:comment>End - transformer 'mods-resolve-his-keys'</xsl:comment>
       </xsl:if>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="//servflags[servflag[@type = 'his-id']]">
+    <xsl:copy>
+      <xsl:copy-of select="*|@*"/>
+      <xsl:variable name="hisid" select="servflag[@type = 'his-id']"/>
+      <xsl:variable name="lockVersion" select="fn:document(concat('hisinone:resolve:publication:', $hisid))"/>
+
+      <servflag type="his-id-lockVersion">
+        <xsl:value-of select="$lockVersion"/>
+      </servflag>
     </xsl:copy>
   </xsl:template>
 </xsl:stylesheet>
