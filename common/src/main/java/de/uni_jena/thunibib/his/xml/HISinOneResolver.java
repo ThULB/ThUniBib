@@ -16,6 +16,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.publisher.PublisherWrappedValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.DocumentType;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.GlobalIdentifierType;
+import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
@@ -47,7 +48,7 @@ import java.util.stream.Collectors;
  *
  * Usage
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publicationType|globalIdentifiers|language|peerReviewed|publicationAccessType|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publication|publicationType|globalIdentifiers|language|peerReviewed|publicationAccessType|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * </p>
  *
  * Note
@@ -84,6 +85,7 @@ public class HISinOneResolver implements URIResolver {
         globalIdentifiers,
         language,
         peerReviewed,
+        publication,
         publicationAccessType,
         publicationType,
         publisher,
@@ -120,6 +122,7 @@ public class HISinOneResolver implements URIResolver {
             case globalIdentifiers -> resolveIdentifierType(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
+            case publication -> resolvePublicationLockVersion(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationType -> resolvePublicationType(fromValue, hostGenre);
             case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(fromValue) : createPublisher(fromValue);
@@ -130,8 +133,29 @@ public class HISinOneResolver implements URIResolver {
             case visibility -> resolveVisibility(fromValue);
         };
 
-        LOGGER.info("Resolved {} to {}", href, sysValue.getId());
-        return new JDOMSource(new Element("int").setText(String.valueOf(sysValue.getId())));
+        LOGGER.info("Resolved {} to {}", href, sysValue);
+
+        // TODO Make desired field part of the URI
+        return new JDOMSource(new Element("int").setText(String.valueOf(
+            ResolvableTypes.publication.name().equals(entity) ? sysValue.getLockVersion() : sysValue.getId())));
+    }
+
+    /**
+     *
+     * @param hisid the his id of a publication
+     * @return
+     */
+    private SysValue resolvePublicationLockVersion(String hisid) {
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(Publication.getPath() + "/" + hisid)) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return SysValue.ErroneousSysValue;
+            }
+
+            Publication publication = response.readEntity(Publication.class);
+            return publication;
+        }
     }
 
     private SysValue resolvePublisher(String value) {
@@ -383,8 +407,10 @@ public class HISinOneResolver implements URIResolver {
             Response bookResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.book));
             Response articleResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.article))) {
 
-            List<DocumentType> ofBook = bookResp.readEntity(new GenericType<List<DocumentType>>() {});
-            ofBook.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {}));
+            List<DocumentType> ofBook = bookResp.readEntity(new GenericType<List<DocumentType>>() {
+            });
+            ofBook.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {
+            }));
 
             // remove duplicates
             List<DocumentType> list = ofBook
@@ -394,13 +420,16 @@ public class HISinOneResolver implements URIResolver {
                 .stream()
                 .toList();
 
-            DocumentType documentType = list
+            Optional<DocumentType> documentType = list
                 .stream()
-                .filter(v -> v.getUniqueName().equals(documentTypeName))
-                .findFirst().get();
+                .filter(v -> v.getDefaultText().equals(documentTypeName))
+                .findFirst();
 
-            DOCUMENT_TYPE_MAP.put(ubogenre, documentType);
-            return documentType;
+            if (documentType.isPresent()) {
+                DOCUMENT_TYPE_MAP.put(ubogenre, documentType.get());
+                return documentType.get();
+            }
+            return SysValue.UnresolvedSysValue;
         }
     }
 
