@@ -47,11 +47,8 @@ public class HISinOneCommands {
             return;
         }
 
-        Document mods = mcrObject.createXML();
         try {
-            MCRContentTransformer transformer = MCRContentTransformerFactory.getTransformer("res-json-detailed");
-            MCRContent transformed = transformer.transform(new MCRJDOMContent(mods));
-            String json = transformed.asString();
+            String json = transform(mcrObject);
             LOGGER.debug("JSON: {}", json);
 
             try (HISInOneClient client = HISinOneClientFactory.create();
@@ -71,10 +68,51 @@ public class HISinOneCommands {
     @MCRCommand(syntax = "update {0}", help = "Uopdates the object given by its id in HISinOne")
     public static void update(String mcrid) {
         LOGGER.info("Updating {}", mcrid);
+        if (!MCRObjectID.isValid(mcrid)) {
+            LOGGER.error("{} is not a valid {}", mcrid, MCRObjectID.class.getSimpleName());
+            return;
+        }
+
+        MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
+        if (!MCRMetadataManager.exists(mcrObjectID)) {
+            LOGGER.error("{} does not exist", mcrid);
+            return;
+        }
+
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
+        if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
+            LOGGER.warn("{} is not published. Try command 'publish {0}' first", mcrid);
+            return;
+        }
+
+        try {
+            String hisId = mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
+            String json = transform(mcrObject);
+
+            try (HISInOneClient client = HISinOneClientFactory.create();
+                Response response = client.put(Publication.getPath() + "/" + hisId, json)) {
+                Publication p = response.readEntity(Publication.class);
+                LOGGER.info("MCRObject {} updated at {} with id {} and new lockVersion {}", mcrid, HIS_IN_ONE_BASE_URL,
+                    hisId, p.getLockVersion());
+            }
+        } catch (IOException e) {
+            LOGGER.error("Could not update {} to {}", mcrid, HIS_IN_ONE_BASE_URL, e);
+        }
     }
 
     @MCRCommand(syntax = "delete {0}", help = "Deletes the object given by its id from HISinOne")
     public static void delete(String mcrid) {
         LOGGER.info("Deleting {}", mcrid);
+    }
+
+    /**
+     * Transformes a given {@link MCRObject} to JSON suitable for HISinOne/RES.
+     * */
+    private static String transform(MCRObject mcrObject) throws IOException {
+        Document mods = mcrObject.createXML();
+        MCRContentTransformer transformer = MCRContentTransformerFactory.getTransformer("res-json-detailed");
+        MCRContent transformed = transformer.transform(new MCRJDOMContent(mods));
+
+        return transformed.asString();
     }
 }

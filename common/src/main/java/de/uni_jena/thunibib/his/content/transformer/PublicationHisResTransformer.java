@@ -20,7 +20,6 @@ package de.uni_jena.thunibib.his.content.transformer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,7 +29,6 @@ import org.jdom2.JDOMException;
 import org.jdom2.filter.Filters;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
-import org.mycore.datamodel.metadata.MCRObject;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
