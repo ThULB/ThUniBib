@@ -58,8 +58,10 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addProperty(jsonObject, "//mods:mods/mods:note[not(@type='intern')]", xml, "commentary", false);
 
             addExtent(jsonObject, xml);
+            addSampleCreator(jsonObject);
+            /** TODO: Remove comments in production
             addCreators(jsonObject, xml);
-
+            */
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publisher')]", xml, "publisher");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml, "peerReviewed");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationAccessTypeValue')]", xml, "access");
@@ -120,6 +122,21 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         if (!globalIdentifiers.isEmpty()) {
             jsonObject.add("globalIdentifiers", globalIdentifiers);
         }
+    }
+
+    /**
+     * For Testing
+     * */
+    private void addSampleCreator(JsonObject jsonObject){
+        LOGGER.warn("{}#addSampleCreator invoked", PublicationHisResTransformer.class.getName());
+        JsonArray creators = new JsonArray();
+        JsonObject name = new JsonObject();
+        name.addProperty("id", 135);
+        name.addProperty("creatorname", "Krüger");
+        name.addProperty("firstname", "Gudrun");
+
+        creators.add(name);
+        jsonObject.add("creators", creators);
     }
 
     private void addCreators(JsonObject jsonObject, Document xml) {
