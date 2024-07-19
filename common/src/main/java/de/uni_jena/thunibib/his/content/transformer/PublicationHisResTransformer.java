@@ -21,6 +21,7 @@ package de.uni_jena.thunibib.his.content.transformer;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
+import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
@@ -29,6 +30,7 @@ import org.jdom2.JDOMException;
 import org.jdom2.filter.Filters;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
+import org.mycore.datamodel.metadata.MCRObject;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
@@ -50,6 +52,12 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             Document xml = source.asXML();
             JsonObject jsonObject = new JsonObject();
 
+            MCRObject obj = new MCRObject(xml);
+            if (obj.getService().getFlags(HISInOneServiceFlag.getName()).size() > 0) {
+                String v = obj.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
+                jsonObject.addProperty("id", Integer.parseInt(v));
+            }
+
             addProperty(jsonObject, "//mods:mods/mods:abstract", xml, "textAbstract", true);
             addProperty(jsonObject, "//mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear", true);
             addProperty(jsonObject, "//mods:mods/mods:originInfo/mods:edition", xml, "edition", true);
@@ -60,22 +68,41 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addExtent(jsonObject, xml);
             addSampleCreator(jsonObject);
             /** TODO: Remove comments in production
-            addCreators(jsonObject, xml);
-            */
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publisher')]", xml, "publisher");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml, "peerReviewedProcess");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationAccessTypeValue')]", xml, "access");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationCreatorTypeValue')]", xml, "publicationCreatorType");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'visibilityValue')]", xml, "visibilityValue");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'state/publication')]", xml,"status");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'publicationTypeValue')]", xml, "publicationType");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'documentTypes')]", xml, "documentType");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'qualificationThesisValue')]", xml, "qualificationThesis");
+             addCreators(jsonObject, xml);
+             */
+            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publisher')]", xml,
+                "publisher");
+            addQualifiedObjectID(jsonObject,
+                "//mods:mods/mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml,
+                "peerReviewedProcess");
+            addQualifiedObjectID(jsonObject,
+                "//mods:mods/mods:classification[contains(@valueURI, 'publicationAccessTypeValue')]", xml, "access");
+            addQualifiedObjectID(jsonObject,
+                "//mods:mods/mods:classification[contains(@valueURI, 'publicationCreatorTypeValue')]", xml,
+                "publicationCreatorType");
+            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'visibilityValue')]",
+                xml, "visibilityValue");
+            addQualifiedObjectID(jsonObject,
+                "//mods:mods/mods:classification[contains(@valueURI, 'state/publication')]", xml, "status");
+            addQualifiedObjectID(jsonObject,
+                "//mods:mods/mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL
+                    + "'][contains(@valueURI, 'publicationTypeValue')]", xml, "publicationType");
+            addQualifiedObjectID(jsonObject,
+                "//mods:mods/mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL
+                    + "'][contains(@valueURI, 'documentTypes')]", xml, "documentType");
+            addQualifiedObjectID(jsonObject,
+                "//mods:mods/mods:genre[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL
+                    + "'][contains(@valueURI, 'qualificationThesisValue')]", xml, "qualificationThesis");
 
-            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'researchAreaKdsfValue')]", xml, "researchAreasKdsf","id");
-            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml,"subjectAreas","id");
-            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:language/mods:languageTerm[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL + "']", xml,"languages","id");
-            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:subject/mods:topic", xml,"keyWords","defaulttext");
+            addQualifiedObjectIDs(jsonObject,
+                "//mods:mods/mods:classification[contains(@valueURI, 'researchAreaKdsfValue')]", xml,
+                "researchAreasKdsf", "id");
+            addQualifiedObjectIDs(jsonObject,
+                "//mods:mods/mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml, "subjectAreas", "id");
+            addQualifiedObjectIDs(jsonObject,
+                "//mods:mods/mods:language/mods:languageTerm[@authorityURI='" + HISInOneClient.HIS_IN_ONE_BASE_URL
+                    + "']", xml, "languages", "id");
+            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:subject/mods:topic", xml, "keyWords", "defaulttext");
 
             addGlobalIdentifiers(jsonObject, xml);
 
@@ -127,7 +154,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
     /**
      * For Testing
      * */
-    private void addSampleCreator(JsonObject jsonObject){
+    private void addSampleCreator(JsonObject jsonObject) {
         LOGGER.warn("{}#addSampleCreator invoked", PublicationHisResTransformer.class.getName());
         JsonArray creators = new JsonArray();
         JsonObject name = new JsonObject();
