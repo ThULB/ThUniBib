@@ -73,32 +73,24 @@ abstract public class SysValue implements HisValue {
      * This {@link SysValue} indicates an unresolved value in case a proper hisKeyId could not be obtained from HISinOne.
      * */
     @JsonIgnore
-    public static final SysValue UnresolvedSysValue = new SysValue() {
-        @Override
-        public int getHisKeyId() {
-            return -1;
-        }
+    public static final SysValue UnresolvedSysValue = new UnresolvedSysValue(-1);
 
-        @Override
-        public int getId() {
-            return -1;
+    private static class UnresolvedSysValue extends SysValue {
+        public UnresolvedSysValue(int id) {
+            this.id = id;
         }
-    };
+    }
 
     /**
-     * This {@link SysValue} indicates an unresolved value in case an error occured during the resolving of the key from
+     * This {@link SysValue} indicates an unresolved value in case an error occurred during the resolving of the key from
      * HISinOne.
      * */
     @JsonIgnore
-    public static final SysValue ErroneousSysValue = new SysValue() {
-        @Override
-        public int getHisKeyId() {
-            return -2;
-        }
+    public static final SysValue ErroneousSysValue = new ErroneousSysValue(-2);
 
-        @Override
-        public int getId() {
-            return -2;
+    private static class ErroneousSysValue extends SysValue {
+        public ErroneousSysValue(int id) {
+            this.id = id;
         }
-    };
+    }
 }
