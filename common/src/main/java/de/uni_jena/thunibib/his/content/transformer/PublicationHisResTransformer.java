@@ -60,6 +60,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle", true);
             addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:title", xml, "title", true);
             addProperty(jsonObject, "//mods:mods/mods:note[not(@type='intern')]", xml, "commentary", false);
+            addProperty(jsonObject, "//mods:mods/mods:part/mods:detail[@type='volume']/mods:number", xml, "volume", true);
 
             addExtent(jsonObject, xml);
             addSampleCreator(jsonObject);
