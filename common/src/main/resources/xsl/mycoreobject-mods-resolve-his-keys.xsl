@@ -65,10 +65,9 @@
   <xsl:template name="publicationResource">
     <xsl:if test="mods:typeOfResource">
       <xsl:variable name="typeOfResource" select="mods:typeOfResource"/>
-      <xsl:variable name="publication-resource-value" select="fn:document(concat('hisinone:resolve:publicationResource:', $typeOfResource))"/>
-
+      <xsl:variable name="his-id" select="fn:document(concat('hisinone:resolve:publicationResource:', $typeOfResource))"/>
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationResourceValue">
-        <xsl:value-of select="$publication-resource-value"/>
+        <xsl:value-of select="$his-id"/>
       </mods:classification>
     </xsl:if>
   </xsl:template>
