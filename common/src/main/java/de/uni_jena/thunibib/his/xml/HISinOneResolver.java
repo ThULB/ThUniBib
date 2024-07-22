@@ -3,7 +3,6 @@ package de.uni_jena.thunibib.his.xml;
 import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.HisValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PeerReviewedValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationAccessTypeValue;
@@ -667,7 +666,7 @@ public class HISinOneResolver implements URIResolver {
     }
 
     /**
-     * Retrieve the desired field value. If the value cannot be obtained {@link HisValue#getId()} will be returned.
+     * Retrieve the desired field value. If the value cannot be obtained {@link SysValue#getId()} will be returned.
      *
      * @param sysValue the SysValue
      * @param fieldName the field name
@@ -684,7 +683,7 @@ public class HISinOneResolver implements URIResolver {
             }
             return value;
         } catch (Exception e) {
-            LOGGER.warn("Field {} could not be obtained from HisValue {} returning id instead", fieldName, sysValue);
+            LOGGER.warn("Field {} could not be obtained from SysValue {} returning id instead", fieldName, sysValue);
             return sysValue.getId();
         }
     }
