@@ -66,7 +66,7 @@ abstract public class SysValue implements HisValue {
     }
 
     public String toString() {
-        return defaultText + ":" + id + ":" + ":lockVersion:" + lockVersion;
+        return defaultText + ":" + id + ":lockVersion:" + lockVersion;
     }
 
     /**

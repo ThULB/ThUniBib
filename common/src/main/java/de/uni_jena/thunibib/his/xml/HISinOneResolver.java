@@ -145,6 +145,12 @@ public class HISinOneResolver implements URIResolver {
             ResolvableTypes.publication.name().equals(entity) ? sysValue.getLockVersion() : sysValue.getId())));
     }
 
+    /**
+     * Resolves the <code>publicationResourceType</code> by the given <code>mods:typeofResource</code> category id.
+     *
+     * @param resourceTypeText
+     * @return the resolved his id or the HIS id for default value "Sonstige Darstellungsform"
+     */
     private SysValue resolvePublicationResourceType(String resourceTypeText) {
         if (PUBLICATION_RESOURCE_TYPE_MAP.containsKey(resourceTypeText)) {
             return PUBLICATION_RESOURCE_TYPE_MAP.get(resourceTypeText);
