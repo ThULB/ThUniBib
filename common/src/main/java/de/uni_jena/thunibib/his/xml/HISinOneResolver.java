@@ -48,7 +48,7 @@ import java.util.stream.Collectors;
  *
  * Usage
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publication|publicationType|globalIdentifiers|language|peerReviewed|publicationAccessType|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * </p>
  *
  * Note
@@ -87,6 +87,7 @@ public class HISinOneResolver implements URIResolver {
         peerReviewed,
         publication,
         publicationAccessType,
+        publicationResource,
         publicationType,
         publisher,
         researchAreaKdsf,
@@ -131,6 +132,7 @@ public class HISinOneResolver implements URIResolver {
             case subjectArea -> resolveSubjectArea(fromValue);
             case thesisType -> resolveThesisType(fromValue);
             case visibility -> resolveVisibility(fromValue);
+            default -> SysValue.UnresolvedSysValue;
         };
 
         LOGGER.info("Resolved {} to {}", href, sysValue);

@@ -26,6 +26,9 @@
     <xsl:copy>
       <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
 
+      <!-- Type of resource -->
+      <xsl:call-template name="publicationResource"/>
+
       <!-- Publisher -->
       <xsl:call-template name="publisher"/>
 
@@ -57,6 +60,17 @@
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="publicationResource">
+    <xsl:if test="mods:typeOfResource">
+      <xsl:variable name="typeOfResource" select="mods:typeOfResource"/>
+      <xsl:variable name="publication-resource-value" select="fn:document(concat('hisinone:resolve:publicationResource:', $typeOfResource))"/>
+
+      <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationResourceValue">
+        <xsl:value-of select="$publication-resource-value"/>
+      </mods:classification>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="publisher">
