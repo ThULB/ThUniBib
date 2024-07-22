@@ -7,6 +7,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PeerReviewedValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationAccessTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationResourceValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.QualificationThesisValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.ResearchAreaKdsfValue;
@@ -67,6 +68,7 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> PUBLICATION_RESOURCE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLISHER_MAP = new HashMap<>();
     private static final Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
@@ -125,6 +127,7 @@ public class HISinOneResolver implements URIResolver {
             case peerReviewed -> resolvePeerReviewedType(fromValue);
             case publication -> resolvePublicationLockVersion(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
+            case publicationResource -> resolvePublicationResourceType(fromValue);
             case publicationType -> resolvePublicationType(fromValue, hostGenre);
             case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(fromValue) : createPublisher(fromValue);
             case researchAreaKdsf -> resolveResearchAreaKdsf(fromValue);
@@ -142,9 +145,57 @@ public class HISinOneResolver implements URIResolver {
             ResolvableTypes.publication.name().equals(entity) ? sysValue.getLockVersion() : sysValue.getId())));
     }
 
+    private SysValue resolvePublicationResourceType(String resourceTypeText) {
+        if (PUBLICATION_RESOURCE_TYPE_MAP.containsKey(resourceTypeText)) {
+            return PUBLICATION_RESOURCE_TYPE_MAP.get(resourceTypeText);
+        }
+
+        Optional<MCRLabel> label = Optional.empty();
+        try {
+            MCRCategory category = MCRCategoryDAOFactory
+                .getInstance()
+                .getCategory(MCRCategoryID.fromString("typeOfResource:" + resourceTypeText), 0);
+            label = category.getLabel("x-mapping-his-pub-resource-value");
+        } catch (Exception ex) {
+            LOGGER.warn("Could not resolve label x-mapping-his-pub-resource-value for category {}",
+                ("typeOfResource:" + resourceTypeText), ex);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(PublicationResourceValue.getPath())) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return SysValue.ErroneousSysValue;
+            }
+
+            List<PublicationResourceValue> availableResourceTypes = response.readEntity(
+                new GenericType<List<PublicationResourceValue>>() {
+                });
+
+            // find his key of resourceType
+            if (label.isPresent()) {
+                String text = label.get().getText();
+                Optional<PublicationResourceValue> resolved = availableResourceTypes
+                    .stream()
+                    .filter(t -> text.equals(t.getDefaultText()))
+                    .findFirst();
+
+                if (resolved.isPresent()) {
+                    return resolved.get();
+                }
+            }
+
+            // return default his resource type
+            return availableResourceTypes
+                .stream()
+                .filter(t -> "Sonstige Darstellungsform".equals(t.getDefaultText()))
+                .findFirst().get();
+        }
+    }
+
     /**
      *
-     * @param hisid the his id of a publication
+     * @param hisid the HIS id of a publication
      * @return
      */
     private SysValue resolvePublicationLockVersion(String hisid) {
