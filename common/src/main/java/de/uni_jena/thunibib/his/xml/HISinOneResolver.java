@@ -3,6 +3,7 @@ package de.uni_jena.thunibib.his.xml;
 import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.HisValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PeerReviewedValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationAccessTypeValue;
@@ -33,6 +34,7 @@ import org.mycore.datamodel.classifications2.MCRLabel;
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
+import java.lang.reflect.Field;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -49,7 +51,7 @@ import java.util.stream.Collectors;
  *
  * Usage
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;creatorType|documentType|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;creatorType|documentType|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * </p>
  *
  * Note
@@ -106,17 +108,18 @@ public class HISinOneResolver implements URIResolver {
         String[] parts = href.split(":");
 
         Mode mode = Mode.valueOf(parts[1]);
-        String entity = parts[2];
+        String field = parts[2];
+        String entity = parts[3];
         String fromValue;
         String hostGenre = null;
 
         if (ResolvableTypes.publicationType.name().equals(entity) || ResolvableTypes.documentType.name()
             .equals(entity)) {
 
-            fromValue = parts[3];
-            hostGenre = parts[4];
+            fromValue = parts[4];
+            hostGenre = parts[5];
         } else {
-            fromValue = parts[3];
+            fromValue = parts[4];
         }
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
@@ -138,11 +141,8 @@ public class HISinOneResolver implements URIResolver {
             default -> SysValue.UnresolvedSysValue;
         };
 
-        LOGGER.info("Resolved {} to {}", href, sysValue);
-
-        // TODO Make desired field part of the URI
-        return new JDOMSource(new Element("int").setText(String.valueOf(
-            ResolvableTypes.publication.name().equals(entity) ? sysValue.getLockVersion() : sysValue.getId())));
+        LOGGER.info("Resolved {} to {}", href, String.valueOf(getFieldValue(sysValue, field)));
+        return new JDOMSource(new Element("int").setText(String.valueOf(getFieldValue(sysValue, field))));
     }
 
     /**
@@ -663,6 +663,29 @@ public class HISinOneResolver implements URIResolver {
 
             LANGUAGE_TYPE_MAP.put(rfc5646, languageValue);
             return languageValue;
+        }
+    }
+
+    /**
+     * Retrieve the desired field value. If the value cannot be obtained {@link HisValue#getId()} will be returned.
+     *
+     * @param sysValue the SysValue
+     * @param fieldName the field name
+     *
+     * @return the value of the requested field name or {@link SysValue#getId()}.
+     */
+    protected Object getFieldValue(SysValue sysValue, String fieldName) {
+        try {
+            final Field field = Class.forName(SysValue.class.getName()).getDeclaredField(fieldName);
+            field.setAccessible(true);
+            Object value = field.get(sysValue);
+            if (value == null) {
+                throw new RuntimeException("Could not get value from field " + fieldName);
+            }
+            return value;
+        } catch (Exception e) {
+            LOGGER.warn("Field {} could not be obtained from HisValue {} returning id instead", fieldName, sysValue);
+            return sysValue.getId();
         }
     }
 }
