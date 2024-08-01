@@ -126,6 +126,7 @@
           </xed:bind>
           <xed:include ref="cleanup" />
           <xed:include ref="cancel.submit" />
+          <xed:include ref="javascript" />
         </xed:template>
       </xed:form>
     </div>

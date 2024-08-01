@@ -137,6 +137,7 @@
           <xed:include uri="webapp:import-editor.xed" ref="fix.structure.parent" />
           <xed:include uri="webapp:import-editor.xed" ref="cleanup" />
           <xed:include uri="webapp:import-editor.xed" ref="cancel.submit" />
+          <xed:include uri="webapp:import-editor.xed" ref="javascript" />
         </xed:template>
       </xed:form>
     </div>
