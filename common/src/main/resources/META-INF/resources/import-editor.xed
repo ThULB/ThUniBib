@@ -66,6 +66,10 @@
     </script>
   </xed:template>
 
+  <xed:template id="javascript">
+    <script src="{$WebApplicationBaseURL}js/language-search.js"/>
+  </xed:template>
+
   <xed:template id="common.metafields">
     <xed:bind xpath="@ID" default="{$UBO.projectid.default}_mods_00000000"/>
     <xed:bind xpath="@label" default="{$UBO.projectid.default}"/>
@@ -271,15 +275,10 @@
           </xed:bind>
           <span class="mx-2 align-self-center">in</span>
           <xed:bind xpath="@xml:lang">
-            <select class="autocomplete mycore-form-input-double custom-select">
-              <option value="">
-                <xed:output i18n="search.select"/>
-              </option>
-              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:de"/>
-              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:en"/>
-              <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:fr"/>
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc5646"/>
-            </select>
+            <div class="language-search d-inline" data-preferred-languages="de,en,fr">
+              <input id="{xed:generate-id(..)}" type="hidden" class="language-search-input"/>
+              <!-- content is added by javascript -->
+            </div>
           </xed:bind>
         </div>
         <xed:controls/>
@@ -841,15 +840,10 @@
           <xed:output value="concat(i18n:translate('ubo.language'), ': ')"/>
         </label>
         <xed:bind xpath="mods:languageTerm[@type='code'][@authority='rfc5646']">
-          <select id="{xed:generate-id(..)}" class="autocomplete mycore-form-input custom-select">
-            <option value="">
-              <xed:output i18n="search.select"/>
-            </option>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:de"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:en"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:fr"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc5646"/>
-          </select>
+          <div class="language-search" data-preferred-languages="de,en,fr">
+            <input id="{xed:generate-id()}" type="hidden" class="language-search-input"/>
+            <!-- content is added by javascript -->
+          </div>
         </xed:bind>
         <xed:controls/>
       </div>
@@ -863,15 +857,10 @@
           <label for="{xed:generate-id()}" class="mycore-form-label">
             <xed:output value="concat(i18n:translate('ubo.abstract.in'), ': ')"/>
           </label>
-          <select class="autocomplete mycore-form-input custom-select">
-            <option value="">
-              <xed:output i18n="search.select"/>
-            </option>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:de"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:en"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:0:parents:rfc5646:fr"/>
-            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:rfc5646"/>
-          </select>
+          <div class="language-search" data-preferred-languages="de,en,fr">
+            <input id="{xed:generate-id()}" type="hidden" class="language-search-input"/>
+            <!-- content is added by javascript -->
+          </div>
         </xed:bind>
         <xed:controls/>
       </div>
