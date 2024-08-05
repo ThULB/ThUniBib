@@ -126,6 +126,7 @@
           <![CDATA[
               .cite {
                 font-family: monospace;
+                font-size: 90%;
               }
             ]]>
         </style>
