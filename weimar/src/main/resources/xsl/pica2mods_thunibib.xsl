@@ -60,7 +60,7 @@
 
   <xsl:template name="ubomodsGenre">
     <xsl:for-each
-        select="p:datafield[@tag='144Z' or @tag='013D']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090 105825778',text())]">
+      select="p:datafield[@tag='144Z' or @tag='013D']/p:subfield[@code='9'][contains('480926107 477192068 476643694 476644615 746489978 1727299213 1713916851 47664321X 476643392 477191517 476643597 476643503 476643880 490019234 47664481X 516869523 476644992 476643090 105825778',text())]">
       <!-- ensure values in @tag='144Z' get checked first -->
       <xsl:sort select="../@tag" order="descending"/>
 
@@ -68,25 +68,60 @@
       <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre">
         <xsl:attribute name="valueURI">
           <xsl:choose>
-            <xsl:when test="$genre='105825778'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#thesis')"/></xsl:when>
-            <xsl:when test="$genre='480926107'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#bachelor_thesis')"/></xsl:when>
-            <xsl:when test="$genre='477192068'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#chapter')"/></xsl:when>
-            <xsl:when test="$genre='476643694'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#diploma_thesis')"/></xsl:when>
-            <xsl:when test="$genre='476644615'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#dissertation')"/></xsl:when>
-            <xsl:when test="$genre='746489978'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#video_contribution')"/></xsl:when>
-            <xsl:when test="$genre='1727299213'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#video')"/></xsl:when>
-            <xsl:when test="$genre='1713916851'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#research_data')"/></xsl:when>
-            <xsl:when test="$genre='47664321X'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#habilitation')"/></xsl:when>
-            <xsl:when test="$genre='476643392'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#proceedings')"/></xsl:when>
-            <xsl:when test="$genre='477191517'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#conference_essay')"/></xsl:when>
-            <xsl:when test="$genre='476643597'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#master_thesis')"/></xsl:when>
-            <xsl:when test="$genre='476643503'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#book')"/></xsl:when>
-            <xsl:when test="$genre='476643880'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#researchpaper')"/></xsl:when>
-            <xsl:when test="$genre='490019234'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#review')"/></xsl:when>
-            <xsl:when test="$genre='47664481X'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#series')"/></xsl:when>
-            <xsl:when test="$genre='516869523'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#abstract')"/></xsl:when>
-            <xsl:when test="$genre='476644992'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#journal')"/></xsl:when>
-            <xsl:when test="$genre='476643090'"><xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#article')"/></xsl:when>
+            <xsl:when test="$genre='480926107'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#bachelor_thesis')"/>
+            </xsl:when>
+            <xsl:when test="$genre='477192068'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#chapter')"/>
+            </xsl:when>
+            <xsl:when test="$genre='476643694'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#diploma_thesis')"/>
+            </xsl:when>
+            <xsl:when test="contains('476644615 105825778', $genre)">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#dissertation')"/>
+            </xsl:when>
+            <xsl:when test="$genre='746489978'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#video_contribution')"/>
+            </xsl:when>
+            <xsl:when test="$genre='1727299213'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#video')"/>
+            </xsl:when>
+            <xsl:when test="$genre='1713916851'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#research_data')"/>
+            </xsl:when>
+            <xsl:when test="$genre='47664321X'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#habilitation')"/>
+            </xsl:when>
+            <xsl:when test="$genre='476643392'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#proceedings')"/>
+            </xsl:when>
+            <xsl:when test="$genre='477191517'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#conference_essay')"/>
+            </xsl:when>
+            <xsl:when test="$genre='476643597'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#master_thesis')"/>
+            </xsl:when>
+            <xsl:when test="$genre='476643503'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#book')"/>
+            </xsl:when>
+            <xsl:when test="$genre='476643880'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#researchpaper')"/>
+            </xsl:when>
+            <xsl:when test="$genre='490019234'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#review')"/>
+            </xsl:when>
+            <xsl:when test="$genre='47664481X'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#series')"/>
+            </xsl:when>
+            <xsl:when test="$genre='516869523'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#abstract')"/>
+            </xsl:when>
+            <xsl:when test="$genre='476644992'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#journal')"/>
+            </xsl:when>
+            <xsl:when test="$genre='476643090'">
+              <xsl:value-of select="concat($WebApplicationBaseURL, 'classifications/ubogenre#article')"/>
+            </xsl:when>
           </xsl:choose>
         </xsl:attribute>
       </mods:genre>
