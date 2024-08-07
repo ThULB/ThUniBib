@@ -4,8 +4,7 @@
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
   <categories>
 
-
-   <category ID="08">
+  <category ID="08">
       <label xml:lang="de" text="Technische Universität Ilmenau (1992-)"/>
       <label xml:lang="x-gnd" text="2125187-3"/>
       <label xml:lang="x-destatis" text="870"/>
@@ -2022,10 +2021,12 @@
             </category>
 
             <category ID="08.030.090.120(1990)">
-               <label xml:lang="de" text="Fachgebiet Technische Mechanik (1992-)"/>
+               <label xml:lang="de" text="Fachgebiet Technische Mechanik (1992-2022) ↗"/>
+               <label xml:lang="en" text="Technical Mechanics Group (1992-2022) ↗"/>
                <label xml:lang="x-destatis" text="6900"/>
                <label xml:lang="x-lpp" text="476948606"/>
                <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="2022"/>
                <label xml:lang="x-kst" text="2343"/>
             </category>
 
@@ -2157,7 +2158,7 @@
                <label xml:lang="x-to" text="2002"/>
             </category>
 
-            <category ID="08.030.140.080(1190)">
+            <category ID="08.030.140.080(1990)">
                <label xml:lang="de" text="Fachgebiet Mikrosystemtechnik (1992-1993) ↑"/>
                <label xml:lang="x-lpp" text="515912751"/>
                <label xml:lang="x-from" text="1992"/>
@@ -2461,11 +2462,10 @@
             </category>
 
             <category ID="08.040.010.130(2019)">
-               <label xml:lang="de" text="Heisenberg-Professur Optimization Based Control (2019-2022)"/>
+               <label xml:lang="de" text="Heisenberg-Professur Optimization Based Control (2019-)"/>
                <label xml:lang="x-destatis" text="3490"/>
                <label xml:lang="x-lpp" text="1677181095"/>
                <label xml:lang="x-from" text="2019"/>
-               <label xml:lang="x-to" text="2022"/>
                <label xml:lang="x-kst" text="2413"/>
             </category>
 
@@ -2549,7 +2549,7 @@
                <label xml:lang="x-kst" text="2414"/>
             </category>
          </category>
-			
+
          <category ID="08.040.020">
             <label xml:lang="de" text="Institut für Physik (1992-)"/>
             <label xml:lang="en" text="Institute for Physics (1992-)"/>
@@ -2802,12 +2802,12 @@
             </category>
 
             <category ID="08.040.030.100(2001)">
-               <label xml:lang="de" text="Fachgebiet Physikalische Chemie/Mikroreaktionstechnik (2011-2023)"/>
+               <label xml:lang="de" text="Fachgebiet Physikalische Chemie/Mikroreaktionstechnik (2011-2024)"/>
                <label xml:lang="x-gnd" text="113597747X"/>
                <label xml:lang="x-destatis" text="3730"/>
                <label xml:lang="x-lpp" text="479838224"/>
                <label xml:lang="x-from" text="2011"/>
-               <label xml:lang="x-to" text="2023"/>
+               <label xml:lang="x-to" text="2024"/>
                <label xml:lang="x-kst" text="2429"/>
             </category>
          </category>
@@ -3580,11 +3580,10 @@
             <label xml:lang="x-destatis" text="9600"/>
             <label xml:lang="x-from" text="1992"/>
          </category>
+
       </category>
 
-
-   </category>
-
+  </category>
 
 
    <category ID="07">
