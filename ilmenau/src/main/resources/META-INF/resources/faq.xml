@@ -141,15 +141,35 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Was bedeutet der Hinweis "Teil der Statistik"?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Bei diesen Titeln handelt es sich um Veröffentlichungen, die im Zusammenhang mit einer Tätigkeit an der TU Ilmenau entstanden sind.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Was bedeuten die einzelnen Publikationstypen?
               </button>
             </h3>
           </div>
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFAQ">
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
                 <dt>Artikel / Aufsatz</dt>
@@ -210,16 +230,16 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingSix">
+          <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
               </button>
             </h3>
           </div>
-          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
 
@@ -240,16 +260,16 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingSeven">
+          <div class="card-header" id="headingEight">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 <xinclude uri="i18n:thunibib.faq.icon.headline"/>
               </button>
             </h3>
           </div>
-          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
                 <dt>
@@ -392,11 +412,31 @@
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
+                What does the reference "part of the statistics" mean?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                These titles are publications that were created in the context of an activity at the TU Ilmenau.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 What do separate publication types mean?
               </button>
             </h3>
           </div>
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
 
       <div class="card-body">
               <dl>
@@ -458,16 +498,16 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingSix">
+          <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 What is the difference between different Access Rights options?
               </button>
             </h3>
           </div>
-          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
 
@@ -488,16 +528,16 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingSeven">
+          <div class="card-header" id="headingEight">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 <xinclude uri="i18n:thunibib.faq.icon.headline"/>
               </button>
             </h3>
           </div>
-          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
                 <dt>
