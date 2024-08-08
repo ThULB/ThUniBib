@@ -14,6 +14,7 @@
         "fl": "id",
         "facet": "true",
         "facet.mincount": "1",
+        "f.year.facet.limit": -1,
         "facet.field": [
           "status",
           "partOf",
@@ -125,6 +126,7 @@
         "fl": "id",
         "facet": "true",
         "facet.mincount": "1",
+        "f.year.facet.limit": -1,
         "facet.field": [
           "status",
           "partOf",
@@ -164,6 +166,7 @@
         "fl": "id",
         "facet": "true",
         "facet.mincount": "1",
+        "f.year.facet.limit": -1,
         "facet.field": [
           "status",
           "partOf",
