@@ -32,41 +32,16 @@
 
       <p>
         Bei jedem Aufruf der Webseiten dieser Bibliographie überträgt Ihr Webbrowser automatisch Daten des aufrufenden
-        Rechners.
-        Dies ist eine Grundfunktion des World Wide Web und nicht durch uns beeinflussbar.
-        Dabei werden folgende Daten übertragen und in Log-Dateien gespeichert:
+        Rechners. Dies ist eine Grundfunktion des World Wide Web und nicht durch uns beeinflussbar.
       </p>
-      <ul>
-        <li>Datum und Uhrzeit des Zugriffs</li>
-        <li>Adressen der aufgerufenen Webseiten</li>
-        <li>IP-Adresse des Nutzers</li>
-        <li>Informationen zum verwendeten Betriebssystem und Browsertyp</li>
-      </ul>
       <p>
-        Die vorübergehende Verarbeitung dieser Verbindungsdaten ist zur Bereitstellung der Plattform technisch zwingend
-        erforderlich.
-        Die Speicherung in Log-Dateien erfolgt zur Optimierung und Sicherstellung der Funktionsfähigkeit und Sicherheit
-        der Plattform.
-        Personenbezogene Zugriffsdaten werden nach 28 Tagen gelöscht.
+        Die vorübergehende Verarbeitung von Verbindungsdaten ist zur Bereitstellung der Plattform technisch zwingend
+        erforderlich. Die Speicherung in Log-Dateien erfolgt zur Optimierung und Sicherstellung der Funktionsfähigkeit
+        und Sicherheit
+        der Plattform. Personenbezogene Zugriffsdaten werden nach 28 Tagen gelöscht.
       </p>
 
-      <h2>III. Session-Cookies</h2>
-
-      <p>
-        Die Universitätsbibliographie verwendet sogenannte Session-Cookies.
-        Session-Cookies sind kleine Informationseinheiten, die ein Webserver
-        im Arbeitsspeicher des Computers des Besuchers speichert.
-        In einem Session-Cookie wird eine zufällig erzeugte
-        eindeutige Identifikationsnummer abgelegt, eine sogenannte Session-ID.
-        Außerdem enthält ein Cookie die Angabe über seine Herkunft und die Speicherfrist.
-        Diese Cookies können keine anderen Daten speichern.
-        Die von uns eingesetzten Session-Cookies sind für die Funktion unserer Webseite
-        notwendig, damit Ihr Browser auch nach einem Seitenwechsel wiedererkannt wird.
-        Sie werden automatisch gelöscht, wenn Sie Ihren Webbrowser schließen.
-        Session-Cookies werden nicht zur Erstellung von Nutzerprofilen verwendet.
-      </p>
-
-      <h2>IV. AnmeldeDaten</h2>
+      <h2>III. AnmeldeDaten</h2>
 
       <p>
         Eine Anmeldung (Login) mit persönlichen Daten ist nur zur Bearbeitung der Bibliographie
@@ -96,7 +71,7 @@
         <li>zum Nachweis der Urheberschaft an den Publikationen</li>
       </ul>
 
-      <h2>V. Publikationsdaten</h2>
+      <h2>IV. Publikationsdaten</h2>
 
       <p>
         Zweck dieser Bibliographie ist die weltweite Bereitstellung einer weitgehend vollständigen Publikationsliste der
@@ -135,65 +110,33 @@
 
       <p>
         The purpose of the University Bibliography is to provide a largely complete publication list of all University
-        of Erfurt members. In
-        principle, we only process personal data of our users to the extent that is necessary to provide a functional
-        website
-        and our contents and services. This is done to perform the task assigned to us of supporting teaching and
-        research
-        according to Art. 6 point (e) of paragraph 1 GDPR. As far as we obtain consent for the processing of personal
-        data, Art. 6
-        point (a) of paragraph 1 GDPR serves as the legal basis. An exception applies in those cases where obtaining
-        consent in
-        advance is not possible for factual reasons and the processing of the data is permitted by legal regulations.
+        of Erfurt members. In principle, we only process personal data of our users to the extent that is necessary to
+        provide a functional website and our contents and services. This is done to perform the task assigned to us of
+        supporting teaching and research according to Art. 6 point (e) of paragraph 1 GDPR. As far as we obtain consent
+        for the processing of personal data, Art. 6 point (a) of paragraph 1 GDPR serves as the legal basis. An
+        exception applies in those cases where obtaining consent in advance is not possible for factual reasons and the
+        processing of the data is permitted by legal regulations.
       </p>
 
       <h2>II. Connection Data and Log Files</h2>
 
       <p>
         Every time you access the web pages of the bibliography, your web browser automatically transports data of the
-        calling
-        computer. This is a basic function of the World Wide Web and cannot be influenced by us. The following data is
-        transmitted
-        and stored in log files:
+        calling computer. This is a basic function of the World Wide Web and cannot be influenced by us.
       </p>
-      <ul>
-        <li>Date and time of access</li>
-        <li>Addresses of the accessed web pages</li>
-        <li>IP address of the user</li>
-        <li>Information on the operating system and browser type used</li>
-      </ul>
       <p>
-        The temporary processing of this connection data is technically mandatory for the provision of the platform. The
-        storage
-        in log files is carried out to optimize and ensure the platform’s functionality and security. For statistical
-        purposes,
-        the log file data is regularly processed in anonymized form. Personal access data is deleted after 7 days.
+        The temporary processing of connection data is technically mandatory for the provision of the platform. The
+        storage in log files is carried out to optimize and ensure the platform’s functionality and security. For
+        statistical purposes, the log file data is regularly processed in anonymized form. Personal access data is
+        deleted after 28 days.
       </p>
 
-      <h2>III. Session-Cookies</h2>
-
-      <p>
-        The University Bibliography uses so-called Session-Cookies. These are small information units stored by a web
-        server
-        in the working memory of the visitor’s computer. In Session-Cookies, a randomly generated and unique
-        identification
-        number – a so-called session ID – is stored. A cookie also contains information on its origin and retention
-        period.
-        These cookies cannot store any other data. The Session-Cookies we use are essential for the function of our
-        website,
-        so that your browser can be recognized after a web page change. They are automatically deleted when you close
-        your web
-        browser. Session-Cookies are not used to create user profiles.
-      </p>
-
-      <h2>IV. Login Data</h2>
+      <h2>III. Login Data</h2>
 
       <p>
         A login with personal data is only required by university members to edit the bibliography; it is not necessary
-        for
-        the search for publications or to gain reading access. For publication, university members register with their
-        university
-        identifier. The following user data is processed and stored by the bibliography:
+        for the search for publications or to gain reading access. For publication, university members register with
+        their university identifier. The following user data is processed and stored by the bibliography:
       </p>
       <ul>
         <li>Name</li>
@@ -205,8 +148,7 @@
       </ul>
       <p>
         The storage and processing of this data is carried out only to perform the task assigned to us of supporting
-        teaching
-        and research according to Art. 6 point (e) of paragraph 1 GDPR and is required
+        teaching and research according to Art. 6 point (e) of paragraph 1 GDPR and is required
       </p>
       <ul>
         <li>to prove authorization to use the bibliography</li>
@@ -214,10 +156,10 @@
         <li>to prove the authorship of the publications</li>
       </ul>
 
-      <h2>V. Publication data</h2>
+      <h2>IV. Publication data</h2>
       <p>
         The purpose of this bibliography is the worldwide provision of a largely complete publication list of all
-        members of the University of Erfurt. Therefore we store, process and publish personal data of persons involved
+        members of the University of Erfurt. Therefore, we store, process and publish personal data of persons involved
         in publications:
       </p>
       <ul>
@@ -238,5 +180,4 @@
 
     </div>
   </article>
-
 </webpage>
