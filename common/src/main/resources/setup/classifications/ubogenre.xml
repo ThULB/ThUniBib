@@ -380,8 +380,7 @@
     </category>
     <category ID="others">
       <label xml:lang="x-hosts" text="standalone"/>
-      <label xml:lang="x-mapping"
-             text="orcidWorkType:other orcidWorkType:disclosure orcidWorkType:license orcidWorkType:registered-copyright orcidWorkType:trademark orcidWorkType:artistic-performance orcidWorkType:data-management-plan orcidWorkType:inventio orcidWorkType:research-technique orcidWorkType:spin-off-company orcidWorkType:standards-and-policy orcidWorkType:technical-standard"/>
+      <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
       <label xml:lang="de" text="Sonstiges"/>
       <label xml:lang="en" text="Other"/>

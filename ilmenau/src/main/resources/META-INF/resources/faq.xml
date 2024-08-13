@@ -6,13 +6,10 @@
     <i18n:en>About the Bibliography</i18n:en>
   </title>
 
-  
-  
-
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">
       <p>
-        In der Universitätsbibliographie werden die Veröffentlichungen (Publikationen) der Angehörigen der TU Ilmenau nachgewiesen. Eine Ausnahme bildet der Nachweis von Abschlussarbeiten. Dabei müssen die Veröffentlichungen im Zusammenhang mit einer Tätigkeit an der Universität entstanden sein. 
+        In der Universitätsbibliographie werden die Veröffentlichungen (Publikationen) der Mitglieder und Angehörigen der TU Ilmenau nachgewiesen. Eine Ausnahme bildet der Nachweis von Abschlussarbeiten. Dabei müssen die Veröffentlichungen im Zusammenhang mit einer Tätigkeit an der Universität entstanden sein. 
       </p>
       <p>
         Dabei bedeutet „Veröffentlichung“:<br />
@@ -33,7 +30,7 @@
   <article class="card mb-3" xml:lang="en">
     <div class="card-body">
       <p>
-        The publications of members of the TU Ilmenau are listed in the University Bibliography. An exception is the record of graduation theses. The publications must have been produced in connection with an activity at the university. 
+        The publications of the members and affiliates of the TU Ilmenau are listed in the University Bibliography. An exception is the record of graduation theses. The publications must have been produced in connection with an activity at the university. 
       </p>
       <p>
         Here, "publication" means:<br />
@@ -47,30 +44,28 @@
         To ensure that the cataloging is uniform and bibliographically accurate, the departments provide the University Library with complete copies of articles from journals that <a href="https://opac.lbs-ilmenau.gbv.de/LNG=EN/DB=1/">not available in the library's holdings</a> for cataloging. For all other publications that are also not in the library's holdings, we ask that they be made available for inspection or that a voucher copy be provided for the library's holdings.
       </p>
       <p>
-        The development of the university bibliography is supported by the state of Thuringia as part of the Thuringian digital strategy. And it is being done in cooperation with the Library Service Center Thuringia as well as the Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
+        The development of the University Bibliography is supported by the state of Thuringia as part of the Thuringian digital strategy. And it is being done in cooperation with the Library Service Center Thuringia as well as the Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
       </p>
     </div>
   </article>
-    
-  
 
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">
       <h3>FAQ</h3>
 
-      <div class="accordion" id="accordionExample">
+      <div class="accordion" id="accordionFAQ">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 Welche Publikationen werden in die Universitätsbibliographie eingetragen?
               </button>
             </h3>
           </div>
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
                 In der Universitätsbibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder in digitaler Form erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen.
@@ -84,16 +79,17 @@
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 Wer kann Publikationen melden?
               </button>
             </h3>
           </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Alle Angehörigen und Mitglieder der TU Ilmenau können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine <a href="servlets/MCRShibbolethLoginServlet">Anmeldung mit dem UniRZ-Login</a> erforderlich.
+                Alle Angehörigen und Mitglieder der TU Ilmenau können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine <a href="servlets/MCRShibbolethLoginServlet">Anmeldung mit dem UniRZ-Login</a> erforderlich. 
+                Ehemalige Angehörige nehmen bitte <a href="contact.xml">Kontakt mit dem Redaktionsteam</a> der Universitätsbibliographie auf.
               </p>
             </div>
           </div>
@@ -104,16 +100,16 @@
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                       data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 Wie kann man Publikationen für die Verzeichnung in der Universitätsbibliographie melden?
               </button>
             </h3>
           </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Auf der Seite „<a href="newPublication.xed">Publikation einreichen</a>“ gelangen Sie mit der Angabe eines Identifier (z.B. DOI) oder mit der Angabe von Autor:in und Titel der Publikation zur Eingabemaske für Publikationen.
+                Auf der Seite „<a href="newPublication.xed">Publikation melden</a>“ gelangen Sie mit der Angabe eines Identifiers (z.B. DOI) oder mit der Angabe von Autorin oder Autor und dem Titel der Publikation zur Eingabemaske für Publikationen.
               </p>
             </div>
           </div>
@@ -124,16 +120,19 @@
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 Warum ist meine eingereichte Publikation nicht sofort in der Universitätsbibliographie auffindbar?
               </button>
             </h3>
           </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Eingereichte Publikationen werden von einem Redaktionsteam an der Universitätsbibliothek überprüft. Dadurch kann es zu zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und aufgearbeitet, um eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu gewährleisten.
+                Eingereichte Publikationen werden von einem Redaktionsteam in der Universitätsbibliothek überprüft.
+                Dadurch kann es zu zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und
+                aufgearbeitet, um eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu
+                gewährleisten.
               </p>
             </div>
           </div>
@@ -142,15 +141,35 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Was bedeutet der Hinweis "Teil der Statistik"?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Bei diesen Titeln handelt es sich um Veröffentlichungen, die im Zusammenhang mit einer Tätigkeit an der TU Ilmenau entstanden sind.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 Was bedeuten die einzelnen Publikationstypen?
               </button>
             </h3>
           </div>
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
                 <dt>Artikel / Aufsatz</dt>
@@ -188,7 +207,7 @@
                 <dt>Rezension</dt>
                 <dd>Eine Rezension ist ein Artikel, der eine kritische Bewertung eines oder auch mehrerer Werke beinhaltet.</dd>
                 <dt>Bachelorarbeit</dt>
-                <dd>Unter einer Bachelorarbeit versteht man im international eine wissenschaftliche oder künstlerische Arbeit, die zum Abschluss eines Bachelor-Studiengangs von Studierenden verfasst wird.</dd>
+                <dd>Unter einer Bachelorarbeit versteht man international eine wissenschaftliche oder künstlerische Arbeit, die zum Abschluss eines Bachelor-Studiengangs von Studierenden verfasst wird.</dd>
                 <dt>Masterarbeit</dt>
                 <dd>Eine Masterarbeit ist international eine wissenschaftliche oder künstlerische Arbeit, die für den Abschluss eines Master-Studienganges verfasst wird. Die Masterarbeit dient dabei im Allgemeinen als Nachweis darüber, dass die Studierenden in der Lage sind, eine wissenschaftliche bzw. künstlerische Arbeit selbständig, aber unter Betreuung zu verfassen.</dd>
                 <dt>Diplomarbeit</dt>
@@ -211,16 +230,16 @@
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingSix">
+          <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
               </button>
             </h3>
           </div>
-          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
 
@@ -240,6 +259,62 @@
           </div>
         </div>
 
+        <div class="card">
+          <div class="card-header" id="headingEight">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                <xinclude uri="i18n:thunibib.faq.icon.headline"/>
+              </button>
+            </h3>
+          </div>
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <xinclude uri="i18n:thunibib.faq.icon.not.present"/>
+              </dl>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </article>
@@ -248,22 +323,22 @@
     <div class="card-body">
       <h3>FAQ</h3>
 
-      <div class="accordion" id="accordionExample">
+      <div class="accordion" id="accordionFAQ">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                Which publications are entered in the university bibliography?
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Which publications are entered in the University Bibliography?
               </button>
             </h3>
           </div>
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                The university bibliography records independent and dependent publications that have appeared in print or in digital form. These can be, for example, monographs, articles in periodicals and contributions in collective works, but also audio documents and multimedia digital publications.
+                The University Bibliography records independent and dependent publications that have appeared in print or in digital form. These can be, for example, monographs, articles in periodicals and contributions in collective works, but also audio documents and multimedia digital publications.
               </p>
             </div>
           </div>
@@ -274,16 +349,17 @@
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                       data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 Who can register publications?
               </button>
             </h3>
           </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                All members and affiliates of the TU Ilmenau can register their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>.
+                All members and affiliates of the TU Ilmenau can register their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>. 
+                Former members should <a href="contact.xml">contact the editorial team</a> of the University Bibliography.
               </p>
             </div>
           </div>
@@ -294,13 +370,13 @@
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                       data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                How can publications be registered for indexing in the university bibliography?
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                How can publications be registered for indexing in the University Bibliography?
               </button>
             </h3>
           </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
                 On the page „<a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
@@ -314,13 +390,13 @@
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                       data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                Why is my submitted publication not immediately discoverable in the university bibliography?
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Why is my submitted publication not immediately discoverable in the University Bibliography?
               </button>
             </h3>
           </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
                 Submitted publications are reviewed by an editorial team at the Ilmenau University Library. This may cause time delays. Entries may be corrected and reprocessed to ensure consistent data quality with respect to statistical analysis.
@@ -334,13 +410,33 @@
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                What does the reference "part of the statistics" mean?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                These titles are publications that were created in the context of an activity at the TU Ilmenau.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 What do separate publication types mean?
               </button>
             </h3>
           </div>
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
 
       <div class="card-body">
               <dl>
@@ -397,24 +493,21 @@
                 <dt>Website / Blog</dt>
                 <dd>A blog is a diary-like, publicly accessible website that is constantly updated with comments and notes on specific scientific topics.</dd>
               </dl>
-
             </div>
-
          </div>
-
         </div>
 
         <div class="card">
-          <div class="card-header" id="headingSix">
+          <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 What is the difference between different Access Rights options?
               </button>
             </h3>
           </div>
-          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
             <div class="card-body">
               <dl>
 
@@ -434,6 +527,62 @@
           </div>
         </div>
 
+        <div class="card">
+          <div class="card-header" id="headingEight">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                <xinclude uri="i18n:thunibib.faq.icon.headline"/>
+              </button>
+            </h3>
+          </div>
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <xinclude uri="i18n:thunibib.faq.icon.not.present"/>
+              </dl>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </article>

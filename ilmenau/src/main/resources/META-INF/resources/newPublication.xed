@@ -115,9 +115,9 @@
 
           <xed:otherwise>
             <div class="card-body bg-alternative">
-                <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden Sie sich bitte mit Ihrem
+                <i18n:de>Wenn Sie eine Publikation melden möchten, identifizieren Sie sich bitte mit Ihrem
                 <a href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
-                  UniRZ-Login</a> an.
+                  UniRZ-Login</a>.
                 </i18n:de>
 
                 <i18n:en>If you would like to submit a publication, please 
