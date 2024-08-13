@@ -1,5 +1,22 @@
 # Changelog
 
+## 2024.08.13
+- [#572](https://github.com/ThULB/ThUniBib/issues/572) Added solr fields accessrights and peerreviewed to UBO.Export.Fields (#573)
+- [#574](https://github.com/ThULB/ThUniBib/issues/574) Overwrite i18n ubo.person.connected.sup for Ilmenau and Jena (#575)
+- [#576](https://github.com/ThULB/ThUniBib/issues/576) Added information about author icons to faq.xml (Ilmenau) (#577)
+- [#578](https://github.com/ThULB/ThUniBib/issues/578) Configured PPN2DBT-ID enrichment (#579)
+- [#580](https://github.com/ThULB/ThUniBib/issues/580) Do not map publications of type "others" to all possible orcid types (#581)
+- [#582](https://github.com/ThULB/ThUniBib/issues/582) Overwrite i18n ubo.person.connected.sup (Erfurt) (#583)
+- [#586](https://github.com/ThULB/ThUniBib/issues/586) Fixed property MCR.MODS.EnrichmentResolver.DataSources.scopusImport (prepend missing % character) (#587)
+- [#591](https://github.com/ThULB/ThUniBib/issues/591) Update index.xed (#590) (#592)
+- [#596](https://github.com/ThULB/ThUniBib/issues/596) Update .*xml files (Ilmenau) (#597)
+- [#606](https://github.com/ThULB/ThUniBib/issues/606) Updated privacy statement (Weimar) (#607)
+- [FSU040THUL-3958](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-3958) [#584](https://github.com/ThULB/ThUniBib/issues/584) Reflect changes as in [UBO-348](https://mycore.atlassian.net/browse/UBO-348) (#585)
+- [FSU040THUL-4069](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4069) [#598](https://github.com/ThULB/ThUniBib/issues/598) Map thesis to dissertation during import from k10+ (Weimar) (#599)
+- [FSU040THUL-4078](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4078) [#588](https://github.com/ThULB/ThUniBib/issues/588) Fork mycoreobject-e-mail.xsl from UBO (#589)
+- [FSU040THUL-4123](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4123) [#601](https://github.com/ThULB/ThUniBib/issues/601) Added "f.year.facet.limit":-1 (no limit) to request handler configurations in solr-config.json (#603)
+---
+
 ## 2024.07.09
 - [#545](https://github.com/ThULB/ThUniBib/issues/545) Added flags indicating current language as svg graphics (#546)
 - [#548](https://github.com/ThULB/ThUniBib/issues/548) [FSU040THUL-3594](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-3594) Use gvk for imports by ISBN (#549)
