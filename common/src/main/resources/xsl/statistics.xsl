@@ -119,6 +119,15 @@
       <div class="card-body">
       <div id="chartYear" style="width:100%; height:350px;" />
 
+      <xsl:variable name="max">
+        <xsl:for-each select="int">
+          <xsl:sort select="." data-type="number" order="descending"/>
+          <xsl:if test="position() = 1">
+            <xsl:value-of select="."/>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:variable>
+
       <script type="text/javascript">
         $(document).ready(function() {
           new Highcharts.Chart({
@@ -157,7 +166,7 @@
                title: { text: '<xsl:value-of select="$count" />' },
                labels: { formatter: function() { return this.value; } },
                endOnTick: false,
-               max: <xsl:value-of select="floor(number(int[1]) * 1.05)" /> <!-- +5% -->
+               max: <xsl:value-of select="floor($max * 1.05)" /> <!-- +5% -->
              },
              plotOptions: {
                 column: {
