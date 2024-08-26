@@ -1,5 +1,11 @@
 # Changelog
 
+## 2024.08.26
+- [#608](https://github.com/ThULB/ThUniBib/issues/608) Simplified embedding of web fonts (#609)
+- [FSU040THUL-4181](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4181) [#610](https://github.com/ThULB/ThUniBib/issues/610) Support search by publisher in extended search.xed (#611)
+- [FSU040THUL-4246](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4246) [#612](https://github.com/ThULB/ThUniBib/issues/612) Fixed calculation of max value of y-axis (#613)
+---
+
 ## 2024.08.13
 - [#572](https://github.com/ThULB/ThUniBib/issues/572) Added solr fields accessrights and peerreviewed to UBO.Export.Fields (#573)
 - [#574](https://github.com/ThULB/ThUniBib/issues/574) Overwrite i18n ubo.person.connected.sup for Ilmenau and Jena (#575)
