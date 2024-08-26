@@ -259,7 +259,7 @@ public class HISinOneResolver implements URIResolver {
             return PUBLISHER_MAP.get(decodedValue);
         }
 
-        LanguageValue languageValue = resolveLanguage("de");
+        LanguageValue languageValue = (LanguageValue) resolveLanguage("de");
 
         JsonObject language = new JsonObject();
         language.addProperty("id", languageValue.getId());
@@ -643,7 +643,7 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected LanguageValue resolveLanguage(String rfc5646) {
+    protected SysValue resolveLanguage(String rfc5646) {
         if (LANGUAGE_TYPE_MAP.containsKey(rfc5646)) {
             return LANGUAGE_TYPE_MAP.get(rfc5646);
         }
@@ -654,14 +654,16 @@ public class HISinOneResolver implements URIResolver {
             List<LanguageValue> languageValues = response.readEntity(new GenericType<List<LanguageValue>>() {
             });
 
-            LanguageValue languageValue = languageValues
+            Optional<LanguageValue> languageValue = languageValues
                 .stream()
                 .filter(lv -> lv.getIso6391().equals(rfc5646))
-                .findFirst()
-                .get();
+                .findFirst();
 
-            LANGUAGE_TYPE_MAP.put(rfc5646, languageValue);
-            return languageValue;
+            if (languageValue.isPresent()) {
+                LANGUAGE_TYPE_MAP.put(rfc5646, languageValue.get());
+            }
+
+            return languageValue.isPresent() ? languageValue.get() : SysValue.UnresolvedSysValue;
         }
     }
 
