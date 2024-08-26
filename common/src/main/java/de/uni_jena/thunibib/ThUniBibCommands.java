@@ -142,7 +142,7 @@ public class ThUniBibCommands {
                         String id = doc.get("id").toString();
                         String fundings = getFundings(publication).stream()
                             .map(MCRCategory::getId)
-                            .map(MCRCategoryID::getID)
+                            .map(MCRCategoryID::getId)
                             .map(n -> String.valueOf(n))
                             .collect(Collectors.joining(ThUniBibCommands.FUNDING_SEPARATOR_CHAR));
 
@@ -429,7 +429,7 @@ public class ThUniBibCommands {
             return null;
         }
 
-        List<MCRUser> users = MCRUserManager.listUsers(null, realm, null);
+        List<MCRUser> users = MCRUserManager.listUsers(null, realm, null, null);
         if (users.size() == 0) {
             LOGGER.info("No users found for realm '{}'", realm);
             return users;
