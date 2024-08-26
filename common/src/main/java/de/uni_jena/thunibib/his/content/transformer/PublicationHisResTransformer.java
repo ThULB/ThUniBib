@@ -86,7 +86,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addGlobalIdentifiers(jsonObject, xml);
 
             return jsonObject;
-        } catch (JDOMException | SAXException e) {
+        } catch (JDOMException e) {
             throw new IOException(
                 "Could not generate JSON from " + source.getClass().getSimpleName() + ": " + source.getSystemId(), e);
         }
