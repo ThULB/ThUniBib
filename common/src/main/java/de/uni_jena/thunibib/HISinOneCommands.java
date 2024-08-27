@@ -54,8 +54,13 @@ public class HISinOneCommands {
             try (HISInOneClient client = HISinOneClientFactory.create();
                 Response response = client.post(Publication.getPath(), json)) {
                 Publication publication = response.readEntity(Publication.class);
-                LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL, publication.getId());
 
+                if (publication.getId() == 0) {
+                    LOGGER.error("MCRObject {} was not published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL,
+                        publication.getId());
+                    return;
+                }
+                LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL, publication.getId());
                 //Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
                 MCRMetadataManager.update(mcrObject);
