@@ -107,7 +107,7 @@
   </xsl:template>
 
   <xsl:template name="globalIdentifiers">
-    <xsl:for-each select="mods:identifier[contains('doi scopus url', @type)]">
+    <xsl:for-each select="mods:identifier[contains('doi isbn issn scopus url urn', @type)]">
       <xsl:variable name="global-identifier-type-id" select="fn:document(concat('hisinone:resolve:id:globalIdentifiers:', @type))"/>
       <mods:identifier type="{@type}" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$global-identifier-type-id}">
         <xsl:value-of select="."/>
@@ -118,6 +118,12 @@
     <mods:identifier type="url" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$url-type-id}">
       <xsl:value-of select="concat($WebApplicationBaseURL, 'receive/', //mycoreobject/@ID)"/>
     </mods:identifier>
+
+    <xsl:variable name="repository-type-id" select="fn:document('hisinone:resolve:id:globalIdentifiers:Repositoriums%20ID')"/>
+    <mods:identifier type="mcrid" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$repository-type-id}">
+      <xsl:value-of select="//mycoreobject/@ID"/>
+    </mods:identifier>
+
   </xsl:template>
 
   <xsl:template name="researchAreaKdsf">
