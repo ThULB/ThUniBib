@@ -40,4 +40,6 @@
       <xsl:value-of select="$publisher-id"/>
     </mods:classification>
   </xsl:template>
+
+  <xsl:template match="node()[text() = '-1']"/>
 </xsl:stylesheet>
