@@ -34,6 +34,7 @@ import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.lang.reflect.Field;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -114,12 +115,10 @@ public class HISinOneResolver implements URIResolver {
 
         if (ResolvableTypes.publicationType.name().equals(entity) || ResolvableTypes.documentType.name()
             .equals(entity)) {
-
-            fromValue = parts[4];
             hostGenre = parts[5];
-        } else {
-            fromValue = parts[4];
         }
+
+        fromValue = URLDecoder.decode(parts[4], StandardCharsets.UTF_8);
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case creatorType -> resolveCreatorType(fromValue);
