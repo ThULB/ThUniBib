@@ -26,6 +26,9 @@
     <xsl:copy>
       <xsl:comment>Begin - transformer 'mods-resolve-his-keys'</xsl:comment>
 
+      <!-- Resolve the related item (HIS -> Journal, Übergeordnete Publikation)-->
+      <xsl:call-template name="related-item-host"/>
+
       <!-- Type of resource -->
       <xsl:call-template name="publicationResource"/>
 
@@ -60,6 +63,28 @@
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="related-item-host">
+    <xsl:choose>
+      <!-- Resolve journal-->
+      <xsl:when test="mods:relatedItem[@type = 'host'][mods:genre[@type='intern'][fn:contains('journal', fn:substring-after(@valueURI, '#'))]][1]">
+        <xsl:variable name="title" select="mods:relatedItem[@type = 'host'][mods:genre[fn:contains(@valueURI, '#journal')]][1]/mods:titleInfo/mods:title"/>
+        <xsl:variable name="his-id" select="fn:document(concat('hisinone:resolve:id:journal:', fn:encode-for-uri($title)))"/>
+
+        <mods:relatedItem otherType="host" otherTypeAuth="{$ThUniBib.HISinOne.BaseURL}" otherTypeAuthURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/journal">
+          <xsl:value-of select="$his-id"/>
+        </mods:relatedItem>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- Resolve 'Übergeordnete Publikation' -->
+        <!--
+        <mods:relatedItem otherType="host" otherTypeAuth="{$ThUniBib.HISinOne.BaseURL}" otherTypeAuthURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication">
+          <xsl:value-of select="$his-id"/>
+        </mods:relatedItem>
+        -->
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template name="publicationResource">

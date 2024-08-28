@@ -17,6 +17,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.publisher.PublisherWrappedValue;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.DocumentType;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.GlobalIdentifierType;
+import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Journal;
 import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
 import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
@@ -50,7 +51,7 @@ import java.util.stream.Collectors;
  *
  * Usage
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;creatorType|documentType|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * </p>
  *
  * Note
@@ -86,6 +87,7 @@ public class HISinOneResolver implements URIResolver {
         creatorType,
         documentType,
         globalIdentifiers,
+        journal,
         language,
         peerReviewed,
         publication,
@@ -123,6 +125,7 @@ public class HISinOneResolver implements URIResolver {
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue, hostGenre);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
+            case journal -> resolveJournal(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
             case publication -> resolvePublicationLockVersion(fromValue);
@@ -140,6 +143,35 @@ public class HISinOneResolver implements URIResolver {
 
         LOGGER.info("Resolved {} to {}", href, String.valueOf(getFieldValue(sysValue, field)));
         return new JDOMSource(new Element("int").setText(String.valueOf(getFieldValue(sysValue, field))));
+    }
+
+    private SysValue resolveJournal(String fromValue) {
+        String decodedValue = URLDecoder.decode(fromValue, StandardCharsets.UTF_8);
+
+        Map<String, String> params = new HashMap<>();
+        params.put("q", decodedValue);
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(Journal.getPath(), params)) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return SysValue.ErroneousSysValue;
+            }
+
+            List<Journal> journals = response.readEntity(
+                new GenericType<List<Journal>>() {
+                });
+
+            List<Journal> resultList = journals.stream()
+                .filter(journal -> decodedValue.equals(journal.getDefaultText()))
+                .toList();
+
+            SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.UnresolvedSysValue;
+
+            return r;
+        } catch (Exception e) {
+            return SysValue.ErroneousSysValue;
+        }
     }
 
     /**
@@ -244,6 +276,8 @@ public class HISinOneResolver implements URIResolver {
                 PUBLISHER_MAP.put(decodedValue, r);
             }
             return r;
+        } catch (Exception e) {
+            return SysValue.ErroneousSysValue;
         }
     }
 
