@@ -294,4 +294,17 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                 }
             });
     }
+
+    /**
+     * Adds an arbitrary named property with an id attribute to the {@link JsonObject}.
+     *
+     * @param jsonObject the JsonObject
+     * @param propertyName the name of the property
+     * @param id the id value to set
+     */
+    protected void addId(JsonObject jsonObject, String propertyName, String id) {
+        JsonObject journal = new JsonObject();
+        journal.addProperty("id", id);
+        jsonObject.add(propertyName, journal);
+    }
 }
