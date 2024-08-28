@@ -68,7 +68,7 @@
   <xsl:template name="related-item-host">
     <xsl:choose>
       <!-- Resolve journal-->
-      <xsl:when test="mods:relatedItem[@type = 'host'][mods:genre[@type='intern'][fn:contains('journal', fn:substring-after(@valueURI, '#'))]][1]">
+      <xsl:when test="mods:relatedItem[@type = 'host'][mods:genre[@type='intern'][fn:contains('journal newspaper', fn:substring-after(@valueURI, '#'))]][1]">
         <xsl:variable name="title" select="mods:relatedItem[@type = 'host'][mods:genre[fn:contains(@valueURI, '#journal')]][1]/mods:titleInfo/mods:title"/>
         <xsl:variable name="his-id" select="fn:document(concat('hisinone:resolve:id:journal:', fn:encode-for-uri($title)))"/>
 
