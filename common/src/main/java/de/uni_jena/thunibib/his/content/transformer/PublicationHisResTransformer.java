@@ -77,10 +77,11 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'publicationTypeValue')]", xml, "publicationType");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'documentTypes')]", xml, "documentType");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'qualificationThesisValue')]", xml, "qualificationThesis");
+            addQualifiedObjectID(jsonObject, "//mods:mods/mods:relatedItem[contains(@otherTypeAuthURI, 'fs/res/journal')][1]", xml, "journal");
 
-            addQualifiedObjectIDs(jsonObject,"//mods:mods/mods:classification[contains(@valueURI, 'researchAreaKdsfValue')]", xml,"researchAreasKdsf", "id");
-            addQualifiedObjectIDs(jsonObject,"//mods:mods/mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml, "subjectAreas", "id");
-            addQualifiedObjectIDs(jsonObject,"//mods:mods/mods:language/mods:languageTerm[@authorityURI='" + HIS_IN_ONE_BASE_URL + "']", xml, "languages", "id");
+            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'researchAreaKdsfValue')]", xml,"researchAreasKdsf", "id");
+            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml, "subjectAreas", "id");
+            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:language/mods:languageTerm[@authorityURI='" + HIS_IN_ONE_BASE_URL + "']", xml, "languages", "id");
             addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:subject/mods:topic", xml, "keyWords", "defaulttext");
 
             addGlobalIdentifiers(jsonObject, xml);
