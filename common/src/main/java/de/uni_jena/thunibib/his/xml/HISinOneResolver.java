@@ -125,7 +125,7 @@ public class HISinOneResolver implements URIResolver {
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue, hostGenre);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
-            case journal -> resolveJournal(fromValue);
+            case journal -> Mode.resolve.equals(mode) ? resolveJournal(fromValue) : createJournal(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
             case publication -> resolvePublicationLockVersion(fromValue);
@@ -143,6 +143,10 @@ public class HISinOneResolver implements URIResolver {
 
         LOGGER.info("Resolved {} to {}", href, String.valueOf(getFieldValue(sysValue, field)));
         return new JDOMSource(new Element("int").setText(String.valueOf(getFieldValue(sysValue, field))));
+    }
+
+    protected SysValue createJournal(String fromValue) {
+        return SysValue.UnresolvedSysValue;
     }
 
     private SysValue resolveJournal(String fromValue) {
