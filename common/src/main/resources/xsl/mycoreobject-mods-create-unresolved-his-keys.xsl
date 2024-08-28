@@ -24,22 +24,45 @@
     <xsl:copy>
       <xsl:comment>Begin - transformer 'mods-create-unresolved-his-keys'</xsl:comment>
       <!-- TODO Check user role -->
-      <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][text() = '-1']" mode="create"/>
+      <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][text() = '-1']"
+                           mode="create"/>
+      <xsl:apply-templates select="mods:relatedItem[@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][text() = '-1']"
+                           mode="create"/>
+
       <xsl:comment>End - mods-create-unresolved-his-keys'</xsl:comment>
       <!-- Retain mods from previous step, but exclude unresolved values -->
       <xsl:apply-templates select="@*|node()[not(text() = '-1')]"/>
     </xsl:copy>
   </xsl:template>
 
+  <!-- Create unresolved journal-->
+  <xsl:template mode="create"
+                match="mods:relatedItem[@otherType='host'][@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][contains(@otherTypeAuthURI, 'journal')]">
+
+    <xsl:variable name="journal-id" select="fn:document(concat('hisinone:create:id:journal:', mods:titleInfo[1]/mods:title))"/>
+
+    <xsl:if test="fn:number($journal-id) &gt; 0">
+      <mods:relatedItem>
+        <xsl:copy-of select="@*"/>
+        <xsl:value-of select="$journal-id"/>
+      </mods:relatedItem>
+    </xsl:if>
+  </xsl:template>
+
   <!-- Create unresolved publisher -->
-  <xsl:template match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]" mode="create">
+  <xsl:template mode="create"
+                match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]">
+
     <xsl:variable name="publisher-text" select="fn:encode-for-uri(../mods:originInfo/mods:publisher)"/>
     <xsl:variable name="publisher-id" select="fn:document(concat('hisinone:create:id:publisher:', $publisher-text))"/>
 
-    <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publisher">
+    <mods:classification>
+      <xsl:copy-of select="@*"/>
       <xsl:value-of select="$publisher-id"/>
     </mods:classification>
   </xsl:template>
 
+  <!-- Remove all elements with unresolved values -->
   <xsl:template match="node()[text() = '-1']"/>
+
 </xsl:stylesheet>
