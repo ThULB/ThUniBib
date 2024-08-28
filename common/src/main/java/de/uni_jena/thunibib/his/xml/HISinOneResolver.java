@@ -34,7 +34,6 @@ import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.lang.reflect.Field;
-import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -118,7 +117,7 @@ public class HISinOneResolver implements URIResolver {
             hostGenre = parts[5];
         }
 
-        fromValue = URLDecoder.decode(parts[4], StandardCharsets.UTF_8);
+        fromValue = parts.length > 4 ? URLDecoder.decode(parts[4], StandardCharsets.UTF_8) : "";
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case creatorType -> resolveCreatorType(fromValue);
@@ -302,7 +301,12 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<PeerReviewedValue>>() {
                 });
 
-            String text = "true".equals(peerReviewedCategId) ? "ja" : "nein";
+            var text = switch (peerReviewedCategId) {
+                case "true" -> "ja";
+                case "false" -> "nein";
+                default -> "keine Angabe";
+            };
+
             Optional<PeerReviewedValue> peerReviewedValue = prTypes
                 .stream()
                 .filter(t -> text.equals(t.getUniqueName()))
