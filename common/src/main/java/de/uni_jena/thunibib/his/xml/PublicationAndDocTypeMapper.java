@@ -87,16 +87,24 @@ public class PublicationAndDocTypeMapper {
 
     private static String getTypeNameFromXLabel(String xLabelName, String ubogenreId, String hostGenre) {
         MCRCategory genre = DAO.getCategory(MCRCategoryID.fromString("ubogenre:" + ubogenreId), 0);
-        MCRLabel label = genre.getLabel(xLabelName).orElseThrow(() -> new RuntimeException(
-            "No '" + xLabelName + "' for genre '" + ubogenreId + "' and related item of type '" + hostGenre + "'"));
+        Optional<MCRLabel> label = genre.getLabel(xLabelName);
+
+        if (label.isEmpty()) {
+            LOGGER.warn("No '{}' for genre '{}' and related item of type '{}'", xLabelName, ubogenreId, hostGenre );
+            return null;
+        }
 
         // get default mapping
         if ("default".equals(hostGenre)) {
-            return getMapping(label, "default")
-                .orElseThrow(() -> new RuntimeException("No default mapping for genre " + ubogenreId));
+            Optional<String> mapping = getMapping(label.get(), "default");
+
+            if (mapping.isEmpty()) {
+                LOGGER.error("No default mapping for genre {}", ubogenreId);
+            }
+            return mapping.isPresent() ? mapping.get() : null;
         }
 
-        Optional<String> name = getMapping(label, hostGenre);
+        Optional<String> name = getMapping(label.get(), hostGenre);
         return name.isPresent() ? name.get() : getDefaultTypeNameFromXLabel(xLabelName, ubogenreId);
     }
 
