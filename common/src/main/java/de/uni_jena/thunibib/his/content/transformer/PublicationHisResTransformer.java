@@ -51,6 +51,14 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             Document xml = source.asXML();
             JsonObject jsonObject = new JsonObject();
 
+            if (XPATH_FACTORY.compile(
+                    "//mods:mods/mods:genre[@type='intern'][contains('journal newspaper', substring-after(@valueURI, '#'))]",
+                    Filters.element(), null, MODS_NAMESPACE)
+                .evaluateFirst(xml) != null) {
+                LOGGER.warn("Transformer {} is not suitable for Journals or Newspapers", getClass().getName());
+                return jsonObject;
+            }
+
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "']", xml, "id");
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "-lockVersion']", xml, "lockVersion");
 
