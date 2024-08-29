@@ -59,6 +59,7 @@ public class HISinOneCommands {
                         publication.getId());
                     return;
                 }
+
                 LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL, publication.getId());
                 //Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
@@ -96,6 +97,12 @@ public class HISinOneCommands {
             try (HISInOneClient client = HISinOneClientFactory.create();
                 Response response = client.put(Publication.getPath() + "/" + hisId, json)) {
                 Publication p = response.readEntity(Publication.class);
+
+                if (p.getId() == 0) {
+                    LOGGER.error("MCRObject {} was not updated at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL,
+                        p.getId());
+                    return;
+                }
                 LOGGER.info("MCRObject {} updated at {} with id {} and new lockVersion {}", mcrid, HIS_IN_ONE_BASE_URL,
                     hisId, p.getLockVersion());
             }
