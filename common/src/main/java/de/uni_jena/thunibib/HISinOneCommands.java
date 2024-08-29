@@ -2,13 +2,12 @@ package de.uni_jena.thunibib;
 
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.mycore.access.MCRAccessException;
-import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -22,9 +21,6 @@ import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE
 @MCRCommandGroup(name = "HISinOne Commands")
 public class HISinOneCommands {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneCommands.class);
-
-    private static final String PUBLICATION_TRANSFORMER = MCRConfiguration2.getStringOrThrow(
-        "ThUniBib.HISinOne.Publication.Transformer.Name");
 
     @MCRCommand(syntax = "publish {0}", help = "Publishes the object given by its id to HISinOne")
     public static void publish(String mcrid) {
@@ -46,13 +42,15 @@ public class HISinOneCommands {
             return;
         }
 
+        HISinOneCommandConfiguration conf = new HISinOneCommandConfiguration(mcrObject);
+
         try {
-            String json = Utilities.transform(mcrObject, PUBLICATION_TRANSFORMER);
+            String json = Utilities.transform(mcrObject, conf.getTransformerName());
             LOGGER.debug("JSON: {}", json);
 
             try (HISInOneClient client = HISinOneClientFactory.create();
-                Response response = client.post(Publication.getPath(), json)) {
-                Publication publication = response.readEntity(Publication.class);
+                Response response = client.post(conf.getPath(), json)) {
+                SysValue publication = response.readEntity(conf.getResponseEntityClass());
 
                 if (publication.getId() == 0) {
                     LOGGER.error("MCRObject {} was not published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL,
@@ -61,7 +59,8 @@ public class HISinOneCommands {
                 }
 
                 LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL, publication.getId());
-                //Update MCRObject
+
+                // Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
                 MCRMetadataManager.update(mcrObject);
             }
@@ -70,7 +69,7 @@ public class HISinOneCommands {
         }
     }
 
-    @MCRCommand(syntax = "update {0}", help = "Uopdates the object given by its id in HISinOne")
+    @MCRCommand(syntax = "update {0}", help = "Updates the object given by its id in HISinOne")
     public static void update(String mcrid) {
         LOGGER.info("Updating {}", mcrid);
         if (!MCRObjectID.isValid(mcrid)) {
@@ -90,21 +89,22 @@ public class HISinOneCommands {
             return;
         }
 
+        HISinOneCommandConfiguration conf = new HISinOneCommandConfiguration(mcrObject);
         try {
             String hisId = mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
-            String json = Utilities.transform(mcrObject, PUBLICATION_TRANSFORMER);
+            String json = Utilities.transform(mcrObject, conf.getTransformerName());
 
             try (HISInOneClient client = HISinOneClientFactory.create();
-                Response response = client.put(Publication.getPath() + "/" + hisId, json)) {
-                Publication p = response.readEntity(Publication.class);
+                Response response = client.put(conf.getPath() + "/" + hisId, json)) {
+                SysValue p = response.readEntity(conf.getResponseEntityClass());
 
                 if (p.getId() == 0) {
-                    LOGGER.error("MCRObject {} was not updated at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL,
-                        p.getId());
+                    LOGGER.error("MCRObject {} was not updated at {}({}) with id {}", mcrid, HIS_IN_ONE_BASE_URL,
+                        conf.getPath(), p.getId());
                     return;
                 }
-                LOGGER.info("MCRObject {} updated at {} with id {} and new lockVersion {}", mcrid, HIS_IN_ONE_BASE_URL,
-                    hisId, p.getLockVersion());
+                LOGGER.info("MCRObject {} updated at {}({}) with id {} and new lockVersion {}", mcrid,
+                    HIS_IN_ONE_BASE_URL, conf.getPath(), hisId, p.getLockVersion());
             }
         } catch (IOException e) {
             LOGGER.error("Could not update {} to {}", mcrid, HIS_IN_ONE_BASE_URL, e);
@@ -115,4 +115,5 @@ public class HISinOneCommands {
     public static void delete(String mcrid) {
         LOGGER.info("Deleting {}", mcrid);
     }
+
 }
