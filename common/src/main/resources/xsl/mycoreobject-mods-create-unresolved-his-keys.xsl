@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="3.0"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
-                xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:mcracl="http://www.mycore.de/xslt/acl"
+                xmlns:mods="http://www.loc.gov/mods/v3"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                exclude-result-prefixes="mcracl fn xsl">
+                exclude-result-prefixes="fn mcracl xlink xsl">
 
   <xsl:include href="resource:xslt/functions/acl.xsl"/>
 
@@ -37,9 +38,9 @@
 
   <!-- Create unresolved journal-->
   <xsl:template mode="create"
-                match="mods:relatedItem[@otherType='host'][@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][contains(@otherTypeAuthURI, 'journal')]">
+                match="mods:relatedItem[@xlink:href][@otherType='host'][@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][contains(@otherTypeAuthURI, 'journal')][1]">
 
-    <xsl:variable name="journal-id" select="fn:document(concat('hisinone:create:id:journal:', mods:titleInfo[1]/mods:title))"/>
+    <xsl:variable name="journal-id" select="fn:document(concat('hisinone:create:id:journal:', @xlink:href))"/>
 
     <xsl:if test="fn:number($journal-id) &gt; 0">
       <mods:relatedItem>
