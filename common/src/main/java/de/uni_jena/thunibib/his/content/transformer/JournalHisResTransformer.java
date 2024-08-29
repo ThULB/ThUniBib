@@ -1,6 +1,7 @@
 package de.uni_jena.thunibib.his.content.transformer;
 
 import com.google.gson.JsonObject;
+import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
@@ -31,6 +32,9 @@ public class JournalHisResTransformer extends PublicationHisResTransformer {
         try {
             Document xml = source.asXML();
             JsonObject jsonObject = new JsonObject();
+
+            addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "-lockVersion']", xml, "lockVersion");
+            addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "']", xml, "id");
 
             addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:title[1]", xml, "defaulttext", true);
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:language/mods:languageTerm[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][1]", xml, "language");
