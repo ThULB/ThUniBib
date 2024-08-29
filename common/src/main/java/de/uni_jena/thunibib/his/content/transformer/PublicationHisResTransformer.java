@@ -93,7 +93,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         }
     }
 
-    private void addExtent(JsonObject jsonObject, Document xml) {
+    protected void addExtent(JsonObject jsonObject, Document xml) {
         Optional
             .ofNullable(XPATH_FACTORY
                 .compile("//modsContainer/mods:mods/mods:physicalDescription/mods:extent", Filters.element(), null,
@@ -107,12 +107,11 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             });
     }
 
-    private void addGlobalIdentifiers(JsonObject jsonObject, Document xml) {
+    protected void addGlobalIdentifiers(JsonObject jsonObject, Document xml, String xpath) {
         JsonArray globalIdentifiers = new JsonArray();
 
-        XPATH_FACTORY.compile("//mods:identifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + "')]",
-                Filters.element(), null, MODS_NAMESPACE)
-            .evaluate(xml).forEach(identifier -> {
+        XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE).evaluate(xml)
+            .forEach(identifier -> {
                 String typeURI = identifier.getAttributeValue("typeURI");
                 int hisKey = Integer.parseInt(typeURI.substring(typeURI.lastIndexOf("#") + 1));
 
@@ -132,9 +131,20 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
     }
 
     /**
+     * Does the same as {@link PublicationHisResTransformer#addGlobalIdentifiers(JsonObject, Document, String)} with
+     * default xpath <code>"//mods:identifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + "')]"</code>.
+     *
+     * @param jsonObject the {@link JsonObject} to add the properties
+     * @param xml the source xml {@link Document}
+     * */
+    protected void addGlobalIdentifiers(JsonObject jsonObject, Document xml) {
+        addGlobalIdentifiers(jsonObject, xml, "//mods:identifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + "')]");
+    }
+
+    /**
      * For Testing
      * */
-    private void addSampleCreator(JsonObject jsonObject) {
+    protected void addSampleCreator(JsonObject jsonObject) {
         LOGGER.warn("{}#addSampleCreator invoked", PublicationHisResTransformer.class.getName());
         JsonArray creators = new JsonArray();
         JsonObject name = new JsonObject();
@@ -146,7 +156,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         jsonObject.add("creators", creators);
     }
 
-    private void addCreators(JsonObject jsonObject, Document xml) {
+    protected void addCreators(JsonObject jsonObject, Document xml) {
         final JsonArray creators = new JsonArray();
 
         XPATH_FACTORY.compile("//mods:mods/mods:name[@type='personal']", Filters.element(), null, MODS_NAMESPACE)
@@ -206,7 +216,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         }
     }
 
-    private void addProperty(JsonObject jsonObject, String xpath, Document xml, String pName, boolean single) {
+    protected void addProperty(JsonObject jsonObject, String xpath, Document xml, String pName, boolean single) {
         List<Element> list = XPATH_FACTORY
             .compile(xpath, Filters.element(), null, MODS_NAMESPACE)
             .evaluate(xml);
@@ -222,7 +232,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         }
     }
 
-    private void addPropertyInt(JsonObject jsonObject, String xpath, Document xml, String pName) {
+    protected void addPropertyInt(JsonObject jsonObject, String xpath, Document xml, String pName) {
         List<Element> list = XPATH_FACTORY
             .compile(xpath, Filters.element(), null, MODS_NAMESPACE)
             .evaluate(xml);
@@ -246,7 +256,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
      *     }, ...]
      *  </pre>
      * */
-    private void addQualifiedObjectIDs(JsonObject jsonObject, String xpath, Document xml, String pName, String kName) {
+    protected void addQualifiedObjectIDs(JsonObject jsonObject, String xpath, Document xml, String pName, String kName) {
         final JsonArray jsonArray = new JsonArray();
 
         XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE)
@@ -282,7 +292,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
      *   }
      *  </pre>
      * */
-    private void addQualifiedObjectID(JsonObject jsonObject, String xpath, Document xml, String propertyName) {
+    protected void addQualifiedObjectID(JsonObject jsonObject, String xpath, Document xml, String propertyName) {
         Optional.ofNullable(
                 XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE).evaluateFirst(xml))
             .ifPresent(genre -> {

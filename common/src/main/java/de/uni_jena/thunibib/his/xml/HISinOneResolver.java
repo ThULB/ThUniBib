@@ -30,6 +30,9 @@ import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
 import org.mycore.datamodel.classifications2.MCRLabel;
+import org.mycore.datamodel.metadata.MCRMetadataManager;
+import org.mycore.datamodel.metadata.MCRObject;
+import org.mycore.datamodel.metadata.MCRObjectID;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
@@ -146,33 +149,35 @@ public class HISinOneResolver implements URIResolver {
     }
 
     protected SysValue createJournal(String fromValue) {
+
         return SysValue.UnresolvedSysValue;
     }
 
     private SysValue resolveJournal(String fromValue) {
-        String decodedValue = URLDecoder.decode(fromValue, StandardCharsets.UTF_8);
+        if (!MCRObjectID.isValid(fromValue)) {
+            return SysValue.UnresolvedSysValue;
+        }
 
-        Map<String, String> params = new HashMap<>();
-        params.put("q", decodedValue);
+        MCRObjectID id = MCRObjectID.getInstance(fromValue);
+        if (!MCRMetadataManager.exists(id)) {
+            LOGGER.warn("{} does not exist", id);
+            return SysValue.UnresolvedSysValue;
+        }
 
+        MCRObject host = MCRMetadataManager.retrieveMCRObject(id);
+        if (host.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
+            return SysValue.UnresolvedSysValue;
+        }
+
+        String hisId = host.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(Journal.getPath(), params)) {
+            Response response = hisClient.get(Journal.getPath() + "/" + hisId)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
                 return SysValue.ErroneousSysValue;
             }
-
-            List<Journal> journals = response.readEntity(
-                new GenericType<List<Journal>>() {
-                });
-
-            List<Journal> resultList = journals.stream()
-                .filter(journal -> decodedValue.equals(journal.getDefaultText()))
-                .toList();
-
-            SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.UnresolvedSysValue;
-
-            return r;
+            Journal journal = response.readEntity(Journal.class);
+            return journal;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
         }
@@ -478,6 +483,10 @@ public class HISinOneResolver implements URIResolver {
                 });
 
             String expectedType = PublicationAndDocTypeMapper.getPublicationTypeName(ubogenre, hostGenre);
+
+            if (expectedType == null) {
+                return SysValue.UnresolvedSysValue;
+            }
 
             Optional<PublicationTypeValue> tpv = pubTypeValues
                 .stream()
