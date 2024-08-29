@@ -304,7 +304,18 @@
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
       <xsl:variable name="hisid" select="servflag[@type = 'his-id']"/>
-      <xsl:variable name="lockVersion" select="fn:document(concat('hisinone:resolve:lockVersion:publication:', $hisid))"/>
+      <xsl:variable name="genre" select="fn:substring-after(//mycoreobject//mods:mods/mods:genre[@type='intern']/@valueURI, '#')"/>
+
+      <xsl:variable name="lockVersion">
+        <xsl:choose>
+          <xsl:when test="contains('journal newspaper', $genre)">
+            <xsl:value-of select="fn:document(concat('hisinone:resolve:lockVersion:journal:', //mycoreobject/@ID))"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="fn:document(concat('hisinone:resolve:lockVersion:publication:', $hisid))"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
 
       <servflag type="his-id-lockVersion">
         <xsl:value-of select="$lockVersion"/>
