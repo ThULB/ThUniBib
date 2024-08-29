@@ -54,11 +54,11 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "']", xml, "id");
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "-lockVersion']", xml, "lockVersion");
 
+            addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle", true);
+            addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:title", xml, "title", true);
             addProperty(jsonObject, "//mods:mods/mods:abstract", xml, "textAbstract", true);
             addProperty(jsonObject, "//mods:mods/mods:originInfo/mods:dateIssued[1]", xml, "releaseYear", true);
             addProperty(jsonObject, "//mods:mods/mods:originInfo/mods:edition", xml, "edition", true);
-            addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle", true);
-            addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:title", xml, "title", true);
             addProperty(jsonObject, "//mods:mods/mods:note[not(@type='intern')]", xml, "commentary", false);
             addProperty(jsonObject, "//mods:mods/mods:part/mods:detail[@type='volume']/mods:number", xml, "volume", true);
 

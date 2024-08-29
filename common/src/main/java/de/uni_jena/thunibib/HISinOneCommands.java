@@ -7,12 +7,8 @@ import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jdom2.Document;
 import org.mycore.access.MCRAccessException;
-import org.mycore.common.content.MCRContent;
-import org.mycore.common.content.MCRJDOMContent;
-import org.mycore.common.content.transformer.MCRContentTransformer;
-import org.mycore.common.content.transformer.MCRContentTransformerFactory;
+import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -26,6 +22,9 @@ import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE
 @MCRCommandGroup(name = "HISinOne Commands")
 public class HISinOneCommands {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneCommands.class);
+
+    private static final String PUBLICATION_TRANSFORMER = MCRConfiguration2.getStringOrThrow(
+        "ThUniBib.HISinOne.Publication.Transformer.Name");
 
     @MCRCommand(syntax = "publish {0}", help = "Publishes the object given by its id to HISinOne")
     public static void publish(String mcrid) {
@@ -48,7 +47,7 @@ public class HISinOneCommands {
         }
 
         try {
-            String json = transform(mcrObject);
+            String json = Utilities.transform(mcrObject, PUBLICATION_TRANSFORMER);
             LOGGER.debug("JSON: {}", json);
 
             try (HISInOneClient client = HISinOneClientFactory.create();
@@ -92,7 +91,7 @@ public class HISinOneCommands {
 
         try {
             String hisId = mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
-            String json = transform(mcrObject);
+            String json = Utilities.transform(mcrObject, PUBLICATION_TRANSFORMER);
 
             try (HISInOneClient client = HISinOneClientFactory.create();
                 Response response = client.put(Publication.getPath() + "/" + hisId, json)) {
@@ -108,16 +107,5 @@ public class HISinOneCommands {
     @MCRCommand(syntax = "delete {0}", help = "Deletes the object given by its id from HISinOne")
     public static void delete(String mcrid) {
         LOGGER.info("Deleting {}", mcrid);
-    }
-
-    /**
-     * Transformes a given {@link MCRObject} to JSON suitable for HISinOne/RES.
-     * */
-    private static String transform(MCRObject mcrObject) throws IOException {
-        Document mods = mcrObject.createXML();
-        MCRContentTransformer transformer = MCRContentTransformerFactory.getTransformer("res-json-detailed");
-        MCRContent transformed = transformer.transform(new MCRJDOMContent(mods));
-
-        return transformed.asString();
     }
 }

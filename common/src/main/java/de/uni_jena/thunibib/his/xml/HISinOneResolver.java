@@ -1,6 +1,7 @@
 package de.uni_jena.thunibib.his.xml;
 
 import com.google.gson.JsonObject;
+import de.uni_jena.thunibib.Utilities;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
@@ -26,6 +27,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
+import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
@@ -37,6 +39,7 @@ import org.mycore.datamodel.metadata.MCRObjectID;
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -66,6 +69,8 @@ import java.util.stream.Collectors;
  * */
 public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
+    private static final String JOURNAL_TRANSFORMER = MCRConfiguration2.getStringOrThrow(
+        "ThUniBib.HISinOne.Journal.Transformer.Name");
 
     private static final Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
@@ -149,22 +154,45 @@ public class HISinOneResolver implements URIResolver {
     }
 
     protected SysValue createJournal(String fromValue) {
+        if (!exists(fromValue)) {
+            return SysValue.UnresolvedSysValue;
+        }
 
-        return SysValue.UnresolvedSysValue;
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(fromValue));
+        String json = null;
+        try {
+            json = Utilities.transform(mcrObject, JOURNAL_TRANSFORMER);
+        } catch (IOException e) {
+            LOGGER.error("Could not transform journal {} to json", fromValue, e);
+            return SysValue.ErroneousSysValue;
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.post(Journal.getPath(), json)) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return SysValue.ErroneousSysValue;
+            }
+            Journal journal = response.readEntity(Journal.class);
+
+            //Update MCRObject
+            mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(journal.getId()));
+            MCRMetadataManager.update(mcrObject);
+
+            return journal;
+        } catch (Exception e) {
+            LOGGER.error("Could not post journal {} ({}) to {}", fromValue, json, Journal.getPath(), e);
+            return SysValue.ErroneousSysValue;
+        }
     }
 
     private SysValue resolveJournal(String fromValue) {
-        if (!MCRObjectID.isValid(fromValue)) {
+        if (!exists(fromValue)) {
+            LOGGER.warn("{} does not exist", fromValue);
             return SysValue.UnresolvedSysValue;
         }
 
-        MCRObjectID id = MCRObjectID.getInstance(fromValue);
-        if (!MCRMetadataManager.exists(id)) {
-            LOGGER.warn("{} does not exist", id);
-            return SysValue.UnresolvedSysValue;
-        }
-
-        MCRObject host = MCRMetadataManager.retrieveMCRObject(id);
+        MCRObject host = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(fromValue));
         if (host.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
             return SysValue.UnresolvedSysValue;
         }
@@ -738,5 +766,24 @@ public class HISinOneResolver implements URIResolver {
             LOGGER.warn("Field {} could not be obtained from SysValue {} returning id instead", fieldName, sysValue);
             return sysValue.getId();
         }
+    }
+
+    /**
+     * Checks for valid {@link MCRObjectID} and if object actually exists.
+     *
+     * @param mcrid the id to check
+     *
+     * @return true if object exists, false otherwise
+     * */
+    protected boolean exists(String mcrid) {
+        if (!MCRObjectID.isValid(mcrid)) {
+            return false;
+        }
+
+        MCRObjectID id = MCRObjectID.getInstance(mcrid);
+        if (!MCRMetadataManager.exists(id)) {
+            return false;
+        }
+        return true;
     }
 }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="3.0"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
-                xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:mcracl="http://www.mycore.de/xslt/acl"
+                xmlns:mods="http://www.loc.gov/mods/v3"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                exclude-result-prefixes="mcracl fn xsl">
+                exclude-result-prefixes="mcracl fn xlink xsl">
 
   <xsl:include href="resource:xslt/functions/acl.xsl"/>
 
@@ -66,13 +67,13 @@
   </xsl:template>
 
   <xsl:template name="related-item-host">
+    <xsl:variable name="host" select="mods:relatedItem[@type = 'host'][mods:genre[@type='intern'][fn:contains('journal newspaper', fn:substring-after(@valueURI, '#'))]]/@xlink:href"/>
+
     <xsl:choose>
       <!-- Resolve journal-->
-      <xsl:when test="mods:relatedItem[@type = 'host'][mods:genre[@type='intern'][fn:contains('journal newspaper', fn:substring-after(@valueURI, '#'))]][1]">
-        <xsl:variable name="title" select="mods:relatedItem[@type = 'host'][mods:genre[fn:contains(@valueURI, '#journal')]][1]/mods:titleInfo/mods:title"/>
-        <xsl:variable name="his-id" select="fn:document(concat('hisinone:resolve:id:journal:', fn:encode-for-uri($title)))"/>
-
-        <mods:relatedItem otherType="host" otherTypeAuth="{$ThUniBib.HISinOne.BaseURL}" otherTypeAuthURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/journal">
+      <xsl:when test="fn:string-length($host) &gt; 0">
+        <xsl:variable name="his-id" select="fn:document(concat('hisinone:resolve:id:journal:', $host))"/>
+        <mods:relatedItem xlink:href="{$host}" otherType="host" otherTypeAuth="{$ThUniBib.HISinOne.BaseURL}" otherTypeAuthURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/journal">
           <xsl:value-of select="$his-id"/>
         </mods:relatedItem>
       </xsl:when>
