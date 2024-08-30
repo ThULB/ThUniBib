@@ -312,7 +312,7 @@
             <xsl:value-of select="fn:document(concat('hisinone:resolve:lockVersion:journal:', //mycoreobject/@ID))"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="fn:document(concat('hisinone:resolve:lockVersion:publication:', $hisid))"/>
+            <xsl:value-of select="fn:document(concat('hisinone:resolve:lockVersion:publication:', //mycoreobject/@ID))"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:variable>

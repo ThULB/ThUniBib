@@ -136,7 +136,7 @@ public class HISinOneResolver implements URIResolver {
             case journal -> Mode.resolve.equals(mode) ? resolveJournal(fromValue) : createJournal(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
-            case publication -> resolvePublicationLockVersion(fromValue);
+            case publication -> resolvePublication(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
             case publicationType -> resolvePublicationType(fromValue, hostGenre);
@@ -266,11 +266,24 @@ public class HISinOneResolver implements URIResolver {
     }
 
     /**
+     * Resolves the {@link SysValue} with id in HISinOne of the given mycoreobject id.
      *
-     * @param hisid the HIS id of a publication
-     * @return
+     * @param mcrid the mcrid of a publication
+     *
+     * @return a {@link SysValue} with for the publication of the given mycoreobject id or {@link SysValue#UnresolvedSysValue}
      */
-    private SysValue resolvePublicationLockVersion(String hisid) {
+    private SysValue resolvePublication(String mcrid) {
+        if (!exists(mcrid)) {
+            LOGGER.warn("{} does not exist", mcrid);
+            return SysValue.UnresolvedSysValue;
+        }
+
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(mcrid));
+        if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
+            return SysValue.UnresolvedSysValue;
+        }
+
+        String hisid = mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(Publication.getPath() + "/" + hisid)) {
 
