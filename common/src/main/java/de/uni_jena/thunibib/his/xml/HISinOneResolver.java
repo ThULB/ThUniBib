@@ -1,7 +1,7 @@
 package de.uni_jena.thunibib.his.xml;
 
 import com.google.gson.JsonObject;
-import de.uni_jena.thunibib.Utilities;
+import de.uni_jena.thunibib.HISinOneCommands;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
@@ -39,7 +39,6 @@ import org.mycore.datamodel.metadata.MCRObjectID;
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -133,10 +132,10 @@ public class HISinOneResolver implements URIResolver {
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue, hostGenre);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
-            case journal -> Mode.resolve.equals(mode) ? resolveJournal(fromValue) : createJournal(fromValue);
+            case journal -> Mode.resolve.equals(mode) ? resolveJournal(fromValue) : createParent(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
-            case publication -> resolvePublication(fromValue);
+            case publication -> Mode.resolve.equals(mode) ? resolvePublication(fromValue) : createParent(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
             case publicationType -> resolvePublicationType(fromValue, hostGenre);
@@ -153,40 +152,7 @@ public class HISinOneResolver implements URIResolver {
         return new JDOMSource(new Element("int").setText(String.valueOf(getFieldValue(sysValue, field))));
     }
 
-    protected SysValue createJournal(String fromValue) {
-        if (!exists(fromValue)) {
-            return SysValue.UnresolvedSysValue;
-        }
-
-        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(fromValue));
-        String json = null;
-        try {
-            json = Utilities.transform(mcrObject, JOURNAL_TRANSFORMER);
-        } catch (IOException e) {
-            LOGGER.error("Could not transform journal {} to json", fromValue, e);
-            return SysValue.ErroneousSysValue;
-        }
-
-        try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.post(Journal.getPath(), json)) {
-
-            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                return SysValue.ErroneousSysValue;
-            }
-            Journal journal = response.readEntity(Journal.class);
-
-            //Update MCRObject
-            mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(journal.getId()));
-            MCRMetadataManager.update(mcrObject);
-
-            return journal;
-        } catch (Exception e) {
-            LOGGER.error("Could not post journal {} ({}) to {}", fromValue, json, Journal.getPath(), e);
-            return SysValue.ErroneousSysValue;
-        }
-    }
-
-    private SysValue resolveJournal(String fromValue) {
+    protected SysValue resolveJournal(String fromValue) {
         if (!exists(fromValue)) {
             LOGGER.warn("{} does not exist", fromValue);
             return SysValue.UnresolvedSysValue;
@@ -263,6 +229,10 @@ public class HISinOneResolver implements URIResolver {
                 .filter(t -> "Sonstige Darstellungsform".equals(t.getDefaultText()))
                 .findFirst().get();
         }
+    }
+
+    protected SysValue createParent(String mcrid) {
+        return HISinOneCommands.publish(mcrid);
     }
 
     /**

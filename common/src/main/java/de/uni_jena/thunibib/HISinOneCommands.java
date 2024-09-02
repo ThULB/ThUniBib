@@ -23,23 +23,23 @@ public class HISinOneCommands {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneCommands.class);
 
     @MCRCommand(syntax = "publish {0}", help = "Publishes the object given by its id to HISinOne")
-    public static void publish(String mcrid) {
+    public static SysValue publish(String mcrid) {
         LOGGER.info("Publishing {}", mcrid);
         if (!MCRObjectID.isValid(mcrid)) {
             LOGGER.error("{} is not a valid {}", mcrid, MCRObjectID.class.getSimpleName());
-            return;
+            return SysValue.ErroneousSysValue;
         }
 
         MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
         if (!MCRMetadataManager.exists(mcrObjectID)) {
             LOGGER.error("{} does not exist", mcrid);
-            return;
+            return SysValue.UnresolvedSysValue;
         }
 
         MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
         if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() > 0) {
             LOGGER.warn("{} is already published. Try command 'update {0}' instead?", mcrid);
-            return;
+            return SysValue.ErroneousSysValue;
         }
 
         HISinOneCommandConfiguration conf = new HISinOneCommandConfiguration(mcrObject);
@@ -50,12 +50,18 @@ public class HISinOneCommands {
 
             try (HISInOneClient client = HISinOneClientFactory.create();
                 Response response = client.post(conf.getPath(), json)) {
+
+                if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                    LOGGER.error("{}", response.readEntity(String.class));
+                    return SysValue.ErroneousSysValue;
+                }
+
                 SysValue publication = response.readEntity(conf.getResponseEntityClass());
 
                 if (publication.getId() == 0) {
                     LOGGER.error("MCRObject {} was not published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL,
                         publication.getId());
-                    return;
+                    return SysValue.ErroneousSysValue;
                 }
 
                 LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL, publication.getId());
@@ -63,30 +69,34 @@ public class HISinOneCommands {
                 // Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
                 MCRMetadataManager.update(mcrObject);
+
+                return publication;
             }
         } catch (IOException | MCRAccessException e) {
             LOGGER.error("Could not publish {} to {}", mcrid, HIS_IN_ONE_BASE_URL, e);
         }
+
+        return SysValue.UnresolvedSysValue;
     }
 
     @MCRCommand(syntax = "update {0}", help = "Updates the object given by its id in HISinOne")
-    public static void update(String mcrid) {
+    public static SysValue update(String mcrid) {
         LOGGER.info("Updating {}", mcrid);
         if (!MCRObjectID.isValid(mcrid)) {
             LOGGER.error("{} is not a valid {}", mcrid, MCRObjectID.class.getSimpleName());
-            return;
+            return SysValue.ErroneousSysValue;
         }
 
         MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
         if (!MCRMetadataManager.exists(mcrObjectID)) {
             LOGGER.error("{} does not exist", mcrid);
-            return;
+            return SysValue.UnresolvedSysValue;
         }
 
         MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
         if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
             LOGGER.warn("{} is not published. Try command 'publish {0}' first", mcrid);
-            return;
+            return SysValue.ErroneousSysValue;
         }
 
         HISinOneCommandConfiguration conf = new HISinOneCommandConfiguration(mcrObject);
@@ -98,17 +108,24 @@ public class HISinOneCommands {
                 Response response = client.put(conf.getPath() + "/" + hisId, json)) {
                 SysValue p = response.readEntity(conf.getResponseEntityClass());
 
+                if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                    LOGGER.error("{}", response.readEntity(String.class));
+                    return SysValue.ErroneousSysValue;
+                }
+
                 if (p.getId() == 0) {
                     LOGGER.error("MCRObject {} was not updated at {}({}) with id {}", mcrid, HIS_IN_ONE_BASE_URL,
                         conf.getPath(), p.getId());
-                    return;
+                    return SysValue.ErroneousSysValue;
                 }
                 LOGGER.info("MCRObject {} updated at {}({}) with id {} and new lockVersion {}", mcrid,
                     HIS_IN_ONE_BASE_URL, conf.getPath(), hisId, p.getLockVersion());
+                return p;
             }
         } catch (IOException e) {
             LOGGER.error("Could not update {} to {}", mcrid, HIS_IN_ONE_BASE_URL, e);
         }
+        return SysValue.ErroneousSysValue;
     }
 
     @MCRCommand(syntax = "delete {0}", help = "Deletes the object given by its id from HISinOne")
