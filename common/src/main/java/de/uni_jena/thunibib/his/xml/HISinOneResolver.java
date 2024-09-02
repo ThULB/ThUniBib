@@ -168,6 +168,7 @@ public class HISinOneResolver implements URIResolver {
             Response response = hisClient.get(Journal.getPath() + "/" + hisId)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
                 return SysValue.ErroneousSysValue;
             }
             Journal journal = response.readEntity(Journal.class);
@@ -203,6 +204,7 @@ public class HISinOneResolver implements URIResolver {
             Response response = hisClient.get(PublicationResourceValue.getPath())) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
                 return SysValue.ErroneousSysValue;
             }
 
@@ -258,6 +260,7 @@ public class HISinOneResolver implements URIResolver {
             Response response = hisClient.get(Publication.getPath() + "/" + hisid)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
                 return SysValue.ErroneousSysValue;
             }
 
@@ -280,6 +283,7 @@ public class HISinOneResolver implements URIResolver {
             Response response = hisClient.get(PublisherWrappedValue.getPath(), params)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
                 return SysValue.ErroneousSysValue;
             }
 
@@ -323,10 +327,15 @@ public class HISinOneResolver implements URIResolver {
         jsonObject.addProperty("place", "unbekannt");
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response resp = hisClient.post(PublisherWrappedValue.getPath(PublisherWrappedValue.PathType.create),
+            Response response = hisClient.post(PublisherWrappedValue.getPath(PublisherWrappedValue.PathType.create),
                 jsonObject.toString())) {
 
-            PublisherWrappedValue publisher = resp.readEntity(PublisherWrappedValue.class);
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
+
+            PublisherWrappedValue publisher = response.readEntity(PublisherWrappedValue.class);
             PUBLISHER_MAP.put(decodedValue, publisher);
             return publisher;
         }
@@ -348,6 +357,7 @@ public class HISinOneResolver implements URIResolver {
             Response response = hisClient.get(PeerReviewedValue.getPath())) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
                 return SysValue.ErroneousSysValue;
             }
 
@@ -388,6 +398,11 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(PublicationAccessTypeValue.getPath())) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
 
             List<PublicationAccessTypeValue> accessTypes = response.readEntity(
                 new GenericType<List<PublicationAccessTypeValue>>() {
@@ -431,6 +446,12 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(ResearchAreaKdsfValue.getPath())) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
+
             List<ResearchAreaKdsfValue> availableTypes = response.readEntity(
                 new GenericType<List<ResearchAreaKdsfValue>>() {
                 });
@@ -464,6 +485,11 @@ public class HISinOneResolver implements URIResolver {
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(GlobalIdentifierType.getPath())) {
 
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
+
             List<GlobalIdentifierType> availableTypes = response.readEntity(
                 new GenericType<List<GlobalIdentifierType>>() {
                 });
@@ -488,6 +514,11 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(PublicationTypeValue.getPath())) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
 
             List<PublicationTypeValue> pubTypeValues = response.readEntity(
                 new GenericType<List<PublicationTypeValue>>() {
@@ -526,6 +557,15 @@ public class HISinOneResolver implements URIResolver {
             Response bookResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.book));
             Response articleResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.article))) {
 
+            if (bookResp.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(bookResp);
+                return SysValue.ErroneousSysValue;
+            }
+            if (articleResp.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(articleResp);
+                return SysValue.ErroneousSysValue;
+            }
+
             List<DocumentType> ofBook = bookResp.readEntity(new GenericType<List<DocumentType>>() {
             });
             ofBook.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {
@@ -559,6 +599,11 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(QualificationThesisValue.getPath())) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
 
             List<QualificationThesisValue> thesisValues = response.readEntity(
                 new GenericType<List<QualificationThesisValue>>() {
@@ -598,6 +643,10 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(SubjectAreaValue.getPath())) {
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
 
             List<SubjectAreaValue> subjectAreas = response.readEntity(
                 new GenericType<List<SubjectAreaValue>>() {
@@ -622,6 +671,10 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get("cs/sys/values/publicationCreatorTypeValue")) {
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
 
             List<PublicationCreatorTypeValue> creatorTypes = response.readEntity(
                 new GenericType<List<PublicationCreatorTypeValue>>() {
@@ -653,6 +706,10 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(VisibilityValue.getPath())) {
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
 
             List<VisibilityValue> visState = response.readEntity(
                 new GenericType<List<VisibilityValue>>() {
@@ -684,6 +741,10 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(PublicationState.getPath())) {
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
 
             List<PublicationState> pubState = response.readEntity(
                 new GenericType<List<PublicationState>>() {
@@ -711,7 +772,11 @@ public class HISinOneResolver implements URIResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(LanguageValue.getPath())) {
-
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logHISMessage(response);
+                return SysValue.ErroneousSysValue;
+            }
+            
             List<LanguageValue> languageValues = response.readEntity(new GenericType<List<LanguageValue>>() {
             });
 
@@ -768,5 +833,14 @@ public class HISinOneResolver implements URIResolver {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Logs the response to the error log. Closes the {@link Response} object.
+     *
+     * @param response the response
+     */
+    protected final void logHISMessage(Response response) {
+        LOGGER.error("HISinOne api message: {}", response.readEntity(String.class));
     }
 }

@@ -52,7 +52,7 @@ public class HISinOneCommands {
                 Response response = client.post(conf.getPath(), json)) {
 
                 if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                    LOGGER.error("{}", response.readEntity(String.class));
+                    LOGGER.error("HISinOne api error: {}", response.readEntity(String.class));
                     return SysValue.ErroneousSysValue;
                 }
 
@@ -109,7 +109,7 @@ public class HISinOneCommands {
                 SysValue p = response.readEntity(conf.getResponseEntityClass());
 
                 if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                    LOGGER.error("{}", response.readEntity(String.class));
+                    LOGGER.error("HISinOne api error: {}", response.readEntity(String.class));
                     return SysValue.ErroneousSysValue;
                 }
 
