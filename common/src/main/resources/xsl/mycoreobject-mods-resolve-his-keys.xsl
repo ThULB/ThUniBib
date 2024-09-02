@@ -67,25 +67,31 @@
   </xsl:template>
 
   <xsl:template name="related-item-host">
-    <xsl:variable name="host" select="mods:relatedItem[@type = 'host'][mods:genre[@type='intern'][fn:contains('journal newspaper', fn:substring-after(@valueURI, '#'))]]/@xlink:href"/>
+    <xsl:variable name="host" select="mods:relatedItem[@type = 'host']/@xlink:href"/>
+    <xsl:variable name="host-genre" select="mods:relatedItem[@type = 'host']/mods:genre[@type='intern']/fn:substring-after(@valueURI, '#')"/>
 
-    <xsl:choose>
-      <!-- Resolve journal-->
-      <xsl:when test="fn:string-length($host) &gt; 0">
-        <xsl:variable name="his-id" select="fn:document(concat('hisinone:resolve:id:journal:', $host))"/>
-        <mods:relatedItem xlink:href="{$host}" otherType="host" otherTypeAuth="{$ThUniBib.HISinOne.BaseURL}" otherTypeAuthURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/journal">
-          <xsl:value-of select="$his-id"/>
-        </mods:relatedItem>
-      </xsl:when>
-      <xsl:otherwise>
-        <!-- Resolve 'Übergeordnete Publikation' -->
-        <!--
-        <mods:relatedItem otherType="host" otherTypeAuth="{$ThUniBib.HISinOne.BaseURL}" otherTypeAuthURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication">
-          <xsl:value-of select="$his-id"/>
-        </mods:relatedItem>
-        -->
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:if test="fn:string-length($host) &gt; 0">
+      <xsl:variable name="resolve-of-type">
+        <xsl:choose>
+          <xsl:when test="contains('journal newspaper', $host-genre)">
+            <xsl:value-of select="'journal'"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="'publication'"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+
+      <xsl:variable name="his-id" select="fn:document(concat('hisinone:resolve:id:', $resolve-of-type, ':', $host))"/>
+
+      <mods:relatedItem otherType="host" otherTypeAuth="{$ThUniBib.HISinOne.BaseURL}" otherTypeAuthURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/{$resolve-of-type}">
+        <xsl:attribute name="xlink:href">
+          <xsl:value-of select="$host"/>
+        </xsl:attribute>
+
+        <xsl:value-of select="$his-id"/>
+      </mods:relatedItem>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="publicationResource">
