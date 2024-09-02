@@ -1,21 +1,3 @@
-/*
- * This file is part of ***  M y C o R e  ***
- * See http://www.mycore.de/ for details.
- *
- * MyCoRe is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * MyCoRe is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with MyCoRe.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 package de.uni_jena.thunibib.his.content.transformer;
 
 import com.google.gson.JsonArray;
@@ -29,7 +11,6 @@ import org.jdom2.JDOMException;
 import org.jdom2.filter.Filters;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
-import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.util.List;
@@ -59,6 +40,8 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                 return jsonObject;
             }
 
+            addParent(jsonObject, xml);
+
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "']", xml, "id");
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "-lockVersion']", xml, "lockVersion");
 
@@ -85,7 +68,6 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'publicationTypeValue')]", xml, "publicationType");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'documentTypes')]", xml, "documentType");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'qualificationThesisValue')]", xml, "qualificationThesis");
-            addQualifiedObjectID(jsonObject, "//mods:mods/mods:relatedItem[contains(@otherTypeAuthURI, 'fs/res/journal')][1]", xml, "journal");
 
             addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'researchAreaKdsfValue')]", xml,"researchAreasKdsf", "id");
             addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml, "subjectAreas", "id");
@@ -99,6 +81,19 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             throw new IOException(
                 "Could not generate JSON from " + source.getClass().getSimpleName() + ": " + source.getSystemId(), e);
         }
+    }
+
+    /**
+     * Adds the id of superordinate/parent (if any) to the {@link JsonObject}.
+     *
+     * @param jsonObject the {@link JsonObject}
+     * @param xml the source mycoreobject as {@link Document}
+     */
+    protected void addParent(JsonObject jsonObject, Document xml) {
+        // add journal
+        addQualifiedObjectID(jsonObject, "//mods:mods/mods:relatedItem[contains(@otherTypeAuthURI, 'fs/res/journal')][1]", xml, "journal");
+        // add publication
+        addQualifiedObjectID(jsonObject, "//mods:mods/mods:relatedItem[contains(@otherTypeAuthURI, 'fs/res/publication')][1]", xml, "parent");
     }
 
     protected void addExtent(JsonObject jsonObject, Document xml) {
