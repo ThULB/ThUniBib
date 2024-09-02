@@ -24,11 +24,10 @@
   <xsl:template match="mods:mods">
     <xsl:copy>
       <xsl:comment>Begin - transformer 'mods-create-unresolved-his-keys'</xsl:comment>
+
       <!-- TODO Check user role -->
-      <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][text() = '-1']"
-                           mode="create"/>
-      <xsl:apply-templates select="mods:relatedItem[@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][text() = '-1']"
-                           mode="create"/>
+      <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][text() = '-1']" mode="create"/>
+      <xsl:apply-templates select="mods:relatedItem[@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][text() = '-1']" mode="create"/>
 
       <xsl:comment>End - mods-create-unresolved-his-keys'</xsl:comment>
       <!-- Retain mods from previous step, but exclude unresolved values -->
@@ -36,23 +35,35 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- Create unresolved journal-->
-  <xsl:template mode="create"
-                match="mods:relatedItem[@xlink:href][@otherType='host'][@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][contains(@otherTypeAuthURI, 'journal')][1]">
+  <!-- Create unresolved host -->
+  <xsl:template match="mods:relatedItem[@xlink:href][@otherType='host'][@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][@otherTypeAuthURI][1]" mode="create">
 
-    <xsl:variable name="journal-id" select="fn:document(concat('hisinone:create:id:journal:', @xlink:href))"/>
+    <xsl:variable name="host" select="@xlink:href"/>
+    <xsl:variable name="host-genre" select="fn:substring-after(@otherTypeAuthURI, '/fs/res/')"/>
 
-    <xsl:if test="fn:number($journal-id) &gt; 0">
+    <xsl:variable name="resolve-of-type">
+      <xsl:choose>
+        <xsl:when test="contains('journal', $host-genre)">
+          <xsl:value-of select="'journal'"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="'publication'"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="host-his-id" select="fn:document(concat('hisinone:create:id:', $resolve-of-type, ':', @xlink:href))"/>
+
+    <xsl:if test="fn:number($host-his-id) &gt; 0">
       <mods:relatedItem>
         <xsl:copy-of select="@*"/>
-        <xsl:value-of select="$journal-id"/>
+        <xsl:value-of select="$host-his-id"/>
       </mods:relatedItem>
     </xsl:if>
   </xsl:template>
 
   <!-- Create unresolved publisher -->
-  <xsl:template mode="create"
-                match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]">
+  <xsl:template mode="create" match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]">
 
     <xsl:variable name="publisher-text" select="fn:encode-for-uri(../mods:originInfo/mods:publisher)"/>
     <xsl:variable name="publisher-id" select="fn:document(concat('hisinone:create:id:publisher:', $publisher-text))"/>
