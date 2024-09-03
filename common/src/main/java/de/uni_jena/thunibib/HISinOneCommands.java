@@ -15,6 +15,7 @@ import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE_URL;
 
@@ -25,18 +26,13 @@ public class HISinOneCommands {
     @MCRCommand(syntax = "publish {0}", help = "Publishes the object given by its id to HISinOne")
     public static SysValue publish(String mcrid) {
         LOGGER.info("Publishing {}", mcrid);
-        if (!MCRObjectID.isValid(mcrid)) {
-            LOGGER.error("{} is not a valid {}", mcrid, MCRObjectID.class.getSimpleName());
-            return SysValue.ErroneousSysValue;
+
+        Optional<SysValue> sysVal = isValid(mcrid);
+        if (sysVal.isPresent()) {
+            return sysVal.get();
         }
 
-        MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
-        if (!MCRMetadataManager.exists(mcrObjectID)) {
-            LOGGER.error("{} does not exist", mcrid);
-            return SysValue.UnresolvedSysValue;
-        }
-
-        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(mcrid));
         if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() > 0) {
             LOGGER.warn("{} is already published. Try command 'update {0}' instead?", mcrid);
             return SysValue.ErroneousSysValue;
@@ -57,7 +53,6 @@ public class HISinOneCommands {
                 }
 
                 SysValue publication = response.readEntity(conf.getResponseEntityClass());
-
                 if (publication.getId() == 0) {
                     LOGGER.error("MCRObject {} was not published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL,
                         publication.getId());
@@ -82,18 +77,12 @@ public class HISinOneCommands {
     @MCRCommand(syntax = "update {0}", help = "Updates the object given by its id in HISinOne")
     public static SysValue update(String mcrid) {
         LOGGER.info("Updating {}", mcrid);
-        if (!MCRObjectID.isValid(mcrid)) {
-            LOGGER.error("{} is not a valid {}", mcrid, MCRObjectID.class.getSimpleName());
-            return SysValue.ErroneousSysValue;
+        Optional<SysValue> sysVal = isValid(mcrid);
+        if (sysVal.isPresent()) {
+            return sysVal.get();
         }
 
-        MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
-        if (!MCRMetadataManager.exists(mcrObjectID)) {
-            LOGGER.error("{} does not exist", mcrid);
-            return SysValue.UnresolvedSysValue;
-        }
-
-        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(mcrid));
         if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
             LOGGER.warn("{} is not published. Try command 'publish {0}' first", mcrid);
             return SysValue.ErroneousSysValue;
@@ -133,4 +122,25 @@ public class HISinOneCommands {
         LOGGER.info("Deleting {}", mcrid);
     }
 
+    /**
+     * Checks if the provided mcr id is valid and the related mycoreobject actually exists.
+     *
+     * @param mcrid the id of the mycoreobject
+     *
+     * @return either an empty {@link Optional} or an {@link Optional} wrapping a {@link SysValue}
+     */
+    protected final static Optional<SysValue> isValid(String mcrid) {
+        if (!MCRObjectID.isValid(mcrid)) {
+            LOGGER.error("{} is not a valid {}", mcrid, MCRObjectID.class.getSimpleName());
+            return Optional.of(SysValue.ErroneousSysValue);
+        }
+
+        MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
+        if (!MCRMetadataManager.exists(mcrObjectID)) {
+            LOGGER.error("{} does not exist", mcrid);
+            return Optional.of(SysValue.UnresolvedSysValue);
+        }
+
+        return Optional.empty();
+    }
 }
