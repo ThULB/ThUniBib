@@ -154,7 +154,6 @@ public class HISinOneResolver implements URIResolver {
 
     protected SysValue resolveJournal(String fromValue) {
         if (!exists(fromValue)) {
-            LOGGER.warn("{} does not exist", fromValue);
             return SysValue.UnresolvedSysValue;
         }
 
@@ -246,7 +245,6 @@ public class HISinOneResolver implements URIResolver {
      */
     private SysValue resolvePublication(String mcrid) {
         if (!exists(mcrid)) {
-            LOGGER.warn("{} does not exist", mcrid);
             return SysValue.UnresolvedSysValue;
         }
 
@@ -776,7 +774,7 @@ public class HISinOneResolver implements URIResolver {
                 logHISMessage(response);
                 return SysValue.ErroneousSysValue;
             }
-            
+
             List<LanguageValue> languageValues = response.readEntity(new GenericType<List<LanguageValue>>() {
             });
 
@@ -825,11 +823,13 @@ public class HISinOneResolver implements URIResolver {
      * */
     protected boolean exists(String mcrid) {
         if (!MCRObjectID.isValid(mcrid)) {
+            LOGGER.error("{} is not a valid {}", mcrid, MCRObjectID.class.getSimpleName());
             return false;
         }
 
         MCRObjectID id = MCRObjectID.getInstance(mcrid);
         if (!MCRMetadataManager.exists(id)) {
+            LOGGER.warn("{} does not exist", mcrid);
             return false;
         }
         return true;
