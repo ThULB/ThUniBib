@@ -1,69 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <webpage lastModified="$Date$" id="contact">
   <title xml:lang="de">Datenschutzerklärung</title>
   <title xml:lang="en">Privacy Statement</title>
 
-  <article class="card mb-3" xml:lang="de">
+  <article class="card mb-3">
     <div class="card-body">
       <p>
-        Es gelten die <a href="https://www.uni-weimar.de/de/fs/datenschutz/">Datenschutzbestimmungen der
+        Es gelten die <a href="https://www.uni-weimar.de/de/fs/datenschutz/" target="_blank">Datenschutzbestimmungen der
         Bauhaus-Universität Weimar</a>,
         zusätzlich gilt:
       </p>
 
       <h2>I. Allgemeines zur Datenverarbeitung</h2>
-
       <p>
-        Zweck der Universitätsbibliographie ist die Bereitstellung einer weitgehend vollständigen Publikationsliste
-        aller Angehörigen der Bauhaus-Universität Weimar.
-        Wir verarbeiten personenbezogene Daten unserer Nutzenden grundsätzlich nur, soweit dies
-        zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist.
-        Dies geschieht zur Wahrnehmung der uns übertragenen Aufgabe der Unterstützung von Lehre und Forschung
-        gemäß Art. 6 Abs. 1 lit. e DSGVO.
-        Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung einholen,
-        dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage.
-        Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen
-        Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.
+        Zweck der Universitätsbibliographie der Bauhaus-Universität Weimar ist die Bereitstellung einer weitgehend
+        vollständigen Publikationsliste aller Mitglieder und Angehörigen der Bauhaus-Universität Weimar. Dies geschieht
+        zur Wahrnehmung der uns übertragenen Aufgabe der Unterstützung von Lehre und Forschung gemäß Art. 6 Abs. 1 lit.
+        e DSGVO i. V. m. §§ 11 Abs. 1 Nr. 6, 44 Abs. 1 S. 1 ThürHG.<br/>Soweit wir für Verarbeitungsvorgänge
+        personenbezogener Daten eine Einwilligung einholen, dient Art. 6 Abs. 1
+        lit. a DSGVO als Rechtsgrundlage.
       </p>
 
-      <h2>II. Verbindungsdaten und Log-Dateien</h2>
-
+      <h2>II. Verbindungsdaten, Logfiles und Session Cookies</h2>
       <p>
-        Bei jedem Aufruf der Webseiten dieser Bibliographie überträgt Ihr Webbrowser automatisch Daten des aufrufenden
-        Rechners. Dies ist eine Grundfunktion des World Wide Web und nicht durch uns beeinflussbar.
-      </p>
-      <p>
-        Die vorübergehende Verarbeitung von Verbindungsdaten ist zur Bereitstellung der Plattform technisch zwingend
-        erforderlich. Die Speicherung in Log-Dateien erfolgt zur Optimierung und Sicherstellung der Funktionsfähigkeit
-        und Sicherheit
-        der Plattform. Personenbezogene Zugriffsdaten werden nach 28 Tagen gelöscht.
+        Beim Aufruf der Universitätsbibliographie werden auf unserem System automatisiert Daten erhoben und in Logfiles
+        gespeichert. Beim Login werden zudem sog. Session-Cookies verwendet. Insofern wird auf die oben genannten
+        Datenschutzbestimmungen verwiesen.
       </p>
 
-      <h2>III. AnmeldeDaten</h2>
-
+      <h2>III. Anmelde-Daten</h2>
       <p>
-        Eine Anmeldung (Login) mit persönlichen Daten ist nur zur Bearbeitung der Bibliographie
-        durch Hochschulangehörige erforderlich, nicht für die Suche nach oder den lesenden Zugriff
-        auf Publikationen.
-        Zur Veröffentlichung melden sich Hochschulangehörige mit ihrer Hochschulkennung an.
-        Unsere Bibliographie verarbeitet und speichert folgende Nutzerdaten:
+        Eine Anmeldung (Login) mit persönlichen Daten ist nur zur Bearbeitung der Bibliographie durch
+        Universitätsmitglieder und -angehörige erforderlich, nicht für die Suche nach oder den lesenden Zugriff auf
+        Publikationsdaten. Zur Veröffentlichung ihrer eigenen Arbeiten melden sich Universitätsmitglieder und
+        -angehörige mit ihrer Universitätskennung via Shibboleth an. Unsere Bibliographie verarbeitet und speichert
+        folgende Nutzerdaten:
       </p>
       <ul>
-        <li>Name</li>
+        <li>Name, Vorname</li>
         <li>Benutzerkennung (nur zur Authentifizierung, wird nicht gespeichert)</li>
-        <li>eduPersonUniqueID</li>
+        <li>DHSB-ID (eine systeminterne Bibliographie-ID)</li>
         <li>Uhrzeit und Datum des letzten Logins</li>
         <li>Benutzerrollen (z.B. Administrator*innen, die Rollen werden in der Bibliographie zugewiesen)</li>
-        <li>Verknüpfung zu den in dieser Bibliographie erfassten Publikationen, inkl. Datum und Uhrzeit der letzten
+        <li>Verknüpfung zu den in dieser Bibliografie erfassten Publikationen, inkl. Datum und Uhrzeit der letzten
           Änderung
         </li>
       </ul>
+
       <p>
-        Die Speicherung und Verarbeitung dieser Daten geschieht zur Wahrnehmung der uns
-        übertragenen Aufgabe der Unterstützung von Lehre und Forschung gemäß Art. 6 Abs. 1 lit. e DSGVO
-        und ist erforderlich
+        Die Speicherung und Verarbeitung dieser Daten erfolgt zu folgenden Zwecken
       </p>
       <ul>
         <li>zum Nachweis der Berechtigung zur Nutzung der Bibliographie</li>
@@ -72,112 +57,34 @@
       </ul>
 
       <h2>IV. Publikationsdaten</h2>
-
       <p>
         Zweck dieser Bibliographie ist die weltweite Bereitstellung einer weitgehend vollständigen Publikationsliste der
-        Angehörigen der Bauhaus-Universität Weimar. Dazu speichern, verarbeiten und veröffentlichen
-        wir auch personenbezogene Daten der an Publikationen beteiligten Personen:
+        Mitglieder und Angehörigen der Bauhaus-Universität Weimar. Dazu speichern, verarbeiten und veröffentlichen wir
+        auch personenbezogene Daten der an Publikationen beteiligten Personen:
       </p>
+
       <ul>
         <li>Namen und Rollen (z. B. Autor, Herausgeber)</li>
         <li>Eindeutige Autoren-Identifikatoren (z. B. ORCID iD, GND)</li>
         <li>Informationen zur organisatorischen Zugehörigkeit (z. B. Hochschule, Fakultät, Institut)</li>
       </ul>
+
       <p>
-        Dies dient dem eindeutigen Nachweis und der Anerkennung der Urheberschaft.
-        Mit Übertragung der Publikationsmetadaten übertragen wir auch diese personenbezogenen Daten an Dritte
-        und stellen sie über Schnittstellen bereit:
+        Dies dient dem eindeutigen Nachweis und der Anerkennung der Urheberschaft. Mit Übertragung der
+        Publikationsmetadaten übertragen wir auch diese personenbezogenen Daten an Dritte und stellen sie über
+        Schnittstellen bereit:
       </p>
+
       <ul>
-        <li>an wissenschaftliche und allgemeine Suchmaschinen wie Google</li>
+        <li>an wissenschaftliche und allgemeine Suchmaschinen wie zum Beispiel Google</li>
         <li>an Dritte weltweit, über Schnittstellen wie OAI (Open Archives Initiative) und das Google Sitemap
           Protokoll
         </li>
       </ul>
 
-    </div>
-  </article>
-
-  <article class="card mb-3" xml:lang="en">
-    <div class="card-body">
       <p>
-        The
-        <a href="https://www.uni-erfurt.de/en/privacy-policy">data protection regulations of University of Erfurt</a>
-        apply, in addition:
+        Stand: 15.08.2024
       </p>
-
-      <h2>I. General Information on Data Processing</h2>
-
-      <p>
-        The purpose of the University Bibliography is to provide a largely complete publication list of all University
-        of Erfurt members. In principle, we only process personal data of our users to the extent that is necessary to
-        provide a functional website and our contents and services. This is done to perform the task assigned to us of
-        supporting teaching and research according to Art. 6 point (e) of paragraph 1 GDPR. As far as we obtain consent
-        for the processing of personal data, Art. 6 point (a) of paragraph 1 GDPR serves as the legal basis. An
-        exception applies in those cases where obtaining consent in advance is not possible for factual reasons and the
-        processing of the data is permitted by legal regulations.
-      </p>
-
-      <h2>II. Connection Data and Log Files</h2>
-
-      <p>
-        Every time you access the web pages of the bibliography, your web browser automatically transports data of the
-        calling computer. This is a basic function of the World Wide Web and cannot be influenced by us.
-      </p>
-      <p>
-        The temporary processing of connection data is technically mandatory for the provision of the platform. The
-        storage in log files is carried out to optimize and ensure the platform’s functionality and security. For
-        statistical purposes, the log file data is regularly processed in anonymized form. Personal access data is
-        deleted after 28 days.
-      </p>
-
-      <h2>III. Login Data</h2>
-
-      <p>
-        A login with personal data is only required by university members to edit the bibliography; it is not necessary
-        for the search for publications or to gain reading access. For publication, university members register with
-        their university identifier. The following user data is processed and stored by the bibliography:
-      </p>
-      <ul>
-        <li>Name</li>
-        <li>User ID (for authentication only, not stored)</li>
-        <li>eduPersonUniqueID</li>
-        <li>Time and date of the last login</li>
-        <li>User roles (e.g. administrator, the roles are assigned within the bibliography)</li>
-        <li>Links to the publications recorded in the bibliography, incl. date and time of the last modification</li>
-      </ul>
-      <p>
-        The storage and processing of this data is carried out only to perform the task assigned to us of supporting
-        teaching and research according to Art. 6 point (e) of paragraph 1 GDPR and is required
-      </p>
-      <ul>
-        <li>to prove authorization to use the bibliography</li>
-        <li>to communicate with the authors</li>
-        <li>to prove the authorship of the publications</li>
-      </ul>
-
-      <h2>IV. Publication data</h2>
-      <p>
-        The purpose of this bibliography is the worldwide provision of a largely complete publication list of all
-        members of the University of Erfurt. Therefore, we store, process and publish personal data of persons involved
-        in publications:
-      </p>
-      <ul>
-        <li>Names and roles (e.g. author, editor)</li>
-        <li>Unique author identifiers (e.g. ORCID iD, GND)</li>
-        <li>Information on the organizational affiliation (e.g. university, faculty, institute)</li>
-      </ul>
-      <p>
-        This serves to clearly prove and acknowledge authorship. By transferring the publication meta data we also
-        transmit these personal data to third parties and provide them via interfaces:
-      </p>
-      <ul>
-        <li>to scientific and general search engines like Google</li>
-        <li>to third parties worldwide, via interfaces like OAI (Open Archives Initiative) and the Google Sitemap
-          protocol
-        </li>
-      </ul>
-
     </div>
   </article>
 </webpage>
