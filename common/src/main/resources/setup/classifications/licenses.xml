@@ -11,6 +11,11 @@
       <label xml:lang="en" text="Open Access related to alliance or national license" />
       <label xml:lang="de" text="Open-Access im Zuge einer Allianz- bzw. Nationallizenz" />
     </category>
+    <category ID="cc_zero_1.0">
+      <label xml:lang="de" text="CC0 1.0" description="Die Person, die ein Werk mit dieser Deed verknüpft hat, hat dieses Werk in die Gemeinfreiheit - auch genannt Public Domain - entlassen , indem sie weltweit auf alle urheberrechtlichen und verwandten Schutzrechte verzichtet hat, soweit das gesetzlich möglich ist.    Sie dürfen das Werk kopieren, verändern, verbreiten und aufführen, sogar zu kommerziellen Zwecken, ohne um weitere Erlaubnis bitten zu müssen."/>
+      <label xml:lang="en" text="CC0 1.0" description="The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission."/>
+      <url xlink:href="https://creativecommons.org/publicdomain/zero/1.0/" xlink:type="locator"/>
+    </category>
     <category ID="cc_3.0">
       <label xml:lang="en" text="Creative Commons 3.0 International Lizences" />
       <label xml:lang="de" text="Creative Commons 3.0 International Lizenzen" />
