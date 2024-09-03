@@ -9,7 +9,7 @@
   </parent>
   <groupId>de.uni-jena.thulb.ubo</groupId>
   <artifactId>ThUniBib</artifactId>
-  <version>2024.08.26</version>
+  <version>2024.08.26.1</version>
   <packaging>pom</packaging>
   <name>UBO ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
@@ -97,7 +97,7 @@
       <dependency>
         <groupId>de.uni-jena.thulb.ubo</groupId>
         <artifactId>thunibib-common</artifactId>
-        <version>2024.08.26</version>
+        <version>2024.08.26.1</version>
       </dependency>
       <dependency>
         <groupId>jakarta.servlet</groupId>
