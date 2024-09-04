@@ -34,7 +34,8 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
         MCRShutdownHandler.getInstance().addCloseable(this);
     }
 
-    public Response get(String path, Map<String, String> parameters) {
+    @Override
+    public Response get(String path, Map<String, String> parameters, boolean omitToken) {
         WebTarget webTarget = getJerseyClient()
             .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH);
 
@@ -46,21 +47,27 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
 
         webTarget = webTarget.path(path);
 
-        Token token;
-        try {
-            token = fetchToken();
-        } catch (Exception e) {
-            LOGGER.error("Could not fetch token", e);
-            return Response.serverError().entity(e.getMessage()).build();
+        Token token = null;
+        if (!omitToken) {
+            try {
+                token = fetchToken();
+            } catch (Exception e) {
+                LOGGER.error("Could not fetch token", e);
+                return Response.serverError().entity(e.getMessage()).build();
+            }
         }
 
         Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
-        invocationBuilder.header("Authorization", getAuthorizationHeaderValue(AuthType.Bearer, token.getAccessToken()));
+        if (token != null) {
+            invocationBuilder.header("Authorization",
+                getAuthorizationHeaderValue(AuthType.Bearer, token.getAccessToken()));
+        }
 
         Response response = invocationBuilder.get();
         return response;
     }
 
+    @Override
     public Response post(String path, String bodySource) {
         WebTarget webTarget = getJerseyClient()
             .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH)
@@ -83,6 +90,7 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
         return response;
     }
 
+    @Override
     public Response put(String path, String bodySource) {
         WebTarget webTarget = getJerseyClient()
             .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH)
@@ -103,10 +111,6 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
         Response response = invocationBuilder.put(body);
 
         return response;
-    }
-
-    public Response get(String path) {
-        return get(path, null);
     }
 
     protected Token fetchToken() {
