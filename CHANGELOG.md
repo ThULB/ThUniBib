@@ -1,5 +1,14 @@
 # Changelog
 
+## 2024.08.26.2
+- [#621](https://github.com/ThULB/ThUniBib/issues/621) Updated csl style for Ilmenau (#623)
+- [FSU040THUL-4412](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4412) [#618](https://github.com/ThULB/ThUniBib/issues/618) Added CC0 1.0 to licenses.xml (#619)
+---
+
+## 2024.08.26.1
+-  [FSU040THUL-4406](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4406) [#616](https://github.com/ThULB/ThUniBib/issues/616) [WE] Updated privacy-statement.xml
+---
+
 ## 2024.08.26
 - [#608](https://github.com/ThULB/ThUniBib/issues/608) Simplified embedding of web fonts (#609)
 - [FSU040THUL-4181](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4181) [#610](https://github.com/ThULB/ThUniBib/issues/610) Support search by publisher in extended search.xed (#611)
