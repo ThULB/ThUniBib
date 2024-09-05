@@ -25,7 +25,7 @@
     <category citation-format="author-title"/>
     <category field="technology"/>
     <summary>Zitierstil Vorstellungen der UB Ilmenau</summary>
-    <updated>2024-07-08T07:54:10+00:00</updated>
+    <updated>2024-09-04T08:57:17+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 License</rights>
     <link/>
   </info>
@@ -113,6 +113,7 @@
         </if>
         <else>
           <text variable="collection-title"/>
+          <text variable="volume" prefix=" ; "/>
         </else>
       </choose>
     </group>
@@ -125,7 +126,12 @@
     <group>
       <text variable="publisher-place"/>
       <text variable="publisher" prefix=" : "/>
-      <text macro="year-date" prefix=", "/>
+      <choose>
+        <if match="any" variable="publisher-place publisher">
+          <text value=", "/>
+        </if>
+      </choose>
+      <text macro="year-date"/>
     </group>
     <text macro="article-pages" prefix=", "/>
   </macro>
