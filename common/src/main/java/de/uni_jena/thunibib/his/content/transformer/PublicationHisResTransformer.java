@@ -8,7 +8,9 @@ import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
+import org.mycore.common.MCRConstants;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
 
@@ -21,12 +23,17 @@ import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 public class PublicationHisResTransformer extends MCRToJSONTransformer {
+    static {
+        MCRConstants.registerNamespace(Namespace.getNamespace("cerif", "https://www.openaire.eu/cerif-profile/1.1/"));
+    }
+
     private static final Logger LOGGER = LogManager.getLogger(PublicationHisResTransformer.class);
 
     protected static final String PARSEABLE_INT = "[+-]?\\d+";
 
     @Override
     protected JsonObject toJSON(MCRContent source) throws IOException {
+
 
         try {
             Document xml = source.asXML();
@@ -73,6 +80,8 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'subjectAreaValue')]", xml, "subjectAreas", "id");
             addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:language/mods:languageTerm[@authorityURI='" + HIS_IN_ONE_BASE_URL + "']", xml, "languages", "id");
             addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:subject/mods:topic", xml, "keyWords", "defaulttext");
+
+            addQualifiedObjectIDs(jsonObject, "//mods:mods/mods:extension[@displayLabel='project']/cerif:Project/cerif:Identifier", xml, "projects", "id");
 
             addGlobalIdentifiers(jsonObject, xml);
 
@@ -262,7 +271,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
     protected void addQualifiedObjectIDs(JsonObject jsonObject, String xpath, Document xml, String pName, String kName) {
         final JsonArray jsonArray = new JsonArray();
 
-        XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE)
+        XPATH_FACTORY.compile(xpath, Filters.element(), null, MODS_NAMESPACE, MCRConstants.getStandardNamespace("cerif"))
             .evaluate(xml)
             .forEach(text -> {
                 JsonObject item = new JsonObject();
