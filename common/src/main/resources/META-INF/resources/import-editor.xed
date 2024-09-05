@@ -1004,7 +1004,12 @@
           <xed:output value="concat(i18n:translate('ubo.project.search'), ': ')"/>
         </label>
         <input id="project-search-his-in-one" type="text" class="mycore-form-input"/>
-        <button type="button" class="btn btn-primary mr-2" onclick="$('#project-search-his-in-one, #project-title, #project-id, #project-shorttext').val('');">
+
+        <button type="button"
+                class="btn btn-primary mr-2"
+                onclick="$('#project-search-his-in-one, #project-title, #project-id, #project-shorttext').val('');"
+                title="{i18n:thunibib.editor.tooltip.reset.project.data}">
+
           <i class="fas fa-minus"/>
         </button>
         <script src="js/HISinOneProjects.js"/>
