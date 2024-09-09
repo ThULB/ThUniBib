@@ -150,7 +150,6 @@ public class HISinOneResolver implements URIResolver {
             case subjectArea -> resolveSubjectArea(fromValue);
             case thesisType -> resolveThesisType(fromValue);
             case visibility -> resolveVisibility(fromValue);
-            default -> SysValue.UnresolvedSysValue;
         };
 
         LOGGER.info("Resolved {} to {}", href, String.valueOf(getFieldValue(sysValue, field)));
