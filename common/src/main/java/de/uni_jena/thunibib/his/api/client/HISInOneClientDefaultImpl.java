@@ -68,10 +68,16 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
     }
 
     @Override
-    public Response post(String path, String bodySource) {
+    public Response post(String path, String bodySource, Map<String, String> parameters) {
         WebTarget webTarget = getJerseyClient()
             .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH)
             .path(path);
+
+        if (parameters != null) {
+            for (Map.Entry<String, String> entry : parameters.entrySet()) {
+                webTarget = webTarget.queryParam(entry.getKey(), entry.getValue());
+            }
+        }
 
         Token token;
         try {
@@ -85,6 +91,7 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
         invocationBuilder.header("Authorization", getAuthorizationHeaderValue(AuthType.Bearer, token.getAccessToken()));
 
         Entity<String> body = Entity.entity(bodySource, MediaType.APPLICATION_JSON);
+
         Response response = invocationBuilder.post(body);
 
         return response;

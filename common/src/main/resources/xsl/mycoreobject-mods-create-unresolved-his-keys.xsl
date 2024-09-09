@@ -23,8 +23,6 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
-      <xsl:comment>Begin - transformer 'mods-create-unresolved-his-keys'</xsl:comment>
-
       <!-- TODO Check user role -->
       <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][text() = '-1']" mode="create"/>
       <xsl:apply-templates select="mods:relatedItem[@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][text() = '-1']" mode="create"/>
@@ -37,6 +35,7 @@
 
   <!-- Create unresolved host -->
   <xsl:template match="mods:relatedItem[@xlink:href][@otherType='host'][@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][@otherTypeAuthURI][1]" mode="create">
+    <xsl:comment>Begin - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
 
     <xsl:variable name="host" select="@xlink:href"/>
     <xsl:variable name="host-genre" select="fn:substring-after(@otherTypeAuthURI, '/fs/res/')"/>
@@ -60,10 +59,13 @@
         <xsl:value-of select="$host-his-id"/>
       </mods:relatedItem>
     </xsl:if>
+
+    <xsl:comment>End - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
   </xsl:template>
 
   <!-- Create unresolved publisher -->
   <xsl:template mode="create" match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]">
+    <xsl:comment>Begin - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
 
     <xsl:variable name="publisher-text" select="fn:encode-for-uri(../mods:originInfo/mods:publisher)"/>
     <xsl:variable name="publisher-id" select="fn:document(concat('hisinone:create:id:publisher:', $publisher-text))"/>
@@ -72,9 +74,9 @@
       <xsl:copy-of select="@*"/>
       <xsl:value-of select="$publisher-id"/>
     </mods:classification>
+    <xsl:comment>End - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
   </xsl:template>
 
   <!-- Remove all elements with unresolved values -->
   <xsl:template match="node()[text() = '-1']"/>
-
 </xsl:stylesheet>

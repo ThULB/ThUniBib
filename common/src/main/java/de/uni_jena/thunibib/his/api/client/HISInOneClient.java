@@ -23,13 +23,17 @@ public interface HISInOneClient extends MCRShutdownHandler.Closeable, AutoClosea
         return get(path, params, false);
     }
 
-    default Response get(String path, boolean omitToken){
+    default Response get(String path, boolean omitToken) {
         return get(path, null, omitToken);
+    }
+
+    default Response post(String path, String body) {
+        return post(path, body, null);
     }
 
     Response get(String path, Map<String, String> params, boolean omitToken);
 
-    Response post(String path, String body);
+    Response post(String path, String body, Map<String, String> params);
 
     Response put(String path, String body);
 }
