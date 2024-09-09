@@ -27,7 +27,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
-import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
@@ -56,7 +55,7 @@ import java.util.stream.Collectors;
  *
  * Usage
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * </p>
  *
  * Note
@@ -68,8 +67,6 @@ import java.util.stream.Collectors;
  * */
 public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
-    private static final String JOURNAL_TRANSFORMER = MCRConfiguration2.getStringOrThrow(
-        "ThUniBib.HISinOne.Journal.Transformer.Name");
 
     private static final Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
@@ -97,6 +94,7 @@ public class HISinOneResolver implements URIResolver {
         journal,
         language,
         peerReviewed,
+        person,
         publication,
         publicationAccessType,
         publicationResource,
@@ -126,6 +124,11 @@ public class HISinOneResolver implements URIResolver {
             hostGenre = parts[5];
         }
 
+        String idValue = null;
+        if (ResolvableTypes.person.name().equals(entity)) {
+            idValue = parts[5];
+        }
+
         fromValue = parts.length > 4 ? URLDecoder.decode(parts[4], StandardCharsets.UTF_8) : "";
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
@@ -135,6 +138,7 @@ public class HISinOneResolver implements URIResolver {
             case journal -> Mode.resolve.equals(mode) ? resolveJournal(fromValue) : createParent(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
+            case person -> resolvePerson(fromValue, idValue);
             case publication -> Mode.resolve.equals(mode) ? resolvePublication(fromValue) : createParent(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
@@ -150,6 +154,18 @@ public class HISinOneResolver implements URIResolver {
 
         LOGGER.info("Resolved {} to {}", href, String.valueOf(getFieldValue(sysValue, field)));
         return new JDOMSource(new Element("int").setText(String.valueOf(getFieldValue(sysValue, field))));
+    }
+
+    /**
+     * Resolves a person by a given identifier and the type of the identifier.
+     *
+     * @param type the type of the identifier
+     * @param value the value of the identifier
+     *
+     * @return {@link SysValue}
+     */
+    protected SysValue resolvePerson(String type, String value) {
+        return SysValue.UnresolvedSysValue;
     }
 
     protected SysValue resolveJournal(String fromValue) {
