@@ -1003,7 +1003,9 @@
         <label for="{xed:generate-id()}" class="mycore-form-label">
           <xed:output value="concat(i18n:translate('ubo.project.search'), ': ')"/>
         </label>
-        <input id="project-search-his-in-one" type="text" class="mycore-form-input"/>
+
+        <xed:load-resource name="ThUniBib.HISinOne.BaseURL" uri="property:ThUniBib.HISinOne.BaseURL" />
+        <input id="project-search-his-in-one" type="text" class="mycore-form-input" placeholder="{i18n:thunibib.editor.search} in {$ThUniBib.HISinOne.BaseURL}"/>
 
         <button type="button"
                 class="btn btn-primary mr-2"
