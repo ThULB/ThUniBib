@@ -11,7 +11,7 @@ const HisinOneProjects = {
 
             let item = {};
             item.id = project.id;
-            item.label = project.shorttext + ": " + (label.length > HisinOneProjects.maxLength ? label.substring(0, HisinOneProjects.maxLength).trim() + "…" : label) + " [" + project.id + "]";
+            item.label = (label.length > HisinOneProjects.maxLength ? label.substring(0, HisinOneProjects.maxLength).trim() + "…" : label) + " [" + project.shorttext + "]";
             item.defaultText = project.defaulttext;
             item.shortText = project.shorttext;
             projects.push(item);
