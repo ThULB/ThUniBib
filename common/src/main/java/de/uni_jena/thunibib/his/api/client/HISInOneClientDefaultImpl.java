@@ -22,7 +22,6 @@ import java.util.Map;
 class HISInOneClientDefaultImpl implements HISInOneClient {
 
     private static final Logger LOGGER = LogManager.getLogger(HISInOneClientDefaultImpl.class);
-    private static HISInOneClientDefaultImpl instance;
     private final String clientKey;
     private final String clientSecret;
     private final Client jerseyClient;
