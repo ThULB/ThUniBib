@@ -27,8 +27,11 @@ public class HISinOneProjectsResource {
         HashMap<String, String> p = new HashMap<>();
         p.put("q", q);
 
-        try (HISInOneClient client = HISinOneClientFactory.create();
-            Response resp = client.get("fs/res/project", p)) {
+        try (HISInOneClient client = HISinOneClientFactory.create(); Response resp = client.get("fs/res/project", p)) {
+            if (resp.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return Response.ok("[]").build();
+            }
+
             String json = resp.readEntity(String.class);
             return Response.ok(json).build();
         }
@@ -41,6 +44,11 @@ public class HISinOneProjectsResource {
     public Response getProject(@PathParam("projectId") String projectId) {
         try (HISInOneClient client = HISinOneClientFactory.create();
             Response resp = client.get("fs/res/project/" + projectId)) {
+
+            if (resp.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                return Response.ok("{}").build();
+            }
+
             String json = resp.readEntity(String.class);
             return Response.ok(json).build();
         }

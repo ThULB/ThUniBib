@@ -1,13 +1,17 @@
 const HisinOneProjects = {
+    maxLength: 60,
+
     search: async function (text) {
         const q = await fetch("../rsc/project?q=" + text);
         let json = await q.json();
 
         let projects = [];
         json.forEach((project) => {
+            let label = project.defaulttext;
+
             let item = {};
             item.id = project.id;
-            item.label = project.shorttext + ": " + project.defaulttext + " [" + project.id + "]";
+            item.label = project.shorttext + ": " + (label.length > HisinOneProjects.maxLength ? label.substring(0, HisinOneProjects.maxLength).trim() + "…" : label) + " [" + project.id + "]";
             item.defaultText = project.defaulttext;
             item.shortText = project.shorttext;
             projects.push(item);
