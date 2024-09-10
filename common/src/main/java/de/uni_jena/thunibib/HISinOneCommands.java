@@ -54,12 +54,13 @@ public class HISinOneCommands {
 
                 SysValue publication = response.readEntity(conf.getResponseEntityClass());
                 if (publication.getId() == 0) {
-                    LOGGER.error("MCRObject {} was not published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL,
-                        publication.getId());
+                    LOGGER.error("MCRObject {} was not published at {} with id {}", mcrid,
+                        HIS_IN_ONE_BASE_URL + conf.getPath(), publication.getId());
                     return SysValue.ErroneousSysValue;
                 }
 
-                LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL, publication.getId());
+                LOGGER.info("MCRObject {} published at {} with id {}", mcrid, HIS_IN_ONE_BASE_URL + conf.getPath(),
+                    publication.getId());
 
                 // Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
@@ -103,12 +104,12 @@ public class HISinOneCommands {
 
                 SysValue p = response.readEntity(conf.getResponseEntityClass());
                 if (p.getId() == 0) {
-                    LOGGER.error("MCRObject {} was not updated at {}({}) with id {}", mcrid, HIS_IN_ONE_BASE_URL,
-                        conf.getPath(), p.getId());
+                    LOGGER.error("MCRObject {} was not updated at {} with id {}", mcrid,
+                        HIS_IN_ONE_BASE_URL + conf.getPath(), p.getId());
                     return SysValue.ErroneousSysValue;
                 }
-                LOGGER.info("MCRObject {} updated at {}({}) with id {} and new lockVersion {}", mcrid,
-                    HIS_IN_ONE_BASE_URL, conf.getPath(), hisId, p.getLockVersion());
+                LOGGER.info("MCRObject {} updated at {} with id {} and new lockVersion {}", mcrid,
+                    HIS_IN_ONE_BASE_URL + conf.getPath(), hisId, p.getLockVersion());
                 return p;
             }
         } catch (IOException e) {
