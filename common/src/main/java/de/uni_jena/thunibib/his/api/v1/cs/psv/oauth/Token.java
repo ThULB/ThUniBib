@@ -1,5 +1,6 @@
 package de.uni_jena.thunibib.his.api.v1.cs.psv.oauth;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.Instant;
@@ -7,6 +8,7 @@ import java.time.Instant;
 /**
  * Path: <code>/api/v1/cs/psv/oauth/token</code>
  * */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Token {
 
     @JsonProperty("access_token")
