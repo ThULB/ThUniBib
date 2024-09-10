@@ -95,13 +95,13 @@ public class HISinOneCommands {
 
             try (HISInOneClient client = HISinOneClientFactory.create();
                 Response response = client.put(conf.getPath() + "/" + hisId, json)) {
-                SysValue p = response.readEntity(conf.getResponseEntityClass());
 
                 if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
                     LOGGER.error("HISinOne api error: {}", response.readEntity(String.class));
                     return SysValue.ErroneousSysValue;
                 }
 
+                SysValue p = response.readEntity(conf.getResponseEntityClass());
                 if (p.getId() == 0) {
                     LOGGER.error("MCRObject {} was not updated at {}({}) with id {}", mcrid, HIS_IN_ONE_BASE_URL,
                         conf.getPath(), p.getId());
