@@ -28,7 +28,7 @@ public class HISinOneProjectsResource {
         p.put("q", q);
 
         try (HISInOneClient client = HISinOneClientFactory.create();
-            Response resp = client.get("fs/res/project", p, true)) {
+            Response resp = client.get("fs/res/project", p)) {
             String json = resp.readEntity(String.class);
             return Response.ok(json).build();
         }
@@ -40,7 +40,7 @@ public class HISinOneProjectsResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProject(@PathParam("projectId") String projectId) {
         try (HISInOneClient client = HISinOneClientFactory.create();
-            Response resp = client.get("fs/res/project/" + projectId, true)) {
+            Response resp = client.get("fs/res/project/" + projectId)) {
             String json = resp.readEntity(String.class);
             return Response.ok(json).build();
         }
