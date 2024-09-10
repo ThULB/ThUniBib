@@ -48,7 +48,7 @@ public class HISinOneCommands {
                 Response response = client.post(conf.getPath(), json)) {
 
                 if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                    LOGGER.error("HISinOne api error: {}", response.readEntity(String.class));
+                    LOGGER.error("{}: {}", conf.getPath(), response.readEntity(String.class));
                     return SysValue.ErroneousSysValue;
                 }
 
@@ -97,7 +97,7 @@ public class HISinOneCommands {
                 Response response = client.put(conf.getPath() + "/" + hisId, json)) {
 
                 if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                    LOGGER.error("HISinOne api error: {}", response.readEntity(String.class));
+                    LOGGER.error("{}: {}", conf.getPath(), response.readEntity(String.class));
                     return SysValue.ErroneousSysValue;
                 }
 
