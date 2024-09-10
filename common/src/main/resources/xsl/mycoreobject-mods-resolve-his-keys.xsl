@@ -14,6 +14,7 @@
   <xsl:param name="MCR.user2.matching.lead_id"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL.API.Path"/>
+  <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
   <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:variable name="origin" select="document('classification:metadata:-1:children:ORIGIN')/mycoreclass/categories" />
@@ -332,10 +333,9 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="//servflags[servflag[@type = 'his-id']]">
+  <xsl:template match="//servflags[servflag[@type = $ThUniBib.HISinOne.servflag.type]]">
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
-      <xsl:variable name="hisid" select="servflag[@type = 'his-id']"/>
       <xsl:variable name="genre" select="fn:substring-after(//mycoreobject//mods:mods/mods:genre[@type='intern']/@valueURI, '#')"/>
 
       <xsl:variable name="lockVersion">
@@ -349,7 +349,7 @@
         </xsl:choose>
       </xsl:variable>
 
-      <servflag type="his-id-lockVersion">
+      <servflag type="{$ThUniBib.HISinOne.servflag.type}-lockVersion">
         <xsl:value-of select="$lockVersion"/>
       </servflag>
     </xsl:copy>
