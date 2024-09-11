@@ -1044,7 +1044,7 @@
         <xed:bind xpath="cerif:Identifier[@type='https://w3id.org/cerif/vocab/IdentifierTypes#Project-MM-ID']">
           <div class="form-group form-inline">
             <label for="{xed:generate-id()}" class="mycore-form-label">
-              <xed:output value="'HIS-ID: '"/>
+              <xed:output value="concat(i18n:translate('thunibib.editor.hisinone.id'), ': ')"/>
             </label>
             <input id="project-id" readonly="readonly" type="text" class="mycore-form-input readonly"/>
           </div>
