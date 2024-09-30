@@ -42,6 +42,7 @@ import javax.xml.transform.URIResolver;
 import java.lang.reflect.Field;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -841,14 +842,15 @@ public class HISinOneResolver implements URIResolver {
         Field field = null;
 
         /* lookup field in class hierarchy */
-        while (clazz != null && field == null) {
-            try {
-                LOGGER.debug("Checking for field {} in {}", fieldName, clazz.getSimpleName());
-                field = clazz.getDeclaredField(fieldName);
-            } catch (Exception e) {
+        while (field == null && clazz != null) {
+            LOGGER.debug("Checking for field {} in {}", fieldName, clazz.getSimpleName());
+            Optional<Field> f = Arrays.stream(clazz.getDeclaredFields())
+                .filter(df -> df.getName().equals(fieldName)).findFirst();
+            if (f.isPresent()) {
+                field = f.get();
+            } else {
                 LOGGER.debug("Field {} could not be obtained from {}. Checking superclass {}", fieldName,
-                    clazz.getSimpleName(),
-                    clazz.getSuperclass().getSimpleName());
+                    clazz.getSimpleName(), clazz.getSuperclass().getSimpleName());
             }
             clazz = clazz.getSuperclass();
         }
