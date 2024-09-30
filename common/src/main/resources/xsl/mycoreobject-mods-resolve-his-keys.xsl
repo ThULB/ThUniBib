@@ -71,11 +71,11 @@
   <xsl:template match="mods:name[@type='personal']">
     <xsl:variable name="his-id">
       <xsl:choose>
+        <xsl:when test="mods:nameIdentifier[@type = 'orcid']">
+          <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:orcid:', mods:nameIdentifier[@type = 'orcid'][1]/text()))"/>
+        </xsl:when>
         <xsl:when test="mods:nameIdentifier[@type = $MCR.user2.matching.lead_id]">
           <xsl:value-of select="fn:document(concat('hisinone:resolve:id:person:', $MCR.user2.matching.lead_id, ':',  mods:nameIdentifier[@type = $MCR.user2.matching.lead_id][1]/text()))"/>
-        </xsl:when>
-        <xsl:when test="mods:nameIdentifier[@type = 'orcid']">
-          <xsl:value-of select="fn:document(concat('hisinone:resolve:id:person:orcid:', mods:nameIdentifier[@type = 'orcid'][1]/text()))"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
