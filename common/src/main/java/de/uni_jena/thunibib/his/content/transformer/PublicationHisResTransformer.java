@@ -2,6 +2,7 @@ package de.uni_jena.thunibib.his.content.transformer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import de.uni_jena.thunibib.his.api.v1.cs.psv.PersonIdentifier;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +11,7 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
+import org.jdom2.xpath.XPathExpression;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
@@ -18,6 +20,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import static de.uni_jena.thunibib.his.api.client.HISInOneClient.API_PATH;
 import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE_URL;
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
@@ -61,10 +64,8 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addProperty(jsonObject, "//mods:mods/mods:part/mods:detail[@type='volume']/mods:number", xml, "volume", true);
 
             addExtent(jsonObject, xml);
-            addSampleCreator(jsonObject);
-            /** TODO: Remove comments in production
-             addCreators(jsonObject, xml);
-             */
+            addCreators(jsonObject, xml);
+
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationResourceValue')]", xml,"publicationResource");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publisher')]", xml,"publisher");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml, "peerReviewedProcess");
@@ -171,14 +172,17 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
     protected void addCreators(JsonObject jsonObject, Document xml) {
         final JsonArray creators = new JsonArray();
 
-        XPATH_FACTORY.compile("//mods:mods/mods:name[@type='personal']", Filters.element(), null, MODS_NAMESPACE)
+        String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
+            + PersonIdentifier.getPath() + "')]";
+
+        XPATH_FACTORY
+            .compile("//mods:mods/mods:name[@type='personal'][" + tCond + "]", Filters.element(), null, MODS_NAMESPACE)
             .evaluate(xml)
             .forEach(nameElement -> {
                 final JsonObject name = new JsonObject();
-
                 /* id of person in HISinOne */
-                name.addProperty("id", "TODO-GET-ID-FROM-HIS");
-
+                XPathExpression<Element> idExpr = XPATH_FACTORY.compile(tCond, Filters.element(), null, MODS_NAMESPACE);
+                name.addProperty("id", idExpr.evaluateFirst(nameElement).getText());
                 /* nameParts */
                 nameElement
                     .getChildren("namePart", MODS_NAMESPACE)
@@ -189,36 +193,6 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                             default -> "unknown";
                         };
                         name.addProperty(typeOfName, namePart.getText());
-                    });
-
-                /* nameIdentifiers */
-                final JsonArray personIdentifiers = new JsonArray();
-                nameElement.
-                    getChildren("nameIdentifier", MODS_NAMESPACE)
-                    .stream()
-                    .filter(identifierElement -> identifierElement.getAttributeValue("type") != null)
-                    .forEach(identifierElement -> {
-                        JsonObject identifier = new JsonObject();
-                        JsonObject identifierType = new JsonObject();
-
-                        identifier.addProperty("identifier", identifierElement.getText());
-                        identifier.add("identifierType", identifierType);
-
-                        identifierType.addProperty("id", identifierElement.getAttributeValue("type"));
-                        personIdentifiers.add(identifier);
-                    });
-                name.add("personIdentifiers", personIdentifiers);
-
-                /* affiliations */
-                nameElement.getChildren("affiliation", MODS_NAMESPACE)
-                    .stream()
-                    .findFirst()
-                    .ifPresent(affElement -> {
-                        JsonArray affiliations = new JsonArray();
-                        JsonObject affiliation = new JsonObject();
-                        affiliation.addProperty("defaulttext", affElement.getText());
-                        affiliations.add(affiliation);
-                        name.add("affiliations", affiliations);
                     });
                 creators.add(name);
             });
