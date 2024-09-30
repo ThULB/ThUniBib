@@ -166,8 +166,8 @@ public class HISinOneResolver implements URIResolver {
      */
     protected SysValue resolvePerson(String type, String value) {
         Map<String, String> parameter = new HashMap<>();
-        parameter.put(PersonIdentifier.getTypeParamaterName(), type);
-        parameter.put(PersonIdentifier.getValueParamaterName(), value);
+        parameter.put(PersonIdentifier.getTypeParameterName(), type);
+        parameter.put(PersonIdentifier.getValueParameterName(), value);
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.post(PersonIdentifier.getPath(), null, parameter)) {
@@ -177,7 +177,7 @@ public class HISinOneResolver implements URIResolver {
                 return SysValue.ErroneousSysValue;
             }
 
-            SysValue sysValue = response.readEntity(Journal.class);
+            PersonIdentifier sysValue = response.readEntity(PersonIdentifier.class);
             return sysValue;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
@@ -837,16 +837,34 @@ public class HISinOneResolver implements URIResolver {
      * @return the value of the requested field name or {@link SysValue#getId()}.
      */
     protected Object getFieldValue(SysValue sysValue, String fieldName) {
-        try {
-            final Field field = Class.forName(SysValue.class.getName()).getDeclaredField(fieldName);
-            field.setAccessible(true);
-            Object value = field.get(sysValue);
-            if (value == null) {
-                throw new RuntimeException("Could not get value from field " + fieldName);
+        Class clazz = sysValue.getClass();
+        Field field = null;
+
+        /* lookup field in class hierarchy */
+        while (clazz != null && field == null) {
+            try {
+                LOGGER.debug("Checking for field {} in {}", fieldName, clazz.getSimpleName());
+                field = clazz.getDeclaredField(fieldName);
+            } catch (Exception e) {
+                LOGGER.debug("Field {} could not be obtained from {}. Checking superclass {}", fieldName,
+                    clazz.getSimpleName(),
+                    clazz.getSuperclass().getSimpleName());
             }
+            clazz = clazz.getSuperclass();
+        }
+
+        /* field is unresolved */
+        if (field == null) {
+            return SysValue.UnresolvedSysValue;
+        }
+
+        /* field is resolved */
+        field.setAccessible(true);
+        try {
+            Object value = field.get(sysValue);
             return value;
-        } catch (Exception e) {
-            LOGGER.warn("Field {} could not be obtained from SysValue {} returning id instead", fieldName, sysValue);
+        } catch (IllegalAccessException e) {
+            LOGGER.error(e);
             return sysValue.getId();
         }
     }
