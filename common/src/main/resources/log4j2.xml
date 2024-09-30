@@ -2,7 +2,7 @@
 <Configuration status="INFO" name="ThUniBib-Log">
   <Appenders>
     <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%highlight{%d{ISO8601} [%t (%tid)] %-5p %X %c{1}: %m%n%ex}{INFO=black}"/>
+      <PatternLayout pattern="%highlight{%d{ISO8601} %-5p %X{loginId} %C{1}: %m%n%ex}{INFO=black}"/>
     </Console>
   </Appenders>
 
