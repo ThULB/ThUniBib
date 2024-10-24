@@ -1,5 +1,26 @@
 # Changelog
 
+## 2024.10.24-2023.06.x
+- [#464](https://github.com/ThULB/ThUniBib/issues/464) Migrate to MyCoRe 2023.06.x (#465)
+- [#621](https://github.com/ThULB/ThUniBib/issues/621) Updated csl style for Ilmenau (#622) (#623)
+- [#625](https://github.com/ThULB/ThUniBib/issues/625) Added log4j2.xml (#626)
+- [#627](https://github.com/ThULB/ThUniBib/issues/627) Set MCR.user2.matching.chain to de.uni_jena.thunibib.matcher.ThUniBibMatcherLDAP (#628)
+- [#629](https://github.com/ThULB/ThUniBib/issues/629) Fixed link to communication and marketing department in impressum.xml (Jena) (#631)
+- [#629](https://github.com/ThULB/ThUniBib/issues/629) Updated impressum.xml (Jena) (#630)
+- [#634](https://github.com/ThULB/ThUniBib/issues/634) Fixed IllegalStateException in ThUniBibImportJobAction (#635)
+- [FSU040THUL-4406](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4406) [#616](https://github.com/ThULB/ThUniBib/issues/616) [WE] Updated privacy-statement.xml (#617)
+- [FSU040THUL-4412](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4412) [#618](https://github.com/ThULB/ThUniBib/issues/618) Added CC0 1.0 to licenses.xml (#619)
+---
+
+## 2024.08.26.2
+- [#621](https://github.com/ThULB/ThUniBib/issues/621) Updated csl style for Ilmenau (#623)
+- [FSU040THUL-4412](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4412) [#618](https://github.com/ThULB/ThUniBib/issues/618) Added CC0 1.0 to licenses.xml (#619)
+---
+
+## 2024.08.26.1
+-  [FSU040THUL-4406](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4406) [#616](https://github.com/ThULB/ThUniBib/issues/616) [WE] Updated privacy-statement.xml
+---
+
 ## 2024.08.26.2
 - [#621](https://github.com/ThULB/ThUniBib/issues/621) Updated csl style for Ilmenau (#623)
 - [FSU040THUL-4412](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4412) [#618](https://github.com/ThULB/ThUniBib/issues/618) Added CC0 1.0 to licenses.xml (#619)

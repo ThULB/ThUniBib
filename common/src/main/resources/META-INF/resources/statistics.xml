@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="2022-05-23 13:13:23" id="dozbib.stats" xmlns:i18n="http://www.mycore.org/i18n">
+<webpage lastModified="2023-11-16 11:15:00" id="dozbib.stats" xmlns:i18n="http://www.mycore.org/i18n">
   <title>
     <i18n:code>thunibib.statistic.title</i18n:code>
   </title>
 
-  <script src="webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"></script>
-  <script src="webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"></script>
+  <script src="webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"/>
+  <script src="webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"/>
 
   <div id="chartDialog"/>
 
@@ -21,13 +21,13 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:statistics-oa:solr:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet={year%3A{type%3Aterms,field%3Ayear,sort%3A{index%3Aasc},facet%3A{oa%3A{type%3Aterms,field%3Aoa,sort%3A{index%3Aasc}}}}}"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=subject"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=origin_exact"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=genre"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=fundingType"/>
-  <xinclude uri="xslStyle:statistics:solr:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
-  <xinclude uri="xslStyle:statistics:solr:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
+  <xinclude uri="xslStyle:statistics-oa:solr:requestHandler:select:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet=%7Byear%3A%7Btype%3Aterms,field%3Ayear,sort%3A%7Bindex%3Aasc%7D,facet%3A%7Boa%3A%7Btype%3Aterms,field%3Aoa,sort%3A%7Bindex%3Aasc%7D%7D%7D%7D%7D"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=subject"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=origin_exact"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=genre"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=fundingType"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
 
 </webpage>

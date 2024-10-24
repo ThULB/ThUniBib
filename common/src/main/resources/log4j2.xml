@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" name="ThUniBib-Log">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%highlight{%d{ISO8601} [%t (%tid)] %-5p %X %c{1}: %m%n%ex}{INFO=black}"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Root level="INFO">
+      <AppenderRef ref="Console"/>
+    </Root>
+
+    <Logger name="org.hibernate" level="error"/>
+    <Logger name="org.mycore.frontend.editor.validation" level="info"/>
+    <Logger name="org.mycore.services.fieldquery.MCRSearcher" level="info"/>
+    <Logger name="org.mycore.common.content.transformer.MCRXSLTransformer" level="warn"/>
+  </Loggers>
+</Configuration>
