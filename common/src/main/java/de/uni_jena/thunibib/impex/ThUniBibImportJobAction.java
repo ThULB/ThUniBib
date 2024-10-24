@@ -10,7 +10,6 @@ import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRSession;
 import org.mycore.common.MCRSessionMgr;
 import org.mycore.common.MCRSystemUserInformation;
-import org.mycore.common.MCRTransactionHelper;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRObject;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
-import static org.mycore.common.MCRConstants.*;
+import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 public class ThUniBibImportJobAction extends MCRJobAction {
 
@@ -43,8 +42,6 @@ public class ThUniBibImportJobAction extends MCRJobAction {
         MCRSession mcrSession = MCRSessionMgr.getCurrentSession();
         try {
             mcrSession.setUserInformation(MCRSystemUserInformation.getJanitorInstance());
-            MCRTransactionHelper.beginTransaction();
-
             List<String> ppns = getList(new ArrayList<>(), query, 1);
             LOGGER.info("Found a total of {} ppn matching query {}", ppns.size(), query);
 
@@ -76,16 +73,8 @@ public class ThUniBibImportJobAction extends MCRJobAction {
             } catch (Exception e) {
                 LOGGER.error("Could not send e-mail for import job {} {}", job.getId(), query, e);
             }
-        } catch (Throwable throwable) {
+        } catch (Exception throwable) {
             LOGGER.error("Could not run {} for query {}", name(), query, throwable);
-            MCRTransactionHelper.rollbackTransaction();
-            // MCRJob remains in state PROCESSING and will be reset to NEW after MCR.QueuedJob.TimeTillReset minutes
-            throw throwable;
-        } finally {
-            if (MCRTransactionHelper.isTransactionActive()) {
-                MCRTransactionHelper.commitTransaction();
-            }
-            MCRSessionMgr.releaseCurrentSession();
         }
     }
 
