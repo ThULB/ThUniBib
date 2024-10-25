@@ -5464,34 +5464,6 @@
             <label xml:lang="x-from" text="1963"/>
             <label xml:lang="x-to" text="1968"/>
          </category>
-      </category>
-
-      <category ID="07.900(1963)">
-         <label xml:lang="de" text="Sonstige Einrichtungen (1963-1992)"/>
-         <label xml:lang="en" text="Others (1963-1992)"/>
-         <label xml:lang="x-from" text="1963"/>
-         <label xml:lang="x-to" text="1992"/>
-
-         <category ID="07.900.010(1968)">
-            <label xml:lang="de" text="Industrie-Institut (1968-1989)"/>
-            <label xml:lang="x-lpp" text="538112174"/>
-            <label xml:lang="x-from" text="1968"/>
-            <label xml:lang="x-to" text="1989"/>
-         </category>
-
-         <category ID="07.900.010(1960)">
-            <label xml:lang="de" text="Industrie-Institut für Elektrotechnik, Feinmechanik und Optik (1963-1968) ↑"/>
-            <label xml:lang="x-lpp" text="545688086"/>
-            <label xml:lang="x-from" text="1963"/>
-            <label xml:lang="x-to" text="1968"/>
-         </category>
-
-         <category ID="07.900.020(1963)">
-            <label xml:lang="de" text="Institut für Chemie (1963-1968)"/>
-            <label xml:lang="x-lpp" text="671610031"/>
-            <label xml:lang="x-from" text="1963"/>
-            <label xml:lang="x-to" text="1968"/>
-         </category>
 
 		 <category ID="07.900.030(1968)">
             <label xml:lang="de" text="Institut für Informationswissenschaft, Erfindungswesen und Recht (INER) (1968-1991)"/>
