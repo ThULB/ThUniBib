@@ -135,6 +135,10 @@ i.flag-en {
   background-image: url("/images/flag-en.svg");
 }
 
+#ubo-search-person option[value="person_ths"] {
+  display: none;
+}
+
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
   // add/overwrite styles for responsive level lg and lower
