@@ -2,9 +2,10 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
   <label xml:lang="de" text="Technische Universität Ilmenau"/>
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
-  <categories>
+ 
+ <categories>
 
-  <category ID="08">
+   <category ID="08">
       <label xml:lang="de" text="Technische Universität Ilmenau (1992-)"/>
       <label xml:lang="x-gnd" text="2125187-3"/>
       <label xml:lang="x-destatis" text="870"/>
@@ -3567,12 +3568,21 @@
             <label xml:lang="x-to" text="2013"/>
          </category>
 
+         <category ID="08.900.050(2016)">
+            <label xml:lang="de" text="Technische Universität / Studierendenrat (2016-)"/>
+            <label xml:lang="x-gnd" text="0"/>
+            <label xml:lang="x-destatis" text="8820"/>
+            <label xml:lang="x-lpp" text="1851448942"/>
+            <label xml:lang="x-from" text="2016"/>
+            <label xml:lang="x-kst" text="7255"/>
+         </category>
+
          <category ID="08.900.050(1992)">
-            <label xml:lang="de" text="Technische Universität / Studentenrat (1992-)"/>
+            <label xml:lang="de" text="Technische Universität / Studentenrat (1992-2016) ↑"/>
             <label xml:lang="x-destatis" text="8820"/>
             <label xml:lang="x-lpp" text="499747933"/>
             <label xml:lang="x-from" text="1992"/>
-            <label xml:lang="x-kst" text="7255"/>
+            <label xml:lang="x-to" text="2016"/>
          </category>
 
          <category ID="08.900.100(1992)">
@@ -3583,15 +3593,1939 @@
 
       </category>
 
-  </category>
-
+   </category>
 
    <category ID="07">
       <label xml:lang="de" text="Technische Hochschule Ilmenau (1963-1992)"/>
       <label xml:lang="x-lpp" text="476822653"/>
+      <label xml:lang="x-from" text="1963"/>
+      <label xml:lang="x-to" text="1992"/>
+
+      <category ID="07.010(1990)">
+         <label xml:lang="de" text="Fakultät für Elektrotechnik und Informationstechnik (1990-1992)"/>
+         <label xml:lang="en" text="Department of Electrical Engineering and Information Technology (1990-1992)"/>
+         <label xml:lang="x-gnd" text="5125814-6"/>
+         <label xml:lang="x-destatis" text="7100"/>
+         <label xml:lang="x-lpp" text="476899125"/>
+         <label xml:lang="x-from" text="1990"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.010.010(1990)">
+            <label xml:lang="de" text="Institut für Allgemeine und Theoretische Elektrotechnik (1990-1992)"/>
+            <label xml:lang="x-lpp" text="501367381"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.010.010.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Grundlagen der Elektrotechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="47689865X"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.010.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Technische Erkennung (1990-1992)"/>
+               <label xml:lang="x-lpp" text="528149091"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.010.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Theoretische und Experimentelle Elektrotechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="528155717"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.010.020(1990)">
+            <label xml:lang="de" text="Institut für Elektrische Energie- und Hochspannungstechnik (1990-1992)"/>
+            <label xml:lang="x-lpp" text="501491155"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.010.020.010(1992)">
+               <label xml:lang="de" text="Fachgebiet Elektrotechnische Geräte und Meßtechnik (1992-1992)"/>
+               <label xml:lang="x-lpp" text="526233060"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.020.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Elektrische Geräte und Meßtechnik (1991-1992) ↑"/>
+               <label xml:lang="x-lpp" text="530588196"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.020.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Elektronische Geräte und Meßtechnik (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="53058834X"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.010.020.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Elektrische Isolier- und Hochspannungstechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="526233443"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.020.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Elektroenergieversorgung und -anlagen (1990-1992)"/>
+               <label xml:lang="x-lpp" text="526230908"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.020.040(1991)">
+               <label xml:lang="de" text="Fachgebiet Schaltgeräte und Plasmatechnik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="530589338"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.010.030(1990)">
+            <label xml:lang="de" text="Institut für Elektrische Energiewandlung und Automatisierung (1990-1992)"/>
+            <label xml:lang="x-lpp" text="501491066"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.010.030.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Elektrische Maschinen (1990-1992)"/>
+               <label xml:lang="x-lpp" text="527263656"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.030.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Elektrowärme (1990-1992)"/>
+               <label xml:lang="x-lpp" text="527264423"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.030.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Gesteuerte Antriebe (1990-1992)"/>
+               <label xml:lang="x-lpp" text="526331283"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.030.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Leistungselektronik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="526245379"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.010.040(1990)">
+            <label xml:lang="de" text="Institut für Festkörperelektronik und Werkstoffe (1990-1992)"/>
+            <label xml:lang="x-lpp" text="530585952"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.010.040.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Festkörperelektronik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="480742081"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.040.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Festkörpertechnologie (1990-1992)"/>
+               <label xml:lang="x-lpp" text="526350105"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.040.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Werkstoffe (1990-1992)"/>
+               <label xml:lang="x-lpp" text="530587394"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.010.050(1990)">
+            <label xml:lang="de" text="Institut für Kommunikations- und Messtechnik (1990-1992)"/>
+            <label xml:lang="x-lpp" text="479195889"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.010.050.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Elektronische Messtechnik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="479198381"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.050.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Mikrowellentechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="526603615"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.050.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Nachrichtentechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="527047198"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.010.060(1990)">
+            <label xml:lang="de" text="Institut für Schaltungstechnik und Elektroniktechnologie (1990-1992)"/>
+            <label xml:lang="x-lpp" text="501490388"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.010.060.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Elektronische Schaltungstechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="527310077"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.060.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Konstruktion und Technologie der Elektronik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="479250103"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.060.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Mikroelektronische Schaltungen und Systeme (1990-1992)"/>
+               <label xml:lang="x-lpp" text="527309699"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.010.070(1992)">
+            <label xml:lang="de" text="Institut für Werkstoffe (1992-1992)"/>
+            <label xml:lang="x-lpp" text="52798227X"/>
+            <label xml:lang="x-from" text="1992"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.010.070.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Elektrochemie und Galvanotechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="481066845"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.070.020(1992)">
+               <label xml:lang="de" text="Fachgebiet Oberflächen- und Gasentladungstechnik (1992-1992)"/>
+               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-lpp" text="527982504"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.010.070.030(1992)">
+               <label xml:lang="de" text="Fachgebiet Werkstoffwissenschaften (1992-1992)"/>
+               <label xml:lang="x-lpp" text="527982601"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+      </category>
+
+      <category ID="07.020(1991)">
+         <label xml:lang="de" text="Fakultät für Informatik und Automatisierung (1991-1992)"/>
+         <label xml:lang="en" text="Department of Computer Science and Automation (1991-1992)"/>
+         <label xml:lang="x-lpp" text="476822513"/>
+         <label xml:lang="x-from" text="1991"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.020(1990)">
+            <label xml:lang="de" text="Fakultät für Automatik und Informatik (1990-1991) ↑"/>
+            <label xml:lang="x-lpp" text="530639963"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.020.010(1990)">
+            <label xml:lang="de" text="Institut für Automatisierungs- und Systemtechnik (1990-1992)"/>
+            <label xml:lang="en" text="Institute for Automation and Systems Engineering (1990-1992)"/>
+            <label xml:lang="x-lpp" text="479721971"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.020.010.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Automatisierungsanlagen (1991-1992)"/>
+               <label xml:lang="x-lpp" text="530643952"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.010.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Automatisierungsanlagen und -geräte (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="530644142"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.020.010.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Digitale Prozeßautomatisierung (1990-1991)"/>
+               <label xml:lang="x-lpp" text="530642476"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.020.010.030(1991)">
+               <label xml:lang="de" text="Fachgebiet System- und Umweltanalyse (1991-1992)"/>
+               <label xml:lang="x-lpp" text="530645211"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.010.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Systemanalyse (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="530645270"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.020.010.040(1991)">
+               <label xml:lang="de" text="Fachgebiet Systemoptimierung in Technik und Umwelt (1991-1992)"/>
+               <label xml:lang="x-lpp" text="530645971"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.010.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Systemoptimierung (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="530646110"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+         </category>
+
+         <category ID="07.020.020(1989)">
+            <label xml:lang="de" text="Institut für Biomedizinische Technik und Informatik (1990-1992)"/>
+            <label xml:lang="en" text="Institute for Biomedical Engineering and Informatics (1990-1992)"/>
+            <label xml:lang="x-lpp" text="477486401"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.020.020.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Biomedizinische Technik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="477486924"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.020.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Medizinische Informatik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="512228493"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.020.030(1990)">
+            <label xml:lang="de" text="Institut für Praktische Informatik (1990-1992)"/>
+            <label xml:lang="x-lpp" text="526581336"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.020.030.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Interaktive Computergraphik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="527222852"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.030.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Computergrafik und Dialogsysteme (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="532794583"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.020.030.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Datenbanken und Wissensdarstellung (1990-1992)"/>
+               <label xml:lang="x-lpp" text="532799763"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.030.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Softwaretechnik und Programmiersprachen (1990-1992)"/>
+               <label xml:lang="x-lpp" text="52658436X"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.030.040(1991)">
+               <label xml:lang="de" text="Fachgebiet Verteilte Rechnersysteme (1991-1992)"/>
+               <label xml:lang="x-lpp" text="532796160"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.030.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Telematik und Verteilte Systeme (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="532796462"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+         </category>
+
+         <category ID="07.020.040(1990)">
+            <label xml:lang="de" text="Institut für Prozessmess- und Sensortechnik (1990-1992)"/>
+            <label xml:lang="en" text="Institute for Process Measurement and Sensor Technology (1990-1992)"/>
+            <label xml:lang="x-lpp" text="49966373X"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.020.040.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Fertigungsmeßtechnik und Kalibriertechnik (1990-1991)"/>
+               <label xml:lang="x-lpp" text="534323472"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.020.040.020(1992)">
+               <label xml:lang="de" text="Fachgebiet Prozeß- und Umweltmeßtechnik (1992-1992)"/>
+               <label xml:lang="x-lpp" text="534319610"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.040.020(1991)">
+               <label xml:lang="de" text="Fachgebiet Sensortechnik und Fertigungsmeßtechnik (1991-1992) ↑"/>
+               <label xml:lang="x-lpp" text="534321534"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.040.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Meß- und Sensortechnik (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="53432178X"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.020.040.030(1991)">
+               <label xml:lang="de" text="Fachgebiet Verfahrens- und Umweltmeßtechnik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="534323871"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.040.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Meßdynamik und Temperaturmeßtechnik (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="534324096"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+         </category>
+
+         <category ID="07.020.050(1990)">
+            <label xml:lang="de" text="Institut für Theoretische und Technische Informatik (1990-1992)"/>
+            <label xml:lang="x-lpp" text="479722153"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.020.050.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Automaten und Formale Sprachen (1991-1992)"/>
+               <label xml:lang="x-lpp" text="479731179"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.050.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Neuroinformatik/Kognitive Systeme (1990-1992)"/>
+               <label xml:lang="x-lpp" text="528446347"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.050.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Parallele Algorithmen und Maschinen (1990-1992)"/>
+               <label xml:lang="x-lpp" text="528608738"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.050.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Prozessdatenverarbeitung/Systemprogrammierung (1990-1992)"/>
+               <label xml:lang="x-lpp" text="527982970"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.020.050.050(1990)">
+               <label xml:lang="de" text="Fachgebiet Rechnerarchitekturen (1990-1992)"/>
+               <label xml:lang="x-lpp" text="52861200X"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+      </category>
+
+      <category ID="07.030(1990)">
+         <label xml:lang="de" text="Fakultät für Maschinenbau und Feinwerktechnik (1990-1992)"/>
+         <label xml:lang="x-lpp" text="532802292"/>
+         <label xml:lang="x-from" text="1990"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.030.010(1990)">
+            <label xml:lang="de" text="Institut für Fertigung (1990-1992)"/>
+            <label xml:lang="x-lpp" text="49966325X"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.030.010.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Arbeitswissenschaft (1991-1992)"/>
+               <label xml:lang="x-lpp" text="480754535"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.010.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Fertigungstechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="480754837"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.010.030(1991)">
+               <label xml:lang="de" text="Fachgebiet Fertigungsprozesse (1991-1992)"/>
+               <label xml:lang="x-lpp" text="533618037"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.010.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Fertigungsoptimierung (1990-1992) ↑"/>
+               <label xml:lang="x-lpp" text="533619327"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.030.020(1991)">
+            <label xml:lang="de" text="Institut für Glas/Keramik-Technik (1991-1992)"/>
+            <label xml:lang="x-lpp" text="527989940"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+         </category>
+
+         <category ID="07.030.030(1990)">
+            <label xml:lang="de" text="Institut für Lichttechnik und Technische Optik (1990-1991)"/>
+            <label xml:lang="x-lpp" text="499663365"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1991"/>
+
+            <category ID="07.030.030.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Lichttechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="480755043"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.030.050(1990)">
+               <label xml:lang="de" text="Fachgebiet Technische Optik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="480755787"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.030.040(1990)">
+            <label xml:lang="de" text="Institut für Maschinenelemente und Konstruktion (1990-1992)"/>
+            <label xml:lang="x-lpp" text="499663152"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.030.040.030(1991)">
+               <label xml:lang="de" text="Fachgebiet Konstruktionstechnik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="476825482"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.040.050(1991)">
+               <label xml:lang="de" text="Fachgebiet Maschinenelemente (1991-1992)"/>
+               <label xml:lang="x-lpp" text="480755094"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.030.050(1990)">
+            <label xml:lang="de" text="Institut für Mikrosystemtechnik, Mechatronik und Mechanik (1990-1992)"/>
+            <label xml:lang="x-lpp" text="499663535"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.030.050.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Getriebetechnik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="480754934"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.050.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Getriebelehre und Antriebstechnik (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="534006051"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.030.050.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Informationsgeräte- und Mikrorechnertechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="533994950"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.050.030(1991)">
+               <label xml:lang="de" text="Fachgebiet Meßtechnik im Maschinenbau (1991-1992)"/>
+               <label xml:lang="x-lpp" text="534680615"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.050.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Mikrosystemtechnik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="515912751"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.050.050(1990)">
+               <label xml:lang="de" text="Fachgebiet Technische Mechanik (1990-1992)"/>
+               <label xml:lang="en" text="Technical Mechanics Group (1990-1992)"/>
+               <label xml:lang="x-lpp" text="476948606"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.030.060(1990)">
+            <label xml:lang="de" text="Institut für Präzisionstechnik und Automation (1990-1992)"/>
+            <label xml:lang="x-lpp" text="499663594"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.030.060.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Flexible Automation und Montage (1990-1992)"/>
+               <label xml:lang="x-lpp" text="534009794"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.060.050(1991)">
+               <label xml:lang="de" text="Fachgebiet Gerätekonstruktion und Antriebstechnik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="534011004"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.030.060.050(1990)">
+               <label xml:lang="de" text="Fachgebiet Gerätekonstruktion und Antriebe (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="534680550"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+         </category>
+      </category>
+
+      <category ID="07.040(1990)">
+         <label xml:lang="de" text="Fakultät für Mathematik und Naturwissenschaften (1990-1992)"/>
+         <label xml:lang="en" text="Department of Mathematics and Natural Sciences (1990-1992)"/>
+         <label xml:lang="x-lpp" text="476942527"/>
+         <label xml:lang="x-from" text="1990"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.040.030(1990)">
+            <label xml:lang="de" text="Institut für Mathematik (1990-1992)"/>
+            <label xml:lang="en" text="Institute of Mathematics (1990-1992)"/>
+            <label xml:lang="x-lpp" text="479739188"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.040.030.010(1991)">
+               <label xml:lang="de" text="Fachgebiet Analysis und Dynamische Systeme (1991-1992)"/>
+               <label xml:lang="x-lpp" text="530577321"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.030.020(1991)">
+               <label xml:lang="de" text="Fachgebiet Analysis und Steuertheorie (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537732004"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.030.030(1991)">
+               <label xml:lang="de" text="Fachgebiet Diskrete Mathematik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537956336"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.030.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Diskrete Mathematik und Theoretische Informatik (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="537956468"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.040.030.040(1991)">
+               <label xml:lang="de" text="Fachgebiet Numerische Mathematik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537957030"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.030.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Numerische Mathematik und Numerische Informatik (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="537957227"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.040.030.050(1991)">
+               <label xml:lang="de" text="Fachgebiet Operations Research (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537955321"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.030.060(1991)">
+               <label xml:lang="de" text="Fachgebiet Optimierung und Geometrie (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537961518"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.030.070(1991)">
+               <label xml:lang="de" text="Fachgebiet Stochastik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537955143"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.030.080(1991)">
+               <label xml:lang="de" text="Fachgebiet Wirtschaftsmathematische Methoden (1991-1992)"/>
+               <label xml:lang="x-lpp" text="53797203X"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.040.050(1990)">
+            <label xml:lang="de" text="Institut für Physik (1990-1992)"/>
+            <label xml:lang="en" text="Institute for Physics (1990-1992)"/>
+            <label xml:lang="x-lpp" text="479739323"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.040.050.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Angewandte Physik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="537979867"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.050.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Experimentalphysik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="537978909"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.050.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Halbleiterphysik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="520292510"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.050.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Physikalische Chemie (1990-1992)"/>
+               <label xml:lang="x-lpp" text="538054689"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.040.050.050(1990)">
+               <label xml:lang="de" text="Fachgebiet Theoretische Physik (1990-1992)"/>
+               <label xml:lang="x-lpp" text="520292294"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+      </category>
+
+      <category ID="07.050(1991)">
+         <label xml:lang="de" text="Fakultät für Wirtschaftswissenschaften (1991-1992)"/>
+         <label xml:lang="en" text="Department of Economic Sciences (1991-1992)"/>
+         <label xml:lang="x-lpp" text="476842522"/>
+         <label xml:lang="x-from" text="1991"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.050(1990)">
+            <label xml:lang="de" text="Zentrale Wissenschaftliche Einrichtung Wirtschaftsinformatik und -ingenieurwesen (1990-1991) ↑"/>
+            <label xml:lang="x-lpp" text="537547177"/>
+            <label xml:lang="x-from" text="1990"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.050.010(1991)">
+            <label xml:lang="de" text="Institut für Betriebswirtschaft (1991-1992)"/>
+            <label xml:lang="x-lpp" text="527968625"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.050.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Betriebswirtschaftslehre (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="537563172"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.050.010.020(1991)">
+               <label xml:lang="de" text="Fachgebiet Finanzwirtschaft/Investitionsrechnung (1991-1992)"/>
+               <label xml:lang="x-lpp" text="527972223"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.050.010.030(1991)">
+               <label xml:lang="de" text="Fachgebiet Marketing (1991-1992)"/>
+               <label xml:lang="x-lpp" text="479840229"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.050.010.040(1991)">
+               <label xml:lang="de" text="Fachgebiet Produktion/Industriebetriebslehre (1991-1992)"/>
+               <label xml:lang="x-lpp" text="52796980X"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.050.010.050(1991)">
+               <label xml:lang="de" text="Fachgebiet Rechnungswesen/Controlling (Betriebswirtschaftslehre) (1991-1992)"/>
+               <label xml:lang="x-lpp" text="47747148X"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.050.020(1991)">
+            <label xml:lang="de" text="Institut für Informationswissenschaft (1991-1992)"/>
+            <label xml:lang="x-lpp" text="537863397"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.050.020(1990)">
+               <label xml:lang="de" text="Fachgebiet Informationswissenschaft (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="537563393"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+         </category>
+
+         <category ID="07.050.030(1991)">
+            <label xml:lang="de" text="Institut für Rechtswissenschaften (1991-1992)"/>
+            <label xml:lang="x-lpp" text="537727205"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.050.030(1990)">
+               <label xml:lang="de" text="Fachgebiet Rechtswissenschaft (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="537563466"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.050.030.030(1992)">
+               <label xml:lang="de" text="Fachgebiet Öffentliches Recht (1992-1992)"/>
+               <label xml:lang="x-lpp" text="479025975"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.050.030.050(1992)">
+               <label xml:lang="de" text="Fachgebiet Zivilrecht (1992-1992)"/>
+               <label xml:lang="x-lpp" text="479024286"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.050.040(1991)">
+            <label xml:lang="de" text="Institut für Volkswirtschaft (1991-1992)"/>
+            <label xml:lang="x-lpp" text="537674837"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.050.040(1990)">
+               <label xml:lang="de" text="Fachgebiet Volkswirtschaftslehre (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="537563326"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.050.040.010(1990)">
+               <label xml:lang="de" text="Fachgebiet Philosophie, Geisteswissenschaften und Technikgeschichte (1990-1991)"/>
+               <label xml:lang="x-lpp" text="537563695"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.050.040.030(1991)">
+               <label xml:lang="de" text="Fachgebiet Finanzwissenschaft (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537676813"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.050.040.050(1991)">
+               <label xml:lang="de" text="Fachgebiet Wirtschaftstheorie/Wirtschaftspolitik (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537675698"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+
+         <category ID="07.050.050(1991)">
+            <label xml:lang="de" text="Institut für Wirtschaftsinformatik (1991-1992)"/>
+            <label xml:lang="en" text="Institute for Business Information Systems Engineering (1991-1992)"/>
+            <label xml:lang="x-lpp" text="478995776"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+
+            <category ID="07.050.050(1990)">
+               <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik (1990-1991) ↑"/>
+               <label xml:lang="x-lpp" text="537563296"/>
+               <label xml:lang="x-from" text="1990"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.050.050.010(1992)">
+               <label xml:lang="de" text="Fachgebiet Informationsmanagement (1992-1992)"/>
+               <label xml:lang="x-lpp" text="503849278"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.050.050.070(1991)">
+               <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik/Produktionsmanagement (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537608311"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+
+            <category ID="07.050.050.080(1991)">
+               <label xml:lang="de" text="Fachgebiet Wirtschaftsstatistik und Operations Research (1991-1992)"/>
+               <label xml:lang="x-lpp" text="537608397"/>
+               <label xml:lang="x-from" text="1991"/>
+               <label xml:lang="x-to" text="1992"/>
+            </category>
+         </category>
+      </category>
+
+      <category ID="07.110(1968)">
+         <label xml:lang="de" text="Sektion Elektrotechnik (ET) (1968-1991)"/>
+         <label xml:lang="x-lpp" text="528805215"/>
+         <label xml:lang="x-from" text="1968"/>
+         <label xml:lang="x-to" text="1991"/>
+
+         <category ID="07.110.010(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektrische Isolier- und Hochspannungstechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925660"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.011(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Hochspannungs- und Isolierstofftechnik (1968-1974)"/>
+            <label xml:lang="x-lpp" text="59216893X"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1974"/>
+         </category>
+
+         <category ID="07.110.020(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektrische Maschinen (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925717"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.030(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektrochemie und Galvanotechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="52892558X"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.040(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektromechanik und Technologie (1968-1991)"/>
+            <label xml:lang="x-lpp" text="567106527"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.050(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektrotechnische Geräte und Meßtechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925490"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.060(1971)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektrowärme (1971-1991)"/>
+            <label xml:lang="x-lpp" text="528925539"/>
+            <label xml:lang="x-from" text="1971"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.070(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Netz- und Anlagentechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="52892561X"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.080(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Plasma- und Schalttechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="567106209"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.110.090(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Steuerungstechnik und Leistungselektronik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925458"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+      </category>
+
+      <category ID="07.120(1972)">
+         <label xml:lang="de" text="Sektion Gerätetechnik (GT) (1972-1991)"/>
+         <label xml:lang="x-lpp" text="528805304"/>
+         <label xml:lang="x-from" text="1972"/>
+         <label xml:lang="x-to" text="1991"/>
+
+         <category ID="07.120(1968)">
+            <label xml:lang="de" text="Sektion Konstruktion und Technologie der Elektronik und der Feingerätetechnik (KONTEF) (1968-1972) ↑"/>
+            <label xml:lang="x-lpp" text="534679390"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1972"/>
+         </category>
+
+         <category ID="07.120.010(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Fertigungsprozesse (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925857"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.120.020(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Fertigungstechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925849"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.120.030(1975)">
+            <label xml:lang="de" text="Wissenschaftsbereich Glas/Keramik-Technik (1975-1991)"/>
+            <label xml:lang="x-lpp" text="529026376"/>
+            <label xml:lang="x-from" text="1975"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.120.040(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Informationsgerätetechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528926004"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.120.050(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Konstruktion (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925776"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.120.060(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Technische Mechanik/Mechanismentechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528926055"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.120.070(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Technische Optik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925881"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.120.110(1983)">
+            <label xml:lang="de" text="Technikum Feinmechanik, Optik, Elektronik &lt;Suh&gt; (1983-1991)"/>
+            <label xml:lang="x-lpp" text="529028190"/>
+            <label xml:lang="x-from" text="1983"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+      </category>
+
+      <category ID="07.130(1968)">
+         <label xml:lang="de" text="Sektion Informationstechnik und Theoretische Elektrotechnik (INTET) (1968-1991)"/>
+         <label xml:lang="x-lpp" text="528804421"/>
+         <label xml:lang="x-from" text="1968"/>
+         <label xml:lang="x-to" text="1991"/>
+
+         <category ID="07.130(1967)">
+            <label xml:lang="de" text="Sektion Nachrichtentechnik und Elektronische Meßtechnik (INTET) (1968-1968) ↑"/>
+            <label xml:lang="x-lpp" text="577881361"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.130.010(1985)">
+            <label xml:lang="de" text="Wissenschaftsbereich Allgemeine Elektrotechnik und Technische Erkennung (1985-1991)"/>
+            <label xml:lang="x-lpp" text="528925334"/>
+            <label xml:lang="x-from" text="1985"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.130.010(1973)">
+            <label xml:lang="de" text="Wissenschaftsbereich Informationstechnik (1973-1985) ↑"/>
+            <label xml:lang="x-lpp" text="566919087"/>
+            <label xml:lang="x-from" text="1973"/>
+            <label xml:lang="x-to" text="1985"/>
+         </category>
+
+         <category ID="07.130.020(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektronische Meßtechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925172"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.130.030(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Konstruktion und Technologie elektronischer Funktionsblöcke (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925229"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.130.040(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Mikroelektronische Schaltungstechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925369"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.130.050(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Mikrowellentechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925253"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.130.060(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Nachrichtentechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925148"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.130.070(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Schaltungstechnik und elektronische Messtechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="567105520"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.130.080(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Theoretische Elektrotechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="52892530X"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+      </category>
+
+      <category ID="07.140(1968)">
+         <label xml:lang="de" text="Sektion Mathematik, Rechentechnik und ökonomische Kybernetik (MARÖK) (1968-1991)"/>
+         <label xml:lang="x-lpp" text="528805606"/>
+         <label xml:lang="x-from" text="1968"/>
+         <label xml:lang="x-to" text="1991"/>
+
+         <category ID="07.140.010(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Analysis (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028611"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.020(1988)">
+            <label xml:lang="de" text="Wissenschaftsbereich Angewandte Informatik (1988-1991)"/>
+            <label xml:lang="x-lpp" text="529028972"/>
+            <label xml:lang="x-from" text="1988"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.030(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Diskrete Mathematik und Stochastik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028646"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.031(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Diskrete Mathematik (1968-1978)"/>
+            <label xml:lang="x-lpp" text="567107698"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1978"/>
+         </category>
+
+         <category ID="07.140.032(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Stochastik (1968-1984)"/>
+            <label xml:lang="x-lpp" text="567107272"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1984"/>
+         </category>
+
+         <category ID="07.140.040(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Numerische Mathematik und Rechentechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="52902876X"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.050(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Operationsforschung (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028700"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.060(1989)">
+            <label xml:lang="de" text="Wissenschaftsbereich Optimierung/Redaktion Optimization (1989-1991)"/>
+            <label xml:lang="x-lpp" text="529028840"/>
+            <label xml:lang="x-from" text="1989"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.060(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Optimierung (1968-1989) ↑"/>
+            <label xml:lang="x-lpp" text="538373253"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1989"/>
+         </category>
+
+         <category ID="07.140.070(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Sozialistische Betriebswirtschaft (1968-1989)"/>
+            <label xml:lang="x-lpp" text="538076518"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1989"/>
+         </category>
+
+         <category ID="07.140.080(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Volkswirtschaft (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028913"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.090(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Wirtschaftsinformatik und Betriebswirtschaft (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028883"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.140.110(1971)">
+            <label xml:lang="de" text="Organisations- und Rechenzentrum (1971-1990)"/>
+            <label xml:lang="x-lpp" text="574695435"/>
+            <label xml:lang="x-from" text="1971"/>
+            <label xml:lang="x-to" text="1990"/>
+         </category>
+
+         <category ID="07.140.110(1968)">
+            <label xml:lang="de" text="Rechenzentrum (1968-1971) ↑"/>
+            <label xml:lang="x-lpp" text="574694315"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1971"/>
+         </category>
+      </category>
+
+      <category ID="07.150(1990)">
+         <label xml:lang="de" text="Sektion Philosophie und Sozialwissenschaften (P/SW) (1990-1991)"/>
+         <label xml:lang="x-lpp" text="528805681"/>
+         <label xml:lang="x-from" text="1990"/>
+         <label xml:lang="x-to" text="1991"/>
+
+         <category ID="07.150(1989)">
+            <label xml:lang="de" text="Sektion Sozialwissenschaften (SW) (1989-1990) ↑"/>
+            <label xml:lang="x-lpp" text="778296881"/>
+            <label xml:lang="x-from" text="1989"/>
+            <label xml:lang="x-to" text="1990"/>
+         </category>
+
+         <category ID="07.150(1981)">
+            <label xml:lang="de" text="Sektion Marxismus-Leninismus (ML) (1981-1989) ↑"/>
+            <label xml:lang="x-lpp" text="539782440"/>
+            <label xml:lang="x-from" text="1981"/>
+            <label xml:lang="x-to" text="1989"/>
+         </category>
+
+         <category ID="07.150(1959)">
+            <label xml:lang="de" text="Institut für Marxismus-Leninismus (ML) (1968-1981) ↑"/>
+            <label xml:lang="x-lpp" text="529030950"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1981"/>
+         </category>
+      </category>
+
+      <category ID="07.160(1968)">
+         <label xml:lang="de" text="Sektion Physik und Technik elektronischer Bauelemente (PHYTEB) (1968-1991)"/>
+         <label xml:lang="x-lpp" text="52880541X"/>
+         <label xml:lang="x-from" text="1968"/>
+         <label xml:lang="x-to" text="1991"/>
+
+         <category ID="07.160.010(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Chemie/Werkstoffe (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028352"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.160.020(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Elektronische Bauelemente (1968-1991)"/>
+            <label xml:lang="x-lpp" text="567106918"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.160.030(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Integrierte Schaltkreise (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028433"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.160.040(1982)">
+            <label xml:lang="de" text="Wissenschaftsbereich Lichttechnik (1982-1991)"/>
+            <label xml:lang="x-lpp" text="529028387"/>
+            <label xml:lang="x-from" text="1982"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.160.050(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Physik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028328"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.160.060(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Technologie der Mikroelektronik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028468"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.160.070(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Wirkprinzipien der Mikroelektronik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="529028484"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+      </category>
+
+      <category ID="07.170(1968)">
+         <label xml:lang="de" text="Sektion Technische und Biomedizinische Kybernetik (TBK) (1968-1991)"/>
+         <label xml:lang="x-lpp" text="502461187"/>
+         <label xml:lang="x-from" text="1968"/>
+         <label xml:lang="x-to" text="1991"/>
+
+         <category ID="07.170.010(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Automatische Steuerung (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528924850"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.170.020(1983)">
+            <label xml:lang="de" text="Wissenschaftsbereich Automatisierungs- und Mikroprozessorgerätetechnik (1983-1991)"/>
+            <label xml:lang="x-lpp" text="739729152"/>
+            <label xml:lang="x-from" text="1983"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.170.020(1963)">
+            <label xml:lang="de" text="Wissenschaftsbereich Automatisierungsgeräte- und Mikroprozessortechnik (1968-1982) ↑"/>
+            <label xml:lang="x-lpp" text="751887749"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1982"/>
+         </category>
+
+         <category ID="07.170.030(1989)">
+            <label xml:lang="de" text="Wissenschaftsbereich Biomedizinische Technik und Informatik (1989-1991)"/>
+            <label xml:lang="x-lpp" text="528924915"/>
+            <label xml:lang="x-from" text="1989"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.170.030(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Biomedizinische Technik und Bionik (1968-1989) ↑"/>
+            <label xml:lang="x-lpp" text="502461489"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1989"/>
+         </category>
+
+         <category ID="07.170.040(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Computertechnik (1968-1991)"/>
+            <label xml:lang="x-lpp" text="528925008"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.170.042(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Informationsverarbeitung (1968-1985) ↑"/>
+            <label xml:lang="x-lpp" text="56672622X"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1985"/>
+         </category>
+
+         <category ID="07.170.044(1977)">
+            <label xml:lang="de" text="Wissenschaftsbereich Technische Informatik (1977-1991)"/>
+            <label xml:lang="x-lpp" text="528925059"/>
+            <label xml:lang="x-from" text="1977"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.170.050(1987)">
+            <label xml:lang="de" text="Wissenschaftsbereich Neuroinformatik (1987-1991)"/>
+            <label xml:lang="x-lpp" text="528924931"/>
+            <label xml:lang="x-from" text="1987"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.170.060(1981)">
+            <label xml:lang="de" text="Wissenschaftsbereich Prozeßmeß- und Sensortechnik (1981-1991)"/>
+            <label xml:lang="x-lpp" text="537534393"/>
+            <label xml:lang="x-from" text="1981"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.170.060(1968)">
+            <label xml:lang="de" text="Wissenschaftsbereich Prozeßmeßtechnik (1968-1981) ↑"/>
+            <label xml:lang="x-lpp" text="566725525"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1981"/>
+         </category>
+      </category>
+
+      <category ID="07.210(1955)">
+         <label xml:lang="de" text="Fakultät für Feinmechanik und Optik (1963-1968)"/>
+         <label xml:lang="x-lpp" text="510326692"/>
+         <label xml:lang="x-from" text="1963"/>
+         <label xml:lang="x-to" text="1968"/>
+
+         <category ID="07.210.010(1955)">
+            <label xml:lang="de" text="Institut für allgemeine und optische Meßtechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534878059"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.210.020(1961)">
+            <label xml:lang="de" text="Institut für Feingerätetechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="553693557"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+
+            <category ID="07.210.020.010(1956)">
+               <label xml:lang="de" text="Abteilung Konstruktionssystematik (1963-1968)"/>
+               <label xml:lang="x-lpp" text="544240693"/>
+               <label xml:lang="x-from" text="1963"/>
+               <label xml:lang="x-to" text="1968"/>
+            </category>
+         </category>
+
+         <category ID="07.210.030(1961)">
+            <label xml:lang="de" text="Institut für Foto- und Kinotechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="55368776X"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.210.040(1961)">
+            <label xml:lang="de" text="Institut für Getriebetechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="544246829"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.210.050(1956)">
+            <label xml:lang="de" text="Institut für Lichttechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534878008"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.210.060(1961)">
+            <label xml:lang="de" text="Institut für Optik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="577808737"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+      </category>
+
+      <category ID="07.220(1964)">
+         <label xml:lang="de" text="Fakultät für naturwissenschaftlich-technische Grundlagen (1964-1968)"/>
+         <label xml:lang="x-lpp" text="558560431"/>
+         <label xml:lang="x-from" text="1964"/>
+         <label xml:lang="x-to" text="1968"/>
+
+         <category ID="07.220(1953)">
+            <label xml:lang="de" text="Fakultät für Mathematik, Naturwissenschaften und technische Grundwissenschaften (1963-1964) ↑"/>
+            <label xml:lang="x-lpp" text="510322565"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1964"/>
+         </category>
+
+         <category ID="07.220.010(1956)">
+            <label xml:lang="de" text="Institut für allgemeine und theoretische Elektrotechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534866778"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.220.030(1955)">
+            <label xml:lang="de" text="Institut für Dokumentation und Patentwesen (1963-1964)"/>
+            <label xml:lang="x-lpp" text="509482996"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1964"/>
+         </category>
+
+         <category ID="07.220.040(1963)">
+            <label xml:lang="de" text="Institut für maschinelle Rechentechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="541649922"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.220.050(1956)">
+            <label xml:lang="de" text="Institut für Mathematik (1963-1968)"/>
+            <label xml:lang="en" text="Institute for Mathematics (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534866484"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.220.060(1953)">
+            <label xml:lang="de" text="Institut für Physik (1963-1968)"/>
+            <label xml:lang="en" text="Institute for Physics (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534866654"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.220.070(1964)">
+            <label xml:lang="de" text="Institut für technische Mechanik und Thermodynamik (1964-1968)"/>
+            <label xml:lang="x-lpp" text="562404112"/>
+            <label xml:lang="x-from" text="1964"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+      </category>
+
+      <category ID="07.230(1964)">
+         <label xml:lang="de" text="Fakultät für produktionstechnische Grundlagen (1964-1968)"/>
+         <label xml:lang="x-lpp" text="545679966"/>
+         <label xml:lang="x-from" text="1964"/>
+         <label xml:lang="x-to" text="1968"/>
+
+         <category ID="07.230(1956)">
+            <label xml:lang="de" text="Fakultät für Technologie und Ingenieurökonomie (1963-1964) ↑"/>
+            <label xml:lang="x-lpp" text="510326870"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1964"/>
+         </category>
+
+         <category ID="07.230.010(1956)">
+            <label xml:lang="de" text="Institut für Arbeitsschutz und Arbeitspsychologie (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534878423"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.020(1964)">
+            <label xml:lang="de" text="Institut für Dokumentation, Patentwesen und Recht (1964-1968)"/>
+            <label xml:lang="x-lpp" text="509483631"/>
+            <label xml:lang="x-from" text="1964"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.020(1961)">
+            <label xml:lang="de" text="Institut für Staat und Recht (1963-1964) ↑"/>
+            <label xml:lang="x-lpp" text="55917974X"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1964"/>
+         </category>
+
+         <category ID="07.230.030(1956)">
+            <label xml:lang="de" text="Institut für Fertigungstechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534878458"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.040(1961)">
+            <label xml:lang="de" text="Institut für Maschinenelemente (1963-1968)"/>
+            <label xml:lang="x-lpp" text="545690285"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.050(1964)">
+            <label xml:lang="de" text="Institut für Ökonomik der Industrie (1964-1968)"/>
+            <label xml:lang="x-lpp" text="559135319"/>
+            <label xml:lang="x-from" text="1964"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.050(1959)">
+            <label xml:lang="de" text="Institut für Finanzwirtschaft und Rechnungswesen (1963-1964) ↑"/>
+            <label xml:lang="x-lpp" text="559175558"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1964"/>
+         </category>
+
+         <category ID="07.230.060(1958)">
+            <label xml:lang="de" text="Institut für Politische Ökonomie (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534878520"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.070(1964)">
+            <label xml:lang="de" text="Institut für Produktionsorganisation (1964-1968)"/>
+            <label xml:lang="x-lpp" text="559177712"/>
+            <label xml:lang="x-from" text="1964"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.070(1959)">
+            <label xml:lang="de" text="Institut für Ökonomik, Organisation und Planung (1963-1964) ↑"/>
+            <label xml:lang="x-lpp" text="545676533"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1964"/>
+         </category>
+
+         <category ID="07.230.080(1959)">
+            <label xml:lang="de" text="Institut für Standardisierung und Gütesicherung (1963-1968)"/>
+            <label xml:lang="x-lpp" text="54568482X"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.230.090(1961)">
+            <label xml:lang="de" text="Institut für Werkstoffkunde (1963-1968)"/>
+            <label xml:lang="x-lpp" text="545682630"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+      </category>
+
+      <category ID="07.240(1953)">
+         <label xml:lang="de" text="Fakultät für Schwachstromtechnik (1963-1968)"/>
+         <label xml:lang="x-lpp" text="510326439"/>
+         <label xml:lang="x-from" text="1963"/>
+         <label xml:lang="x-to" text="1968"/>
+
+         <category ID="07.240.010(1958)">
+            <label xml:lang="de" text="Institut für elektromedizinische und radiologische Technik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="504440810"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.240.020(1958)">
+            <label xml:lang="de" text="Institut für Elektronik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="545674557"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.240.030(1956)">
+            <label xml:lang="de" text="Institut für Fernmeldetechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534876692"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.240.040(1960)">
+            <label xml:lang="de" text="Institut für Hochfrequenztechnik und Elektroakustik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="550206434"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.240.050(1960)">
+            <label xml:lang="de" text="Institut für Mikrowellentechnik und Wellenausbreitung (1963-1968)"/>
+            <label xml:lang="x-lpp" text="550206965"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.240.060(1956)">
+            <label xml:lang="de" text="Institut für Regelungstechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534876854"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+      </category>
+
+      <category ID="07.250(1953)">
+         <label xml:lang="de" text="Fakultät für Starkstromtechnik (1963-1968)"/>
+         <label xml:lang="x-lpp" text="510323294"/>
+         <label xml:lang="x-from" text="1963"/>
+         <label xml:lang="x-to" text="1968"/>
+
+         <category ID="07.250.010(1953)">
+            <label xml:lang="de" text="Institut für elektrische Apparate und Anlagen (1963-1968)"/>
+            <label xml:lang="x-lpp" text="53487701X"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.250.020(1956)">
+            <label xml:lang="de" text="Institut für elektrische Energietechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534877133"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.250.030(1963)">
+            <label xml:lang="de" text="Institut für elektrische Isolierstoffe und Hochspannungstechnik (1963-1968)"/>
+            <label xml:lang="x-lpp" text="547427808"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.250.040(1965)">
+            <label xml:lang="de" text="Institut für elektrische Maschinen (1965-1968)"/>
+            <label xml:lang="x-lpp" text="550867945"/>
+            <label xml:lang="x-from" text="1965"/>
+            <label xml:lang="x-to" text="1968"/>
+
+            <category ID="07.250.040(1953)">
+               <label xml:lang="de" text="Institut für Elektromaschinenbau (1963-1965) ↑"/>
+               <label xml:lang="x-lpp" text="534877230"/>
+               <label xml:lang="x-from" text="1963"/>
+               <label xml:lang="x-to" text="1965"/>
+            </category>
+         </category>
+
+         <category ID="07.250.050(1964)">
+            <label xml:lang="de" text="Institut für Elektrochemie und Galvanotechnik (1964-1968)"/>
+            <label xml:lang="x-lpp" text="55020492X"/>
+            <label xml:lang="x-from" text="1964"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.250.060(1961)">
+            <label xml:lang="de" text="Institut für elektromotorische Antriebe (1963-1968)"/>
+            <label xml:lang="x-lpp" text="550204377"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.250.070(1958)">
+            <label xml:lang="de" text="Institut für Elektrowärme (1963-1968)"/>
+            <label xml:lang="x-lpp" text="534877362"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+      </category>
+
+      <category ID="07.600(1963)">
+         <label xml:lang="de" text="Zentrale Einrichtungen (1963-1992)"/>
+         <label xml:lang="x-from" text="1963"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.600.010(1990)">
+            <label xml:lang="de" text="Rechenzentrum (1991-1992)"/>
+            <label xml:lang="x-lpp" text="529029065"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+         </category>
+
+         <category ID="07.600.020(1991)">
+            <label xml:lang="de" text="Universitätsbibliothek (1991-1992)"/>
+            <label xml:lang="en" text="University Library (1991-1992)"/>
+            <label xml:lang="x-lpp" text="473110253"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+         </category>
+
+         <category ID="07.600.020(1963)">
+            <label xml:lang="de" text="Technische Hochschule / Bibliothek (1963-1991)"/>
+            <label xml:lang="en" text="Library (1963-1991)"/>
+            <label xml:lang="x-lpp" text="47311013X"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.600.050(1992)">
+            <label xml:lang="de" text="PATON (1992-1992)"/>
+            <label xml:lang="x-lpp" text="480774404"/>
+            <label xml:lang="x-from" text="1992"/>
+            <label xml:lang="x-to" text="1992"/>
+         </category>
+
+         <category ID="07.600.050(1981)">
+            <label xml:lang="de" text="Polytechnische Patentbibliothek (1981-1991) ↑"/>
+            <label xml:lang="x-lpp" text="529030608"/>
+            <label xml:lang="x-from" text="1981"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+      </category>
+
+      <category ID="07.700(1963)">
+         <label xml:lang="de" text="Verwaltung (1963-1992)"/>
+         <label xml:lang="en" text="Administration (1963-1992)"/>
+         <label xml:lang="x-from" text="1963"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.700.010(1963)">
+            <label xml:lang="de" text="Technische Hochschule / Rektorat (1963-1991)"/>
+            <label xml:lang="x-lpp" text="49772829X"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.700.030(1968)">
+            <label xml:lang="de" text="Abteilung Fremdsprachen und Übersetzungswesen (1968-1991)"/>
+            <label xml:lang="x-lpp" text="540220973"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+         <category ID="07.700.030(1957)">
+            <label xml:lang="de" text="Abteilung Sprachunterricht (1963-1967) ↑"/>
+            <label xml:lang="x-lpp" text="55916680X"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1967"/>
+         </category>
+
+         <category ID="07.700.050(1976)">
+            <label xml:lang="de" text="Technische Hochschule / Film- und Bildstelle (1976-1991)"/>
+            <label xml:lang="x-lpp" text="571038417"/>
+            <label xml:lang="x-from" text="1976"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+      </category>
+
+      <category ID="07.900(1963)">
+         <label xml:lang="de" text="Sonstige Einrichtungen (1963-1992)"/>
+         <label xml:lang="en" text="Others (1963-1992)"/>
+         <label xml:lang="x-from" text="1963"/>
+         <label xml:lang="x-to" text="1992"/>
+
+         <category ID="07.900.010(1968)">
+            <label xml:lang="de" text="Industrie-Institut (1968-1989)"/>
+            <label xml:lang="x-lpp" text="538112174"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1989"/>
+         </category>
+
+         <category ID="07.900.010(1960)">
+            <label xml:lang="de" text="Industrie-Institut für Elektrotechnik, Feinmechanik und Optik (1963-1968) ↑"/>
+            <label xml:lang="x-lpp" text="545688086"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.900.020(1963)">
+            <label xml:lang="de" text="Institut für Chemie (1963-1968)"/>
+            <label xml:lang="x-lpp" text="671610031"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+		 <category ID="07.900.030(1968)">
+            <label xml:lang="de" text="Institut für Informationswissenschaft, Erfindungswesen und Recht (INER) (1968-1991)"/>
+            <label xml:lang="x-lpp" text="509484239"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+
+            <category ID="07.900.030.010(1968)">
+               <label xml:lang="de" text="Wissenschaftsbereich Informationsmethodik (1968-1991)"/>
+               <label xml:lang="x-lpp" text="529030136"/>
+               <label xml:lang="x-from" text="1968"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.900.030.020(1968)">
+               <label xml:lang="de" text="Wissenschaftsbereich Informationssysteme (1968-1991)"/>
+               <label xml:lang="x-lpp" text="529030055"/>
+               <label xml:lang="x-from" text="1968"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.900.030.030(1968)">
+               <label xml:lang="de" text="Wissenschaftsbereich Patentinformation, Erfindungswesen und Recht (1968-1991)"/>
+               <label xml:lang="x-lpp" text="529030470"/>
+               <label xml:lang="x-from" text="1968"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+
+            <category ID="07.900.030.040(1968)">
+               <label xml:lang="de" text="Wissenschaftsbereich Wissensverarbeitung (1968-1991)"/>
+               <label xml:lang="x-lpp" text="529030195"/>
+               <label xml:lang="x-from" text="1968"/>
+               <label xml:lang="x-to" text="1991"/>
+            </category>
+         </category>
+
+         <category ID="07.900.040(1959)">
+            <label xml:lang="de" text="Institut für Marxismus-Leninismus (ML) (1963-1968) ↗"/>
+            <label xml:lang="x-lpp" text="529030950"/>
+            <label xml:lang="x-from" text="1963"/>
+            <label xml:lang="x-to" text="1968"/>
+         </category>
+
+         <category ID="07.900.050(1990)">
+            <label xml:lang="de" text="Institut für Plasmatechnik &lt;Meiningen&gt; (1991-1992)"/>
+            <label xml:lang="x-lpp" text="537563911"/>
+            <label xml:lang="x-from" text="1991"/>
+            <label xml:lang="x-to" text="1992"/>
+         </category>
+
+         <category ID="07.900.050(1968)">
+            <label xml:lang="de" text="Abteilung Plasmatechnik &lt;Meiningen&gt; (1968-1991) ↑"/>
+            <label xml:lang="x-lpp" text="537564403"/>
+            <label xml:lang="x-from" text="1968"/>
+            <label xml:lang="x-to" text="1991"/>
+         </category>
+
+
+      </category>
+
+
    </category>
-
-
 
    <category ID="06">
       <label xml:lang="de" text="Hochschule für Elektrotechnik (1953-1963)"/>
@@ -3670,62 +5604,62 @@
          </category>
       </category>
 
-      <category ID="06.015(1953)">
+      <category ID="06.020(1953)">
          <label xml:lang="de" text="Fakultät für Starkstromtechnik (1953-1963)"/>
          <label xml:lang="x-lpp" text="510323294"/>
          <label xml:lang="x-from" text="1953"/>
          <label xml:lang="x-to" text="1963"/>
 
-         <category ID="06.015.010(1953)">
+         <category ID="06.020.010(1953)">
             <label xml:lang="de" text="Institut für Chemie, Elektrochemie und Galvanotechnik (1953-1963)"/>
             <label xml:lang="x-lpp" text="534877052"/>
             <label xml:lang="x-from" text="1953"/>
             <label xml:lang="x-to" text="1963"/>
          </category>
 
-         <category ID="06.015.020(1953)">
+         <category ID="06.020.020(1953)">
             <label xml:lang="de" text="Institut für elektrische Apparate und Anlagen (1953-1963)"/>
             <label xml:lang="x-lpp" text="53487701X"/>
             <label xml:lang="x-from" text="1953"/>
             <label xml:lang="x-to" text="1963"/>
          </category>
 
-         <category ID="06.015.030(1956)">
+         <category ID="06.020.030(1956)">
             <label xml:lang="de" text="Institut für elektrische Energietechnik (1956-1963)"/>
             <label xml:lang="x-lpp" text="534877133"/>
             <label xml:lang="x-from" text="1956"/>
             <label xml:lang="x-to" text="1963"/>
          </category>
 
-         <category ID="06.015.040(1953)">
+         <category ID="06.020.040(1953)">
             <label xml:lang="de" text="Institut für Elektromaschinenbau (1953-1963)"/>
             <label xml:lang="x-lpp" text="534877230"/>
             <label xml:lang="x-from" text="1953"/>
             <label xml:lang="x-to" text="1963"/>
          </category>
 
-         <category ID="06.015.050(1961)">
+         <category ID="06.020.050(1961)">
             <label xml:lang="de" text="Institut für elektromotorische Antriebe (1961-1963)"/>
             <label xml:lang="x-lpp" text="550204377"/>
             <label xml:lang="x-from" text="1961"/>
             <label xml:lang="x-to" text="1963"/>
          </category>
 
-         <category ID="06.015.050(1953)">
+         <category ID="06.020.050(1953)">
             <label xml:lang="de" text="Institut für elektromotorische Antriebe und Bahnen (1953-1961)"/>
             <label xml:lang="x-lpp" text="534876943"/>
             <label xml:lang="x-from" text="1953"/>
             <label xml:lang="x-to" text="1961"/>
          </category>
 
-         <category ID="06.015.060(1958)">
+         <category ID="06.020.060(1958)">
             <label xml:lang="de" text="Institut für Elektrowärme (1958-1963)"/>
             <label xml:lang="x-lpp" text="534877362"/>
             <label xml:lang="x-from" text="1958"/>
             <label xml:lang="x-to" text="1963"/>
          </category>
 
-         <category ID="06.015.070(1953)">
+         <category ID="06.020.070(1953)">
             <label xml:lang="de" text="Institut für Hochspannungstechnik (1953-1963)"/>
             <label xml:lang="x-lpp" text="534877168"/>
             <label xml:lang="x-from" text="1953"/>
@@ -4072,7 +6006,7 @@
          <label xml:lang="x-to" text="1963"/>
 
          <category ID="06.900.010(1959)">
-            <label xml:lang="de" text="Institut für Marxismus-Leninismus (1959-1963)"/>
+            <label xml:lang="de" text="Institut für Marxismus-Leninismus (ML) (1959-1963)"/>
             <label xml:lang="x-lpp" text="529030950"/>
             <label xml:lang="x-from" text="1959"/>
             <label xml:lang="x-to" text="1963"/>
@@ -4116,9 +6050,7 @@
       </category>
 
    </category>
-
-
-
+   
    <category ID="05">
       <label xml:lang="de" text="Fachschule für Elektrotechnik und Maschinenbau (1950-1955)"/>
       <label xml:lang="x-lpp" text="1007496045"/>
@@ -4126,6 +6058,18 @@
       <label xml:lang="x-to" text="1955"/>
    </category>
 
+   <category ID="04">
+      <label xml:lang="de" text="Ingenieurschule Ilmenau (1947-1950)"/>
+      <label xml:lang="en" text="Engineering School Ilmenau (1947-1950)"/>
+      <label xml:lang="x-from" text="1947"/>
+      <label xml:lang="x-to" text="1950"/>
+   </category>
+
+   <category ID="03">
+      <label xml:lang="de" text="Städtische Ingenieurschule Ilmenau (1945-1947)"/>
+      <label xml:lang="x-from" text="1945"/>
+      <label xml:lang="x-to" text="1947"/>
+   </category>
 
    <category ID="02">
       <label xml:lang="de" text="Ingenieurschule Ilmenau (1926-1945)"/>
@@ -4133,16 +6077,21 @@
       <label xml:lang="x-from" text="1926"/>
       <label xml:lang="x-to" text="1945"/>
    </category>
-   
-   
+
    <category ID="01">
       <label xml:lang="de" text="Thüringisches Technikum &lt;Ilmenau&gt; (1894-1926)"/>
       <label xml:lang="x-lpp" text="672523388"/>
       <label xml:lang="x-from" text="1894"/>
       <label xml:lang="x-to" text="1926"/>
+
+      <category ID="01.900(1894)">
+         <label xml:lang="de" text="Sonstige (1894-1926)"/>
+         <label xml:lang="en" text="Others (1894-1926)"/>
+         <label xml:lang="x-from" text="1894"/>
+         <label xml:lang="x-to" text="1926"/>
+      </category>
+
    </category>
-
-
 
   </categories>
 </mycoreclass>
