@@ -53,3 +53,7 @@ i.flag-de {
 i.flag-en {
   background-image: url("/images/flag-en.svg");
 }
+
+#ubo-search-person option[value="person_ths"] {
+  display: none;
+}
