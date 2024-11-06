@@ -123,6 +123,7 @@
                     <xed:bind xpath="@field" default="{$id_type}">
                       <select class="form-control w-100 custom-select">
                         <option value="id_doi">DOI</option>
+                        <option value="id_hdl">Handle</option>
                         <option value="id_urn">URN</option>
                         <option value="id_issn">ISSN</option>
                         <option value="id_isbn">ISBN</option>
