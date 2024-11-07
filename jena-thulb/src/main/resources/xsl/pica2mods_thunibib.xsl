@@ -109,8 +109,8 @@
 
           <mods:classification valueURI="{$WebApplicationBaseURL}classifications/ORIGIN#{$originCategory}"
                                authorityURI="{$WebApplicationBaseURL}classifications/ORIGIN"/>
-          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/fachreferate#{$destatisCategory}"
-                               authorityURI="{$WebApplicationBaseURL}classifications/fachreferate"/>
+          <mods:classification valueURI="{$WebApplicationBaseURL}classifications/destatis#{$destatisCategory}"
+                               authorityURI="{$WebApplicationBaseURL}classifications/destatis"/>
         </xsl:if>
       </xsl:for-each>
     </xsl:for-each>
