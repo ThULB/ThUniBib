@@ -299,9 +299,7 @@
           <tr class="background2">
             <td>subject</td>
             <td>ID</td>
-            <td>Fach, vgl.
-              <a href="fachreferate.xed">diese Liste</a>
-            </td>
+            <td>Fach</td>
             <td>=, contains *</td>
           </tr>
           <tr class="background1">
@@ -547,9 +545,7 @@
           <tr class="background1">
             <td>subject</td>
             <td>ID</td>
-            <td>subject, cf.
-              <a href="fachreferate.xed">attribute value in this list</a>
-            </td>
+            <td>subject, cf.</td>
             <td>=, contains *</td>
           </tr>
           <tr class="background2">

@@ -127,7 +127,7 @@
   </xed:template>
 
   <xed:template id="subject">
-    <xed:repeat xpath="mods:classification[@classID='fachreferate']">
+    <xed:repeat xpath="mods:classification[@classID='destatis']">
       <div class="form-inline form-group ubo-repeat-group {$xed-validation-marker}">
         <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
           <xed:output value="concat(i18n:translate('ubo.subject'), ': ')"/>
@@ -136,7 +136,7 @@
           <option value="">
             <xed:output i18n="search.select.autocomplete"/>
           </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:fachreferate"/>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:destatis"/>
         </select>
         <xed:controls/>
       </div>

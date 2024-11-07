@@ -231,7 +231,7 @@
               xAxis: { categories: [
                 <xsl:for-each select="int">
                   <xsl:sort select="text()" data-type="number" order="descending" />
-                  '<xsl:value-of select="mcrxsl:getDisplayName('fachreferate', @name)" />'
+                  '<xsl:value-of select="mcrxsl:getDisplayName('destatis', @name)" />'
                   <xsl:if test="position() != last()">, </xsl:if>
                 </xsl:for-each>
                 ],
