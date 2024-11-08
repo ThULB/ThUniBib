@@ -127,6 +127,9 @@ body {
   }
 }
 
+#ubo-search-person option[value="person_ths"] {
+  display: none;
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2024.11.08-2023.06.x
+- [#637](https://github.com/ThULB/ThUniBib/issues/637) Update ORIGIN.xml (Ilmenau)(#636) (#638)
+- [FSU040THUL-5159](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5159) [#641](https://github.com/ThULB/ThUniBib/issues/641) Hide person_ths option in import-search.xed (#642)
+- [FSU040THUL-5245](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5245) [#643](https://github.com/ThULB/ThUniBib/issues/643) Retain identfiers of type 'hdl' in thunibib-mods-filter-supported.xsl (#644)
+- [FSU040THUL-5272](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5272) [#645](https://github.com/ThULB/ThUniBib/issues/645) Updated status i18n keys (#646)
+---
+
 ## 2024.10.24-2023.06.x
 - [#464](https://github.com/ThULB/ThUniBib/issues/464) Migrate to MyCoRe 2023.06.x (#465)
 - [#621](https://github.com/ThULB/ThUniBib/issues/621) Updated csl style for Ilmenau (#622) (#623)

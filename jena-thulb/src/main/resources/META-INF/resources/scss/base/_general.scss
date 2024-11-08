@@ -42,3 +42,7 @@ h3#seitentitel {
 .mycore-list-item {
   background-color: transparent;
 }
+
+#ubo-search-person option[value="person_ths"] {
+  display: none;
+}
