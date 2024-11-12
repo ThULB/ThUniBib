@@ -57,3 +57,69 @@ i.flag-en {
 #ubo-search-person option[value="person_ths"] {
   display: none;
 }
+
+.mycore-facet-count {
+  margin-right: 0.25rem;
+}
+
+.counter-length {
+  &-1 {
+    .mycore-facet-count {
+      width: 25px;
+    }
+
+    .mycore-facet-value {
+      width: 210px;
+    }
+  }
+
+  &-2 {
+    .mycore-facet-count {
+      width: 35px;
+    }
+
+    .mycore-facet-value {
+      width: 200px;
+    }
+  }
+
+  &-3 {
+    .mycore-facet-count {
+      width: 45px;
+    }
+
+    .mycore-facet-value {
+      width: 195px;
+    }
+  }
+
+  &-4 {
+    .mycore-facet-count {
+      width: 55px;
+    }
+
+    .mycore-facet-value {
+      width: 180px;
+    }
+  }
+
+  &-5 {
+    .mycore-facet-count {
+      width: 65px;
+    }
+
+    .mycore-facet-value {
+      width: 175px;
+    }
+  }
+
+  &-6 {
+    .mycore-facet-count {
+      width: 80px;
+    }
+
+    .mycore-facet-value {
+      width: 160px;
+    }
+  }
+}

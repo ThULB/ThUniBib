@@ -4,14 +4,14 @@ body {
 
 @media (min-width: 768px) {
   body {
-      background: url('/images/body_background.png') right 13rem no-repeat fixed #fff;
+    background: url('/images/body_background.png') right 13rem no-repeat fixed #fff;
   }
 }
 
 .card {
-    border: none !important;
-    font-size: 15px;
-    background: rgba(255,255,255,0);
+  border: none !important;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0);
 }
 
 .card.mb-3 {
@@ -24,13 +24,13 @@ body {
 
 .card-body {
   padding: 10px 15px;
-  background: rgba(255,255,255,0) !important;
+  background: rgba(255, 255, 255, 0) !important;
 }
 
 .card-body h3 {
   font-size: 23px;
   font-weight: 400;
-  font-family: 'Roboto Condensed',Arial,sans-serif;
+  font-family: 'Roboto Condensed', Arial, sans-serif;
   letter-spacing: 0.02em;
   color: #002350;
 }
@@ -41,6 +41,72 @@ h3#seitentitel {
 
 .mycore-list-item {
   background-color: transparent;
+}
+
+.mycore-facet-count {
+  margin-right: 0.25rem;
+}
+
+.counter-length {
+  &-1 {
+    .mycore-facet-count {
+      width: 25px;
+    }
+
+    .mycore-facet-value {
+      width: 210px;
+    }
+  }
+
+  &-2 {
+    .mycore-facet-count {
+      width: 35px;
+    }
+
+    .mycore-facet-value {
+      width: 200px;
+    }
+  }
+
+  &-3 {
+    .mycore-facet-count {
+      width: 45px;
+    }
+
+    .mycore-facet-value {
+      width: 195px;
+    }
+  }
+
+  &-4 {
+    .mycore-facet-count {
+      width: 55px;
+    }
+
+    .mycore-facet-value {
+      width: 180px;
+    }
+  }
+
+  &-5 {
+    .mycore-facet-count {
+      width: 65px;
+    }
+
+    .mycore-facet-value {
+      width: 175px;
+    }
+  }
+
+  &-6 {
+    .mycore-facet-count {
+      width: 80px;
+    }
+
+    .mycore-facet-value {
+      width: 160px;
+    }
+  }
 }
 
 #ubo-search-person option[value="person_ths"] {

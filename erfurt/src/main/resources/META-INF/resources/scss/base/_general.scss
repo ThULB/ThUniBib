@@ -102,28 +102,63 @@ body {
 
 .counter-length {
   &-1 {
-    .mycore-facet-count { width: 25px; }
-    .mycore-facet-value { width: 210px; }
+    .mycore-facet-count {
+      width: 25px;
+    }
+
+    .mycore-facet-value {
+      width: 210px;
+    }
   }
+
   &-2 {
-    .mycore-facet-count { width: 35px; }
-    .mycore-facet-value { width: 200px; }
+    .mycore-facet-count {
+      width: 35px;
+    }
+
+    .mycore-facet-value {
+      width: 200px;
+    }
   }
+
   &-3 {
-    .mycore-facet-count { width: 40px; }
-    .mycore-facet-value { width: 195px; }
+    .mycore-facet-count {
+      width: 45px;
+    }
+
+    .mycore-facet-value {
+      width: 195px;
+    }
   }
+
   &-4 {
-    .mycore-facet-count { width: 55px; }
-    .mycore-facet-value { width: 180px; }
+    .mycore-facet-count {
+      width: 55px;
+    }
+
+    .mycore-facet-value {
+      width: 180px;
+    }
   }
+
   &-5 {
-    .mycore-facet-count { width: 60px; }
-    .mycore-facet-value { width: 175px; }
+    .mycore-facet-count {
+      width: 65px;
+    }
+
+    .mycore-facet-value {
+      width: 175px;
+    }
   }
+
   &-6 {
-    .mycore-facet-count { width: 75px; }
-    .mycore-facet-value { width: 160px; }
+    .mycore-facet-count {
+      width: 80px;
+    }
+
+    .mycore-facet-value {
+      width: 160px;
+    }
   }
 }
 
