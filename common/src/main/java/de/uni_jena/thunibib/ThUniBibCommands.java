@@ -27,11 +27,16 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import org.mycore.access.MCRAccessException;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.common.content.MCRContent;
+import org.mycore.common.content.MCRJDOMContent;
+import org.mycore.common.content.transformer.MCRXSLTransformer;
 import org.mycore.common.xml.MCRXMLFunctions;
+import org.mycore.common.xsl.MCRParameterCollector;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
 import org.mycore.datamodel.classifications2.impl.MCRCategoryDAOImpl;
@@ -60,16 +65,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-import static org.mycore.common.MCRConstants.*;
+import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
+import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
-@MCRCommandGroup(name = "ThUniBib Tools")
+@MCRCommandGroup(name = "ThUniBib Commands")
 
 public class ThUniBibCommands {
     private static final Logger LOGGER = LogManager.getLogger(ThUniBibCommands.class);
@@ -611,5 +616,31 @@ public class ThUniBibCommands {
         });
 
         return list;
+    }
+
+    @MCRCommand(syntax = "thunibib migrate fachreferate to destatis in object {0}",
+        help = "Replaces fachreferate classification by destatis classification in the given object")
+    public static void migratetoDestatis(String mcrid) {
+        if (!MCRObjectID.isValid(mcrid)) {
+            LOGGER.error("ID {} is invalid", mcrid);
+            return;
+        }
+        MCRObjectID mcrObjectID = MCRObjectID.getInstance(mcrid);
+        if (!MCRMetadataManager.exists(mcrObjectID)) {
+            LOGGER.warn("Object {} does not exist", mcrid);
+            return;
+        }
+
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
+        MCRXSLTransformer transformer = MCRXSLTransformer.getInstance(
+            "xsl/migration/xslt-migrate-fachreferate-to-destatis.xsl");
+
+        try {
+            MCRContent content = transformer.transform(new MCRJDOMContent(mcrObject.createXML()),
+                MCRParameterCollector.getInstanceFromUserSession());
+            MCRMetadataManager.update(new MCRObject(content.asXML()));
+        } catch (IOException | JDOMException | MCRAccessException e) {
+            LOGGER.error("Could not transform xml", e);
+        }
     }
 }
