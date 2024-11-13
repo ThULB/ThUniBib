@@ -21,7 +21,7 @@
   <xsl:template match="/response">
     <xsl:for-each select="lst[@name='facet_counts']">
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='year'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='subject'][int]" />
+      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='destatis'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='origin_exact'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='genre'][int]" />
       <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='fundingType'][int]" />
@@ -193,8 +193,8 @@
     </section>
   </xsl:template>
 
-  <xsl:template match="lst[@name='facet_fields']/lst[@name='subject']">
-    <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('facets.facet.subject'))" />
+  <xsl:template match="lst[@name='facet_fields']/lst[@name='destatis']">
+    <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('facets.facet.destatis'))" />
 
     <section class="card mb-3">
       <div class="card-body">
