@@ -23,7 +23,7 @@
 
   <xinclude uri="xslStyle:statistics-oa:solr:requestHandler:select:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet=%7Byear%3A%7Btype%3Aterms,field%3Ayear,sort%3A%7Bindex%3Aasc%7D,facet%3A%7Boa%3A%7Btype%3Aterms,field%3Aoa,sort%3A%7Bindex%3Aasc%7D%7D%7D%7D%7D"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
-  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=subject"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=destatis"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=origin_exact"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=genre"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0&amp;facet.field=fundingType"/>
