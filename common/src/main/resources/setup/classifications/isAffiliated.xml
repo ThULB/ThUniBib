@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass ID="isAffiliated" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+
+  <label xml:lang="de" text="Affiliation, der Einrichtung zugehörig. Ja oder Nein." />
+  <label xml:lang="en" text="Affiliation, affiliated to the institution. Yes or No." />
+
+  <categories>
+    <category ID="true">
+      <label xml:lang="de" text="Ja" description="Autor gehörte im Publikationszeitraum der Einrichtung an"/>
+      <label xml:lang="en" text="Yes" description="Author was a member of the institution during the publication period"/>
+    </category>
+    <category ID="false">
+      <label xml:lang="de" text="Nein" description="Autor gehörte im Publikationszeitraum nicht der Einrichtung an"/>
+      <label xml:lang="en" text="No" description="Author was not a member of the institution during the publication period"/>
+    </category>
+  </categories>
+
+</mycoreclass>

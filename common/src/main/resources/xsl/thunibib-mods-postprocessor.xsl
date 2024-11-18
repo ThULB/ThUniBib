@@ -7,6 +7,8 @@
   <xsl:include href="resource:xsl/mods-postprocessor.xsl"/>
   <xsl:include href="resource:xsl/coreFunctions.xsl"/>
 
+  <xsl:param name="WebApplicationBaseURL"/>
+
   <xsl:template match="mods:subject">
     <mods:subject>
 
@@ -23,6 +25,10 @@
         </mods:topic>
       </xsl:for-each>
     </mods:subject>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[@authorityURI][text() = 'false']">
+      <mods:affiliation authorityURI="{@authorityURI}" valueURI="{$WebApplicationBaseURL}classifications/isAffiliated#false"/>
   </xsl:template>
 
 </xsl:stylesheet>
