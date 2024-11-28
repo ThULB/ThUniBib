@@ -20,8 +20,16 @@
     <field name="leadid.scoped">
       <xsl:value-of select="$leadid-scoped"/>
     </field>
+
     <field name="leadid">
-      <xsl:value-of select="substring-before($leadid-scoped, '@')"/>
+      <xsl:choose>
+        <xsl:when test="contains($leadid-scoped, '@')">
+          <xsl:value-of select="substring-before($leadid-scoped, '@')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$leadid-scoped"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </field>
   </xsl:template>
 
