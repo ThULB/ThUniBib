@@ -17,20 +17,22 @@
   <xsl:template match="//mods:mods/mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
     <xsl:variable name="leadid-scoped" select="utilities:getLeadId('id_connection', .)"/>
 
-    <field name="leadid.scoped">
-      <xsl:value-of select="$leadid-scoped"/>
-    </field>
+    <xsl:if test="string-length($leadid-scoped) &gt; 0">
+      <field name="leadid.scoped">
+        <xsl:value-of select="$leadid-scoped"/>
+      </field>
 
-    <field name="leadid">
-      <xsl:choose>
-        <xsl:when test="contains($leadid-scoped, '@')">
-          <xsl:value-of select="substring-before($leadid-scoped, '@')"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$leadid-scoped"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </field>
+      <field name="leadid">
+        <xsl:choose>
+          <xsl:when test="contains($leadid-scoped, '@')">
+            <xsl:value-of select="substring-before($leadid-scoped, '@')"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$leadid-scoped"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </field>
+    </xsl:if>
   </xsl:template>
 
 </xsl:stylesheet>
