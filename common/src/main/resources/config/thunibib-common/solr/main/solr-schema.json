@@ -14,6 +14,20 @@
       "indexed": true,
       "stored": false
     },
+    "add-field": {
+      "name": "leadid.scoped",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": false
+    },
+    "add-field": {
+      "name": "leadid",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": false
+    },
     "add-copy-field": {
       "source": "note",
       "dest": "note.wc"
