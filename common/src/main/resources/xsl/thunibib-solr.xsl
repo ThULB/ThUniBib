@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-                xmlns:ThUniBibUtils="xalan://de.uni_jena.thunibib.user.ThUniBibUtils"
                 xmlns:mods="http://www.loc.gov/mods/v3"
+                xmlns:utilities="xalan://de.uni_jena.thunibib.Utilities"
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                exclude-result-prefixes="ThUniBibUtils mods xalan xsl">
+                exclude-result-prefixes="mods utilities xalan xsl">
 
   <xsl:import href="xslImport:solr-document:thunibib-solr.xsl"/>
 
@@ -15,7 +15,7 @@
   </xsl:template>
 
   <xsl:template match="//mods:mods/mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
-    <xsl:variable name="leadid-scoped" select="ThUniBibUtils:getLeadId('id_connection', .)"/>
+    <xsl:variable name="leadid-scoped" select="utilities:getLeadId('id_connection', .)"/>
 
     <field name="leadid.scoped">
       <xsl:value-of select="$leadid-scoped"/>
