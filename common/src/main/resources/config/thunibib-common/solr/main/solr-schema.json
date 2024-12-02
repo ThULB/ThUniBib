@@ -24,9 +24,9 @@
     },
     "add-dynamic-field": {
       "name": "leadid*",
-      "type": "string",
+      "type": "ubo_id",
       "multiValued": true,
-      "indexed": false,
+      "indexed": true,
       "stored": false
     }
   }
