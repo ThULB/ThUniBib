@@ -14,20 +14,6 @@
       "indexed": true,
       "stored": false
     },
-    "add-field": {
-      "name": "leadid.scoped",
-      "type": "string",
-      "multiValued": true,
-      "indexed": true,
-      "stored": false
-    },
-    "add-field": {
-      "name": "leadid",
-      "type": "string",
-      "multiValued": true,
-      "indexed": true,
-      "stored": false
-    },
     "add-copy-field": {
       "source": "note",
       "dest": "note.wc"
@@ -35,6 +21,13 @@
     "add-copy-field": {
       "source": "note.intern",
       "dest": "note.intern.wc"
+    },
+    "add-dynamic-field": {
+      "name": "leadid*",
+      "type": "ubo_id",
+      "multiValued": true,
+      "indexed": true,
+      "stored": false
     }
   }
 ]
