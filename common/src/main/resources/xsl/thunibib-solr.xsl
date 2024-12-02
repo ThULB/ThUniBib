@@ -11,10 +11,10 @@
   <xsl:template match="mycoreobject">
     <xsl:apply-imports/>
 
-    <xsl:apply-templates select="//mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
   </xsl:template>
 
-  <xsl:template match="//mods:mods/mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
+  <xsl:template match="mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
     <xsl:variable name="leadid-scoped" select="utilities:getLeadId('id_connection', .)"/>
 
     <xsl:if test="string-length($leadid-scoped) &gt; 0">
