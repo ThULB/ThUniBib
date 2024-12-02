@@ -17,4 +17,11 @@
     </mods:subject>
   </xsl:template>
 
+  <xsl:template match="mods:affiliation[@authorityURI][contains(@valueURI, 'classifications/isAffiliated')]">
+    <xsl:variable name="value" select="substring-after(@valueURI, '#')"/>
+    <mods:affiliation authorityURI="{@authorityURI}">
+      <xsl:value-of select="$value"/>
+    </mods:affiliation>
+  </xsl:template>
+
 </xsl:stylesheet>
