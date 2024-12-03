@@ -18,8 +18,7 @@
   <xsl:param name="ThUniBib.ServiceDesk.enabled"/>
 
   <xsl:param name="UBO.Frontend.jquery.version"/>
-  <xsl:param name="UBO.Frontend.jquery-ui.version"/>
-  <xsl:param name="UBO.Frontend.chosen.version"/>
+  <xsl:param name="UBO.Frontend.bootstrap-select.version"/>
   <xsl:param name="UBO.Frontend.bootstrap.version"/>
   <xsl:param name="UBO.Frontend.font-awesome.version"/>
 
@@ -55,17 +54,20 @@
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
       <script src="{$WebApplicationBaseURL}webjars/jquery/{$UBO.Frontend.jquery.version}/jquery.min.js"/>
       <script src="{$WebApplicationBaseURL}webjars/bootstrap/{$UBO.Frontend.bootstrap.version}/js/bootstrap.bundle.min.js"/>
-      <script src="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.jquery.min.js"/>
-      <link href="{$WebApplicationBaseURL}webjars/chosen-js/{$UBO.Frontend.chosen.version}/chosen.min.css" rel="stylesheet"/>
-      <script src="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.js"/>
-      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css" type="text/css"/>
+
+      <script src="{$WebApplicationBaseURL}webjars/bootstrap-select/{$UBO.Frontend.bootstrap-select.version}/js/bootstrap-select.min.js"/>
+      <link href="{$WebApplicationBaseURL}webjars/bootstrap-select/{$UBO.Frontend.bootstrap-select.version}/css/bootstrap-select.min.css" rel="stylesheet" />
+
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
 
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
 
-      <script>var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';</script>
-      <script>var currentLang = '<xsl:value-of select="$CurrentLang"/>';</script>
+      <script>
+        var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
+        var currentLang = '<xsl:value-of select="$CurrentLang"/>';
+      </script>
+
       <script src="{$WebApplicationBaseURL}js/session-polling.js"/>
       <script src="{$WebApplicationBaseURL}js/person-popover.js"/>
       <xsl:copy-of select="node()"/>
