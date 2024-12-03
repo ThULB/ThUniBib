@@ -666,6 +666,10 @@
     <xed:include ref="collection.common"/>
   </xed:template>
 
+  <xed:template id="genre.special_issue">
+    <xed:include ref="collection.common"/>
+  </xed:template>
+
   <xed:template id="genre.proceedings">
     <xed:include ref="collection.common"/>
   </xed:template>

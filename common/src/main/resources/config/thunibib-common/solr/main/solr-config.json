@@ -25,7 +25,7 @@
           "facet_person",
           "connection_nid_text",
           "origin_exact",
-          "subject",
+          "destatis",
           "facet_host_title",
           "mediaType",
           "accessrights",
@@ -53,7 +53,7 @@
       "appends": {
         "facet.field": [
           "year",
-          "subject",
+          "destatis",
           "origin_exact",
           "genre",
           "oa",
@@ -91,7 +91,7 @@
       "appends": {
         "facet.field": [
           "year",
-          "subject",
+          "destatis",
           "origin_exact",
           "genre",
           "oa",
@@ -137,7 +137,7 @@
           "facet_person",
           "connection_nid_text",
           "origin_exact",
-          "subject",
+          "destatis",
           "facet_host_title",
           "mediaType",
           "accessrights",
@@ -177,7 +177,7 @@
           "facet_person",
           "connection_nid_text",
           "origin_exact",
-          "subject",
+          "destatis",
           "facet_host_title",
           "mediaType",
           "accessrights",

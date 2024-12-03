@@ -1,5 +1,20 @@
 # Changelog
 
+## 2024.12.03-2023.06.x
+- [#614](https://github.com/ThULB/ThUniBib/issues/614) Updated solr request handlers to reflect recent changes due to migration from fachreferate to destatis classification (#649)
+- [#614](https://github.com/ThULB/ThUniBib/issues/614) Use class mapping for determining destatis from ORIGIN.xml (#615)
+- [#652](https://github.com/ThULB/ThUniBib/issues/652) Updated mycore parent version to 53 (#653)
+- [#656](https://github.com/ThULB/ThUniBib/issues/656) Support search by lead id (#657)
+- [#658](https://github.com/ThULB/ThUniBib/issues/658) Moved code from class ThUniBibUtils to Utilities class (#659)
+- [#658](https://github.com/ThULB/ThUniBib/issues/658) Updated callJava uri in mycoreobject-mods-detailed.xsl (#660)
+- [#661](https://github.com/ThULB/ThUniBib/issues/661) Updated mods:name xpath in thunibib-solr.xsl and updated solr-schema.json (#662)
+- [FSU040THUL-5039](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5039) [#632](https://github.com/ThULB/ThUniBib/issues/632) Add support for genre special issue (#633)
+- [FSU040THUL-5314](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5314) [#647](https://github.com/ThULB/ThUniBib/issues/347) Fixed size limits in display of facet counts (#648)
+- [FSU040THUL-5393](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5393) [#650](https://github.com/ThULB/ThUniBib/issues/650) Allow to indicate actual affiliation of author at time of publication (#651)
+- [FSU040THUL-5393](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5393) [#663](https://github.com/ThULB/ThUniBib/issues/663) Activated ThUniBibAffiliationEventHandler by setting MCR.EventHandler.MCRObject.019a.Class=de.uni_jena.thunibib.common.events.ThUniBibAffiliationEventHandler in mycore.properties (Weimar only) (#664)
+- [FSU040THUL-5452](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5452) [#654](https://github.com/ThULB/ThUniBib/issues/654) Excluded DBT as source of enrichment (#655)
+---
+
 ## 2024.11.08-2023.06.x
 - [#637](https://github.com/ThULB/ThUniBib/issues/637) Update ORIGIN.xml (Ilmenau)(#636) (#638)
 - [FSU040THUL-5159](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5159) [#641](https://github.com/ThULB/ThUniBib/issues/641) Hide person_ths option in import-search.xed (#642)

@@ -127,7 +127,7 @@
   </xed:template>
 
   <xed:template id="subject">
-    <xed:repeat xpath="mods:classification[@classID='fachreferate']">
+    <xed:repeat xpath="mods:classification[@classID='destatis']">
       <div class="form-inline form-group ubo-repeat-group {$xed-validation-marker}">
         <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
           <xed:output value="concat(i18n:translate('ubo.subject'), ': ')"/>
@@ -136,7 +136,7 @@
           <option value="">
             <xed:output i18n="search.select.autocomplete"/>
           </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:fachreferate"/>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:destatis"/>
         </select>
         <xed:controls/>
       </div>
@@ -480,7 +480,7 @@
     </xed:repeat>
 
     <div class="form-group form-inline col-12 px-0">
-      <xed:repeat xpath="mods:affiliation">
+      <xed:repeat xpath="mods:affiliation[not(@authorityURI)][not(@valueURI)]">
         <label class="mycore-form-label">
         </label>
         <textarea class="mycore-form-input" placeholder="Institutionelle Zugehörigkeit"/>
@@ -516,13 +516,26 @@
           </label>
         </xed:bind>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
-        <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
-          <div class="form-group form-inline col-12 px-0">
-            <label class="mycore-form-label"></label>
+
+        <div class="form-group form-inline col-12 px-0">
+          <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
+            <label class="mycore-form-label"/>
             <input type="checkbox" value="corresponding_author"/>
-            <xed:output i18n="ubo.corresponding_author"/>
-          </div>
-        </xed:bind>
+            <span class="pl-1">
+              <xed:output i18n="ubo.corresponding_author"/>
+            </span>
+          </xed:bind>
+        </div>
+
+        <div class="form-group form-inline col-12 px-0">
+          <xed:bind xpath="mods:affiliation[@authorityURI=concat($MCR.baseurl, 'classifications/isAffiliated')]">
+            <label class="mycore-form-label"/>
+            <input type="checkbox" value="false"/>
+            <span class="pl-1">
+              <xed:output i18n="thunibib.editor.affiliation.checkbox"/>
+            </span>
+          </xed:bind>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>

@@ -122,7 +122,7 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
-  <xsl:template match="mods:identifier[@type='url'][not(//mods:identifier[@type = 'doi'])]">
+  <xsl:template match="mods:identifier[@type='url'][not(//mods:identifier[contains('doi hdl urn', @type)])]">
     <mods:location>
       <xsl:for-each select=".">
         <mods:url>

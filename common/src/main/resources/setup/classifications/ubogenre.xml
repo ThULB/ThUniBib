@@ -195,6 +195,14 @@
 
         <label xml:lang="de" text="Sammelwerk"/>
         <label xml:lang="en" text="Book (collection)"/>
+
+        <category ID="special_issue">
+          <label xml:lang="x-hosts" text="standalone"/>
+          <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
+
+          <label xml:lang="de" text="Sonderheft"/>
+          <label xml:lang="en" text="Special Issue"/>
+        </category>
       </category>
       <category ID="researchpaper">
         <label xml:lang="x-hosts" text="standalone"/>

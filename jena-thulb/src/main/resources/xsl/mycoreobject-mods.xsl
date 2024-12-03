@@ -123,11 +123,11 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="mods:classification[contains(@authorityURI,'fachreferate')]" mode="copy-mods">
+  <xsl:template match="mods:classification[contains(@authorityURI,'destatis')]" mode="copy-mods">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
       <xsl:variable name="categoryID" select="substring-after(@valueURI,'#')"/>
-      <xsl:variable name="uri" select="concat('classification:editor:0:parents:fachreferate:',$categoryID)"/>
+      <xsl:variable name="uri" select="concat('classification:editor:0:parents:destatis:',$categoryID)"/>
       <xsl:value-of select="document($uri)/items/item/label[lang($CurrentLang)]"/>
     </xsl:copy>
   </xsl:template>

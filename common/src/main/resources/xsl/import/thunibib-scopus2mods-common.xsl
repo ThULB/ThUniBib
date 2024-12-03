@@ -11,7 +11,7 @@
   </xsl:variable>
 
   <xsl:variable name="authorityFach">
-    <xsl:value-of select="concat($MCR.baseurl, 'classifications/fachreferate')"/>
+    <xsl:value-of select="concat($MCR.baseurl, 'classifications/destatis')"/>
   </xsl:variable>
 
   <xsl:key name="subject-abbrev" match="scopus:subject-area" use="@abbrev"/>

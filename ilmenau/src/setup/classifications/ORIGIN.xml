@@ -4,11 +4,10 @@
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
  
  <categories>
-
    <category ID="08">
       <label xml:lang="de" text="Technische Universität Ilmenau (1992-)"/>
       <label xml:lang="x-gnd" text="2125187-3"/>
-      <label xml:lang="x-destatis" text="870"/>
+      <label xml:lang="x-mapping" text="destatis:870"/>
       <label xml:lang="x-lpp" text="476822599"/>
       <label xml:lang="x-from" text="1992"/>
 
@@ -16,7 +15,7 @@
          <label xml:lang="de" text="Fakultät für Elektrotechnik und Informationstechnik (1992-)"/>
          <label xml:lang="en" text="Department of Electrical Engineering and Information Technology (1992-)"/>
          <label xml:lang="x-gnd" text="5125814-6"/>
-         <label xml:lang="x-destatis" text="7100"/>
+         <label xml:lang="x-mapping" text="destatis:7100"/>
          <label xml:lang="x-lpp" text="476899125"/>
          <label xml:lang="x-from" text="1992"/>
          <label xml:lang="x-kst" text="21"/>
@@ -25,14 +24,14 @@
             <label xml:lang="de" text="Institut für Informationstechnik (2004-)"/>
             <label xml:lang="en" text="Institute of Information Technology (2004-)"/>
             <label xml:lang="x-gnd" text="16035527-8"/>
-            <label xml:lang="x-destatis" text="7130"/>
+            <label xml:lang="x-mapping" text="destatis:7130"/>
             <label xml:lang="x-lpp" text="476898803"/>
             <label xml:lang="x-from" text="2004"/>
             <label xml:lang="x-kst" text="211"/>
 
             <category ID="08.010.010.010(2018)">
                <label xml:lang="de" text="Fachgebiet Elektronische Messtechnik und Signalverarbeitung (2018-)"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="1028495668"/>
                <label xml:lang="x-from" text="2018"/>
                <label xml:lang="x-kst" text="2112"/>
@@ -40,7 +39,7 @@
 
             <category ID="08.010.010.010(1991)">
                <label xml:lang="de" text="Fachgebiet Elektronische Messtechnik (2005-2018) ↑"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479198381"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2018"/>
@@ -48,7 +47,7 @@
 
             <category ID="08.010.010.020(2012)">
                <label xml:lang="de" text="Stiftungsprofessur Drahtlose Verteilsysteme/Digitaler Rundfunk (2012-2018)"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="718050606"/>
                <label xml:lang="x-from" text="2012"/>
                <label xml:lang="x-to" text="2018"/>
@@ -57,7 +56,7 @@
             <category ID="08.010.010.020(2008)">
                <label xml:lang="de" text="Fachgebiet Drahtlose Verteilsysteme/Digitaler Rundfunk (2008-2012) ↑"/>
                <label xml:lang="x-gnd" text="1023566850"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="575040173"/>
                <label xml:lang="x-from" text="2008"/>
                <label xml:lang="x-to" text="2012"/>
@@ -66,7 +65,7 @@
             <category ID="08.010.010.030(1990)">
                <label xml:lang="de" text="Fachgebiet Grundlagen der Elektrotechnik (2005-2018)"/>
                <label xml:lang="x-gnd" text="6106269-8"/>
-               <label xml:lang="x-destatis" text="7110"/>
+               <label xml:lang="x-mapping" text="destatis:7110"/>
                <label xml:lang="x-lpp" text="47689865X"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2018"/>
@@ -75,7 +74,7 @@
             <category ID="08.010.010.040(2003)">
                <label xml:lang="de" text="Fachgebiet Hochfrequenz- und Mikrowellentechnik (2004-)"/>
                <label xml:lang="x-gnd" text="1059275872"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479222061"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2113"/>
@@ -84,7 +83,7 @@
             <category ID="08.010.010.050(1993)">
                <label xml:lang="de" text="Fachgebiet Kommunikationsnetze (2004-)"/>
                <label xml:lang="x-gnd" text="1100096922"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="47922501X"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2115"/>
@@ -93,7 +92,7 @@
             <category ID="08.010.010.060(2000)">
                <label xml:lang="de" text="Fachgebiet Nachrichtentechnik (2004-)"/>
                <label xml:lang="x-gnd" text="10181896-8"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479196206"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2111"/>
@@ -102,7 +101,7 @@
             <category ID="08.010.010.070(2008)">
                <label xml:lang="de" text="Fachgebiet Theoretische Elektrotechnik (2008-)"/>
                <label xml:lang="x-gnd" text="16024060-8"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="56904345X"/>
                <label xml:lang="x-from" text="2008"/>
                <label xml:lang="x-kst" text="2117"/>
@@ -110,7 +109,7 @@
 
             <category ID="08.010.010.070(2004)">
                <label xml:lang="de" text="Fachgebiet Elektromagnetische Felder/Theoretische Elektrotechnik (2004-2008) ↑"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="480737606"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2008"/>
@@ -119,7 +118,7 @@
             <category ID="08.010.010.080(2021)">
                <label xml:lang="de" text="Stiftungsprofessur Zuverlässige Maschine-zu-Maschine-Kommunikation (2021-)"/>
                <label xml:lang="x-gnd" text="1228350469"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="1750103141"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2119"/>
@@ -127,7 +126,7 @@
 
             <category ID="08.010.010.100(1993)">
                <label xml:lang="de" text="Fachgebiet Digitale Signalverarbeitung (2004-2017)"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479224234"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2017"/>
@@ -137,7 +136,7 @@
                <label xml:lang="de" text="Juniorprofessur Funktechnologien für automatisierte und vernetzte Fahrzeuge (2022-)"/>
                <label xml:lang="en" text="Assistant Professorship Radio Technologies for Automated and Connected Vehicles (2022-)"/>
                <label xml:lang="x-gnd" text="0"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="1821309103"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2114"/>
@@ -147,14 +146,14 @@
          <category ID="08.010.011">
             <label xml:lang="de" text="Institut für Allgemeine und Theoretische Elektrotechnik (1992-2004) ↗"/>
             <label xml:lang="x-gnd" text="5143032-0"/>
-            <label xml:lang="x-destatis" text="7110"/>
+            <label xml:lang="x-mapping" text="destatis:7110"/>
             <label xml:lang="x-lpp" text="501367381"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2004"/>
 
             <category ID="08.010.011.030(1990)">
                <label xml:lang="de" text="Fachgebiet Grundlagen der Elektrotechnik (1992-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7110"/>
+               <label xml:lang="x-mapping" text="destatis:7110"/>
                <label xml:lang="x-lpp" text="47689865X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2004"/>
@@ -162,7 +161,7 @@
 
             <category ID="08.010.011.070(1993)">
                <label xml:lang="de" text="Fachgebiet Theoretische Elektrotechnik (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="480737754"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -170,7 +169,7 @@
 
             <category ID="08.010.011.071(1993)">
                <label xml:lang="de" text="Fachgebiet Elektromagnetische Felder (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="501368736"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -200,7 +199,7 @@
 
             <category ID="08.010.012.010(1991)">
                <label xml:lang="de" text="Fachgebiet Elektronische Messtechnik (1992-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479198381"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2004"/>
@@ -208,7 +207,7 @@
 
             <category ID="08.010.012.040(2003)">
                <label xml:lang="de" text="Fachgebiet Hochfrequenz- und Mikrowellentechnik (2003-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479222061"/>
                <label xml:lang="x-from" text="2003"/>
                <label xml:lang="x-to" text="2004"/>
@@ -217,7 +216,7 @@
             <category ID="08.010.012.040(1993)">
                <label xml:lang="de" text="Fachgebiet Grundlagen der Hochfrequenztechnik (1993-2003) ↑"/>
                <label xml:lang="x-gnd" text="6505056-3"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="517739712"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2003"/>
@@ -232,7 +231,7 @@
 
             <category ID="08.010.012.050(1993)">
                <label xml:lang="de" text="Fachgebiet Kommunikationsnetze (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="47922501X"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -240,7 +239,7 @@
 
             <category ID="08.010.012.060(2000)">
                <label xml:lang="de" text="Fachgebiet Nachrichtentechnik (2000-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479196206"/>
                <label xml:lang="x-from" text="2000"/>
                <label xml:lang="x-to" text="2004"/>
@@ -249,7 +248,7 @@
             <category ID="08.010.012.060(1993)">
                <label xml:lang="de" text="Fachgebiet Grundlagen der Nachrichtentechnik (1993-2000) ↑"/>
                <label xml:lang="x-gnd" text="1047111632"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="527045977"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2000"/>
@@ -264,7 +263,7 @@
 
             <category ID="08.010.012.100(1993)">
                <label xml:lang="de" text="Fachgebiet Digitale Signalverarbeitung (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="479224234"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -275,14 +274,14 @@
             <label xml:lang="de" text="Institut für Mikro- und Nanoelektronik (2004-)"/>
             <label xml:lang="en" text="Institute for Microelectronics and Nanoelectronics (2004-)"/>
             <label xml:lang="x-gnd" text="16050258-5"/>
-            <label xml:lang="x-destatis" text="7140"/>
+            <label xml:lang="x-mapping" text="destatis:7140"/>
             <label xml:lang="x-lpp" text="479249431"/>
             <label xml:lang="x-from" text="2004"/>
             <label xml:lang="x-kst" text="214"/>
 
             <category ID="08.010.020.010(2006)">
                <label xml:lang="de" text="Fachgebiet Elektroniktechnologie (2006-)"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="518290859"/>
                <label xml:lang="x-from" text="2006"/>
                <label xml:lang="x-kst" text="2146"/>
@@ -290,7 +289,7 @@
 
             <category ID="08.010.020.010(2004)">
                <label xml:lang="de" text="Fachgebiet Mikroperipherik (2004-2006) ↑"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="479250367"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2006"/>
@@ -305,7 +304,7 @@
 
             <category ID="08.010.020.020(2004)">
                <label xml:lang="de" text="Fachgebiet Elektronische Schaltungen und Systeme (2004-)"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="479249636"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2144"/>
@@ -313,7 +312,7 @@
 
             <category ID="08.010.020.030(1990)">
                <label xml:lang="de" text="Fachgebiet Festkörperelektronik (2005-2022)"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="480742081"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2022"/>
@@ -323,7 +322,7 @@
             <category ID="08.010.020.050(2006)">
                <label xml:lang="de" text="Fachgebiet Mikro- und nanoelektronische Systeme (2006-)"/>
                <label xml:lang="x-gnd" text="16050268-8"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="480742332"/>
                <label xml:lang="x-from" text="2006"/>
                <label xml:lang="x-kst" text="2143"/>
@@ -331,7 +330,7 @@
 
             <category ID="08.010.020.050(2004)">
                <label xml:lang="de" text="Fachgebiet Integrierte Schaltungen/Halbleitersensorik (2004-2006) ↑"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="497277603"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2006"/>
@@ -339,7 +338,7 @@
 
             <category ID="08.010.020.060(2000)">
                <label xml:lang="de" text="Fachgebiet Nanotechnologie (2004-)"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="480742685"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2142"/>
@@ -349,14 +348,14 @@
          <category ID="08.010.021">
             <label xml:lang="de" text="Institut für Festkörperelektronik (1992-2004) ↗"/>
             <label xml:lang="x-gnd" text="5257844-6"/>
-            <label xml:lang="x-destatis" text="7140"/>
+            <label xml:lang="x-mapping" text="destatis:7140"/>
             <label xml:lang="x-lpp" text="497276623"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2004"/>
 
             <category ID="08.010.021.030(1990)">
                <label xml:lang="de" text="Fachgebiet Festkörperelektronik (1992-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="480742081"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2004"/>
@@ -371,7 +370,7 @@
 
             <category ID="08.010.021.050(1993)">
                <label xml:lang="de" text="Fachgebiet Integrierte Schaltungen (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="497278049"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -379,7 +378,7 @@
 
             <category ID="08.010.021.050(1990)">
                <label xml:lang="de" text="Fachgebiet Integrierte Schaltkreise (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="528162861"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -387,7 +386,7 @@
 
             <category ID="08.010.021.051(1993)">
                <label xml:lang="de" text="Fachgebiet Halbleitersensorik (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7170"/>
+               <label xml:lang="x-mapping" text="destatis:7170"/>
                <label xml:lang="x-lpp" text="497278235"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -395,7 +394,7 @@
 
             <category ID="08.010.021.060(2000)">
                <label xml:lang="de" text="Fachgebiet Nanotechnologie (2000-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="480742685"/>
                <label xml:lang="x-from" text="2000"/>
                <label xml:lang="x-to" text="2004"/>
@@ -404,7 +403,7 @@
             <category ID="08.010.021.060(1993)">
                <label xml:lang="de" text="Fachgebiet Halbleitertechnologie (1993-2000) ↑"/>
                <label xml:lang="x-gnd" text="5257845-8"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="526349794"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2000"/>
@@ -420,14 +419,14 @@
 
          <category ID="08.010.022">
             <label xml:lang="de" text="Institut für Schaltungstechnik und Elektroniktechnologie (1992-2004) ↗"/>
-            <label xml:lang="x-destatis" text="7140"/>
+            <label xml:lang="x-mapping" text="destatis:7140"/>
             <label xml:lang="x-lpp" text="501490388"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2004"/>
 
             <category ID="08.010.022.010(1993)">
                <label xml:lang="de" text="Fachgebiet Mikroperipherik (1993-2004) ↑"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="479250367"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -442,7 +441,7 @@
 
             <category ID="08.010.022.020(1999)">
                <label xml:lang="de" text="Fachgebiet Elektronische Schaltungen und Systeme (1999-2004) ↑"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="479249636"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-to" text="2004"/>
@@ -450,7 +449,7 @@
 
             <category ID="08.010.022.020(1993)">
                <label xml:lang="de" text="Fachgebiet Mikroelektronische Systeme (1993-1999) ↑"/>
-               <label xml:lang="x-destatis" text="7140"/>
+               <label xml:lang="x-mapping" text="destatis:7140"/>
                <label xml:lang="x-lpp" text="527309958"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1999"/>
@@ -475,14 +474,14 @@
             <label xml:lang="de" text="Institut für Elektrische Energie- und Steuerungstechnik (2004-)"/>
             <label xml:lang="en" text="Institute of Electrical Power and Control Engineering (2004-)"/>
             <label xml:lang="x-gnd" text="6062379-2"/>
-            <label xml:lang="x-destatis" text="7120"/>
+            <label xml:lang="x-mapping" text="destatis:7120"/>
             <label xml:lang="x-lpp" text="480738335"/>
             <label xml:lang="x-from" text="2004"/>
             <label xml:lang="x-kst" text="216"/>
 
             <category ID="08.010.030.010(2011)">
                <label xml:lang="de" text="Stiftungsprofessur Blitz- und Überspannungsschutz (2011-)"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="668555114"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-kst" text="2169"/>
@@ -491,7 +490,7 @@
             <category ID="08.010.030.020(2002)">
                <label xml:lang="de" text="Fachgebiet Elektrische Energieversorgung (2004-)"/>
                <label xml:lang="x-gnd" text="111990370X"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="48073917X"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2164"/>
@@ -500,7 +499,7 @@
             <category ID="08.010.030.030(2003)">
                <label xml:lang="de" text="Fachgebiet Elektrische Geräte und Anlagen (2004-)"/>
                <label xml:lang="x-gnd" text="16344659-3"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480739463"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2162"/>
@@ -510,7 +509,7 @@
                <label xml:lang="de" text="Fachgebiet Elektrothermische Energiewandlung (2004-2023)"/>
                <label xml:lang="en" text="Electrothermal Energy Conversion Group (2004-2023)"/>
                <label xml:lang="x-gnd" text="5240277-0"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480739757"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2023"/>
@@ -519,7 +518,7 @@
 
             <category ID="08.010.030.050(2016)">
                <label xml:lang="de" text="Fachgebiet Energieeinsatzoptimierung (2016-)"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="871615398"/>
                <label xml:lang="x-from" text="2016"/>
                <label xml:lang="x-kst" text="2167"/>
@@ -527,7 +526,7 @@
 
             <category ID="08.010.030.060(2009)">
                <label xml:lang="de" text="Stiftungsprofessur Industrieelektronik (2009-)"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="603835260"/>
                <label xml:lang="x-from" text="2009"/>
                <label xml:lang="x-kst" text="2168"/>
@@ -535,7 +534,7 @@
 
             <category ID="08.010.030.070(2004)">
                <label xml:lang="de" text="Fachgebiet Kleinmaschinen (2004-)"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480740496"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2165"/>
@@ -544,7 +543,7 @@
             <category ID="08.010.030.080(2004)">
                <label xml:lang="de" text="Fachgebiet Leistungselektronik und Steuerungen in der Elektroenergietechnik (2004-)"/>
                <label xml:lang="x-gnd" text="1141235242"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480740690"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2161"/>
@@ -552,7 +551,7 @@
 
             <category ID="08.010.030.120(2004)">
                <label xml:lang="de" text="Juniorprofessur Elektroprozesstechnik (2004-2007)"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="50578761X"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2007"/>
@@ -562,14 +561,14 @@
          <category ID="08.010.031">
             <label xml:lang="de" text="Institut für Elektrische Energie- und Hochspannungstechnik (1992-2004) ↗"/>
             <label xml:lang="x-gnd" text="10052640-8"/>
-            <label xml:lang="x-destatis" text="7120"/>
+            <label xml:lang="x-mapping" text="destatis:7120"/>
             <label xml:lang="x-lpp" text="501491155"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2004"/>
 
             <category ID="08.010.031.020(2002)">
                <label xml:lang="de" text="Fachgebiet Elektrische Energieversorgung (2002-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="48073917X"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-to" text="2004"/>
@@ -577,7 +576,7 @@
 
             <category ID="08.010.031.020(1993)">
                <label xml:lang="de" text="Fachgebiet Elektrische Anlagen und Netze (1993-2002) ↑"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="526229284"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2002"/>
@@ -592,7 +591,7 @@
 
             <category ID="08.010.031.030(2003)">
                <label xml:lang="de" text="Fachgebiet Elektrische Geräte und Anlagen (2003-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480739463"/>
                <label xml:lang="x-from" text="2003"/>
                <label xml:lang="x-to" text="2004"/>
@@ -600,7 +599,7 @@
 
             <category ID="08.010.031.030(1993)">
                <label xml:lang="de" text="Fachgebiet Hochspannungstechnik (1993-2003) ↑"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="508378745"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2003"/>
@@ -615,7 +614,7 @@
 
             <category ID="08.010.031.031(1993)">
                <label xml:lang="de" text="Fachgebiet Grundlagen der elektrischen Energietechnik (1993-2003) ↗"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="508380332"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2003"/>
@@ -623,7 +622,7 @@
 
             <category ID="08.010.031.031(1992)">
                <label xml:lang="de" text="Fachgebiet Elektrotechnische Geräte und Meßtechnik (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="526233060"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -638,7 +637,7 @@
 
             <category ID="08.010.031.100(1993)">
                <label xml:lang="de" text="Fachgebiet Anlagenmeß- und Prüftechnik (1993-1997)"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="528188097"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1997"/>
@@ -654,7 +653,7 @@
             <category ID="08.010.032.040(1993)">
                <label xml:lang="de" text="Fachgebiet Elektrothermische Energiewandlung (1993-2004) ↗"/>
                <label xml:lang="en" text="Electrothermal Energy Conversion Group (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480739757"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -669,7 +668,7 @@
 
             <category ID="08.010.032.070(1993)">
                <label xml:lang="de" text="Fachgebiet Kleinmaschinen (1993-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480740496"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -684,7 +683,7 @@
 
             <category ID="08.010.032.080(1999)">
                <label xml:lang="de" text="Fachgebiet Leistungselektronik und Steuerungen in der Elektroenergietechnik (1999-2004) ↗"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="480740690"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-to" text="2004"/>
@@ -692,7 +691,7 @@
 
             <category ID="08.010.032.080(1993)">
                <label xml:lang="de" text="Fachgebiet Elektrische Antriebe (1993-2000) ↑"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="526330643"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2000"/>
@@ -700,7 +699,7 @@
 
             <category ID="08.010.032.080(1990)">
                <label xml:lang="de" text="Fachgebiet Gesteuerte Antriebe (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="526331283"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -715,7 +714,7 @@
 
             <category ID="08.010.032.110(1993)">
                <label xml:lang="de" text="Fachgebiet Elektromechanische Energiewandlung (1993-1999)"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="527262552"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1999"/>
@@ -725,14 +724,14 @@
          <category ID="08.010.040">
             <label xml:lang="de" text="Fakultätsübergreifendes Institut für Werkstofftechnik (2000-)"/>
             <label xml:lang="en" text="﻿Inter-departmental Institute of Materials Science and Engineering (2000-)"/>
-            <label xml:lang="x-destatis" text="6990"/>
+            <label xml:lang="x-mapping" text="destatis:6990"/>
             <label xml:lang="x-lpp" text="48106656X"/>
             <label xml:lang="x-from" text="2000"/>
             <label xml:lang="x-kst" text="217"/>
 
             <category ID="08.010.040(1998)">
                <label xml:lang="de" text="Interfakultäres Institut für Werkstofftechnik (1998-2000) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="527983918"/>
                <label xml:lang="x-from" text="1998"/>
                <label xml:lang="x-to" text="2000"/>
@@ -741,7 +740,7 @@
             <category ID="08.010.040(1992)">
                <label xml:lang="de" text="Institut für Werkstoffe (1992-1998) ↑"/>
                <label xml:lang="x-gnd" text="5234802-7"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="52798227X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1998"/>
@@ -749,7 +748,7 @@
 
             <category ID="08.010.040.020(2015)">
                <label xml:lang="de" text="Fachgebiet Elektrochemie und Galvanotechnik (2015-)"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="1040217303"/>
                <label xml:lang="x-from" text="2015"/>
                <label xml:lang="x-kst" text="2175"/>
@@ -757,7 +756,7 @@
 
             <category ID="08.010.040.020(2014)">
                <label xml:lang="de" text="Stiftungsprofessur Elektrochemie und Galvanotechnik (2014-2015) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="800134117"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2015"/>
@@ -765,7 +764,7 @@
 
             <category ID="08.010.040.020(2010)">
                <label xml:lang="de" text="Fachgebiet Elektrochemie und Galvanotechnik I (2010-2013) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="80013690X"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-to" text="2013"/>
@@ -774,7 +773,7 @@
             <category ID="08.010.040.020(1990)">
                <label xml:lang="de" text="Fachgebiet Elektrochemie und Galvanotechnik (1992-2010) ↑"/>
                <label xml:lang="x-gnd" text="16106273-8"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="481066845"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2010"/>
@@ -782,7 +781,7 @@
 
             <category ID="08.010.040.021(2010)">
                <label xml:lang="de" text="Stiftungsprofessur Elektrochemie und Galvanotechnik II (2010-2013) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="635954818"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-to" text="2013"/>
@@ -790,7 +789,7 @@
 
             <category ID="08.010.040.030(2023)">
                <label xml:lang="de" text="Juniorprofessur Funktionswerkstoffe (2023-)"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="1854444514"/>
                <label xml:lang="x-from" text="2023"/>
                <label xml:lang="x-kst" text="2173"/>
@@ -799,7 +798,7 @@
             <category ID="08.010.040.060(1993)">
                <label xml:lang="de" text="Fachgebiet Werkstoffe der Elektrotechnik (1993-)"/>
                <label xml:lang="x-gnd" text="6059975-3"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="481073302"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-kst" text="2172"/>
@@ -807,7 +806,7 @@
 
             <category ID="08.010.040.060(1992)">
                <label xml:lang="de" text="Fachgebiet Werkstoffwissenschaften (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="527982601"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -815,7 +814,7 @@
 
             <category ID="08.010.040.061(1993)">
                <label xml:lang="de" text="Fachgebiet Werkstofftechnologie (1993-2005) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="48107340X"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -824,7 +823,7 @@
             <category ID="08.010.040.100(1997)">
                <label xml:lang="de" text="Fachgebiet Plasma- und Oberflächentechnik (1997-2017)"/>
                <label xml:lang="x-gnd" text="16106265-9"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="481066918"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2017"/>
@@ -832,7 +831,7 @@
 
             <category ID="08.010.040.100(1992)">
                <label xml:lang="de" text="Fachgebiet Oberflächen- und Gasentladungstechnik (1992-1997) ↑"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="527982504"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1997"/>
@@ -843,14 +842,14 @@
             <label xml:lang="de" text="Institut für Medientechnik (1999-)"/>
             <label xml:lang="en" text="Institute for Media Technology (1999-)"/>
             <label xml:lang="x-gnd" text="16035681-7"/>
-            <label xml:lang="x-destatis" text="6780"/>
+            <label xml:lang="x-mapping" text="destatis:6780"/>
             <label xml:lang="x-lpp" text="479848572"/>
             <label xml:lang="x-from" text="1999"/>
             <label xml:lang="x-kst" text="218"/>
 
             <category ID="08.010.050(1997)">
                <label xml:lang="de" text="Institut für Medientechnik (i.G.) (1997-2000) ↑"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="537365508"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2000"/>
@@ -858,7 +857,7 @@
 
             <category ID="08.010.050(1993)">
                <label xml:lang="de" text="Modellversuch Elektronische Medientechnik (1993-1997) ↑"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="534893341"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1997"/>
@@ -866,7 +865,7 @@
 
             <category ID="08.010.050.010(2001)">
                <label xml:lang="de" text="Fachgebiet Angewandte Mediensysteme (2001-)"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="479848734"/>
                <label xml:lang="x-from" text="2001"/>
                <label xml:lang="x-kst" text="2184"/>
@@ -874,7 +873,7 @@
 
             <category ID="08.010.050.020(1999)">
                <label xml:lang="de" text="Fachgebiet Audiovisuelle Technik (1999-)"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="479848831"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-kst" text="2182"/>
@@ -882,7 +881,7 @@
 
             <category ID="08.010.050.030(1999)">
                <label xml:lang="de" text="Fachgebiet Elektronische Medientechnik (1999-)"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="479848882"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-kst" text="2181"/>
@@ -891,7 +890,7 @@
             <category ID="08.010.050.040(2001)">
                <label xml:lang="de" text="Fachgebiet Medienproduktion (2001-)"/>
                <label xml:lang="x-gnd" text="16339528-7"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="479848971"/>
                <label xml:lang="x-from" text="2001"/>
                <label xml:lang="x-kst" text="2183"/>
@@ -900,7 +899,7 @@
             <category ID="08.010.050.050(2019)">
                <label xml:lang="de" text="Juniorprofessur Nutzerzentrierte Analyse von Multimediadaten (2019-)"/>
                <label xml:lang="en" text="Assistant Professorship User-Centric Analysis of Multimedia Data (2019-)"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="1066783136"/>
                <label xml:lang="x-from" text="2019"/>
                <label xml:lang="x-kst" text="2185"/>
@@ -910,13 +909,13 @@
          <category ID="08.010.100">
             <label xml:lang="de" text="Forscher- und Lehrgruppen EI (2010-)"/>
             <label xml:lang="en" text="Research Units and Instructional Groups (2010-)"/>
-            <label xml:lang="x-destatis" text="6700"/>
+            <label xml:lang="x-mapping" text="destatis:6700"/>
             <label xml:lang="x-from" text="2010"/>
             <label xml:lang="x-kst" text="219"/>
 
             <category ID="08.010.100.010(2010)">
                <label xml:lang="de" text="Forschergruppe Hochspannungstechnologien (2010-)"/>
-               <label xml:lang="x-destatis" text="7120"/>
+               <label xml:lang="x-mapping" text="destatis:7120"/>
                <label xml:lang="x-lpp" text="668557311"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-kst" text="21901"/>
@@ -928,7 +927,7 @@
          <label xml:lang="de" text="Fakultät für Informatik und Automatisierung (1992-)"/>
          <label xml:lang="en" text="Department of Computer Science and Automation (1992-)"/>
          <label xml:lang="x-gnd" text="2140843-9"/>
-         <label xml:lang="x-destatis" text="3500"/>
+         <label xml:lang="x-mapping" text="destatis:3500"/>
          <label xml:lang="x-lpp" text="476822513"/>
          <label xml:lang="x-from" text="1992"/>
          <label xml:lang="x-kst" text="22"/>
@@ -937,14 +936,14 @@
             <label xml:lang="de" text="Institut für Automatisierungs- und Systemtechnik (1992-)"/>
             <label xml:lang="en" text="Institute for Automation and Systems Engineering (1992-)"/>
             <label xml:lang="x-gnd" text="5290731-4"/>
-            <label xml:lang="x-destatis" text="7155"/>
+            <label xml:lang="x-mapping" text="destatis:7155"/>
             <label xml:lang="x-lpp" text="479721971"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="221"/>
 
             <category ID="08.020.010.010(1993)">
                <label xml:lang="de" text="Fachgebiet Automatisierungsanlagen und Prozessleittechnik (1993-2005)"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="479729204"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -952,7 +951,7 @@
 
             <category ID="08.020.010.020(2017)">
                <label xml:lang="de" text="Fachgebiet Automatisierungstechnik (2017-)"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="1010593226"/>
                <label xml:lang="x-from" text="2017"/>
                <label xml:lang="x-kst" text="2211"/>
@@ -961,7 +960,7 @@
             <category ID="08.020.010.020(1993)">
                <label xml:lang="de" text="Fachgebiet Systemanalyse (1993-2017) ↑"/>
                <label xml:lang="x-gnd" text="6047909-7"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="479728429"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2017"/>
@@ -976,7 +975,7 @@
 
             <category ID="08.020.010.030(2014)">
                <label xml:lang="de" text="Juniorprofessur Automatisierungstechnik (2014-2015)"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="799937711"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2015"/>
@@ -984,7 +983,7 @@
 
             <category ID="08.020.010.030(2012)">
                <label xml:lang="de" text="Juniorprofessur Automatisierungssysteme (2012-2014) ↑"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="721235549"/>
                <label xml:lang="x-from" text="2012"/>
                <label xml:lang="x-to" text="2014"/>
@@ -992,7 +991,7 @@
 
             <category ID="08.020.010.030(2003)">
                <label xml:lang="de" text="Juniorprofessur Automatisierungstechnik (2003-2012) ↑"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="507891406"/>
                <label xml:lang="x-from" text="2003"/>
                <label xml:lang="x-to" text="2012"/>
@@ -1000,7 +999,7 @@
 
             <category ID="08.020.010.050(2018)">
                <label xml:lang="de" text="Fachgebiet Prozessoptimierung (2018-)"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="1040198066"/>
                <label xml:lang="x-from" text="2018"/>
                <label xml:lang="x-kst" text="2212"/>
@@ -1008,7 +1007,7 @@
 
             <category ID="08.020.010.050(2005)">
                <label xml:lang="de" text="Fachgebiet Simulation und Optimale Prozesse (2005-2018) ↑"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="501518924"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2018"/>
@@ -1016,7 +1015,7 @@
 
             <category ID="08.020.010.050(1993)">
                <label xml:lang="de" text="Fachgebiet Dynamik und Simulation ökologischer Systeme (1993-2005) ↑"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="479728704"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1031,7 +1030,7 @@
 
             <category ID="08.020.010.070(2000)">
                <label xml:lang="de" text="Fachgebiet Regelungstechnik (2000-)"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="479728933"/>
                <label xml:lang="x-from" text="2000"/>
                <label xml:lang="x-kst" text="2213"/>
@@ -1039,7 +1038,7 @@
 
             <category ID="08.020.010.070(1993)">
                <label xml:lang="de" text="Fachgebiet Regelungstechnik/Prozeßautomatisierung (1993-2000) ↑"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="530642069"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2000"/>
@@ -1047,7 +1046,7 @@
 
             <category ID="08.020.010.070(1990)">
                <label xml:lang="de" text="Fachgebiet Digitale Prozeßautomatisierung (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="7155"/>
+               <label xml:lang="x-mapping" text="destatis:7155"/>
                <label xml:lang="x-lpp" text="530642476"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -1058,14 +1057,14 @@
             <label xml:lang="de" text="Institut für Biomedizinische Technik und Informatik (1992-)"/>
             <label xml:lang="en" text="Institute for Biomedical Engineering and Informatics (1992-)"/>
             <label xml:lang="x-gnd" text="6047209-1"/>
-            <label xml:lang="x-destatis" text="7100"/>
+            <label xml:lang="x-mapping" text="destatis:7100"/>
             <label xml:lang="x-lpp" text="477486401"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="222"/>
 
             <category ID="08.020.020.010(1990)">
                <label xml:lang="de" text="Fachgebiet Biomedizinische Technik (1992-)"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="477486924"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-kst" text="2221"/>
@@ -1074,7 +1073,7 @@
             <category ID="08.020.020.020(2002)">
                <label xml:lang="de" text="Fachgebiet Biosignalverarbeitung (2002-)"/>
                <label xml:lang="x-gnd" text="1116613581"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="477493750"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-kst" text="2222"/>
@@ -1090,7 +1089,7 @@
             <category ID="08.020.020.030(2021)">
                <label xml:lang="de" text="Juniorprofessur Datenanalyse in den Lebenswissenschaften (2021-)"/>
                <label xml:lang="x-gnd" text="1241204845"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="1770720456"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2225"/>
@@ -1099,7 +1098,7 @@
             <category ID="08.020.020.040(2013)">
                <label xml:lang="de" text="Stiftungsprofessur Multimodale Datenanalyse in der Biomedizintechnik (2013-)"/>
                <label xml:lang="en" text="Endowed Professorship for Multimodal Data Analysis in Biomedical Engineering (2013-)"/>
-               <label xml:lang="x-destatis" text="7130"/>
+               <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="751513113"/>
                <label xml:lang="x-from" text="2013"/>
                <label xml:lang="x-kst" text="2223"/>
@@ -1107,7 +1106,7 @@
 
             <category ID="08.020.020.050(2016)">
                <label xml:lang="de" text="Stiftungsprofessur Optoelektrophysiologische Medizintechnik (2016-)"/>
-               <label xml:lang="x-destatis" text="7170"/>
+               <label xml:lang="x-mapping" text="destatis:7170"/>
                <label xml:lang="x-lpp" text="871514427"/>
                <label xml:lang="x-from" text="2016"/>
                <label xml:lang="x-kst" text="2224"/>
@@ -1118,14 +1117,14 @@
             <label xml:lang="de" text="Institut für Technische Informatik und Ingenieurinformatik (2005-)"/>
             <label xml:lang="en" text="Institute for Computer and Systems Engineering (2005-)"/>
             <label xml:lang="x-gnd" text="1076648746"/>
-            <label xml:lang="x-destatis" text="3530"/>
+            <label xml:lang="x-mapping" text="destatis:3530"/>
             <label xml:lang="x-lpp" text="501520406"/>
             <label xml:lang="x-from" text="2005"/>
             <label xml:lang="x-kst" text="223"/>
 
             <category ID="08.020.030.010(2010)">
                <label xml:lang="de" text="Fachgebiet Integrierte Kommunikationssysteme (2010-)"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="625862104"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-kst" text="2235"/>
@@ -1134,7 +1133,7 @@
             <category ID="08.020.030.010(2005)">
                <label xml:lang="de" text="Fachgebiet Integrierte Hard- und Softwaresysteme (2005-2010) ↑"/>
                <label xml:lang="x-gnd" text="6036682-5"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="476825806"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2010"/>
@@ -1142,7 +1141,7 @@
 
             <category ID="08.020.030.020(2005)">
                <label xml:lang="de" text="Fachgebiet Künstliche Intelligenz (2005-)"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="479731918"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-kst" text="2238"/>
@@ -1150,7 +1149,7 @@
 
             <category ID="08.020.030.030(2005)">
                <label xml:lang="de" text="Fachgebiet Neuroinformatik und Kognitive Robotik (2005-)"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="476661986"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-kst" text="2233"/>
@@ -1158,7 +1157,7 @@
 
             <category ID="08.020.030.040(2010)">
                <label xml:lang="de" text="Fachgebiet Rechnerarchitektur und Eingebettete Systeme (2010-)"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="625861043"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-kst" text="2231"/>
@@ -1166,7 +1165,7 @@
 
             <category ID="08.020.030.040(2005)">
                <label xml:lang="de" text="Fachgebiet Rechnerarchitektur (2005-2010) ↑"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="479729980"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2010"/>
@@ -1174,7 +1173,7 @@
 
             <category ID="08.020.030.050(2005)">
                <label xml:lang="de" text="Fachgebiet Softwaresysteme/Prozessinformatik (2005-)"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="499659791"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-kst" text="2232"/>
@@ -1182,7 +1181,7 @@
 
             <category ID="08.020.030.060(2005)">
                <label xml:lang="de" text="Fachgebiet Methodik des Hardwareentwurfs (2005-2017)"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="479731691"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2017"/>
@@ -1190,7 +1189,7 @@
 
             <category ID="08.020.030.070(2016)">
                <label xml:lang="de" text="Juniorprofessur Softwaretechnik für sicherheitskritische Systeme (2016-2021)"/>
-               <label xml:lang="x-destatis" text="3570"/>
+               <label xml:lang="x-mapping" text="destatis:3570"/>
                <label xml:lang="x-lpp" text="859152103"/>
                <label xml:lang="x-from" text="2016"/>
                <label xml:lang="x-to" text="2021"/>
@@ -1198,7 +1197,7 @@
 
             <category ID="08.020.030.080(2010)">
                <label xml:lang="de" text="Juniorprofessur Softwarearchitekturen und Produktlinien (2010-2019)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="635955067"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-to" text="2019"/>
@@ -1207,7 +1206,7 @@
             <category ID="08.020.030.090(2008)">
                <label xml:lang="de" text="Fachgebiet System- und Software-Engineering (2008-)"/>
                <label xml:lang="x-gnd" text="1153432153"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="574043276"/>
                <label xml:lang="x-from" text="2008"/>
                <label xml:lang="x-kst" text="2236"/>
@@ -1215,7 +1214,7 @@
 
             <category ID="08.020.030.090(2005)">
                <label xml:lang="de" text="Fachgebiet System- und Steuerungstheorie (2005-2008) ↑"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="479731519"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2008"/>
@@ -1224,7 +1223,7 @@
             <category ID="08.020.030.100(2022)">
                <label xml:lang="de" text="Juniorprofessur Entwicklung von Systemen für das Internet-of-Things (IoT-Engineering) (2022-)"/>
                <label xml:lang="en" text="Assistant Professorship for Development of Systems for the Internet-of-Things (IoT Engineering) (2022-)"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="1843705532"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2237"/>
@@ -1235,14 +1234,14 @@
             <label xml:lang="de" text="Institut für Theoretische Informatik (2005-)"/>
             <label xml:lang="en" text="Institute for Theoretical Computer Science (2005-)"/>
             <label xml:lang="x-gnd" text="1221685023"/>
-            <label xml:lang="x-destatis" text="3510"/>
+            <label xml:lang="x-mapping" text="destatis:3510"/>
             <label xml:lang="x-lpp" text="514388536"/>
             <label xml:lang="x-from" text="2005"/>
             <label xml:lang="x-kst" text="224"/>
 
             <category ID="08.020.040.010(2014)">
                <label xml:lang="de" text="Fachgebiet Automaten und Logik (2014-)"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="788901141"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2241"/>
@@ -1250,7 +1249,7 @@
 
             <category ID="08.020.040.010(2010)">
                <label xml:lang="de" text="Fachgebiet Theoretische Informatik (2010-2014) ↑"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="654526095"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-to" text="2014"/>
@@ -1258,7 +1257,7 @@
 
             <category ID="08.020.040.010(1991)">
                <label xml:lang="de" text="Fachgebiet Automaten und Formale Sprachen (2005-2010) ↑"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="479731179"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2010"/>
@@ -1266,7 +1265,7 @@
 
             <category ID="08.020.040.040(2022)">
                <label xml:lang="de" text="Fachgebiet Algorithmik (2022-)"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="1821250656"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2242"/>
@@ -1274,7 +1273,7 @@
 
             <category ID="08.020.040.040(2005)">
                <label xml:lang="de" text="Fachgebiet Komplexitätstheorie und Effiziente Algorithmen (2005-2022) ↑"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="479732280"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2022"/>
@@ -1285,14 +1284,14 @@
          <category ID="08.020.050">
             <label xml:lang="de" text="Institut für Theoretische und Technische Informatik (1992-2005) ↗"/>
             <label xml:lang="x-gnd" text="6056206-7"/>
-            <label xml:lang="x-destatis" text="3530"/>
+            <label xml:lang="x-mapping" text="destatis:3530"/>
             <label xml:lang="x-lpp" text="479722153"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2005"/>
 
             <category ID="08.020.050.010(1992)">
                <label xml:lang="de" text="Fachgebiet Automaten und Formale Sprachen (1992-2004) ↗"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="479731179"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2004"/>
@@ -1300,7 +1299,7 @@
 
             <category ID="08.020.050.020(1996)">
                <label xml:lang="de" text="Fachgebiet Integrierte Hard- und Softwaresysteme (1996-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="476825806"/>
                <label xml:lang="x-from" text="1996"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1308,7 +1307,7 @@
 
             <category ID="08.020.050.020(1993)">
                <label xml:lang="de" text="Fachgebiet Rechnerarchitektur II (1993-1996) ↑"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="528610023"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1996"/>
@@ -1323,7 +1322,7 @@
 
             <category ID="08.020.050.030(2001)">
                <label xml:lang="de" text="Fachgebiet Komplexitätstheorie und Effiziente Algorithmen (2001-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="479732280"/>
                <label xml:lang="x-from" text="2001"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1331,7 +1330,7 @@
 
             <category ID="08.020.050.030(1993)">
                <label xml:lang="de" text="Fachgebiet Komplexitätstheorie (1993-2001) ↑"/>
-               <label xml:lang="x-destatis" text="2510"/>
+               <label xml:lang="x-mapping" text="destatis:2510"/>
                <label xml:lang="x-lpp" text="528450913"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2001"/>
@@ -1339,7 +1338,7 @@
 
             <category ID="08.020.050.040(1993)">
                <label xml:lang="de" text="Fachgebiet Künstliche Intelligenz (1993-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3510"/>
+               <label xml:lang="x-mapping" text="destatis:3510"/>
                <label xml:lang="x-lpp" text="479731918"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1347,7 +1346,7 @@
 
             <category ID="08.020.050.050(1993)">
                <label xml:lang="de" text="Fachgebiet Methodik des Hardwareentwurfs (1993-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="479731691"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1355,7 +1354,7 @@
 
             <category ID="08.020.050.060(2004)">
                <label xml:lang="de" text="Fachgebiet Neuroinformatik und Kognitive Robotik (2004-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="476661986"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1364,7 +1363,7 @@
             <category ID="08.020.050.060(1993)">
                <label xml:lang="de" text="Fachgebiet Neuroinformatik (1993-2004) ↑"/>
                <label xml:lang="x-gnd" text="2140845-2"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="508649897"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -1379,7 +1378,7 @@
 
             <category ID="08.020.050.070(1998)">
                <label xml:lang="de" text="Fachgebiet Rechnerarchitektur (1998-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="479729980"/>
                <label xml:lang="x-from" text="1998"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1387,7 +1386,7 @@
 
             <category ID="08.020.050.070(1993)">
                <label xml:lang="de" text="Fachgebiet Rechnerarchitektur I (1993-1998) ↑"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="528611569"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1998"/>
@@ -1395,7 +1394,7 @@
 
             <category ID="08.020.050.070(1990)">
                <label xml:lang="de" text="Fachgebiet Rechnerarchitekturen (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="52861200X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -1403,7 +1402,7 @@
 
             <category ID="08.020.050.080(2004)">
                <label xml:lang="de" text="Fachgebiet Softwaresysteme/Prozessinformatik (2004-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="499659791"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1411,7 +1410,7 @@
 
             <category ID="08.020.050.080(1993)">
                <label xml:lang="de" text="Fachgebiet Prozessinformatik (1993-2004) ↑"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="479730121"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2004"/>
@@ -1426,7 +1425,7 @@
 
             <category ID="08.020.050.090(1993)">
                <label xml:lang="de" text="Fachgebiet System- und Steuerungstheorie (1993-2005) ↗"/>
-               <label xml:lang="x-destatis" text="3530"/>
+               <label xml:lang="x-mapping" text="destatis:3530"/>
                <label xml:lang="x-lpp" text="479731519"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1437,14 +1436,14 @@
             <label xml:lang="de" text="Institut für Praktische Informatik und Medieninformatik (1996-)"/>
             <label xml:lang="en" text="Institute for Applied Computer Science and Media Communications (1996-)"/>
             <label xml:lang="x-gnd" text="6127204-8"/>
-            <label xml:lang="x-destatis" text="3520"/>
+            <label xml:lang="x-mapping" text="destatis:3520"/>
             <label xml:lang="x-lpp" text="479722366"/>
             <label xml:lang="x-from" text="1996"/>
             <label xml:lang="x-kst" text="225"/>
 
             <category ID="08.020.060(1990)">
                <label xml:lang="de" text="Institut für Praktische Informatik (1992-1996) ↑"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="526581336"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1996"/>
@@ -1452,7 +1451,7 @@
 
             <category ID="08.020.060.010(2021)">
                <label xml:lang="de" text="Fachgebiet Data-intensive Systems and Visualization (2021-)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="1769529497"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2252"/>
@@ -1460,7 +1459,7 @@
 
             <category ID="08.020.060.010(1993)">
                <label xml:lang="de" text="Fachgebiet Graphische Datenverarbeitung (1993-2021) ↑"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="476839092"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2021"/>
@@ -1475,7 +1474,7 @@
 
             <category ID="08.020.060.020(1999)">
                <label xml:lang="de" text="Fachgebiet Datenbanken und Informationssysteme (1999-)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="479734461"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-kst" text="2254"/>
@@ -1483,7 +1482,7 @@
 
             <category ID="08.020.060.020(1993)">
                <label xml:lang="de" text="Fachgebiet Datenverwaltungssysteme und Wissensrepräsentation (1993-1999) ↑"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="505670518"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1999"/>
@@ -1499,7 +1498,7 @@
             <category ID="08.020.060.030(2023)">
                <label xml:lang="de" text="Fachgebiet Medizinische Informatik (2023-)"/>
                <label xml:lang="en" text="Computational Medicine Group (2023-)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="1844654494"/>
                <label xml:lang="x-from" text="2023"/>
                <label xml:lang="x-kst" text="2257"/>
@@ -1507,7 +1506,7 @@
 
             <category ID="08.020.060.050(2012)">
                <label xml:lang="de" text="Juniorprofessur Programmiersprachen und Compilertechnik (2012-)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="731574168"/>
                <label xml:lang="x-from" text="2012"/>
                <label xml:lang="x-kst" text="2256"/>
@@ -1515,7 +1514,7 @@
 
             <category ID="08.020.060.060(1993)">
                <label xml:lang="de" text="Fachgebiet Programmiersprachen und Übersetzerbau (1993-1996)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="532801687"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1996"/>
@@ -1523,7 +1522,7 @@
 
             <category ID="08.020.060.070(1997)">
                <label xml:lang="de" text="Fachgebiet Softwaretechnik und Programmiersprachen (1997-2016)"/>
-               <label xml:lang="x-destatis" text="3570"/>
+               <label xml:lang="x-mapping" text="destatis:3570"/>
                <label xml:lang="x-lpp" text="479733139"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2016"/>
@@ -1531,7 +1530,7 @@
 
             <category ID="08.020.060.070(1993)">
                <label xml:lang="de" text="Fachgebiet Softwaretechnik (1993-1997) ↑"/>
-               <label xml:lang="x-destatis" text="3570"/>
+               <label xml:lang="x-mapping" text="destatis:3570"/>
                <label xml:lang="x-lpp" text="526584637"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1997"/>
@@ -1539,7 +1538,7 @@
 
             <category ID="08.020.060.070(1990)">
                <label xml:lang="de" text="Fachgebiet Softwaretechnik und Programmiersprachen (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="3570"/>
+               <label xml:lang="x-mapping" text="destatis:3570"/>
                <label xml:lang="x-lpp" text="52658436X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -1547,7 +1546,7 @@
 
             <category ID="08.020.060.080(2005)">
                <label xml:lang="de" text="Fachgebiet Telematik/Rechnernetze (2005-)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="479734291"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-kst" text="2253"/>
@@ -1556,7 +1555,7 @@
             <category ID="08.020.060.080(1993)">
                <label xml:lang="de" text="Fachgebiet Telematik (1993-2005) ↑"/>
                <label xml:lang="x-gnd" text="16089036-6"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="505671875"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1571,7 +1570,7 @@
 
             <category ID="08.020.060.090(1993)">
                <label xml:lang="de" text="Fachgebiet Verteilte Systeme und Betriebssysteme (1993-)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="479734623"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-kst" text="2255"/>
@@ -1583,7 +1582,7 @@
          <label xml:lang="de" text="Fakultät für Maschinenbau (1992-)"/>
          <label xml:lang="en" text="Department of Mechanical Engineering (1992-)"/>
          <label xml:lang="x-gnd" text="2133575-8"/>
-         <label xml:lang="x-destatis" text="6900"/>
+         <label xml:lang="x-mapping" text="destatis:6900"/>
          <label xml:lang="x-lpp" text="47682561X"/>
          <label xml:lang="x-from" text="1992"/>
          <label xml:lang="x-kst" text="23"/>
@@ -1592,7 +1591,7 @@
             <label xml:lang="de" text="Institut für Maschinen- und Gerätekonstruktion (2008-)"/>
             <label xml:lang="en" text="Institute for Design and Precision Engineering (2008-)"/>
             <label xml:lang="x-gnd" text="16077217-5"/>
-            <label xml:lang="x-destatis" text="6900"/>
+            <label xml:lang="x-mapping" text="destatis:6900"/>
             <label xml:lang="x-lpp" text="632557842"/>
             <label xml:lang="x-from" text="2008"/>
             <label xml:lang="x-kst" text="231"/>
@@ -1600,7 +1599,7 @@
             <category ID="08.030.010(1990)">
                <label xml:lang="de" text="Institut für Maschinenelemente und Konstruktion (1992-2008) ↑"/>
                <label xml:lang="x-gnd" text="2171433-2"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="499663152"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2008"/>
@@ -1608,7 +1607,7 @@
 
             <category ID="08.030.010.020(2002)">
                <label xml:lang="de" text="Fachgebiet Feinwerktechnik/Precision Engineering (2002-)"/>
-               <label xml:lang="x-destatis" text="7190"/>
+               <label xml:lang="x-mapping" text="destatis:7190"/>
                <label xml:lang="x-lpp" text="480754772"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-kst" text="2363"/>
@@ -1617,7 +1616,7 @@
             <category ID="08.030.010.040(1991)">
                <label xml:lang="de" text="Fachgebiet Maschinenelemente (1992-)"/>
                <label xml:lang="x-gnd" text="1055031510"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="480755094"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-kst" text="2311"/>
@@ -1626,7 +1625,7 @@
             <category ID="08.030.010.060(2021)">
                <label xml:lang="de" text="Fachgebiet Produkt- und Systementwicklung (2021-)"/>
                <label xml:lang="x-gnd" text="1228344779"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="1750099543"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2312"/>
@@ -1635,7 +1634,7 @@
             <category ID="08.030.010.060(1991)">
                <label xml:lang="de" text="Fachgebiet Konstruktionstechnik (1992-2020) ↑"/>
                <label xml:lang="x-gnd" text="2173416-1"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="476825482"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2020"/>
@@ -1645,14 +1644,14 @@
          <category ID="08.030.050">
             <label xml:lang="de" text="Fakultätsübergreifendes Institut für Werkstofftechnik (2000-)"/>
             <label xml:lang="en" text="﻿Inter-departmental Institute of Materials Science and Engineering (2000-)"/>
-            <label xml:lang="x-destatis" text="6990"/>
+            <label xml:lang="x-mapping" text="destatis:6990"/>
             <label xml:lang="x-lpp" text="48106656X"/>
             <label xml:lang="x-from" text="2000"/>
             <label xml:lang="x-kst" text="217"/>
 
             <category ID="08.030.050(1998)">
                <label xml:lang="de" text="Interfakultäres Institut für Werkstofftechnik (1998-2000) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="527983918"/>
                <label xml:lang="x-from" text="1998"/>
                <label xml:lang="x-to" text="2000"/>
@@ -1660,7 +1659,7 @@
 
             <category ID="08.030.050(1996)">
                <label xml:lang="de" text="Institut für Werkstofftechnik (1996-1998) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="566454335"/>
                <label xml:lang="x-from" text="1996"/>
                <label xml:lang="x-to" text="1998"/>
@@ -1669,7 +1668,7 @@
             <category ID="08.030.050.010(2007)">
                <label xml:lang="de" text="Fachgebiet Anorganisch-nichtmetallische Werkstoffe (2007-)"/>
                <label xml:lang="x-gnd" text="1121937012"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="527398578"/>
                <label xml:lang="x-from" text="2007"/>
                <label xml:lang="x-kst" text="2351"/>
@@ -1678,7 +1677,7 @@
             <category ID="08.030.050.010(1996)">
                <label xml:lang="de" text="Fachgebiet Glas- und Keramiktechnologie (1996-2007) ↑"/>
                <label xml:lang="x-gnd" text="5294135-8"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="480754993"/>
                <label xml:lang="x-from" text="1996"/>
                <label xml:lang="x-to" text="2007"/>
@@ -1687,7 +1686,7 @@
             <category ID="08.030.050.040(2009)">
                <label xml:lang="de" text="Stiftungsprofessur Kunststofftechnik (2009-)"/>
                <label xml:lang="x-gnd" text="1102252085"/>
-               <label xml:lang="x-destatis" text="7030"/>
+               <label xml:lang="x-mapping" text="destatis:7030"/>
                <label xml:lang="x-lpp" text="600015807"/>
                <label xml:lang="x-from" text="2009"/>
                <label xml:lang="x-kst" text="2353"/>
@@ -1695,7 +1694,7 @@
 
             <category ID="08.030.050.060(2002)">
                <label xml:lang="de" text="Fachgebiet Metallische Werkstoffe und Verbundwerkstoffe (2002-)"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="480755426"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-kst" text="2352"/>
@@ -1703,7 +1702,7 @@
 
             <category ID="08.030.050.060(1996)">
                <label xml:lang="de" text="Fachgebiet Werkstofftechnik (1996-2002) ↑"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="527400211"/>
                <label xml:lang="x-from" text="1996"/>
                <label xml:lang="x-to" text="2002"/>
@@ -1714,14 +1713,14 @@
             <label xml:lang="de" text="Institut für Prozessmess- und Sensortechnik (1992-)"/>
             <label xml:lang="en" text="Institute for Process Measurement and Sensor Technology (1992-)"/>
             <label xml:lang="x-gnd" text="5147251-X"/>
-            <label xml:lang="x-destatis" text="6970"/>
+            <label xml:lang="x-mapping" text="destatis:6970"/>
             <label xml:lang="x-lpp" text="49966373X"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="237"/>
 
             <category ID="08.030.070.020(2015)">
                <label xml:lang="de" text="Fachgebiet Fertigungs- und Präzisionsmesstechnik (2015-)"/>
-               <label xml:lang="x-destatis" text="6970"/>
+               <label xml:lang="x-mapping" text="destatis:6970"/>
                <label xml:lang="x-lpp" text="836198417"/>
                <label xml:lang="x-from" text="2015"/>
                <label xml:lang="x-kst" text="2371"/>
@@ -1729,7 +1728,7 @@
 
             <category ID="08.030.070.020(1993)">
                <label xml:lang="de" text="Fachgebiet Messtechnik im Maschinenbau und Fertigungsmesstechnik (1993-2015) ↑"/>
-               <label xml:lang="x-destatis" text="6970"/>
+               <label xml:lang="x-mapping" text="destatis:6970"/>
                <label xml:lang="x-lpp" text="480755310"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2015"/>
@@ -1745,7 +1744,7 @@
             <category ID="08.030.070.040(2021)">
                <label xml:lang="de" text="Juniorprofessur Nanofabrikations- und Nanomesstechnik (2021-)"/>
                <label xml:lang="x-gnd" text="1241256977"/>
-               <label xml:lang="x-destatis" text="6970"/>
+               <label xml:lang="x-mapping" text="destatis:6970"/>
                <label xml:lang="x-lpp" text="177080305X"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2374"/>
@@ -1753,7 +1752,7 @@
 
             <category ID="08.030.070.060(1993)">
                <label xml:lang="de" text="Fachgebiet Prozessmesstechnik (1993-)"/>
-               <label xml:lang="x-destatis" text="6970"/>
+               <label xml:lang="x-mapping" text="destatis:6970"/>
                <label xml:lang="x-lpp" text="480755574"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-kst" text="2372"/>
@@ -1761,7 +1760,7 @@
 
             <category ID="08.030.070.060(1992)">
                <label xml:lang="de" text="Fachgebiet Prozeß- und Umweltmeßtechnik (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="6970"/>
+               <label xml:lang="x-mapping" text="destatis:6970"/>
                <label xml:lang="x-lpp" text="534319610"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -1769,7 +1768,7 @@
 
             <category ID="08.030.070.100(2008)">
                <label xml:lang="de" text="Stiftungsprofessur Präzisionsmesstechnik (2008-2015)"/>
-               <label xml:lang="x-destatis" text="6970"/>
+               <label xml:lang="x-mapping" text="destatis:6970"/>
                <label xml:lang="x-lpp" text="578686716"/>
                <label xml:lang="x-from" text="2008"/>
                <label xml:lang="x-to" text="2015"/>
@@ -1780,14 +1779,14 @@
             <label xml:lang="de" text="Institut für Thermo- und Fluiddynamik (1992-)"/>
             <label xml:lang="en" text="Institute of Thermodynamics and Fluid Dynamics (1992-)"/>
             <label xml:lang="x-gnd" text="1067804285"/>
-            <label xml:lang="x-destatis" text="6900"/>
+            <label xml:lang="x-mapping" text="destatis:6900"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="238"/>
 
             <category ID="08.030.080.010(2013)">
                <label xml:lang="de" text="Stiftungsprofessur Aerodynamik (2013-)"/>
                <label xml:lang="en" text="Endowed Professorship Aerodynamics (2013-)"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="774035323"/>
                <label xml:lang="x-from" text="2013"/>
                <label xml:lang="x-kst" text="2349"/>
@@ -1795,7 +1794,7 @@
 
             <category ID="08.030.080.060(2013)">
                <label xml:lang="de" text="Fachgebiet Strömungsmechanik (2013-)"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="751505277"/>
                <label xml:lang="x-from" text="2013"/>
                <label xml:lang="x-kst" text="2347"/>
@@ -1803,7 +1802,7 @@
 
             <category ID="08.030.080.060(2008)">
                <label xml:lang="de" text="Heisenbergprofessur Theoretische Strömungsmechanik (2008-2013) ↑"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="605815275"/>
                <label xml:lang="x-from" text="2008"/>
                <label xml:lang="x-to" text="2013"/>
@@ -1811,7 +1810,7 @@
 
             <category ID="08.030.080.060(2005)">
                <label xml:lang="de" text="Juniorprofessur Theoretische Strömungsmechanik (2005-2008) ↑"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="508651999"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2008"/>
@@ -1819,7 +1818,7 @@
 
             <category ID="08.030.080.090(2016)">
                <label xml:lang="de" text="Fachgebiet Technische Thermodynamik (2016-)"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="871516640"/>
                <label xml:lang="x-from" text="2016"/>
                <label xml:lang="x-kst" text="2346"/>
@@ -1828,7 +1827,7 @@
             <category ID="08.030.080.090(2005)">
                <label xml:lang="de" text="Fachgebiet Thermo- und Magnetofluiddynamik (2005-2016) ↑"/>
                <label xml:lang="x-gnd" text="16018479-4"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="49680572X"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2016"/>
@@ -1838,14 +1837,14 @@
          <category ID="08.030.090">
             <label xml:lang="de" text="Ohne Institutszuordnung (1992-)"/>
             <label xml:lang="en" text="Without Institute Allocation (1992-)"/>
-            <label xml:lang="x-destatis" text="6900"/>
+            <label xml:lang="x-mapping" text="destatis:6900"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="239"/>
 
             <category ID="08.030.090.010(2002)">
                <label xml:lang="de" text="Fachgebiet Biomechatronik (2002-)"/>
                <label xml:lang="x-gnd" text="6069927-9"/>
-               <label xml:lang="x-destatis" text="6750"/>
+               <label xml:lang="x-mapping" text="destatis:6750"/>
                <label xml:lang="x-lpp" text="478363265"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-kst" text="2348"/>
@@ -1853,7 +1852,7 @@
 
             <category ID="08.030.090.015(2014)">
                <label xml:lang="de" text="Stiftungsprofessur Energieeffiziente Fahrzeugantriebe (2014-2021)"/>
-               <label xml:lang="x-destatis" text="7245"/>
+               <label xml:lang="x-mapping" text="destatis:7245"/>
                <label xml:lang="x-lpp" text="786789255"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2021"/>
@@ -1861,7 +1860,7 @@
 
             <category ID="08.030.090.020(2022)">
                <label xml:lang="de" text="Fachgebiet Fahrzeugtechnik (2022-)"/>
-               <label xml:lang="x-destatis" text="7245"/>
+               <label xml:lang="x-mapping" text="destatis:7245"/>
                <label xml:lang="x-lpp" text="178863196X"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2324"/>
@@ -1869,7 +1868,7 @@
 
             <category ID="08.030.090.020(1999)">
                <label xml:lang="de" text="Fachgebiet Kraftfahrzeugtechnik (1999-2021) ↑"/>
-               <label xml:lang="x-destatis" text="7245"/>
+               <label xml:lang="x-mapping" text="destatis:7245"/>
                <label xml:lang="x-lpp" text="478292457"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-to" text="2021"/>
@@ -1877,7 +1876,7 @@
 
             <category ID="08.030.090.020(1993)">
                <label xml:lang="de" text="Fachgebiet Verbrennungskraftmaschinen und Fahrzeugtechnik (1993-1999) ↑"/>
-               <label xml:lang="x-destatis" text="7245"/>
+               <label xml:lang="x-mapping" text="destatis:7245"/>
                <label xml:lang="x-lpp" text="534702368"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1999"/>
@@ -1886,7 +1885,7 @@
             <category ID="08.030.090.030(1990)">
                <label xml:lang="de" text="Fachgebiet Fertigungstechnik (1992-)"/>
                <label xml:lang="x-gnd" text="6040760-8"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="480754837"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-kst" text="2321"/>
@@ -1895,7 +1894,7 @@
             <category ID="08.030.090.040(2019)">
                <label xml:lang="de" text="Fachgebiet Industrielle Anwendungen von Medientechnologien (2019-)"/>
                <label xml:lang="x-gnd" text="1197059628"/>
-               <label xml:lang="x-destatis" text="6780"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="1678859222"/>
                <label xml:lang="x-from" text="2019"/>
                <label xml:lang="x-kst" text="2327"/>
@@ -1903,7 +1902,7 @@
 
             <category ID="08.030.090.050(2018)">
                <label xml:lang="de" text="Fachgebiet Informationstechnik in Produktion und Logistik (2018-)"/>
-               <label xml:lang="x-destatis" text="3520"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="1040197590"/>
                <label xml:lang="x-from" text="2018"/>
                <label xml:lang="x-kst" text="2326"/>
@@ -1912,7 +1911,7 @@
             <category ID="08.030.090.060(1990)">
                <label xml:lang="de" text="Fachgebiet Lichttechnik (1992-)"/>
                <label xml:lang="x-gnd" text="1079563431"/>
-               <label xml:lang="x-destatis" text="6975"/>
+               <label xml:lang="x-mapping" text="destatis:6975"/>
                <label xml:lang="x-lpp" text="480755043"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-kst" text="2331"/>
@@ -1921,7 +1920,7 @@
             <category ID="08.030.090.070(2000)">
                <label xml:lang="de" text="Fachgebiet Mechatronik (2000-)"/>
                <label xml:lang="x-gnd" text="1203264208"/>
-               <label xml:lang="x-destatis" text="6750"/>
+               <label xml:lang="x-mapping" text="destatis:6750"/>
                <label xml:lang="x-lpp" text="480755213"/>
                <label xml:lang="x-from" text="2000"/>
                <label xml:lang="x-kst" text="2341"/>
@@ -1929,7 +1928,7 @@
 
             <category ID="08.030.090.075(2004)">
                <label xml:lang="de" text="Juniorprofessur Entwurf Mechatronischer Antriebe (2004-2011)"/>
-               <label xml:lang="x-destatis" text="6750"/>
+               <label xml:lang="x-mapping" text="destatis:6750"/>
                <label xml:lang="x-lpp" text="497867079"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2011"/>
@@ -1937,7 +1936,7 @@
 
             <category ID="08.030.090.080(2019)">
                <label xml:lang="de" text="Fachgebiet Mikrosystemtechnik (2019-)"/>
-               <label xml:lang="x-destatis" text="7190"/>
+               <label xml:lang="x-mapping" text="destatis:7190"/>
                <label xml:lang="x-lpp" text="1066788502"/>
                <label xml:lang="x-from" text="2019"/>
                <label xml:lang="x-kst" text="2342"/>
@@ -1946,7 +1945,7 @@
             <category ID="08.030.090.080(2006)">
                <label xml:lang="de" text="Fachgebiet Mikromechanische Systeme (2006-2018) ↑"/>
                <label xml:lang="x-gnd" text="1206898720"/>
-               <label xml:lang="x-destatis" text="7190"/>
+               <label xml:lang="x-mapping" text="destatis:7190"/>
                <label xml:lang="x-lpp" text="508636019"/>
                <label xml:lang="x-from" text="2006"/>
                <label xml:lang="x-to" text="2018"/>
@@ -1954,7 +1953,7 @@
 
             <category ID="08.030.090.080(2002)">
                <label xml:lang="de" text="Fachgebiet Mikrosystemtechnik (2002-2005) ↑"/>
-               <label xml:lang="x-destatis" text="7190"/>
+               <label xml:lang="x-mapping" text="destatis:7190"/>
                <label xml:lang="x-lpp" text="480755477"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-to" text="2005"/>
@@ -1964,7 +1963,7 @@
                <label xml:lang="de" text="Fachgebiet Mechanik Nachgiebiger Systeme (2023-)"/>
                <label xml:lang="en" text="Mechanics of Compliant Systems Group (2023-)"/>
                <label xml:lang="x-gnd" text="0"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="1839204036"/>
                <label xml:lang="x-from" text="2023"/>
                <label xml:lang="x-kst" text="2344"/>
@@ -1973,7 +1972,7 @@
             <category ID="08.030.090.090(2017)">
                <label xml:lang="de" text="Heisenbergprofessur Nachgiebige Systeme (2017-2023) ↑"/>
                <label xml:lang="en" text="Heisenberg Professorship Compliant Systems (2017-2023) ↑"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="889279225"/>
                <label xml:lang="x-from" text="2017"/>
                <label xml:lang="x-to" text="2023"/>
@@ -1982,7 +1981,7 @@
 
             <category ID="08.030.090.090(2010)">
                <label xml:lang="de" text="Fachgebiet Mechanismentechnik (2010-2017) ↑"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="625443683"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-to" text="2017"/>
@@ -1990,7 +1989,7 @@
 
             <category ID="08.030.090.090(1991)">
                <label xml:lang="de" text="Fachgebiet Getriebetechnik (1992-2010) ↑"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="480754934"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2010"/>
@@ -1999,7 +1998,7 @@
             <category ID="08.030.090.100(2015)">
                <label xml:lang="de" text="Fachgebiet Qualitätssicherung und Industrielle Bildverarbeitung (2015-)"/>
                <label xml:lang="x-gnd" text="1135791546"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="715950754"/>
                <label xml:lang="x-from" text="2015"/>
                <label xml:lang="x-kst" text="2362"/>
@@ -2007,7 +2006,7 @@
 
             <category ID="08.030.090.100(2014)">
                <label xml:lang="de" text="Fachgebiet Industrielle Bildverarbeitung (2014-2015) ↑"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="799951536"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2015"/>
@@ -2015,7 +2014,7 @@
 
             <category ID="08.030.090.110(1993)">
                <label xml:lang="de" text="Fachgebiet Rechneranwendung im Maschinenbau (1993-2017)"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="480755744"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2017"/>
@@ -2024,7 +2023,7 @@
             <category ID="08.030.090.120(1990)">
                <label xml:lang="de" text="Fachgebiet Technische Mechanik (1992-2022) ↗"/>
                <label xml:lang="en" text="Technical Mechanics Group (1992-2022) ↗"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="476948606"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2022"/>
@@ -2033,7 +2032,7 @@
 
             <category ID="08.030.090.130(1990)">
                <label xml:lang="de" text="Fachgebiet Technische Optik (1992-)"/>
-               <label xml:lang="x-destatis" text="6975"/>
+               <label xml:lang="x-mapping" text="destatis:6975"/>
                <label xml:lang="x-lpp" text="480755787"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-kst" text="2332"/>
@@ -2041,7 +2040,7 @@
 
             <category ID="08.030.090.140(2010)">
                <label xml:lang="de" text="Juniorprofessur Optik-Design, Modellierung und Simulation optischer Systeme (2010-2017)"/>
-               <label xml:lang="x-destatis" text="6975"/>
+               <label xml:lang="x-mapping" text="destatis:6975"/>
                <label xml:lang="x-lpp" text="635955431"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-to" text="2017"/>
@@ -2050,14 +2049,14 @@
             <category ID="08.030.090.150(2014)">
                <label xml:lang="de" text="Stiftungsprofessur Industrielle Bildverarbeitung (2014-)"/>
                <label xml:lang="en" text="Endowed Professorship Industrial Image Processing (2014-)"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="82408683X"/>
                <label xml:lang="x-from" text="2014"/>
             </category>
 
             <category ID="08.030.090.160(1993)">
                <label xml:lang="de" text="Fachgebiet Werkstofftechnik (1993-1996) ↗"/>
-               <label xml:lang="x-destatis" text="6990"/>
+               <label xml:lang="x-mapping" text="destatis:6990"/>
                <label xml:lang="x-lpp" text="527400211"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1996"/>
@@ -2075,7 +2074,7 @@
          <category ID="08.030.110">
             <label xml:lang="de" text="Institut für Fertigung (1992-2017)"/>
             <label xml:lang="x-gnd" text="5257847-1"/>
-            <label xml:lang="x-destatis" text="6940"/>
+            <label xml:lang="x-mapping" text="destatis:6940"/>
             <label xml:lang="x-lpp" text="49966325X"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2017"/>
@@ -2083,7 +2082,7 @@
             <category ID="08.030.110.010(1991)">
                <label xml:lang="de" text="Fachgebiet Arbeitswissenschaft (1992-2017)"/>
                <label xml:lang="x-gnd" text="112835005X"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="480754535"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2017"/>
@@ -2091,7 +2090,7 @@
 
             <category ID="08.030.110.030(1993)">
                <label xml:lang="de" text="Fachgebiet Feinbearbeitungstechnik (1993-1997)"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="533616271"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1997"/>
@@ -2099,7 +2098,7 @@
 
             <category ID="08.030.110.030(1991)">
                <label xml:lang="de" text="Fachgebiet Fertigungsprozesse (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="533618037"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -2107,7 +2106,7 @@
 
             <category ID="08.030.110.030(1990)">
                <label xml:lang="de" text="Fachgebiet Fertigungsoptimierung (1992-1992) ↑"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="533619327"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
@@ -2138,7 +2137,7 @@
 
             <category ID="08.030.140.070(1993)">
                <label xml:lang="de" text="Fachgebiet Antriebstechnik (1993-2000) ↗"/>
-               <label xml:lang="x-destatis" text="6750"/>
+               <label xml:lang="x-mapping" text="destatis:6750"/>
                <label xml:lang="x-lpp" text="514684321"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2000"/>
@@ -2153,7 +2152,7 @@
 
             <category ID="08.030.140.080(1993)">
                <label xml:lang="de" text="Fachgebiet Mikromechanik (1993-2002) ↗"/>
-               <label xml:lang="x-destatis" text="7190"/>
+               <label xml:lang="x-mapping" text="destatis:7190"/>
                <label xml:lang="x-lpp" text="515912166"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2002"/>
@@ -2168,7 +2167,7 @@
 
             <category ID="08.030.140.090(1998)">
                <label xml:lang="de" text="Fachgebiet Thermo- und Fluiddynamik (1998-2004) ↗"/>
-               <label xml:lang="x-destatis" text="6900"/>
+               <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="480755876"/>
                <label xml:lang="x-from" text="1998"/>
                <label xml:lang="x-to" text="2004"/>
@@ -2192,7 +2191,7 @@
          <category ID="08.030.150">
             <label xml:lang="de" text="Institut für Präzisionstechnik und Automation (1992-2017)"/>
             <label xml:lang="x-gnd" text="6085690-7"/>
-            <label xml:lang="x-destatis" text="6760"/>
+            <label xml:lang="x-mapping" text="destatis:6760"/>
             <label xml:lang="x-lpp" text="499663594"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2017"/>
@@ -2200,7 +2199,7 @@
             <category ID="08.030.150.010(1992)">
                <label xml:lang="de" text="Fachgebiet Fabrikbetrieb (1992-2017)"/>
                <label xml:lang="x-gnd" text="16023469-4"/>
-               <label xml:lang="x-destatis" text="6760"/>
+               <label xml:lang="x-mapping" text="destatis:6760"/>
                <label xml:lang="x-lpp" text="48075473X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2017"/>
@@ -2208,7 +2207,7 @@
 
             <category ID="08.030.150.010(1990)">
                <label xml:lang="de" text="Fachgebiet Flexible Automation und Montage (1992-1992) ↑"/>
-               <label xml:lang="x-destatis" text="6760"/>
+               <label xml:lang="x-mapping" text="destatis:6760"/>
                <label xml:lang="x-lpp" text="534009794"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
@@ -2216,7 +2215,7 @@
 
             <category ID="08.030.150.020(1992)">
                <label xml:lang="de" text="Fachgebiet Feinwerktechnik (1992-2002) ↗"/>
-               <label xml:lang="x-destatis" text="7190"/>
+               <label xml:lang="x-mapping" text="destatis:7190"/>
                <label xml:lang="x-lpp" text="1663439672"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2002"/>
@@ -2224,7 +2223,7 @@
 
             <category ID="08.030.150.020(1991)">
                <label xml:lang="de" text="Fachgebiet Gerätekonstruktion und Antriebstechnik (1992-1992) ↑"/>
-               <label xml:lang="x-destatis" text="7190"/>
+               <label xml:lang="x-mapping" text="destatis:7190"/>
                <label xml:lang="x-lpp" text="534011004"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
@@ -2232,7 +2231,7 @@
 
             <category ID="08.030.150.100(2011)">
                <label xml:lang="de" text="Fachgebiet Qualitätssicherung und Industrielle Bildverarbeitung (2011-2014) ↗"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="664000827"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-to" text="2014"/>
@@ -2240,7 +2239,7 @@
 
             <category ID="08.030.150.100(1992)">
                <label xml:lang="de" text="Fachgebiet Qualitätssicherung (1992-2011) ↑"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="480755655"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2011"/>
@@ -2248,7 +2247,7 @@
 
             <category ID="08.030.150.100(1990)">
                <label xml:lang="de" text="Fachgebiet Qualitäts- und Prüftechnik (1992-1992) ↑"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="534022472"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
@@ -2257,14 +2256,14 @@
 
          <category ID="08.030.160">
             <label xml:lang="de" text="Institut für rechnerunterstützte Produktion (1995-2001)"/>
-            <label xml:lang="x-destatis" text="6940"/>
+            <label xml:lang="x-mapping" text="destatis:6940"/>
             <label xml:lang="x-lpp" text="534979025"/>
             <label xml:lang="x-from" text="1995"/>
             <label xml:lang="x-to" text="2001"/>
 
             <category ID="08.030.160(1992)">
                <label xml:lang="de" text="CIM-Technologie-Transfer-Zentrum &lt;Suhl&gt; (1992-1995) ↑"/>
-               <label xml:lang="x-destatis" text="6940"/>
+               <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="529033062"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1995"/>
@@ -2276,7 +2275,7 @@
          <label xml:lang="de" text="Fakultät für Mathematik und Naturwissenschaften (1992-)"/>
          <label xml:lang="en" text="Department of Mathematics and Natural Sciences (1992-)"/>
          <label xml:lang="x-gnd" text="5250849-3"/>
-         <label xml:lang="x-destatis" text="3300"/>
+         <label xml:lang="x-mapping" text="destatis:3300"/>
          <label xml:lang="x-lpp" text="476942527"/>
          <label xml:lang="x-from" text="1992"/>
          <label xml:lang="x-kst" text="24"/>
@@ -2285,7 +2284,7 @@
             <label xml:lang="de" text="Institut für Mathematik (1992-)"/>
             <label xml:lang="en" text="Institute of Mathematics (1992-)"/>
             <label xml:lang="x-gnd" text="10143748-1"/>
-            <label xml:lang="x-destatis" text="3400"/>
+            <label xml:lang="x-mapping" text="destatis:3400"/>
             <label xml:lang="x-lpp" text="479739188"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="241"/>
@@ -2293,7 +2292,7 @@
             <category ID="08.040.010.010(1999)">
                <label xml:lang="de" text="Fachgebiet Analysis und Dynamische Systeme (1999-2022)"/>
                <label xml:lang="en" text="Analysis and Dynamical Systems Group (1999-2022)"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="479742758"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-to" text="2022"/>
@@ -2302,7 +2301,7 @@
 
             <category ID="08.040.010.010(1993)">
                <label xml:lang="de" text="Fachgebiet Analysis und Differentialgeometrie (1993-1999) ↑"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="530576600"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1999"/>
@@ -2310,7 +2309,7 @@
 
             <category ID="08.040.010.010(1992)">
                <label xml:lang="de" text="Fachgebiet Analysis und Dynamische Systeme (1992-1993)"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="530577321"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -2318,7 +2317,7 @@
 
             <category ID="08.040.010.020(1993)">
                <label xml:lang="de" text="Fachgebiet Analysis und Steuerungstheorie (1993-1998)"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="537731849"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1998"/>
@@ -2326,7 +2325,7 @@
 
             <category ID="08.040.010.020(1991)">
                <label xml:lang="de" text="Fachgebiet Analysis und Steuertheorie (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="537732004"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -2334,7 +2333,7 @@
 
             <category ID="08.040.010.030(1993)">
                <label xml:lang="de" text="Fachgebiet Analysis/Funktionalanalysis (1993-2013)"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="479742561"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2342,7 +2341,7 @@
 
             <category ID="08.040.010.040(2011)">
                <label xml:lang="de" text="Fachgebiet Angewandte Funktionalanalysis (2011-)"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="682438235"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-kst" text="2419"/>
@@ -2350,7 +2349,7 @@
 
             <category ID="08.040.010.050(1993)">
                <label xml:lang="de" text="Fachgebiet Diskrete Mathematik und Algebra (1993-)"/>
-               <label xml:lang="x-destatis" text="3440"/>
+               <label xml:lang="x-mapping" text="destatis:3440"/>
                <label xml:lang="x-lpp" text="479743002"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-kst" text="2411"/>
@@ -2366,7 +2365,7 @@
             <category ID="08.040.010.060(1993)">
                <label xml:lang="de" text="Fachgebiet Grundlagen der Mathematik (1993-2023)"/>
                <label xml:lang="en" text="Group for Fundamentals of Mathematics (1993-2023)"/>
-               <label xml:lang="x-destatis" text="3400"/>
+               <label xml:lang="x-mapping" text="destatis:3400"/>
                <label xml:lang="x-lpp" text="479743207"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2023"/>
@@ -2375,7 +2374,7 @@
 
             <category ID="08.040.010.070(2014)">
                <label xml:lang="de" text="Juniorprofessur Kombinatorische Optimierung (2014-2020)"/>
-               <label xml:lang="x-destatis" text="3490"/>
+               <label xml:lang="x-mapping" text="destatis:3490"/>
                <label xml:lang="x-lpp" text="786789379"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2020"/>
@@ -2383,7 +2382,7 @@
 
             <category ID="08.040.010.080(1993)">
                <label xml:lang="de" text="Fachgebiet Kombinatorik/Graphentheorie (1993-2021)"/>
-               <label xml:lang="x-destatis" text="3440"/>
+               <label xml:lang="x-mapping" text="destatis:3440"/>
                <label xml:lang="x-lpp" text="479743355"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2021"/>
@@ -2392,7 +2391,7 @@
             <category ID="08.040.010.090(2022)">
                <label xml:lang="de" text="Fachgebiet Large Networks and Random Graphs (2022-)"/>
                <label xml:lang="en" text="Large Networks and Random Graphs Group (2022-)"/>
-               <label xml:lang="x-destatis" text="3330"/>
+               <label xml:lang="x-mapping" text="destatis:3330"/>
                <label xml:lang="x-lpp" text="1839192216"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2417"/>
@@ -2400,7 +2399,7 @@
 
             <category ID="08.040.010.090(2021)">
                <label xml:lang="de" text="Stiftungsprofessur Large Networks and Random Graphs (2021-2022) ↑"/>
-               <label xml:lang="x-destatis" text="3330"/>
+               <label xml:lang="x-mapping" text="destatis:3330"/>
                <label xml:lang="x-lpp" text="177906473X"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-to" text="2022"/>
@@ -2409,7 +2408,7 @@
 
             <category ID="08.040.010.090(2018)">
                <label xml:lang="de" text="Juniorprofessur Large Networks and Random Graphs (2018-2021) ↑"/>
-               <label xml:lang="x-destatis" text="3330"/>
+               <label xml:lang="x-mapping" text="destatis:3330"/>
                <label xml:lang="x-lpp" text="1028500823"/>
                <label xml:lang="x-from" text="2018"/>
                <label xml:lang="x-to" text="2021"/>
@@ -2417,7 +2416,7 @@
 
             <category ID="08.040.010.100(1993)">
                <label xml:lang="de" text="Fachgebiet Mathematische Methoden des Operations Research (1993-)"/>
-               <label xml:lang="x-destatis" text="3490"/>
+               <label xml:lang="x-mapping" text="destatis:3490"/>
                <label xml:lang="x-lpp" text="479743592"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-kst" text="2415"/>
@@ -2432,7 +2431,7 @@
 
             <category ID="08.040.010.110(1993)">
                <label xml:lang="de" text="Fachgebiet Mathematische Optimierung (1993-2011)"/>
-               <label xml:lang="x-destatis" text="3490"/>
+               <label xml:lang="x-mapping" text="destatis:3490"/>
                <label xml:lang="x-lpp" text="479743746"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2011"/>
@@ -2448,7 +2447,7 @@
             <category ID="08.040.010.120(1993)">
                <label xml:lang="de" text="Fachgebiet Numerische Mathematik und Informationsverarbeitung (1993-2021)"/>
                <label xml:lang="en" text="Group for Numerical Analysis and Information Processing (1993-2021)"/>
-               <label xml:lang="x-destatis" text="3490"/>
+               <label xml:lang="x-mapping" text="destatis:3490"/>
                <label xml:lang="x-lpp" text="479744033"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2021"/>
@@ -2456,7 +2455,7 @@
 
             <category ID="08.040.010.120(1991)">
                <label xml:lang="de" text="Fachgebiet Numerische Mathematik (1992-1992) ↑"/>
-               <label xml:lang="x-destatis" text="3490"/>
+               <label xml:lang="x-mapping" text="destatis:3490"/>
                <label xml:lang="x-lpp" text="537957030"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
@@ -2464,7 +2463,7 @@
 
             <category ID="08.040.010.130(2019)">
                <label xml:lang="de" text="Heisenberg-Professur Optimization Based Control (2019-)"/>
-               <label xml:lang="x-destatis" text="3490"/>
+               <label xml:lang="x-mapping" text="destatis:3490"/>
                <label xml:lang="x-lpp" text="1677181095"/>
                <label xml:lang="x-from" text="2019"/>
                <label xml:lang="x-kst" text="2413"/>
@@ -2472,7 +2471,7 @@
 
             <category ID="08.040.010.130(2014)">
                <label xml:lang="de" text="Juniorprofessur Differentialgleichungen (2014-2019) ↑"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="777156067"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2019"/>
@@ -2480,7 +2479,7 @@
 
             <category ID="08.040.010.130(2007)">
                <label xml:lang="de" text="Juniorprofessur Gewöhnliche Differentialgleichungen (2007-2013) ↑"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="556655540"/>
                <label xml:lang="x-from" text="2007"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2488,7 +2487,7 @@
 
             <category ID="08.040.010.140(2012)">
                <label xml:lang="de" text="Juniorprofessur Stochastik (2012-2017)"/>
-               <label xml:lang="x-destatis" text="3440"/>
+               <label xml:lang="x-mapping" text="destatis:3440"/>
                <label xml:lang="x-lpp" text="71806464X"/>
                <label xml:lang="x-from" text="2012"/>
                <label xml:lang="x-to" text="2017"/>
@@ -2496,7 +2495,7 @@
 
             <category ID="08.040.010.150(2021)">
                <label xml:lang="de" text="Fachgebiet Systemtheorie und partielle Differentialgleichungen (2021-)"/>
-               <label xml:lang="x-destatis" text="3445"/>
+               <label xml:lang="x-mapping" text="destatis:3445"/>
                <label xml:lang="x-lpp" text="1778936377"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2416"/>
@@ -2504,7 +2503,7 @@
 
             <category ID="08.040.010.160(1993)">
                <label xml:lang="de" text="Fachgebiet Wahrscheinlichkeitsrechnung und Mathematische Statistik (1993-)"/>
-               <label xml:lang="x-destatis" text="3330"/>
+               <label xml:lang="x-mapping" text="destatis:3330"/>
                <label xml:lang="x-lpp" text="479744351"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-kst" text="2412"/>
@@ -2534,7 +2533,7 @@
             <category ID="08.040.010.190(2023)">
                <label xml:lang="de" text="Juniorprofessur Diskrete Mathematik (2023-)"/>
                <label xml:lang="x-gnd" text="0"/>
-               <label xml:lang="x-destatis" text="3440"/>
+               <label xml:lang="x-mapping" text="destatis:3440"/>
                <label xml:lang="x-lpp" text="1861112076"/>
                <label xml:lang="x-from" text="2023"/>
                <label xml:lang="x-kst" text="2482"/>
@@ -2544,7 +2543,7 @@
                <label xml:lang="de" text="Fachgebiet Mathematics of Data Science (2023-)"/>
                <label xml:lang="en" text="Group for Mathematics of Data Science (2023-)"/>
                <label xml:lang="x-gnd" text="0"/>
-               <label xml:lang="x-destatis" text="3400"/>
+               <label xml:lang="x-mapping" text="destatis:3400"/>
                <label xml:lang="x-lpp" text="1861112211"/>
                <label xml:lang="x-from" text="2023"/>
                <label xml:lang="x-kst" text="2414"/>
@@ -2555,14 +2554,14 @@
             <label xml:lang="de" text="Institut für Physik (1992-)"/>
             <label xml:lang="en" text="Institute for Physics (1992-)"/>
             <label xml:lang="x-gnd" text="5250821-3"/>
-            <label xml:lang="x-destatis" text="3600"/>
+            <label xml:lang="x-mapping" text="destatis:3600"/>
             <label xml:lang="x-lpp" text="479739323"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="242"/>
 
             <category ID="08.040.020.010(2018)">
                <label xml:lang="de" text="Fachgebiet Angewandte Nanophysik (2018-)"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="1040199011"/>
                <label xml:lang="x-from" text="2018"/>
                <label xml:lang="x-kst" text="2435"/>
@@ -2570,7 +2569,7 @@
 
             <category ID="08.040.020.010(2011)">
                <label xml:lang="de" text="Stiftungsprofessur 3D Nanostrukturierung (2011-2018) ↑"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="682428612"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-to" text="2018"/>
@@ -2578,7 +2577,7 @@
 
             <category ID="08.040.020.020(1998)">
                <label xml:lang="de" text="Fachgebiet Chemie (1998-2010) ↗"/>
-               <label xml:lang="x-destatis" text="3730"/>
+               <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="479834148"/>
                <label xml:lang="x-from" text="1998"/>
                <label xml:lang="x-to" text="2010"/>
@@ -2586,7 +2585,7 @@
 
             <category ID="08.040.020.020(1990)">
                <label xml:lang="de" text="Fachgebiet Physikalische Chemie (1992-1998) ↑"/>
-               <label xml:lang="x-destatis" text="3730"/>
+               <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="538054689"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1998"/>
@@ -2594,7 +2593,7 @@
 
             <category ID="08.040.020.030(2014)">
                <label xml:lang="de" text="Fachgebiet Experimentalphysik I (2014-)"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="814759009"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2424"/>
@@ -2602,7 +2601,7 @@
 
             <category ID="08.040.020.030(1997)">
                <label xml:lang="de" text="Fachgebiet Technische Physik I (1997-2014) ↑"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="479838356"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2014"/>
@@ -2610,7 +2609,7 @@
 
             <category ID="08.040.020.030(1994)">
                <label xml:lang="de" text="Fachgebiet Technische Physik (1994-1996) ↑"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="537980989"/>
                <label xml:lang="x-from" text="1994"/>
                <label xml:lang="x-to" text="1996"/>
@@ -2626,7 +2625,7 @@
             <category ID="08.040.020.040(2012)">
                <label xml:lang="de" text="Fachgebiet Experimentalphysik II (2012-2017)"/>
                <label xml:lang="en" text="Experimental Physics Group II (2012-2017)"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="729505316"/>
                <label xml:lang="x-from" text="2012"/>
                <label xml:lang="x-to" text="2017"/>
@@ -2634,7 +2633,7 @@
 
             <category ID="08.040.020.040(1998)">
                <label xml:lang="de" text="Fachgebiet Experimentalphysik II/Umweltphysik (1998-2011) ↑"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="479837929"/>
                <label xml:lang="x-from" text="1998"/>
                <label xml:lang="x-to" text="2011"/>
@@ -2642,7 +2641,7 @@
 
             <category ID="08.040.020.040(1993)">
                <label xml:lang="de" text="Fachgebiet Experimentalphysik II (1993-1998) ↑"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="537979107"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="1998"/>
@@ -2651,7 +2650,7 @@
             <category ID="08.040.020.050(2019)">
                <label xml:lang="de" text="Fachgebiet Grundlagen von Energiematerialien (2019-)"/>
                <label xml:lang="x-gnd" text="1179291395"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="1066793743"/>
                <label xml:lang="x-from" text="2019"/>
                <label xml:lang="x-kst" text="2428"/>
@@ -2660,7 +2659,7 @@
             <category ID="08.040.020.050(2011)">
                <label xml:lang="de" text="Stiftungsprofessur Photovoltaik (2011-2019) ↑"/>
                <label xml:lang="x-gnd" text="1093623721"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="682429597"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-to" text="2019"/>
@@ -2668,7 +2667,7 @@
 
             <category ID="08.040.020.060(1990)">
                <label xml:lang="de" text="Fachgebiet Halbleiterphysik (1992-1996)"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="520292510"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1996"/>
@@ -2676,7 +2675,7 @@
 
             <category ID="08.040.020.070(2014)">
                <label xml:lang="de" text="Fachgebiet Technische Physik (2014-)"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="795392524"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2422"/>
@@ -2684,7 +2683,7 @@
 
             <category ID="08.040.020.070(1993)">
                <label xml:lang="de" text="Fachgebiet Experimentalphysik I (1993-2014) ↑"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="479837732"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2014"/>
@@ -2692,7 +2691,7 @@
 
             <category ID="08.040.020.070(1990)">
                <label xml:lang="de" text="Fachgebiet Experimentalphysik (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="537978909"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -2701,7 +2700,7 @@
             <category ID="08.040.020.080(1996)">
                <label xml:lang="de" text="Fachgebiet Technische Physik II/Polymerphysik (1996-)"/>
                <label xml:lang="en" text="Group Technical Physics II / Polymer Physics (1996-)"/>
-               <label xml:lang="x-destatis" text="3670"/>
+               <label xml:lang="x-mapping" text="destatis:3670"/>
                <label xml:lang="x-lpp" text="47983847X"/>
                <label xml:lang="x-from" text="1996"/>
                <label xml:lang="x-kst" text="2423"/>
@@ -2709,7 +2708,7 @@
 
             <category ID="08.040.020.090(1990)">
                <label xml:lang="de" text="Fachgebiet Theoretische Physik (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="520292294"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -2717,7 +2716,7 @@
 
             <category ID="08.040.020.091(1993)">
                <label xml:lang="de" text="Fachgebiet Theoretische Physik I (1993-)"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="479838631"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-kst" text="2421"/>
@@ -2726,7 +2725,7 @@
             <category ID="08.040.020.092(2002)">
                <label xml:lang="de" text="Fachgebiet Theoretische Physik II/Computational Physics (2002-)"/>
                <label xml:lang="en" text="Group for Theoretical Physics II / Computational Physics (2002-)"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="479838860"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-kst" text="2426"/>
@@ -2734,7 +2733,7 @@
 
             <category ID="08.040.020.092(1993)">
                <label xml:lang="de" text="Fachgebiet Theoretische Physik II (1993-2002) ↑"/>
-               <label xml:lang="x-destatis" text="3637"/>
+               <label xml:lang="x-mapping" text="destatis:3637"/>
                <label xml:lang="x-lpp" text="520290623"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2002"/>
@@ -2742,7 +2741,7 @@
 
             <category ID="08.040.020.100(2001)">
                <label xml:lang="de" text="Fachgebiet Physikalische Chemie/Mikroreaktionstechnik (2001-2010) ↗"/>
-               <label xml:lang="x-destatis" text="3730"/>
+               <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="479838224"/>
                <label xml:lang="x-from" text="2001"/>
                <label xml:lang="x-to" text="2010"/>
@@ -2752,7 +2751,7 @@
                <label xml:lang="de" text="Juniorprofessur Theoretische Festkörperphysik (2022-)"/>
                <label xml:lang="en" text="Group of Theoretical Solid State Physics (2022-)"/>
                <label xml:lang="x-gnd" text="0"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="1821290631"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2427"/>
@@ -2763,7 +2762,7 @@
             <label xml:lang="de" text="Institut für Chemie und Biotechnik (2011-)"/>
             <label xml:lang="en" text="Institute for Chemistry and Biotechnology (2011-)"/>
             <label xml:lang="x-gnd" text="1135976872"/>
-            <label xml:lang="x-destatis" text="3700"/>
+            <label xml:lang="x-mapping" text="destatis:3700"/>
             <label xml:lang="x-lpp" text="654518181"/>
             <label xml:lang="x-from" text="2011"/>
             <label xml:lang="x-kst" text="243"/>
@@ -2771,7 +2770,7 @@
             <category ID="08.040.030.010(2020)">
                <label xml:lang="de" text="Stiftungsprofessur Biotechnische Mikro- und Nanosysteme für die Lebenswissenschaften (2020-)"/>
                <label xml:lang="x-gnd" text="1228354480"/>
-               <label xml:lang="x-destatis" text="3760"/>
+               <label xml:lang="x-mapping" text="destatis:3760"/>
                <label xml:lang="x-lpp" text="1750112442"/>
                <label xml:lang="x-from" text="2020"/>
                <label xml:lang="x-kst" text="2432"/>
@@ -2779,7 +2778,7 @@
 
             <category ID="08.040.030.020(1998)">
                <label xml:lang="de" text="Fachgebiet Chemie (2011-)"/>
-               <label xml:lang="x-destatis" text="3730"/>
+               <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="479834148"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-kst" text="2425"/>
@@ -2788,7 +2787,7 @@
             <category ID="08.040.030.050(2010)">
                <label xml:lang="de" text="Fachgebiet Nanobiosystemtechnik (2010-)"/>
                <label xml:lang="x-gnd" text="1244811734"/>
-               <label xml:lang="x-destatis" text="6905"/>
+               <label xml:lang="x-mapping" text="destatis:6905"/>
                <label xml:lang="x-lpp" text="654520836"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-kst" text="2431"/>
@@ -2796,7 +2795,7 @@
 
             <category ID="08.040.030.060(2021)">
                <label xml:lang="de" text="Juniorprofessur Physikalische Chemie (2021-)"/>
-               <label xml:lang="x-destatis" text="3730"/>
+               <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="1779050968"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2429"/>
@@ -2805,7 +2804,7 @@
             <category ID="08.040.030.100(2001)">
                <label xml:lang="de" text="Fachgebiet Physikalische Chemie/Mikroreaktionstechnik (2011-2024)"/>
                <label xml:lang="x-gnd" text="113597747X"/>
-               <label xml:lang="x-destatis" text="3730"/>
+               <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="479838224"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-to" text="2024"/>
@@ -2817,7 +2816,7 @@
             <label xml:lang="de" text="Institut für Medien und Kommunikationswissenschaft (2010-2013) ↗"/>
             <label xml:lang="en" text="Institute for Media and Communication Science (2010-2013) ↗"/>
             <label xml:lang="x-gnd" text="10001132-9"/>
-            <label xml:lang="x-destatis" text="2210"/>
+            <label xml:lang="x-mapping" text="destatis:2210"/>
             <label xml:lang="x-lpp" text="724021388"/>
             <label xml:lang="x-from" text="2010"/>
             <label xml:lang="x-to" text="2013"/>
@@ -2825,7 +2824,7 @@
             <category ID="08.040.040(1997)">
                <label xml:lang="de" text="Institut für Medien- und Kommunikationswissenschaft (1997-2010) ↑"/>
                <label xml:lang="en" text="Institute of Media- and Communication Science (1997-2010) ↑"/>
-               <label xml:lang="x-destatis" text="2210"/>
+               <label xml:lang="x-mapping" text="destatis:2210"/>
                <label xml:lang="x-lpp" text="476939763"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2010"/>
@@ -2833,7 +2832,7 @@
 
             <category ID="08.040.040.020(2005)">
                <label xml:lang="de" text="Fachgebiet Empirische Medienforschung/Politische Kommunikation (2005-2013) ↗"/>
-               <label xml:lang="x-destatis" text="2300"/>
+               <label xml:lang="x-mapping" text="destatis:2300"/>
                <label xml:lang="x-lpp" text="48716170X"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2841,7 +2840,7 @@
 
             <category ID="08.040.040.020(1997)">
                <label xml:lang="de" text="Fachgebiet Politikwissenschaft/Medien (1997-2005) ↑"/>
-               <label xml:lang="x-destatis" text="2300"/>
+               <label xml:lang="x-mapping" text="destatis:2300"/>
                <label xml:lang="x-lpp" text="478899289"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2005"/>
@@ -2850,7 +2849,7 @@
             <category ID="08.040.040.030(1997)">
                <label xml:lang="de" text="Fachgebiet Kommunikationswissenschaft (1997-2013) ↗"/>
                <label xml:lang="x-gnd" text="6056205-5"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="476939941"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2859,7 +2858,7 @@
             <category ID="08.040.040.050(1998)">
                <label xml:lang="de" text="Fachgebiet Medienmanagement (1998-2013) ↗"/>
                <label xml:lang="x-gnd" text="10143747-X"/>
-               <label xml:lang="x-destatis" text="2985"/>
+               <label xml:lang="x-mapping" text="destatis:2985"/>
                <label xml:lang="x-lpp" text="479740925"/>
                <label xml:lang="x-from" text="1998"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2867,7 +2866,7 @@
 
             <category ID="08.040.040.060(2004)">
                <label xml:lang="de" text="Fachgebiet Medienkonzeption/Medienpsychologie (2004-2013) ↗"/>
-               <label xml:lang="x-destatis" text="0130"/>
+               <label xml:lang="x-mapping" text="destatis:0130"/>
                <label xml:lang="x-lpp" text="496805215"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2876,7 +2875,7 @@
             <category ID="08.040.040.060(1999)">
                <label xml:lang="de" text="Fachgebiet Medienkonzeption/Digitale Medien (1999-2004) ↑"/>
                <label xml:lang="x-gnd" text="10142904-6"/>
-               <label xml:lang="x-destatis" text="130"/>
+               <label xml:lang="x-mapping" text="destatis:130"/>
                <label xml:lang="x-lpp" text="479740186"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-to" text="2004"/>
@@ -2884,7 +2883,7 @@
 
             <category ID="08.040.040.070(1997)">
                <label xml:lang="de" text="Fachgebiet Medienwissenschaft (1997-2013) ↗"/>
-               <label xml:lang="x-destatis" text="0130"/>
+               <label xml:lang="x-mapping" text="destatis:0130"/>
                <label xml:lang="x-lpp" text="479741239"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2892,7 +2891,7 @@
 
             <category ID="08.040.040.080(2009)">
                <label xml:lang="de" text="Fachgebiet Public Relations mit dem Schwerpunkt Technikkommunikation (2009-2013) ↗"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="610574396"/>
                <label xml:lang="x-from" text="2009"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2900,7 +2899,7 @@
 
             <category ID="08.040.040.090(2008)">
                <label xml:lang="de" text="Fachgebiet Virtuelle Welten/Digitale Spiele (2008-2013) ↗"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="568430476"/>
                <label xml:lang="x-from" text="2008"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2908,7 +2907,7 @@
 
             <category ID="08.040.040.090(2000)">
                <label xml:lang="de" text="Fachgebiet Multimediale Anwendungen (2000-2008) ↑"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="479741417"/>
                <label xml:lang="x-from" text="2000"/>
                <label xml:lang="x-to" text="2008"/>
@@ -2916,7 +2915,7 @@
 
             <category ID="08.040.040.100(2009)">
                <label xml:lang="de" text="Juniorprofessur Sozialwissenschaftliche Aspekte von Computerspielen (2009-2013) ↗"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="600075710"/>
                <label xml:lang="x-from" text="2009"/>
                <label xml:lang="x-to" text="2013"/>
@@ -2925,13 +2924,13 @@
 
          <category ID="08.040.100">
             <label xml:lang="de" text="Forscher- und Lehrgruppen MN (1992-)"/>
-            <label xml:lang="x-destatis" text="3300"/>
+            <label xml:lang="x-mapping" text="destatis:3300"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="249"/>
 
             <category ID="08.040.100.010(2010)">
                <label xml:lang="de" text="Forschergruppe Oberflächenphysik funktioneller Nanostrukturen (2010-2016)"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="642845271"/>
                <label xml:lang="x-from" text="2010"/>
                <label xml:lang="x-to" text="2016"/>
@@ -2943,7 +2942,7 @@
          <label xml:lang="de" text="Fakultät für Wirtschaftswissenschaften und Medien (2014-)"/>
          <label xml:lang="en" text="Department of Economic Sciences and Media (2014-)"/>
          <label xml:lang="x-gnd" text="1075328195"/>
-         <label xml:lang="x-destatis" text="2900"/>
+         <label xml:lang="x-mapping" text="destatis:2900"/>
          <label xml:lang="x-lpp" text="782160212"/>
          <label xml:lang="x-from" text="2014"/>
          <label xml:lang="x-kst" text="25"/>
@@ -2952,7 +2951,7 @@
             <label xml:lang="de" text="Fakultät für Wirtschaftswissenschaften (1992-2013) ↑"/>
             <label xml:lang="en" text="Department of Economic Sciences (1992-2013) ↑"/>
             <label xml:lang="x-gnd" text="2130934-6"/>
-            <label xml:lang="x-destatis" text="2900"/>
+            <label xml:lang="x-mapping" text="destatis:2900"/>
             <label xml:lang="x-lpp" text="476842522"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2013"/>
@@ -2962,7 +2961,7 @@
             <label xml:lang="de" text="Institut für Betriebswirtschaftslehre (2002-)"/>
             <label xml:lang="en" text="Institute for Business Administration (2002-)"/>
             <label xml:lang="x-gnd" text="10142905-8"/>
-            <label xml:lang="x-destatis" text="2960"/>
+            <label xml:lang="x-mapping" text="destatis:2960"/>
             <label xml:lang="x-lpp" text="479839891"/>
             <label xml:lang="x-from" text="2002"/>
             <label xml:lang="x-kst" text="252"/>
@@ -2970,7 +2969,7 @@
             <category ID="08.050.020(1992)">
                <label xml:lang="de" text="Institut für Betriebswirtschaft (1992-2002) ↑"/>
                <label xml:lang="x-gnd" text="1076290833"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="527968625"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2002"/>
@@ -2979,7 +2978,7 @@
             <category ID="08.050.020.020(1997)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Finanzwirtschaft/Investition (1997-)"/>
                <label xml:lang="x-gnd" text="6045473-8"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="478982003"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-kst" text="2524"/>
@@ -2987,7 +2986,7 @@
 
             <category ID="08.050.020.020(1991)">
                <label xml:lang="de" text="Fachgebiet Finanzwirtschaft/Investitionsrechnung (1992-1997) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="527972223"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1997"/>
@@ -2996,7 +2995,7 @@
             <category ID="08.050.020.030(2021)">
                <label xml:lang="de" text="Juniorprofessur Innovationsmanagement (2021-)"/>
                <label xml:lang="x-gnd" text="1241207283"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="1770724974"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2527"/>
@@ -3004,7 +3003,7 @@
 
             <category ID="08.050.020.040(2005)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Marketing (2005-)"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="614050979"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-kst" text="2523"/>
@@ -3013,7 +3012,7 @@
             <category ID="08.050.020.040(1991)">
                <label xml:lang="de" text="Fachgebiet Marketing (1992-2005) ↑"/>
                <label xml:lang="x-gnd" text="2164387-8"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="479840229"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2005"/>
@@ -3021,7 +3020,7 @@
 
             <category ID="08.050.020.060(2013)">
                <label xml:lang="de" text="Fachgebiet Betriebswirtschaftslehre, insbesondere nachhaltige Produktionswirtschaft und Logistik (2013-)"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="741282003"/>
                <label xml:lang="x-from" text="2013"/>
                <label xml:lang="x-kst" text="2522"/>
@@ -3029,7 +3028,7 @@
 
             <category ID="08.050.020.060(2006)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Produktionswirtschaft/Industriebetriebslehre (2006-2013) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="61061598X"/>
                <label xml:lang="x-from" text="2006"/>
                <label xml:lang="x-to" text="2013"/>
@@ -3037,7 +3036,7 @@
 
             <category ID="08.050.020.060(2004)">
                <label xml:lang="de" text="Fachgebiet Produktionswirtschaft/Industriebetriebslehre (2004-2006) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="476842409"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2006"/>
@@ -3046,7 +3045,7 @@
             <category ID="08.050.020.060(1991)">
                <label xml:lang="de" text="Fachgebiet Produktion/Industriebetriebslehre (1992-2004) ↑"/>
                <label xml:lang="x-gnd" text="5147707-5"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="52796980X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2004"/>
@@ -3054,7 +3053,7 @@
 
             <category ID="08.050.020.070(2011)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Rechnungswesen und Controlling (2011-)"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="768545153"/>
                <label xml:lang="x-from" text="2011"/>
                <label xml:lang="x-kst" text="2521"/>
@@ -3062,7 +3061,7 @@
 
             <category ID="08.050.020.070(2009)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Rechnungswesen/Controlling (2009-2011) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="610610252"/>
                <label xml:lang="x-from" text="2009"/>
                <label xml:lang="x-to" text="2011"/>
@@ -3070,7 +3069,7 @@
 
             <category ID="08.050.020.070(1991)">
                <label xml:lang="de" text="Fachgebiet Rechnungswesen/Controlling (Betriebswirtschaftslehre) (1992-2009) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="47747148X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2009"/>
@@ -3078,7 +3077,7 @@
 
             <category ID="08.050.020.080(2008)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Unternehmensführung/Organisation (2008-)"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="574217762"/>
                <label xml:lang="x-from" text="2008"/>
                <label xml:lang="x-kst" text="2525"/>
@@ -3086,7 +3085,7 @@
 
             <category ID="08.050.020.080(2001)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Unternehmensführung (2001-2008) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="478991398"/>
                <label xml:lang="x-from" text="2001"/>
                <label xml:lang="x-to" text="2008"/>
@@ -3094,7 +3093,7 @@
 
             <category ID="08.050.020.080(1996)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Unternehmensführung/Personalwirtschaft (1996-2001) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="527969230"/>
                <label xml:lang="x-from" text="1996"/>
                <label xml:lang="x-to" text="2001"/>
@@ -3102,7 +3101,7 @@
 
             <category ID="08.050.020.080(1994)">
                <label xml:lang="de" text="Fachgebiet Personalwirtschaft/Unternehmensführung (1994-1996) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="537552170"/>
                <label xml:lang="x-from" text="1994"/>
                <label xml:lang="x-to" text="1996"/>
@@ -3110,7 +3109,7 @@
 
             <category ID="08.050.020.100(2004)">
                <label xml:lang="de" text="Juniorprofessur Allgemeine Betriebswirtschaftslehre (2004-2017)"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="501318496"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-to" text="2017"/>
@@ -3118,7 +3117,7 @@
 
             <category ID="08.050.020.110(2005)">
                <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Steuerlehre/Prüfungswesen (2005-2017)"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="607320206"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2017"/>
@@ -3126,7 +3125,7 @@
 
             <category ID="08.050.020.110(1999)">
                <label xml:lang="de" text="Fachgebiet Steuerlehre/Prüfungswesen (1999-2005) ↑"/>
-               <label xml:lang="x-destatis" text="2960"/>
+               <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="478992971"/>
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-to" text="2005"/>
@@ -3137,14 +3136,14 @@
             <label xml:lang="de" text="Institut für Wirtschaftsinformatik (1992-)"/>
             <label xml:lang="en" text="Institute for Business Information Systems Engineering (1992-)"/>
             <label xml:lang="x-gnd" text="2137256-1"/>
-            <label xml:lang="x-destatis" text="2935"/>
+            <label xml:lang="x-mapping" text="destatis:2935"/>
             <label xml:lang="x-lpp" text="478995776"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="253"/>
 
             <category ID="08.050.030.020(2002)">
                <label xml:lang="de" text="Fachgebiet Informations- und Wissensmanagement (2002-)"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="478999534"/>
                <label xml:lang="x-from" text="2002"/>
                <label xml:lang="x-kst" text="2533"/>
@@ -3153,7 +3152,7 @@
             <category ID="08.050.030.020(1992)">
                <label xml:lang="de" text="Fachgebiet Informationsmanagement (1992-2002) ↑"/>
                <label xml:lang="x-gnd" text="2137257-3"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="503849278"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2002"/>
@@ -3161,7 +3160,7 @@
 
             <category ID="08.050.030.050(2004)">
                <label xml:lang="de" text="Fachgebiet für Quantitative Methoden der Wirtschaftswissenschaften (2004-)"/>
-               <label xml:lang="x-destatis" text="2936"/>
+               <label xml:lang="x-mapping" text="destatis:2936"/>
                <label xml:lang="x-lpp" text="499658841"/>
                <label xml:lang="x-from" text="2004"/>
                <label xml:lang="x-kst" text="2532"/>
@@ -3169,7 +3168,7 @@
 
             <category ID="08.050.030.050(2000)">
                <label xml:lang="de" text="Fachgebiet Operations Research und Wirtschaftsstatistik (2000-2004) ↑"/>
-               <label xml:lang="x-destatis" text="2936"/>
+               <label xml:lang="x-mapping" text="destatis:2936"/>
                <label xml:lang="x-lpp" text="478998872"/>
                <label xml:lang="x-from" text="2000"/>
                <label xml:lang="x-to" text="2004"/>
@@ -3178,7 +3177,7 @@
             <category ID="08.050.030.050(1995)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsstatistik und Operations Research (1995-2000) ↑"/>
                <label xml:lang="x-gnd" text="6038669-1"/>
-               <label xml:lang="x-destatis" text="2936"/>
+               <label xml:lang="x-mapping" text="destatis:2936"/>
                <label xml:lang="x-lpp" text="537607749"/>
                <label xml:lang="x-from" text="1995"/>
                <label xml:lang="x-to" text="2000"/>
@@ -3186,7 +3185,7 @@
 
             <category ID="08.050.030.050(1992)">
                <label xml:lang="de" text="Fachgebiet Mathematische Methoden der Wirtschaftsinformatik (1992-1995) ↑"/>
-               <label xml:lang="x-destatis" text="2936"/>
+               <label xml:lang="x-mapping" text="destatis:2936"/>
                <label xml:lang="x-lpp" text="53760586X"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1995"/>
@@ -3202,7 +3201,7 @@
             <category ID="08.050.030.070(2005)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik für Dienstleistungen (2005-)"/>
                <label xml:lang="x-gnd" text="1076085261"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="501356428"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-kst" text="2534"/>
@@ -3211,7 +3210,7 @@
             <category ID="08.050.030.070(1993)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik II (1993-2005) ↑"/>
                <label xml:lang="x-gnd" text="10026745-2"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="479119309"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2005"/>
@@ -3219,7 +3218,7 @@
 
             <category ID="08.050.030.070(1992)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik des Dienstleistungsbetriebes (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="537605002"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -3227,7 +3226,7 @@
 
             <category ID="08.050.030.080(2007)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik für Industriebetriebe (2007-2021)"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="527260002"/>
                <label xml:lang="x-from" text="2007"/>
                <label xml:lang="x-to" text="2021"/>
@@ -3235,7 +3234,7 @@
 
             <category ID="08.050.030.080(1993)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik I (1993-2007) ↑"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="478996217"/>
                <label xml:lang="x-from" text="1993"/>
                <label xml:lang="x-to" text="2007"/>
@@ -3243,7 +3242,7 @@
 
             <category ID="08.050.030.080(1992)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik des Industriebetriebes (1992-1993) ↑"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="537604715"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1993"/>
@@ -3251,7 +3250,7 @@
 
             <category ID="08.050.030.090(1991)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftsinformatik/Produktionsmanagement (1992-1992)"/>
-               <label xml:lang="x-destatis" text="2935"/>
+               <label xml:lang="x-mapping" text="destatis:2935"/>
                <label xml:lang="x-lpp" text="537608311"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
@@ -3262,7 +3261,7 @@
             <label xml:lang="de" text="Institut für Volkswirtschaftslehre (1994-)"/>
             <label xml:lang="en" text="Institute for Economics (1994-)"/>
             <label xml:lang="x-gnd" text="2153644-2"/>
-            <label xml:lang="x-destatis" text="2930"/>
+            <label xml:lang="x-mapping" text="destatis:2930"/>
             <label xml:lang="x-lpp" text="479005060"/>
             <label xml:lang="x-from" text="1994"/>
             <label xml:lang="x-kst" text="254"/>
@@ -3276,7 +3275,7 @@
 
             <category ID="08.050.040.020(1997)">
                <label xml:lang="de" text="Fachgebiet Finanzwissenschaft (1997-)"/>
-               <label xml:lang="x-destatis" text="2980"/>
+               <label xml:lang="x-mapping" text="destatis:2980"/>
                <label xml:lang="x-lpp" text="47902314X"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-kst" text="2543"/>
@@ -3285,7 +3284,7 @@
             <category ID="08.050.040.040(2021)">
                <label xml:lang="de" text="Juniorprofessur Law and Economics of Digitalization (2021-)"/>
                <label xml:lang="x-gnd" text="1241258686"/>
-               <label xml:lang="x-destatis" text="2930"/>
+               <label xml:lang="x-mapping" text="destatis:2930"/>
                <label xml:lang="x-lpp" text="1770805303"/>
                <label xml:lang="x-from" text="2021"/>
                <label xml:lang="x-kst" text="2544"/>
@@ -3293,7 +3292,7 @@
 
             <category ID="08.050.040.060(2012)">
                <label xml:lang="de" text="Fachgebiet Volkswirtschaftslehre, insbesondere Wirtschaftspolitik (2012-)"/>
-               <label xml:lang="x-destatis" text="2930"/>
+               <label xml:lang="x-mapping" text="destatis:2930"/>
                <label xml:lang="x-lpp" text="782482694"/>
                <label xml:lang="x-from" text="2012"/>
                <label xml:lang="x-kst" text="2542"/>
@@ -3301,7 +3300,7 @@
 
             <category ID="08.050.040.060(1997)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftspolitik (1997-2012) ↑"/>
-               <label xml:lang="x-destatis" text="2930"/>
+               <label xml:lang="x-mapping" text="destatis:2930"/>
                <label xml:lang="x-lpp" text="479005702"/>
                <label xml:lang="x-from" text="1997"/>
                <label xml:lang="x-to" text="2012"/>
@@ -3309,7 +3308,7 @@
 
             <category ID="08.050.040.060(1992)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftspolitik/Finanzwissenschaft (1992-1997) ↑"/>
-               <label xml:lang="x-destatis" text="2930"/>
+               <label xml:lang="x-mapping" text="destatis:2930"/>
                <label xml:lang="x-lpp" text="537676384"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1997"/>
@@ -3317,7 +3316,7 @@
 
             <category ID="08.050.040.070(2009)">
                <label xml:lang="de" text="Fachgebiet Volkswirtschaftslehre, insbesondere Wirtschaftstheorie (2009-)"/>
-               <label xml:lang="x-destatis" text="2930"/>
+               <label xml:lang="x-mapping" text="destatis:2930"/>
                <label xml:lang="x-lpp" text="782478271"/>
                <label xml:lang="x-from" text="2009"/>
                <label xml:lang="x-kst" text="2541"/>
@@ -3325,7 +3324,7 @@
 
             <category ID="08.050.040.070(1992)">
                <label xml:lang="de" text="Fachgebiet Wirtschaftstheorie (1992-2009) ↑"/>
-               <label xml:lang="x-destatis" text="2930"/>
+               <label xml:lang="x-mapping" text="destatis:2930"/>
                <label xml:lang="x-lpp" text="479002371"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2009"/>
@@ -3333,7 +3332,7 @@
 
             <category ID="08.050.040.080(1992)">
                <label xml:lang="de" text="Fachgebiet Technik- und Wirtschaftsgeschichte (1992-2009) ↗"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="479741646"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2009"/>
@@ -3344,14 +3343,14 @@
             <label xml:lang="de" text="Institut für Medien und Kommunikationswissenschaft (2014-)"/>
             <label xml:lang="en" text="Institute for Media and Communication Science (2014-)"/>
             <label xml:lang="x-gnd" text="10001132-9"/>
-            <label xml:lang="x-destatis" text="2210"/>
+            <label xml:lang="x-mapping" text="destatis:2210"/>
             <label xml:lang="x-lpp" text="724021388"/>
             <label xml:lang="x-from" text="2014"/>
             <label xml:lang="x-kst" text="255"/>
 
             <category ID="08.050.050.020(2005)">
                <label xml:lang="de" text="Fachgebiet Empirische Medienforschung/Politische Kommunikation (2014-)"/>
-               <label xml:lang="x-destatis" text="2300"/>
+               <label xml:lang="x-mapping" text="destatis:2300"/>
                <label xml:lang="x-lpp" text="48716170X"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2551"/>
@@ -3360,7 +3359,7 @@
             <category ID="08.050.050.030(1997)">
                <label xml:lang="de" text="Fachgebiet Kommunikationswissenschaft (2014-2022)"/>
                <label xml:lang="x-gnd" text="6056205-5"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="476939941"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2022"/>
@@ -3371,7 +3370,7 @@
                <label xml:lang="de" text="Fachgebiet Kommunikationswissenschaft mit Schwerpunkt Computational Communication Science (2022-)"/>
                <label xml:lang="en" text="Computational Communication Science Group (2022-)"/>
                <label xml:lang="x-gnd" text="0"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="1821307011"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2559"/>
@@ -3380,7 +3379,7 @@
             <category ID="08.050.050.040(2017)">
                <label xml:lang="de" text="Juniorprofessur Kommunikationswissenschaft mit Schwerpunkt Computational Communication Science (2017-2022) ↑"/>
                <label xml:lang="en" text="Assistant Professorship Communication Science, esp. Computational Communication Science (2017-2022) ↑"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="1009223755"/>
                <label xml:lang="x-from" text="2017"/>
                <label xml:lang="x-to" text="2022"/>
@@ -3390,7 +3389,7 @@
             <category ID="08.050.050.050(2013)">
                <label xml:lang="de" text="Fachgebiet Medien- und Kommunikationsmanagement (2014-)"/>
                <label xml:lang="x-gnd" text="1075525241"/>
-               <label xml:lang="x-destatis" text="2985"/>
+               <label xml:lang="x-mapping" text="destatis:2985"/>
                <label xml:lang="x-lpp" text="751513415"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2556"/>
@@ -3398,7 +3397,7 @@
 
             <category ID="08.050.050.060(2004)">
                <label xml:lang="de" text="Fachgebiet Medienkonzeption/Medienpsychologie (2014-)"/>
-               <label xml:lang="x-destatis" text="0130"/>
+               <label xml:lang="x-mapping" text="destatis:0130"/>
                <label xml:lang="x-lpp" text="496805215"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2554"/>
@@ -3406,7 +3405,7 @@
 
             <category ID="08.050.050.070(1997)">
                <label xml:lang="de" text="Fachgebiet Medienwissenschaft (2014-)"/>
-               <label xml:lang="x-destatis" text="0130"/>
+               <label xml:lang="x-mapping" text="destatis:0130"/>
                <label xml:lang="x-lpp" text="479741239"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2552"/>
@@ -3414,7 +3413,7 @@
 
             <category ID="08.050.050.080(2009)">
                <label xml:lang="de" text="Fachgebiet Public Relations mit dem Schwerpunkt Technikkommunikation (2014-)"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="610574396"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2555"/>
@@ -3422,7 +3421,7 @@
 
             <category ID="08.050.050.090(2008)">
                <label xml:lang="de" text="Fachgebiet Virtuelle Welten/Digitale Spiele (2014-)"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="568430476"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-kst" text="2557"/>
@@ -3430,7 +3429,7 @@
 
             <category ID="08.050.050.100(2009)">
                <label xml:lang="de" text="Juniorprofessur Sozialwissenschaftliche Aspekte von Computerspielen (2014-2014)"/>
-               <label xml:lang="x-destatis" text="2240"/>
+               <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="600075710"/>
                <label xml:lang="x-from" text="2014"/>
                <label xml:lang="x-to" text="2014"/>
@@ -3441,7 +3440,7 @@
             <label xml:lang="de" text="Institut für Rechtswissenschaft (1998-)"/>
             <label xml:lang="en" text="Institute for Law (1998-)"/>
             <label xml:lang="x-gnd" text="1228994218"/>
-            <label xml:lang="x-destatis" text="2500"/>
+            <label xml:lang="x-mapping" text="destatis:2500"/>
             <label xml:lang="x-lpp" text="479844917"/>
             <label xml:lang="x-from" text="1998"/>
             <label xml:lang="x-kst" text="256"/>
@@ -3449,7 +3448,7 @@
             <category ID="08.050.060(1992)">
                <label xml:lang="de" text="Institut für Rechtswissenschaften (1992-1998) ↑"/>
                <label xml:lang="x-gnd" text="10124552-X"/>
-               <label xml:lang="x-destatis" text="2500"/>
+               <label xml:lang="x-mapping" text="destatis:2500"/>
                <label xml:lang="x-lpp" text="537727205"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1998"/>
@@ -3457,7 +3456,7 @@
 
             <category ID="08.050.060.050(1992)">
                <label xml:lang="de" text="Fachgebiet Öffentliches Recht (1992-)"/>
-               <label xml:lang="x-destatis" text="2560"/>
+               <label xml:lang="x-mapping" text="destatis:2560"/>
                <label xml:lang="x-lpp" text="479025975"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-kst" text="2562"/>
@@ -3465,7 +3464,7 @@
 
             <category ID="08.050.060.100(1992)">
                <label xml:lang="de" text="Fachgebiet Zivilrecht (1992-2019)"/>
-               <label xml:lang="x-destatis" text="2550"/>
+               <label xml:lang="x-mapping" text="destatis:2550"/>
                <label xml:lang="x-lpp" text="479024286"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2019"/>
@@ -3475,14 +3474,14 @@
 
       <category ID="08.200">
          <label xml:lang="de" text="Zentrale Einrichtungen (1992-)"/>
-         <label xml:lang="x-destatis" text="9200"/>
+         <label xml:lang="x-mapping" text="destatis:9200"/>
          <label xml:lang="x-from" text="1992"/>
          <label xml:lang="x-kst" text="20"/>
 
          <category ID="08.200.010(2002)">
             <label xml:lang="de" text="Zentrum für Mikro- und Nanotechnologien (2002-)"/>
             <label xml:lang="x-gnd" text="6057593-1"/>
-            <label xml:lang="x-destatis" text="7100"/>
+            <label xml:lang="x-mapping" text="destatis:7100"/>
             <label xml:lang="x-lpp" text="480772142"/>
             <label xml:lang="x-from" text="2002"/>
             <label xml:lang="x-kst" text="201"/>
@@ -3491,7 +3490,7 @@
          <category ID="08.200.015(2005)">
             <label xml:lang="de" text="Institut für Mikro- und Nanotechnologien (2005-)"/>
             <label xml:lang="x-gnd" text="6073183-7"/>
-            <label xml:lang="x-destatis" text="7100"/>
+            <label xml:lang="x-mapping" text="destatis:7100"/>
             <label xml:lang="x-lpp" text="602207401"/>
             <label xml:lang="x-from" text="2005"/>
          </category>
@@ -3506,7 +3505,7 @@
          <category ID="08.600.010(1992)">
             <label xml:lang="de" text="Universitätsrechenzentrum (1992-)"/>
             <label xml:lang="en" text="University Computer Center (1992-)"/>
-            <label xml:lang="x-destatis" text="9100"/>
+            <label xml:lang="x-mapping" text="destatis:9100"/>
             <label xml:lang="x-lpp" text="476836212"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="61"/>
@@ -3516,7 +3515,7 @@
             <label xml:lang="de" text="Universitätsbibliothek (1992-)"/>
             <label xml:lang="en" text="University Library (1992-)"/>
             <label xml:lang="x-gnd" text="5302266-X"/>
-            <label xml:lang="x-destatis" text="9000"/>
+            <label xml:lang="x-mapping" text="destatis:9000"/>
             <label xml:lang="x-lpp" text="473110253"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="62"/>
@@ -3524,7 +3523,7 @@
 
          <category ID="08.600.050(1992)">
             <label xml:lang="de" text="PATON (1992-)"/>
-            <label xml:lang="x-destatis" text="9200"/>
+            <label xml:lang="x-mapping" text="destatis:9200"/>
             <label xml:lang="x-lpp" text="480774404"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-kst" text="65"/>
@@ -3534,19 +3533,19 @@
       <category ID="08.700">
          <label xml:lang="de" text="Verwaltung (1992-)"/>
          <label xml:lang="en" text="Administration (1992-)"/>
-         <label xml:lang="x-destatis" text="8800"/>
+         <label xml:lang="x-mapping" text="destatis:8800"/>
          <label xml:lang="x-from" text="1992"/>
 
          <category ID="08.700.010(2020)">
             <label xml:lang="de" text="Technische Universität / Präsidium (2020-)"/>
-            <label xml:lang="x-destatis" text="8800"/>
+            <label xml:lang="x-mapping" text="destatis:8800"/>
             <label xml:lang="x-lpp" text="1815459832"/>
             <label xml:lang="x-from" text="2020"/>
             <label xml:lang="x-kst" text="71"/>
 
             <category ID="08.700.010(1992)">
                <label xml:lang="de" text="Technische Universität / Rektorat (1992-2020) ↑"/>
-               <label xml:lang="x-destatis" text="8800"/>
+               <label xml:lang="x-mapping" text="destatis:8800"/>
                <label xml:lang="x-lpp" text="484027557"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="2020"/>
@@ -3562,7 +3561,7 @@
 
          <category ID="08.900.010(2002)">
             <label xml:lang="de" text="Sonderforschungsbereich 622 Nanopositionier- und Nanomessmaschinen (2002-2013)"/>
-            <label xml:lang="x-destatis" text="7100"/>
+            <label xml:lang="x-mapping" text="destatis:7100"/>
             <label xml:lang="x-lpp" text="489934900"/>
             <label xml:lang="x-from" text="2002"/>
             <label xml:lang="x-to" text="2013"/>
@@ -3571,7 +3570,7 @@
          <category ID="08.900.050(2016)">
             <label xml:lang="de" text="Technische Universität / Studierendenrat (2016-)"/>
             <label xml:lang="x-gnd" text="0"/>
-            <label xml:lang="x-destatis" text="8820"/>
+            <label xml:lang="x-mapping" text="destatis:8820"/>
             <label xml:lang="x-lpp" text="1851448942"/>
             <label xml:lang="x-from" text="2016"/>
             <label xml:lang="x-kst" text="7255"/>
@@ -3579,7 +3578,7 @@
 
          <category ID="08.900.050(1992)">
             <label xml:lang="de" text="Technische Universität / Studentenrat (1992-2016) ↑"/>
-            <label xml:lang="x-destatis" text="8820"/>
+            <label xml:lang="x-mapping" text="destatis:8820"/>
             <label xml:lang="x-lpp" text="499747933"/>
             <label xml:lang="x-from" text="1992"/>
             <label xml:lang="x-to" text="2016"/>
@@ -3587,7 +3586,7 @@
 
          <category ID="08.900.100(1992)">
             <label xml:lang="de" text="Externe Einrichtungen (1992-)"/>
-            <label xml:lang="x-destatis" text="9600"/>
+            <label xml:lang="x-mapping" text="destatis:9600"/>
             <label xml:lang="x-from" text="1992"/>
          </category>
 
@@ -3605,7 +3604,7 @@
          <label xml:lang="de" text="Fakultät für Elektrotechnik und Informationstechnik (1990-1992)"/>
          <label xml:lang="en" text="Department of Electrical Engineering and Information Technology (1990-1992)"/>
          <label xml:lang="x-gnd" text="5125814-6"/>
-         <label xml:lang="x-destatis" text="7100"/>
+         <label xml:lang="x-mapping" text="destatis:7100"/>
          <label xml:lang="x-lpp" text="476899125"/>
          <label xml:lang="x-from" text="1990"/>
          <label xml:lang="x-to" text="1992"/>
@@ -3821,7 +3820,7 @@
 
             <category ID="07.010.070.020(1992)">
                <label xml:lang="de" text="Fachgebiet Oberflächen- und Gasentladungstechnik (1992-1992)"/>
-               <label xml:lang="x-destatis" text="3680"/>
+               <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="527982504"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
