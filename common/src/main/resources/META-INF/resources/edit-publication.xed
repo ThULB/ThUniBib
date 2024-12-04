@@ -115,7 +115,6 @@
               </xed:if>
             </fieldset>
 
-            <!--
             <xed:if test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
               <fieldset>
                 <legend>
@@ -124,8 +123,8 @@
                 <xed:include ref="projectInformation" />
               </fieldset>
             </xed:if>
-            -->
           </xed:bind>
+
           <xed:include ref="cleanup" />
           <xed:include ref="cancel.submit" />
           <xed:include ref="javascript" />
