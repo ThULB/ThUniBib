@@ -19,6 +19,7 @@
 
   <xsl:param name="UBO.Frontend.jquery.version"/>
   <xsl:param name="UBO.Frontend.bootstrap-select.version"/>
+  <xsl:param name="UBO.Frontend.jquery-ui.version"/>
   <xsl:param name="UBO.Frontend.bootstrap.version"/>
   <xsl:param name="UBO.Frontend.font-awesome.version"/>
 
@@ -57,6 +58,9 @@
 
       <script src="{$WebApplicationBaseURL}webjars/bootstrap-select/{$UBO.Frontend.bootstrap-select.version}/js/bootstrap-select.min.js"/>
       <link href="{$WebApplicationBaseURL}webjars/bootstrap-select/{$UBO.Frontend.bootstrap-select.version}/css/bootstrap-select.min.css" rel="stylesheet" />
+
+      <script src="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.js"/>
+      <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/jquery-ui/{$UBO.Frontend.jquery-ui.version}/jquery-ui.css" type="text/css"/>
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
