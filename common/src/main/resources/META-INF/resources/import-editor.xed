@@ -50,24 +50,16 @@
                   test="string-length(.) &gt; 0"
                   relevant-if="not(//mods:mods/mods:relatedItem[@type='series']) and (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
                   i18n="ubo.title.validation.genre.intern.present" display="global"/>
-
-    <script type="text/javascript">
-      <![CDATA[
-        $(document).ready(function () {
-            $('select[class*="autocomplete"]').chosen({search_contains: true});
-            $(document).popover({
-                selector: "[data-toggle=popover]",
-                container: "body",
-                html: true,
-                trigger: "focus"
-            });
-        });
-      ]]>
-    </script>
   </xed:template>
 
   <xed:template id="javascript">
-    <script src="{$WebApplicationBaseURL}js/language-search.js"/>
+      <script>
+        $(document).ready(function () {
+          $('select[class*="autocomplete"]').selectpicker({liveSearch:true, liveSearchNormalize:true, virtualScroll:true, showSubtext:true, size:10});
+        });
+      </script>
+
+      <script src="{$WebApplicationBaseURL}js/language-search.js"/>
   </xed:template>
 
   <xed:template id="common.metafields">
@@ -136,7 +128,7 @@
           <option value="">
             <xed:output i18n="search.select.autocomplete"/>
           </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:destatis"/>
+          <xed:include uri="xslStyle:mycoreclass-options:classification:metadata:-1:children:destatis"/>
         </select>
         <xed:controls/>
       </div>
@@ -158,7 +150,7 @@
           <option value="">
             <xed:output i18n="search.select.autocomplete"/>
           </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:ORIGIN"/>
+          <xed:include uri="xslStyle:mycoreclass-options:classification:metadata:-1:children:ORIGIN"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
            data-content="{i18n:ubo.help.department}">

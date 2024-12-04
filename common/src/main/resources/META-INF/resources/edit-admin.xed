@@ -126,12 +126,15 @@
                 </xed:choose>
               </xed:bind>
             </fieldset>
+          <!--
             <fieldset>
               <legend>
                 <xed:output value="concat(i18n:translate('ubo.project.information'), ': ')" />
               </legend>
+
               <xed:include ref="projectInformation" />
             </fieldset>
+            -->
           </xed:bind>
 
           <xed:include uri="webapp:import-editor.xed" ref="fix.structure.parent" />
