@@ -171,6 +171,15 @@
       <label xml:lang="x-group" text="true"/>
       <label xml:lang="de" text="Selbstständige Werke"/>
       <label xml:lang="en" text="Independent"/>
+
+      <category ID="exhibition_catalogue">
+        <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#573d95"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+
+        <label xml:lang="de" text="Ausstellungskatalog"/>
+        <label xml:lang="en" text="Exhibition Catalogue"/>
+      </category>
       <category ID="book">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#573d90"/>
@@ -190,6 +199,7 @@
       </category>
       <category ID="collection">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#174490"/>
         <label xml:lang="x-marcgt" text="book"/>
         <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:book"/>
 
@@ -199,6 +209,7 @@
         <category ID="special_issue">
           <label xml:lang="x-hosts" text="standalone"/>
           <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
+          <label xml:lang="x-color" text="#5671a5"/>
 
           <label xml:lang="de" text="Sonderheft"/>
           <label xml:lang="en" text="Special Issue"/>
