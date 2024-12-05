@@ -33,27 +33,6 @@ i.ubo-picker-service-LDAPWithLocalService::before {
   content: "\f1ad";
 }
 
-i.flag {
-  margin-right: .5rem;
-  position: relative;
-  display: inline-block;
-  width: 1.33333333em;
-  line-height: 1em;
-  height: 1em;
-  background-size: contain;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-}
-
-i.flag-de {
-  background-image: url("/images/flag-de.svg");
-}
-
-i.flag-en {
-  background-image: url("/images/flag-en.svg");
-}
-
 #ubo-search-person option[value="person_ths"] {
   display: none;
 }
