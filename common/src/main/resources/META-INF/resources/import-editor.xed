@@ -128,7 +128,7 @@
           <option value="">
             <xed:output i18n="search.select.autocomplete"/>
           </option>
-          <xed:include uri="xslStyle:mycoreclass-options:classification:metadata:-1:children:destatis"/>
+          <xed:include uri="xslStyle:mycoreclass-options?omitSubtext=true:classification:metadata:-1:children:destatis"/>
         </select>
         <xed:controls/>
       </div>
@@ -150,7 +150,7 @@
           <option value="">
             <xed:output i18n="search.select.autocomplete"/>
           </option>
-          <xed:include uri="xslStyle:mycoreclass-options:classification:metadata:-1:children:ORIGIN"/>
+          <xed:include uri="xslStyle:mycoreclass-options?omitSubtext=true:classification:metadata:-1:children:ORIGIN"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
            data-content="{i18n:ubo.help.department}">
