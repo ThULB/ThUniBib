@@ -2,12 +2,10 @@
 // http://getbootstrap.com/customize/#less-variables
 @import "./utilities/variables_thunibib";
 
-
 // necessary import (parent)
 @import "ubo";
 
-
-// thuunibib CSS
+// thunibib CSS
 // Unspecific/general
 @import "./base/general";
 
@@ -28,3 +26,7 @@
 
 // Footer-Specific
 @import "./base/footer";
+
+// shared thunibib styles
+@import "./base/thunibib_common";
+
