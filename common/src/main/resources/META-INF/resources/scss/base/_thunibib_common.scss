@@ -22,3 +22,8 @@ i.flag-en {
 .ubo-import-list-select-fachreferate {
   display: none;
 }
+
+/* Fix color of bootstrap-select items */
+div[id^="bs-select"] ul.dropdown-menu li.active a {
+  color: white;
+}
