@@ -1,0 +1,29 @@
+i.flag {
+  margin-right: .5rem;
+  position: relative;
+  display: inline-block;
+  width: 1.33333333em;
+  line-height: 1em;
+  height: 1em;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+i.flag-de {
+  background-image: url("/images/flag-de.svg");
+}
+
+i.flag-en {
+  background-image: url("/images/flag-en.svg");
+}
+
+.ubo-import-list-select-fachreferate {
+  display: none;
+}
+
+/* Fix color of bootstrap-select items */
+div[id^="bs-select"] ul.dropdown-menu li.active a {
+  color: white;
+}

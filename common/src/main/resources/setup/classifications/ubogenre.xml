@@ -234,6 +234,7 @@
       </category>
       <category ID="interview">
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
+        <label xml:lang="x-color" text="#e02f8b"/>
         <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Interview"/>
@@ -267,6 +268,7 @@
       </category>
       <category ID="workingpaper">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#953a4b"/>
         <label xml:lang="x-marcgt" text="book"/>
         <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:working-paper"/>
 
@@ -284,6 +286,7 @@
       </category>
       <category ID="poster">
         <label xml:lang="x-hosts" text="standalone proceedings collection book newspaper video others"/>
+        <label xml:lang="x-color" text="#7671b1"/>
         <label xml:lang="x-mapping" text="orcidWorkType:conference-poster"/>
 
         <label xml:lang="de" text="Poster"/>
@@ -291,6 +294,7 @@
       </category>
       <category ID="preprint">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#1671c1"/>
         <label xml:lang="x-mapping" text="orcidWorkType:preprint"/>
 
         <label xml:lang="de" text="Preprint"/>
@@ -298,6 +302,7 @@
       </category>
       <category ID="authors_version">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#2691DF"/>
         <label xml:lang="x-mapping" text="orcidWorkType:journal-article"/>
 
         <label xml:lang="de" text="Autorenversion"/>
@@ -313,6 +318,7 @@
       </category>
       <category ID="image">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#df9526"/>
         <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Bild"/>
@@ -320,6 +326,7 @@
       </category>
       <category ID="software">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#df1526"/>
         <label xml:lang="x-mapping" text="orcidWorkType:software"/>
 
         <label xml:lang="de" text="Software"/>
@@ -327,6 +334,7 @@
       </category>
       <category ID="video">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#ac0026"/>
         <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Video/Film"/>
@@ -334,6 +342,7 @@
       </category>
       <category ID="speech">
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
+        <label xml:lang="x-color" text="#467040"/>
         <label xml:lang="x-mapping" text="orcidWorkType:lecture-speech"/>
 
         <label xml:lang="de" text="Vortrag/Redebeitrag"/>
@@ -341,6 +350,7 @@
       </category>
       <category ID="map">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#997950"/>
         <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Karte"/>
@@ -348,6 +358,7 @@
       </category>
       <category ID="sheet_music">
         <label xml:lang="x-hosts" text="standalone collection book newspaper video others"/>
+        <label xml:lang="x-color" text="#eeeee0"/>
         <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Noten"/>
@@ -355,6 +366,7 @@
       </category>
       <category ID="object">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#856468"/>
         <label xml:lang="x-mapping" text="orcidWorkType:physical-object"/>
 
         <label xml:lang="de" text="Objekt/Artefakt"/>
@@ -384,6 +396,7 @@
       </category>
       <category ID="newspaper">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#456468"/>
         <label xml:lang="x-mapping" text="orcidWorkType:newspaper-article"/>
 
         <label xml:lang="de" text="Zeitung"/>
@@ -391,6 +404,7 @@
       </category>
       <category ID="blog">
         <label xml:lang="x-hosts" text="standalone"/>
+        <label xml:lang="x-color" text="#1a3000"/>
         <label xml:lang="x-mapping" text="orcidWorkType:website"/>
 
         <label xml:lang="de" text="Website/Blog"/>
@@ -399,6 +413,7 @@
     </category>
     <category ID="others">
       <label xml:lang="x-hosts" text="standalone"/>
+      <label xml:lang="x-color" text="#eeeeed"/>
       <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
       <label xml:lang="de" text="Sonstiges"/>
