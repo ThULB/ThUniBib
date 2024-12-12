@@ -32,6 +32,10 @@
     <xed:include ref="genre.book.common"/>
   </xed:template>
 
+  <xed:template id="genre.exhibition_catalogue">
+    <xed:include ref="genre.book.common"/>
+  </xed:template>
+
   <xed:template id="genre.researchpaper">
     <xed:include ref="genre.book.common"/>
   </xed:template>

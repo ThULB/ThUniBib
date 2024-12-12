@@ -63,7 +63,7 @@
         ],
         "json.facet": "{year:{type:terms,field:year,limit:100,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
         "fq": "+objectType:mods",
-        "fq": "status:unchecked OR status:confirmed"
+        "fq": "status:unchecked OR status:confirmed OR status:reviewPending"
       },
       "invariants": {
         "fl": "",
@@ -188,7 +188,7 @@
       },
       "appends": {
         "fq": "+objectType:mods",
-        "fq": "status:unchecked OR status:confirmed"
+        "fq": "status:unchecked OR status:confirmed OR status:reviewPending"
       }
     }
   }
