@@ -1,5 +1,11 @@
 # Changelog
 
+## 2024.12.12-2023.06.x
+- [#665](https://github.com/ThULB/ThUniBib/issues/665) Reflect changes introduced with UBO-372 (#666)
+- [#669](https://github.com/ThULB/ThUniBib/issues/669) Add status "Review pending" (Jena) (#670)
+- [FSU040THUL-5394](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5394) [#667](https://github.com/ThULB/ThUniBib/issues/667) Added 'Austellungskatalog' to ubogenre.xml (#668)
+---
+
 ## 2024.12.03-2023.06.x
 - [#614](https://github.com/ThULB/ThUniBib/issues/614) Updated solr request handlers to reflect recent changes due to migration from fachreferate to destatis classification (#649)
 - [#614](https://github.com/ThULB/ThUniBib/issues/614) Use class mapping for determining destatis from ORIGIN.xml (#615)
