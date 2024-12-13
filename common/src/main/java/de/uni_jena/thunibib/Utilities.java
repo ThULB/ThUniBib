@@ -7,18 +7,25 @@ import jakarta.persistence.criteria.Root;
 import jakarta.persistence.criteria.SetJoin;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jdom2.Document;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.common.content.MCRContent;
+import org.mycore.common.content.MCRJDOMContent;
+import org.mycore.common.content.transformer.MCRContentTransformer;
+import org.mycore.common.content.transformer.MCRContentTransformerFactory;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAO;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
 import org.mycore.datamodel.classifications2.MCRLabel;
+import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.user2.MCRUser;
 import org.mycore.user2.MCRUserAttribute;
 import org.mycore.user2.MCRUserAttribute_;
 import org.mycore.user2.MCRUser_;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -37,6 +44,22 @@ public class Utilities {
 
     public static String toLowerCase(String s) {
         return s.toLowerCase(Locale.ROOT);
+    }
+
+    /**
+     * Transforms a given {@link MCRObject} to JSON suitable for HISinOne/RES.
+     *
+     * @param mcrObject the object to transform
+     * @param transformerName the name of the transformer to user
+     *
+     * @return a {@link String} as transformation result
+     * */
+    public static String transform(MCRObject mcrObject, String transformerName) throws IOException {
+        Document mods = mcrObject.createXML();
+        MCRContentTransformer transformer = MCRContentTransformerFactory.getTransformer(transformerName);
+        MCRContent transformed = transformer.transform(new MCRJDOMContent(mods));
+
+        return transformed.asString();
     }
 
     /**
