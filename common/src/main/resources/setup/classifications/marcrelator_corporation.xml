@@ -51,6 +51,10 @@
       <label xml:lang="de" text="Herausgebende Einrichtung" description="Ein Akteur, der ein Werk z. B. ein offizielles Organ der Körperschaft herausgibt." />
       <label xml:lang="en" text="Issuing body" description="A person, family or organization issuing a work, such as an official organ of the body." />
     </category>
+    <category ID="edt">
+      <label xml:lang="de" text="Herausgeber*in" description="Eine Person oder Institution,die vorbereitend bei der Veröffentlichung einer nicht primär eigenen Arbeit mitwirkt, z.B. duch Texterklärungen, Hinzufügen von Einleitungen und anderen kritischen Inhalten, oder die technische Leitung des ..." />
+      <label xml:lang="en" text="Editor" description="Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff." />
+    </category>
     <category ID="orm">
       <label xml:lang="de" text="Veranstaltende Einrichtung" description="Ein Akteur, der eine Ausstellung, ein Ereignis, eine Konferenz, einen Kurs, eine Sendung usw. organisiert, die/das ein Werk zur Folge hat." />
       <label xml:lang="en" text="Organizer" description="A person, family, or organization organizing the exhibit, event, conference, etc., which gave rise to a resource" />
