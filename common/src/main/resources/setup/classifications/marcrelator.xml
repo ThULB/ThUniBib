@@ -159,10 +159,16 @@
                description="A performer contributing to an expression of a work by acting as a cast member or player in a musical or dramatic presentation, etc."/>
       </category>
       <category ID="trl">
-        <label xml:lang="en" text="Translator"
-               description="Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form."/>
         <label xml:lang="de" text="Übersetzer*in"
                description="Eine Person oder Institution, die eine Text von einer Sprache in eine andere, oder eine ältere Form einer Sprache in eine modernere übersetzt."/>
+        <label xml:lang="en" text="Translator"
+               description="Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form."/>
+      </category>
+      <category ID="orm">
+        <label xml:lang="de" text="Veranstalter(in)"
+               description="Eine Person oder Institution, die verantwortlich für die Organisation eines Treffens ist. Dabei entstehen Reporte oder Konferenzbänder."/>
+        <label xml:lang="en" text="Organizer of meeting"
+               description="Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings."/>
       </category>
     </category>
     <category ID="oth">
