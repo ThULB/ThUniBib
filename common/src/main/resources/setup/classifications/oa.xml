@@ -21,11 +21,11 @@
         <label xml:lang="de" text="OA Gold" />
         <label xml:lang="en" text="OA Gold" />
         <label xml:lang="x-color" text="#ffd966" />
-          <category ID="platin">
+          <category ID="diamond">
             <!-- OA Erstveröffentlichung ohne APCs -->
-            <label xml:lang="de" text="OA Platin" />
-            <label xml:lang="en" text="OA Platinum" />
-            <label xml:lang="x-color" text="#22e4e4" />
+            <label xml:lang="de" text="OA Diamond" />
+            <label xml:lang="en" text="OA Diamond" />
+            <label xml:lang="x-color" text="#CECECE" />
           </category>
       </category>
       <category ID="hybrid">
