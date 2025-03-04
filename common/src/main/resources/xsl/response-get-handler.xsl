@@ -5,8 +5,13 @@
                 xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 exclude-result-prefixes="mcrxsl xalan xsl">
 
+  <xsl:param name="RequestURL"/>
+
   <xsl:variable name="solrRequestHandler">
     <xsl:choose>
+      <xsl:when test="contains($RequestURL, 'servlets/solr/select')">
+        <xsl:value-of select="'select?'"/>
+      </xsl:when>
       <xsl:when test="mcrxsl:isCurrentUserInRole('admin')">
         <xsl:value-of select="'search-all?'"/>
       </xsl:when>
