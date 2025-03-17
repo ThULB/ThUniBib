@@ -4,7 +4,10 @@
     as of https://cmswiki.rrz.uni-hamburg.de/hummel/MyCoRe/Organisation/AnwenderWorkshop2018?action=AttachFile&do=view&target=MyCoRe+XEditor+Erweiterungen+2018-11-14.pdf
   -->
   <xed:modify ref="editor-form-fields">
-    <xed:include ref="fundingType" after="projectInformation"/>
+    <xed:include ref="projectInformation.HISinOne" after="projectInformation"/>
+    <xed:include ref="fundingType" after="projectInformation.HISinOne"/>
+
+    <xed:remove ref="projectInformation"/>
   </xed:modify>
 
   <xed:template id="fundingType">
