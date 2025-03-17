@@ -1,5 +1,15 @@
 # Changelog
 
+## 2025.03.17-2023.06.x
+- [#671](https://github.com/ThULB/ThUniBib/issues/671) Removed ThUniBibAffiliationEventHandler from mycore.properties (Weimar) (#672)
+- [#679](https://github.com/ThULB/ThUniBib/issues/679) Support diamond OA status (#680)
+- [FSU040THUL-5727](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-5727) [#673](https://github.com/ThULB/ThUniBib/issues/673) Add additional role 'edt' to marcrelator_corporation.xml (#674)
+- [FSU040THUL-6461](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-6461) [#675](https://github.com/ThULB/ThUniBib/issues/675) Added additional marc role 'orm' to marcrelator.xml (#676)
+- [FSU040THUL-6795](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-6795) [#677](https://github.com/ThULB/ThUniBib/issues/677) Updated search.xed to support publication status reviewPending and unchecked (#678)
+- [FSU040THUL-6890](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-6890) [#681](https://github.com/ThULB/ThUniBib/issues/681) Added K10PLUS enrichment source to list import (#682)
+- [FSU040THUL-7015](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-7015) [#683](https://github.com/ThULB/ThUniBib/issues/683) Added licence type 'other' to licenses.xml (#684)
+---
+
 ## 2024.12.12-2023.06.x
 - [#665](https://github.com/ThULB/ThUniBib/issues/665) Reflect changes introduced with UBO-372 (#666)
 - [#669](https://github.com/ThULB/ThUniBib/issues/669) Add status "Review pending" (Jena) (#670)
