@@ -5,7 +5,11 @@
   <categories>
     <category ID="rights_reserved">
       <label xml:lang="de" text="Alle Rechte vorbehalten" />
-      <label xml:lang="en" text="all rights reserved" />
+      <label xml:lang="en" text="All rights reserved" />
+    </category>
+    <category ID="other">
+      <label xml:lang="de" text="Andere" />
+      <label xml:lang="en" text="Other" />
     </category>
     <category ID="oa_nlz">
       <label xml:lang="en" text="Open Access related to alliance or national license" />
