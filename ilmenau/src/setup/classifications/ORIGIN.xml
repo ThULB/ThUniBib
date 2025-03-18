@@ -4,12 +4,15 @@
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
  
  <categories>
+
    <category ID="08">
       <label xml:lang="de" text="Technische Universität Ilmenau (1992-)"/>
+      <label xml:lang="en" text="Technische Universität Ilmenau (1992-)"/>
       <label xml:lang="x-gnd" text="2125187-3"/>
       <label xml:lang="x-mapping" text="destatis:870"/>
       <label xml:lang="x-lpp" text="476822599"/>
       <label xml:lang="x-from" text="1992"/>
+      <label xml:lang="x-kst" text="2"/>
 
       <category ID="08.010">
          <label xml:lang="de" text="Fakultät für Elektrotechnik und Informationstechnik (1992-)"/>
@@ -2262,7 +2265,7 @@
             <label xml:lang="x-to" text="2001"/>
 
             <category ID="08.030.160(1992)">
-               <label xml:lang="de" text="CIM-Technologie-Transfer-Zentrum &lt;Suhl&gt; (1992-1995) ↑"/>
+               <label xml:lang="de" text="CIM-Technologie-Transfer-Zentrum, Suhl (1992-1995) ↑"/>
                <label xml:lang="x-mapping" text="destatis:6940"/>
                <label xml:lang="x-lpp" text="529033062"/>
                <label xml:lang="x-from" text="1992"/>
@@ -3130,6 +3133,14 @@
                <label xml:lang="x-from" text="1999"/>
                <label xml:lang="x-to" text="2005"/>
             </category>
+
+            <category ID="08.050.020.120(2024)">
+               <label xml:lang="de" text="Juniorprofessur Finance (2024-)"/>
+               <label xml:lang="en" text="Junior Professorship Finance (2024-)"/>
+               <label xml:lang="x-mapping" text="destatis:2980"/>
+               <label xml:lang="x-from" text="2024"/>
+               <label xml:lang="x-kst" text="2528"/>
+            </category>
          </category>
 
          <category ID="08.050.030">
@@ -3464,6 +3475,7 @@
 
             <category ID="08.050.060.100(1992)">
                <label xml:lang="de" text="Fachgebiet Zivilrecht (1992-2019)"/>
+               <label xml:lang="en" text="Civil Law Group (1992-2019)"/>
                <label xml:lang="x-mapping" text="destatis:2550"/>
                <label xml:lang="x-lpp" text="479024286"/>
                <label xml:lang="x-from" text="1992"/>
@@ -3574,14 +3586,14 @@
             <label xml:lang="x-lpp" text="1851448942"/>
             <label xml:lang="x-from" text="2016"/>
             <label xml:lang="x-kst" text="7255"/>
-         </category>
 
-         <category ID="08.900.050(1992)">
-            <label xml:lang="de" text="Technische Universität / Studentenrat (1992-2016) ↑"/>
-            <label xml:lang="x-mapping" text="destatis:8820"/>
-            <label xml:lang="x-lpp" text="499747933"/>
-            <label xml:lang="x-from" text="1992"/>
-            <label xml:lang="x-to" text="2016"/>
+            <category ID="08.900.050(1992)">
+               <label xml:lang="de" text="Technische Universität / Studentenrat (1992-2016) ↑"/>
+               <label xml:lang="x-mapping" text="destatis:8820"/>
+               <label xml:lang="x-lpp" text="499747933"/>
+               <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="2016"/>
+            </category>
          </category>
 
          <category ID="08.900.100(1992)">
@@ -3590,12 +3602,23 @@
             <label xml:lang="x-from" text="1992"/>
          </category>
 
-      </category>
 
+
+
+
+
+
+
+
+
+
+      </category>
    </category>
+
 
    <category ID="07">
       <label xml:lang="de" text="Technische Hochschule Ilmenau (1963-1992)"/>
+      <label xml:lang="en" text="Technische Hochschule Ilmenau (1963-1992)"/>
       <label xml:lang="x-lpp" text="476822653"/>
       <label xml:lang="x-from" text="1963"/>
       <label xml:lang="x-to" text="1992"/>
@@ -4460,6 +4483,7 @@
 
             <category ID="07.050.030.050(1992)">
                <label xml:lang="de" text="Fachgebiet Zivilrecht (1992-1992)"/>
+               <label xml:lang="en" text="Civil Law Group (1992-1992)"/>
                <label xml:lang="x-lpp" text="479024286"/>
                <label xml:lang="x-from" text="1992"/>
                <label xml:lang="x-to" text="1992"/>
@@ -4678,7 +4702,7 @@
          </category>
 
          <category ID="07.120.110(1983)">
-            <label xml:lang="de" text="Technikum Feinmechanik, Optik, Elektronik &lt;Suh&gt; (1983-1991)"/>
+            <label xml:lang="de" text="Technikum Feinmechanik, Optik, Elektronik, Suhl (1983-1991)"/>
             <label xml:lang="x-lpp" text="529028190"/>
             <label xml:lang="x-from" text="1983"/>
             <label xml:lang="x-to" text="1991"/>
@@ -5464,7 +5488,7 @@
             <label xml:lang="x-to" text="1968"/>
          </category>
 
-		 <category ID="07.900.030(1968)">
+         <category ID="07.900.030(1968)">
             <label xml:lang="de" text="Institut für Informationswissenschaft, Erfindungswesen und Recht (INER) (1968-1991)"/>
             <label xml:lang="x-lpp" text="509484239"/>
             <label xml:lang="x-from" text="1968"/>
@@ -5507,24 +5531,26 @@
          </category>
 
          <category ID="07.900.050(1990)">
-            <label xml:lang="de" text="Institut für Plasmatechnik &lt;Meiningen&gt; (1991-1992)"/>
+            <label xml:lang="de" text="Institut für Plasmatechnik, Meiningen (1991-1992)"/>
             <label xml:lang="x-lpp" text="537563911"/>
             <label xml:lang="x-from" text="1991"/>
             <label xml:lang="x-to" text="1992"/>
          </category>
 
          <category ID="07.900.050(1968)">
-            <label xml:lang="de" text="Abteilung Plasmatechnik &lt;Meiningen&gt; (1968-1991) ↑"/>
+            <label xml:lang="de" text="Abteilung Plasmatechnik, Meiningen (1968-1991) ↑"/>
             <label xml:lang="x-lpp" text="537564403"/>
             <label xml:lang="x-from" text="1968"/>
             <label xml:lang="x-to" text="1991"/>
          </category>
 
 
+
+
+
       </category>
-
-
    </category>
+
 
    <category ID="06">
       <label xml:lang="de" text="Hochschule für Elektrotechnik (1953-1963)"/>
