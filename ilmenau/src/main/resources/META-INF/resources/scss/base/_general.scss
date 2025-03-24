@@ -28,9 +28,9 @@ a {
   color: $color-dark-blue;
 }
 
-i.ubo-picker-service-LDAPWithLocalService::before {
+i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
   color: $primary;
-  content: "\f1ad";
+  content: "\f1ad" !important;
 }
 
 #ubo-search-person option[value="person_ths"] {
