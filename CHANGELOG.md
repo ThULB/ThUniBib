@@ -1,5 +1,10 @@
 # Changelog
 
+## 2025.03.24-2023.06.x
+- [#685](https://github.com/ThULB/ThUniBib/issues/685) Update ORIGIN.xml (#687)
+- [FSU040THUL-4142](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4142) [#604](https://github.com/ThULB/ThUniBib/issues/604) Unify search in both local user database and ldap directory (#605)
+---
+
 ## 2025.03.17-2023.06.x
 - [#671](https://github.com/ThULB/ThUniBib/issues/671) Removed ThUniBibAffiliationEventHandler from mycore.properties (Weimar) (#672)
 - [#679](https://github.com/ThULB/ThUniBib/issues/679) Support diamond OA status (#680)
