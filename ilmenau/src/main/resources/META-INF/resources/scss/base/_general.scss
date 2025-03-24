@@ -30,7 +30,7 @@ a {
 
 i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
   color: $primary;
-  content: "\f1ad";
+  content: "\f1ad" !important;
 }
 
 #ubo-search-person option[value="person_ths"] {
