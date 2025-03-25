@@ -36,7 +36,7 @@
       <label xml:lang="de">Mein Profil</label>
       <label xml:lang="en">My profile</label>
     </item>
-    <item id="dozbib.duplicates" ref="duplicates.xml" role="admin">
+    <item id="dozbib.duplicates" ref="dedup/" role="admin">
       <label xml:lang="de">Dubletten-Bericht</label>
       <label xml:lang="en">Duplicates report</label>
     </item>
