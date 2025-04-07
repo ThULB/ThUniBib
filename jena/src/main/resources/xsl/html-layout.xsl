@@ -23,6 +23,8 @@
   <xsl:param name="UBO.Frontend.bootstrap.version"/>
   <xsl:param name="UBO.Frontend.font-awesome.version"/>
 
+  <xsl:param name="MCR.OAIDataProvider.OAI.RepositoryName"/>
+
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
   <xsl:include href="coreFunctions.xsl"/>
@@ -51,6 +53,9 @@
 
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+      <link rel="alternate" type="application/rss+xml" title="{$MCR.OAIDataProvider.OAI.RepositoryName} - RSS-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=rssfeed"/>
+      <link rel="alternate" type="application/atom+xml" title="{$MCR.OAIDataProvider.OAI.RepositoryName} - Atom-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=atomfeed"/>
 
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
       <script src="{$WebApplicationBaseURL}webjars/jquery/{$UBO.Frontend.jquery.version}/jquery.min.js"/>

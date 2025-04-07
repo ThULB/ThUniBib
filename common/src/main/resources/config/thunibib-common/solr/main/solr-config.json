@@ -191,5 +191,32 @@
         "fq": "status:unchecked OR status:confirmed OR status:reviewPending"
       }
     }
+  },
+  {
+    "add-requestHandler": {
+      "name": "/feed",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "qs": "5",
+        "mm": "100%",
+        "q.alt": "*:*",
+        "df": "all",
+        "fl": "id",
+        "wt": "xml"
+      },
+      "appends": {
+        "fq": "+objectType:mods",
+        "fq": "status:unchecked OR status:confirmed OR status:reviewPending",
+        "partOf": true
+      },
+      "invariants": {
+        "fl": "",
+        "start": "0",
+        "rows": "25",
+        "sort": "year desc,created desc"
+      }
+    }
   }
 ]
