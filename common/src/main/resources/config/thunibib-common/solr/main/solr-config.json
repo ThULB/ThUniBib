@@ -199,22 +199,15 @@
       "defaults": {
         "echoParams": "explicit",
         "defType": "edismax",
-        "qs": "5",
-        "mm": "100%",
-        "q.alt": "*:*",
-        "df": "all",
-        "fl": "id",
+        "df": "objectType",
         "wt": "xml"
       },
-      "appends": {
-        "fq": "+objectType:mods",
-        "fq": "status:unchecked OR status:confirmed OR status:reviewPending",
-        "partOf": true
-      },
       "invariants": {
-        "fl": "",
-        "start": "0",
-        "rows": "25",
+        "q": "+objectType:mods +partOf:true",
+        "fl": "id,title,year,person_aut,created,modified",
+        "start": 0,
+        "rows": 25,
+        "fq": "status:unchecked OR status:confirmed OR status:reviewPending",
         "sort": "year desc,created desc"
       }
     }
