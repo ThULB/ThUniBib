@@ -57,6 +57,7 @@
       <link rel="alternate" type="application/rss+xml" title="{$MCR.OAIDataProvider.OAI.RepositoryName} - RSS-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=rssfeed"/>
       <link rel="alternate" type="application/atom+xml" title="{$MCR.OAIDataProvider.OAI.RepositoryName} - Atom-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=atomfeed"/>
 
+      <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>
       <script src="{$WebApplicationBaseURL}webjars/jquery/{$UBO.Frontend.jquery.version}/jquery.min.js"/>
       <script src="{$WebApplicationBaseURL}webjars/bootstrap/{$UBO.Frontend.bootstrap.version}/js/bootstrap.bundle.min.js"/>
@@ -69,8 +70,6 @@
 
       <link rel="stylesheet" href="{$WebApplicationBaseURL}webjars/font-awesome/{$UBO.Frontend.font-awesome.version}/css/all.css" type="text/css"/>
       <link rel="stylesheet" href="{$WebApplicationBaseURL}css/fonts.css" type="text/css"/>
-
-      <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
 
       <script>
         var webApplicationBaseURL = '<xsl:value-of select="$WebApplicationBaseURL"/>';
