@@ -20,7 +20,7 @@
   <xsl:param name="UBO.Frontend.bootstrap.version"/>
   <xsl:param name="UBO.Frontend.font-awesome.version"/>
 
-  <xsl:param name="MCR.OAIDataProvider.OAI.RepositoryName"/>
+  <xsl:variable name="feed-title" select="concat(i18n:translate('thunibib.university.full.name'), ', ', i18n:translate('ubo.publications'))"/>
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
@@ -50,8 +50,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <meta http-equiv="x-ua-compatible" content="ie=edge"/>
 
-      <link rel="alternate" type="application/rss+xml" title="{$MCR.OAIDataProvider.OAI.RepositoryName} - RSS-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=rssfeed"/>
-      <link rel="alternate" type="application/atom+xml" title="{$MCR.OAIDataProvider.OAI.RepositoryName} - Atom-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=atomfeed"/>
+      <link rel="alternate" type="application/rss+xml" title="{$feed-title} - RSS-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=rssfeed"/>
+      <link rel="alternate" type="application/atom+xml" title="{$feed-title} - Atom-Feed" href="{$WebApplicationBaseURL}servlets/solr/feed?XSL.Style=atomfeed"/>
 
       <link rel="shortcut icon" href="{$WebApplicationBaseURL}images/favicon.ico"/>
       <link href="{$WebApplicationBaseURL}rsc/sass/scss/bootstrap-ubo.css" rel="stylesheet"/>

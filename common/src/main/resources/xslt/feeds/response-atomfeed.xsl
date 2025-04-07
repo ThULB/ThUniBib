@@ -13,7 +13,6 @@
   <xsl:include href="resource:xslt/functions/i18n.xsl"/>
 
   <xsl:param name="CurrentLang"/>
-  <xsl:param name="MCR.OAIDataProvider.OAI.RepositoryName"/>
   <xsl:param name="RequestURL"/>
   <xsl:param name="WebApplicationBaseURL"/>
 
@@ -23,7 +22,7 @@
       <link rel="alternate" href="{$WebApplicationBaseURL}"/>
 
       <title>
-        <xsl:value-of select="$MCR.OAIDataProvider.OAI.RepositoryName"/>
+        <xsl:value-of select="concat(mcri18n:translate('thunibib.university.full.name'), ', ', mcri18n:translate('ubo.publications'))"/>
       </title>
 
       <subtitle>
