@@ -191,5 +191,25 @@
         "fq": "status:unchecked OR status:confirmed OR status:reviewPending"
       }
     }
+  },
+  {
+    "add-requestHandler": {
+      "name": "/feed",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "df": "objectType",
+        "wt": "xml"
+      },
+      "invariants": {
+        "q": "+objectType:mods +partOf:true",
+        "fl": "id,title,year,person_aut,created,modified",
+        "start": 0,
+        "rows": 25,
+        "fq": "status:unchecked OR status:confirmed OR status:reviewPending",
+        "sort": "year desc,created desc"
+      }
+    }
   }
 ]
