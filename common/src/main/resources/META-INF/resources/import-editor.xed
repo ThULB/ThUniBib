@@ -997,6 +997,17 @@
     </div>
   </xed:template>
 
+  <xed:template id="projectInformation">
+    <xed:choose>
+      <xed:when test="$ThUniBib.Source.Project.Information= 'HISinOne'">
+        <xed:include ref="projectInformation.HISinOne"/>
+      </xed:when>
+      <xed:otherwise>
+        <xed:include ref="projectInformation.solr"/>
+      </xed:otherwise>
+    </xed:choose>
+  </xed:template>
+
   <xed:template id="projectInformation.HISinOne">
     <xed:bind xpath="mods:extension/temporary_search_input">
       <div class="form-group form-inline">
@@ -1053,7 +1064,7 @@
     </xed:bind>
   </xed:template>
 
-  <xed:template id="projectInformation">
+  <xed:template id="projectInformation.solr">
     <script src="{$WebApplicationBaseURL}js/project_autocomplete.js"/>
     <xed:bind xpath="mods:extension/temporary_search_input">
       <div class="form-group form-inline">
