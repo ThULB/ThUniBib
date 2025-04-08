@@ -263,17 +263,6 @@
     <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
 
     <!-- publicationTypeValue -->
-    <xsl:variable name="related-item-genre">
-      <xsl:choose>
-        <xsl:when test="string-length(substring-after(../mods:relatedItem[@type]/mods:genre/@valueURI, '#')) &gt; 0">
-          <xsl:value-of select="substring-after(../mods:relatedItem[@type]/mods:genre/@valueURI, '#')"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="'standalone'"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
     <xsl:variable name="xpathmapping2kdsfPublicationType-mycore" select="fn:substring-after(//mods:mods/mods:classification[@generator='xpathmapping2kdsfPublicationType-mycore']/@valueURI, '#')"/>
     <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:resolve:id:publicationType:', $xpathmapping2kdsfPublicationType-mycore))"/>
 
@@ -286,7 +275,8 @@
     <!--
       documentType
     -->
-    <xsl:variable name="his-key-document-type-type-value" select="fn:document(concat('hisinone:resolve:id:documentType:',  $genre, ':', $related-item-genre))"/>
+    <xsl:variable name="xpathmapping2kdsfDocumentType-mycore" select="fn:substring-after(//mods:mods/mods:classification[@generator='xpathmapping2kdsfDocumentType-mycore']/@valueURI, '#')"/>
+    <xsl:variable name="his-key-document-type-type-value" select="fn:document(concat('hisinone:resolve:id:documentType:', $xpathmapping2kdsfDocumentType-mycore))"/>
     <xsl:if test="$his-key-document-type-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/documentTypes" type="code">
         <xsl:value-of select="$his-key-document-type-type-value"/>

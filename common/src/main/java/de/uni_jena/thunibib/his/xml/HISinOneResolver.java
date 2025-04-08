@@ -120,7 +120,6 @@ public class HISinOneResolver implements URIResolver {
         String field = parts[2];
         String entity = parts[3];
         String fromValue;
-        String hostGenre = null;
 
         if (ResolvableTypes.publicationType.name().equals(entity) || ResolvableTypes.documentType.name()
             .equals(entity)) {
@@ -135,7 +134,7 @@ public class HISinOneResolver implements URIResolver {
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case creatorType -> resolveCreatorType(fromValue);
-            case documentType -> resolveDocumentType(fromValue, hostGenre);
+            case documentType -> resolveDocumentType(fromValue);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
             case journal -> Mode.resolve.equals(mode) ? resolveJournal(fromValue) : createParent(fromValue);
             case language -> resolveLanguage(fromValue);
@@ -568,16 +567,11 @@ public class HISinOneResolver implements URIResolver {
     }
 
     /**
-     * Determines the documentType on base of ubogenre/publicationType. Is currently fixed to 'Bibliographie'
+     * Determines the documentType on base of fromXpathMapping/publicationType. Is currently fixed to 'Bibliographie'
      * */
-    private SysValue resolveDocumentType(String ubogenre, String hostGenre) {
-        if (DOCUMENT_TYPE_MAP.containsKey(ubogenre)) {
-            return DOCUMENT_TYPE_MAP.get(ubogenre);
-        }
-
-        String documentTypeName = PublicationAndDocTypeMapper.getDocumentTypeName(ubogenre, hostGenre);
-        if (documentTypeName == null) {
-            return SysValue.UnresolvedSysValue;
+    private SysValue resolveDocumentType(String fromXpathMapping) {
+        if (DOCUMENT_TYPE_MAP.containsKey(fromXpathMapping)) {
+            return DOCUMENT_TYPE_MAP.get(fromXpathMapping);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
@@ -606,13 +600,14 @@ public class HISinOneResolver implements URIResolver {
                 .stream()
                 .toList();
 
+            String documentTypeName = Utilities.getDisplayName("kdsfDocumentType", fromXpathMapping, "de");
             Optional<DocumentType> documentType = list
                 .stream()
                 .filter(v -> v.getDefaultText().equals(documentTypeName))
                 .findFirst();
 
             if (documentType.isPresent()) {
-                DOCUMENT_TYPE_MAP.put(ubogenre, documentType.get());
+                DOCUMENT_TYPE_MAP.put(fromXpathMapping, documentType.get());
                 return documentType.get();
             }
             return SysValue.UnresolvedSysValue;
