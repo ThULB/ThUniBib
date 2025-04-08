@@ -118,8 +118,8 @@ public class HISinOneCommands {
         return SysValue.ErroneousSysValue;
     }
 
-    @MCRCommand(syntax = "delete {0}", help = "Deletes the object given by its id from HISinOne")
-    public static void delete(String mcrid) {
+    @MCRCommand(syntax = "remove {0}", help = "Deletes the object given by its id from HISinOne")
+    public static void remove(String mcrid) {
         LOGGER.info("Deleting {}", mcrid);
     }
 
