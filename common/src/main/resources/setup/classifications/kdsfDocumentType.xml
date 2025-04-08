@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass  ID="kdsfDocumentType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+  <label xml:lang="de" text="KDSF-Dokumenttyp" description=""/>
+  <label xml:lang="en" text="KDSF document type" description=""/>
+
+  <categories>
+    <category ID="1">
+      <label xml:lang="de" text="Bibliographie" description=""/>
+      <label xml:lang="en" text="Bibliographie" description=""/>
+    </category>
+    <category ID="2">
+      <label xml:lang="de" text="Rezension" description=""/>
+      <label xml:lang="en" text="Rezension" description=""/>
+    </category>
+    <category ID="3">
+      <label xml:lang="de" text="Quellenedition" description=""/>
+      <label xml:lang="en" text="Quellenedition" description=""/>
+    </category>
+    <category ID="4">
+      <label xml:lang="de" text="Sonstiger Dokumenttyp" description=""/>
+      <label xml:lang="en" text="Sonstiger Dokumenttyp" description=""/>
+    </category>
+    <category ID="6">
+      <label xml:lang="de" text="Editorial" description=""/>
+      <label xml:lang="en" text="Editorial" description=""/>
+    </category>
+    <category ID="7">
+      <label xml:lang="de" text="Wissenschaftlicher Artikel" description=""/>
+      <label xml:lang="en" text="Wissenschaftlicher Artikel" description=""/>
+    </category>
+    <category ID="8">
+      <label xml:lang="de" text="Review" description=""/>
+      <label xml:lang="en" text="Review" description=""/>
+    </category>
+    <category ID="9">
+      <label xml:lang="de" text="Bibliographie" description=""/>
+      <label xml:lang="en" text="Bibliographie" description=""/>
+    </category>
+
+    <category ID="10">
+      <label xml:lang="de" text="Rezension" description=""/>
+      <label xml:lang="en" text="Rezension" description=""/>
+    </category>
+
+    <category ID="11">
+      <label xml:lang="de" text="Quellenedition" description=""/>
+      <label xml:lang="en" text="Quellenedition" description=""/>
+    </category>
+
+    <category ID="12">
+      <label xml:lang="de" text="Letter to the Editor" description=""/>
+      <label xml:lang="en" text="Letter to the Editor" description=""/>
+    </category>
+
+    <category ID="13">
+      <label xml:lang="de" text="Auswahlverfahren" description=""/>
+      <label xml:lang="en" text="Auswahlverfahren" description=""/>
+    </category>
+
+    <category ID="14">
+      <label xml:lang="de" text="Einschreibung" description=""/>
+      <label xml:lang="en" text="Einschreibung" description=""/>
+    </category>
+
+    <category ID="15">
+      <label xml:lang="de" text="Rechtsmittelverfahren" description=""/>
+      <label xml:lang="en" text="Rechtsmittelverfahren" description=""/>
+    </category>
+
+    <category ID="16">
+      <label xml:lang="de" text="Zulassung" description=""/>
+      <label xml:lang="en" text="Zulassung" description=""/>
+    </category>
+    </categories>
+</mycoreclass>
