@@ -2,6 +2,7 @@ package de.uni_jena.thunibib.his.xml;
 
 import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.HISinOneCommands;
+import de.uni_jena.thunibib.Utilities;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.psv.PersonIdentifier;
@@ -123,7 +124,6 @@ public class HISinOneResolver implements URIResolver {
 
         if (ResolvableTypes.publicationType.name().equals(entity) || ResolvableTypes.documentType.name()
             .equals(entity)) {
-            hostGenre = parts[5];
         }
 
         String idValue = null;
@@ -144,7 +144,7 @@ public class HISinOneResolver implements URIResolver {
             case publication -> Mode.resolve.equals(mode) ? resolvePublication(fromValue) : createParent(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
-            case publicationType -> resolvePublicationType(fromValue, hostGenre);
+            case publicationType -> resolvePublicationType(fromValue);
             case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(fromValue) : createPublisher(fromValue);
             case researchAreaKdsf -> resolveResearchAreaKdsf(fromValue);
             case state -> resolveState(fromValue);
@@ -538,9 +538,9 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    protected SysValue resolvePublicationType(String ubogenre, String hostGenre) {
-        if (PUBLICATION_TYPE_MAP.containsKey(ubogenre)) {
-            return PUBLICATION_TYPE_MAP.get(ubogenre);
+    protected SysValue resolvePublicationType(String fromXpathMapping) {
+        if (PUBLICATION_TYPE_MAP.containsKey(fromXpathMapping)) {
+            return PUBLICATION_TYPE_MAP.get(fromXpathMapping);
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
@@ -555,18 +555,14 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<PublicationTypeValue>>() {
                 });
 
-            String expectedType = PublicationAndDocTypeMapper.getPublicationTypeName(ubogenre, hostGenre);
-
-            if (expectedType == null) {
-                return SysValue.UnresolvedSysValue;
-            }
+            String expectedType = Utilities.getDisplayName("kdsfPublicationType", fromXpathMapping, "de");
 
             Optional<PublicationTypeValue> tpv = pubTypeValues
                 .stream()
                 .filter(pubType -> pubType.getUniqueName().equals(expectedType))
                 .findFirst();
 
-            PUBLICATION_TYPE_MAP.put(ubogenre, tpv.get());
+            PUBLICATION_TYPE_MAP.put(fromXpathMapping, tpv.get());
             return tpv.get();
         }
     }

@@ -274,8 +274,9 @@
       </xsl:choose>
     </xsl:variable>
 
+    <xsl:variable name="xpathmapping2kdsfPublicationType-mycore" select="fn:substring-after(//mods:mods/mods:classification[@generator='xpathmapping2kdsfPublicationType-mycore']/@valueURI, '#')"/>
+    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:resolve:id:publicationType:', $xpathmapping2kdsfPublicationType-mycore))"/>
 
-    <xsl:variable name="his-key-publication-type-value" select="fn:document(concat('hisinone:resolve:id:publicationType:', $genre, ':', $related-item-genre))"/>
     <xsl:if test="$his-key-publication-type-value">
       <mods:genre authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationTypeValue" type="code">
         <xsl:value-of select="$his-key-publication-type-value"/>

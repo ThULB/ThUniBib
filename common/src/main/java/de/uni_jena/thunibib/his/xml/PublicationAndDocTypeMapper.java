@@ -36,6 +36,7 @@ import java.util.Optional;
  *  </p>
  *
  * @author shermann (Silvio Hermann)
+ *
  * */
 public class PublicationAndDocTypeMapper {
 
@@ -52,7 +53,10 @@ public class PublicationAndDocTypeMapper {
      * @return the HISinOne-RES type name
      *
      * @throw {@link RuntimeException} when a default mapping is missing in classification ubogenre
+     *
+     *  @deprecated Use matching via classification and xpath
      * */
+    @Deprecated
     public static String getPublicationTypeName(String ubogenreId, String hostGenre) {
         return getTypeNameFromXLabel("x-mapping-his-genre", ubogenreId, hostGenre);
     }
