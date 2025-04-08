@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass  ID="kdsfDocumentType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
-  <label xml:lang="de" text="KDSF-Dokumenttyp" description=""/>
-  <label xml:lang="en" text="KDSF document type" description=""/>
+  <label xml:lang="de" text="KDSF Dokumenttyp (kds.type.document) Pu101" description="Unterkategorisierung von unselbstständigen Werken (Artikel, Pu25) nach vorwiegend inhaltlichen Kriterien in die folgenden Dokumenttypen: Editorial, Letter to the Editor, wissenschaftlicher Artikel, Review, Bibliographie, Rezension, Quellenedition und Sonstiger Dokumenttyp. Unterkategorisierung von selbstständigen Werken (Buch, Pu22) nach vorwiegend inhaltlichen Kriterien in die folgenden Dokumenttypen: Bibliographie, Rezension, Quellenedition und Sonstiger Dokumenttyp."/>
+  <label xml:lang="en" text="KDSF document type (kds.type.document) Pu101" description="Subcategorization of articles predominantly with regard to the following document types: Editorial, letter to the editor, research article, review, bibliography, review, source edition and other document type. Subcategorization of books predominantly with regard to the following document types: bibliography, review, source edition and other document type. [Ausdifferenzierungmöglichkeit (Summenform) / Gruppierungsmöglichkeit (Listenform)]"/>
 
   <categories>
     <category ID="1">
