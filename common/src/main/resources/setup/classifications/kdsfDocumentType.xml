@@ -4,72 +4,37 @@
   <label xml:lang="en" text="KDSF document type (kds.type.document) Pu101" description="Subcategorization of articles predominantly with regard to the following document types: Editorial, letter to the editor, research article, review, bibliography, review, source edition and other document type. Subcategorization of books predominantly with regard to the following document types: bibliography, review, source edition and other document type. [Ausdifferenzierungmöglichkeit (Summenform) / Gruppierungsmöglichkeit (Listenform)]"/>
 
   <categories>
-    <category ID="1">
-      <label xml:lang="de" text="Bibliographie" description=""/>
-      <label xml:lang="en" text="Bibliographie" description=""/>
+    <category ID="Pu129">
+      <label xml:lang="de" text="Bibliographie" description="Eine Bibliographie ist ein systematisches Verzeichnis von Literaturnachweisen in Form eines Artikels oder eines Buches. Sie kann Kommentare / Annotationen enthalten."/>
+      <label xml:lang="en" text="Bibliographie" description="A bibliography is a systematic list of publications, published as an article or a book. It may contain commentaries / annotations."/>
     </category>
-    <category ID="2">
-      <label xml:lang="de" text="Rezension" description=""/>
-      <label xml:lang="en" text="Rezension" description=""/>
+    <category ID="Pu121">
+      <label xml:lang="de" text="Editorial" description="Durch den/die Herausgeber/-in oder im Auftrag des/der Herausgebers/Herausgeberin verfasster Text, der die Meinung der Redaktion /des Herausgeber/-innengremiums wiedergibt."/>
+      <label xml:lang="en" text="Editorial" description="A text which is written by or on behalf of the editor or publisher, which represents the opinion of the editor / editorial board."/>
     </category>
-    <category ID="3">
-      <label xml:lang="de" text="Quellenedition" description=""/>
-      <label xml:lang="en" text="Quellenedition" description=""/>
+    <category ID="Pu120">
+      <label xml:lang="de" text="Letter to the Editor" description="Zuschrift an die Redaktion"/>
+      <label xml:lang="en" text="Letter to the Editor" description="Communication to the editor."/>
     </category>
-    <category ID="4">
-      <label xml:lang="de" text="Sonstiger Dokumenttyp" description=""/>
-      <label xml:lang="en" text="Sonstiger Dokumenttyp" description=""/>
+    <category ID="Pu130">
+      <label xml:lang="de" text="Quellenedition" description="Eine Quellenedition ist die Publikation von geschichts- oder kulturwissenschaftlichen Quellen mit einem substanziellen Beitrag des Quelleneditors in Form eines Artikels oder eines Buches."/>
+      <label xml:lang="en" text="Quellenedition" description="A scholarly edition of primary sources is the publication of historic or cultural sources with a substantial contribution of the source editor published as an article or a book."/>
     </category>
-    <category ID="6">
-      <label xml:lang="de" text="Editorial" description=""/>
-      <label xml:lang="en" text="Editorial" description=""/>
+    <category ID="Pu114">
+      <label xml:lang="de" text="Review" description="Ein Review ist ein Überblicksartikel, der die Summe von veröffentlichten wissenschaftlichen Arbeiten zu einem Thema zusammenfasst; normalerweise von einer besonders qualifizierten Person geschrieben"/>
+      <label xml:lang="en" text="Review" description="A review is an evaluative account of a published scholarly work, usually written and signed by a qualified person."/>
     </category>
-    <category ID="7">
+    <category ID="Pu30">
+      <label xml:lang="de" text="Rezension" description="Eine Rezension ist ein Artikel, der eine kritische Bewertung eines Werkes (manchmal auch mehrerer Werke) beinhaltet."/>
+      <label xml:lang="en" text="Rezension" description="A review is a critical appraisal of an opus (sometimes more than just one book)."/>
+    </category>
+    <category ID="Pu112">
       <label xml:lang="de" text="Wissenschaftlicher Artikel" description=""/>
       <label xml:lang="en" text="Wissenschaftlicher Artikel" description=""/>
     </category>
-    <category ID="8">
-      <label xml:lang="de" text="Review" description=""/>
-      <label xml:lang="en" text="Review" description=""/>
+    <category ID="Pu100">
+      <label xml:lang="de" text="Sonstiger Dokumenttyp" description="Das Werk kann keinem der vorhanden Dokumenttypen zugeordnet werden. Es wird darum gebeten, in diesem Fall einen Vorschlag für einen neuen Dokumenttyp einzureichen. Dieser sollte eine klare und möglichst allgemeine Definition wie auch die Abgrenzung von ähnlichen bereits vorliegenden Dokumenttypen enthalten."/>
+      <label xml:lang="en" text="Sonstiger Dokumenttyp" description="The work cannot be attributed to one of the available document types. In this case a suggestion for a new document type should be made. This suggestion should include a clear and comprehensive definition as well as clues for the discrimination against the existing document types."/>
     </category>
-    <category ID="9">
-      <label xml:lang="de" text="Bibliographie" description=""/>
-      <label xml:lang="en" text="Bibliographie" description=""/>
-    </category>
-
-    <category ID="10">
-      <label xml:lang="de" text="Rezension" description=""/>
-      <label xml:lang="en" text="Rezension" description=""/>
-    </category>
-
-    <category ID="11">
-      <label xml:lang="de" text="Quellenedition" description=""/>
-      <label xml:lang="en" text="Quellenedition" description=""/>
-    </category>
-
-    <category ID="12">
-      <label xml:lang="de" text="Letter to the Editor" description=""/>
-      <label xml:lang="en" text="Letter to the Editor" description=""/>
-    </category>
-
-    <category ID="13">
-      <label xml:lang="de" text="Auswahlverfahren" description=""/>
-      <label xml:lang="en" text="Auswahlverfahren" description=""/>
-    </category>
-
-    <category ID="14">
-      <label xml:lang="de" text="Einschreibung" description=""/>
-      <label xml:lang="en" text="Einschreibung" description=""/>
-    </category>
-
-    <category ID="15">
-      <label xml:lang="de" text="Rechtsmittelverfahren" description=""/>
-      <label xml:lang="en" text="Rechtsmittelverfahren" description=""/>
-    </category>
-
-    <category ID="16">
-      <label xml:lang="de" text="Zulassung" description=""/>
-      <label xml:lang="en" text="Zulassung" description=""/>
-    </category>
-    </categories>
+  </categories>
 </mycoreclass>
