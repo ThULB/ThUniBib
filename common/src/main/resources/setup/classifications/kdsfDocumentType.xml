@@ -35,7 +35,7 @@
     <category ID="Pu100">
       <label xml:lang="de" text="Sonstiger Dokumenttyp" description="Das Werk kann keinem der vorhanden Dokumenttypen zugeordnet werden. Es wird darum gebeten, in diesem Fall einen Vorschlag für einen neuen Dokumenttyp einzureichen. Dieser sollte eine klare und möglichst allgemeine Definition wie auch die Abgrenzung von ähnlichen bereits vorliegenden Dokumenttypen enthalten."/>
       <label xml:lang="en" text="Sonstiger Dokumenttyp" description="The work cannot be attributed to one of the available document types. In this case a suggestion for a new document type should be made. This suggestion should include a clear and comprehensive definition as well as clues for the discrimination against the existing document types."/>
-      <label xml:lang="x-mapping-xpath" text="mods:genre" />
+      <label xml:lang="x-mapping-xpathfb" text="mods:genre[@valueURI]" />
     </category>
   </categories>
 </mycoreclass>
