@@ -204,7 +204,7 @@
       },
       "invariants": {
         "q": "+objectType:mods +partOf:true",
-        "fl": "id,title,year,person_aut,created,modified",
+        "fl": "id,title,year,person_aut,created,modified,genre",
         "start": 0,
         "rows": 25,
         "fq": "status:unchecked OR status:confirmed OR status:reviewPending",
