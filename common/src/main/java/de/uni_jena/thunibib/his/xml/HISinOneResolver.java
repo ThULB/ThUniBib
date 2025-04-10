@@ -152,8 +152,10 @@ public class HISinOneResolver implements URIResolver {
             case visibility -> resolveVisibility(fromValue);
         };
 
-        LOGGER.info("Resolved {} to {}", href, String.valueOf(getFieldValue(sysValue, field)));
-        return new JDOMSource(new Element("int").setText(String.valueOf(getFieldValue(sysValue, field))));
+        Object fVal = getFieldValue(sysValue, field);
+        String val = fVal instanceof SysValue ? String.valueOf(((SysValue) fVal).getId()) : String.valueOf(fVal);
+        LOGGER.info("Resolved {} to {}", href, val);
+        return new JDOMSource(new Element("int").setText(val));
     }
 
     /**
@@ -841,7 +843,7 @@ public class HISinOneResolver implements URIResolver {
                 field = f.get();
             } else {
                 LOGGER.debug("Field {} could not be obtained from {}. Checking superclass {}", fieldName,
-                    clazz.getSimpleName(), clazz.getSuperclass().getSimpleName());
+                    clazz.getSimpleName(), clazz.getSuperclass());
             }
             clazz = clazz.getSuperclass();
         }
