@@ -25,7 +25,7 @@
     <category ID="Pu114">
       <label xml:lang="de" text="Review" description="Ein Review ist ein Überblicksartikel, der die Summe von veröffentlichten wissenschaftlichen Arbeiten zu einem Thema zusammenfasst; normalerweise von einer besonders qualifizierten Person geschrieben"/>
       <label xml:lang="en" text="Systematic review" description="A review is an evaluative account of a published scholarly work, usually written and signed by a qualified person."/>
-      <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('review_article', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('journal', substring-after(@valueURI,'#'))])" />
+      <label xml:lang="x-mapping-xpath" text="(mods:genre['review_article'=substring-after(@valueURI,'#')] and mods:relatedItem[@type='host']/mods:genre[contains('journal', substring-after(@valueURI,'#'))])" />
     </category>
     <category ID="Pu30">
       <label xml:lang="de" text="Rezension" description="Eine Rezension ist ein Artikel, der eine kritische Bewertung eines Werkes (manchmal auch mehrerer Werke) beinhaltet."/>
