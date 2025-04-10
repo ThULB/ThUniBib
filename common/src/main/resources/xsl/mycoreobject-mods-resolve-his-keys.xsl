@@ -14,6 +14,7 @@
   <xsl:param name="MCR.user2.matching.lead_id"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL.API.Path"/>
+  <xsl:param name="ThUniBib.HISinOne.resolve.person.identifier.typeUniquename"/>
   <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
   <xsl:param name="WebApplicationBaseURL"/>
 
@@ -75,7 +76,7 @@
           <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:orcid:', mods:nameIdentifier[@type = 'orcid'][1]/text()))"/>
         </xsl:when>
         <xsl:when test="mods:nameIdentifier[@type = $MCR.user2.matching.lead_id]">
-          <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:', $MCR.user2.matching.lead_id, ':',  mods:nameIdentifier[@type = $MCR.user2.matching.lead_id][1]/text()))"/>
+          <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:', $ThUniBib.HISinOne.resolve.person.identifier.typeUniquename, ':',  mods:nameIdentifier[@type = $MCR.user2.matching.lead_id][1]/text()))"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
