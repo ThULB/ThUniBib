@@ -38,7 +38,7 @@
       <category ID="Pu110">
         <label xml:lang="de" text="Sammelbandbeitrag" description="Ein Sammelbandbeitrag ist ein Kapitel oder ein Abschnitt eines Sammelbandes und wird mit diesem über Quelle (Pu143) verknüpft. [Dieser Publikationstyp enthält auch: Enzyklopädie-Artikel, Gesetzeskommentar.]" />
         <label xml:lang="en" text="In book" description="An inbook is a chapter or a section of an edited book. It is related to the edited book by the Source (Pu143). [This publication type also includes: encyclopedia articles, legal commentary]" />
-        <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('article case_note chapter entry interview letter review review_article speech', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('book collection lexicon', substring-after(@valueURI,'#'))]) or (mods:genre[contains('preface', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('lexicon', substring-after(@valueURI,'#'))])" />
+        <label xml:lang="x-mapping-xpath" text="(mods:genre['preface'=substring-after(@valueURI, '#')] and mods:relatedItem/mods:genre[contains('lexicon collection', substring-after(@valueURI, '#'))]) or (mods:genre[contains('article case_note chapter entry interview letter review review_article speech', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('book collection lexicon', substring-after(@valueURI,'#'))])" />
       </category>
     </category>
     <category ID="Pu31">
