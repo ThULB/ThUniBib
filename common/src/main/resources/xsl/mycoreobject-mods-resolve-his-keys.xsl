@@ -83,7 +83,7 @@
 
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
-      <xsl:if test="string-length($his-id) &gt; 0">
+      <xsl:if test="$his-id">
         <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
 
         <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/person/identifier">
