@@ -22,15 +22,13 @@ import java.util.Map;
 class HISInOneClientDefaultImpl implements HISInOneClient {
 
     private static final Logger LOGGER = LogManager.getLogger(HISInOneClientDefaultImpl.class);
-    private final String clientKey;
-    private final String clientSecret;
     private final Client jerseyClient;
+    protected final String CLIENT_KEY = MCRConfiguration2.getStringOrThrow("ThUniBib.HISinOne.ClientKey");
+    protected final String CLIENT_SECRET = MCRConfiguration2.getStringOrThrow("ThUniBib.HISinOne.ClientSecret");
 
     HISInOneClientDefaultImpl() {
-        clientKey = MCRConfiguration2.getStringOrThrow("ThUniBib.HISinOne.ClientKey");
-        clientSecret = MCRConfiguration2.getStringOrThrow("ThUniBib.HISinOne.ClientSecret");
-        jerseyClient = ClientBuilder.newClient(new ClientConfig().register(HISinOneResolver.class));
         MCRShutdownHandler.getInstance().addCloseable(this);
+        jerseyClient = ClientBuilder.newClient(new ClientConfig().register(HISinOneResolver.class));
     }
 
     @Override
@@ -126,7 +124,7 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
 
         Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
         invocationBuilder
-            .header("Authorization", getAuthorizationHeaderValue(AuthType.Basic, clientKey + ":" + clientSecret));
+            .header("Authorization", getAuthorizationHeaderValue(AuthType.Basic, CLIENT_KEY + ":" + CLIENT_SECRET));
 
         Entity<String> body = Entity.entity("grant_type=client_credentials", MediaType.APPLICATION_FORM_URLENCODED);
         try (Response response = invocationBuilder.post(body)) {
