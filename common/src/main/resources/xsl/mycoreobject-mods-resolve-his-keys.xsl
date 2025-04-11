@@ -76,7 +76,7 @@
           <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:orcid:', mods:nameIdentifier[@type = 'orcid'][1]/text()))"/>
         </xsl:when>
         <xsl:when test="mods:nameIdentifier[@type = $MCR.user2.matching.lead_id]">
-          <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:', $ThUniBib.HISinOne.resolve.person.identifier.typeUniquename, ':',  mods:nameIdentifier[@type = $MCR.user2.matching.lead_id][1]/text()))"/>
+          <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:', $ThUniBib.HISinOne.resolve.person.identifier.typeUniquename, ':',  fn:encode-for-uri(mods:nameIdentifier[@type = $MCR.user2.matching.lead_id][1]/text())))"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
