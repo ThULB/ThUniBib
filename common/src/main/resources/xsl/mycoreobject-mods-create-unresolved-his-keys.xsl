@@ -25,8 +25,10 @@
     <xsl:copy>
       <xsl:choose>
         <xsl:when test="mcracl:check-permission('POOLPRIVILEGE', 'read-user-attributes')">
+          <xsl:comment>Begin - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
           <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
           <xsl:apply-templates select="mods:relatedItem[@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
+          <xsl:comment>End - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
         </xsl:when>
         <xsl:otherwise>
           <xsl:comment>Access Denied: Will not create values for unresolved keys.</xsl:comment>
@@ -34,7 +36,7 @@
       </xsl:choose>
 
       <!-- Retain mods from previous step, but exclude unresolved values -->
-      <xsl:apply-templates select="@*|node()[not(text() = '-1')]"/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
 
@@ -65,7 +67,7 @@
       </mods:relatedItem>
     </xsl:if>
 
-    <xsl:comment>Begin - create related item - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
+    <xsl:comment>End - create related item - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
   </xsl:template>
 
   <!-- Create unresolved publisher -->
@@ -83,5 +85,5 @@
   </xsl:template>
 
   <!-- Remove all elements with unresolved values -->
-  <xsl:template match="*[fn:number() &lt; 0]"/>
+    <xsl:template match="*[fn:number() &lt; 0]"/>
 </xsl:stylesheet>
