@@ -1,6 +1,7 @@
 package de.uni_jena.thunibib.his.content.transformer;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.his.api.v1.cs.psv.PersonIdentifier;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
@@ -183,6 +184,27 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                 /* id of person in HISinOne */
                 XPathExpression<Element> idExpr = XPATH_FACTORY.compile(tCond, Filters.element(), null, MODS_NAMESPACE);
                 name.addProperty("id", idExpr.evaluateFirst(nameElement).getText());
+                /* nameParts */
+                nameElement
+                    .getChildren("namePart", MODS_NAMESPACE)
+                    .forEach(namePart -> {
+                        var typeOfName = switch (namePart.getAttributeValue("type")) {
+                            case "given" -> "firstname";
+                            case "family" -> "creatorname";
+                            default -> "unknown";
+                        };
+                        name.addProperty(typeOfName, namePart.getText());
+                    });
+                creators.add(name);
+            });
+
+        // unaffiliated creators
+        XPATH_FACTORY
+            .compile("//mods:mods/mods:name[@type='personal'][not(" + tCond + ")]", Filters.element(), null, MODS_NAMESPACE)
+            .evaluate(xml)
+            .forEach(nameElement -> {
+                final JsonObject name = new JsonObject();
+                name.add("person", JsonNull.INSTANCE);
                 /* nameParts */
                 nameElement
                     .getChildren("namePart", MODS_NAMESPACE)
