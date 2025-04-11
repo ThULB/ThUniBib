@@ -152,10 +152,9 @@ public class HISinOneResolver implements URIResolver {
             case visibility -> resolveVisibility(fromValue);
         };
 
-        Object fVal = getFieldValue(sysValue, field);
-        String val = fVal instanceof SysValue ? String.valueOf(((SysValue) fVal).getId()) : String.valueOf(fVal);
-        LOGGER.info("Resolved {} to {}", href, val);
-        return new JDOMSource(new Element("int").setText(val));
+        int resolvedValue = getFieldValue(sysValue, field);
+        LOGGER.info("Resolved {} to {}", href, resolvedValue);
+        return new JDOMSource(new Element("int").setText(String.valueOf(resolvedValue)));
     }
 
     /**
@@ -830,7 +829,7 @@ public class HISinOneResolver implements URIResolver {
      *
      * @return the value of the requested field name or {@link SysValue#getId()}.
      */
-    protected Object getFieldValue(SysValue sysValue, String fieldName) {
+    protected int getFieldValue(SysValue sysValue, String fieldName) {
         Class clazz = sysValue.getClass();
         Field field = null;
 
@@ -850,17 +849,16 @@ public class HISinOneResolver implements URIResolver {
 
         /* field is unresolved */
         if (field == null) {
-            return SysValue.UnresolvedSysValue;
+            return SysValue.UnresolvedSysValue.getId();
         }
 
         /* field is resolved */
         field.setAccessible(true);
         try {
-            Object value = field.get(sysValue);
-            return value;
+            return (int) field.get(sysValue);
         } catch (IllegalAccessException e) {
             LOGGER.error(e);
-            return sysValue.getId();
+            return SysValue.ErroneousSysValue.getId();
         }
     }
 
