@@ -36,7 +36,7 @@
       </xsl:choose>
 
       <!-- Retain mods from previous step, but exclude unresolved values -->
-      <xsl:apply-templates select="@*|node()"/>
+      <xsl:apply-templates select="@*|node()[not(fn:number() &lt; 0)]"/>
     </xsl:copy>
   </xsl:template>
 
