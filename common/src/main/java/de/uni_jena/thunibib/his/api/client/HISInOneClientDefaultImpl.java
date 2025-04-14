@@ -95,6 +95,26 @@ class HISInOneClientDefaultImpl implements HISInOneClient {
     }
 
     @Override
+    public Response delete(String path) {
+        WebTarget webTarget = getJerseyClient()
+            .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH)
+            .path(path);
+
+        Token token;
+        try {
+            token = fetchToken();
+        } catch (Exception e) {
+            LOGGER.error("Could not fetch token", e);
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+
+        Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
+        invocationBuilder.header("Authorization", getAuthorizationHeaderValue(AuthType.Bearer, token.getAccessToken()));
+        Response response = invocationBuilder.delete();
+        return response;
+    }
+
+    @Override
     public Response put(String path, String bodySource) {
         WebTarget webTarget = getJerseyClient()
             .target(HISInOneClientDefaultImpl.HIS_IN_ONE_BASE_URL + API_PATH)

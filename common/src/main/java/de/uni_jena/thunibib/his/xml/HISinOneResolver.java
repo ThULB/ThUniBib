@@ -303,10 +303,6 @@ public class HISinOneResolver implements URIResolver {
     private SysValue resolvePublisher(String value) {
         String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
 
-        if (PUBLISHER_MAP.containsKey(decodedValue)) {
-            return PUBLISHER_MAP.get(decodedValue);
-        }
-
         Map<String, String> params = new HashMap<>();
         params.put("q", decodedValue);
 
@@ -342,10 +338,6 @@ public class HISinOneResolver implements URIResolver {
     private SysValue createPublisher(String value) {
         String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
 
-        if (PUBLISHER_MAP.containsKey(decodedValue)) {
-            return PUBLISHER_MAP.get(decodedValue);
-        }
-
         LanguageValue languageValue = (LanguageValue) resolveLanguage("de");
 
         JsonObject language = new JsonObject();
@@ -367,7 +359,6 @@ public class HISinOneResolver implements URIResolver {
             }
 
             PublisherWrappedValue publisher = response.readEntity(PublisherWrappedValue.class);
-            PUBLISHER_MAP.put(decodedValue, publisher);
             return publisher;
         }
     }

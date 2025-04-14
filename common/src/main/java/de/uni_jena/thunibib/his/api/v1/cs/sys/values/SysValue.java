@@ -93,4 +93,13 @@ abstract public class SysValue {
             this.id = id;
         }
     }
+
+    @JsonIgnore
+    public static final SysValue SuccessSysValue = new SuccessSysValue();
+
+    private static class SuccessSysValue extends SysValue {
+        public SuccessSysValue() {
+            this.id = 1;
+        }
+    }
 }
