@@ -118,8 +118,28 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
-  <xsl:template match="mods:identifier[contains('isbn issn doi hdl urn pubmed ieee arxiv hdl zdb isi evaluna hbz mms scopus duepublico duepublico2 dbt uri', @type)]|mods:identifier/@type">
+  <xsl:template match="mods:identifier[contains('issn doi hdl urn pubmed ieee arxiv hdl zdb isi evaluna hbz mms scopus duepublico duepublico2 dbt uri', @type)]|mods:identifier/@type">
     <xsl:call-template name="copy-and-apply"/>
+  </xsl:template>
+
+  <xsl:template match="mods:identifier[@type='isbn']">
+    <xsl:choose>
+      <!-- ISBN 13, no dashes -->
+      <xsl:when test="string-length(.) = 13">
+        <mods:identifier type="isbn">
+          <xsl:value-of select="concat(substring(., 1, 3), '-', substring(., 4, 1), '-', substring(., 5, 5), '-', substring(., 10, 3), '-', substring(., 13, 1))"/>
+        </mods:identifier>
+      </xsl:when>
+      <!-- ISBN 10, no dashes -->
+      <xsl:when test="string-length(.) = 10">
+        <mods:identifier type="isbn">
+          <xsl:value-of select="concat(substring(., 1, 1), '-', substring(., 2, 5), '-', substring(., 7, 3), '-', substring(., 10, 1))"/>
+        </mods:identifier>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="copy-and-apply"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="mods:identifier[@type='url'][not(//mods:identifier[contains('doi hdl urn', @type)])]">
