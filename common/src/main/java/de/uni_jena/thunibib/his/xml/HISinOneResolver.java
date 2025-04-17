@@ -2,7 +2,6 @@ package de.uni_jena.thunibib.his.xml;
 
 import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.HISinOneCommands;
-import de.uni_jena.thunibib.Utilities;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.psv.PersonIdentifier;
@@ -29,6 +28,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
+import org.mycore.common.xml.MCRXMLFunctions;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
@@ -546,7 +546,7 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<PublicationTypeValue>>() {
                 });
 
-            String expectedType = Utilities.getDisplayName("kdsfPublicationType", fromXpathMapping, "de");
+            String expectedType = MCRXMLFunctions.getDisplayName("kdsfPublicationType", fromXpathMapping, "de");
 
             Optional<PublicationTypeValue> tpv = pubTypeValues
                 .stream()
@@ -592,7 +592,7 @@ public class HISinOneResolver implements URIResolver {
                 .stream()
                 .toList();
 
-            String documentTypeName = Utilities.getDisplayName("kdsfDocumentType", fromXpathMapping, "de");
+            String documentTypeName = MCRXMLFunctions.getDisplayName("kdsfDocumentType", fromXpathMapping, "de");
             Optional<DocumentType> documentType = list
                 .stream()
                 .filter(v -> v.getDefaultText().equals(documentTypeName))

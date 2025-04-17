@@ -132,18 +132,4 @@ public class Utilities {
             return "";
         }
     }
-
-    public static String getDisplayName(String classificationId, String categoryId, String lang) {
-        try {
-            MCRCategoryID categID = new MCRCategoryID(classificationId, categoryId);
-            MCRCategoryDAO dao = MCRCategoryDAOFactory.getInstance();
-            MCRCategory category = dao.getCategory(categID, 0);
-            Optional<MCRLabel> label = category.getLabel(lang);
-            return label.isEmpty() ? "" : label.get().getText();
-        } catch (Throwable e) {
-            LOGGER.error("Could not determine display name for classification id {} and category id {}",
-                classificationId, categoryId, e);
-            return "";
-        }
-    }
 }
