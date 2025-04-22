@@ -95,6 +95,25 @@
     </xsl:copy>
   </xsl:template>
 
+  <xsl:template match="mods:name[@type='conference']">
+    <xsl:variable name="his-id">
+      <xsl:value-of select="fn:document(concat('hisinone:resolve:id:conference:', fn:encode-for-uri(mods:namePart/text())))"/>
+    </xsl:variable>
+
+    <xsl:copy>
+      <xsl:copy-of select="*|@*"/>
+      <xsl:if test="number($his-id)">
+        <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+
+        <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/conference/identifier">
+          <xsl:value-of select="$his-id"/>
+        </mods:nameIdentifier>
+
+        <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+      </xsl:if>
+    </xsl:copy>
+  </xsl:template>
+
   <xsl:template name="related-item-host">
     <xsl:variable name="host" select="mods:relatedItem[@type = 'host']/@xlink:href"/>
     <xsl:variable name="host-genre" select="mods:relatedItem[@type = 'host']/mods:genre[@type='intern']/fn:substring-after(@valueURI, '#')"/>

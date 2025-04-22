@@ -1,10 +1,10 @@
 package de.uni_jena.thunibib.his.xml;
 
 import com.google.gson.JsonObject;
-import de.uni_jena.thunibib.his.cli.HISinOneCommands;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
+import de.uni_jena.thunibib.his.cli.HISinOneCommands;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
@@ -36,12 +36,12 @@ import java.util.stream.Collectors;
 
 /**
  * <p>
- * This resolver allows to resolve internal keys used by HISinOne to address its entities.
+ * This resolver allows resolving of internal keys used by HISinOne to address its entities.
  * </p>
  *
  * Usage
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;conference|creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * </p>
  *
  * Note
@@ -55,6 +55,7 @@ public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
 
     private static final Map<String, SysValue.LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> CONFERENCE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
@@ -74,6 +75,7 @@ public class HISinOneResolver implements URIResolver {
     }
 
     public enum ResolvableTypes {
+        conference,
         creatorType,
         documentType,
         globalIdentifiers,
@@ -116,6 +118,7 @@ public class HISinOneResolver implements URIResolver {
         fromValue = parts.length > 4 ? URLDecoder.decode(parts[4], StandardCharsets.UTF_8) : "";
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
+            case conference -> resolveConference(fromValue);
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
@@ -138,6 +141,36 @@ public class HISinOneResolver implements URIResolver {
         int resolvedValue = getFieldValue(sysValue, field);
         LOGGER.info("Resolved {} to {}", href, resolvedValue);
         return new JDOMSource(new Element("int").setText(String.valueOf(resolvedValue)));
+    }
+
+    private SysValue resolveConference(String value) {
+        if (CONFERENCE_TYPE_MAP.containsKey(value)) {
+            return CONFERENCE_TYPE_MAP.get(value);
+        }
+
+        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+        String[] conferenceParts = decodedValue.split(";");
+
+        if (!(conferenceParts.length >= 3)) {
+            return SysValue.UnresolvedSysValue;
+        }
+
+        // Search by name of the conference
+        Map<String, String> params = new HashMap<>();
+        params.put("q", conferenceParts[0]);
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(SysValue.resolve(SysValue.Conference.class), params)) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logError(response, SysValue.resolve(SysValue.Conference.class));
+                return SysValue.ErroneousSysValue;
+            }
+
+            SysValue.Conference[] conference = response.readEntity(SysValue.Conference[].class);
+
+            return conference.length > 0 ? conference[0] : SysValue.UnresolvedSysValue;
+        }
     }
 
     /**
