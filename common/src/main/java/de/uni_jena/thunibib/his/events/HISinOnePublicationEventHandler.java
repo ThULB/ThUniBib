@@ -1,6 +1,6 @@
 package de.uni_jena.thunibib.his.events;
 
-import de.uni_jena.thunibib.HISinOneCommands;
+import de.uni_jena.thunibib.his.cli.HISinOneCommands;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import org.apache.logging.log4j.LogManager;

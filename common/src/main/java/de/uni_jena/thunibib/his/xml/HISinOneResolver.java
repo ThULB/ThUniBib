@@ -1,7 +1,7 @@
 package de.uni_jena.thunibib.his.xml;
 
 import com.google.gson.JsonObject;
-import de.uni_jena.thunibib.HISinOneCommands;
+import de.uni_jena.thunibib.his.cli.HISinOneCommands;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
