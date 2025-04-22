@@ -3,7 +3,6 @@ package de.uni_jena.thunibib;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
@@ -138,10 +137,11 @@ public class HISinOneCommands {
             String hisId = mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
 
             try (HISInOneClient client = HISinOneClientFactory.create();
-                Response response = client.delete(Publication.getPath() + "/" + hisId)) {
+                Response response = client.delete(SysValue.resolve(SysValue.Publication.class) + "/" + hisId)) {
 
                 if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                    LOGGER.error("{}: {}", Publication.getPath(), response.readEntity(String.class));
+                    LOGGER.error("{}: {}", SysValue.resolve(SysValue.Publication.class),
+                        response.readEntity(String.class));
                     return SysValue.ErroneousSysValue;
                 }
                 Integer code = response.readEntity(Integer.class);

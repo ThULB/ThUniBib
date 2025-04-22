@@ -4,24 +4,7 @@ import com.google.gson.JsonObject;
 import de.uni_jena.thunibib.HISinOneCommands;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
-import de.uni_jena.thunibib.his.api.v1.cs.psv.PersonIdentifier;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.LanguageValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PeerReviewedValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationAccessTypeValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationCreatorTypeValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationResourceValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.PublicationTypeValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.QualificationThesisValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.ResearchAreaKdsfValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SubjectAreaValue;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.VisibilityValue;
-import de.uni_jena.thunibib.his.api.v1.cs.sys.values.publisher.PublisherWrappedValue;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.DocumentType;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.GlobalIdentifierType;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Journal;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
-import de.uni_jena.thunibib.his.api.v1.fs.res.state.PublicationState;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
@@ -71,7 +54,7 @@ import java.util.stream.Collectors;
 public class HISinOneResolver implements URIResolver {
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
 
-    private static final Map<String, LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue.LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
@@ -167,18 +150,19 @@ public class HISinOneResolver implements URIResolver {
      */
     protected SysValue resolvePerson(String type, String value) {
         Map<String, String> parameter = new HashMap<>();
-        parameter.put(PersonIdentifier.getTypeParameterName(), type);
-        parameter.put(PersonIdentifier.getValueParameterName(), value);
+        parameter.put(SysValue.PersonIdentifier.getTypeParameterName(), type);
+        parameter.put(SysValue.PersonIdentifier.getValueParameterName(), value);
+        String path = SysValue.resolve(SysValue.PersonIdentifier.class);
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.post(PersonIdentifier.getPath(), null, parameter)) {
+            Response response = hisClient.post(path, null, parameter)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PersonIdentifier.getPath());
+                logError(response, path);
                 return SysValue.ErroneousSysValue;
             }
 
-            PersonIdentifier sysValue = response.readEntity(PersonIdentifier.class);
+            SysValue.PersonIdentifier sysValue = response.readEntity(SysValue.PersonIdentifier.class);
             return sysValue;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
@@ -197,13 +181,13 @@ public class HISinOneResolver implements URIResolver {
 
         String hisId = host.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(Journal.getPath() + "/" + hisId)) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.Journal.class) + "/" + hisId)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, Journal.getPath());
+                logError(response, SysValue.resolve(SysValue.Journal.class));
                 return SysValue.ErroneousSysValue;
             }
-            Journal journal = response.readEntity(Journal.class);
+            SysValue.Journal journal = response.readEntity(SysValue.Journal.class);
             return journal;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
@@ -233,21 +217,21 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(PublicationResourceValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.PublicationResourceValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PublicationResourceValue.getPath());
+                logError(response, SysValue.resolve(SysValue.PublicationResourceValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<PublicationResourceValue> availableResourceTypes = response.readEntity(
-                new GenericType<List<PublicationResourceValue>>() {
+            List<SysValue.PublicationResourceValue> availableResourceTypes = response.readEntity(
+                new GenericType<List<SysValue.PublicationResourceValue>>() {
                 });
 
             // find his key of resourceType
             if (label.isPresent()) {
                 String text = label.get().getText();
-                Optional<PublicationResourceValue> resolved = availableResourceTypes
+                Optional<SysValue.PublicationResourceValue> resolved = availableResourceTypes
                     .stream()
                     .filter(t -> text.equals(t.getDefaultText()))
                     .findFirst();
@@ -288,14 +272,14 @@ public class HISinOneResolver implements URIResolver {
 
         String hisid = mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(Publication.getPath() + "/" + hisid)) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.Publication.class) + "/" + hisid)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, Publication.getPath());
+                logError(response, SysValue.resolve(SysValue.Publication.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            Publication publication = response.readEntity(Publication.class);
+            SysValue.Publication publication = response.readEntity(SysValue.Publication.class);
             return publication;
         }
     }
@@ -307,23 +291,23 @@ public class HISinOneResolver implements URIResolver {
         params.put("q", decodedValue);
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(PublisherWrappedValue.getPath(), params)) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.PublisherWrappedValueSearch.class), params)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PublisherWrappedValue.getPath());
+                logError(response, SysValue.resolve(SysValue.PublisherWrappedValueSearch.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<PublisherWrappedValue> publishers = response.readEntity(
-                new GenericType<List<PublisherWrappedValue>>() {
+            List<SysValue.PublisherWrappedValueSearch> publishers = response.readEntity(
+                new GenericType<List<SysValue.PublisherWrappedValueSearch>>() {
                 });
 
-            List<PublisherWrappedValue> resultList = publishers.stream()
+            List<SysValue.PublisherWrappedValueSearch> resultList = publishers.stream()
                 .filter(pwv -> decodedValue.equals(pwv.getUniqueName()))
                 .toList();
 
             SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.UnresolvedSysValue;
-            if (r instanceof PublisherWrappedValue) {
+            if (r instanceof SysValue.PublisherWrappedValueSearch) {
                 PUBLISHER_MAP.put(decodedValue, r);
             }
             return r;
@@ -338,7 +322,7 @@ public class HISinOneResolver implements URIResolver {
     private SysValue createPublisher(String value) {
         String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
 
-        LanguageValue languageValue = (LanguageValue) resolveLanguage("de");
+        SysValue.LanguageValue languageValue = (SysValue.LanguageValue) resolveLanguage("de");
 
         JsonObject language = new JsonObject();
         language.addProperty("id", languageValue.getId());
@@ -350,15 +334,17 @@ public class HISinOneResolver implements URIResolver {
         jsonObject.addProperty("place", "unbekannt");
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.post(PublisherWrappedValue.getPath(PublisherWrappedValue.PathType.create),
+
+            Response response = hisClient.post(SysValue.resolve(SysValue.PublisherWrappedValueCreate.class),
                 jsonObject.toString())) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PublisherWrappedValue.getPath(PublisherWrappedValue.PathType.create));
+                logError(response, SysValue.resolve(SysValue.PublisherWrappedValueCreate.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            PublisherWrappedValue publisher = response.readEntity(PublisherWrappedValue.class);
+            SysValue.PublisherWrappedValueCreate publisher = response.readEntity(
+                SysValue.PublisherWrappedValueCreate.class);
             return publisher;
         }
     }
@@ -376,15 +362,15 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(PeerReviewedValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.PeerReviewedValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PeerReviewedValue.getPath());
+                logError(response, SysValue.resolve(SysValue.PeerReviewedValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<PeerReviewedValue> prTypes = response.readEntity(
-                new GenericType<List<PeerReviewedValue>>() {
+            List<SysValue.PeerReviewedValue> prTypes = response.readEntity(
+                new GenericType<List<SysValue.PeerReviewedValue>>() {
                 });
 
             var text = switch (peerReviewedCategId) {
@@ -393,7 +379,7 @@ public class HISinOneResolver implements URIResolver {
                 default -> "keine Angabe";
             };
 
-            Optional<PeerReviewedValue> peerReviewedValue = prTypes
+            Optional<SysValue.PeerReviewedValue> peerReviewedValue = prTypes
                 .stream()
                 .filter(t -> text.equals(t.getUniqueName()))
                 .findFirst();
@@ -419,15 +405,15 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(PublicationAccessTypeValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.PublicationAccessTypeValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PublicationAccessTypeValue.getPath());
+                logError(response, SysValue.resolve(SysValue.PublicationAccessTypeValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<PublicationAccessTypeValue> accessTypes = response.readEntity(
-                new GenericType<List<PublicationAccessTypeValue>>() {
+            List<SysValue.PublicationAccessTypeValue> accessTypes = response.readEntity(
+                new GenericType<List<SysValue.PublicationAccessTypeValue>>() {
                 });
 
             MCRCategoryID mcrCategoryID = MCRCategoryID.fromString("accessrights:" + accessRightsCategId);
@@ -440,7 +426,7 @@ public class HISinOneResolver implements URIResolver {
             }
 
             String text = label.get().getText().toLowerCase(Locale.ROOT);
-            Optional<PublicationAccessTypeValue> first = accessTypes
+            Optional<SysValue.PublicationAccessTypeValue> first = accessTypes
                 .stream()
                 .filter(patv -> text.equals(patv.getDefaultText().toLowerCase(Locale.ROOT)))
                 .findFirst();
@@ -467,18 +453,18 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(ResearchAreaKdsfValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.ResearchAreaKdsfValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, ResearchAreaKdsfValue.getPath());
+                logError(response, SysValue.resolve(SysValue.ResearchAreaKdsfValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<ResearchAreaKdsfValue> availableTypes = response.readEntity(
-                new GenericType<List<ResearchAreaKdsfValue>>() {
+            List<SysValue.ResearchAreaKdsfValue> availableTypes = response.readEntity(
+                new GenericType<List<SysValue.ResearchAreaKdsfValue>>() {
                 });
 
-            Optional<ResearchAreaKdsfValue> raKdsfValue = availableTypes
+            Optional<SysValue.ResearchAreaKdsfValue> raKdsfValue = availableTypes
                 .stream()
                 .filter(v -> areaCategId.equals(v.getUniqueName()))
                 .findFirst();
@@ -505,18 +491,18 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(GlobalIdentifierType.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.GlobalIdentifierType.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, GlobalIdentifierType.getPath());
+                logError(response, SysValue.resolve(SysValue.GlobalIdentifierType.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<GlobalIdentifierType> availableTypes = response.readEntity(
-                new GenericType<List<GlobalIdentifierType>>() {
+            List<SysValue.GlobalIdentifierType> availableTypes = response.readEntity(
+                new GenericType<List<SysValue.GlobalIdentifierType>>() {
                 });
 
-            Optional<GlobalIdentifierType> type = availableTypes
+            Optional<SysValue.GlobalIdentifierType> type = availableTypes
                 .stream()
                 .filter(t -> identifierType.toUpperCase(Locale.ROOT).equals(t.getUniqueName().toUpperCase(Locale.ROOT)))
                 .findFirst();
@@ -535,20 +521,20 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(PublicationTypeValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.PublicationTypeValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PublicationTypeValue.getPath());
+                logError(response, SysValue.resolve(SysValue.PublicationTypeValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<PublicationTypeValue> pubTypeValues = response.readEntity(
-                new GenericType<List<PublicationTypeValue>>() {
+            List<SysValue.PublicationTypeValue> pubTypeValues = response.readEntity(
+                new GenericType<List<SysValue.PublicationTypeValue>>() {
                 });
 
             String expectedType = MCRXMLFunctions.getDisplayName("kdsfPublicationType", fromXpathMapping, "de");
 
-            Optional<PublicationTypeValue> tpv = pubTypeValues
+            Optional<SysValue.PublicationTypeValue> tpv = pubTypeValues
                 .stream()
                 .filter(pubType -> pubType.getUniqueName().equals(expectedType))
                 .findFirst();
@@ -567,33 +553,34 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response bookResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.book));
-            Response articleResp = hisClient.get(DocumentType.getPath(DocumentType.PathType.article))) {
+            Response bookResp = hisClient.get(SysValue.resolve(SysValue.DocumentTypeBook.class));
+            Response articleResp = hisClient.get(SysValue.resolve(SysValue.DocumentTypeArticle.class));) {
 
             if (bookResp.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(bookResp, DocumentType.getPath(DocumentType.PathType.book));
+                logError(bookResp, SysValue.resolve(SysValue.DocumentTypeBook.class));
                 return SysValue.ErroneousSysValue;
             }
             if (articleResp.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(articleResp, DocumentType.getPath(DocumentType.PathType.article));
+                logError(articleResp, SysValue.resolve(SysValue.DocumentTypeArticle.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<DocumentType> ofBook = bookResp.readEntity(new GenericType<List<DocumentType>>() {
+            List<SysValue.DocumentType> ofBook = bookResp.readEntity(new GenericType<List<SysValue.DocumentType>>() {
             });
-            ofBook.addAll(articleResp.readEntity(new GenericType<List<DocumentType>>() {
+            ofBook.addAll(articleResp.readEntity(new GenericType<List<SysValue.DocumentType>>() {
             }));
 
             // remove duplicates
-            List<DocumentType> list = ofBook
+            List<SysValue.DocumentType> list = ofBook
                 .stream()
-                .collect(Collectors.toMap(DocumentType::getId, existing -> existing, (existing, replace) -> existing))
+                .collect(Collectors
+                    .toMap(SysValue.DocumentType::getId, existing -> existing, (existing, replace) -> existing))
                 .values()
                 .stream()
                 .toList();
 
             String documentTypeName = MCRXMLFunctions.getDisplayName("kdsfDocumentType", fromXpathMapping, "de");
-            Optional<DocumentType> documentType = list
+            Optional<SysValue.DocumentType> documentType = list
                 .stream()
                 .filter(v -> v.getDefaultText().equals(documentTypeName))
                 .findFirst();
@@ -612,15 +599,15 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(QualificationThesisValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.QualificationThesisValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, QualificationThesisValue.getPath());
+                logError(response, SysValue.resolve(SysValue.QualificationThesisValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<QualificationThesisValue> thesisValues = response.readEntity(
-                new GenericType<List<QualificationThesisValue>>() {
+            List<SysValue.QualificationThesisValue> thesisValues = response.readEntity(
+                new GenericType<List<SysValue.QualificationThesisValue>>() {
                 });
 
             MCRCategoryID categId = MCRCategoryID.fromString("ubogenre:" + ubogenre);
@@ -628,14 +615,14 @@ public class HISinOneResolver implements URIResolver {
             List<MCRCategory> children = MCRCategoryDAOFactory.getInstance().getChildren(thesisCategId);
             boolean isThesis = children.stream().filter(c -> c.getId().equals(categId)).findAny().isPresent();
 
-            QualificationThesisValue sysValue = null;
+            SysValue.QualificationThesisValue sysValue = null;
             if (isThesis) {
                 String text = MCRCategoryDAOFactory
                     .getInstance()
                     .getCategory(categId, -1).getLabel("de").get()
                     .getText();
 
-                Optional<QualificationThesisValue> qtv = thesisValues.stream()
+                Optional<SysValue.QualificationThesisValue> qtv = thesisValues.stream()
                     .filter(tv -> text.equals(tv.getDefaultText())).findFirst();
 
                 if (qtv.isPresent()) {
@@ -656,18 +643,18 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(SubjectAreaValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.SubjectAreaValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, SubjectAreaValue.getPath());
+                logError(response, SysValue.resolve(SysValue.SubjectAreaValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<SubjectAreaValue> subjectAreas = response.readEntity(
-                new GenericType<List<SubjectAreaValue>>() {
+            List<SysValue.SubjectAreaValue> subjectAreas = response.readEntity(
+                new GenericType<List<SysValue.SubjectAreaValue>>() {
                 });
 
-            Optional<SubjectAreaValue> areaValue = subjectAreas.stream()
+            Optional<SysValue.SubjectAreaValue> areaValue = subjectAreas.stream()
                 .filter(subjectAreaValue -> destatisId.equals(subjectAreaValue.getUniqueName()))
                 .findFirst();
 
@@ -684,7 +671,7 @@ public class HISinOneResolver implements URIResolver {
             return CREATOR_TYPE_MAP.get(value);
         }
 
-        String path = "cs/sys/values/publicationCreatorTypeValue";
+        String path = SysValue.resolve(SysValue.PublicationCreatorTypeValue.class);
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.get(path)) {
 
@@ -693,8 +680,8 @@ public class HISinOneResolver implements URIResolver {
                 return SysValue.ErroneousSysValue;
             }
 
-            List<PublicationCreatorTypeValue> creatorTypes = response.readEntity(
-                new GenericType<List<PublicationCreatorTypeValue>>() {
+            List<SysValue.PublicationCreatorTypeValue> creatorTypes = response.readEntity(
+                new GenericType<List<SysValue.PublicationCreatorTypeValue>>() {
                 });
 
             var id = switch (value) {
@@ -722,15 +709,15 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(VisibilityValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.VisibilityValue.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, VisibilityValue.getPath());
+                logError(response, SysValue.resolve(SysValue.VisibilityValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<VisibilityValue> visState = response.readEntity(
-                new GenericType<List<VisibilityValue>>() {
+            List<SysValue.VisibilityValue> visState = response.readEntity(
+                new GenericType<List<SysValue.VisibilityValue>>() {
                 });
 
             var id = switch (statusCategId) {
@@ -746,7 +733,7 @@ public class HISinOneResolver implements URIResolver {
     }
 
     /**
-     * Resolves the HISinOne {@link PublicationState} by the current hsb publication status.
+     * Resolves the HISinOne {@link SysValue.PublicationState} by the current hsb publication status.
      *
      * @param statusCategId the current status category id of the publication
      *
@@ -758,15 +745,15 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(PublicationState.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.PublicationState.class))) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, PublicationState.getPath());
+                logError(response, SysValue.resolve(SysValue.PublicationState.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<PublicationState> pubState = response.readEntity(
-                new GenericType<List<PublicationState>>() {
+            List<SysValue.PublicationState> pubState = response.readEntity(
+                new GenericType<List<SysValue.PublicationState>>() {
                 });
 
             var id = switch (statusCategId) {
@@ -790,16 +777,17 @@ public class HISinOneResolver implements URIResolver {
         }
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(LanguageValue.getPath())) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.LanguageValue.class))) {
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, LanguageValue.getPath());
+                logError(response, SysValue.resolve(SysValue.LanguageValue.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<LanguageValue> languageValues = response.readEntity(new GenericType<List<LanguageValue>>() {
-            });
+            List<SysValue.LanguageValue> languageValues = response.readEntity(
+                new GenericType<List<SysValue.LanguageValue>>() {
+                });
 
-            Optional<LanguageValue> languageValue = languageValues
+            Optional<SysValue.LanguageValue> languageValue = languageValues
                 .stream()
                 .filter(lv -> lv.getIso6391().equals(rfc5646))
                 .findFirst();

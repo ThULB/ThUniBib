@@ -1,8 +1,6 @@
 package de.uni_jena.thunibib;
 
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Journal;
-import de.uni_jena.thunibib.his.api.v1.fs.res.publication.Publication;
 import org.jdom2.filter.Filters;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.metadata.MCRObject;
@@ -46,9 +44,9 @@ class HISinOneCommandConfiguration {
      * */
     public String getPath() {
         if (isJournal) {
-            return Journal.getPath();
+            return SysValue.resolve(SysValue.Journal.class);
         }
-        return Publication.getPath();
+        return SysValue.resolve(SysValue.Publication.class);
     }
 
     /**
@@ -56,8 +54,8 @@ class HISinOneCommandConfiguration {
      * */
     public Class<? extends SysValue> getResponseEntityClass() {
         if (isJournal) {
-            return Journal.class;
+            return SysValue.Journal.class;
         }
-        return Publication.class;
+        return SysValue.Publication.class;
     }
 }

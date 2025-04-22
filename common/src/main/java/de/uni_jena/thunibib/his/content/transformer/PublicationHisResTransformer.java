@@ -3,7 +3,7 @@ package de.uni_jena.thunibib.his.content.transformer;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
-import de.uni_jena.thunibib.his.api.v1.cs.psv.PersonIdentifier;
+import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -174,7 +174,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         final JsonArray creators = new JsonArray();
 
         String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
-            + PersonIdentifier.getPath() + "')]";
+            + SysValue.resolve(SysValue.PersonIdentifier.class) + "')]";
 
         XPATH_FACTORY
             .compile("//mods:mods/mods:name[@type='personal'][" + tCond + "]", Filters.element(), null, MODS_NAMESPACE)
