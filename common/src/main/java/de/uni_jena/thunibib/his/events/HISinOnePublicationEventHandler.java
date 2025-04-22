@@ -53,8 +53,10 @@ public class HISinOnePublicationEventHandler extends MCREventHandlerBase {
             return;
         }
 
-        SysValue sysValue = HISinOneCommands.update(obj);
-        LOGGER.info("{}", sysValue);
+        if (!onlyHISFlagAdded((MCRObject) evt.get(MCREvent.OBJECT_OLD_KEY), obj)) {
+            SysValue sysValue = HISinOneCommands.update(obj);
+            LOGGER.info("{}", sysValue);
+        }
     }
 
     /**
@@ -79,5 +81,12 @@ public class HISinOnePublicationEventHandler extends MCREventHandlerBase {
     protected boolean hasHISinOneFlag(MCRObject obj) {
         ArrayList<String> flags = obj.getService().getFlags(HISInOneServiceFlag.getName());
         return flags != null && !flags.isEmpty();
+    }
+
+    private boolean onlyHISFlagAdded(MCRObject old, MCRObject actual) {
+        int newFlagsSize = actual.getService().getFlags(HISInOneServiceFlag.getName()).size();
+        int oldFlagsSize = old.getService().getFlags(HISInOneServiceFlag.getName()).size();
+
+        return oldFlagsSize == 0 && newFlagsSize > 0;
     }
 }
