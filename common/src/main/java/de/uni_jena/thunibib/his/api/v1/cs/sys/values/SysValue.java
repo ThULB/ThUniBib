@@ -295,6 +295,12 @@ abstract public class SysValue {
     @HISinOnePath(path = "fs/res/conference")
     @JsonIgnoreProperties(ignoreUnknown = true)
     static public class Conference extends SysValue {
+        @JsonProperty("city")
+        private String city;
+
+        public String getCity() {
+            return city;
+        }
     }
 
     private static class UnresolvedSysValue extends SysValue.DocumentType {

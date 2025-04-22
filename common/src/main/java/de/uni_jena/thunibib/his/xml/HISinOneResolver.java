@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.transform.JDOMSource;
+
 import org.mycore.common.xml.MCRXMLFunctions;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
@@ -26,6 +27,8 @@ import javax.xml.transform.URIResolver;
 import java.lang.reflect.Field;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -168,6 +171,8 @@ public class HISinOneResolver implements URIResolver {
             }
 
             SysValue.Conference[] conference = response.readEntity(SysValue.Conference[].class);
+
+            // TODO check for date and location
 
             return conference.length > 0 ? conference[0] : SysValue.UnresolvedSysValue;
         }
