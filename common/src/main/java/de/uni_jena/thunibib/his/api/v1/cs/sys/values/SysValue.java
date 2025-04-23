@@ -322,6 +322,14 @@ abstract public class SysValue {
     static public class Country extends SysValue {
     }
 
+    @HISinOnePath(path = "cs/sys/values/conferenceEventTypeValue")
+    static public class ConferenceEventTypeValue extends SysValue {
+    }
+
+    @HISinOnePath(path = "fs/res/state/conference")
+    static public class ConferenceState extends SysValue {
+    }
+
     private static class UnresolvedSysValue extends SysValue.DocumentType {
         public UnresolvedSysValue(int id) {
             this.id = id;

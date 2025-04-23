@@ -25,6 +25,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import java.lang.reflect.Field;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -43,7 +44,7 @@ import java.util.stream.Collectors;
  *
  * Usage
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;conference|creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
+ * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;conference|country|creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
  * </p>
  *
  * Note
@@ -58,6 +59,7 @@ public class HISinOneResolver implements URIResolver {
 
     private static final Map<String, SysValue.LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CONFERENCE_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> COUNTRY_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
@@ -71,6 +73,7 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> CONFERENCE_EVENT_TYPE_MAP = new HashMap<>();
 
     public enum Mode {
         resolve, create
@@ -78,6 +81,7 @@ public class HISinOneResolver implements URIResolver {
 
     public enum ResolvableTypes {
         conference,
+        country,
         creatorType,
         documentType,
         globalIdentifiers,
@@ -121,6 +125,7 @@ public class HISinOneResolver implements URIResolver {
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case conference -> Mode.resolve.equals(mode) ? resolveConference(fromValue) : createConference(fromValue);
+            case country -> resolveCountry(fromValue);
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
@@ -183,13 +188,150 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
-    private SysValue createConference(String value) {
-        return SysValue.ErroneousSysValue;
+    private SysValue resolveConferenceState(String value) {
+        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(SysValue.resolve(SysValue.ConferenceState.class))) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logError(response, SysValue.resolve(SysValue.ConferenceState.class));
+                return SysValue.ErroneousSysValue;
+            }
+
+            SysValue.ConferenceState[] states = response.readEntity(SysValue.ConferenceState[].class);
+            Optional<SysValue.ConferenceState> match = Arrays.stream(states)
+                .filter(state -> state.getDefaultText().equals(decodedValue))
+                .findFirst();
+
+            return match.isPresent() ? match.get() : SysValue.UnresolvedSysValue;
+        }
     }
 
-    private long toEpochMilli(String conferenceYear) {
-        Instant instant = Instant.parse(conferenceYear + "-01-01T00:00:00Z");
-        return instant.minus(1, ChronoUnit.HOURS).toEpochMilli();
+    private SysValue createConference(String value) {
+        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+        String[] conferenceParts = decodedValue.split(";");
+
+        if (conferenceParts.length != 3) {
+            return SysValue.UnresolvedSysValue;
+        }
+
+        String name = conferenceParts[0].trim();
+        String city = conferenceParts[1].trim();
+        long year = toEpochMilli(conferenceParts[2].trim());
+
+        SysValue country = resolveCountry(URLEncoder.encode("Ohne Angabe", StandardCharsets.UTF_8));
+        SysValue language = resolveLanguage("de");
+        SysValue status = resolveConferenceState("validiert");
+        SysValue conferenceEventType = resolveConferenceEventTypeValue("vor Ort");
+
+        JsonObject conference = buildConferenceObject(city, conferenceEventType, name, country, language, status, year);
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.post(SysValue.resolve(SysValue.Conference.class), conference.toString())) {
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logError(response, SysValue.resolve(SysValue.Conference.class));
+                return SysValue.ErroneousSysValue;
+            }
+            SysValue.Conference created = response.readEntity(SysValue.Conference.class);
+
+            return created;
+        } catch (Exception e) {
+            LOGGER.error("Could not create conference", e);
+            return SysValue.ErroneousSysValue;
+        }
+    }
+
+    private JsonObject buildConferenceObject(String city, SysValue eventType, String defaultText, SysValue country,
+        SysValue language, SysValue status, long year) {
+        JsonObject conference = new JsonObject();
+        conference.addProperty("city", city);
+
+        JsonObject conferenceEventTypeProp = new JsonObject();
+        conferenceEventTypeProp.addProperty("id", eventType.getId());
+        conference.add("conferenceEventType", conferenceEventTypeProp);
+
+        conference.addProperty("defaulttext", defaultText);
+
+        JsonObject countryProp = new JsonObject();
+        countryProp.addProperty("id", country.getId());
+        conference.add("country", countryProp);
+
+        JsonObject languageProp = new JsonObject();
+        languageProp.addProperty("id", language.getId());
+        conference.add("language", languageProp);
+
+        JsonObject statusProp = new JsonObject();
+        statusProp.addProperty("id", status.getId());
+        conference.add("status", statusProp);
+
+        conference.addProperty("startDate", year);
+        conference.addProperty("endDate", year);
+
+        return conference;
+    }
+
+    private SysValue resolveCountry(String countryName) {
+        String decodedCountryName = URLDecoder.decode(countryName, StandardCharsets.UTF_8);
+
+        if (COUNTRY_TYPE_MAP.containsKey(decodedCountryName)) {
+            return COUNTRY_TYPE_MAP.get(decodedCountryName);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(SysValue.resolve(SysValue.Country.class))) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logError(response, SysValue.resolve(SysValue.Country.class));
+                return SysValue.ErroneousSysValue;
+            }
+
+            SysValue.Country[] sysValue = response.readEntity(SysValue.Country[].class);
+            Optional<SysValue.Country> match = Arrays.stream(sysValue)
+                .filter(country -> decodedCountryName.equals(country.getDefaultText()))
+                .findFirst();
+
+            if (match.isPresent()) {
+                COUNTRY_TYPE_MAP.put(decodedCountryName, match.get());
+                return match.get();
+            }
+
+            return SysValue.UnresolvedSysValue;
+        } catch (Exception e) {
+            return SysValue.ErroneousSysValue;
+        }
+    }
+
+    private SysValue resolveConferenceEventTypeValue(String eventType) {
+        String decodedConferenceEventType = URLDecoder.decode(eventType, StandardCharsets.UTF_8);
+
+        if (CONFERENCE_EVENT_TYPE_MAP.containsKey(decodedConferenceEventType)) {
+            return CONFERENCE_EVENT_TYPE_MAP.get(decodedConferenceEventType);
+        }
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(SysValue.resolve(SysValue.ConferenceEventTypeValue.class))) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logError(response, SysValue.resolve(SysValue.ConferenceEventTypeValue.class));
+                return SysValue.ErroneousSysValue;
+            }
+
+            SysValue.ConferenceEventTypeValue[] sysValue = response.readEntity(
+                SysValue.ConferenceEventTypeValue[].class);
+            Optional<SysValue.ConferenceEventTypeValue> match = Arrays.stream(sysValue)
+                .filter(conferenceEventTypeValue -> decodedConferenceEventType.equals(
+                    conferenceEventTypeValue.getDefaultText()))
+                .findFirst();
+
+            if (match.isPresent()) {
+                CONFERENCE_EVENT_TYPE_MAP.put(decodedConferenceEventType, match.get());
+                return match.get();
+            }
+            return SysValue.UnresolvedSysValue;
+        } catch (Exception e) {
+            return SysValue.ErroneousSysValue;
+        }
     }
 
     /**
@@ -898,7 +1040,7 @@ public class HISinOneResolver implements URIResolver {
      *
      * @param mcrid the id to check
      *
-     * @return true if object exists, false otherwise
+     * @return true if an object exists, false otherwise
      * */
     protected boolean exists(String mcrid) {
         if (!MCRObjectID.isValid(mcrid)) {
@@ -912,6 +1054,11 @@ public class HISinOneResolver implements URIResolver {
             return false;
         }
         return true;
+    }
+
+    private long toEpochMilli(String conferenceYear) {
+        Instant instant = Instant.parse(conferenceYear + "-01-01T00:00:00Z");
+        return instant.minus(1, ChronoUnit.HOURS).toEpochMilli();
     }
 
     /**
