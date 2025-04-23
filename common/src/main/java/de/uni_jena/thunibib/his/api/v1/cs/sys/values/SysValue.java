@@ -102,8 +102,9 @@ abstract public class SysValue {
         return uniqueName;
     }
 
+    @Override
     public String toString() {
-        return defaultText + ":" + id + ":lockVersion:" + lockVersion;
+        return id + ":lockVersion:" + lockVersion + (defaultText != null ? ":" + defaultText : "");
     }
 
     /**
@@ -315,6 +316,10 @@ abstract public class SysValue {
         public long getEndDate() {
             return endDate;
         }
+    }
+
+    @HISinOnePath(path = "cs/sys/values/country")
+    static public class Country extends SysValue {
     }
 
     private static class UnresolvedSysValue extends SysValue.DocumentType {
