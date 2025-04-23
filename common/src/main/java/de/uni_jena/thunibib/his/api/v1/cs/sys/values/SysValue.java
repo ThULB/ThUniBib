@@ -298,8 +298,22 @@ abstract public class SysValue {
         @JsonProperty("city")
         private String city;
 
+        @JsonProperty("startDate")
+        private long startDate;
+
+        @JsonProperty("endDate")
+        private long endDate;
+
         public String getCity() {
             return city;
+        }
+
+        public long getStartDate() {
+            return startDate;
+        }
+
+        public long getEndDate() {
+            return endDate;
         }
     }
 
