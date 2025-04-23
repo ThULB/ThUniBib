@@ -120,7 +120,7 @@ public class HISinOneResolver implements URIResolver {
         fromValue = parts.length > 4 ? URLDecoder.decode(parts[4], StandardCharsets.UTF_8) : "";
 
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
-            case conference -> resolveConference(fromValue);
+            case conference -> Mode.resolve.equals(mode) ? resolveConference(fromValue) : createConference(fromValue);
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
@@ -181,6 +181,10 @@ public class HISinOneResolver implements URIResolver {
                 .findFirst();
             return match.isPresent() ? match.get() : SysValue.UnresolvedSysValue;
         }
+    }
+
+    private SysValue createConference(String value) {
+        return SysValue.ErroneousSysValue;
     }
 
     private long toEpochMilli(String conferenceYear) {

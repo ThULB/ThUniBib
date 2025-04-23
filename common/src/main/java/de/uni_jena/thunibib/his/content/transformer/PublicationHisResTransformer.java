@@ -67,6 +67,8 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addExtent(jsonObject, xml);
             addCreators(jsonObject, xml);
 
+            addQualifiedObjectID(jsonObject, "//mods:mods/mods:name[@type='conference']/mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + "')]", xml,"conference");
+
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationResourceValue')]", xml,"publicationResource");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publisher')]", xml,"publisher");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'peerReviewedValue')]", xml, "peerReviewedProcess");

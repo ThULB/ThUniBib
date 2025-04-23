@@ -26,8 +26,11 @@
       <xsl:choose>
         <xsl:when test="mcracl:check-permission('POOLPRIVILEGE', 'read-user-attributes')">
           <xsl:comment>Begin - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
+
           <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
           <xsl:apply-templates select="mods:relatedItem[@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
+          <xsl:apply-templates select="mods:name[@type='conference'][mods:nameIdentifier[contains(@typeURI, $ThUniBib.HISinOne.BaseURL)][fn:number() &lt; 0]]" mode="create"/>
+
           <xsl:comment>End - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
         </xsl:when>
         <xsl:otherwise>
@@ -71,7 +74,7 @@
   </xsl:template>
 
   <!-- Create unresolved publisher -->
-  <xsl:template mode="create" match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]">
+  <xsl:template match="mods:classification[fn:contains(@valueURI, 'fs/res/publisher') and @authorityURI = $ThUniBib.HISinOne.BaseURL]" mode="create" >
     <xsl:comment>Begin - create publisher - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
 
     <xsl:variable name="publisher-text" select="fn:encode-for-uri(../mods:originInfo/mods:publisher)"/>
@@ -82,6 +85,24 @@
       <xsl:value-of select="$publisher-id"/>
     </mods:classification>
     <xsl:comment>End - create publisher - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
+  </xsl:template>
+
+  <!-- Create unresolved conferences-->
+  <xsl:template match="mods:name[@type='conference'][mods:nameIdentifier[contains(@typeURI, $ThUniBib.HISinOne.BaseURL)]]" mode="create" >
+    <xsl:comment>Begin - create conference - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
+    <xsl:variable name="conference-text" select="fn:encode-for-uri(mods:namePart)"/>
+    <xsl:variable name="conference-id" select="fn:document(concat('hisinone:create:id:conference:', $conference-text))"/>
+
+    <mods:name type="conference">
+      <xsl:copy-of select="@*|node()[not(fn:local-name() = 'nameIdentifier')]"/>
+
+      <xsl:if test="fn:number($conference-id) &gt; 0">
+        <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/conference/identifier">
+          <xsl:value-of select="$conference-id"/>
+        </mods:nameIdentifier>
+      </xsl:if>
+    </mods:name>
+    <xsl:comment>End - create conference - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
   </xsl:template>
 
   <!-- Remove all elements with unresolved values -->
