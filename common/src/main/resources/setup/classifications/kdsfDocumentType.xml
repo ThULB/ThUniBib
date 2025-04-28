@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass  ID="kdsfDocumentType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+  <label xml:lang="de" text="KDSF Dokumenttyp (kds.type.document) Pu101" description="Unterkategorisierung von unselbstständigen Werken (Artikel, Pu25) nach vorwiegend inhaltlichen Kriterien in die folgenden Dokumenttypen: Editorial, Letter to the Editor, wissenschaftlicher Artikel, Review, Bibliographie, Rezension, Quellenedition und Sonstiger Dokumenttyp. Unterkategorisierung von selbstständigen Werken (Buch, Pu22) nach vorwiegend inhaltlichen Kriterien in die folgenden Dokumenttypen: Bibliographie, Rezension, Quellenedition und Sonstiger Dokumenttyp."/>
+  <label xml:lang="en" text="KDSF document type (kds.type.document) Pu101" description="Subcategorization of articles predominantly with regard to the following document types: Editorial, letter to the editor, research article, review, bibliography, review, source edition and other document type. Subcategorization of books predominantly with regard to the following document types: bibliography, review, source edition and other document type. [Ausdifferenzierungmöglichkeit (Summenform) / Gruppierungsmöglichkeit (Listenform)]"/>
+
+  <categories>
+    <category ID="Pu129">
+      <label xml:lang="de" text="Bibliographie" description="Eine Bibliographie ist ein systematisches Verzeichnis von Literaturnachweisen in Form eines Artikels oder eines Buches. Sie kann Kommentare / Annotationen enthalten."/>
+      <label xml:lang="en" text="Bibliography" description="A bibliography is a systematic list of publications, published as an article or a book. It may contain commentaries / annotations."/>
+    </category>
+    <category ID="Pu121">
+      <label xml:lang="de" text="Editorial" description="Durch den/die Herausgeber/-in oder im Auftrag des/der Herausgebers/Herausgeberin verfasster Text, der die Meinung der Redaktion /des Herausgeber/-innengremiums wiedergibt."/>
+      <label xml:lang="en" text="Editorial" description="A text which is written by or on behalf of the editor or publisher, which represents the opinion of the editor / editorial board."/>
+      <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('preface', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('collection proceedings lexicon journal ', substring-after(@valueURI,'#'))])" />
+    </category>
+    <category ID="Pu120">
+      <label xml:lang="de" text="Letter to the Editor" description="Zuschrift an die Redaktion"/>
+      <label xml:lang="en" text="Letter to the Editor" description="Communication to the editor."/>
+      <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('case_note', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('journal', substring-after(@valueURI,'#'))])" />
+    </category>
+    <category ID="Pu130">
+      <label xml:lang="de" text="Quellenedition" description="Eine Quellenedition ist die Publikation von geschichts- oder kulturwissenschaftlichen Quellen mit einem substanziellen Beitrag des Quelleneditors in Form eines Artikels oder eines Buches."/>
+      <label xml:lang="en" text="Source edition" description="A scholarly edition of primary sources is the publication of historic or cultural sources with a substantial contribution of the source editor published as an article or a book."/>
+    </category>
+    <category ID="Pu114">
+      <label xml:lang="de" text="Review" description="Ein Review ist ein Überblicksartikel, der die Summe von veröffentlichten wissenschaftlichen Arbeiten zu einem Thema zusammenfasst; normalerweise von einer besonders qualifizierten Person geschrieben"/>
+      <label xml:lang="en" text="Systematic review" description="A review is an evaluative account of a published scholarly work, usually written and signed by a qualified person."/>
+      <label xml:lang="x-mapping-xpath" text="(mods:genre['review_article'=substring-after(@valueURI,'#')] and mods:relatedItem[@type='host']/mods:genre[contains('journal', substring-after(@valueURI,'#'))])" />
+    </category>
+    <category ID="Pu30">
+      <label xml:lang="de" text="Rezension" description="Eine Rezension ist ein Artikel, der eine kritische Bewertung eines Werkes (manchmal auch mehrerer Werke) beinhaltet."/>
+      <label xml:lang="en" text="Critical review" description="A review is a critical appraisal of an opus (sometimes more than just one book)."/>
+      <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('review', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('journal collection book', substring-after(@valueURI,'#'))])" />
+    </category>
+    <category ID="Pu112">
+      <label xml:lang="de" text="Wissenschaftlicher Artikel"/>
+      <label xml:lang="en" text="Research article"/>
+      <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('entry', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('collection lexicon book', substring-after(@valueURI,'#'))]) or (mods:genre[contains('article interview', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre['journal'=substring-after(@valueURI,'#')]) or (mods:genre['chapter'= substring-after(@valueURI,'#')] and mods:relatedItem[@type='host']/mods:genre[contains('book collection lexicon', substring-after(@valueURI,'#'))]) or ((mods:genre['conference_essay'= substring-after(@valueURI,'#')] and not(mods:relatedItem)) or (mods:genre['conference_essay'= substring-after(@valueURI,'#')] and contains('journal collection proceedings book', substring-after(mods:relatedItem/mods:genre/valueURI,'#'))) ) or (mods:genre[contains('speech', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('journal collection book', substring-after(@valueURI,'#'))])" />
+    </category>
+    <category ID="Pu100">
+      <label xml:lang="de" text="Sonstiger Dokumenttyp" description="Das Werk kann keinem der vorhanden Dokumenttypen zugeordnet werden. Es wird darum gebeten, in diesem Fall einen Vorschlag für einen neuen Dokumenttyp einzureichen. Dieser sollte eine klare und möglichst allgemeine Definition wie auch die Abgrenzung von ähnlichen bereits vorliegenden Dokumenttypen enthalten."/>
+      <label xml:lang="en" text="Other" description="The work cannot be attributed to one of the available document types. In this case a suggestion for a new document type should be made. This suggestion should include a clear and comprehensive definition as well as clues for the discrimination against the existing document types."/>
+      <label xml:lang="x-mapping-xpathfb" text="mods:genre[@valueURI]" />
+    </category>
+  </categories>
+</mycoreclass>

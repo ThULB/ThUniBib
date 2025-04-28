@@ -998,6 +998,73 @@
   </xed:template>
 
   <xed:template id="projectInformation">
+    <xed:choose>
+      <xed:when test="$ThUniBib.Source.Project.Information= 'HISinOne'">
+        <xed:include ref="projectInformation.HISinOne"/>
+      </xed:when>
+      <xed:otherwise>
+        <xed:include ref="projectInformation.solr"/>
+      </xed:otherwise>
+    </xed:choose>
+  </xed:template>
+
+  <xed:template id="projectInformation.HISinOne">
+    <xed:bind xpath="mods:extension/temporary_search_input">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output value="concat(i18n:translate('ubo.project.search'), ': ')"/>
+        </label>
+
+        <xed:load-resource name="ThUniBib.HISinOne.BaseURL" uri="property:ThUniBib.HISinOne.BaseURL" />
+        <input id="project-search-his-in-one" type="text" class="mycore-form-input" placeholder="{i18n:thunibib.editor.search} in {$ThUniBib.HISinOne.BaseURL}"/>
+
+        <button type="button"
+                class="btn btn-primary mr-2"
+                onclick="$('#project-search-his-in-one, #project-title, #project-id, #project-shorttext').val('');"
+                title="{i18n:thunibib.editor.tooltip.reset.project.data}">
+
+          <i class="fas fa-minus"/>
+        </button>
+        <script src="js/HISinOneProjects.js"/>
+      </div>
+    </xed:bind>
+
+    <xed:bind xpath="mods:extension[@displayLabel='project']">
+      <xed:bind xpath="cerif:Project">
+        <!-- title -->
+        <xed:bind xpath="cerif:Title">
+          <div class="form-group form-inline">
+            <label for="{xed:generate-id()}" class="mycore-form-label">
+              <xed:output value="concat(i18n:translate('ubo.project.title'), ': ')"/>
+            </label>
+            <input id="project-title" readonly="readonly" type="text" class="mycore-form-input readonly"/>
+          </div>
+        </xed:bind>
+
+        <!-- shorttext -->
+        <xed:bind xpath="cerif:Acronym">
+          <div class="form-group form-inline">
+            <label for="{xed:generate-id()}" class="mycore-form-label">
+              <xed:output value="concat(i18n:translate('ubo.project.acronym'), ': ')"/>
+            </label>
+            <input id="project-shorttext" readonly="readonly" type="text" class="mycore-form-input readonly"/>
+          </div>
+        </xed:bind>
+
+        <!-- id -->
+        <xed:bind xpath="cerif:Identifier[@type='https://w3id.org/cerif/vocab/IdentifierTypes#Project-MM-ID']">
+          <div class="form-group form-inline">
+            <label for="{xed:generate-id()}" class="mycore-form-label">
+              <xed:output value="concat(i18n:translate('thunibib.editor.hisinone.id'), ': ')"/>
+            </label>
+            <input id="project-id" readonly="readonly" type="text" class="mycore-form-input readonly"/>
+          </div>
+        </xed:bind>
+      </xed:bind>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="projectInformation.solr">
     <script src="{$WebApplicationBaseURL}js/project_autocomplete.js"/>
     <xed:bind xpath="mods:extension/temporary_search_input">
       <div class="form-group form-inline">
@@ -1061,6 +1128,23 @@
 
       </xed:bind>
     </xed:bind>
+  </xed:template>
+
+  <xed:template id="researchAreaKdsf">
+    <xed:repeat xpath="mods:classification[@classID='researchAreaKdsf']">
+      <div class="form-inline form-group ubo-repeat-group {$xed-validation-marker}">
+        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+          <xed:output value="concat(i18n:translate('ubo.researchAreaKdsf'), ': ')"/>
+        </label>
+        <select id="{xed:generate-id()}" class="autocomplete mycore-form-input">
+          <option value="">
+            <xed:output i18n="search.select"/>
+          </option>
+          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:researchAreaKdsf"/>
+        </select>
+        <xed:controls/>
+      </div>
+    </xed:repeat>
   </xed:template>
 
 </xed:template>
