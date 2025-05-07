@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="about" xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:de>Über die Bibliographie</i18n:de>
+    <i18n:en>About the Bibliography</i18n:en>
+  </title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <p>
+        In der Universitätsbibliographie werden die Veröffentlichungen (Publikationen) der Mitglieder und Angehörigen der TU Ilmenau nachgewiesen. Eine Ausnahme bildet der Nachweis von Abschlussarbeiten. Dabei müssen die Veröffentlichungen im Zusammenhang mit einer Tätigkeit an der Universität entstanden sein. 
+      </p>
+      <p>
+        Dabei bedeutet „Veröffentlichung“:<br />
+        Das Dokument ist einer breiten Öffentlichkeit in gedruckter oder elektronischer Form zugänglich.<br />
+        Bei einer gedruckten Form ist das regelmäßig dann der Fall, wenn die Publikation im Buchhandel erhältlich ist oder war. Die elektronische Form setzt eine stabile und langfristige Verfügbarkeit im Internet voraus (z.B. auf den Archivservern der Bibliotheken oder Verlage).
+      </p>
+      <p>
+        Die Informationen zu den Publikationen gelangen automatisiert über Datenbanken oder durch Ihre <a href="newPublication.xed">Meldungen</a> oder Listeneinreichung in die Universitätsbibliographie bzw. zum Redaktionsteam. Alle Eintragungen werden von der Universitätsbibliothek redaktionell überprüft, ggf. korrigiert und final freigegeben.
+      </p>
+      <p>
+        Damit die Erfassung einheitlich und bibliographisch exakt erfolgen kann, stellen die Fachgebiete der Universitätsbibliothek vollständige Kopien der Aufsätze aus Zeitschriften, die <a href="https://opac.lbs-ilmenau.gbv.de/LNG=DU/DB=1/">nicht im Bestand der Bibliothek</a> verfügbar sind, für die Katalogisierung zur Verfügung. Bei allen anderen Veröffentlichungen, die sich ebenfalls nicht im Bestand der Bibliothek befinden, bitten wir um Einsichtnahme oder um ein Belegexemplar für den Bestand der UB.
+      </p>
+      <p>
+        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie der Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
+      </p>
+    </div>
+  </article>
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <p>
+        The publications of the members and affiliates of the TU Ilmenau are listed in the University Bibliography. An exception is the record of graduation theses. The publications must have been produced in connection with an activity at the university. 
+      </p>
+      <p>
+        Here, "publication" means:<br />
+        The document is accessible to the general public in printed or electronic form.<br />
+        In the case of a printed form, this is usually the case if the publication is or was available in bookstores. The electronic form requires stable and long-term availability on the Internet (e.g. on the archive servers of libraries or publishers).
+      </p>
+      <p>
+        The information on the publications is automatically transferred to the University Bibliography or to the editorial team via databases or through your <a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">registrations</a> or list submission. All entries are checked editorially by the University Library, corrected if necessary and finally released.
+      </p>
+      <p>
+        To ensure that the cataloging is uniform and bibliographically accurate, the departments provide the University Library with complete copies of articles from journals that <a href="https://opac.lbs-ilmenau.gbv.de/LNG=EN/DB=1/">not available in the library's holdings</a> for cataloging. For all other publications that are also not in the library's holdings, we ask that they be made available for inspection or that a voucher copy be provided for the library's holdings.
+      </p>
+      <p>
+        The development of the University Bibliography is supported by the state of Thuringia as part of the Thuringian digital strategy. And it is being done in cooperation with the Library Service Center Thuringia as well as the Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <h3>FAQ</h3>
+
+      <div class="accordion" id="accordionFAQ">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Welche Publikationen werden in die Universitätsbibliographie eingetragen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                In der Universitätsbibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder in digitaler Form erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Wer kann Publikationen melden?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Alle Angehörigen und Mitglieder der TU Ilmenau können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine <a href="servlets/MCRShibbolethLoginServlet">Anmeldung mit dem UniRZ-Login</a> erforderlich. 
+                Ehemalige Angehörige nehmen bitte <a href="contact.xml">Kontakt mit dem Redaktionsteam</a> der Universitätsbibliographie auf.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Wie kann man Publikationen für die Verzeichnung in der Universitätsbibliographie melden?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Auf der Seite „<a href="newPublication.xed">Publikation melden</a>“ gelangen Sie mit der Angabe eines Identifiers (z.B. DOI) oder mit der Angabe von Autorin oder Autor und dem Titel der Publikation zur Eingabemaske für Publikationen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Warum ist meine eingereichte Publikation nicht sofort in der Universitätsbibliographie auffindbar?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Eingereichte Publikationen werden von einem Redaktionsteam in der Universitätsbibliothek überprüft.
+                Dadurch kann es zu zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und
+                aufgearbeitet, um eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu
+                gewährleisten.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Was bedeutet der Hinweis "Teil der Statistik"?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Bei diesen Titeln handelt es sich um Veröffentlichungen, die im Zusammenhang mit einer Tätigkeit an der TU Ilmenau entstanden sind.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Was bedeuten die einzelnen Publikationstypen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <dl>
+                <dt>Artikel / Aufsatz</dt>
+                <dd>Ein Artikel oder Aufsatz ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen in einer Zeitschrift veröffentlicht wurde.</dd>
+                <dt>Konferenz- / Tagungsbeitrag</dt>
+                <dd>Ein Konferenz- / Tagungsbeitrag ist eine Konferenzschrift, die im Rahmen einer Konferenz entstanden ist und in einem Tagungsband, einer Zeitschrift oder einem Repositorium publiziert wurde.</dd>
+                <dt>Buchaufsatz / Kapitel</dt>
+                <dd>Ein Buchaufsatz oder Kapitel ist ein abgeschlossener unselbstständiger Beitrag zu einem abgegrenzten Thema oder einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einem Buch veröffentlicht wurde.</dd>
+                <dt>Abstract (Konferenz/Tagung)</dt>
+                <dd>Ein Abstract ist ein kurzer Text, der eine Präsentation an einer Konferenz zusammenfasst und entweder in einer wissenschaftlichen Zeitschrift oder in einem Tagungsband veröffentlicht wurde.</dd>
+                <dt>Vorwort / Nachwort</dt>
+                <dd>Ein Vorwort oder Nachwort ist ein abgeschlossener unselbstständiger Beitrag zur Einleitung oder zum Abschluss einer Thematik in einer Zeitschrift oder einem Buch.</dd>
+                <dt>Buch (Monographie)</dt>
+                <dd>Ein Buch, geschrieben von einem oder mehreren Autor*innen, das sich einem  Thema widmet und dieses umfassend und unter Berücksichtigung der relevanten Forschungsergebnisse darstellt.</dd>
+                <dt>Sammelwerk</dt>
+                <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
+                <dt>Tagungsband</dt>
+                <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge einer wissenschaftlichen Tagung in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
+                <dt>Diskussionspapier / Working paper</dt>
+                <dd>Diskussionspapiere oder Arbeitspapiere (engl. Working Paper) sind meist mehrseitige Veröffentlichungen von Wissenschaftlern, die nicht in Fachzeitschriften oder Fachbüchern erscheinen, sondern als projekteigene Veröffentlichungen verbreitet werden, z. B. über das Repositorium einer Hochschule.</dd>
+                <dt>Forschungsbericht</dt>
+                <dd>Die Kategorie “Bericht” umfasst öffentliche wissenschaftliche Publikationen, die entweder von der Institution herausgegeben wurde, in der die Forschung stattfindet, oder im Auftrag einer Institution angefertigt wurden. Arbeitspapiere, Gutachten, Forschungs- und Abschlussberichte z.B. von Projekten öffentlicher Einrichtungen können hier erfasst werden.</dd>
+                <dt>Forschungsdaten</dt>
+                <dd>Forschungsdaten sind Daten, die bei der Planung, der Durchführung und der Dokumentation wissenschaftlicher Vorhaben entstehen oder bei einem solchen Vorhaben Verwendung finden. Sie bilden ein wesentliches Fundament wissenschaftlicher Arbeiten und dokumentieren deren Ergebnisse. Auswertung, Analyse und Interpretation der Forschungsdaten ermöglicht Schlussfolgerungen, erzeugt Informationen und liefert neue Erkenntnisse.</dd>
+                <dt>Interview</dt>
+                <dd>Interviews mit Bezug auf wissenschaftliche Tätigkeiten, die in Zeitschriften, Zeitungen, Blogs, Rundfunk oder Fernsehen veröffentlicht wurden, können hier angegeben werden.</dd>
+                <dt>Lexikon</dt>
+                <dd>Ein nach Stichwörtern alphabetisch geordnetes Nachschlagewerk für alle Wissensgebiete oder für ein bestimmtes Sachgebiet. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener Autor*innen.</dd>
+                <dt>Patent(schrift)</dt>
+                <dd>Eine Patentschrift bezieht sich auf ein erteiltes Patent und enthält Beschreibungen und Zeichnungen zu einem technischen Verfahren oder Produkt.</dd>
+                <dt>Poster</dt>
+                <dd>Ein Poster ist eine visuelle Präsentation wissenschaftlicher Ergebnisse, die im Rahmen einer Konferenz dauerhaft auf den Seiten der Veranstalter oder einem Repositorium publiziert wurden.</dd>
+                <dt>Preprint</dt>
+                <dd>Ein Preprint, auch Vorab-Publikation, ist eine wissenschaftliche Publikation, die zwar schon der (Fach-)Öffentlichkeit zur Verfügung gestellt, aber noch nicht in einem Peer-Review-Verfahren begutachtet wurde.</dd>
+                <dt>Rezension</dt>
+                <dd>Eine Rezension ist ein Artikel, der eine kritische Bewertung eines oder auch mehrerer Werke beinhaltet.</dd>
+                <dt>Bachelorarbeit</dt>
+                <dd>Unter einer Bachelorarbeit versteht man international eine wissenschaftliche oder künstlerische Arbeit, die zum Abschluss eines Bachelor-Studiengangs von Studierenden verfasst wird.</dd>
+                <dt>Masterarbeit</dt>
+                <dd>Eine Masterarbeit ist international eine wissenschaftliche oder künstlerische Arbeit, die für den Abschluss eines Master-Studienganges verfasst wird. Die Masterarbeit dient dabei im Allgemeinen als Nachweis darüber, dass die Studierenden in der Lage sind, eine wissenschaftliche bzw. künstlerische Arbeit selbständig, aber unter Betreuung zu verfassen.</dd>
+                <dt>Diplomarbeit</dt>
+                <dd>Eine Diplomarbeit ist in Deutschland die schriftliche Abschlussarbeit eines Diplom-Studiengangs an einer Hochschule oder Berufsakademie. Die Diplomarbeit ist schriftlicher Leistungsbestandteil einer Diplomprüfung und führt zur Erlangung des akademischen Diplomgrades (Diplom).</dd>
+                <dt>Dissertation</dt>
+                <dd>Eine Dissertation ist eine wissenschaftliche Arbeit zum Erwerb des Doktorgrades.</dd>
+                <dt>Habilitation</dt>
+                <dd>Eine Habilitation ist eine wissenschaftliche Arbeit zum Erwerb der universitären Lehrbefähigung.</dd>
+                <dt>Zeitschrift</dt>
+                <dd>Eine Zeitschrift ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge zu einer thematischen oder fachlichen Ausrichtung erscheinen.</dd>
+                <dt>Reihe / Serie</dt>
+                <dd>Eine Reihe oder Serie ist ein fortlaufendes Sammelwerk, welches mehrere Publikationen, die jeweils in sich abgeschlossen sind, aber in einem allgemeinen thematischen Bezug zueinander stehen, umfasst.</dd>
+                <dt>Zeitung</dt>
+                <dd>Eine Zeitung ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge mit aktuellem und universellem Inhalt erscheinen.</dd>
+                <dt>Website / Blog</dt>
+                <dd>Ein Blog ist eine tagebuchartige, öffentlich zugängliche Webseite, die ständig um Kommentare und Notizen zu bestimmten wissenschaftlichen Themen ergänzt wird.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSeven">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <dl>
+
+                <dt>Open Access</dt>
+                <dd><strong>Freier Zugriff:</strong> Eine Ressource ist Open Access, wenn sie sofort und dauerhaft online und für alle im Web kostenlos und ohne finanzielle und technische Hindernisse verfügbar ist.</dd>
+
+                <dt>Embargoed access</dt>
+                <dd><strong>Zugriff unterliegt einem Embargo:</strong> Eine Ressource, die einem Embargo unterliegt, wird ab einem bestimmten Datum für den freien Zugriff freigegeben. Bis dahin können nur die Metadaten angezeigt werden. Embargos können von Herausgeber- und Geldgeberrichtlinien verlangt oder vom Autor festgelegt werden.</dd>
+
+                <dt>Restricted access</dt>
+                <dd><strong>Eingeschränkter Zugriff:</strong> Ressource, die in einem System verfügbar ist, jedoch eine gewisse Einschränkung für den vollständig freien Zugriff aufweist.</dd>
+
+                <dt>Metadata only access</dt>
+                <dd><strong>Nur Metadaten:</strong> Eine Ressource, bei welcher der Zugriff nur auf Metadaten beschränkt ist. Die Ressource selbst wird durch die Metadaten beschrieben, ist jedoch weder direkt über das System noch über die Plattform verfügbar.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingEight">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                <xinclude uri="i18n:thunibib.faq.icon.headline"/>
+              </button>
+            </h3>
+          </div>
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <xinclude uri="i18n:thunibib.faq.icon.not.present"/>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <h3>FAQ</h3>
+
+      <div class="accordion" id="accordionFAQ">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Which publications are entered in the University Bibliography?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                The University Bibliography records independent and dependent publications that have appeared in print or in digital form. These can be, for example, monographs, articles in periodicals and contributions in collective works, but also audio documents and multimedia digital publications.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Who can register publications?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                All members and affiliates of the TU Ilmenau can register their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>. 
+                Former members should <a href="contact.xml">contact the editorial team</a> of the University Bibliography.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                How can publications be registered for indexing in the University Bibliography?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                On the page „<a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Why is my submitted publication not immediately discoverable in the University Bibliography?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Submitted publications are reviewed by an editorial team at the Ilmenau University Library. This may cause time delays. Entries may be corrected and reprocessed to ensure consistent data quality with respect to statistical analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                What does the reference "part of the statistics" mean?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                These titles are publications that were created in the context of an activity at the TU Ilmenau.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                What do separate publication types mean?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFAQ">
+
+      <div class="card-body">
+              <dl>
+                <dt>Essay / Article</dt>
+                <dd>An essay / article is a self-contained, dependent contribution to a specific topic / question that has been published together with other contributions in a journal.</dd>
+                <dt>Conference paper</dt>
+                <dd>A conference paper is a paper that was produced as part of a conference and has been published in a conference proceedings, journal, or repository.</dd>
+                <dt>Book essay / Chapter</dt>
+                <dd>A book essay / chapter is a self-contained, dependent contribution to a specific topic / question that has been published together with other contributions, for example in a book.</dd>
+                <dt>Abstract</dt>
+                <dd>An abstract is a short text summarizing a presentation at a conference and published either in a scientific journal or in conference proceedings.</dd>
+                <dt>Preface / Epilog</dt>
+                <dd>A preface / epilog is a self-contained, dependent contribution to the introduction or conclusion of a topic in a journal or book.</dd>
+                <dt>Book (monograph)</dt>
+                <dd>A book, written by one or more authors, dedicated to a specific topic and presenting it comprehensively and in consideration of the relevant research results.</dd>
+                <dt>Book (collection)</dt>
+                <dd>A book edited by one or more people. It contains contributions in the form of book essays / chapters by different authors.</dd>
+                <dt>Conference proceedings</dt>
+                <dd>A book edited by one or more people. It contains contributions of a scientific conference in the form of book essays / chapters by different authors.</dd>
+                <dt>Working paper</dt>
+                <dd>Discussion papers or working papers are usually multi-page publications by scientists that do not appear in journals or textbooks, but are distributed as project-specific publications, e.g. via the repository of a university.</dd>
+                <dt>Report</dt>
+                <dd>The “Report” category includes public scientific publications that have either been published by the institution in which the research is carried out or prepared on behalf of an institution. Working papers, expert opinions, research and final reports, e.g. from projects of public institutions can be entered here.</dd>
+                <dt>Research data</dt>
+                <dd>Research data are data that are generated during the planning, implementation and documentation of scientific projects or are used in such projects. They form an essential foundation of scientific work and document its results. Evaluation, analysis and interpretation of research data enables conclusions to be drawn, generates information and provides new insights.</dd>
+                <dt>Interview</dt>
+                <dd>Interviews related to scientific activities and published in magazines, newspapers, blogs, radio or television can be reported here.</dd>
+                <dt>Lexicon</dt>
+                <dd>A reference work arranged alphabetically by keywords for all fields of knowledge or for a specific subject area. It contains contributions in the form of book essays / chapters by different authors.</dd>
+                <dt>Patent specification</dt>
+                <dd>A patent specification refers to a granted patent and contains descriptions and drawings of a technical process or product.</dd>
+                <dt>Poster</dt>
+                <dd>A poster is a visual presentation of scientific results that has been published permanently on the organisers' website or in a repository during a conference.</dd>
+                <dt>Preprint</dt>
+                <dd>A preprint is a scientific publication that has already been made available to the (specialist) public but has not yet been peer-reviewed.</dd>
+                <dt>Review</dt>
+                <dd>A review is an article that contains a critical evaluation of one or sometimes several works.</dd>
+                <dt>Bachelor thesis</dt>
+                <dd>In international terms, a bachelor's thesis is a scientific or artistic paper written by students to complete a bachelor's degree program.</dd>
+                <dt>Master thesis</dt>
+                <dd>A master's thesis is an international scientific or artistic work that is written for the completion of a master's degree program. The master's thesis generally serves as proof that the candidate is capable of writing a scientific or artistic paper independently, but under supervision.</dd>
+                <dt>Diploma thesis</dt>
+                <dd>In Germany, a diploma thesis is the written final paper of a diploma course at a university. The diploma thesis is a written component of a diploma examination and leads to the award of the academic degree (Diplom).</dd>
+                <dt>Dissertation</dt>
+                <dd>A dissertation is a scientific work to acquire a doctoral degree.</dd>
+                <dt>Habilitation</dt>
+                <dd>A habilitation is a scientific work to acquire the university teaching qualification.</dd>
+                <dt>Journal</dt>
+                <dd>A journal is a regularly published serial in which contributions with a thematic or subject-related focus are published.</dd>
+                <dt>Series</dt>
+                <dd>A series is an ongoing collective work comprising several publications, each of which is self-contained but with a general thematic reference to each other.</dd>
+                <dt>Newspaper</dt>
+                <dd>A newspaper is a regularly published serial that includes articles with current and universal content.</dd>
+                <dt>Website / Blog</dt>
+                <dd>A blog is a diary-like, publicly accessible website that is constantly updated with comments and notes on specific scientific topics.</dd>
+              </dl>
+            </div>
+         </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSeven">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                <i class="fas fa-plus-circle"></i>
+                <i class="fas fa-minus-circle"></i>
+                What is the difference between different Access Rights options?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <dl>
+
+                <dt>Open Access</dt>
+                <dd>Open access refers to a resource that is immediately and permanently online, and free for all on the Web, without financial and technical barriers.</dd>
+
+                <dt>Embargoed access</dt>
+                <dd>Embargoed access refers to a resource that is metadata only access until released for open access on a certain date. Embargoes can be required by publishers and funders policies, or set by the author.	</dd>
+
+                <dt>Restricted access</dt>
+                <dd>Restricted access refers to a resource that is available in a system but with some type of restriction for full open access.</dd>
+
+                <dt>Metadata only access</dt>
+                <dd>Metadata only access refers to a resource in which access is limited to metadata only. The resource itself is described by the metadata, but neither is directly available through the system or platform.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingEight">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                <xinclude uri="i18n:thunibib.faq.icon.headline"/>
+              </button>
+            </h3>
+          </div>
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <dt>
+                  <i class="fas fa-user-edit"/>
+                  <sup>
+                    <xinclude uri="i18n:ubo.person.connected.sup"/>
+                  </sup>
+                </dt>
+                <dd>
+                  <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit.sup"/>
+                </dd>
+              </dl>
+              <dl>
+                <xinclude uri="i18n:thunibib.faq.icon.not.present"/>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</webpage>
