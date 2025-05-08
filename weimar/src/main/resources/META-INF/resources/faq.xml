@@ -501,8 +501,8 @@
           <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
                 What is the difference between different Access Rights options?
               </button>
             </h3>
