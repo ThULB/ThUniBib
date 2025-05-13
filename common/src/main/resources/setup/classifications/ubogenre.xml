@@ -334,8 +334,8 @@
       </category>
       <category ID="sound_recording">
         <label xml:lang="x-hosts" text="standalone"/>
-        <label xml:lang="x-color" text="#ac0026"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:sound"/>
+        <label xml:lang="x-color" text="#ac0080"/>
+        <label xml:lang="x-mapping" text="marcgt:sound orcidWorkType:sound"/>
 
         <label xml:lang="de" text="Tondokument"/>
         <label xml:lang="en" text="Sound Recording"/>
