@@ -298,13 +298,10 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
     <xed:include uri="webapp:import-editor.xed" ref="url"/>
-
-    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
   <xed:template id="genre.software">
