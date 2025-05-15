@@ -40,8 +40,6 @@
     </xsl:text>
     <html lang="{$CurrentLang}">
       <xsl:apply-templates select="head"/>
-      <!-- include Internet Explorer warning -->
-      <xsl:call-template name="msie-note"/>
       <xsl:call-template name="layout"/>
     </html>
   </xsl:template>
@@ -187,10 +185,10 @@
             <xsl:variable name="href">
               <xsl:choose>
                 <xsl:when test="$CurrentLang = 'de'">
-                  <xsl:value-of select="'https://www.uni-erfurt.de/bibliothek'"/>
+                  <xsl:value-of select="'https://www.hs-nordhausen.de/service/bibliothek/'"/>
                 </xsl:when>
                 <xsl:otherwise>
-                  <xsl:value-of select="'https://www.uni-erfurt.de/en/erfurt-university-library'"/>
+                  <xsl:value-of select="'https://www.hs-nordhausen.de/en/service/library/'"/>
                 </xsl:otherwise>
               </xsl:choose>
             </xsl:variable>
@@ -254,8 +252,8 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <i class="fas fa-home pr-1"></i>
-                  <a href="https://www.uni-erfurt.de/bibliothek">
+                  <i class="fas fa-home pr-1"/>
+                  <a href="https://www.hs-nordhausen.de/service/bibliothek/">
                     <xsl:value-of select="i18n:translate('navigation.UB')"/>
                   </a>
                 </li>
