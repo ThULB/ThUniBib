@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib">
-  <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Hochschule Nordhausen</title>
+  <title xml:lang="de">Willkommen bei der Bibliographie der Hochschule Nordhausen</title>
   <title xml:lang="en">Welcome to Bibliography of Hochschule Nordhausen</title>
 
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">
-      <h3>Die Universitätsbibliographie</h3>
+      <h3>Die Hochschulbibliographie</h3>
       <p>
         ist der zentrale Publikationsnachweis der Hochschule Nordhausen, der online die Publikationstätigkeit der
         Hochschulangehörigen verzeichnet.
-        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut.
+        Sie ist eine Dienstleistung der Hochschulbibliothek und wird durch diese redaktionell betreut.
         <br/>
-        Die Universitätsbibliographie befindet sich derzeit im Aufbau.
+        Die Hochschulbibliographie befindet sich derzeit im Aufbau.
       </p>
       <p>
-        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+        Der Aufbau der Hochschulbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
         gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
       </p>
       <h3>Gehören Sie der Hochschule Nordhausen an?</h3>
       <p>
         Helfen Sie uns bei der Vervollständigung!
         <br/>
-        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliographie melden</a>
+        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Hochschulbibliographie melden</a>
       </p>
     </div>
   </article>
@@ -100,7 +100,6 @@
           <br/>
           E-Mail:
           <a href="mailto:bibliographie@host.example">bibliographie@host.example</a>
-     
         </p>
       </div>
     </article>
