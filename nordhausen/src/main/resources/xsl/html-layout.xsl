@@ -194,7 +194,7 @@
             </xsl:variable>
 
             <a title="Zur Startseite" class="imageLink" href="{$href}">
-              <div id="wordmark"/>
+              <div id="wordmark" class="mt-3"/>
             </a>
           </div>
 
