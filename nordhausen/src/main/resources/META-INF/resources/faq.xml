@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="about" xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:de>Über die Bibliographie</i18n:de>
+    <i18n:en>About the Bibliography</i18n:en>
+  </title>
+
+  <div class="row">
+    <div class="col-12 col-md-8">
+
+      <article class="card mb-3" xml:lang="de">
+        <div class="card-body">
+          <p>
+            Die Universitätsbibliographie ist das digitale Publikationsdokumentationssystem der
+            Hochschule Nordhausen. Es dient der Erfassung, Präsentation und Dokumentation der
+            Publikationsleistungen aller Angehörigen der Universität.
+          </p>
+          <p>
+            Sie können <a href="newPublication.xed">Ihre Publikationen an die
+            Universitätsbibliographie melden.
+          </a> Damit helfen Sie uns bei der Vervollständigung. Wir freuen uns auf Ihre Unterstützung.
+          </p>
+          <p>
+            Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer
+            Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie
+            der Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <article class="card mb-3" xml:lang="de">
+        <div class="card-body">
+          <h3>Links:</h3>
+          <ul>
+            <li>Informationen zu
+              <a href="#"
+                 target="_blank">Open Access und zum elektronischen Publizieren
+              </a>
+            </li>
+            <li>Informationen zur
+              <a href="#"
+                 target="_blank">Abgabe von Hochschulschriften
+              </a>
+            </li>
+            <li>Kontakt bei weiteren Fragen:
+              <a href="mailto:bibliographie@host.example" target="_blank">bibliographie@host.example
+              </a>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <h3>FAQ</h3>
+
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Welche Publikationen werden in die Bibliographie eingetragen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                In der Bibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder
+                in digitaler Form erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und
+                Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Wer kann Publikationen eintragen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                Alle Angehörigen der Hochschule Nordhausen können ihre Publikationen an die
+                Universitätsbibliographie Jena melden. Dazu ist eine Anmeldung mit dem URZ-Login erforderlich.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Wie kann man Publikationen in die Bibliographie eintragen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                Angehörige der Universität können sich in der Bibliographie anmelden, indem sie auf den Pfeil oben
+                rechts klicken und sich mit ihrem URZ-Login einloggen.
+                Auf der Seite „<a href="newPublication.xed">Publikation einreichen</a>“
+                gelangen Sie mit der Angabe eines Identifier (z.B. DOI) oder mit der Angabe von Autor*in und Titel der
+                Publikation zur Eingabemaske für Publikationen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Warum ist meine eingereichte Publikation nicht sofort in der Bibliographie auffindbar?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              <p>
+                Eingereichte Publikationen werden von einem Redaktionsteam an der ThULB überprüft. Dadurch kann es zu
+                zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und aufgearbeitet, um
+                eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu gewährleisten.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+            <div class="card-body">
+              <dl>
+
+                <dt>Open Access</dt>
+                <dd><strong>Offener Zugang:</strong> Eine Ressource ist Open Access wenn sie sofort und dauerhaft online und für alle im Web kostenlos und ohne finanzielle und technische Hindernisse verfügbar ist.</dd>
+
+                <dt>Embargoed access</dt>
+                <dd><strong>Zugang unterliegt Embargo:</strong> Eine Ressource, die einem Embargo unterliegt, wird ab einem bestimmten Datum für den offenen Zugriff freigegeben. Bis dahin können nur die Metadaten angezeigt werden. Embargos können von Herausgeber- und Geldgeberrichtlinien verlangt oder vom Autor festgelegt werden.</dd>
+
+                <dt>Restricted access</dt>
+                <dd><strong>Eingeschränkter Zugang:</strong> Ressource, die in einem System verfügbar ist, jedoch eine gewisse Einschränkung für den vollständigen offenen Zugriff aufweist.</dd>
+
+                <dt>Metadata only access</dt>
+                <dd><strong>Nur Metadaten:</strong> Eine Ressource, bei der der Zugriff nur auf Metadaten beschränkt ist. Die Ressource selbst wird durch die Metadaten beschrieben, ist jedoch weder direkt über das System noch über die Plattform verfügbar.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</webpage>
