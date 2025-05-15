@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="user_attributes">
+  <label xml:lang="de" text="Nutzerattribute" />
+  <categories>
+    <category ID="id_hsn">
+      <label xml:lang="de" text="Lokale ID" />
+      <label xml:lang="en" text="Local ID" />
+      <label xml:lang="x-display" text="false" />
+    </category>
+    <category ID="id_gnd">
+      <label xml:lang="x-uri" text="https://d-nb.info/gnd/" />
+      <label xml:lang="de" text="GND" />
+      <label xml:lang="en" text="GND" />
+      <label xml:lang="x-display" text="true" />
+    </category>
+    <category ID="id_orcid">
+      <label xml:lang="de" text="ORCID" />
+      <label xml:lang="en" text="ORCID" />
+      <label xml:lang="x-display" text="true" />
+      <label xml:lang="x-uri" text="https://orcid.org/" />
+    </category>
+    <category ID="id_scopus">
+      <label xml:lang="x-uri" text="https://www.scopus.com/authid/detail.url?partnerID=HzOxMe3b&amp;origin=inward&amp;authorId=" />
+      <label xml:lang="de" text="SCOPUS" />
+      <label xml:lang="en" text="SCOPUS" />
+      <label xml:lang="x-display" text="true" />
+    </category>
+    <category ID="id_researcherid">
+      <label xml:lang="de" text="ResearcherID" />
+      <label xml:lang="en" text="ResearcherID" />
+      <label xml:lang="x-display" text="true" />
+      <label xml:lang="x-uri" text="http://www.researcherid.com/rid/" />
+    </category>
+  </categories>
+</mycoreclass>

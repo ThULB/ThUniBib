@@ -1,0 +1,59 @@
+/*  header settings
+ *  - settings for the page header
+ */
+
+// Extra large devices (large desktops)
+// set the defaults for all responsive levels here
+// no (xl) media query necessary (desktop first)
+
+header {
+  background-color: $primary;
+}
+
+#wordmark {
+  background: url("../../../images/logo-hsn.svg") no-repeat;
+  height: 120px;
+  background-size: contain;
+}
+
+#headlineWrapper {
+  padding-top: 40px;
+
+  h3 {
+    font-size: 26px;
+  }
+}
+
+// Large devices (desktops) and below: <= 1200px
+@include media-breakpoint-down(lg) {
+  // add/overwrite styles for responsive level lg and lower
+}
+
+// Medium devices (tablets) and below: <= 992px
+@include media-breakpoint-down(md) {
+  // add/overwrite styles for responsive level md and lower
+}
+
+// Small devices (landscape phones) and below: <= 768px
+@include media-breakpoint-down(sm) {
+  // add/overwrite styles for responsive level sm and lower
+}
+
+// Extra small devices (portrait phones): <= 576px
+@include media-breakpoint-down(xs) {
+  // add/overwrite styles for responsive level xs
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @each $size, $length in $sizes {
+    @include media-breakpoint-up($breakpoint) {
+      .w-#{$breakpoint}-#{$size} {
+        width: $length !important;
+      }
+    }
+  }
+}
+
+#mcrFunctionsDropdown {
+  font-size: 1rem;
+}

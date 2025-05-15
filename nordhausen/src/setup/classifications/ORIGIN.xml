@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass ID="ORIGIN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+
+  <label xml:lang="de" text="Hochschule Nordhausen"/>
+  <label xml:lang="en" text="Hochschule Nordhausen"/>
+  <label xml:lang="x-place" text="Hochschule Nordhausen | Nordhausen | Weinberghof 4 | 99734 Nordhausen"/>
+
+  <categories>
+    <category ID="0100">
+      <label xml:lang="de" text="Hochschule Nordhausen"/>
+      <label xml:lang="x-lpp" text="584746008"/>
+    </category>
+  </categories>
+</mycoreclass>

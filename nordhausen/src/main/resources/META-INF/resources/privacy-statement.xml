@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="contact">
+  <title xml:lang="de">Datenschutzerklärung</title>
+  <title xml:lang="en">Privacy Statement</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body"/>
+  </article>
+
+</webpage>

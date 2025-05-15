@@ -1,0 +1,33 @@
+// web page
+$nordhausenLink: #4645A4;
+$nordhausenVisited: #6B2906;
+$nordhausenGray: #978E90;
+$nordhausenOldBlue: #2a2a94;
+$nordhausenBlueHover: #2f6daa;
+$nordhausenYellow: #f4c000;
+
+// reposis
+$nordhausenRHover: #6969d4;
+$nordhausenRLink: #494999;
+$nordhausenRLinkAlt: #3838c2;
+$nordhausenRLinkHover: #f39c12;
+$nordhausenRInfoBack: #dce4ec;
+$nordhausenRButton: #9d9d9d;
+$nordhausenRButtonHover: #848484;
+$nordhausenRButtonBorder: #7e7e7e;
+$nordhausenText: black;
+
+// bs overwrite
+$input-btn-font-size-sm: 0.845rem;
+
+$primary: #004F9E;
+$secondary: $nordhausenGray;
+
+$border-radius: 0px;
+
+$body-bg: white;
+$badge-font-weight: normal;
+
+$theme-colors: (
+  alternative: hsl(347, 4%, 90%)
+);
