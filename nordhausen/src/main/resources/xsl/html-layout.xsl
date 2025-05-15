@@ -253,11 +253,6 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <i class="fas fa-home pr-1"/>
-                  <a href="https://www.hs-nordhausen.de/service/bibliothek/">
-                    <xsl:value-of select="i18n:translate('navigation.UB')"/>
-                  </a>
-                </li>
-                <li class="breadcrumb-item">
                   <a href="{$WebApplicationBaseURL}">
                     <xsl:value-of select="i18n:translate('navigation.Home')"/>
                   </a>
