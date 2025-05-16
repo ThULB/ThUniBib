@@ -5,8 +5,9 @@
     <i18n:code>thunibib.statistic.title</i18n:code>
   </title>
 
-  <script src="webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"/>
-  <script src="webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"/>
+  <script src="assets/apexcharts/dist/apexcharts.js"/>
+  <script src="webjars/highcharts/5.0.1/highcharts.src.js"/>
+  <script src="webjars/highcharts/5.0.1/themes/grid.js"/>
 
   <div id="chartDialog"/>
 
