@@ -95,6 +95,8 @@
           }],
           chart: {
             type: 'bar',
+            height: 500,
+            background: '#FFFFFF',
             stacked: true,
             toolbar: {
               show: false
