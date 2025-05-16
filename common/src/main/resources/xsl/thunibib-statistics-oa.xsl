@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
 
-  <xsl:param name="facet"/>
+  <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:variable name="apos">
     <xsl:text>'</xsl:text>
@@ -57,8 +57,6 @@
           <xsl:with-param name="type" select="'other'"/>
         </xsl:call-template>
       </xsl:variable>
-
-      <script src="https://cdn.jsdelivr.net/npm/apexcharts"/>
 
       <div id="chart"
            data-values-oa-status-oa="{$values-oa-status-oa}"
