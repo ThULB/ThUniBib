@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-npmcopy');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
     var path = require('path');
     var getAbsoluteDir = function (dir) {
         return path.isAbsolute(dir) ? dir : path.resolve(process.cwd(), dir);
