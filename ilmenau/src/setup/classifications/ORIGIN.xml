@@ -2,7 +2,8 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
   <label xml:lang="de" text="Technische Universität Ilmenau"/>
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
- 
+  <label xml:lang="x-version" text="2025-05-20"/>
+  
  <categories>
 
    <category ID="08">
@@ -138,11 +139,17 @@
             <category ID="08.010.010.110(2022)">
                <label xml:lang="de" text="Juniorprofessur Funktechnologien für automatisierte und vernetzte Fahrzeuge (2022-)"/>
                <label xml:lang="en" text="Assistant Professorship Radio Technologies for Automated and Connected Vehicles (2022-)"/>
-               <label xml:lang="x-gnd" text="0"/>
                <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="1821309103"/>
                <label xml:lang="x-from" text="2022"/>
                <label xml:lang="x-kst" text="2114"/>
+            </category>
+
+            <category ID="08.010.010.120(2025)">
+			         <label xml:lang="de" text="Stiftungsprofessur Signalverarbeitung für intelligente Sensorsystme (2025-)"/>
+			         <label xml:lang="x-mapping" text="destatis:7130"/>
+			         <label xml:lang="x-from" text="2025"/>
+               <label xml:lang="x-kst" text="2118"/>
             </category>
          </category>
 
