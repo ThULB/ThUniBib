@@ -182,10 +182,11 @@
   </dependencyManagement>
   <modules>
     <module>common</module>
-    <module>jena</module>
-    <module>jena-thulb</module>
-    <module>ilmenau</module>
     <module>erfurt</module>
+    <module>ilmenau</module>
+    <module>jena-thulb</module>
+    <module>jena</module>
+    <module>nordhausen</module>
     <module>weimar</module>
   </modules>
 
