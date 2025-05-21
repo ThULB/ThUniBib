@@ -15,11 +15,9 @@
         "facet": "true",
         "facet.mincount": "1",
         "f.year.facet.limit": -1,
-        "f.importID.facet.sort": "index",
         "facet.field": [
           "status",
           "partOf",
-          "importID",
           "year",
           "genre",
           "peerreviewed",
@@ -128,11 +126,10 @@
         "facet": "true",
         "facet.mincount": "1",
         "f.year.facet.limit": -1,
-        "f.importID.facet.sort": "index",
+
         "facet.field": [
           "status",
           "partOf",
-          "importID",
           "year",
           "genre",
           "peerreviewed",
@@ -169,11 +166,9 @@
         "facet": "true",
         "facet.mincount": "1",
         "f.year.facet.limit": -1,
-        "f.importID.facet.sort": "index",
         "facet.field": [
           "status",
           "partOf",
-          "importID",
           "year",
           "genre",
           "peerreviewed",
