@@ -1,23 +1,5 @@
 package de.uni_jena.thunibib.impex;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -40,7 +22,6 @@ import org.jdom2.xpath.XPathFactory;
 import org.mycore.access.MCRAccessException;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
-import org.mycore.common.MCRSessionMgr;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.MCRJDOMContent;
@@ -56,12 +37,28 @@ import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.mods.MCRMODSWrapper;
 import org.mycore.mods.enrichment.MCREnrichmentResolver;
 import org.mycore.services.queuedjob.MCRJob;
-import org.mycore.services.queuedjob.MCRJobQueue;
 import org.mycore.services.queuedjob.MCRJobQueueManager;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrUtils;
+import org.mycore.ubo.importer.ImportIdProvider;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @MCRCommandGroup(name = "Catalog Import Commands")
 public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
@@ -71,12 +68,12 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     private static final String projectID = MCRConfiguration2.getStringOrThrow("UBO.projectid.default");
 
-    private final static SimpleDateFormat ID_BUILDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final String PPN_IDENTIFIER = "ppn";
 
     private static List<String> DUPLICATE_CHECK_IDS;
     private static String K10PLUS_MAX_RECORDS;
     private static String LOBID_MAX_RECORDS;
+    private static ImportIdProvider ID_PROVIDER = new ThUniBibCatalogImportIdProvider();
 
     static {
         String property_prefix = "ThUniBib.affilitation.import.";
@@ -233,10 +230,6 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     public static String buildRequestURL(String query, String start) {
         return PICA_URL.replace(QUERY_PLACEHOLDER, query) + "&startRecord=" + start;
-    }
-
-    private static String getImportID() {
-        return ID_BUILDER.format(new Date(MCRSessionMgr.getCurrentSession().getLoginTime()));
     }
 
     @MCRCommand(syntax = "import by affiliation with GND {0} and status {1}",
@@ -462,7 +455,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     }
 
     private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
-        wrappedMCRobj.setServiceFlag("importID", "SRU-PPN-" + getImportID());
+        wrappedMCRobj.setServiceFlag("importID", ID_PROVIDER.getImportId());
         MCRObject object = wrappedMCRobj.getMCRObject();
         // save object
         try {
