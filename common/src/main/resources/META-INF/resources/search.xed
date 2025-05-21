@@ -142,10 +142,10 @@
                 </div>
               </xed:repeat>
 
-              <xed:bind xpath="condition4[@field='subject'][@operator='=']/@value">
+              <xed:bind xpath="condition4[@field='destatis'][@operator='=']/@value">
                 <div class="form-group form-inline">
                   <label for="{xed:generate-id()}" class="mycore-form-label">
-                    <xed:output i18n="search.dozbib.subject"/>
+                    <xed:output i18n="facets.facet.destatis"/>
                   </label>
                   <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
                     <option value="">
