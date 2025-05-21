@@ -7,8 +7,7 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 xmlns:solr="xalan://org.mycore.solr.MCRSolrUtils"
                 xmlns:encoder="xalan://java.net.URLEncoder"
-                xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
-                exclude-result-prefixes="xsl mods xalan i18n encoder solr mcrxsl">
+                exclude-result-prefixes="xsl mods xalan i18n encoder solr">
 
   <xsl:param name="ServletsBaseURL"/>
   <xsl:param name="ThUniBib.response-sidebar-lastimported.max.entries" select="20"/>
@@ -53,7 +52,7 @@
     </hgroup>
     <ul class="list-group list-group-flush thunibib-response-sidebar-lastimported">
       <xsl:for-each select="int">
-        <xsl:sort select="mcrxsl:regexp(@name, '[^(\d\d\d\d)]*', '')" order="descending"/>
+        <xsl:sort select="@name" order="descending"/>
         <xsl:if test="position() &lt;= $ThUniBib.response-sidebar-lastimported.max.entries">
           <xsl:call-template name="output.value">
             <xsl:with-param name="label" select="@name"/>
