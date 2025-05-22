@@ -12,6 +12,8 @@
     <xsl:apply-imports/>
 
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:identifier[@type = 'uri']" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
   </xsl:template>
 
   <xsl:template match="mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
@@ -31,6 +33,22 @@
             <xsl:value-of select="$leadid-scoped"/>
           </xsl:otherwise>
         </xsl:choose>
+      </field>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="mods:mods/mods:identifier[@type = 'uri']" mode="thunibib-solr-fields">
+    <xsl:if test="contains(text(), 'uri.gbv.de/document') and contains(text(), ':ppn:')">
+      <field name="pub_id_ppn">
+        <xsl:value-of select="substring-after(text(), ':ppn:')"/>
+      </field>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields">
+    <xsl:if test="contains(text(), 'uri.gbv.de/document') and contains(text(), ':ppn:')">
+      <field name="host_id_ppn">
+        <xsl:value-of select="substring-after(text(), ':ppn:')"/>
       </field>
     </xsl:if>
   </xsl:template>
