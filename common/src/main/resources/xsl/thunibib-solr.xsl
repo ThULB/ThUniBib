@@ -10,7 +10,14 @@
 
   <xsl:template match="mycoreobject">
     <xsl:apply-imports/>
+    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods" mode="thunibib-solr-fields"/>
+  </xsl:template>
 
+  <xsl:template match="mods:mods" mode="thunibib-solr-fields">
+    <xsl:apply-templates select="mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
+
+    <xsl:call-template name="oa-status" />
+    <xsl:call-template name="media-type-online-status" />
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:identifier" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
@@ -35,6 +42,52 @@
         </xsl:choose>
       </field>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template name="oa-status">
+    <xsl:choose>
+      <xsl:when test="mods:classification[contains(@authorityURI, 'classifications/oa')]">
+        <xsl:apply-templates select="mods:classification[contains(@authorityURI,'oa')][1]" mode="thunibib-solr-fields" />
+      </xsl:when>
+      <xsl:when test="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI,'oa')]">
+        <xsl:apply-templates select="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI,'oa')][1]" mode="thunibib-solr-fields" />
+      </xsl:when>
+      <xsl:otherwise>
+        <field name="oa_status">
+          <xsl:value-of select="'unchecked'"/>
+        </field>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="mods:classification[contains(@authorityURI,'classifications/oa')]" mode="thunibib-solr-fields">
+    <xsl:variable name="category" select="substring-after(@valueURI,'#')" />
+
+    <field name="oa_status">
+      <xsl:choose>
+        <xsl:when test="$category = 'closed'">
+          <xsl:value-of select="'closed'"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="'oa'"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </field>
+  </xsl:template>
+
+  <xsl:template name="media-type-online-status">
+    <xsl:variable name="categId" select="substring-after(mods:classification[contains(@authorityURI,'mediaType')]/@valueURI,'#')"/>
+
+    <field name="mediaType-online-status">
+      <xsl:choose>
+        <xsl:when test="$categId = 'online'">
+          <xsl:value-of select="'online'"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="'other'"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </field>
   </xsl:template>
 
   <xsl:template match="mods:identifier[@type = 'uri']" mode="thunibib-solr-fields">
