@@ -18,9 +18,10 @@
 
     <xsl:call-template name="oa-status" />
     <xsl:call-template name="media-type-online-status" />
-    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
-    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:identifier" mode="thunibib-solr-fields"/>
-    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods/mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
+
+    <xsl:apply-templates select="mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:identifier" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
   </xsl:template>
 
   <xsl:template match="mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
