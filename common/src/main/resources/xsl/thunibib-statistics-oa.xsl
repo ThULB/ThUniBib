@@ -119,8 +119,10 @@
           },
           colors: ['#ee9f27', '#0000ff', '#8f989d', '#d3d3d3', '#00BFFF'],
           legend: {
-            position: 'top',
-            horizontalAlign: 'left'
+            position: 'bottom',
+            horizontalAlign: 'center',
+            clusterGroupedSeries: false,
+            clusterGroupedSeriesOrientation: 'horizontal',
           },
           dataLabels: {
             enabled: false
@@ -128,8 +130,12 @@
           title: {
             text: <xsl:value-of select="concat($apos, $chart-title, $apos)"/>,
             align: 'center',
-            floating: true,
-            offsetY: 10,
+            style: {
+              fontSize:  '16px',
+              fontWeight: 'bold',
+              fontFamily: 'Trebuchet MS',
+              color:  '#000'
+            }
           }
         };
 
