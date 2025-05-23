@@ -121,8 +121,7 @@
           legend: {
             position: 'bottom',
             horizontalAlign: 'center',
-            clusterGroupedSeries: false,
-            clusterGroupedSeriesOrientation: 'horizontal',
+            clusterGroupedSeries: false
           },
           dataLabels: {
             enabled: false
