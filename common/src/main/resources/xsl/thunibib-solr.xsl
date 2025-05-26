@@ -37,7 +37,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="mods:mods/mods:identifier[@type = 'uri']" mode="thunibib-solr-fields">
+  <xsl:template match="mods:identifier[@type = 'uri']" mode="thunibib-solr-fields">
     <xsl:if test="contains(text(), 'uri.gbv.de/document') and contains(text(), ':ppn:')">
       <field name="pub_id_ppn">
         <xsl:value-of select="substring-after(text(), ':ppn:')"/>
