@@ -31,6 +31,7 @@ import org.mycore.access.MCRAccessException;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
+import org.mycore.common.MCRMailer;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.MCRJDOMContent;
@@ -46,8 +47,10 @@ import org.mycore.datamodel.metadata.MCRObjectID;
 import org.mycore.frontend.MCRFrontendUtil;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
+import org.mycore.services.i18n.MCRTranslation;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.commands.MCRSolrCommands;
+import org.mycore.ubo.importer.ImportJob;
 import org.mycore.ubo.importer.ListImportJob;
 import org.mycore.ubo.ldap.LDAPAuthenticator;
 import org.mycore.ubo.ldap.LDAPObject;
@@ -64,6 +67,8 @@ import javax.naming.ldap.LdapContext;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -655,19 +660,21 @@ public class ThUniBibCommands {
 
         try {
             job.transform(config);
+            job.savePublications();
         } catch (Exception e) {
-            LOGGER.error("Could not transform xml", e);
-            return;
+            LOGGER.error("Could not save imported DBT object {}", dbtid, e);
         }
+        sendMail(job);
+    }
 
-        List<Document> publications = job.getPublications();
+    private static void sendMail(ImportJob job) {
+        String subject = "DBT-Import " + job.getID();
+        String from = MCRConfiguration2.getString("UBO.Mail.From").get();
+        String to = MCRConfiguration2.getString("MCR.Mail.Address").get();
+        String url = MCRFrontendUtil.getBaseURL() + "servlets/solr/select?fq=%2BobjectType%3Amods&q=importID%3A%22"
+            + URLEncoder.encode(job.getID(), StandardCharsets.UTF_8) + "%22";
+        String body = MCRTranslation.translateToLocale("ubo.import.list.email.body", url, "de");
 
-        for (Document publication : publications) {
-            try {
-                MCRMetadataManager.update(new MCRObject(publication));
-            } catch (MCRAccessException e) {
-                LOGGER.error("Could not save imported DBT object {}", dbtid, e);
-            }
-        }
+        MCRMailer.send(from, to, subject, body);
     }
 }
