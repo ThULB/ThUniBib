@@ -48,6 +48,7 @@ import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.commands.MCRSolrCommands;
+import org.mycore.ubo.importer.ListImportJob;
 import org.mycore.ubo.ldap.LDAPAuthenticator;
 import org.mycore.ubo.ldap.LDAPObject;
 import org.mycore.ubo.ldap.LDAPSearcher;
@@ -75,7 +76,6 @@ import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 @MCRCommandGroup(name = "ThUniBib Commands")
-
 public class ThUniBibCommands {
     private static final Logger LOGGER = LogManager.getLogger(ThUniBibCommands.class);
 
@@ -101,7 +101,7 @@ public class ThUniBibCommands {
             return;
         }
 
-        // check validity of category id
+        // check the validity of category id
         for (String fundingId : fundingList) {
             if (!MCRXMLFunctions.isCategoryID("fundingType", fundingId)) {
                 LOGGER.error("fundingType:{} is not a valid category id. Object {} remains unchanged.", fundingId,
@@ -641,6 +641,33 @@ public class ThUniBibCommands {
             MCRMetadataManager.update(new MCRObject(content.asXML()));
         } catch (IOException | JDOMException | MCRAccessException e) {
             LOGGER.error("Could not transform xml", e);
+        }
+    }
+
+    @MCRCommand(syntax = "thunibib import {0} from dbt", help = "Imports the object given by its dbt id from DBT")
+    public static void importFromDBT(String dbtid) {
+        LOGGER.info("Importing DBT object {} from dbt", dbtid);
+
+        Element config = new Element("import");
+        config.setAttribute("targetType", "import");
+        config.addContent(new Element("source").setText(dbtid));
+        ListImportJob job = new ListImportJob("DBTList");
+
+        try {
+            job.transform(config);
+        } catch (Exception e) {
+            LOGGER.error("Could not transform xml", e);
+            return;
+        }
+
+        List<Document> publications = job.getPublications();
+
+        for (Document publication : publications) {
+            try {
+                MCRMetadataManager.update(new MCRObject(publication));
+            } catch (MCRAccessException e) {
+                LOGGER.error("Could not save imported DBT object {}", dbtid, e);
+            }
         }
     }
 }
