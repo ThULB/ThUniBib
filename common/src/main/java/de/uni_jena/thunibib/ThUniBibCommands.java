@@ -1,5 +1,6 @@
 package de.uni_jena.thunibib;
 
+import de.uni_jena.thunibib.impex.DBTImportIdProvider;
 import de.uni_jena.thunibib.impex.importer.ConfigurableListImportJob;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -33,7 +34,6 @@ import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRException;
 import org.mycore.common.MCRMailer;
-import org.mycore.common.MCRSessionMgr;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.MCRJDOMContent;
@@ -73,7 +73,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -82,8 +81,6 @@ import java.util.stream.Collectors;
 
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
-
-import de.uni_jena.thunibib.impex.DBTImportIdProvider;
 
 @MCRCommandGroup(name = "ThUniBib Commands")
 public class ThUniBibCommands {
