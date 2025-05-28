@@ -21,8 +21,17 @@ import java.nio.charset.StandardCharsets;
 public class DBTImportCommands {
     private static final Logger LOGGER = LogManager.getLogger(DBTImportCommands.class);
 
-    @MCRCommand(syntax = "thunibib import {0} from dbt", help = "Imports the object given by its dbt id from DBT")
-    public static void importFromDBT(String dbtid) {
+    @MCRCommand(syntax = "thunibib import from dbt by solr query {0}",
+        help = "Import new objects from DBT by the given solr query")
+    public static void importFromDBTByQuery(String solrQuery) {
+        LOGGER.info("Importing from DBT by the given solr query");
+
+
+    }
+
+    @MCRCommand(syntax = "thunibib import {0} from dbt",
+        help = "Imports the objects from the DBT using their identifiers. Multiple identifiers can be specified separated by blank characters.")
+    public static void importFromDBTByIdentifierList(String dbtid) {
         LOGGER.info("Importing DBT object {} from dbt", dbtid);
 
         Element config = new Element("import");
