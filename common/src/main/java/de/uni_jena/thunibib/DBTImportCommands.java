@@ -4,6 +4,8 @@ import de.uni_jena.thunibib.impex.DBTImportIdProvider;
 import de.uni_jena.thunibib.impex.importer.ConfigurableListImportJob;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrServerException;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -17,6 +19,7 @@ import org.mycore.frontend.MCRFrontendUtil;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.services.i18n.MCRTranslation;
+import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.ubo.importer.ImportJob;
 import org.mycore.ubo.importer.ListImportJob;
 
@@ -63,6 +66,8 @@ public class DBTImportCommands {
             .stream()
             .collect(Collectors.joining(" "));
 
+        LOGGER.info("The following DBT identifiers will be considered for import {}", eligable);
+
         List f = Arrays.asList("thunibib import " + eligable + " from dbt");
         return new ArrayList<>();
     }
@@ -79,9 +84,23 @@ public class DBTImportCommands {
             .collect(Collectors.toList());
     }
 
-    // do duplicate check here
     private static boolean exists(Element doc) {
-        return false;
+        return XPATH_FACTORY.compile("//arr[@name='mods.identifier']/str/text()", Filters.text())
+            .evaluate(doc)
+            .stream()
+            .map(Text::getText)
+            .filter(identifier -> {
+                try {
+                    return MCRSolrClientFactory
+                        .getMainSolrClient()
+                        .query(new SolrQuery("+pub_id:" + identifier))
+                        .getResults().getNumFound() > 0;
+                } catch (SolrServerException | IOException e) {
+                    return false;
+                }
+            })
+            .findAny()
+            .isPresent();
     }
 
     private static String toQueryString(String solrQuery) {
