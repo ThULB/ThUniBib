@@ -7,7 +7,10 @@ import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.jdom2.Text;
+import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.xpath.XPathExpression;
 import org.mycore.common.MCRMailer;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.frontend.MCRFrontendUtil;
@@ -24,7 +27,11 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 @MCRCommandGroup(name = "ThUniBib DBT-Import")
 public class DBTImportCommands {
@@ -36,24 +43,45 @@ public class DBTImportCommands {
         help = "Import new objects from DBT by the given solr query")
     public static List<String> importFromDBTByQuery(String solrQuery) {
         LOGGER.info("Importing from {} with solr query '{}'", DBT_BASEURL, solrQuery);
-        List<String> commands = new ArrayList<>();
-        URL url = null;
+        URL url;
 
         try {
             String queryString = toQueryString(solrQuery);
             url = new URL(DBT_BASEURL + "servlets/solr/select?" + queryString);
         } catch (MalformedURLException e) {
             LOGGER.error("Could not build url from {} and {}", DBT_BASEURL, solrQuery, e);
-            return commands;
+            return null;
         }
 
         Document solrDocument = getSolrDocument(url);
         if (solrDocument == null) {
             LOGGER.warn("Could not get solr document from {}", url);
-            return commands;
+            return null;
         }
 
-        return commands;
+        String eligable = getIdentifiers(solrDocument)
+            .stream()
+            .collect(Collectors.joining(" "));
+
+        List f = Arrays.asList("thunibib import " + eligable + " from dbt");
+        return new ArrayList<>();
+    }
+
+    private static List<String> getIdentifiers(Document solrDocument) {
+        XPathExpression<Text> text = XPATH_FACTORY.compile("str[@name='id']/text()", Filters.text());
+
+        return XPATH_FACTORY.compile("//doc[str[@name='id']]", Filters.element())
+            .evaluate(solrDocument)
+            .stream()
+            .filter(doc -> !exists(doc))
+            .map(doc -> text.evaluateFirst(doc))
+            .map(Text::getText)
+            .collect(Collectors.toList());
+    }
+
+    // do duplicate check here
+    private static boolean exists(Element doc) {
+        return false;
     }
 
     private static String toQueryString(String solrQuery) {
