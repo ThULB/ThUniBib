@@ -120,6 +120,7 @@ public class DBTImportCommands {
     }
 
     private static Document getSolrDocument(URL url) {
+        LOGGER.info("Getting solr document from '{}'", url);
         try (BufferedInputStream is = new BufferedInputStream(url.openStream())) {
             SAXBuilder builder = new SAXBuilder();
             return builder.build(is);
