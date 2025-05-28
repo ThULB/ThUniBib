@@ -29,9 +29,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
@@ -62,14 +62,15 @@ public class DBTImportCommands {
             return null;
         }
 
-        String eligable = getIdentifiers(solrDocument)
-            .stream()
-            .collect(Collectors.joining(" "));
+        List<String> identifiers = getIdentifiers(solrDocument);
+        if (identifiers.isEmpty()) {
+            LOGGER.info("No new identifiers could be found");
+            return null;
+        }
 
-        LOGGER.info("The following DBT identifiers will be considered for import {}", eligable);
-
-        List f = Arrays.asList("thunibib import " + eligable + " from dbt");
-        return new ArrayList<>();
+        String eligable = identifiers.stream().collect(Collectors.joining(" "));
+        LOGGER.info("The following {} DBT identifiers will be considered for import: {}", identifiers.size(), eligable);
+        return Arrays.asList("thunibib import " + eligable + " from dbt");
     }
 
     private static List<String> getIdentifiers(Document solrDocument) {
@@ -78,13 +79,14 @@ public class DBTImportCommands {
         return XPATH_FACTORY.compile("//doc[str[@name='id']]", Filters.element())
             .evaluate(solrDocument)
             .stream()
-            .filter(doc -> !exists(doc))
+            .filter(doc -> !publicationExists(doc))
             .map(doc -> text.evaluateFirst(doc))
+            .filter(Objects::nonNull)
             .map(Text::getText)
             .collect(Collectors.toList());
     }
 
-    private static boolean exists(Element doc) {
+    private static boolean publicationExists(Element doc) {
         return XPATH_FACTORY.compile("//arr[@name='mods.identifier']/str/text()", Filters.text())
             .evaluate(doc)
             .stream()
