@@ -89,18 +89,17 @@ public class DBTImportCommands {
             .evaluate(doc)
             .stream()
             .map(Text::getText)
-            .filter(identifier -> {
+            .anyMatch(identifier -> {
                 try {
                     return MCRSolrClientFactory
                         .getMainSolrClient()
                         .query(new SolrQuery("+pub_id:" + identifier))
                         .getResults().getNumFound() > 0;
                 } catch (SolrServerException | IOException e) {
-                    return false;
+                    LOGGER.error("Could not query local solr for identifier {}", identifier, e);
+                    return true;
                 }
-            })
-            .findAny()
-            .isPresent();
+            });
     }
 
     private static String toQueryString(String solrQuery) {
