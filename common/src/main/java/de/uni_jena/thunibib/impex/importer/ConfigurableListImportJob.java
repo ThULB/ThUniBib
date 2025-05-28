@@ -8,8 +8,8 @@ import org.mycore.ubo.importer.ListImportJob;
  * */
 public class ConfigurableListImportJob extends ListImportJob {
 
-    public ConfigurableListImportJob(String type, ImportIdProvider idProvider) {
+    public ConfigurableListImportJob(String type, ImportIdProvider setImportIdProvider) {
         super(type);
-        super.importIdProvider = idProvider;
+        super.setImportIdProvider(setImportIdProvider);
     }
 }
