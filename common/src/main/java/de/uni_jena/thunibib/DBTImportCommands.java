@@ -11,20 +11,15 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.jdom2.Element;
-import org.mycore.common.MCRMailer;
 import org.mycore.common.config.MCRConfiguration2;
-import org.mycore.frontend.MCRFrontendUtil;
+import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
-import org.mycore.services.i18n.MCRTranslation;
 import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrCore;
-import org.mycore.ubo.importer.ImportJob;
 import org.mycore.ubo.importer.ListImportJob;
 
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -118,6 +113,7 @@ public class DBTImportCommands {
     private static boolean publicationExists(SolrDocument doc) {
         return doc.getFieldValues("mods.identifier")
             .stream()
+            .map(Object::toString)
             .anyMatch(identifier -> {
                 try {
                     return MCRSolrClientFactory
@@ -143,21 +139,10 @@ public class DBTImportCommands {
 
         try {
             job.transform(config);
-            job.savePublications();
+            List<MCRObject> imported = job.savePublications();
+            ThUniBibMailer.sendMail(job.getID(), imported, "imported", "DBT");
         } catch (Exception e) {
             LOGGER.error("Could not save imported DBT object {}", dbtid, e);
         }
-        sendMail(job);
-    }
-
-    private static void sendMail(ImportJob job) {
-        String subject = "DBT-Import " + job.getID();
-        String from = MCRConfiguration2.getString("UBO.Mail.From").get();
-        String to = MCRConfiguration2.getString("MCR.Mail.Address").get();
-        String url = MCRFrontendUtil.getBaseURL() + "servlets/solr/select?fq=%2BobjectType%3Amods&q=importID%3A%22"
-            + URLEncoder.encode(job.getID(), StandardCharsets.UTF_8) + "%22";
-        String body = MCRTranslation.translateToLocale("ubo.import.list.email.body", url, "de");
-
-        MCRMailer.send(from, to, subject, body);
     }
 }
