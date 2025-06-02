@@ -101,7 +101,7 @@ public class ThUniBibCommands {
             return;
         }
 
-        // check validity of category id
+        // check the validity of category id
         for (String fundingId : fundingList) {
             if (!MCRXMLFunctions.isCategoryID("fundingType", fundingId)) {
                 LOGGER.error("fundingType:{} is not a valid category id. Object {} remains unchanged.", fundingId,
