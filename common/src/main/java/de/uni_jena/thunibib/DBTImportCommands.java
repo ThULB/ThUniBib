@@ -119,7 +119,8 @@ public class DBTImportCommands {
                     return MCRSolrClientFactory
                         .getMainSolrClient()
                         .query(new SolrQuery("+pub_id:" + identifier))
-                        .getResults().getNumFound() > 0;
+                        .getResults()
+                        .getNumFound() > 0;
                 } catch (SolrServerException | IOException e) {
                     LOGGER.error("Could not query local solr for identifier {}", identifier, e);
                     return true;
