@@ -26,6 +26,8 @@ import org.mycore.user2.MCRUserAttribute_;
 import org.mycore.user2.MCRUser_;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -131,5 +133,26 @@ public class Utilities {
             LOGGER.error("Could not load {}:{}", classificationId, categoryId, e);
             return "";
         }
+    }
+
+    /**
+     * Converts an unencoded URL query string to an encoded version.
+     *
+     * @param rawQueryString
+     * @return
+     */
+    public static String toQueryString(String rawQueryString) {
+        StringBuilder b = new StringBuilder();
+
+        String[] nameValues = rawQueryString.split("&");
+        for (int i = 0; i < nameValues.length; i++) {
+            String[] split = nameValues[i].split("=");
+            if (split.length == 2) {
+                b.append(
+                    (b.length() > 0 ? "&" : "") + split[0] + "=" + URLEncoder.encode(split[1], StandardCharsets.UTF_8));
+            }
+        }
+
+        return b.toString();
     }
 }
