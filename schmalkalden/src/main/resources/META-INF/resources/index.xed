@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="dozbib">
+  <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Hochschule Schmalkalden</title>
+  <title xml:lang="en">Welcome to Bibliography of Hochschule Schmalkalden</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+      <h3>Die Universitätsbibliographie</h3>
+      <p>
+        ist der zentrale Publikationsnachweis der Hochschule Schmalkalden, der online die Publikationstätigkeit der
+        Hochschulangehörigen verzeichnet.
+        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut.
+        <br/>
+        Die Universitätsbibliographie befindet sich derzeit im Aufbau.
+      </p>
+      <p>
+        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+        gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
+      </p>
+      <h3>Gehören Sie der Hochschule Schmalkalden an?</h3>
+      <p>
+        Helfen Sie uns bei der Vervollständigung!
+        <br/>
+        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliographie melden</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+      <h3>The University Bibliography</h3>
+      <p>
+        is the central resource of Hochschule Schmalkalden that lists all publication activities of the university members.
+        It is provided and edited by the university library.
+        <br/>
+        The bibliography is currently under construction.
+      </p>
+      <p>
+        The development of the university bibliography is supported by the State of Thuringia within the framework of
+        the
+        Thuringian Digital Strategy and is being carried out in cooperation with the Head Office of the GBV Common
+        Library Network.
+      </p>
+      <h3>
+        As a member of Hochschule Schmalkalden
+      </h3>
+      <p>
+        Help us to complete the bibliography!
+        <br/>
+        <a href="../newPublication.xed">Here you can register your own publication</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="card mb-3">
+    <div class="card-body">
+      <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
+    </div>
+  </article>
+
+  <xinclude uri="xslStyle:response-newest:solr:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3ANOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
+
+  <aside id="sidebar">
+    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0"/>
+    <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=*%3A*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
+    <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=status%3Aimported+AND+importID%3A*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID"/>
+
+    <article class="card" xml:lang="de">
+      <div class="card-body">
+        <hgroup>
+          <h3>Kontakt:</h3>
+        </hgroup>
+        <p>
+          <a href="https://www.hs-schmalkalden.de/kontakt">
+            <span>Kontakt zur Hochschule Schmalkalden</span>
+          </a>
+        </p>
+        <p>
+          Hochschule Schmalkalden
+          <br/>
+          E-Mail:
+          <a href="mailto:bibliographie@host.example">bibliographie@host.example</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card" xml:lang="en">
+      <div class="card-body">
+        <hgroup>
+          <h3>Contact:</h3>
+        </hgroup>
+        <p>
+          <a href="https://www.uni-erfurt.de/en/erfurt-university-library/about-us/contact/contact-persons">
+            <span>Contact the University Library of Erfurt</span>
+          </a>
+        </p>
+        <p>
+          Hochschule Schmalkalden
+          <br/>
+          E-Mail:
+          <a href="mailto:bibliographie@host.example">bibliographie@host.example</a>
+     
+        </p>
+      </div>
+    </article>
+  </aside>
+</webpage>
