@@ -66,7 +66,7 @@ public class DBTImportCommands {
 
         List<String> identifiers = getIdentifiers(solrDocuments);
         if (identifiers.isEmpty()) {
-            LOGGER.info("No new identifiers could be found");
+            LOGGER.info("No new DBT MyCoRe object identifiers could be found");
             return null;
         }
 
