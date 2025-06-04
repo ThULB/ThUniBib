@@ -1,0 +1,67 @@
+/*  header settings
+ *  - settings for the page header
+ */
+
+// Extra large devices (large desktops)
+// set the defaults for all responsive levels here
+// no (xl) media query necessary (desktop first)
+
+header {
+  background-color: white;
+}
+
+.cd-line {
+  width: 100%;
+  height: 12px;
+  background-image: linear-gradient(to right, #00a58d 0%, #00a58d 20%, #0089ab 20%, #0089ab 40%, #1658a6 40%, #1658a6 60%, #522582 60%, #522582 80%, #991546 80%, #991546 100%);
+  z-index: 99;
+  position: relative;
+}
+
+#wordmark {
+  background: url("../../../images/logo-hs-sm-transparent-3255x886.png") no-repeat;
+  height: 120px;
+  background-size: contain;
+}
+
+#headlineWrapper {
+  padding-top: 40px;
+
+  h3 {
+    font-size: 26px;
+  }
+}
+
+// Large devices (desktops) and below: <= 1200px
+@include media-breakpoint-down(lg) {
+  // add/overwrite styles for responsive level lg and lower
+}
+
+// Medium devices (tablets) and below: <= 992px
+@include media-breakpoint-down(md) {
+  // add/overwrite styles for responsive level md and lower
+}
+
+// Small devices (landscape phones) and below: <= 768px
+@include media-breakpoint-down(sm) {
+  // add/overwrite styles for responsive level sm and lower
+}
+
+// Extra small devices (portrait phones): <= 576px
+@include media-breakpoint-down(xs) {
+  // add/overwrite styles for responsive level xs
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @each $size, $length in $sizes {
+    @include media-breakpoint-up($breakpoint) {
+      .w-#{$breakpoint}-#{$size} {
+        width: $length !important;
+      }
+    }
+  }
+}
+
+#mcrFunctionsDropdown {
+  font-size: 1rem;
+}

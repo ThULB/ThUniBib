@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE webpage>
+
+<webpage lastModified="$Date$" id="impressum">
+  <title xml:lang="de">Impressum</title>
+  <title xml:lang="en">Legal Notice</title>
+
+  <article class="card mb-3" xml:lang="de">
+    <div class="card-body">
+
+      <h2>Anbieter</h2>
+      <p>Die Hochschule Nordhausen ist eine Körperschaft des öffentlichen Rechts.</p>
+      <p>Sie wird durch den Präsidenten der Hochschule Nordhausen, Prof. Dr. Walter Bauer-Wabnegg, gesetzlich vertreten.
+      </p>
+      <p>
+        Hochschule Nordhausen (Campus)
+        <br/>
+        Weinberghof 4
+        <br/>
+        99734 Nordhausen
+        <br/>
+        Deutschland
+        <br/>
+      </p>
+      <p>
+        USt-Id-Nr. nach § 27 a UStG: DE 811 627 407
+      </p>
+
+      <h2>Zuständige Aufsichtsbehörde</h2>
+      <p>
+        Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft (TMWWDG)
+        <br/>
+        Max-Reger-Straße 4-8
+        <br/>
+        99096 Erfurt
+      </p>
+
+      <h2>Redaktion Universitätsbibliographie</h2>
+      <p>
+        Die Universitätsbibliographie wird von der Hochschule Nordhausen (Bibliothek) betrieben.
+        <br/>
+        E-Mail:
+        <a href="mailto:bibliografie@host.example">bibliografie@host.example</a>
+      </p>
+
+      <h2>Technischer Betrieb</h2>
+      <p>Thüringer Universitäts- und Landesbibliothek Jena
+        <br/>
+        Bibliotheksplatz 2
+        <br/>
+        07743 Jena
+        <br/>
+        Tel.: +49 3641 9-404 000
+        <br/>
+        E-Mail:
+        <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
+      </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Zu Haftungsfragen, zum Urheberrecht, zum Datenschutz und allen weiteren Angaben nach § 5 Telemediengesetz vgl.
+        das <a href="https://www.hs-nordhausen.de/en/imprint/">Impressum der Hochschule Nordhausen</a>.
+      </p>
+
+    </div>
+  </article>
+
+  <article class="card mb-3" xml:lang="en">
+    <div class="card-body">
+
+      <h2>Provider</h2>
+      <p>The Hochschule Nordhausen is a public-law entity.</p>
+      <p>It is legally represented by the President of the Hochschule Nordhausen, Prof. Dr. Walter Bauer-Wabnegg.</p>
+      <p>
+        Hochschule Nordhausen (Campus)
+        <br/>
+        Weinberghof 4
+        <br/>
+        99734 Nordhausen
+        <br/>
+        Germany
+        <br/>
+      </p>
+      <p>
+        VAT-Id-No. according to § 27 a UStG: DE 811 627 407
+      </p>
+
+      <h2>Competent supervisory authority</h2>
+      <p>
+        Thüringer Ministerium für Wirtschaft, Wissenschaft und Digitale Gesellschaft (TMWWDG)
+        <br/>
+        Max-Reger-Straße 4-8
+        <br/>
+        99096 Erfurt
+      </p>
+
+      <h2>Editorial office, University Bibliography</h2>
+      <p>
+        The bibliography is operated by the Hochschule Nordhausen Library
+        <br/>
+        Email:
+        <a href="mailto:bibliografie@host.example">bibliografie@host.example</a>
+      </p>
+
+      <h2>Technical Operation</h2>
+      <p>Thüringer Universitäts- und Landesbibliothek Jena
+        <br/>
+        Bibliotheksplatz 2
+        <br/>
+        07743 Jena
+        <br/>
+        Germany
+        <br/>
+        Phone: +49 3641 9-404 000
+        <br/>
+        Email:
+        <a href="mailto:thulb_direktion@thulb.uni-jena.de">thulb_direktion@thulb.uni-jena.de</a>
+      </p>
+
+      <h2>Liability for contents</h2>
+      <p>
+        For questions of liability, copyright, data protection and all other information in accordance with § 5 of the
+        German Telemedia Act, see the <a href="https://www.hs-nordhausen.de/en/imprint/">legal notice of the University of
+        Erfurt</a>.
+      </p>
+    </div>
+  </article>
+
+</webpage>

@@ -142,12 +142,12 @@
                 </div>
               </xed:repeat>
 
-              <xed:bind xpath="condition4[@field='subject'][@operator='=']/@value">
+              <xed:bind xpath="condition4[@field='destatis'][@operator='=']/@value">
                 <div class="form-group form-inline">
                   <label for="{xed:generate-id()}" class="mycore-form-label">
-                    <xed:output i18n="search.dozbib.subject"/>
+                    <xed:output i18n="facets.facet.destatis"/>
                   </label>
-                  <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
+                  <select id="{xed:generate-id()}" class="autocomplete mycore-form-input custom-select">
                     <option value="">
                       <xed:output i18n="search.select"/>
                     </option>
@@ -168,9 +168,6 @@
                     <xed:include uri="xslStyle:items2options:classification:editor:-1:children:ORIGIN"/>
                   </select>
                 </div>
-                <script type="text/javascript">
-                  $(document).ready(function() { $('select[class*="autocomplete"]').chosen({search_contains: true}); });
-                </script>
               </xed:bind>
 
               <xed:include uri="webapp:import-search.xed" ref="year"/>
@@ -296,12 +293,25 @@
           </xed:bind>
         </fieldset>
 
-
         <xed:cleanup-rule xpath="//*[@field][@value]" relevant-if="string-length(@value) &gt; 0"/>
         <xed:cleanup-rule xpath="//*[@field][value]" relevant-if="value[string-length(text()) &gt; 0]"/>
 
       </xed:form>
     </div>
+
+    <script type="text/javascript">
+      <![CDATA[
+        $('select[class*="autocomplete"]').selectpicker({
+          liveSearch:true,
+          liveSearchNormalize:true,
+          virtualScroll:true,
+          showSubtext:true,
+          size:10,
+          width:'auto',
+          dropupAuto: false
+        });
+      ]]>
+    </script>
   </article>
 
   <article xml:lang="de" class="card">

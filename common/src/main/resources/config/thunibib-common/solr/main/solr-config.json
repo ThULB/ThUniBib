@@ -18,7 +18,6 @@
         "facet.field": [
           "status",
           "partOf",
-          "importID",
           "year",
           "genre",
           "peerreviewed",
@@ -127,10 +126,10 @@
         "facet": "true",
         "facet.mincount": "1",
         "f.year.facet.limit": -1,
+
         "facet.field": [
           "status",
           "partOf",
-          "importID",
           "year",
           "genre",
           "peerreviewed",
@@ -170,7 +169,6 @@
         "facet.field": [
           "status",
           "partOf",
-          "importID",
           "year",
           "genre",
           "peerreviewed",
@@ -189,6 +187,26 @@
       "appends": {
         "fq": "+objectType:mods",
         "fq": "status:unchecked OR status:confirmed OR status:reviewPending"
+      }
+    }
+  },
+  {
+    "add-requestHandler": {
+      "name": "/feed",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "df": "objectType",
+        "wt": "xml"
+      },
+      "invariants": {
+        "q": "+objectType:mods +partOf:true",
+        "fl": "id,title,year,person_aut,created,modified,genre",
+        "start": 0,
+        "rows": 25,
+        "fq": "status:unchecked OR status:confirmed OR status:reviewPending",
+        "sort": "year desc,created desc"
       }
     }
   }

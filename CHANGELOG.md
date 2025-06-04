@@ -1,5 +1,27 @@
 # Changelog
 
+# 2025.06.04-2023.06.x
+- [#550](https://github.com/ThULB/ThUniBib/issues/550) Submit publications to HISinOne (#551)
+- [#688](https://github.com/ThULB/ThUniBib/issues/688) Updated link to Duplicates report (#689)
+- [#691](https://github.com/ThULB/ThUniBib/issues/691) Added xsl for generating feeds and proper solr/feed request handler (#692)
+- [#698](https://github.com/ThULB/ThUniBib/issues/698) Provide faq.xml for Weimar (#699)
+- [#700](https://github.com/ThULB/ThUniBib/issues/700) Added classes ThUniBibCatalogImportIdProvider and ThUniBibScopusImportIdProvider (#701)
+- [#702](https://github.com/ThULB/ThUniBib/issues/702) Fixed typo in message property name 'search.dozbib.status.reviewPending' (#703)
+- [#712](https://github.com/ThULB/ThUniBib/issues/712) Added thunbib module for Hochschule Nordhausen (#713)
+- [#715](https://github.com/ThULB/ThUniBib/issues/715) Update ORIGIN.xml (Ilmenau) #714 (#721)
+- [#719](https://github.com/ThULB/ThUniBib/issues/719) Layout improvements on the start page (#720)
+- [#726](https://github.com/ThULB/ThUniBib/issues/726) Added new snapshot repository https://central.sonatype.com/repository/maven-snapshots (#727)
+- [#728](https://github.com/ThULB/ThUniBib/issues/728) Simplified xpath to mods:identifier of type 'uri' (#729)
+- [#730](https://github.com/ThULB/ThUniBib/issues/730) Added import from DBT support (#731)
+- [#732](https://github.com/ThULB/ThUniBib/issues/732) Disable update of project solr core in Jena (#733)
+- [#736](https://github.com/ThULB/ThUniBib/issues/736) Added thunbib module for Hochschule Schmalkalden (#737)
+- [FSU040THUL-7881](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-7881) [#717](https://github.com/ThULB/ThUniBib/issues/717) Updated search.xed, replaced search field 'subject' by search field 'destatis' (#718)
+- [FSU040THUL-7882](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-7882) [#722](https://github.com/ThULB/ThUniBib/issues/722) Made select boxes searchable in search.xed (#723)
+- [FSU040THUL-7884](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-7884) [#724](https://github.com/ThULB/ThUniBib/issues/724) Updated considered fields for identifiers in property UBO.Export.Fields (#725)
+- [FSU040THUL-8011](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8011) [#734](https://github.com/ThULB/ThUniBib/issues/734) Added xslt-migrate-marcrelator-oth-to-aut.xsl (#735)
+- [FSU040THUL-815](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-815) [#364](https://github.com/ThULB/ThUniBib/issues/364) Display related information visually as a block in the admin editor (#706)
+---
+
 ## 2025.03.24-2023.06.x
 - [#685](https://github.com/ThULB/ThUniBib/issues/685) Update ORIGIN.xml (#687)
 - [FSU040THUL-4142](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4142) [#604](https://github.com/ThULB/ThUniBib/issues/604) Unify search in both local user database and ldap directory (#605)
