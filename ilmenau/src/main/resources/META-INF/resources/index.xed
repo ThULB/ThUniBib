@@ -57,7 +57,7 @@
   <aside id="sidebar">
     <xinclude uri="xslStyle:response-sidebar-mini:solr:q=%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0"/>
     <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=*%3A*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY" />
-    <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=status%3Aimported+AND+importID%3A*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID" />
+    <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=%2Bstatus%3A(imported%20OR%20reviewPending)+%2BimportID%3A*&amp;rows=0&amp;facet=true&amp;facet.limit=-1&amp;facet.field=importID&amp;fq%2Bcreated%3A[NOW%2FDAY-30DAYS%20TO%20*]"/>
  
     <article class="card" xml:lang="de">
       <div class="card-body bg-alternative">

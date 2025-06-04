@@ -11,7 +11,7 @@
 
   <xsl:import href="resource:xsl/response-sidebar-admin.xsl"/>
 
-  <xsl:param name="ThUniBib.response-sidebar-lastimported.max.entries" select="20"/>
+  <xsl:param name="ThUniBib.response-sidebar-lastimported.max.entries" select="30"/>
 
   <xsl:template match="lst[@name='facet_fields']/lst[@name='importID']">
     <hgroup>
