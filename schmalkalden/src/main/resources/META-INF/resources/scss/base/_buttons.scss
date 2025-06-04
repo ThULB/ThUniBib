@@ -18,12 +18,12 @@
 .minus,
 .up,
 .down {
-  background-color: $nordhausenRButton;
-  border-color: $nordhausenRButton;
+  background-color: $hssmRButton;
+  border-color: $hssmRButton;
 
   &:hover {
-    background-color: $nordhausenRButtonHover;
-    border-color: $nordhausenRButtonBorder;
+    background-color: $hssmRButtonHover;
+    border-color: $hssmRButtonBorder;
   }
 }
 
@@ -40,7 +40,6 @@
   color: white;
   background-color: $primary;
   background-image: none;
-  border-color: white;
 
   &:hover {
     color: black;
@@ -53,6 +52,7 @@ a.btn-secondary.info-button i {
   color: white;
   background-color: $primary;
   background-image: none;
+  border-color: white;
 }
 
 a.btn-secondary.info-button:hover i {

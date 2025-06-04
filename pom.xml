@@ -198,6 +198,7 @@
     <module>jena-thulb</module>
     <module>jena</module>
     <module>nordhausen</module>
+    <module>schmalkalden</module>
     <module>weimar</module>
   </modules>
 
