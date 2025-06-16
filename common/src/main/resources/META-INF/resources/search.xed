@@ -19,12 +19,12 @@
             <xed:multi-lang>
               <xed:lang xml:lang="de">
                 Alle Bedingungen werden UND-verknüpft. Durch Klicken auf
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-plus"/>
                 können Sie ein Suchfeld wiederholen.
               </xed:lang>
               <xed:lang xml:lang="en">
                 All search terms are connected with AND. By clicking on
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-plus"/>
                 you can repeat a search field.
               </xed:lang>
             </xed:multi-lang>
