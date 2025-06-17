@@ -69,14 +69,14 @@
         let options = {
           series: [
           {
-            name: 'Open Access',
-            group: 'oa-status',
-            data: <xsl:value-of select="$values-oa-status-oa"/>
-          },
-          {
             name: 'Online',
             group: 'online.status',
             data: <xsl:value-of select="$values-mediaType-online"/>
+          },
+          {
+            name: 'Open Access',
+            group: 'oa-status',
+            data: <xsl:value-of select="$values-oa-status-oa"/>
           },
           {
             name: 'Closed Access',
@@ -84,14 +84,14 @@
             data: <xsl:value-of select="$values-oa-status-closed"/>
           },
           {
+            name: <xsl:value-of select="concat($apos, document('notnull:i18n:thunibib.statistics.label.chart.other')/i18n/text(), $apos)"/>,
+            group: 'online.status',
+            data: <xsl:value-of select="$values-mediaType-other"/>
+          },
+          {
             name: <xsl:value-of select="concat($apos, document('notnull:i18n:thunibib.statistics.label.chart.unchecked')/i18n/text(), $apos)"/>,
             group: 'oa-status',
             data: <xsl:value-of select="$values-oa-status-unchecked"/>
-          },
-          {
-          name: <xsl:value-of select="concat($apos, document('notnull:i18n:thunibib.statistics.label.chart.other')/i18n/text(), $apos)"/>,
-            group: 'online.status',
-            data: <xsl:value-of select="$values-mediaType-other"/>
           }],
           chart: {
             type: 'bar',
@@ -117,7 +117,7 @@
           fill: {
             opacity: 1
           },
-          colors: ['#ee9f27', '#0000ff', '#8f989d', '#d3d3d3', '#00BFFF'],
+          colors: ['#0000ff', '#ee9f27', '#8f989d', '#00BFFF', '#d3d3d3'],
           legend: {
             position: 'bottom',
             horizontalAlign: 'center',
