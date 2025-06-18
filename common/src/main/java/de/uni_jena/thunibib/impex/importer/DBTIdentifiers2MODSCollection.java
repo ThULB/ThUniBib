@@ -36,7 +36,7 @@ public class DBTIdentifiers2MODSCollection extends MCRContentTransformer {
             .forEach(dbtid -> {
                 String uri = DBT_URL.replace("{0}", dbtid);
                 try {
-                    root.addContent(MCRURIResolver.instance().resolve(uri));
+                    root.addContent(MCRURIResolver.obtainInstance().resolve(uri));
                 } catch (Exception ex) {
                     LOGGER.error("Could not get content for dbt id uri {}", uri, ex);
                 }

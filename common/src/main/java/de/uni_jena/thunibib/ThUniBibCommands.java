@@ -612,7 +612,7 @@ public class ThUniBibCommands {
         }
 
         List<String> list = new ArrayList<>();
-        MCRUserManager.listUsers(null, mcrRealm.getID(), null).forEach(mcrUser -> {
+        MCRUserManager.listUsers(null, mcrRealm.getID(), null, null).forEach(mcrUser -> {
             String username = mcrUser.getUserName();
             String realm = mcrUser.getRealm().getID();
             list.add("thunibib set username of " + username + "@" + realm + " to lead id");
@@ -635,12 +635,12 @@ public class ThUniBibCommands {
         }
 
         MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
-        MCRXSLTransformer transformer = MCRXSLTransformer.getInstance(
+        MCRXSLTransformer transformer = MCRXSLTransformer.obtainInstance(
             "xsl/migration/xslt-migrate-fachreferate-to-destatis.xsl");
 
         try {
             MCRContent content = transformer.transform(new MCRJDOMContent(mcrObject.createXML()),
-                MCRParameterCollector.getInstanceFromUserSession());
+                MCRParameterCollector.ofCurrentSession());
             MCRMetadataManager.update(new MCRObject(content.asXML()));
         } catch (IOException | JDOMException | MCRAccessException e) {
             LOGGER.error("Could not transform xml", e);
