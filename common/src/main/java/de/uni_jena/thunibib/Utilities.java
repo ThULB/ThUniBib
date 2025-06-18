@@ -112,8 +112,8 @@ public class Utilities {
     public static String getXMapping(String classificationId, String categoryId, String mappingPrefix) {
         MCRCategory category = null;
         try {
-            MCRCategoryID categID = MCRCategoryID.fromString(classificationId + ":" + categoryId);
-            MCRCategoryDAO dao = MCRCategoryDAOFactory.getInstance();
+            MCRCategoryID categID = MCRCategoryID.ofString(classificationId + ":" + categoryId);
+            MCRCategoryDAO dao = MCRCategoryDAOFactory.obtainInstance();
             category = dao.getCategory(categID, 0);
             Optional<MCRLabel> label = category.getLabel("x-mapping");
             if (label.isEmpty()) {
