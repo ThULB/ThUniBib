@@ -46,6 +46,23 @@
       "indexed": true,
       "stored": false
     }
+  },
+  {
+    "add-field": {
+      "name": "oa_status",
+      "type": "ubo_id",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-field": {
+      "name": "mediaType-online-status",
+      "type": "ubo_id",
+      "indexed": true,
+      "stored": true
+    }
   }
 ]
 
