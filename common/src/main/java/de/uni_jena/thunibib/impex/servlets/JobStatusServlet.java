@@ -137,7 +137,7 @@ public class JobStatusServlet extends MCRServlet {
                     .addContent(new Element("parameter").setAttribute("name", key).setText(mcrJob.getParameter(key)));
             }
 
-            // avoid empty param element
+            // avoid an empty param element
             if (paramsElem.getChildren().size() > 0) {
                 jobElem.addContent(paramsElem);
             }
