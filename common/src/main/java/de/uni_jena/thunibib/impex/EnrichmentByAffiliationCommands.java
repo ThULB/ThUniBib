@@ -46,6 +46,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
@@ -124,7 +125,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         String filterTransformer, String importId) {
 
         final String request = buildRequestURL(picaQuery, startStr);
-        final Element result = Objects.requireNonNull(MCRURIResolver.instance().resolve(request));
+        final Element result = Objects.requireNonNull(MCRURIResolver.obtainInstance().resolve(request));
 
         XPathExpression<Element> r = XPathFactory.instance()
             .compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
@@ -418,7 +419,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static String makeRequest(String targetURL) {
         String content = "";
         try {
-            URL url = new URL(targetURL);
+            URL url = new URI(targetURL).toURL();
             URLConnection request = url.openConnection();
             request.connect();
             content = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
