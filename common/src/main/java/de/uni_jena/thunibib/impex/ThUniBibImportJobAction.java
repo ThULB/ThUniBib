@@ -41,7 +41,7 @@ public class ThUniBibImportJobAction extends MCRJobAction {
 
         MCRSession mcrSession = MCRSessionMgr.getCurrentSession();
         try {
-            mcrSession.setUserInformation(MCRSystemUserInformation.getJanitorInstance());
+            mcrSession.setUserInformation(MCRSystemUserInformation.JANITOR);
             List<String> ppns = getList(new ArrayList<>(), query, 1);
             LOGGER.info("Found a total of {} ppn matching query {}", ppns.size(), query);
 
@@ -80,7 +80,7 @@ public class ThUniBibImportJobAction extends MCRJobAction {
 
     private List<String> getList(List<String> ppns, String query, int start) {
         String url = EnrichmentByAffiliationCommands.buildRequestURL(query, String.valueOf(start));
-        Element result = Objects.requireNonNull(MCRURIResolver.instance().resolve(url));
+        Element result = Objects.requireNonNull(MCRURIResolver.obtainInstance().resolve(url));
 
         XPathExpression<Element> r = XPATH_FACTORY.compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
             Filters.element(), null, MCRConstants.ZS_NAMESPACE, MCRConstants.MODS_NAMESPACE);
