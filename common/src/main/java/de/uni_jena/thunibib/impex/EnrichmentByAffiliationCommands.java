@@ -27,7 +27,6 @@ import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.MCRJDOMContent;
 import org.mycore.common.content.transformer.MCRContentTransformer;
 import org.mycore.common.content.transformer.MCRContentTransformerFactory;
-import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -125,7 +124,15 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         String filterTransformer, String importId) {
 
         final String request = buildRequestURL(picaQuery, startStr);
-        final Element result = Objects.requireNonNull(MCRURIResolver.obtainInstance().resolve(request));
+        SAXBuilder builder = new SAXBuilder();
+
+        final Element result;
+        try {
+            result = Objects.requireNonNull(builder.build(request).getRootElement().detach());
+        } catch (JDOMException | IOException e) {
+            LOGGER.error("Could not fetch content from url {}", request, e);
+            return new ArrayList<>();
+        }
 
         XPathExpression<Element> r = XPathFactory.instance()
             .compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
