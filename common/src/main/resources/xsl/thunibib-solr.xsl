@@ -10,18 +10,27 @@
 
   <xsl:template match="mycoreobject">
     <xsl:apply-imports/>
+    <xsl:comment>
+      thunibib-solr.xsl -&gt;
+    </xsl:comment>
+
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods" mode="thunibib-solr-fields"/>
+
+    <xsl:comment>
+      &lt;- thunibib-solr.xsl
+    </xsl:comment>
   </xsl:template>
+
 
   <xsl:template match="mods:mods" mode="thunibib-solr-fields">
     <xsl:apply-templates select="mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
-
-    <xsl:call-template name="oa-status" />
-    <xsl:call-template name="media-type-online-status" />
-
-    <xsl:apply-templates select="mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="mods:identifier" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:classification" mode="thunibib-solr-fields"/>
+
+    <xsl:comment/>
+    <xsl:call-template name="oa-status" />
+    <xsl:call-template name="media-type-online-status" />
   </xsl:template>
 
   <xsl:template match="mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
@@ -117,4 +126,37 @@
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="mods:classification[@authorityURI][@valueURI]" mode="thunibib-solr-fields">
+    <xsl:variable name="class" select="substring-after(@authorityURI, 'classifications/')"/>
+    <xsl:variable name="categid" select="substring-after(@valueURI, '#')"/>
+    <xsl:variable name="tree-fragment" select="document(concat('notnull:classification:metadata:0:parents:', $class, ':', $categid))/mycoreclass/categories//category"/>
+
+    <xsl:comment>
+      <xsl:value-of select="concat(' ', $class, ' ')"/>
+    </xsl:comment>
+
+    <xsl:for-each select="$tree-fragment">
+      <xsl:variable name="pos" select="position()"/>
+
+      <xsl:if test="$pos = 1">
+        <field name="{$class}.id.num.layers.available">
+          <xsl:value-of select="last()"/>
+        </field>
+      </xsl:if>
+
+      <field name="{$class}.id.layer.{$pos}">
+        <xsl:value-of select="@ID"/>
+      </field>
+
+      <field name="{$class}.label.layer.{$pos}.default">
+        <xsl:value-of select="label[not(starts-with(@xml:lang, 'x'))][1]/@text"/>
+      </field>
+
+      <xsl:for-each select="label[@xml:lang][not(starts-with(@xml:lang, 'x'))]">
+        <field name="{$class}.label.layer.{$pos}.{@xml:lang}">
+          <xsl:value-of select="@text"/>
+        </field>
+      </xsl:for-each>
+    </xsl:for-each>
+  </xsl:template>
 </xsl:stylesheet>
