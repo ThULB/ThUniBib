@@ -48,10 +48,10 @@
   <xsl:template name="oa-status">
     <xsl:choose>
       <xsl:when test="mods:classification[contains(@authorityURI, 'classifications/oa')]">
-        <xsl:apply-templates select="mods:classification[contains(@authorityURI,'oa')][1]" mode="thunibib-solr-fields" />
+        <xsl:apply-templates select="mods:classification[contains(@authorityURI, 'oa')][1]" mode="thunibib-solr-fields-oa-status" />
       </xsl:when>
       <xsl:when test="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI,'oa')]">
-        <xsl:apply-templates select="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI,'oa')][1]" mode="thunibib-solr-fields" />
+        <xsl:apply-templates select="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI, 'oa')][1]" mode="thunibib-solr-fields-oa-status" />
       </xsl:when>
       <xsl:otherwise>
         <field name="oa_status">
@@ -61,7 +61,7 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="mods:classification[contains(@authorityURI,'classifications/oa')]" mode="thunibib-solr-fields">
+  <xsl:template match="mods:classification[contains(@authorityURI, 'classifications/oa')]" mode="thunibib-solr-fields-oa-status">
     <xsl:variable name="category" select="substring-after(@valueURI,'#')" />
 
     <field name="oa_status">
