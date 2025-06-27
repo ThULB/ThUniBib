@@ -63,6 +63,23 @@
       "indexed": true,
       "stored": true
     }
+  },
+  {
+    "add-dynamic-field": {
+      "name": "ORIGIN.id.layer.*",
+      "type": "ubo_id",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-field": {
+      "name": "ORIGIN.id.num.layers.available",
+      "type": "ubo_id",
+      "indexed": true,
+      "stored": false
+    }
   }
 ]
 
