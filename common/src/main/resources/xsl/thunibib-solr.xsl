@@ -139,21 +139,21 @@
       <xsl:variable name="pos" select="position()"/>
 
       <xsl:if test="$pos = 1">
-        <field name="{$class}.id.num.layers.available">
+        <field name="{$class}.id.layers">
           <xsl:value-of select="last()"/>
         </field>
       </xsl:if>
 
-      <field name="{$class}.id.layer.{$pos}">
+      <field name="{$class}.{$pos}">
         <xsl:value-of select="@ID"/>
       </field>
 
-      <field name="{$class}.label.layer.{$pos}.default">
+      <field name="{$class}.{$pos}.label.default">
         <xsl:value-of select="label[not(starts-with(@xml:lang, 'x'))][1]/@text"/>
       </field>
 
       <xsl:for-each select="label[@xml:lang][not(starts-with(@xml:lang, 'x'))]">
-        <field name="{$class}.label.layer.{$pos}.{@xml:lang}">
+        <field name="{$class}.{$pos}.label.{@xml:lang}">
           <xsl:value-of select="@text"/>
         </field>
       </xsl:for-each>
