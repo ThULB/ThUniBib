@@ -5,13 +5,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.filter.Filters;
+import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.MCRSession;
 import org.mycore.common.MCRSessionMgr;
 import org.mycore.common.MCRSystemUserInformation;
 import org.mycore.common.config.MCRConfiguration2;
-import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.services.queuedjob.MCRJob;
 import org.mycore.services.queuedjob.MCRJobAction;
@@ -80,7 +80,14 @@ public class ThUniBibImportJobAction extends MCRJobAction {
 
     private List<String> getList(List<String> ppns, String query, int start) {
         String url = EnrichmentByAffiliationCommands.buildRequestURL(query, String.valueOf(start));
-        Element result = Objects.requireNonNull(MCRURIResolver.obtainInstance().resolve(url));
+        SAXBuilder builder = new SAXBuilder();
+        Element result = null;
+        try {
+            result = Objects.requireNonNull(builder.build(url).getRootElement().detach());
+        } catch (Exception e) {
+            LOGGER.error("Could not fetch content from url {}", url, e);
+            return new ArrayList<>();
+        }
 
         XPathExpression<Element> r = XPATH_FACTORY.compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
             Filters.element(), null, MCRConstants.ZS_NAMESPACE, MCRConstants.MODS_NAMESPACE);
