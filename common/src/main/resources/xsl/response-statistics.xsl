@@ -6,10 +6,14 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 exclude-result-prefixes="xsl xalan i18n">
 
+  <xsl:import href="charts/thunibib-statistics-horizontal-bar-chart.xsl"/>
+
   <xsl:include href="statistics.xsl" />
   <xsl:include href="statistics-oa.xsl" />
+
   <xsl:param name="WebApplicationBaseURL" />
   <xsl:param name="RequestURL" />
+
 
   <xsl:template match="/">
     <html id="dozbib.search">
@@ -49,19 +53,21 @@
   </xsl:template>
 
   <xsl:template match="response" priority="1">
-    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"></script>
-    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"></script>
+    <script src="{$WebApplicationBaseURL}assets/apexcharts/dist/apexcharts.js"/>
+    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"/>
+    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"/>
 
     <div id="chartDialog" />
-
-    <xsl:for-each select="lst[@name='facet_counts']">
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='year'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='subject'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='origin'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='genre'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
-    </xsl:for-each>
-
+    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='year'][int]" />
+    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='destatis'][int]" />
+    <xsl:call-template name="horizontal-bar-chart">
+      <xsl:with-param name="response" select="."/>
+      <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.1')/i18n/text()"/>
+    </xsl:call-template>
+    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='origin_exact'][int]" />
+    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='genre'][int]" />
+    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
   </xsl:template>
 
 </xsl:stylesheet>
