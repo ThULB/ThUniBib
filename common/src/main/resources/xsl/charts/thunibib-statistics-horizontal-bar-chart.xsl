@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
-
   <xsl:import href="thunibib-charts-common.xsl"/>
 
   <xsl:template match="/response">
-    <xsl:if test="result/@numFound &gt; 0">
-      <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet}">
+    <xsl:call-template name="horizontal-bar-chart"/>
+  </xsl:template>
+
+  <xsl:template name="horizontal-bar-chart">
+    <xsl:param name="response" select="."/>
+    <xsl:param name="facet-name" select="$facet"/>
+    <xsl:param name="chart-title" select="$chart-title-by-facet"/>
+
+      <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-ORIGIN.1">
         <xsl:variable name="labels">
           [
-          <xsl:for-each select="//lst[@name = $facet]/int">
+          <xsl:for-each select="$response//lst[@name = $facet-name]/int">
             <xsl:choose>
               <xsl:when test="document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:ORIGIN:', @name)) = 'true'">
                 <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:ORIGIN:', @name)), $apos)"/>
@@ -26,7 +32,7 @@
         </xsl:variable>
         <xsl:variable name="values">
           [
-          <xsl:for-each select="//lst[@name = $facet]/int">
+          <xsl:for-each select="$response//lst[@name = $facet-name]/int">
             <xsl:value-of select="text()"/>
             <xsl:if test="not(position()=last())">
               ,
@@ -37,7 +43,7 @@
 
         <xsl:variable name="chart-id" select="concat('chart-bar-', translate($facet, '.', '-'))"/>
 
-        <div id="{$chart-id}" class="border border-primary rounded mb-3"/>
+        <div id="{$chart-id}" data-values="{$values}" data-labels="{$labels}" class="border border-primary rounded mb-3"/>
 
         <script>
           {
@@ -57,14 +63,14 @@
               bar: {
                 borderRadius: 4,
                 borderRadiusApplication: 'end',
-                horizontal: true,
+                horizontal: true
               }
             },
             xaxis: {
               categories: <xsl:value-of select="$labels"/>,
             },
             title: {
-              text: <xsl:value-of select="concat($apos, $chart-title-by-facet, $apos)"/>,
+              text: <xsl:value-of select="concat($apos, $chart-title, $apos)"/>,
               align: 'center',
               style: {
                 fontSize:  '16px',
@@ -81,6 +87,5 @@
           }
         </script>
       </div>
-    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
