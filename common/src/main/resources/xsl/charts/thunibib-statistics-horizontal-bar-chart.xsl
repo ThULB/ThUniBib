@@ -11,7 +11,7 @@
     <xsl:param name="facet-name" select="$facet"/>
     <xsl:param name="chart-title" select="$chart-title-by-facet"/>
 
-      <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-ORIGIN.1">
+      <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
         <xsl:variable name="labels">
           [
           <xsl:for-each select="$response//lst[@name = $facet-name]/int">
@@ -41,7 +41,7 @@
           ]
         </xsl:variable>
 
-        <xsl:variable name="chart-id" select="concat('chart-bar-', translate($facet, '.', '-'))"/>
+        <xsl:variable name="chart-id" select="concat('chart-bar-', translate($facet-name, '.', '-'))"/>
 
         <div id="{$chart-id}" data-values="{$values}" data-labels="{$labels}" class="border border-primary rounded mb-3"/>
 
