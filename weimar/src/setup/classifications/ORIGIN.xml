@@ -279,11 +279,6 @@
       <category ID="3102">
         <label xml:lang="de" text="Professur Baumechanik"/>
       </category>
-      <category ID="3103">
-        <label xml:lang="de" text="Professur Baustatik und Bauteilfestigkeit"/>
-        <label xml:lang="en" text="Professorship Structural Analysis and Component Strength"/>
-        <label xml:lang="x-mapping" text="destatis:7550"/>
-      </category>
       <category ID="3104">
         <label xml:lang="de" text="Professur Massivbau I"/>
       </category>
@@ -295,11 +290,6 @@
       <category ID="3106">
         <label xml:lang="de" text="Professur Modellierung und Simulation - Konstruktion"/>
         <label xml:lang="x-mapping" text="destatis:7510"/>
-      </category>
-      <category ID="3107">
-        <label xml:lang="de" text="Professur Modellierung und Simulation - Mechanik"/>
-        <label xml:lang="en" text="Professorship Computational Mechanics"/>
-        <label xml:lang="x-mapping" text="destatis:7550"/>
       </category>
       <category ID="3108">
         <label xml:lang="de" text="Professur Stahlbau"/>
@@ -405,11 +395,6 @@
       <category ID="3135">
         <label xml:lang="de" text="Professur Simulation und Experiment"/>
       </category>
-      <category ID="3136">
-        <label xml:lang="de" text="Professur Stochastik und Optimierung"/>
-        <label xml:lang="en" text="Professorship Stochastics and Optimization"/>
-        <label xml:lang="x-mapping" text="destatis:7550"/>
-      </category>
       <category ID="3137">
         <label xml:lang="de" text="Professur Urban Energy Systems"/>
       </category>
@@ -435,6 +420,21 @@
         <label xml:lang="en" text="Institute for Structural Mechanics (ISM)"/>
         <label xml:lang="x-gnd" text="2152898-6"/>
         <label xml:lang="x-mapping" text="destatis:7550"/>
+        <category ID="3103">
+          <label xml:lang="de" text="Professur Baustatik und Bauteilfestigkeit"/>
+          <label xml:lang="en" text="Professorship Structural Analysis and Component Strength"/>
+          <label xml:lang="x-mapping" text="destatis:7550"/>
+        </category>
+        <category ID="3107">
+          <label xml:lang="de" text="Professur Modellierung und Simulation - Mechanik"/>
+          <label xml:lang="en" text="Professorship Computational Mechanics"/>
+          <label xml:lang="x-mapping" text="destatis:7550"/>
+        </category>
+        <category ID="3136">
+          <label xml:lang="de" text="Professur Stochastik und Optimierung"/>
+          <label xml:lang="en" text="Professorship Stochastics and Optimization"/>
+          <label xml:lang="x-mapping" text="destatis:7550"/>
+        </category>
       </category>
       <category ID="3142">
         <label xml:lang="de" text="Professur Geotechnik"/>
