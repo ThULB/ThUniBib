@@ -532,6 +532,54 @@
         <label xml:lang="x-mapping" text="destatis:4780 4810"/>
         <url xlink:href="https://www.septomics.de/de/"/>
       </category>
+
+      <category ID="8000.22">
+        <label xml:lang="de" text="European Virus Bioinformatics Center (EVBC)"/>
+        <label xml:lang="x-mapping" text="destatis:4790 3540"/>
+        <url xlink:href="https://evbc.uni-jena.de/"/>
+      </category>
+	  
+	  <category ID="8000.23">
+        <label xml:lang="de" text="Cluster of Excellence 'Balance of the Microverse'"/>
+        <label xml:lang="x-mapping" text="destatis:4020 4780"/>
+        <url xlink:href="https://www.microverse-cluster.de/"/>
+      </category>
+	  
+	  <category ID="8000.24">
+        <label xml:lang="de" text="Deutsches Zentrum für Psychische Gesundheit (DZPG), Standort Halle-Jena-Magdeburg, Halle-Jena-Magdeburg, Germany"/>
+        <label xml:lang="x-mapping" text="destatis:1740 5050 5160 4580"/>
+        <url xlink:href="https://www.dzpg.org/en/the-dzpg/partner-sites/halle-jena-magdeburg"/>
+      </category>
+	  
+	  <category ID="8000.25">
+        <label xml:lang="de" text="Center for Intervention and Research on adaptive and maladaptive brain Circuits underlying mental health"/>
+        <label xml:lang="x-mapping" text="destatis:4580 4020 4810 5040"/>
+        <url xlink:href="https://c-i-r-c.de/"/>
+      </category>
+	  
+	  <category ID="8000.26">
+        <label xml:lang="de" text="ELLIS UNIT"/>
+        <label xml:lang="x-mapping" text="destatis:3560 3850 4160"/>
+        <url xlink:href="https://www.ellis-jena.eu/"/>
+      </category>
+	  
+	  <category ID="8000.27">
+        <label xml:lang="de" text="LPI: Leibniz-Zentrum für Photonik in der Infektionsforschung"/>
+        <label xml:lang="x-mapping" text="destatis:4780 4020 3637 3730"/>
+        <url xlink:href="https://lpi-jena.de/"/>
+      </category>
+	  
+	  <category ID="8000.28">
+        <label xml:lang="de" text="LPI: Leibniz-Zentrum für Photonik in der Infektionsforschung"/>
+        <label xml:lang="x-mapping" text="destatis:4780 4020 3637 3730"/>
+        <url xlink:href="https://lpi-jena.de/"/>
+      </category>
+	  
+	  <category ID="8000.29">
+        <label xml:lang="de" text="Jena School for Microbial Communication (JSMC)"/>
+        <label xml:lang="x-mapping" text="destatis:4020 4780"/>
+        <url xlink:href="https://www.jsmc-phd.de/"/>
+      </category>
     </category>
 
     <category ID="1060">
@@ -712,6 +760,12 @@
           <label xml:lang="de" text="Institut für Molekulare Zellbiologie"/>
           <label xml:lang="x-mapping" text="destatis:4820"/>
           <url xlink:href="https://www.uniklinikum-jena.de/zellbiologie/"/>
+        </category>
+
+        <category ID="7000.57">
+          <label xml:lang="de" text="Institut für Physikalische und Rehabilitative Medizin"/>
+          <label xml:lang="x-mapping" text="destatis:5015 5080"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/physiotherapie/"/>
         </category>
       </category>
 
@@ -1025,6 +1079,12 @@
           <label xml:lang="de" text="Zentrum für Zahn-, Mund- und Kieferheilkunde"/>
           <label xml:lang="x-mapping" text="destatis:5200"/>
           <url xlink:href="https://www.uniklinikum-jena.de/zzmk/"/>
+        </category>
+
+        <category ID="7000.78">
+          <label xml:lang="de" text="Zentrum für Gesundheits- und Sicherheitsmanagement"/>
+          <label xml:lang="x-mapping" text="destatis:4453 5090"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/zgs/"/>
         </category>
       </category>
     </category>
