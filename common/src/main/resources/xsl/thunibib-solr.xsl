@@ -8,6 +8,8 @@
 
   <xsl:import href="xslImport:solr-document:thunibib-solr.xsl"/>
 
+  <xsl:param name="UBO.projectid.default"/>
+
   <xsl:template match="mycoreobject">
     <xsl:apply-imports/>
     <xsl:comment>
@@ -148,6 +150,21 @@
         <xsl:value-of select="@ID"/>
       </field>
 
+      <xsl:if test="$UBO.projectid.default = 'ubw' and $class = 'ORIGIN'">
+        <xsl:choose>
+          <xsl:when test="$pos = 2 and last() = 2">
+            <field name="{$class}.{$pos}.statistics">
+              <xsl:value-of select="@ID"/>
+            </field>
+          </xsl:when>
+          <xsl:when test="$pos = 3">
+            <field name="{$class}.{$pos - 1}.statistics">
+              <xsl:value-of select="@ID"/>
+            </field>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:if>
+
       <field name="{$class}.{$pos}.label.default">
         <xsl:value-of select="label[not(starts-with(@xml:lang, 'x'))][1]/@text"/>
       </field>
@@ -158,5 +175,6 @@
         </field>
       </xsl:for-each>
     </xsl:for-each>
+
   </xsl:template>
 </xsl:stylesheet>
