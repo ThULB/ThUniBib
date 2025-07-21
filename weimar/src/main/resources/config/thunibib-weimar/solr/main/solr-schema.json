@@ -1,0 +1,11 @@
+[
+  {
+    "add-field": {
+      "name": "ORIGIN.2.statistics",
+      "type": "ubo_id",
+      "multiValued": true,
+      "indexed": true,
+      "stored": false
+    }
+  }
+]
