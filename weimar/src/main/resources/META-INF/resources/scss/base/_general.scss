@@ -152,6 +152,10 @@ h1, h2, h3, h4, h5 {
   display: none;
 }
 
+.thunibib-chart-section-chartOrigin {
+  display: none;
+}
+
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
   // add/overwrite styles for responsive level lg and lower
