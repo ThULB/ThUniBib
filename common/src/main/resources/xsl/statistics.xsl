@@ -35,7 +35,7 @@
   <xsl:template match="lst[@name='facet_fields']/lst[@name='origin_exact']">
     <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('ubo.department'))"/>
 
-    <section class="card mb-3">
+    <section class="card mb-3 thunibib-chart-section-chartOrigin">
       <div class="card-body">
         <div id="chartOrigin" style="width:100%; height:{50 + count(int) * 30}px" />
         <script type="text/javascript">
