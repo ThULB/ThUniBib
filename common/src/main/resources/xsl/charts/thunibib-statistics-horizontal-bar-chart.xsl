@@ -54,7 +54,7 @@
             }],
             chart: {
               type: 'bar',
-              height: 450,
+              height: <xsl:value-of select="$height"/>,
               toolbar: {
                 show: false
               }
