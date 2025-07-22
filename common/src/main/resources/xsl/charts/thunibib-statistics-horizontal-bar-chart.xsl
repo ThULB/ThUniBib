@@ -7,9 +7,10 @@
   </xsl:template>
 
   <xsl:template name="horizontal-bar-chart">
-    <xsl:param name="response" select="."/>
-    <xsl:param name="facet-name" select="$facet"/>
     <xsl:param name="chart-title" select="$chart-title-by-facet"/>
+    <xsl:param name="facet-name" select="$facet"/>
+    <xsl:param name="height" select="$default-height"/>
+    <xsl:param name="response" select="."/>
 
       <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
         <xsl:variable name="labels">
