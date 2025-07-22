@@ -5,7 +5,7 @@
       "type": "ubo_id",
       "multiValued": true,
       "indexed": true,
-      "stored": false
+      "stored": true
     }
   }
 ]
