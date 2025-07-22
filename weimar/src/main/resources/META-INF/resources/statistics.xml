@@ -5,8 +5,9 @@
     <i18n:code>thunibib.statistic.title</i18n:code>
   </title>
 
-  <script src="webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"/>
-  <script src="webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"/>
+  <script src="assets/apexcharts/dist/apexcharts.js"/>
+  <script src="webjars/highcharts/5.0.1/highcharts.src.js"/>
+  <script src="webjars/highcharts/5.0.1/themes/grid.js"/>
 
   <div id="chartDialog"/>
 
@@ -22,9 +23,11 @@
   </article>
 
   <xinclude uri="xslStyle:statistics-oa:solr:requestHandler:select:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked+OR+status%3AreviewPending)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet=%7Byear%3A%7Btype%3Aterms,field%3Ayear,sort%3A%7Bindex%3Aasc%7D,facet%3A%7Boa%3A%7Btype%3Aterms,field%3Aoa,sort%3A%7Bindex%3Aasc%7D%7D%7D%7D%7D"/>
-  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=destatis"/>
-  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=origin_exact"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-horizontal-bar-chart?facet=ORIGIN.1:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.1"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-horizontal-bar-chart?facet=ORIGIN.2.statistics:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.2.statistics"/>
+
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=genre"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=fundingType"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
