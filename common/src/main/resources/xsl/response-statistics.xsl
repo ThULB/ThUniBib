@@ -60,6 +60,7 @@
     <div id="chartDialog" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='year'][int]" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='destatis'][int]" />
+
     <xsl:call-template name="horizontal-bar-chart">
       <xsl:with-param name="response" select="."/>
       <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
@@ -68,9 +69,11 @@
 
     <xsl:call-template name="horizontal-bar-chart">
       <xsl:with-param name="response" select="."/>
-      <xsl:with-param name="facet-name" select="'ORIGIN.3'"/>
+      <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
+      <xsl:with-param name="height" select="1024"/>
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.3')/i18n/text()"/>
     </xsl:call-template>
+
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='origin_exact'][int]" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='genre'][int]" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
