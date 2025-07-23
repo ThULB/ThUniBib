@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="2023-11-16 11:15:00" id="dozbib.stats" xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:code>thunibib.statistic.title</i18n:code>
+  </title>
+
+  <script src="assets/apexcharts/dist/apexcharts.js"/>
+  <script src="webjars/highcharts/5.0.1/highcharts.src.js"/>
+  <script src="webjars/highcharts/5.0.1/themes/grid.js"/>
+
+  <div id="chartDialog"/>
+
+  <article class="card mb-3">
+    <div class="card-body bg-alternative">
+      <h3>
+        <i18n:code>thunibib.statistic.hint</i18n:code>
+      </h3>
+      <p>
+        <i18n:code>thunibib.statistic.hint.text</i18n:code>
+      </p>
+    </div>
+  </article>
+
+  <xinclude uri="xslStyle:statistics-oa:solr:requestHandler:select:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked+OR+status%3AreviewPending)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet=%7Byear%3A%7Btype%3Aterms,field%3Ayear,sort%3A%7Bindex%3Aasc%7D,facet%3A%7Boa%3A%7Btype%3Aterms,field%3Aoa,sort%3A%7Bindex%3Aasc%7D%7D%7D%7D%7D"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=destatis"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-horizontal-bar-chart?facet=ORIGIN.1:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.1"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-horizontal-bar-chart?facet=ORIGIN.2.statistics&amp;default-height=1024:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.2.statistics"/>
+
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=genre"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=fundingType"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
+  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
+
+</webpage>
