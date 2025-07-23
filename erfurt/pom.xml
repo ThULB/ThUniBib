@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.uni-jena.thulb.ubo</groupId>
     <artifactId>ThUniBib</artifactId>
-    <version>2025.06.04-2023.06.x</version>
+    <version>2025.07.23-2023.06.x</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-erfurt</artifactId>

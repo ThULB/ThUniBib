@@ -1,5 +1,19 @@
 # Changelog
 
+# 2025.07.23-2023.06.x
+- [#704](https://github.com/ThULB/ThUniBib/issues/704) Add document type "Tondokument" (#705)
+- [#738](https://github.com/ThULB/ThUniBib/issues/738) List of recent imports on landing page ignores scopus imports in Jena (#739)
+- [#740](https://github.com/ThULB/ThUniBib/issues/740) Overwrite i18n 'ubo.person.connected.sup' for Weimar (#741)
+- [#746](https://github.com/ThULB/ThUniBib/issues/746) Removed property UBO.Login.Path in thunibib-nordhausen/mycore.properties (#747)
+- [#750](https://github.com/ThULB/ThUniBib/issues/750) Enable DBT import (#751)
+- [#759](https://github.com/ThULB/ThUniBib/issues/759) Updated ORIGIN.xml (Jena) (#760)
+- [#761](https://github.com/ThULB/ThUniBib/issues/761) Set MCR.ORCID2.Work.SourceURL=%MCR.baseurl% (#762)
+- [FSU040THUL-8108](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8108) [#742](https://github.com/ThULB/ThUniBib/issues/742) Updated solr-config.json (removed q.op default parameter from statistics(-all) request handlers) (#743)
+- [FSU040THUL-8175](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8175) [#744](https://github.com/ThULB/ThUniBib/issues/744) Removed list-wizard.xed from source and use custom i18n for list wizard (#745)
+- [FSU040THUL-8186](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8186) [#752](https://github.com/ThULB/ThUniBib/issues/752) Made OA status editable for related items, changed position of form elements article_number and identifier (#753)
+- [FSU040THUL-8266](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8266) [#756](https://github.com/ThULB/ThUniBib/issues/756) Updated ORIGIN.xml (Weimar) (#757)
+---
+
 # 2025.06.04-2023.06.x
 - [#550](https://github.com/ThULB/ThUniBib/issues/550) Submit publications to HISinOne (#551)
 - [#688](https://github.com/ThULB/ThUniBib/issues/688) Updated link to Duplicates report (#689)
