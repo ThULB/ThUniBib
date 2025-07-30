@@ -9,7 +9,7 @@
   <article class="card mb-3" xml:lang="de">
     <div class="card-body">
       <p>
-        In der Universitätsbibliographie werden die Veröffentlichungen (Publikationen) der Mitglieder und Angehörigen der TU Ilmenau nachgewiesen. Eine Ausnahme bildet der Nachweis von Abschlussarbeiten. Dabei müssen die Veröffentlichungen im Zusammenhang mit einer Tätigkeit an der Universität entstanden sein. 
+        In der Universitätsbibliographie werden die Veröffentlichungen der Mitglieder und Angehörigen der Bauhaus-Universität Weimar ab Erscheinungsjahr 2022 nachgewiesen. Die Publikationen müssen im Zusammenhang mit einer Tätigkeit an der Universität entstanden sein. 
       </p>
       <p>
         Dabei bedeutet „Veröffentlichung“:<br />
@@ -17,10 +17,7 @@
         Bei einer gedruckten Form ist das regelmäßig dann der Fall, wenn die Publikation im Buchhandel erhältlich ist oder war. Die elektronische Form setzt eine stabile und langfristige Verfügbarkeit im Internet voraus (z.B. auf den Archivservern der Bibliotheken oder Verlage).
       </p>
       <p>
-        Die Informationen zu den Publikationen gelangen automatisiert über Datenbanken oder durch Ihre <a href="newPublication.xed">Meldungen</a> oder Listeneinreichung in die Universitätsbibliographie bzw. zum Redaktionsteam. Alle Eintragungen werden von der Universitätsbibliothek redaktionell überprüft, ggf. korrigiert und final freigegeben.
-      </p>
-      <p>
-        Damit die Erfassung einheitlich und bibliographisch exakt erfolgen kann, stellen die Fachgebiete der Universitätsbibliothek vollständige Kopien der Aufsätze aus Zeitschriften, die <a href="https://opac.lbs-ilmenau.gbv.de/LNG=DU/DB=1/">nicht im Bestand der Bibliothek</a> verfügbar sind, für die Katalogisierung zur Verfügung. Bei allen anderen Veröffentlichungen, die sich ebenfalls nicht im Bestand der Bibliothek befinden, bitten wir um Einsichtnahme oder um ein Belegexemplar für den Bestand der UB.
+        Die Informationen zu den Publikationen gelangen automatisiert über Datenbanken oder durch Ihre <a href="newPublication.xed">Meldungen</a> oder Listeneinreichung in die Universitätsbibliographie. Alle Eintragungen werden von der Universitätsbibliothek redaktionell überprüft, ggf. korrigiert und final freigegeben.
       </p>
       <p>
         Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie der Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
@@ -30,7 +27,7 @@
   <article class="card mb-3" xml:lang="en">
     <div class="card-body">
       <p>
-        The publications of the members and affiliates of the TU Ilmenau are listed in the University Bibliography. An exception is the record of graduation theses. The publications must have been produced in connection with an activity at the university. 
+        The university bibliography lists publications by members and affiliates of Bauhaus-Universität Weimar published in 2022 and later. The publications must have been produced in connection with activities at the university. 
       </p>
       <p>
         Here, "publication" means:<br />
@@ -38,10 +35,7 @@
         In the case of a printed form, this is usually the case if the publication is or was available in bookstores. The electronic form requires stable and long-term availability on the Internet (e.g. on the archive servers of libraries or publishers).
       </p>
       <p>
-        The information on the publications is automatically transferred to the University Bibliography or to the editorial team via databases or through your <a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">registrations</a> or list submission. All entries are checked editorially by the University Library, corrected if necessary and finally released.
-      </p>
-      <p>
-        To ensure that the cataloging is uniform and bibliographically accurate, the departments provide the University Library with complete copies of articles from journals that <a href="https://opac.lbs-ilmenau.gbv.de/LNG=EN/DB=1/">not available in the library's holdings</a> for cataloging. For all other publications that are also not in the library's holdings, we ask that they be made available for inspection or that a voucher copy be provided for the library's holdings.
+        The information on the publications is automatically transferred to the University Bibliography or to the editorial team via databases or through your <a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">registrations</a> or list submission. All entries are checked editorially by the University Library, corrected if necessary and finally released. 
       </p>
       <p>
         The development of the University Bibliography is supported by the state of Thuringia as part of the Thuringian digital strategy. And it is being done in cooperation with the Library Service Center Thuringia as well as the Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
@@ -88,8 +82,8 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Alle Angehörigen und Mitglieder der TU Ilmenau können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine <a href="servlets/MCRShibbolethLoginServlet">Anmeldung mit dem UniRZ-Login</a> erforderlich. 
-                Ehemalige Angehörige nehmen bitte <a href="contact.xml">Kontakt mit dem Redaktionsteam</a> der Universitätsbibliographie auf.
+                Alle Angehörigen und Mitglieder der Bauhaus-Universität Weimar können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine Anmeldung mit dem UniRZ-Login erforderlich. 
+                Ehemalige Angehörige nehmen bitte <a href="contact.xml">Kontakt mit der Redaktion</a> der Universitätsbibliographie auf.
               </p>
             </div>
           </div>
@@ -129,7 +123,7 @@
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Eingereichte Publikationen werden von einem Redaktionsteam in der Universitätsbibliothek überprüft.
+                Eingereichte Publikationen werden von der Redaktion in der Universitätsbibliothek überprüft.
                 Dadurch kann es zu zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und
                 aufgearbeitet, um eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu
                 gewährleisten.
@@ -358,7 +352,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                All members and affiliates of the TU Ilmenau can register their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>. 
+                All members and affiliates of the Bauhaus-Universität Weimar can register their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>. 
                 Former members should <a href="contact.xml">contact the editorial team</a> of the University Bibliography.
               </p>
             </div>
@@ -399,7 +393,7 @@
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Submitted publications are reviewed by an editorial team at the Ilmenau University Library. This may cause time delays. Entries may be corrected and reprocessed to ensure consistent data quality with respect to statistical analysis.
+                Submitted publications are reviewed by an editorial team at the University Library. This may cause time delays. Entries may be corrected and reprocessed to ensure consistent data quality with respect to statistical analysis.
               </p>
             </div>
           </div>
