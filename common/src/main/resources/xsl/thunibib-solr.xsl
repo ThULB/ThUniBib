@@ -79,16 +79,18 @@
   <xsl:template name="media-type-online-status">
     <xsl:variable name="categId" select="substring-after(mods:classification[contains(@authorityURI,'mediaType')]/@valueURI,'#')"/>
 
-    <field name="mediaType-online-status">
-      <xsl:choose>
-        <xsl:when test="$categId = 'online'">
-          <xsl:value-of select="'online'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="'other'"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </field>
+    <xsl:if test="string-length($categId) &gt; 0">
+      <field name="mediaType-online-status">
+        <xsl:choose>
+          <xsl:when test="$categId = 'online'">
+            <xsl:value-of select="'online'"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="'other'"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </field>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="mods:identifier[@type = 'uri']" mode="thunibib-solr-fields">
