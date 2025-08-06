@@ -16,6 +16,8 @@
   <xsl:param name="UBO.Statistics.Color.Bar" />
   <xsl:param name="UBO.Statistics.Style.Labels" />
 
+  <xsl:param name="ThUniBib.Statistics.Chart.nid_connection.always.visible" />
+
   <xsl:variable name="count" select="concat(i18n:translate('stats.count'),' ',i18n:translate('ubo.publications'))" />
 
   <xsl:template match="/response">
@@ -35,7 +37,7 @@
   <xsl:template match="lst[@name='facet_fields']/lst[@name='origin_exact']">
     <xsl:variable name="title" select="concat(i18n:translate('ubo.publications'),' / ',i18n:translate('ubo.department'))"/>
 
-    <section class="card mb-3">
+    <section class="card mb-3 thunibib-chart-section-chartOrigin">
       <div class="card-body">
         <div id="chartOrigin" style="width:100%; height:{50 + count(int) * 30}px" />
         <script type="text/javascript">
@@ -626,10 +628,10 @@
 
   <xsl:template match="lst[@name='facet_fields']/lst[@name='nid_connection']">
 
-    <xsl:if test="not(mcrxsl:isCurrentUserGuestUser())">
+    <xsl:if test="not(mcrxsl:isCurrentUserGuestUser()) or $ThUniBib.Statistics.Chart.nid_connection.always.visible = 'true'">
 
-    <!-- The facet is a list of top connected Person IDs matching the restricted query, e.g. status=confirmed, year > 2012 -->
-    <!-- To find the corresponding names, build a pivot facet with Connection ID and name variants, use most frequent name  -->
+    <!-- The facet is a list of top connected Person IDs matching the restricted query, e.g., status=confirmed, year > 2012 -->
+    <!-- To find the corresponding names, build a pivot facet with Connection ID and name variants, use the most frequent name  -->
     <xsl:variable name="uri">
        <xsl:text>solr:q=objectKind%3Aname+AND+(</xsl:text>
        <xsl:for-each select="int">
