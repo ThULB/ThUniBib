@@ -46,6 +46,41 @@
       "indexed": true,
       "stored": false
     }
+  },
+  {
+    "add-field": {
+      "name": "oa_status",
+      "type": "ubo_id",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-field": {
+      "name": "mediaType-online-status",
+      "type": "ubo_id",
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-dynamic-field": {
+      "name": "ORIGIN.*",
+      "type": "ubo_id",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-field": {
+      "name": "ORIGIN.id.layers",
+      "type": "ubo_id",
+      "multiValued": true,
+      "indexed": true,
+      "stored": false
+    }
   }
 ]
 
