@@ -234,6 +234,10 @@
     <xsl:copy-of select="."/>
   </xsl:template>
 
+  <xsl:template match="mods:note[@type='note'][text()='Zweitveröffentlichung']">
+    <mods:classification valueURI="{$WebApplicationBaseURL}classifications/republication#true" authorityURI="{$WebApplicationBaseURL}classifications/republication"/>
+  </xsl:template>
+
   <xsl:template match="mods:accessCondition[@type = 'use and reproduction']">
     <mods:accessCondition type="use and reproduction"
                           xlink:href="{$WebApplicationBaseURL}classifications/licenses#{substring-after(@xlink:href, '#')}"/>
