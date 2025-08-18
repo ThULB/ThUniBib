@@ -103,8 +103,8 @@
                     <xed:include ref="linked.relatedItem" />
                     <xed:include ref="volume" />
                     <xed:include ref="issue" />
-                    <xed:include ref="pages" />
                     <xed:include ref="article_number" />
+                    <xed:include ref="pages" />
                   </xed:when>
                   <xed:otherwise>
                     <xed:include ref="host" />
@@ -115,13 +115,13 @@
                     <xed:include ref="volume" />
                     <xed:include ref="issue" />
                     <xed:include ref="article_number" />
+                    <xed:include ref="pages" />
                     <xed:include ref="identifier" />
                     <xed:include ref="place" />
                     <xed:include ref="year" />
                     <xed:include ref="publisher" />
                     <xed:include ref="edition" />
                     <xed:include ref="series" />
-                    <xed:include ref="pages" />
                     <xed:include ref="url" />
                     <xed:include ref="oa" />
                   </xed:otherwise>
