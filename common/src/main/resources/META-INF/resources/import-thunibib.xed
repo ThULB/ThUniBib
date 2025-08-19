@@ -191,12 +191,12 @@
                 <xed:include uri="webapp:import-editor.xed" ref="volume"/>
                 <xed:include uri="webapp:import-editor.xed" ref="issue"/>
               </xed:if>
+              <xed:if
+                test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+              </xed:if>
               <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
                 <xed:include uri="webapp:import-editor.xed" ref="pages"/>
-              </xed:if>
-              <xed:if
-                  test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
-                <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
               </xed:if>
             </xed:when>
             <xed:otherwise>
@@ -209,11 +209,11 @@
                 <xed:include uri="webapp:import-editor.xed" ref="volume"/>
                 <xed:include uri="webapp:import-editor.xed" ref="issue"/>
               </xed:if>
-              <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
-                <xed:include uri="webapp:import-editor.xed" ref="pages"/>
-              </xed:if>
               <xed:if test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
                 <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+              </xed:if>
+              <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+                <xed:include uri="webapp:import-editor.xed" ref="pages"/>
               </xed:if>
               <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
             </xed:otherwise>
