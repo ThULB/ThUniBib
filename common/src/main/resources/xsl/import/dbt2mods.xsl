@@ -158,7 +158,7 @@
   <xsl:template match="mods:name">
     <mods:name>
       <xsl:copy-of select="@type"/>
-      <xsl:copy-of select="mods:role"/>
+      <xsl:apply-templates select="mods:role"/>
       <xsl:copy-of select="mods:namePart"/>
 
       <xsl:for-each select="mods:nameIdentifier[@type]">
@@ -167,6 +167,31 @@
         </mods:nameIdentifier>
       </xsl:for-each>
     </mods:name>
+  </xsl:template>
+
+  <xsl:template match="mods:role">
+    <mods:role>
+      <xsl:apply-templates select="mods:roleTerm[@authority='marcrelator']"/>
+      <xsl:copy-of select="mods:roleTerm[not(@authority='marcrelator')]"/>
+    </mods:role>
+  </xsl:template>
+
+  <xsl:template match="mods:roleTerm[@authority='marcrelator']">
+    <mods:roleTerm authority="marcrelator" type="code">
+      <xsl:copy-of select="@*"/>
+
+      <xsl:choose>
+        <xsl:when test="mcrxml:isCategoryID('marcrelator', text())">
+          <xsl:value-of select="text()"/>
+        </xsl:when>
+        <xsl:when test="text() = 'ths'">
+          <xsl:value-of select="'dgs'"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="'oth'"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </mods:roleTerm>
   </xsl:template>
 
   <xsl:template match="mods:originInfo[@eventType='publication']">
