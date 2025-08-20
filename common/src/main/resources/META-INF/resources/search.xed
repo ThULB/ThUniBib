@@ -131,7 +131,6 @@
                         <option value="id">Dokument ID</option>
                         <option value="id_pubmed">PubMed ID</option>
                         <option value="id_scopus">Scopus ID</option>
-                        <option value="tag">Tag</option>
                       </select>
                     </xed:bind>
                   </div>
