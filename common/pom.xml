@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.uni-jena.thulb.ubo</groupId>
     <artifactId>ThUniBib</artifactId>
-    <version>2025.07.23-2023.06.x</version>
+    <version>2025.08.22-2023.06.x</version>
   </parent>
 
   <artifactId>thunibib-common</artifactId>
