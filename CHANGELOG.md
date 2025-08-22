@@ -1,5 +1,17 @@
 # Changelog
 
+# 2025.08.22-2023.06.x
+- [#764](https://github.com/ThULB/ThUniBib/issues/764) En/disable and customize DBT import per ThUniBib instance (#765)
+- [#766](https://github.com/ThULB/ThUniBib/issues/766) Corrected text (#767)
+- [#768](https://github.com/ThULB/ThUniBib/issues/768) Added id_connection to property UBO.Editable.Attributes (#769)
+- [#771](https://github.com/ThULB/ThUniBib/issues/771) Removed restriction +createdby:deepgreen-uni-jena from MCR.Cronjob.Jobs.DBT-Import.Command in Jena
+- [#772](https://github.com/ThULB/ThUniBib/issues/772) Retain "Second publishing" metadata during import from DBT (#773)
+- [#781](https://github.com/ThULB/ThUniBib/issues/781) Set property UBO.Affiliation.Suppress.ConnectedIndicator = true to hide affiliation marker (#782)
+- [FSU040THUL-8689](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8689) [#774](https://github.com/ThULB/ThUniBib/issues/774) Display input for "pages" beneath "article_number" (#775)
+- [FSU040THUL-9192](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9192) [#776](https://github.com/ThULB/ThUniBib/issues/776) Removed option "tag" from identifier select in search.xed (#777)
+- [FSU040THUL-9208](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9208) [#778](https://github.com/ThULB/ThUniBib/issues/778) Retain roles of publication imported from DBT when possible, otherwise map to marc-relator role 'oth', map 'ths' (DBT) to 'dgs' (UBO) (#779)
+- [FSU040THUL-9214](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9214) [#780](https://github.com/ThULB/ThUniBib/issues/780) Updated MCR.PICA2MODS.DATABASE property in thunibib-erfurt/mycore.properties to opac-de-547 (#783)
+---
 # 2025.07.23-2023.06.x
 - [#704](https://github.com/ThULB/ThUniBib/issues/704) Add document type "Tondokument" (#705)
 - [#738](https://github.com/ThULB/ThUniBib/issues/738) List of recent imports on landing page ignores scopus imports in Jena (#739)

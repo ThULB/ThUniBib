@@ -10,7 +10,7 @@
       <p>
         <i18n:de>
           Die mit <strong>*</strong> gekennzeichneten Felder sind <strong>Pflichtfelder</strong>.
-          Durch klicken auf <strong>[+]</strong> können Sie ein <strong>Eingabefeld wiederholen</strong>. Bitte tragen
+          Durch Klicken auf <strong>[+]</strong> können Sie ein <strong>Eingabefeld wiederholen</strong>. Bitte tragen
           Sie die Angaben zu Ihrem Titel möglichst vollständig in das Formular ein.
         </i18n:de>
       </p>
