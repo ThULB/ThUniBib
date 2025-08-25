@@ -48,7 +48,9 @@
         "qs": "5",
         "mm": "100%",
         "df": "all",
-        "wt": "xml"
+        "wt": "xml",
+        "f.year.facet.limit": -1,
+        "sort":"year desc"
       },
       "appends": {
         "facet.field": [
@@ -63,7 +65,7 @@
           "connection_nid_text",
           "nid_connection"
         ],
-        "json.facet": "{year:{type:terms,field:year,limit:100,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
+        "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
         "fq": "+objectType:mods",
         "fq": "+status:(unchecked OR status:confirmed OR status:reviewPending)"
       },
@@ -87,7 +89,9 @@
         "qs": "5",
         "mm": "100%",
         "df": "all",
-        "wt": "xml"
+        "wt": "xml",
+        "f.year.facet.limit": -1,
+        "sort":"year desc"
       },
       "appends": {
         "facet.field": [
@@ -102,7 +106,7 @@
           "connection_nid_text",
           "nid_connection"
         ],
-        "json.facet": "{year:{type:terms,field:year,limit:100,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}}}",
+        "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
         "fq": "+objectType:mods"
       },
       "invariants": {
