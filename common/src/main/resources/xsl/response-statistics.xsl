@@ -7,6 +7,7 @@
                 exclude-result-prefixes="xsl xalan i18n">
 
   <xsl:import href="charts/thunibib-statistics-horizontal-bar-chart.xsl"/>
+  <xsl:import href="charts/thunibib-statistics-oa-chart.xsl" />
 
   <xsl:include href="statistics.xsl" />
   <xsl:include href="statistics-oa.xsl" />
@@ -21,6 +22,10 @@
         <title>
           <xsl:call-template name="page.title" />
         </title>
+
+        <script src="{$WebApplicationBaseURL}assets/apexcharts/dist/apexcharts.js"/>
+        <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/highcharts.src.js"/>
+        <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/themes/grid.js"/>
       </head>
       <body>
         <article class="card mb-3">
@@ -39,6 +44,12 @@
           </div>
         </article>
         <xsl:apply-templates select="/" mode="oa-statistics" />
+
+        <xsl:call-template name="thunibib-oa-statistics">
+          <xsl:with-param name="response" select="response"/>
+          <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
+        </xsl:call-template>
+
         <xsl:apply-templates select="response" />
       </body>
     </html>
@@ -53,10 +64,6 @@
   </xsl:template>
 
   <xsl:template match="response" priority="1">
-    <script src="{$WebApplicationBaseURL}assets/apexcharts/dist/apexcharts.js"/>
-    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"/>
-    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"/>
-
     <div id="chartDialog" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='year'][int]" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='destatis'][int]" />
