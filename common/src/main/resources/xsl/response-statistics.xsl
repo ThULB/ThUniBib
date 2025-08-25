@@ -45,11 +45,9 @@
         </article>
         <xsl:apply-templates select="/" mode="oa-statistics" />
 
-        <xsl:call-template name="thunibib-oa-statistics">
-          <xsl:with-param name="response" select="response"/>
+        <xsl:apply-templates select="./response" mode="thunibib-oa-statistics" >
           <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
-        </xsl:call-template>
-
+        </xsl:apply-templates>
         <xsl:apply-templates select="response" />
       </body>
     </html>
