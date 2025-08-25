@@ -133,7 +133,7 @@
             clusterGroupedSeries: false
           },
           dataLabels: {
-            enabled: false
+            enabled: true
           },
           title: {
             text: <xsl:value-of select="concat($apos, $chart-title, $apos)"/>,
