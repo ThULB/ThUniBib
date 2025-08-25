@@ -2,13 +2,14 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
 
   <xsl:import href="thunibib-charts-common.xsl"/>
+  <xsl:param name="json-facet-name"/>
 
   <xsl:variable name="chart-title" select="document('notnull:i18n:thunibib.statistics.title.chart.oa.by.year')/i18n/text()"/>
 
   <xsl:template match="/response">
     <xsl:variable name="x-axis">
       <xsl:text>[</xsl:text>
-      <xsl:for-each select="//lst[@name = 'facets']/lst[@name='year']/arr[@name='buckets']/lst/int[@name='val']">
+      <xsl:for-each select="//lst[@name = 'facets']/lst[@name=$json-facet-name]/arr[@name='buckets']/lst/int[@name='val']">
         <xsl:value-of select="concat($apos, text(), $apos)"/>
         <xsl:if test="not(position() = last())">
           <xsl:text>,</xsl:text>
@@ -143,7 +144,7 @@
     <xsl:param name="type"/>
     <xsl:param name="bucket"/>
     <xsl:text>[</xsl:text>
-    <xsl:for-each select="//lst[@name = 'facets']/lst[@name='year']/arr[@name='buckets']/lst/int[@name='val']"> <!-- year -->
+    <xsl:for-each select="lst[@name = 'facets']/lst[@name=$json-facet-name]/arr[@name='buckets']/lst/int[@name='val']"> <!-- year -->
       <xsl:choose>
         <xsl:when test="../lst[@name=$bucket]/arr/lst[str[@name='val' and text() = $type]]/int[@name='count']">
           <xsl:value-of select="../lst[@name=$bucket]/arr/lst[str[@name='val' and text() = $type]]/int[@name='count']"/>
