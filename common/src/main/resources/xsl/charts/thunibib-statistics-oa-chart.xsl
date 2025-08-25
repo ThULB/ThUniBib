@@ -7,18 +7,17 @@
   <xsl:variable name="chart-title" select="document('notnull:i18n:thunibib.statistics.title.chart.oa.by.year')/i18n/text()"/>
 
   <xsl:template match="/response">
-    <xsl:call-template name="thunibib-oa-statistics">
+    <xsl:apply-templates mode="thunibib-oa-statistics" select=".">
       <xsl:with-param name="facet-name" select="$json-facet-name"/>
-    </xsl:call-template>
+    </xsl:apply-templates>
   </xsl:template>
 
-  <xsl:template name="thunibib-oa-statistics">
-    <xsl:param name="response" select="."/>
+  <xsl:template match="response" mode="thunibib-oa-statistics">
     <xsl:param name="facet-name"/>
 
     <xsl:variable name="x-axis">
       <xsl:text>[</xsl:text>
-      <xsl:for-each select="$response/lst[@name = 'facets']/lst[@name=$facet-name]/arr[@name='buckets']/lst/int[@name='val']">
+      <xsl:for-each select="lst[@name = 'facets']/lst[@name=$facet-name]/arr[@name='buckets']/lst/int[@name='val']">
         <xsl:value-of select="concat($apos, text(), $apos)"/>
         <xsl:if test="not(position() = last())">
           <xsl:text>,</xsl:text>
@@ -32,7 +31,6 @@
         <xsl:with-param name="type" select="'oa'"/>
         <xsl:with-param name="bucket" select="'oa_status'"/>
         <xsl:with-param name="facet-name" select="$facet-name"/>
-        <xsl:with-param name="response" select="$response"/>
       </xsl:call-template>
     </xsl:variable>
 
@@ -41,7 +39,6 @@
         <xsl:with-param name="type" select="'closed'"/>
         <xsl:with-param name="bucket" select="'oa_status'"/>
         <xsl:with-param name="facet-name" select="$facet-name"/>
-        <xsl:with-param name="response" select="$response"/>
       </xsl:call-template>
     </xsl:variable>
 
@@ -50,7 +47,6 @@
         <xsl:with-param name="type" select="'unchecked'"/>
         <xsl:with-param name="bucket" select="'oa_status'"/>
         <xsl:with-param name="facet-name" select="$facet-name"/>
-        <xsl:with-param name="response" select="$response"/>
       </xsl:call-template>
     </xsl:variable>
 
@@ -59,7 +55,6 @@
         <xsl:with-param name="bucket" select="'mediaType'"/>
         <xsl:with-param name="type" select="'online'"/>
         <xsl:with-param name="facet-name" select="$facet-name"/>
-        <xsl:with-param name="response" select="$response"/>
       </xsl:call-template>
     </xsl:variable>
 
@@ -68,7 +63,6 @@
         <xsl:with-param name="bucket" select="'mediaType'"/>
         <xsl:with-param name="type" select="'other'"/>
         <xsl:with-param name="facet-name" select="$facet-name"/>
-        <xsl:with-param name="response" select="$response"/>
       </xsl:call-template>
     </xsl:variable>
 
@@ -162,11 +156,10 @@
   <xsl:template name="values-oa-by-type">
     <xsl:param name="type"/>
     <xsl:param name="bucket"/>
-    <xsl:param name="response"/>
     <xsl:param name="facet-name"/>
 
     <xsl:text>[</xsl:text>
-    <xsl:for-each select="$response/lst[@name = 'facets']/lst[@name=$facet-name]/arr[@name='buckets']/lst/int[@name='val']"> <!-- year -->
+    <xsl:for-each select="lst[@name = 'facets']/lst[@name=$facet-name]/arr[@name='buckets']/lst/int[@name='val']"> <!-- year -->
       <xsl:choose>
         <xsl:when test="../lst[@name=$bucket]/arr/lst[str[@name='val' and text() = $type]]/int[@name='count']">
           <xsl:value-of select="../lst[@name=$bucket]/arr/lst[str[@name='val' and text() = $type]]/int[@name='count']"/>
