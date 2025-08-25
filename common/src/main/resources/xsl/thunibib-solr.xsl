@@ -4,7 +4,8 @@
                 xmlns:utilities="xalan://de.uni_jena.thunibib.Utilities"
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                exclude-result-prefixes="mods utilities xalan xsl">
+                xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="mcrxsl mods utilities xalan xsl">
 
   <xsl:import href="xslImport:solr-document:thunibib-solr.xsl"/>
 
@@ -57,19 +58,23 @@
   </xsl:template>
 
   <xsl:template name="oa-status">
-    <xsl:choose>
-      <xsl:when test="mods:classification[contains(@authorityURI, 'classifications/oa')]">
-        <xsl:apply-templates select="mods:classification[contains(@authorityURI, 'oa')][1]" mode="thunibib-solr-fields-oa-status" />
-      </xsl:when>
-      <xsl:when test="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI,'oa')]">
-        <xsl:apply-templates select="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI, 'oa')][1]" mode="thunibib-solr-fields-oa-status" />
-      </xsl:when>
-      <xsl:otherwise>
-        <field name="oa_status">
-          <xsl:value-of select="'unchecked'"/>
-        </field>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:variable name="online-status" select="substring-after(mods:classification[contains(@authorityURI, 'mediaType')]/@valueURI,'#')"/>
+
+    <xsl:if test="$online-status = 'online'">
+      <xsl:choose>
+        <xsl:when test="mods:classification[contains(@authorityURI, 'classifications/oa')]">
+          <xsl:apply-templates select="mods:classification[contains(@authorityURI, 'oa')][1]" mode="thunibib-solr-fields-oa-status" />
+        </xsl:when>
+        <xsl:when test="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI,'oa')]">
+          <xsl:apply-templates select="mods:relatedItem[@type='host']/mods:classification[contains(@authorityURI, 'oa')][1]" mode="thunibib-solr-fields-oa-status" />
+        </xsl:when>
+        <xsl:otherwise>
+          <field name="oa_status">
+            <xsl:value-of select="'unchecked'"/>
+          </field>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="mods:classification[contains(@authorityURI, 'classifications/oa')]" mode="thunibib-solr-fields-oa-status">
@@ -88,7 +93,7 @@
   </xsl:template>
 
   <xsl:template name="media-type-online-status">
-    <xsl:variable name="categId" select="substring-after(mods:classification[contains(@authorityURI,'mediaType')]/@valueURI,'#')"/>
+    <xsl:variable name="categId" select="substring-after(mods:classification[contains(@authorityURI, 'mediaType')]/@valueURI,'#')"/>
 
     <field name="mediaType-online-status">
       <xsl:choose>
@@ -131,50 +136,52 @@
   <xsl:template match="mods:classification[@authorityURI][@valueURI]" mode="thunibib-solr-fields">
     <xsl:variable name="class" select="substring-after(@authorityURI, 'classifications/')"/>
     <xsl:variable name="categid" select="substring-after(@valueURI, '#')"/>
-    <xsl:variable name="tree-fragment" select="document(concat('notnull:classification:metadata:0:parents:', $class, ':', $categid))/mycoreclass/categories//category"/>
 
-    <xsl:comment>
-      <xsl:value-of select="concat(' ', $class, ' ')"/>
-    </xsl:comment>
+    <xsl:if test="mcrxsl:isCategoryID($class, $categid) = 'true'">
+      <xsl:variable name="tree-fragment" select="document(concat('notnull:classification:metadata:0:parents:', $class, ':', $categid))/mycoreclass/categories//category"/>
 
-    <xsl:for-each select="$tree-fragment">
-      <xsl:variable name="pos" select="position()"/>
+      <xsl:comment>
+        <xsl:value-of select="concat(' ', $class, ' ')"/>
+      </xsl:comment>
 
-      <xsl:if test="$pos = 1">
-        <field name="{$class}.id.layers">
-          <xsl:value-of select="last()"/>
+      <xsl:for-each select="$tree-fragment">
+        <xsl:variable name="pos" select="position()"/>
+
+        <xsl:if test="$pos = 1">
+          <field name="{$class}.id.layers">
+            <xsl:value-of select="last()"/>
+          </field>
+        </xsl:if>
+
+        <field name="{$class}.{$pos}">
+          <xsl:value-of select="@ID"/>
         </field>
-      </xsl:if>
 
-      <field name="{$class}.{$pos}">
-        <xsl:value-of select="@ID"/>
-      </field>
+        <xsl:if test="$UBO.projectid.default = 'ubw' and $class = 'ORIGIN'">
+          <xsl:choose>
+            <xsl:when test="$pos = 2 and last() = 2">
+              <field name="{$class}.{$pos}.statistics">
+                <xsl:value-of select="@ID"/>
+              </field>
+            </xsl:when>
+            <xsl:when test="$pos = 3">
+              <field name="{$class}.{$pos - 1}.statistics">
+                <xsl:value-of select="@ID"/>
+              </field>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:if>
 
-      <xsl:if test="$UBO.projectid.default = 'ubw' and $class = 'ORIGIN'">
-        <xsl:choose>
-          <xsl:when test="$pos = 2 and last() = 2">
-            <field name="{$class}.{$pos}.statistics">
-              <xsl:value-of select="@ID"/>
-            </field>
-          </xsl:when>
-          <xsl:when test="$pos = 3">
-            <field name="{$class}.{$pos - 1}.statistics">
-              <xsl:value-of select="@ID"/>
-            </field>
-          </xsl:when>
-        </xsl:choose>
-      </xsl:if>
-
-      <field name="{$class}.{$pos}.label.default">
-        <xsl:value-of select="label[not(starts-with(@xml:lang, 'x'))][1]/@text"/>
-      </field>
-
-      <xsl:for-each select="label[@xml:lang][not(starts-with(@xml:lang, 'x'))]">
-        <field name="{$class}.{$pos}.label.{@xml:lang}">
-          <xsl:value-of select="@text"/>
+        <field name="{$class}.{$pos}.label.default">
+          <xsl:value-of select="label[not(starts-with(@xml:lang, 'x'))][1]/@text"/>
         </field>
+
+        <xsl:for-each select="label[@xml:lang][not(starts-with(@xml:lang, 'x'))]">
+          <field name="{$class}.{$pos}.label.{@xml:lang}">
+            <xsl:value-of select="@text"/>
+          </field>
+        </xsl:for-each>
       </xsl:for-each>
-    </xsl:for-each>
-
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
