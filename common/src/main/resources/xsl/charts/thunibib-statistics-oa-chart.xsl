@@ -7,14 +7,14 @@
 
   <xsl:template match="/response">
     <xsl:variable name="x-axis">
-      [
+      <xsl:text>[</xsl:text>
       <xsl:for-each select="//lst[@name = 'facets']/lst[@name='year']/arr[@name='buckets']/lst/int[@name='val']">
         <xsl:value-of select="concat($apos, text(), $apos)"/>
         <xsl:if test="not(position() = last())">
           <xsl:text>,</xsl:text>
         </xsl:if>
       </xsl:for-each>
-      ]
+      <xsl:text>]</xsl:text>
     </xsl:variable>
 
     <xsl:variable name="values-oa-status-oa">
@@ -53,7 +53,7 @@
     </xsl:variable>
 
     <div class="border border-primary">
-      <div id="chart" class="thunibib-chart-container"
+      <div id="thunibib-statistics-oa-chart" class="thunibib-chart-container"
            data-values-oa-status-oa="{$values-oa-status-oa}"
            data-values-oa-status-closed="{$values-oa-status-closed}"
            data-values-oa-status-unchecked="{$values-oa-status-unchecked}"
@@ -133,7 +133,7 @@
           }
         };
 
-        let chart = new ApexCharts(document.querySelector("#chart"), options);
+        let chart = new ApexCharts(document.querySelector("#thunibib-statistics-oa-chart"), options);
         chart.render();
       </script>
     </div>
