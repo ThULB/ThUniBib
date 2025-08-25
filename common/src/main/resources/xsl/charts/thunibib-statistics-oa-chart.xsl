@@ -6,55 +6,54 @@
   <xsl:variable name="chart-title" select="document('notnull:i18n:thunibib.statistics.title.chart.oa.by.year')/i18n/text()"/>
 
   <xsl:template match="/response">
-    <div>
+    <xsl:variable name="x-axis">
+      [
+      <xsl:for-each select="//lst[@name = 'facets']/lst[@name='year']/arr[@name='buckets']/lst/int[@name='val']">
+        <xsl:value-of select="concat($apos, text(), $apos)"/>
+        <xsl:if test="not(position() = last())">
+          <xsl:text>,</xsl:text>
+        </xsl:if>
+      </xsl:for-each>
+      ]
+    </xsl:variable>
 
-      <xsl:variable name="x-axis">
-        [
-        <xsl:for-each select="//lst[@name = 'facets']/lst[@name='year']/arr[@name='buckets']/lst/int[@name='val']">
-          <xsl:value-of select="concat($apos, text(), $apos)"/>
-          <xsl:if test="not(position() = last())">
-            <xsl:text>,</xsl:text>
-          </xsl:if>
-        </xsl:for-each>
-        ]
-      </xsl:variable>
+    <xsl:variable name="values-oa-status-oa">
+      <xsl:call-template name="values-oa-by-type">
+        <xsl:with-param name="type" select="'oa'"/>
+        <xsl:with-param name="bucket" select="'oa_status'"/>
+      </xsl:call-template>
+    </xsl:variable>
 
-      <xsl:variable name="values-oa-status-oa">
-        <xsl:call-template name="values-oa-by-type">
-          <xsl:with-param name="type" select="'oa'"/>
-          <xsl:with-param name="bucket" select="'oa_status'"/>
-        </xsl:call-template>
-      </xsl:variable>
+    <xsl:variable name="values-oa-status-closed">
+      <xsl:call-template name="values-oa-by-type">
+        <xsl:with-param name="type" select="'closed'"/>
+        <xsl:with-param name="bucket" select="'oa_status'"/>
+      </xsl:call-template>
+    </xsl:variable>
 
-      <xsl:variable name="values-oa-status-closed">
-        <xsl:call-template name="values-oa-by-type">
-          <xsl:with-param name="type" select="'closed'"/>
-          <xsl:with-param name="bucket" select="'oa_status'"/>
-        </xsl:call-template>
-      </xsl:variable>
+    <xsl:variable name="values-oa-status-unchecked">
+      <xsl:call-template name="values-oa-by-type">
+        <xsl:with-param name="type" select="'unchecked'"/>
+        <xsl:with-param name="bucket" select="'oa_status'"/>
+      </xsl:call-template>
+    </xsl:variable>
 
-      <xsl:variable name="values-oa-status-unchecked">
-        <xsl:call-template name="values-oa-by-type">
-          <xsl:with-param name="type" select="'unchecked'"/>
-          <xsl:with-param name="bucket" select="'oa_status'"/>
-        </xsl:call-template>
-      </xsl:variable>
+    <xsl:variable name="values-mediaType-online">
+      <xsl:call-template name="values-oa-by-type">
+        <xsl:with-param name="bucket" select="'mediaType'"/>
+        <xsl:with-param name="type" select="'online'"/>
+      </xsl:call-template>
+    </xsl:variable>
 
-      <xsl:variable name="values-mediaType-online">
-        <xsl:call-template name="values-oa-by-type">
-          <xsl:with-param name="bucket" select="'mediaType'"/>
-          <xsl:with-param name="type" select="'online'"/>
-        </xsl:call-template>
-      </xsl:variable>
+    <xsl:variable name="values-mediaType-other">
+      <xsl:call-template name="values-oa-by-type">
+        <xsl:with-param name="bucket" select="'mediaType'"/>
+        <xsl:with-param name="type" select="'other'"/>
+      </xsl:call-template>
+    </xsl:variable>
 
-      <xsl:variable name="values-mediaType-other">
-        <xsl:call-template name="values-oa-by-type">
-          <xsl:with-param name="bucket" select="'mediaType'"/>
-          <xsl:with-param name="type" select="'other'"/>
-        </xsl:call-template>
-      </xsl:variable>
-
-      <div id="chart"
+    <div class="border border-primary">
+      <div id="chart" class="thunibib-chart-container"
            data-values-oa-status-oa="{$values-oa-status-oa}"
            data-values-oa-status-closed="{$values-oa-status-closed}"
            data-values-oa-status-unchecked="{$values-oa-status-unchecked}"
