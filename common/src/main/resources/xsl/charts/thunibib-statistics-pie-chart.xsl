@@ -34,9 +34,16 @@
           <xsl:text>]</xsl:text>
         </xsl:variable>
 
+        <xsl:variable name="colors">
+          <xsl:apply-templates select="." mode="generate-chart-colors">
+            <xsl:with-param name="facet-name" select="$facet-name"/>
+            <xsl:with-param name="classId" select="$classId"/>
+          </xsl:apply-templates>
+        </xsl:variable>
+
         <xsl:variable name="chart-id" select="concat('chart-pie-', translate($facet-name, '.', '-'))"/>
 
-        <div id="{$chart-id}" class="border border-primary rounded mb-3" data-labels="{$labels}" data-values="{$values}"/>
+        <div id="{$chart-id}" class="border border-primary rounded mb-3" data-labels="{$labels}" data-values="{$values}" data-colors="{$colors}"/>
 
         <script>
           {
@@ -63,6 +70,9 @@
                 }
               },
               series: <xsl:value-of select="$values"/>,
+            <xsl:if test="$colors">
+              colors: <xsl:value-of select="$colors"/>,
+            </xsl:if>
               labels: <xsl:value-of select="$labels"/>,
               title: {
                 text: <xsl:value-of select="concat($apos, $chart-title, $apos)"/>,
