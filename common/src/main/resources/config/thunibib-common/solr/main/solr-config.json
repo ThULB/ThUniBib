@@ -63,7 +63,8 @@
           "oa",
           "facet_person",
           "connection_nid_text",
-          "nid_connection"
+          "nid_connection",
+          "fundingType"
         ],
         "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
         "fq": "+objectType:mods",
@@ -104,7 +105,8 @@
           "oa",
           "facet_person",
           "connection_nid_text",
-          "nid_connection"
+          "nid_connection",
+          "fundingType"
         ],
         "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
         "fq": "+objectType:mods"
