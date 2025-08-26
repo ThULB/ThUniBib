@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="2023-11-16 11:15:00" id="dozbib.stats" xmlns:i18n="http://www.mycore.org/i18n">
+<webpage lastModified="2025-08-26 11:15:00" id="dozbib.stats" xmlns:i18n="http://www.mycore.org/i18n">
   <title>
     <i18n:code>thunibib.statistic.title</i18n:code>
   </title>
@@ -30,7 +30,8 @@
   <xinclude uri="xslStyle:charts/thunibib-statistics-bar-chart?horizontal=true&amp;default-height=1512&amp;facet=destatis:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=destatis"/>
   <xinclude uri="xslStyle:charts/thunibib-statistics-bar-chart?horizontal=true&amp;classification=ORIGIN&amp;default-height=1800&amp;facet=origin_exact:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=origin_exact"/>
 
-  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=genre"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-pie-chart?classification=ubogenre&amp;facet=genre:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=genre"/>
+
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=fundingType"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
