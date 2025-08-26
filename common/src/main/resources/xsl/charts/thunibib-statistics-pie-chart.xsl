@@ -13,7 +13,6 @@
     <xsl:param name="classId" select="$classification"/>
     <xsl:param name="height" select="$default-height"/>
 
-
     <xsl:if test="result/@numFound &gt; 0">
       <div class="thunibib-chart-container thunibib-pie-chart thunibib-pie-chart-{$facet-name}">
         <xsl:variable name="labels">
