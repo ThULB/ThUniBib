@@ -80,6 +80,11 @@
             xaxis: {
               categories: <xsl:value-of select="$labels"/>,
             },
+            yaxis: {
+              labels: {
+                align: 'left'
+              }
+            },
             title: {
               text: <xsl:value-of select="concat($apos, $chart-title, $apos)"/>,
               align: 'center',
