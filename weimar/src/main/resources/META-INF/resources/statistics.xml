@@ -27,8 +27,8 @@
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=destatis"/>
 
-  <xinclude uri="xslStyle:charts/thunibib-statistics-horizontal-bar-chart?facet=ORIGIN.1:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.1"/>
-  <xinclude uri="xslStyle:charts/thunibib-statistics-horizontal-bar-chart?facet=ORIGIN.2.statistics&amp;default-height=1024:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.2.statistics"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-bar-chart?facet=ORIGIN.1:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.1"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-bar-chart?facet=ORIGIN.2.statistics&amp;default-height=1024:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B1980+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.2.statistics"/>
 
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=genre"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=fundingType"/>
