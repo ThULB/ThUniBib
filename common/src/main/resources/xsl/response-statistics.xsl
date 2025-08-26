@@ -63,7 +63,13 @@
 
   <xsl:template match="response" priority="1">
     <div id="chartDialog" />
-    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='year'][int]" />
+
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="facet-name" select="'year'"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="horizontal-bars" select="'false'"/>
+    </xsl:apply-templates>
+
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='destatis'][int]" />
 
     <xsl:apply-templates select="." mode="bar-chart">
