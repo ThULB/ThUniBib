@@ -11,6 +11,8 @@
     <xsl:param name="chart-title" select="$chart-title-by-facet"/>
     <xsl:param name="facet-name" select="$facet"/>
     <xsl:param name="classId" select="$classification"/>
+    <xsl:param name="height" select="$default-height"/>
+
 
     <xsl:if test="result/@numFound &gt; 0">
       <div class="thunibib-chart-container thunibib-pie-chart thunibib-pie-chart-{$facet-name}">
@@ -40,8 +42,8 @@
           {
             let options = {
               chart: {
-                type: 'donut',
-                height: 400
+                type: 'pie',
+                height: <xsl:value-of select="$height"/>
               },
               dataLabels: {
                 enabled: true
@@ -53,7 +55,7 @@
                     labels: {
                       show: true,
                       total: {
-                        show: true,
+                        show: false,
                         label: <xsl:value-of select="concat($apos, document('notnull:i18n:thunibib.statistics.total')/i18n/text(), $apos)"/>
                       }
                     }
