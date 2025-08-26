@@ -108,8 +108,11 @@
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.genre')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ubogenre'"/>
       <xsl:with-param name="facet-name" select="'genre'"/>
-      <xsl:with-param name="height" select="1800"/>
-      <xsl:with-param name="horizontal-bars" select="'true'"/>
+    </xsl:apply-templates>
+
+    <xsl:apply-templates select="." mode="pie-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.fundingType')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'fundingType'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
