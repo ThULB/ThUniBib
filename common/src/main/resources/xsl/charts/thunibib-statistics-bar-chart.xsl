@@ -4,6 +4,7 @@
 
   <xsl:param name="horizontal" select="'true'"/>
   <xsl:param name="columnWidth" select="'35%'"/>
+  <xsl:param name="classification"/>
 
   <xsl:template match="/response">
     <xsl:apply-templates select="." mode="bar-chart" />
@@ -15,14 +16,18 @@
     <xsl:param name="height" select="$default-height"/>
     <xsl:param name="horizontal-bars" select="$horizontal"/>
     <xsl:param name="width-bars" select="$columnWidth"/>
+    <xsl:param name="classId" select="$classification"/>
 
       <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
         <xsl:variable name="labels">
           <xsl:text>[</xsl:text>
           <xsl:for-each select="//lst[@name = $facet-name]/int">
             <xsl:choose>
-              <xsl:when test="document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:ORIGIN:', @name)) = 'true'">
-                <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:ORIGIN:', @name)), $apos)"/>
+              <xsl:when test="$classId and document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $classId,':', @name)) = 'true'">
+                <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $classId,':', @name)), $apos)"/>
+              </xsl:when>
+              <xsl:when test="document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $facet-name,':', @name)) = 'true'">
+                <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $facet-name,':', @name)), $apos)"/>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:value-of select="concat($apos, @name, $apos)"/>
@@ -59,7 +64,7 @@
             }],
             chart: {
               type: 'bar',
-              height: <xsl:value-of select="$height"/>,
+              height: <xsl:value-of select="concat($apos, $height, 'px', $apos)"/>,
               toolbar: {
                 show: false
               }
