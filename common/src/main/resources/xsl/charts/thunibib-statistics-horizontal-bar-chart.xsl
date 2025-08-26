@@ -2,20 +2,21 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
   <xsl:import href="thunibib-charts-common.xsl"/>
 
+  <xsl:param name="horizontal" select="'true'"/>
+
   <xsl:template match="/response">
-    <xsl:call-template name="horizontal-bar-chart"/>
+    <xsl:apply-templates select="." mode="horizontal-bar-chart" />
   </xsl:template>
 
-  <xsl:template name="horizontal-bar-chart">
+  <xsl:template match="response" mode="horizontal-bar-chart">
     <xsl:param name="chart-title" select="$chart-title-by-facet"/>
     <xsl:param name="facet-name" select="$facet"/>
     <xsl:param name="height" select="$default-height"/>
-    <xsl:param name="response" select="."/>
 
       <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
         <xsl:variable name="labels">
-          [
-          <xsl:for-each select="$response//lst[@name = $facet-name]/int">
+          <xsl:text>[</xsl:text>
+          <xsl:for-each select="//lst[@name = $facet-name]/int">
             <xsl:choose>
               <xsl:when test="document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:ORIGIN:', @name)) = 'true'">
                 <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:ORIGIN:', @name)), $apos)"/>
@@ -26,20 +27,20 @@
             </xsl:choose>
 
             <xsl:if test="not(position() = last())">
-              ,
+              <xsl:text>,</xsl:text>
             </xsl:if>
           </xsl:for-each>
-          ]
+          <xsl:text>]</xsl:text>
         </xsl:variable>
         <xsl:variable name="values">
-          [
-          <xsl:for-each select="$response//lst[@name = $facet-name]/int">
+          <xsl:text>[</xsl:text>
+          <xsl:for-each select="//lst[@name = $facet-name]/int">
             <xsl:value-of select="text()"/>
             <xsl:if test="not(position()=last())">
-              ,
+              <xsl:text>,</xsl:text>
             </xsl:if>
           </xsl:for-each>
-          ]
+          <xsl:text>]</xsl:text>
         </xsl:variable>
 
         <xsl:variable name="chart-id" select="concat('chart-bar-', translate($facet-name, '.', '-'))"/>
@@ -64,7 +65,7 @@
               bar: {
                 borderRadius: 4,
                 borderRadiusApplication: 'end',
-                horizontal: true
+                horizontal: <xsl:value-of select="$horizontal"/>
               }
             },
             xaxis: {
