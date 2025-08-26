@@ -19,7 +19,7 @@
     <xsl:text>[</xsl:text>
     <xsl:for-each select="//lst[@name = $facet-name]/int">
       <xsl:choose>
-        <xsl:when test="$classId and document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $classId,':', @name)) = 'true'">
+        <xsl:when test="string-length($classId) &gt; 0 and document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $classId,':', @name)) = 'true'">
           <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $classId,':', @name)), $apos)"/>
         </xsl:when>
         <xsl:when test="document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $facet-name,':', @name)) = 'true'">
