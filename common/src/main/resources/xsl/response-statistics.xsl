@@ -66,15 +66,17 @@
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='year'][int]" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='destatis'][int]" />
 
-    <xsl:apply-templates select="." mode="horizontal-bar-chart">
+    <xsl:apply-templates select="." mode="bar-chart">
       <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.1')/i18n/text()"/>
+      <xsl:with-param name="horizontal-bars" select="'true'"/>
     </xsl:apply-templates>
 
-    <xsl:apply-templates select="." mode="horizontal-bar-chart">
+    <xsl:apply-templates select="." mode="bar-chart">
       <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
       <xsl:with-param name="height" select="1024"/>
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.3')/i18n/text()"/>
+      <xsl:with-param name="horizontal-bars" select="'true'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='origin_exact'][int]" />
