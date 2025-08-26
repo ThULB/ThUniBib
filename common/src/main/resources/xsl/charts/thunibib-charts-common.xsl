@@ -37,4 +37,32 @@
     <xsl:text>]</xsl:text>
   </xsl:template>
 
+  <xsl:template match="response" mode="generate-chart-colors">
+    <xsl:param name="facet-name"/>
+    <xsl:param name="classId"/>
+
+    <xsl:variable name="classification-to-load">
+      <xsl:choose>
+        <xsl:when test="string-length($classId) &gt; 0 and document(concat('notnull:classification:metadata:-1:children:', $classId))">
+          <xsl:value-of select="$classId"/>
+        </xsl:when>
+        <xsl:when test="document(concat('notnull:classification:metadata:-1:children:', $facet-name))">
+          <xsl:value-of select="$facet-name"/>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:if test="$classification-to-load">
+      <xsl:variable name="loaded-classification" select="document(concat('notnull:classification:metadata:-1:children:', $classification-to-load))"/>
+      <xsl:text>[</xsl:text>
+      <xsl:for-each select="//lst[@name='facet_fields']/lst[@name = $facet-name]/int">
+        <xsl:variable name="id" select="@name"/>
+        <xsl:value-of select="concat($apos, $loaded-classification//category[@ID = $id]/label[lang('x-color')]/@text, $apos)" />
+        <xsl:if test="not(position() = last())">
+          <xsl:text>,</xsl:text>
+        </xsl:if>
+      </xsl:for-each>
+      <xsl:text>]</xsl:text>
+    </xsl:if>
+  </xsl:template>
 </xsl:stylesheet>
