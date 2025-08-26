@@ -3,6 +3,7 @@
   <xsl:import href="thunibib-charts-common.xsl"/>
 
   <xsl:param name="horizontal" select="'true'"/>
+  <xsl:param name="columnWidth" select="'35%'"/>
 
   <xsl:template match="/response">
     <xsl:apply-templates select="." mode="bar-chart" />
@@ -13,6 +14,7 @@
     <xsl:param name="facet-name" select="$facet"/>
     <xsl:param name="height" select="$default-height"/>
     <xsl:param name="horizontal-bars" select="$horizontal"/>
+    <xsl:param name="width-bars" select="$columnWidth"/>
 
       <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
         <xsl:variable name="labels">
@@ -66,6 +68,7 @@
               bar: {
                 borderRadius: 4,
                 borderRadiusApplication: 'end',
+                columnWidth: <xsl:value-of select="concat($apos, $width-bars, $apos)"/>,
                 horizontal: <xsl:value-of select="$horizontal-bars"/>
               }
             },
