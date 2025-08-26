@@ -5,6 +5,7 @@
   <xsl:param name="classification"/>
   <xsl:param name="default-height" select="450"/>
   <xsl:param name="facet"/>
+  <xsl:param name="fromPivot"/>
 
   <xsl:variable name="chart-title-by-facet" select="document(concat('notnull:i18n:thunibib.statistics.chart.title.', $facet))/i18n/text()"/>
 
@@ -17,23 +18,47 @@
     <xsl:param name="classId"/>
 
     <xsl:text>[</xsl:text>
-    <xsl:for-each select="//lst[@name = $facet-name]/int">
-      <xsl:choose>
-        <xsl:when test="string-length($classId) &gt; 0 and document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $classId,':', @name)) = 'true'">
-          <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $classId,':', @name)), $apos)"/>
-        </xsl:when>
-        <xsl:when test="document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $facet-name,':', @name)) = 'true'">
-          <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $facet-name,':', @name)), $apos)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="concat($apos, @name, $apos)"/>
-        </xsl:otherwise>
-      </xsl:choose>
-
-      <xsl:if test="not(position() = last())">
-        <xsl:text>,</xsl:text>
-      </xsl:if>
-    </xsl:for-each>
+    <xsl:choose>
+      <xsl:when test="$fromPivot = 'true'">
+        <xsl:variable name="uri">
+          <xsl:text>solr:q=objectKind%3Aname+AND+(</xsl:text>
+          <xsl:for-each select="//lst[@name = $facet-name]/int">
+            <xsl:text>name_id_connection%3A</xsl:text>
+            <xsl:value-of select="@name"/>
+            <xsl:if test="position() != last()">+OR+</xsl:if>
+          </xsl:for-each>
+          <xsl:text>)&amp;rows=0&amp;facet.pivot=name_id_connection,name&amp;facet.limit=</xsl:text>
+          <xsl:value-of select="count(//lst[@name = $facet-name]/int)"/>
+        </xsl:variable>
+        <xsl:variable name="response" select="document($uri)/response" />
+        <xsl:variable name="id2name" select="$response/lst[@name='facet_counts']/lst[@name='facet_pivot']/arr[@name='name_id_connection,name']" />
+        <xsl:for-each select="//lst[@name = $facet-name]/int">
+          <xsl:variable name="compare-id" select="@name"/>
+          <xsl:value-of select="concat($apos, $id2name/lst[str[@name='value'] = $compare-id]/arr/lst[1]/str[@name='value'], $apos)"/>
+          <xsl:if test="not(position() = last())">
+            <xsl:text>,</xsl:text>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:for-each select="//lst[@name = $facet-name]/int">
+          <xsl:choose>
+            <xsl:when test="string-length($classId) &gt; 0 and document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $classId,':', @name)) = 'true'">
+              <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $classId,':', @name)), $apos)"/>
+            </xsl:when>
+            <xsl:when test="document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:isCategoryID:', $facet-name,':', @name)) = 'true'">
+              <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $facet-name,':', @name)), $apos)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="concat($apos, @name, $apos)"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:if test="not(position() = last())">
+            <xsl:text>,</xsl:text>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:text>]</xsl:text>
   </xsl:template>
 
