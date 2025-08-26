@@ -65,34 +65,44 @@
     <div id="chartDialog" />
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="horizontal-bars" select="'false'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.destatis')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'destatis'"/>
       <xsl:with-param name="height" select="1512"/>
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.destatis')/i18n/text()"/>
       <xsl:with-param name="horizontal-bars" select="'true'"/>
     </xsl:apply-templates>
 
+    <!-- This charts will only get displayed in Weimar -->
     <xsl:if test="$UBO.projectid.default = 'ubw'">
       <xsl:apply-templates select="." mode="bar-chart">
-        <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
         <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.1')/i18n/text()"/>
+        <xsl:with-param name="classId" select="'ORIGIN'"/>
+        <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
         <xsl:with-param name="horizontal-bars" select="'true'"/>
       </xsl:apply-templates>
 
       <xsl:apply-templates select="." mode="bar-chart">
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.3')/i18n/text()"/>
+        <xsl:with-param name="classId" select="'ORIGIN'"/>
         <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
         <xsl:with-param name="height" select="1024"/>
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.3')/i18n/text()"/>
         <xsl:with-param name="horizontal-bars" select="'true'"/>
       </xsl:apply-templates>
     </xsl:if>
 
-    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='origin_exact'][int]" />
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.origin_exact')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'ORIGIN'"/>
+      <xsl:with-param name="facet-name" select="'origin_exact'"/>
+      <xsl:with-param name="height" select="1800"/>
+      <xsl:with-param name="horizontal-bars" select="'true'"/>
+    </xsl:apply-templates>
+
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='genre'][int]" />
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
   </xsl:template>
