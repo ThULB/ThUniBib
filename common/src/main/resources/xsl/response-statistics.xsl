@@ -7,6 +7,7 @@
                 exclude-result-prefixes="xsl xalan i18n">
 
   <xsl:import href="charts/thunibib-statistics-bar-chart.xsl"/>
+  <xsl:import href="charts/thunibib-statistics-pie-chart.xsl"/>
   <xsl:import href="charts/thunibib-statistics-oa-chart.xsl" />
 
   <xsl:include href="statistics.xsl" />
@@ -103,7 +104,14 @@
       <xsl:with-param name="horizontal-bars" select="'true'"/>
     </xsl:apply-templates>
 
-    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='genre'][int]" />
+    <xsl:apply-templates select="." mode="pie-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.genre')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'ubogenre'"/>
+      <xsl:with-param name="facet-name" select="'genre'"/>
+      <xsl:with-param name="height" select="1800"/>
+      <xsl:with-param name="horizontal-bars" select="'true'"/>
+    </xsl:apply-templates>
+
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
   </xsl:template>
 
