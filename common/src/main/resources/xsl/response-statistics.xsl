@@ -6,7 +6,7 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 exclude-result-prefixes="xsl xalan i18n">
 
-  <xsl:import href="charts/thunibib-statistics-horizontal-bar-chart.xsl"/>
+  <xsl:import href="charts/thunibib-statistics-bar-chart.xsl"/>
   <xsl:import href="charts/thunibib-statistics-oa-chart.xsl" />
 
   <xsl:include href="statistics.xsl" />
