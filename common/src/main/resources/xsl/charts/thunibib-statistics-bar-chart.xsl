@@ -52,6 +52,7 @@
           }],
           chart: {
             type: 'bar',
+            background: '#FFFFFF',
             height: <xsl:value-of select="concat($apos, $height, 'px', $apos)"/>,
             toolbar: {
               show: false
