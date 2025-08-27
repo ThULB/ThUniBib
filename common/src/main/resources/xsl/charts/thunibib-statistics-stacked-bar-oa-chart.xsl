@@ -89,6 +89,7 @@
               colors: <xsl:value-of select="$colors"/>,
               chart: {
                 type: 'bar',
+                background: '#FFFFFF',
                 stacked: true,
                 toolbar: {
                   show: false
