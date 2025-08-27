@@ -75,7 +75,13 @@
               labels: <xsl:value-of select="$labels"/>,
               title: {
                 text: <xsl:value-of select="concat($apos, $chart-title, $apos)"/>,
-                align: 'center'
+                align: 'center',
+                style: {
+                  fontSize:  '16px',
+                  fontWeight: 'bold',
+                  fontFamily: 'Trebuchet MS',
+                  color:  '#000'
+                }
               },
               legend: {
                 floating: true
