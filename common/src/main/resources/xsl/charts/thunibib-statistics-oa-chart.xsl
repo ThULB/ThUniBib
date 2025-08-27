@@ -122,6 +122,11 @@
               borderRadiusApplication: 'end'
             }
           },
+          dataLabels: {
+            style: {
+              colors: ['#123']
+            }
+          },
           xaxis: {
             categories: <xsl:value-of select="$x-axis"/>
           },

@@ -8,6 +8,7 @@
   <xsl:param name="default-height" select="450"/>
   <xsl:param name="facet"/>
   <xsl:param name="labelsFromPivot"/>
+  <xsl:param name="dataLabels-show" select="'true'"/>
 
   <xsl:variable name="chart-title-by-facet" select="document(concat('notnull:i18n:thunibib.statistics.chart.title.', $facet))/i18n/text()"/>
 
