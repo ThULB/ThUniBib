@@ -9,7 +9,7 @@
   <xsl:import href="charts/thunibib-statistics-bar-chart.xsl"/>
   <xsl:import href="charts/thunibib-statistics-pie-chart.xsl"/>
   <xsl:import href="charts/thunibib-statistics-oa-chart.xsl" />
-  <xsl:import href="charts/thunibib-statistics-stacked-bar-chart.xsl" />
+  <xsl:import href="charts/thunibib-statistics-stacked-bar-oa-chart.xsl" />
 
   <xsl:include href="statistics.xsl" />
   <xsl:include href="statistics-oa.xsl" />
@@ -66,7 +66,7 @@
   <xsl:template match="response" priority="1">
     <div id="chartDialog" />
 
-    <xsl:apply-templates select="." mode="stacked-bar-chart"/>
+    <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="bar-chart">
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.year')/i18n/text()"/>
