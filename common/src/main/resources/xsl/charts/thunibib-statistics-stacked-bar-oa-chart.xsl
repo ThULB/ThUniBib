@@ -34,14 +34,14 @@
           <xsl:variable name="classification" select="document(concat('notnull:classification:metadata:-1:children:', $inner-bucket-class))"/>
           <xsl:text>[</xsl:text>
           <xsl:for-each select="$classification//category">
-            <xsl:if test="label[@xml:lang = 'x-color']">
-              <xsl:value-of select="concat($apos, label[@xml:lang = 'x-color']/@text, $apos)"/>
+            <xsl:if test="label[@xml:lang = 'x-color-chart']">
+              <xsl:value-of select="concat($apos, label[@xml:lang = 'x-color-chart']/@text, $apos)"/>
               <xsl:if test="not(position() = last())">
                 <xsl:text>, </xsl:text>
               </xsl:if>
             </xsl:if>
           </xsl:for-each>
-          <xsl:value-of select="concat(', ', $apos, '#afafaf', $apos)"/>
+          <xsl:value-of select="concat(', ', $apos, '#5858FA', $apos)"/>
           <xsl:text>]</xsl:text>
         </xsl:variable>
 
@@ -97,8 +97,19 @@
               },
               plotOptions: {
                 bar: {
-                  borderRadius: 4,
+                  borderRadius: 0,
                   borderRadiusApplication: 'end'
+                }
+              },
+              dataLabels: {
+                style: {
+                  colors: ['#123']
+                },
+                dropShadow: {
+                  enabled: true,
+                  color: '#000',
+                  blur: 0,
+                  opacity: 0
                 }
               },
               xaxis: {
