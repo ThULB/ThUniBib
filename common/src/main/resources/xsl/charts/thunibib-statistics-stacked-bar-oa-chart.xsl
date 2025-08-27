@@ -11,10 +11,10 @@
   <xsl:variable name="inner-bucket-values-categid" select="document(concat('notnull:classification:metadata:-1:children:', $inner-bucket-class))//mycoreclass/categories//category"/>
 
   <xsl:template match="/response">
-    <xsl:apply-templates select="." mode="stacked-bar-chart" />
+    <xsl:apply-templates select="." mode="stacked-bar-oa-chart" />
   </xsl:template>
 
-  <xsl:template match="response" mode="stacked-bar-chart">
+  <xsl:template match="response" mode="stacked-bar-oa-chart">
     <xsl:param name="chart-title" select="document('notnull:i18n:stats.oa.title')/i18n/text()"/>
 
     <xsl:if test="result/@numFound &gt; 0">
@@ -47,8 +47,19 @@
         <xsl:variable name="r" select="."/>
         <xsl:variable name="series">
           <xsl:for-each select="$inner-bucket-values-categid">
+            <xsl:variable name="bucket-label">
+              <xsl:choose>
+                <xsl:when test="@ID = 'oa'">
+                  <xsl:value-of select="concat(document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $inner-bucket-class, ':', @ID)), ' ', document('notnull:i18n:stats.oa.unspecified')/i18n/text())"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $inner-bucket-class, ':', @ID))"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+
             <xsl:call-template name="create-data-array">
-              <xsl:with-param name="bucket-label" select="document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $inner-bucket-class, ':', @ID))"/>
+              <xsl:with-param name="bucket-label" select="$bucket-label"/>
               <xsl:with-param name="bucket" select="@ID"/>
               <xsl:with-param name="r" select="$r"/>
             </xsl:call-template>
