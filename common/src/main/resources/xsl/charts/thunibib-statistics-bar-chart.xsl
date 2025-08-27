@@ -16,7 +16,7 @@
     <xsl:param name="horizontal-bars" select="$horizontal"/>
     <xsl:param name="width-bars" select="$columnWidth"/>
     <xsl:param name="classId" select="$classification"/>
-    <xsl:param name="generate-labels-from-pivot" select="'false'"/>
+    <xsl:param name="generate-labels-from-pivot" select="$labelsFromPivot"/>
 
     <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
       <xsl:variable name="labels">
