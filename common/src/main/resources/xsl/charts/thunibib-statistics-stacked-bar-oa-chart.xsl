@@ -3,10 +3,10 @@
   <xsl:import href="thunibib-charts-common.xsl"/>
 
   <!-- The name of the inner bucket, the outer bucket is the year of publication by default -->
-  <xsl:param name="inner-bucket-name"/>
+  <xsl:param name="inner-bucket-name" select="'oa'"/>
 
   <!-- The name of the class to resolve the labels of the entries of the inner bucket -->
-  <xsl:param name="inner-bucket-class"/>
+  <xsl:param name="inner-bucket-class" select="'oa'"/>
 
   <xsl:variable name="inner-bucket-values-categories" select="document(concat('notnull:classification:metadata:-1:children:', $inner-bucket-class))//mycoreclass/categories//category"/>
 

@@ -46,10 +46,6 @@
           </div>
         </article>
         <xsl:apply-templates select="/" mode="oa-statistics" />
-
-        <xsl:apply-templates select="./response" mode="thunibib-oa-statistics" >
-          <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
-        </xsl:apply-templates>
         <xsl:apply-templates select="response" />
       </body>
     </html>
@@ -67,6 +63,10 @@
     <div id="chartDialog" />
 
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
+
+    <xsl:apply-templates select="." mode="thunibib-oa-statistics">
+      <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
+    </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.year')/i18n/text()"/>
