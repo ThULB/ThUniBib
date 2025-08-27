@@ -59,7 +59,7 @@
           },
           plotOptions: {
             bar: {
-              borderRadius: 4,
+              borderRadius: 0,
               borderRadiusApplication: 'end',
               columnWidth: <xsl:value-of select="concat($apos, $width-bars, $apos)"/>,
               horizontal: <xsl:value-of select="$horizontal-bars"/>
