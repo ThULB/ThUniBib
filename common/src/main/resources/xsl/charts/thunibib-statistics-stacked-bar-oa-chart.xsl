@@ -46,6 +46,7 @@
 
         <xsl:variable name="r" select="."/>
         <xsl:variable name="series">
+          <xsl:text>[</xsl:text>
           <xsl:for-each select="$inner-bucket-values-categid">
             <xsl:variable name="bucket-label">
               <xsl:choose>
@@ -67,6 +68,7 @@
               <xsl:text>, </xsl:text>
             </xsl:if>
           </xsl:for-each>
+          <xsl:text>]</xsl:text>
         </xsl:variable>
 
         <xsl:variable name="chart-id" select="concat('chart-stacked-column-', translate($facet, '.', '-'))"/>
@@ -76,7 +78,7 @@
         <script>
           {
             let options = {
-              series: [<xsl:value-of select="$series"/>],
+              series: <xsl:value-of select="$series"/>,
               colors: <xsl:value-of select="$colors"/>,
               chart: {
                 type: 'bar',
