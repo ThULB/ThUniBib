@@ -73,7 +73,6 @@
           <xsl:text>, </xsl:text>
 
           <xsl:call-template name="create-no-oa-data-array">
-            <xsl:with-param name="bucket" select="false()"/>
             <xsl:with-param name="r" select="$r"/>
           </xsl:call-template>
           <xsl:text>]</xsl:text>
@@ -166,15 +165,23 @@
 
   <xsl:template name="create-no-oa-data-array">
     <xsl:param name="bucket-label" select="document('notnull:i18n:stats.oa.notOA')/i18n/text()"/>
-    <xsl:param name="bucket"/>
     <xsl:param name="r"/>
+
+    <xsl:variable name="oa-identifiers">
+      <xsl:for-each select="$inner-bucket-values-categories/@ID">
+        <xsl:value-of select="."/>
+        <xsl:if test="not(position()=last())">
+          <xsl:value-of select="' '"/>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:variable>
 
     <xsl:value-of select="concat('{name:', $apos, $bucket-label, $apos, ', ' )"/>
     <xsl:text>data: [</xsl:text>
     <!-- for every year-->
     <xsl:for-each select="$r//lst[@name='facets']/lst[@name='year']/arr[@name='buckets']/lst">
       <xsl:variable name="total" select="int[@name='count']"/>
-      <xsl:variable name="with-oa" select="sum(lst[@name=$inner-bucket-name]/arr/lst[(str[@name='val']='oa') or (str[@name='val']='closed')]/int[@name='count'])"/>
+      <xsl:variable name="with-oa" select="sum(lst[@name=$inner-bucket-name]/arr/lst[(contains($oa-identifiers, str[@name='val']))]/int[@name='count'])"/>
       <xsl:value-of select="$total - $with-oa"/>
       <xsl:if test="not(position()=last())">
         <xsl:text>, </xsl:text>
