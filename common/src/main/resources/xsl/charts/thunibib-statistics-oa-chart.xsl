@@ -117,7 +117,9 @@
           },
           plotOptions: {
             bar: {
-              horizontal: false
+              horizontal: false,
+              borderRadius: 0,
+              borderRadiusApplication: 'end'
             }
           },
           xaxis: {
