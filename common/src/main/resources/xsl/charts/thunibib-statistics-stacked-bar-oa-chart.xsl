@@ -124,6 +124,9 @@
               title: {
                 text: <xsl:value-of select="concat($apos, $chart-title, $apos)"/>,
                 align: 'center'
+              },
+              legend: {
+                position: 'top'
               }
             };
 

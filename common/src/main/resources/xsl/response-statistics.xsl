@@ -12,7 +12,6 @@
   <xsl:import href="charts/thunibib-statistics-stacked-bar-oa-chart.xsl" />
 
   <xsl:include href="statistics.xsl" />
-  <xsl:include href="statistics-oa.xsl" />
 
   <xsl:param name="WebApplicationBaseURL" />
   <xsl:param name="RequestURL" />
@@ -26,8 +25,6 @@
         </title>
 
         <script src="{$WebApplicationBaseURL}assets/apexcharts/dist/apexcharts.js"/>
-        <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/highcharts.src.js"/>
-        <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/themes/grid.js"/>
       </head>
       <body>
         <article class="card mb-3">
@@ -45,7 +42,6 @@
             </xsl:if>
           </div>
         </article>
-        <xsl:apply-templates select="/" mode="oa-statistics" />
         <xsl:apply-templates select="response" />
       </body>
     </html>
@@ -60,8 +56,6 @@
   </xsl:template>
 
   <xsl:template match="response" priority="1">
-    <div id="chartDialog" />
-
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="thunibib-oa-statistics">
