@@ -84,7 +84,6 @@
         <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.1')/i18n/text()"/>
         <xsl:with-param name="classId" select="'ORIGIN'"/>
         <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
-        <xsl:with-param name="horizontal-bars" select="'true'"/>
       </xsl:apply-templates>
 
       <xsl:apply-templates select="." mode="bar-chart">
@@ -92,7 +91,6 @@
         <xsl:with-param name="classId" select="'ORIGIN'"/>
         <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
         <xsl:with-param name="height" select="1024"/>
-        <xsl:with-param name="horizontal-bars" select="'true'"/>
       </xsl:apply-templates>
     </xsl:if>
 
@@ -101,7 +99,6 @@
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'origin_exact'"/>
       <xsl:with-param name="height" select="1800"/>
-      <xsl:with-param name="horizontal-bars" select="'true'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
@@ -115,7 +112,12 @@
       <xsl:with-param name="facet-name" select="'fundingType'"/>
     </xsl:apply-templates>
 
-    <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.nid_connection')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'nid_connection'"/>
+      <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
+      <xsl:with-param name="height" select="1800"/>
+    </xsl:apply-templates>
   </xsl:template>
 
 </xsl:stylesheet>
