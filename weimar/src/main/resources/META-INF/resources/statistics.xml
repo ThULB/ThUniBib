@@ -32,7 +32,7 @@
 
   <xinclude uri="xslStyle:charts/thunibib-statistics-pie-chart?classification=ubogenre&amp;facet=genre:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=genre"/>
   <xinclude uri="xslStyle:charts/thunibib-statistics-pie-chart?facet=fundingType:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=fundingType"/>
-  <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-bar-chart?horizontal=true&amp;default-height=1800&amp;facet=nid_connection&amp;fromPivot=true:solr:requestHandler:select:q=partOf%3Atrue+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2015+TO+*%5D&amp;rows=0&amp;facet.field=nid_connection&amp;facet.limit=50"/>
   <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
 
 </webpage>
