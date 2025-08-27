@@ -18,7 +18,8 @@
     <xsl:param name="classId" select="$classification"/>
     <xsl:param name="generate-labels-from-pivot" select="$labelsFromPivot"/>
 
-    <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
+    <xsl:if test="not($facet-name = 'nid_connection') or ($facet-name = 'nid_connection' and (document('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:isCurrentUserGuestUser') = 'false' or $ThUniBib.Statistics.Chart.nid_connection.always.visible = 'true'))">
+      <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
       <xsl:variable name="labels">
         <xsl:apply-templates select="." mode="generate-chart-labels">
           <xsl:with-param name="facet-name" select="$facet-name"/>
@@ -90,5 +91,6 @@
         }
       </script>
     </div>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
