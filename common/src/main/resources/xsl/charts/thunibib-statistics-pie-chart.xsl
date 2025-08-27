@@ -49,6 +49,7 @@
             let options = {
               chart: {
                 type: 'pie',
+                background: '#FFFFFF',
                 height: <xsl:value-of select="$height"/>
               },
               dataLabels: {
