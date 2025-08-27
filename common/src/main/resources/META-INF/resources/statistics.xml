@@ -24,7 +24,7 @@
 
 
   <xinclude uri="xslStyle:statistics-oa:solr:requestHandler:select:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked+OR+status%3AreviewPending)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet=%7Byear%3A%7Btype%3Aterms,field%3Ayear,sort%3A%7Bindex%3Aasc%7D,facet%3A%7Boa%3A%7Btype%3Aterms,field%3Aoa,sort%3A%7Bindex%3Aasc%7D%7D%7D%7D%7D"/>
-  <xinclude uri="xslStyle:charts/thunibib-statistics-stacked-bar-chart?inner-bucket-class=oa&amp;inner-bucket-name=oa:solr:requestHandler:select:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked+OR+status%3AreviewPending)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet=%7Byear%3A%7Btype%3Aterms,field%3Ayear,sort%3A%7Bindex%3Aasc%7D,facet%3A%7Boa%3A%7Btype%3Aterms,field%3Aoa,sort%3A%7Bindex%3Aasc%7D%7D%7D%7D%7D"/>
+  <xinclude uri="xslStyle:charts/thunibib-statistics-stacked-bar-oa-chart?inner-bucket-class=oa&amp;inner-bucket-name=oa:solr:requestHandler:select:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked+OR+status%3AreviewPending)+AND+year%3A[2018+TO+*]&amp;rows=0&amp;json.facet=%7Byear%3A%7Btype%3Aterms,field%3Ayear,sort%3A%7Bindex%3Aasc%7D,facet%3A%7Boa%3A%7Btype%3Aterms,field%3Aoa,sort%3A%7Bindex%3Aasc%7D%7D%7D%7D%7D"/>
 
 
 
