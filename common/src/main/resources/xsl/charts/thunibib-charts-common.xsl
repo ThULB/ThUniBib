@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
 
+  <xsl:param name="ThUniBib.Statistics.Chart.nid_connection.always.visible"/>
+  <xsl:param name="UBO.Statistics.Color.Bar"/>
   <xsl:param name="WebApplicationBaseURL"/>
   <xsl:param name="classification"/>
   <xsl:param name="default-height" select="450"/>
   <xsl:param name="facet"/>
   <xsl:param name="labelsFromPivot"/>
-  <xsl:param name="ThUniBib.Statistics.Chart.nid_connection.always.visible"/>
 
   <xsl:variable name="chart-title-by-facet" select="document(concat('notnull:i18n:thunibib.statistics.chart.title.', $facet))/i18n/text()"/>
 
