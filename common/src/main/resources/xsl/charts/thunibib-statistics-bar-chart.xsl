@@ -51,6 +51,7 @@
             name: <xsl:value-of select="concat($apos, document('notnull:i18n:ubo.publications')/i18n/text(), $apos)"/>,
             data: <xsl:value-of select="$values"/>
           }],
+          colors: <xsl:value-of select="concat('[', $apos, $UBO.Statistics.Color.Bar, $apos,']')"/>,
           chart: {
             type: 'bar',
             background: '#FFFFFF',
