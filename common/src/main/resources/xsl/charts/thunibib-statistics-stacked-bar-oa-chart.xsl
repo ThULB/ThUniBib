@@ -8,7 +8,7 @@
   <!-- The name of the class to resolve the labels of the entries of the inner bucket -->
   <xsl:param name="inner-bucket-class"/>
 
-  <xsl:variable name="inner-bucket-values-categid" select="document(concat('notnull:classification:metadata:-1:children:', $inner-bucket-class))//mycoreclass/categories//category"/>
+  <xsl:variable name="inner-bucket-values-categories" select="document(concat('notnull:classification:metadata:-1:children:', $inner-bucket-class))//mycoreclass/categories//category"/>
 
   <xsl:template match="/response">
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart" />
@@ -41,13 +41,14 @@
               </xsl:if>
             </xsl:if>
           </xsl:for-each>
+          <xsl:value-of select="concat(', ', $apos, '#afafaf', $apos)"/>
           <xsl:text>]</xsl:text>
         </xsl:variable>
 
         <xsl:variable name="r" select="."/>
         <xsl:variable name="series">
           <xsl:text>[</xsl:text>
-          <xsl:for-each select="$inner-bucket-values-categid">
+          <xsl:for-each select="$inner-bucket-values-categories">
             <xsl:variable name="bucket-label">
               <xsl:choose>
                 <xsl:when test="@ID = 'oa'">
@@ -68,10 +69,17 @@
               <xsl:text>, </xsl:text>
             </xsl:if>
           </xsl:for-each>
+
+          <xsl:text>, </xsl:text>
+
+          <xsl:call-template name="create-no-oa-data-array">
+            <xsl:with-param name="bucket" select="false()"/>
+            <xsl:with-param name="r" select="$r"/>
+          </xsl:call-template>
           <xsl:text>]</xsl:text>
         </xsl:variable>
 
-        <xsl:variable name="chart-id" select="concat('chart-stacked-column-', translate($facet, '.', '-'))"/>
+        <xsl:variable name="chart-id" select="concat('chart-stacked-bar-oa', translate($facet, '.', '-'))"/>
 
         <div id="{$chart-id}" class="border border-primary rounded mb-3" data-label="{$labels}" data-series="{$series}" data-colors="{$colors}"/>
 
@@ -138,6 +146,25 @@
         </xsl:otherwise>
       </xsl:choose>
 
+      <xsl:if test="not(position()=last())">
+        <xsl:text>, </xsl:text>
+      </xsl:if>
+    </xsl:for-each>
+    <xsl:text>]}</xsl:text>
+  </xsl:template>
+
+  <xsl:template name="create-no-oa-data-array">
+    <xsl:param name="bucket-label" select="document('notnull:i18n:stats.oa.notOA')/i18n/text()"/>
+    <xsl:param name="bucket"/>
+    <xsl:param name="r"/>
+
+    <xsl:value-of select="concat('{name:', $apos, $bucket-label, $apos, ', ' )"/>
+    <xsl:text>data: [</xsl:text>
+    <!-- for every year-->
+    <xsl:for-each select="$r//lst[@name='facets']/lst[@name='year']/arr[@name='buckets']/lst">
+      <xsl:variable name="total" select="int[@name='count']"/>
+      <xsl:variable name="with-oa" select="sum(lst[@name=$inner-bucket-name]/arr/lst[(str[@name='val']='oa') or (str[@name='val']='closed')]/int[@name='count'])"/>
+      <xsl:value-of select="$total - $with-oa"/>
       <xsl:if test="not(position()=last())">
         <xsl:text>, </xsl:text>
       </xsl:if>
