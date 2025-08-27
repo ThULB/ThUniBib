@@ -5,7 +5,7 @@
   <xsl:param name="classification"/>
   <xsl:param name="default-height" select="450"/>
   <xsl:param name="facet"/>
-  <xsl:param name="fromPivot"/>
+  <xsl:param name="labelsFromPivot"/>
 
   <xsl:variable name="chart-title-by-facet" select="document(concat('notnull:i18n:thunibib.statistics.chart.title.', $facet))/i18n/text()"/>
 
@@ -16,10 +16,11 @@
   <xsl:template match="response" mode="generate-chart-labels">
     <xsl:param name="facet-name"/>
     <xsl:param name="classId"/>
+    <xsl:param name="generate-labels-from-pivot" select="$labelsFromPivot"/>
 
     <xsl:text>[</xsl:text>
     <xsl:choose>
-      <xsl:when test="$fromPivot = 'true'">
+      <xsl:when test="$generate-labels-from-pivot = 'true'">
         <xsl:variable name="uri">
           <xsl:text>solr:q=objectKind%3Aname+AND+(</xsl:text>
           <xsl:for-each select="//lst[@name = $facet-name]/int">
