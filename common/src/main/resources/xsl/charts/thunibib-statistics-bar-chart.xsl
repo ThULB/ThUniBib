@@ -17,6 +17,7 @@
     <xsl:param name="width-bars" select="$columnWidth"/>
     <xsl:param name="classId" select="$classification"/>
     <xsl:param name="generate-labels-from-pivot" select="$labelsFromPivot"/>
+    <xsl:param name="display-data-labels" select="$dataLabels-show"/>
 
     <xsl:if test="not($facet-name = 'nid_connection') or ($facet-name = 'nid_connection' and (document('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:isCurrentUserGuestUser') = 'false' or $ThUniBib.Statistics.Chart.nid_connection.always.visible = 'true'))">
       <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
@@ -62,8 +63,13 @@
             bar: {
               borderRadius: 0,
               borderRadiusApplication: 'end',
-              columnWidth: <xsl:value-of select="concat($apos, $width-bars, $apos)"/>,
               horizontal: <xsl:value-of select="$horizontal-bars"/>
+            }
+          },
+          dataLabels: {
+            enabled: <xsl:value-of select="$display-data-labels"/>,
+            style: {
+              colors: ['#123']
             }
           },
           xaxis: {
