@@ -19,6 +19,17 @@
     <xsl:param name="generate-labels-from-pivot" select="$labelsFromPivot"/>
     <xsl:param name="display-data-labels" select="$dataLabels-show"/>
 
+    <xsl:variable name="calculated-height">
+      <xsl:choose>
+        <xsl:when test="$horizontal-bars='true' and ((($distinct-facet-values * 36) + 40) &gt; $height)">
+          <xsl:value-of select="($distinct-facet-values * 36) + 40"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$height"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <xsl:if test="not($facet-name = 'nid_connection') or ($facet-name = 'nid_connection' and (document('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:isCurrentUserGuestUser') = 'false' or $ThUniBib.Statistics.Chart.nid_connection.always.visible = 'true'))">
       <div class="thunibib-chart-container thunibib-column-chart thunibib-column-chart-{$facet-name}">
       <xsl:variable name="labels">
@@ -55,7 +66,7 @@
           chart: {
             type: 'bar',
             background: '#FFFFFF',
-            height: <xsl:value-of select="concat($apos, $height, 'px', $apos)"/>,
+            height: <xsl:value-of select="concat($apos, $calculated-height, 'px', $apos)"/>,
             toolbar: {
               show: false
             }
