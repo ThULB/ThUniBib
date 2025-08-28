@@ -75,7 +75,9 @@
         "start": "0",
         "rows": "0",
         "facet": "true",
-        "facet.mincount": "1"
+        "facet.mincount": "1",
+        "facet.threads": "4",
+        "fq": "year>=1980"
       }
     }
   },
@@ -116,7 +118,9 @@
         "start": "0",
         "rows": "0",
         "facet": "true",
-        "facet.mincount": "1"
+        "facet.mincount": "1",
+        "facet.threads": "4",
+        "fq": "year>=1980"
       }
     }
   },
