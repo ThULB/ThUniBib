@@ -135,9 +135,11 @@
           },
           colors: ['#0000ff', '#ee9f27', '#8f989d', '#00BFFF', '#d3d3d3'],
           legend: {
-            position: 'bottom',
+            position: 'top',
+            floating: true,
             horizontalAlign: 'center',
-            clusterGroupedSeries: false
+            clusterGroupedSeries: true,
+            clusterGroupedSeriesOrientation: 'horizontal',
           },
           dataLabels: {
             enabled: true
