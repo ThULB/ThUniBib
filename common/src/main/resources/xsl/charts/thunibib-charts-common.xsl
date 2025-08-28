@@ -12,10 +12,6 @@
 
   <xsl:variable name="chart-title-by-facet" select="document(concat('notnull:i18n:thunibib.statistics.chart.title.', $facet))/i18n/text()"/>
 
-  <xsl:variable name="distinct-facet-values">
-    <xsl:value-of select="count(./response/lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name=$facet]/int)"/>
-  </xsl:variable>
-
   <xsl:variable name="apos">
     <xsl:text>'</xsl:text>
   </xsl:variable>
