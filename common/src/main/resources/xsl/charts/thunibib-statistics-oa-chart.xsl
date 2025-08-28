@@ -12,7 +12,7 @@
     </xsl:apply-templates>
   </xsl:template>
 
-  <xsl:template match="response" mode="thunibib-oa-statistics">
+  <xsl:template match="response[result/@numFound &gt; 0]" mode="thunibib-oa-statistics">
     <xsl:param name="facet-name"/>
 
     <xsl:variable name="x-axis">
