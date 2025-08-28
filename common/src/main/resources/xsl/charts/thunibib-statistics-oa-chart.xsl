@@ -112,8 +112,7 @@
             }
           },
           stroke: {
-            width: 1,
-            colors: ['#fff']
+            width: 0
           },
           plotOptions: {
             bar: {
