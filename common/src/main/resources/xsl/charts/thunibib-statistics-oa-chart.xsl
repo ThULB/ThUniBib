@@ -66,7 +66,7 @@
       </xsl:call-template>
     </xsl:variable>
 
-    <div class="border border-primary mb-3 rounded">
+    <div class="bg-white border border-primary mb-3 rounded">
       <div id="thunibib-statistics-oa-chart" class="thunibib-chart-container"
            data-values-oa-status-oa="{$values-oa-status-oa}"
            data-values-oa-status-closed="{$values-oa-status-closed}"

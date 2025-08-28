@@ -41,7 +41,7 @@
 
       <xsl:variable name="chart-id" select="concat('chart-pie-', translate($facet-name, '.', '-'))"/>
 
-      <div id="{$chart-id}" class="border border-primary rounded mb-3" data-labels="{$labels}" data-values="{$values}" data-colors="{$colors}"/>
+      <div id="{$chart-id}" class="bg-white border border-primary rounded mb-3" data-labels="{$labels}" data-values="{$values}" data-colors="{$colors}"/>
 
       <script>
         {
