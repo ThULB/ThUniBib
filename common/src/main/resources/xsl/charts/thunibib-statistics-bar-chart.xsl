@@ -9,7 +9,7 @@
     <xsl:apply-templates select="." mode="bar-chart" />
   </xsl:template>
 
-  <xsl:template match="response" mode="bar-chart">
+  <xsl:template match="response[result/@numFound &gt; 0]" mode="bar-chart">
     <xsl:param name="chart-title" select="$chart-title-by-facet"/>
     <xsl:param name="facet-name" select="$facet"/>
     <xsl:param name="height" select="$default-height"/>

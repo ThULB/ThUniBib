@@ -5,7 +5,7 @@
                 xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 exclude-result-prefixes="xsl xalan i18n mcrxsl">
 
-  <xsl:template match="/response">
+  <xsl:template match="/response[result/@numFound &gt; 0]">
     <xsl:apply-templates select="lst[@name='facet_counts']/lst[@name='facet_pivot']/arr[@name='name_id_type,name_id_type']"/>
   </xsl:template>
 
