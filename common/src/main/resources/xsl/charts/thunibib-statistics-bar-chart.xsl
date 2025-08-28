@@ -19,6 +19,10 @@
     <xsl:param name="generate-labels-from-pivot" select="$labelsFromPivot"/>
     <xsl:param name="display-data-labels" select="$dataLabels-show"/>
 
+    <xsl:variable name="distinct-facet-values">
+      <xsl:value-of select="count(lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name=$facet-name]/int)"/>
+    </xsl:variable>
+
     <xsl:variable name="calculated-height">
       <xsl:choose>
         <xsl:when test="$horizontal-bars='true' and ((($distinct-facet-values * 36) + 40) &gt; $height)">
