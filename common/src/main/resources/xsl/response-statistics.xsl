@@ -74,7 +74,6 @@
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.destatis')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'destatis'"/>
       <xsl:with-param name="height" select="1512"/>
-      <xsl:with-param name="horizontal-bars" select="'true'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
@@ -125,7 +124,6 @@
         <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.destatis')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'destatis'"/>
         <xsl:with-param name="height" select="1512"/>
-        <xsl:with-param name="horizontal-bars" select="'true'"/>
       </xsl:apply-templates>
     </xsl:if>
 
