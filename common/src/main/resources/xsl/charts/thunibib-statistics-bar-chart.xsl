@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="mcrxml xalan xsl">
+
   <xsl:import href="thunibib-charts-common.xsl"/>
 
   <xsl:param name="horizontal" select="'true'"/>
@@ -9,7 +13,7 @@
     <xsl:apply-templates select="." mode="bar-chart" />
   </xsl:template>
 
-  <xsl:template match="response[result/@numFound &gt; 0]" mode="bar-chart">
+  <xsl:template match="response[result/@numFound &gt; 0][($require-admin='true' and mcrxml:isCurrentUserInRole('admin')) or $require-admin='false']" mode="bar-chart">
     <xsl:param name="chart-title" select="$chart-title-by-facet"/>
     <xsl:param name="facet-name" select="$facet"/>
     <xsl:param name="height" select="$default-height"/>
