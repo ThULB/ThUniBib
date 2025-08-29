@@ -7,7 +7,7 @@
 
   <xsl:template match="/response">
     <mods:mods>
-      <xsl:apply-templates select="result/doc"/>
+      <xsl:apply-templates select="result/doc[1]"/>
     </mods:mods>
   </xsl:template>
 
