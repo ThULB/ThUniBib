@@ -245,6 +245,10 @@
       <label xml:lang="de" text="Cartographic material"/>
       <label xml:lang="en" text="Cartographic material" description="Any material representing the whole or part of the earth or any celestial body at any scale. Cartographic materials include two- and three-dimensional maps and plans (including maps of imaginary places); aeronautical, navigational, and celestial charts; atlases; globes; block diagrams; sections; aerial photographs with a cartographic purpose; bird’s-eye views (map views), etc."/>
     </category>
+    <category ID="blog-post">
+      <label xml:lang="de" text="Blog post"/>
+      <label xml:lang="en" text="Blog post" description="A piece of writing or other item of content published on a blog."/>
+    </category>
     <category ID="other">
       <label xml:lang="de" text="Andere"/>
       <label xml:lang="en" text="Other" description="Any other type of work."/>
