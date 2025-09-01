@@ -7,7 +7,7 @@
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
                 exclude-result-prefixes="fn mods xsl">
 
-  <xsl:import href="resource:xsl/orcid2/v3/mcr2work_generic.xsl"/>
+  <xsl:import href="resource:xslt/orcid2/v3/mcr2work_generic.xsl"/>
 
   <xsl:param name="MCR.ORCID2.Genre.Mapping.Default.Genre" select="'journal-article'"/>
 
