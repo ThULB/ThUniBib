@@ -161,7 +161,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#dc9800"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:working-paper"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:supervised-student-publication"/>
 
         <label xml:lang="de" text="Studienarbeit"/>
         <label xml:lang="en" text="Seminar paper"/>
