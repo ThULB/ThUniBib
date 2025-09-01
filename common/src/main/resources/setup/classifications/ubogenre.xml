@@ -343,7 +343,7 @@
       <category ID="video">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#ac0026"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:moving-image"/>
 
         <label xml:lang="de" text="Video/Film"/>
         <label xml:lang="en" text="Video/film"/>
