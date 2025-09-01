@@ -192,7 +192,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#174488"/>
         <label xml:lang="x-marcgt" text="book"/>
-        <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:book"/>
+        <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:conference-proceedings"/>
 
         <label xml:lang="de" text="Konferenz-/Tagungsband"/>
         <label xml:lang="en" text="Conference proceedings"/>
@@ -208,8 +208,8 @@
 
         <category ID="special_issue">
           <label xml:lang="x-hosts" text="standalone"/>
-          <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
           <label xml:lang="x-color" text="#5671a5"/>
+          <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
 
           <label xml:lang="de" text="Sonderheft"/>
           <label xml:lang="en" text="Special Issue"/>
