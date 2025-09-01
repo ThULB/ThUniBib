@@ -9,7 +9,7 @@
 
   <xsl:import href="resource:xslt/orcid2/v3/mcr2work_generic.xsl"/>
 
-  <xsl:param name="MCR.ORCID2.Genre.Mapping.Default.Genre" select="'journal-article'"/>
+  <xsl:param name="MCR.ORCID2.Genre.Mapping.Default.Genre" select="'other'"/>
 
   <xsl:template name="workType">
     <xsl:choose>
