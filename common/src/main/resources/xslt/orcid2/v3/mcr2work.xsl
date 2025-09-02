@@ -52,7 +52,7 @@
       <work:citation-value>
         <!-- authors -->
         <xsl:for-each select="mods:name[@type='personal']">
-          <xsl:value-of select="concat(mods:namePart[@type='family'], ' ', mods:namePart[@type='family'])"/>
+          <xsl:value-of select="concat(mods:namePart[@type='family'], ', ', mods:namePart[@type='given'])"/>
           <xsl:if test="not(position() = fn:last())">
             <xsl:value-of select="'; '"/>
           </xsl:if>
