@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mycoreclass ID="ubogenre" xmlns:xlink="http://www.w3.org/1999/xlink"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+<mycoreclass ID="ubogenre" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
   <label xml:lang="en" text="Genre" description="Publication types of university bibliography"/>
   <label xml:lang="de" text="Genre" description="Publikationstypen der Hochschulbibliographie"/>
   <categories>
@@ -17,8 +15,7 @@
         <label xml:lang="x-color" text="#7dabd0"/>
         <label xml:lang="x-marcgt" text="article"/>
         <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
-        <label xml:lang="de" text="Artikel/Aufsatz"
-               description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
+        <label xml:lang="de" text="Artikel/Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
         <label xml:lang="en" text="Journal article"/>
 
         <category ID="review_article">
@@ -43,7 +40,7 @@
       <category ID="preface">
         <label xml:lang="x-hosts" text="collection proceedings lexicon journal book newspaper video others"/>
         <label xml:lang="x-color" text="#449cab"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:annotation"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Vorwort/Nachwort"/>
         <label xml:lang="en" text="Preface/epilogue"/>
@@ -76,7 +73,7 @@
       <category ID="entry">
         <label xml:lang="x-hosts" text="collection lexicon book newspaper video others"/>
         <label xml:lang="x-color" text="#007836"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:encyclopedia-entry orcidWorkType:dictionary-entry"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:encyclopedia-entry"/>
 
         <label xml:lang="de" text="Lexikoneintrag"/>
         <label xml:lang="en" text="Lexicon entry"/>
@@ -161,7 +158,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#dc9800"/>
         <label xml:lang="x-marcgt" text="thesis"/>
-        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:working-paper"/>
+        <label xml:lang="x-mapping" text="marcgt:thesis orcidWorkType:supervised-student-publication"/>
 
         <label xml:lang="de" text="Studienarbeit"/>
         <label xml:lang="en" text="Seminar paper"/>
@@ -175,7 +172,7 @@
       <category ID="exhibition_catalogue">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#573d95"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:book"/>
 
         <label xml:lang="de" text="Ausstellungskatalog"/>
         <label xml:lang="en" text="Exhibition Catalogue"/>
@@ -208,8 +205,8 @@
 
         <category ID="special_issue">
           <label xml:lang="x-hosts" text="standalone"/>
-          <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
           <label xml:lang="x-color" text="#5671a5"/>
+          <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
 
           <label xml:lang="de" text="Sonderheft"/>
           <label xml:lang="en" text="Special Issue"/>
@@ -235,7 +232,7 @@
       <category ID="interview">
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
         <label xml:lang="x-color" text="#e02f8b"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:public-speech"/>
 
         <label xml:lang="de" text="Interview"/>
         <label xml:lang="en" text="Interview"/>
@@ -303,7 +300,7 @@
       <category ID="authors_version">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#2691DF"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:journal-article"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Autorenversion"/>
         <label xml:lang="en" text="Author's version"/>
@@ -319,7 +316,7 @@
       <category ID="image">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#df9526"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:image"/>
 
         <label xml:lang="de" text="Bild"/>
         <label xml:lang="en" text="Image/picture"/>
@@ -389,7 +386,7 @@
       <category ID="series">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#d13c43"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Reihe/Serie"/>
         <label xml:lang="en" text="series"/>
@@ -397,7 +394,7 @@
       <category ID="journal">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#6aaa4a"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:journal-issue"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Zeitschrift"/>
         <label xml:lang="en" text="Journal"/>
@@ -405,7 +402,7 @@
       <category ID="newspaper">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#456468"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:newspaper-article"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Zeitung"/>
         <label xml:lang="en" text="Newspaper"/>
