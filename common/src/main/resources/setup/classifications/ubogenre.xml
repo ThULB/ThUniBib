@@ -59,7 +59,7 @@
         <label xml:lang="x-hosts" text="journal collection proceedings book newspaper video others"/>
         <label xml:lang="x-color" text="#007a8b"/>
         <label xml:lang="x-marcgt" text="abstract_or_summary"/>
-        <label xml:lang="x-mapping" text="marcgt:abstract_or_summary orcidWorkType:conference-abstract"/>
+        <label xml:lang="x-mapping" text="marcgt:abstract_or_summary orcidWorkType:conference-output"/>
 
         <label xml:lang="de" text="Abstract (Konferenz/Tagung)"/>
         <label xml:lang="en" text="Abstract (conference)"/>
@@ -75,7 +75,7 @@
       <category ID="blog_entry">
         <label xml:lang="x-hosts" text="blog book newspaper video others"/>
         <label xml:lang="x-color" text="#559e31"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:online-resource"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:blog-post"/>
 
         <label xml:lang="de" text="Blogbeitrag"/>
         <label xml:lang="en" text="Blog post"/>
@@ -91,7 +91,7 @@
       <category ID="video_contribution">
         <label xml:lang="x-hosts" text="collection proceedings book newspaper video others"/>
         <label xml:lang="x-color" text="#92b869"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:moving-image"/>
 
         <label xml:lang="de" text="Video-/Filmbeitrag"/>
         <label xml:lang="en" text="Video contribution"/>
@@ -199,7 +199,7 @@
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#174488"/>
         <label xml:lang="x-marcgt" text="book"/>
-        <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:book"/>
+        <label xml:lang="x-mapping" text="marcgt:book orcidWorkType:conference-proceedings"/>
 
         <label xml:lang="de" text="Konferenz-/Tagungsband"/>
         <label xml:lang="en" text="Conference proceedings"/>
@@ -350,7 +350,7 @@
       <category ID="video">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#ac0026"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:moving-image"/>
 
         <label xml:lang="de" text="Video/Film"/>
         <label xml:lang="en" text="Video/film"/>
@@ -366,7 +366,7 @@
       <category ID="map">
         <label xml:lang="x-hosts" text="standalone"/>
         <label xml:lang="x-color" text="#997950"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:cartographic-material"/>
 
         <label xml:lang="de" text="Karte"/>
         <label xml:lang="en" text="Map"/>
@@ -374,7 +374,7 @@
       <category ID="sheet_music">
         <label xml:lang="x-hosts" text="standalone collection book newspaper video others"/>
         <label xml:lang="x-color" text="#eeeee0"/>
-        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:musical-composition"/>
 
         <label xml:lang="de" text="Noten"/>
         <label xml:lang="en" text="Sheet music"/>
