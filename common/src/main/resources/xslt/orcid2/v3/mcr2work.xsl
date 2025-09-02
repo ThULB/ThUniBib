@@ -42,5 +42,38 @@
       </work:journal-title>
     </xsl:if>
   </xsl:template>
-  <xsl:template name="workCitation"/>
+
+  <xsl:template name="workCitation">
+    <work:citation>
+      <work:citation-type>
+        <xsl:value-of select="'formatted-unspecified'"/>
+      </work:citation-type>
+
+      <work:citation-value>
+        <!-- authors -->
+        <xsl:for-each select="mods:name[@type='personal']">
+          <xsl:value-of select="concat(mods:namePart[@type='family'], ' ', mods:namePart[@type='family'])"/>
+          <xsl:if test="not(position() = fn:last())">
+            <xsl:value-of select="'; '"/>
+          </xsl:if>
+        </xsl:for-each>
+
+        <xsl:text>, </xsl:text>
+
+        <!-- title-->
+        <xsl:value-of select="mods:titleInfo[1]/mods:title[1]"/>
+        <xsl:if test="mods:titleInfo[1]/mods:subTitle">
+          <xsl:value-of select="concat(': ', mods:titleInfo[1]/mods:subTitle)"/>
+        </xsl:if>
+
+        <!-- place and date -->
+        <xsl:if test="mods:originInfo[1]/mods:place[1]/mods:placeTerm[@type='text']">
+          <xsl:value-of select="concat(', ', mods:originInfo[1]/mods:place/mods:placeTerm[@type='text'])"/>
+        </xsl:if>
+        <xsl:if test="mods:originInfo[1]/mods:dateIssued[@encoding='w3cdtf'][1]">
+          <xsl:value-of select="concat(', ', mods:originInfo[1]/mods:dateIssued[@encoding='w3cdtf'][1])"/>
+        </xsl:if>
+      </work:citation-value>
+    </work:citation>
+  </xsl:template>
 </xsl:stylesheet>
