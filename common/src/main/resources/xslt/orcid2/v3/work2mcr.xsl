@@ -8,7 +8,7 @@
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
                 exclude-result-prefixes="fn xsl">
 
-  <xsl:import href="resource:xsl/orcid2/v3/work2mcr_generic.xsl"/>
+  <xsl:import href="resource:xslt/orcid2/v3/work2mcr_generic.xsl"/>
 
   <xsl:param name="WebApplicationBaseURL"/>
   <xsl:param name="MCR.ORCID2.Genre.Mapping.Classification" select="'ubogenre'"/>

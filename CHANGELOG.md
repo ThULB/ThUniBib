@@ -1,5 +1,11 @@
 # Changelog
 
+# 2025.09.03-2023.06.x
+- [#785](https://github.com/ThULB/ThUniBib/issues/785) Upgrade to MyCoRe 2023.06.4 Snapshot (#786)
+- [#789](https://github.com/ThULB/ThUniBib/issues/789) Updated mapping to orcid work types (#790)
+- [FSU040THUL-9193](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9193) [#787](https://github.com/ThULB/ThUniBib/issues/787) Allow to detemine DBT id by a given DOI (#788)
+---
+
 # 2025.08.22-2023.06.x
 - [#764](https://github.com/ThULB/ThUniBib/issues/764) En/disable and customize DBT import per ThUniBib instance (#765)
 - [#766](https://github.com/ThULB/ThUniBib/issues/766) Corrected text (#767)

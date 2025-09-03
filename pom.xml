@@ -4,12 +4,12 @@
   <parent>
     <groupId>org.mycore</groupId>
     <artifactId>mycore-parent</artifactId>
-    <version>53</version>
+    <version>57</version>
     <relativePath />
   </parent>
   <groupId>de.uni-jena.thulb.ubo</groupId>
   <artifactId>ThUniBib</artifactId>
-  <version>2025.08.22-2023.06.x</version>
+  <version>2025.09.03-2023.06.x</version>
   <packaging>pom</packaging>
   <name>UBO ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
@@ -21,7 +21,8 @@
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
     <jdom.version>2.0.6.1</jdom.version>
     <jersey.client.version>3.1.3</jersey.client.version>
-    <mycore.version>2023.06.3-SNAPSHOT</mycore.version>
+    <maven.compiler.release>17</maven.compiler.release>
+    <mycore.version>2023.06.4-SNAPSHOT</mycore.version>
     <oaipmh.version>2.1</oaipmh.version>
     <solr.version>8.11.3</solr.version>
     <ubo.version>dev-SNAPSHOT</ubo.version>
@@ -126,7 +127,7 @@
       <dependency>
         <groupId>de.uni-jena.thulb.ubo</groupId>
         <artifactId>thunibib-common</artifactId>
-        <version>2025.08.22-2023.06.x</version>
+        <version>2025.09.03-2023.06.x</version>
       </dependency>
       <dependency>
         <groupId>jakarta.servlet</groupId>
