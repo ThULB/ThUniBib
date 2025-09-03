@@ -41,6 +41,12 @@ a.nav-link:hover {
   text-decoration: underline;
 }
 
+/* link to duplicates */
+span.badge-alternative > a {
+  color: white;
+  text-decoration: none;
+}
+
 li.nav-item.active {
   background-color: $primary;
 }
