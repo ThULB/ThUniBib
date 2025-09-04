@@ -57,11 +57,11 @@
   </xsl:template>
 
   <xsl:template match="response" priority="1">
-    <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
-
     <xsl:apply-templates select="." mode="thunibib-oa-statistics">
       <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
     </xsl:apply-templates>
+
+    <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="bar-chart">
       <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.year')/i18n/text()"/>
