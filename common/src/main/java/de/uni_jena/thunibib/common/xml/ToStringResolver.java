@@ -10,11 +10,11 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import org.jdom2.transform.JDOMSource;
 import org.mycore.common.xml.MCRURIResolver;
-import org.mycore.common.xsl.MCRLazyStreamSource;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
+import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -40,9 +40,8 @@ public class ToStringResolver implements URIResolver {
     @Override
     public Source resolve(String href, String base) throws TransformerException {
         String subURI = href.substring(href.indexOf(":") + 1);
-        MCRLazyStreamSource source = (MCRLazyStreamSource) MCRURIResolver.instance().resolve(subURI, null);
         String content = null;
-        try (InputStream is = source.getInputStream()) {
+        try (InputStream is = ((StreamSource) MCRURIResolver.instance().resolve(subURI, null)).getInputStream()) {
             try {
                 SAXBuilder saxBuilder = new SAXBuilder();
                 content = new XMLOutputter(Format.getCompactFormat()).outputString(saxBuilder.build(is));
