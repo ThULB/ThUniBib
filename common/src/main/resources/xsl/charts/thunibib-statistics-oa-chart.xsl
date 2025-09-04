@@ -134,8 +134,8 @@
           },
           colors: ['#0000ff', '#ee9f27', '#8f989d', '#00BFFF', '#d3d3d3'],
           legend: {
-            position: 'top',
-            floating: true,
+            position: 'bottom',
+            floating: false,
             horizontalAlign: 'center',
             clusterGroupedSeries: true,
             clusterGroupedSeriesOrientation: 'horizontal',
