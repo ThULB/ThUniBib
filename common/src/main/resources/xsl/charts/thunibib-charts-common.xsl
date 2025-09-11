@@ -55,7 +55,7 @@
               <xsl:value-of select="concat($apos, document(concat('callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:', $facet-name,':', @name)), $apos)"/>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:value-of select="concat($apos, @name, $apos)"/>
+              <xsl:value-of select="concat($apos,'oth: ', @name, $apos)"/>
             </xsl:otherwise>
           </xsl:choose>
           <xsl:if test="not(position() = last())">
