@@ -146,6 +146,11 @@
       <xsl:with-param name="facet-name" select="'genre'"/>
     </xsl:apply-templates>
 
+    <xsl:apply-templates select="." mode="pie-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.licenses')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'licenses'"/>
+    </xsl:apply-templates>
+
     <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
       <xsl:apply-templates select="." mode="bar-chart">
         <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.nid_connection')/i18n/text()"/>
