@@ -69,7 +69,7 @@
               }
             },
             series: <xsl:value-of select="$values"/>,
-          <xsl:if test="$colors">
+          <xsl:if test="contains($colors, '#')">
             colors: <xsl:value-of select="$colors"/>,
           </xsl:if>
             labels: <xsl:value-of select="$labels"/>,
