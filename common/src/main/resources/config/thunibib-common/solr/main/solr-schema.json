@@ -81,6 +81,21 @@
       "indexed": true,
       "stored": false
     }
+  },
+  {
+    "add-field": {
+      "name": "licenses",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-copy-field": {
+      "source": "license",
+      "dest": "licenses"
+    }
   }
 ]
 
