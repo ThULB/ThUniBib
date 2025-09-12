@@ -27,7 +27,6 @@ import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.MCRJDOMContent;
 import org.mycore.common.content.transformer.MCRContentTransformer;
 import org.mycore.common.content.transformer.MCRContentTransformerFactory;
-import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -38,7 +37,7 @@ import org.mycore.mods.MCRMODSWrapper;
 import org.mycore.mods.enrichment.MCREnrichmentResolver;
 import org.mycore.services.queuedjob.MCRJob;
 import org.mycore.services.queuedjob.MCRJobQueueManager;
-import org.mycore.solr.MCRSolrClientFactory;
+import org.mycore.solr.MCRSolrCoreManager;
 import org.mycore.solr.MCRSolrUtils;
 import org.mycore.ubo.importer.ImportIdProvider;
 import org.xml.sax.InputSource;
@@ -46,6 +45,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
@@ -124,7 +124,15 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         String filterTransformer, String importId) {
 
         final String request = buildRequestURL(picaQuery, startStr);
-        final Element result = Objects.requireNonNull(MCRURIResolver.instance().resolve(request));
+        SAXBuilder builder = new SAXBuilder();
+
+        final Element result;
+        try {
+            result = Objects.requireNonNull(builder.build(request).getRootElement().detach());
+        } catch (JDOMException | IOException e) {
+            LOGGER.error("Could not fetch content from url {}", request, e);
+            return new ArrayList<>();
+        }
 
         XPathExpression<Element> r = XPathFactory.instance()
             .compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
@@ -333,7 +341,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     public static boolean isAlreadyStored(String identifierField, String identifierValue) {
         LOGGER.info("Check if already stored in Solr using field {} and value {}", identifierField, identifierValue);
-        SolrClient solrClient = MCRSolrClientFactory.getMainSolrClient();
+        SolrClient solrClient = MCRSolrCoreManager.getMainSolrClient();
         SolrQuery query = new SolrQuery();
         query.setQuery(identifierField + ":" + MCRSolrUtils.escapeSearchValue(identifierValue));
         query.setRows(0);
@@ -418,7 +426,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static String makeRequest(String targetURL) {
         String content = "";
         try {
-            URL url = new URL(targetURL);
+            URL url = new URI(targetURL).toURL();
             URLConnection request = url.openConnection();
             request.connect();
             content = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
