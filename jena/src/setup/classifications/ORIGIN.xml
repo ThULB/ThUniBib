@@ -128,6 +128,12 @@
         <label xml:lang="x-mapping" text="destatis:1310"/>
         <url xlink:href="https://www.gw.uni-jena.de/slawkauk"/>
       </category>
+
+      <category ID="1030.13">
+        <label xml:lang="de" text="Graduiertenkolleg Modell Romantik. Variation – Reichweite – Aktualität"/>
+        <label xml:lang="x-mapping" text="destatis:1080"/>
+        <url xlink:href="https://www.modellromantik.uni-jena.de/"/>
+      </category>
     </category>
 
     <category ID="1040">
@@ -204,6 +210,18 @@
         <label xml:lang="x-mapping" text="destatis:3450"/>
         <url xlink:href="https://www.mi-didaktik.uni-jena.de/"/>
       </category>
+
+      <category ID="4000.04">
+        <label xml:lang="de" text="RNA Bioinformatics and High-Throughput Analysis"/>
+        <label xml:lang="x-mapping" text="destatis:3540"/>
+        <url xlink:href="https://www.rna.uni-jena.de/"/>
+      </category>
+	  
+	    <category ID="4000.05">
+        <label xml:lang="de" text="Computer Vision Group Jena"/>
+        <label xml:lang="x-mapping" text="destatis:3560 3520"/>
+        <url xlink:href="https://inf-cv.uni-jena.de/"/>
+      </category>
     </category>
 
     <category ID="5000">
@@ -262,6 +280,12 @@
         <label xml:lang="de" text="Institut für Angewandte Physik"/>
         <label xml:lang="x-mapping" text="destatis:3637"/>
         <url xlink:href="https://www.iap.uni-jena.de/"/>
+      </category>
+
+      <category ID="5000.10">
+        <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung Lessingstraße 12"/>
+        <label xml:lang="x-mapping" text="destatis:7700 6990"/>
+        <url xlink:href="https://www.osim.uni-jena.de/"/>
       </category>
     </category>
 
@@ -397,6 +421,12 @@
         <label xml:lang="de" text="Institut für Pharmazie"/>
         <label xml:lang="x-mapping" text="destatis:3900"/>
         <url xlink:href="https://www.pharmazie.uni-jena.de/"/>
+      </category>
+
+      <category ID="6010.09">
+        <label xml:lang="de" text="Institut für Biodiversität, Ökologie und Evolution"/>
+        <label xml:lang="x-mapping" text="destatis:4090 4050"/>
+        <url xlink:href="https://www.bio.uni-jena.de/17710/institut-fuer-biodiversitaet-oekologie-und-evolution"/>
       </category>
     </category>
 
@@ -570,15 +600,21 @@
       </category>
 	  
 	  <category ID="8000.28">
-        <label xml:lang="de" text="LPI: Leibniz-Zentrum für Photonik in der Infektionsforschung"/>
-        <label xml:lang="x-mapping" text="destatis:4780 4020 3637 3730"/>
-        <url xlink:href="https://lpi-jena.de/"/>
+        <label xml:lang="de" text="Kompetenzzentrum für Interdisziplinäre Prävention"/>
+        <label xml:lang="x-mapping" text="destatis:4450 4453"/>
+        <url xlink:href="https://zs.thulb.uni-jena.de/receive/jportal_jpinst_00008567"/>
       </category>
 	  
 	  <category ID="8000.29">
         <label xml:lang="de" text="Jena School for Microbial Communication (JSMC)"/>
         <label xml:lang="x-mapping" text="destatis:4020 4780"/>
         <url xlink:href="https://www.jsmc-phd.de/"/>
+      </category>
+
+    <category ID="8000.30">
+        <label xml:lang="de" text="nutriCARD"/>
+        <label xml:lang="x-mapping" text="destatis:6520"/>
+        <url xlink:href="https://www.nutricard.de/"/>
       </category>
     </category>
 
@@ -1085,6 +1121,18 @@
           <label xml:lang="de" text="Zentrum für Gesundheits- und Sicherheitsmanagement"/>
           <label xml:lang="x-mapping" text="destatis:4453 5090"/>
           <url xlink:href="https://www.uniklinikum-jena.de/zgs/"/>
+        </category>
+
+        <category ID="7000.79">
+          <label xml:lang="de" text="Apotheke des Universitätsklinikums und Institut für Krankenhauspharmazie"/>
+          <label xml:lang="x-mapping" text="destatis:3900 8930"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/apotheke/"/>
+        </category>
+	  
+	      <category ID="7000.80">
+          <label xml:lang="de" text="InfectoGnostics Research Campus Jena"/>
+          <label xml:lang="x-mapping" text="destatis:4780 4810"/>
+          <url xlink:href="https://www.infectognostics.de/"/>
         </category>
       </category>
     </category>
