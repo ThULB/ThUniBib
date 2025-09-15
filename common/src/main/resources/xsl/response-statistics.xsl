@@ -84,7 +84,7 @@
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.charts.title.genre')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.genre')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ubogenre'"/>
       <xsl:with-param name="facet-name" select="'genre'"/>
     </xsl:apply-templates>
