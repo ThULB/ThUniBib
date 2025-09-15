@@ -14,32 +14,30 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>com.github.eirslett</groupId>
-        <artifactId>frontend-maven-plugin</artifactId>
-
-        <configuration>
-          <nodeVersion>${node.version}</nodeVersion>
-          <yarnVersion>${yarn.version}</yarnVersion>
-          <installDirectory>${settings.localRepository}/node-yarn-${node.version}-${yarn.version}</installDirectory>
-        </configuration>
-
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.6.0</version>
         <executions>
           <execution>
-            <id>install node and yarn name-search</id>
             <goals>
-              <goal>install-node-and-yarn</goal>
+              <goal>shade</goal>
             </goals>
-            <phase>generate-resources</phase>
-          </execution>
-          <execution>
-            <id>grunt-build</id>
-            <goals>
-              <goal>grunt</goal>
-            </goals>
-            <phase>generate-resources</phase>
+            <phase>package</phase>
             <configuration>
-              <arguments>--assetsDirectory=${project.build.outputDirectory}/META-INF/resources/assets
-                --moduleDirectory=${basedir}</arguments>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <artifactSet>
+                <includes>
+                  <include>de.uni-jena.thulb:charts-common</include>
+                </includes>
+              </artifactSet>
+              <filters>
+                <filter>
+                  <artifact>de.uni-jena.thulb:charts-common</artifact>
+                  <excludes>
+                    <exclude>META-INF/MANIFEST.MF</exclude>
+                  </excludes>
+                </filter>
+              </filters>
             </configuration>
           </execution>
         </executions>
@@ -59,6 +57,10 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>de.uni-jena.thulb</groupId>
+      <artifactId>charts-common</artifactId>
     </dependency>
     <dependency>
       <groupId>jakarta.servlet</groupId>
