@@ -64,27 +64,27 @@
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
       <xsl:with-param name="display-data-label" select="'false'"/>
       <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="horizontal-bars" select="'false'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.destatis')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.destatis')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'destatis'"/>
       <xsl:with-param name="height" select="1512"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.origin_exact')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.origin_exact')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'origin_exact'"/>
       <xsl:with-param name="height" select="1800"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.genre')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.genre')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ubogenre'"/>
       <xsl:with-param name="facet-name" select="'genre'"/>
     </xsl:apply-templates>
@@ -92,13 +92,13 @@
     <!-- This chart will only get displayed in Jena -->
     <xsl:if test="contains('fsu',  $UBO.projectid.default)">
       <xsl:apply-templates select="." mode="pie-chart">
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.fundingType')/i18n/text()"/>
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.fundingType')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'fundingType'"/>
       </xsl:apply-templates>
     </xsl:if>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.nid_connection')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'nid_connection'"/>
       <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
       <xsl:with-param name="height" select="1800"/>
@@ -113,7 +113,7 @@
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
       <xsl:with-param name="display-data-label" select="'false'"/>
       <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="horizontal-bars" select="'false'"/>
@@ -121,39 +121,39 @@
 
     <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
       <xsl:apply-templates select="." mode="bar-chart">
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.destatis')/i18n/text()"/>
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.destatis')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'destatis'"/>
         <xsl:with-param name="height" select="1512"/>
       </xsl:apply-templates>
     </xsl:if>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.ORIGIN.1')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.1')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.ORIGIN.3')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.3')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
       <xsl:with-param name="height" select="1024"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.genre')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.genre')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ubogenre'"/>
       <xsl:with-param name="facet-name" select="'genre'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.licenses')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.licenses')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'licenses'"/>
     </xsl:apply-templates>
 
     <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
       <xsl:apply-templates select="." mode="bar-chart">
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:charts.common.chart.title.nid_connection')/i18n/text()"/>
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'nid_connection'"/>
         <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
         <xsl:with-param name="height" select="1800"/>
