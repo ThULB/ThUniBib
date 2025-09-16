@@ -21,6 +21,7 @@
   </scm>
 
   <properties>
+    <charts.common.version>1.0.0-SNAPSHOT</charts.common.version>
     <jackson.version>2.17.1</jackson.version>
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
     <jdom.version>2.0.6.1</jdom.version>
@@ -97,6 +98,11 @@
       <name>Central Portal Snapshots</name>
       <url>https://central.sonatype.com/repository/maven-snapshots/</url>
     </repository>
+    <repository>
+      <id>gitlab-maven-releases</id>
+      <name>git.thulb.uni-jena.de</name>
+      <url>https://git.thulb.uni-jena.de/api/v4/projects/98/packages/maven</url>
+    </repository>
   </repositories>
 
   <distributionManagement>
@@ -129,6 +135,11 @@
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
         <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.uni-jena.thulb</groupId>
+        <artifactId>charts-common</artifactId>
+        <version>${charts.common.version}</version>
       </dependency>
       <dependency>
         <groupId>de.uni-jena.thulb.ubo</groupId>

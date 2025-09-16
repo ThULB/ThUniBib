@@ -7,10 +7,10 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 exclude-result-prefixes="i18n mcrxml xalan xsl">
 
-  <xsl:import href="charts/thunibib-statistics-bar-chart.xsl"/>
-  <xsl:import href="charts/thunibib-statistics-oa-chart.xsl" />
-  <xsl:import href="charts/thunibib-statistics-pie-chart.xsl"/>
-  <xsl:import href="charts/thunibib-statistics-stacked-bar-oa-chart.xsl" />
+  <xsl:import href="charts/bar-chart.xsl"/>
+  <xsl:import href="charts/oa-chart.xsl" />
+  <xsl:import href="charts/pie-chart.xsl"/>
+  <xsl:import href="charts/bar-stacked-oa-chart.xsl" />
 
   <xsl:include href="statistics.xsl" />
 
@@ -57,34 +57,34 @@
   </xsl:template>
 
   <xsl:template match="response" priority="1">
-    <xsl:apply-templates select="." mode="thunibib-oa-statistics">
+    <xsl:apply-templates select="." mode="charts-common-oa-statistics">
       <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
       <xsl:with-param name="display-data-label" select="'false'"/>
       <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="horizontal-bars" select="'false'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.destatis')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.destatis')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'destatis'"/>
       <xsl:with-param name="height" select="1512"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.origin_exact')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.origin_exact')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'origin_exact'"/>
       <xsl:with-param name="height" select="1800"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.genre')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.genre')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ubogenre'"/>
       <xsl:with-param name="facet-name" select="'genre'"/>
     </xsl:apply-templates>
@@ -92,13 +92,13 @@
     <!-- This chart will only get displayed in Jena -->
     <xsl:if test="contains('fsu',  $UBO.projectid.default)">
       <xsl:apply-templates select="." mode="pie-chart">
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.fundingType')/i18n/text()"/>
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.fundingType')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'fundingType'"/>
       </xsl:apply-templates>
     </xsl:if>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.nid_connection')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'nid_connection'"/>
       <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
       <xsl:with-param name="height" select="1800"/>
@@ -106,14 +106,14 @@
   </xsl:template>
 
   <xsl:template match="response[$UBO.projectid.default = 'ubw']" priority="1">
-    <xsl:apply-templates select="." mode="thunibib-oa-statistics">
+    <xsl:apply-templates select="." mode="charts-common-oa-statistics">
       <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
       <xsl:with-param name="display-data-label" select="'false'"/>
       <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="horizontal-bars" select="'false'"/>
@@ -121,39 +121,39 @@
 
     <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
       <xsl:apply-templates select="." mode="bar-chart">
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.destatis')/i18n/text()"/>
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.destatis')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'destatis'"/>
         <xsl:with-param name="height" select="1512"/>
       </xsl:apply-templates>
     </xsl:if>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.1')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.1')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.ORIGIN.3')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.3')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
       <xsl:with-param name="height" select="1024"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.genre')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.genre')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ubogenre'"/>
       <xsl:with-param name="facet-name" select="'genre'"/>
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.licenses')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.licenses')/i18n/text()"/>
       <xsl:with-param name="facet-name" select="'licenses'"/>
     </xsl:apply-templates>
 
     <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
       <xsl:apply-templates select="." mode="bar-chart">
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:thunibib.statistics.chart.title.nid_connection')/i18n/text()"/>
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'nid_connection'"/>
         <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
         <xsl:with-param name="height" select="1800"/>
