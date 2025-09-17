@@ -7,7 +7,7 @@
 
     <category ID="2000">
       <label xml:lang="de" text="Theologische Fakultät"/>
-      <label xml:lang="x-mapping" text="destatis:0200 0410"/>
+      <label xml:lang="x-mapping" text="destatis:0200 destatis:0410"/>
     </category>
 
     <category ID="1010">
@@ -41,7 +41,7 @@
       <category ID="1010.04">
         <label xml:lang="de"
                text="Institut für Rechtstatsachenforschung zum Deutschen und Europäischen Unternehmensrecht"/>
-        <label xml:lang="x-mapping" text="destatis:2620 2640"/>
+        <label xml:lang="x-mapping" text="destatis:2620 destatis:2640"/>
         <url xlink:href="https://www.rewi.uni-jena.de/fakultaet/institute/institut-fuer-rechtstatsachenforschung"/>
       </category>
     </category>
@@ -63,7 +63,7 @@
 
       <category ID="1030.02">
         <label xml:lang="de" text="Institut für Altertumswissenschaften"/>
-        <label xml:lang="x-mapping" text="destatis:0520 0570 0900"/>
+        <label xml:lang="x-mapping" text="destatis:0520 destatis:0570 destatis:0900"/>
         <url xlink:href="https://www.gw.uni-jena.de/altertum"/>
       </category>
 
@@ -87,7 +87,7 @@
 
       <category ID="1030.06">
         <label xml:lang="de" text="Institut für Anglistik/Amerikanistik"/>
-        <label xml:lang="x-mapping" text="destatis:1100 1110"/>
+        <label xml:lang="x-mapping" text="destatis:1100 destatis:1110"/>
         <url xlink:href="https://www.iaa.uni-jena.de/"/>
       </category>
 
@@ -113,13 +113,13 @@
       <category ID="1030.10">
         <label xml:lang="de"
                text="Institut für Orientalistik, Indogermanistik, Ur- und Frühgeschichtliche Archäologie"/>
-        <label xml:lang="x-mapping" text="destatis:0510 0845 1430 1445 1450 1470"/>
+        <label xml:lang="x-mapping" text="destatis:0510 destatis:0845 destatis:1430 destatis:1445 destatis:1450 destatis:1470"/>
         <url xlink:href="https://www.ikdaf.uni-jena.de/"/>
       </category>
 
       <category ID="1030.11">
         <label xml:lang="de" text="Institut für Kunst- und Kulturwissenschaft"/>
-        <label xml:lang="x-mapping" text="destatis:160 7800 8200"/>
+        <label xml:lang="x-mapping" text="destatis:160 destatis:7800 destatis:8200"/>
         <url xlink:href="https://www.kuk.uni-jena.de/"/>
       </category>
 
@@ -178,7 +178,7 @@
 
       <category ID="1040.08">
         <label xml:lang="de" text="Ethik in den Wissenschaften / Ethikzentrum"/>
-        <label xml:lang="x-mapping" text="destatis:0120 2210 3320 4700"/>
+        <label xml:lang="x-mapping" text="destatis:0120 destatis:2210 destatis:3320 destatis:4700"/>
         <url xlink:href="https://www.ethik.uni-jena.de/"/>
       </category>
 
@@ -191,7 +191,7 @@
 
     <category ID="4000">
       <label xml:lang="de" text="Fakultät für Mathematik und Informatik"/>
-      <label xml:lang="x-mapping" text="destatis:3400 3500"/>
+      <label xml:lang="x-mapping" text="destatis:3400 destatis:3500"/>
 
       <category ID="4000.01">
         <label xml:lang="de" text="Institut für Mathematik"/>
@@ -219,7 +219,7 @@
 	  
 	    <category ID="4000.05">
         <label xml:lang="de" text="Computer Vision Group Jena"/>
-        <label xml:lang="x-mapping" text="destatis:3560 3520"/>
+        <label xml:lang="x-mapping" text="destatis:3560 destatis:3520"/>
         <url xlink:href="https://inf-cv.uni-jena.de/"/>
       </category>
     </category>
@@ -236,7 +236,7 @@
 
       <category ID="5000.02">
         <label xml:lang="de" text="Institut für Festkörpertheorie und -optik"/>
-        <label xml:lang="x-mapping" text="destatis:3680 3637"/>
+        <label xml:lang="x-mapping" text="destatis:3680 destatis:3637"/>
         <url xlink:href="https://www.ifto.uni-jena.de/"/>
       </category>
 
@@ -284,25 +284,25 @@
 
       <category ID="5000.10">
         <label xml:lang="de" text="Otto-Schott-Institut für Materialforschung Lessingstraße 12"/>
-        <label xml:lang="x-mapping" text="destatis:7700 6990"/>
+        <label xml:lang="x-mapping" text="destatis:7700 destatis:6990"/>
         <url xlink:href="https://www.osim.uni-jena.de/"/>
       </category>
     </category>
 
     <category ID="6000">
       <label xml:lang="de" text="Chemisch-Geowissenschaftliche Fakultät"/>
-      <label xml:lang="x-mapping" text="destatis:3700 4100 4200"/>
+      <label xml:lang="x-mapping" text="destatis:3700 destatis:4100 destatis:4200"/>
       <url xlink:href="https://www.chemgeo.uni-jena.de/fakultaet/institute-und-forschungszentren"/>
 
       <category ID="6000.01">
         <label xml:lang="de" text="Institut für Anorganische und Analytische Chemie (IAAC)"/>
-        <label xml:lang="x-mapping" text="destatis:3710 3750"/>
+        <label xml:lang="x-mapping" text="destatis:3710 destatis:3750"/>
         <url xlink:href="https://www.chemgeo.uni-jena.de/iaac"/>
       </category>
 
       <category ID="6000.02">
         <label xml:lang="de" text="Institut für Organische Chemie und Makromolekulare Chemie (IOMC)"/>
-        <label xml:lang="x-mapping" text="destatis:3720 3770"/>
+        <label xml:lang="x-mapping" text="destatis:3720 destatis:3770"/>
         <url xlink:href="https://www.chemgeo.uni-jena.de/iomc"/>
       </category>
 
@@ -314,7 +314,7 @@
 
       <category ID="6000.04">
         <label xml:lang="de" text="Institut für Technische Chemie und Umweltchemie"/>
-        <label xml:lang="x-mapping" text="destatis:3740 3850"/>
+        <label xml:lang="x-mapping" text="destatis:3740 destatis:3850"/>
         <url xlink:href="https://www.chemgeo.uni-jena.de/ituc"/>
       </category>
 
@@ -337,7 +337,7 @@
 
       <category ID="6000.07">
         <label xml:lang="de" text="Institut für Geographie"/>
-        <label xml:lang="x-mapping" text="destatis:2340 4155 4200 7400 7600"/>
+        <label xml:lang="x-mapping" text="destatis:2340 destatis:4155 destatis:4200 destatis:7400 destatis:7600"/>
         <url xlink:href="https://www.geographie.uni-jena.de/"/>
       </category>
     </category>
@@ -364,14 +364,14 @@
 
         <category ID="6010.01.03">
           <label xml:lang="de" text="Ernst-Haeckel-Haus"/>
-          <label xml:lang="x-mapping" text="destatis:4050 4760"/>
+          <label xml:lang="x-mapping" text="destatis:4050 destatis:4760"/>
           <url xlink:href="https://www.wissenschaftsgeschichte.uni-jena.de/ernst-haeckel-haus"/>
         </category>
       </category>
 
       <category ID="6010.02">
         <label xml:lang="de" text="Matthias-Schleiden-Institut für Genetik, Bioinformatik und Molekulare Botanik"/>
-        <label xml:lang="x-mapping" text="destatis:3540 4010 4040"/>
+        <label xml:lang="x-mapping" text="destatis:3540 destatis:4010 destatis:4040"/>
         <url xlink:href="https://www.schleiden.uni-jena.de/"/>
       </category>
 
@@ -425,7 +425,7 @@
 
       <category ID="6010.09">
         <label xml:lang="de" text="Institut für Biodiversität, Ökologie und Evolution"/>
-        <label xml:lang="x-mapping" text="destatis:4090 4050"/>
+        <label xml:lang="x-mapping" text="destatis:4090 destatis:4050"/>
         <url xlink:href="https://www.bio.uni-jena.de/17710/institut-fuer-biodiversitaet-oekologie-und-evolution"/>
       </category>
     </category>
@@ -435,13 +435,13 @@
 
       <category ID="8000.01">
         <label xml:lang="de" text="Forschungszentrum für Religion und Bildung (FZRB, ehemals ZRB)"/>
-        <label xml:lang="x-mapping" text="destatis:0200 1800"/>
+        <label xml:lang="x-mapping" text="destatis:0200 destatis:1800"/>
         <url xlink:href="https://www.zrb.uni-jena.de/"/>
       </category>
 
       <category ID="8000.02">
         <label xml:lang="de" text="Jena Center for Reconciliation Studies (JCRS)"/>
-        <label xml:lang="x-mapping" text="destatis:0200 2210"/>
+        <label xml:lang="x-mapping" text="destatis:0200 destatis:2210"/>
         <url xlink:href="https://www.jcrs.uni-jena.de/"/>
       </category>
 
@@ -459,26 +459,26 @@
 
       <category ID="8000.05">
         <label xml:lang="de" text="Imre Kertész Kolleg Jena"/>
-        <label xml:lang="x-mapping" text="destatis:0550 0560 0585 1310"/>
+        <label xml:lang="x-mapping" text="destatis:0550 destatis:0560 destatis:0585 destatis:1310"/>
         <url xlink:href="https://www.imre-kertesz-kolleg.uni-jena.de/"/>
       </category>
 
       <category ID="8000.06">
         <label xml:lang="de" text="Aleksander-Brückner-Zentrum für Polenstudien"/>
-        <label xml:lang="x-mapping" text="destatis:1346 2210"/>
+        <label xml:lang="x-mapping" text="destatis:1346 destatis:2210"/>
         <url
             xlink:href="https://www.uni-jena.de/forschung/profillinien/wissenschaftliche-zentren/aleksander-brueckner-zentrum-fuer-polenstudien"/>
       </category>
 
       <category ID="8000.07">
         <label xml:lang="de" text="Forschungsstelle Weimarer Republik"/>
-        <label xml:lang="x-mapping" text="destatis:0540 2300"/>
+        <label xml:lang="x-mapping" text="destatis:0540 destatis:2300"/>
         <url xlink:href="https://www.weimarforschung.uni-jena.de/"/>
       </category>
 
       <category ID="8000.08">
         <label xml:lang="de" text="Forum for the Study of the Global Condition"/>
-        <label xml:lang="x-mapping" text="destatis:0560 2320"/>
+        <label xml:lang="x-mapping" text="destatis:0560 destatis:2320"/>
         <url xlink:href="https://www.forum-global-condition.de/"/>
       </category>
 
@@ -490,26 +490,26 @@
 
       <category ID="8000.10">
         <label xml:lang="de" text="Michael Stifel Center Jena (MSCJ)"/>
-        <label xml:lang="x-mapping" text="destatis:3470 3500"/>
+        <label xml:lang="x-mapping" text="destatis:3470 destatis:3500"/>
         <url xlink:href="https://www.mscj.uni-jena.de/"/>
       </category>
 
       <category ID="8000.11">
         <label xml:lang="de" text="Abbe Center of Photonics (ACP)"/>
-        <label xml:lang="x-mapping" text="destatis:3637 3730"/>
+        <label xml:lang="x-mapping" text="destatis:3637 destatis:3730"/>
         <url xlink:href="https://www.acp.uni-jena.de/"/>
       </category>
 
       <category ID="8000.12">
         <label xml:lang="de" text="Jena Center for Soft Matter (JCSM)"/>
-        <label xml:lang="x-mapping" text="destatis:3600 3770"/>
+        <label xml:lang="x-mapping" text="destatis:3600 destatis:3770"/>
         <url xlink:href="https://www.jcsm.uni-jena.de/"/>
       </category>
 
       <category ID="8000.13">
         <label xml:lang="de"
                text="iDiv - Deutsches Zentrum für integrative Biodiversitätsforschung Halle-Jena-Leipzig"/>
-        <label xml:lang="x-mapping" text="destatis:4090 4190"/>
+        <label xml:lang="x-mapping" text="destatis:4090 destatis:4190"/>
         <url xlink:href="https://www.idiv.de/de"/>
       </category>
 
@@ -541,13 +541,13 @@
 
       <category ID="8000.18">
         <label xml:lang="de" text="Center for Energy and Environmental Chemistry Jena (CEEC)"/>
-        <label xml:lang="x-mapping" text="destatis:3740 3850"/>
+        <label xml:lang="x-mapping" text="destatis:3740 destatis:3850"/>
         <url xlink:href="https://www.ceec.uni-jena.de/"/>
       </category>
 
       <category ID="8000.19">
         <label xml:lang="de" text="Center of Medical Optics and Photonics (CeMOP)"/>
-        <label xml:lang="x-mapping" text="destatis:3637 4725"/>
+        <label xml:lang="x-mapping" text="destatis:3637 destatis:4725"/>
         <url xlink:href="https://www.cemop.uni-jena.de/ueber-uns"/>
       </category>
 
@@ -559,55 +559,55 @@
 
       <category ID="8000.21">
         <label xml:lang="de" text="Zentrum für Innovationskompetenz (ZIK) Septomics"/>
-        <label xml:lang="x-mapping" text="destatis:4780 4810"/>
+        <label xml:lang="x-mapping" text="destatis:4780 destatis:4810"/>
         <url xlink:href="https://www.septomics.de/de/"/>
       </category>
 
       <category ID="8000.22">
         <label xml:lang="de" text="European Virus Bioinformatics Center (EVBC)"/>
-        <label xml:lang="x-mapping" text="destatis:4790 3540"/>
+        <label xml:lang="x-mapping" text="destatis:4790 destatis:3540"/>
         <url xlink:href="https://evbc.uni-jena.de/"/>
       </category>
 	  
 	  <category ID="8000.23">
         <label xml:lang="de" text="Cluster of Excellence 'Balance of the Microverse'"/>
-        <label xml:lang="x-mapping" text="destatis:4020 4780"/>
+        <label xml:lang="x-mapping" text="destatis:4020 destatis:4780"/>
         <url xlink:href="https://www.microverse-cluster.de/"/>
       </category>
 	  
 	  <category ID="8000.24">
         <label xml:lang="de" text="Deutsches Zentrum für Psychische Gesundheit (DZPG), Standort Halle-Jena-Magdeburg, Halle-Jena-Magdeburg, Germany"/>
-        <label xml:lang="x-mapping" text="destatis:1740 5050 5160 4580"/>
+        <label xml:lang="x-mapping" text="destatis:1740 destatis:5050 destatis:5160 destatis:4580"/>
         <url xlink:href="https://www.dzpg.org/en/the-dzpg/partner-sites/halle-jena-magdeburg"/>
       </category>
 	  
 	  <category ID="8000.25">
         <label xml:lang="de" text="Center for Intervention and Research on adaptive and maladaptive brain Circuits underlying mental health"/>
-        <label xml:lang="x-mapping" text="destatis:4580 4020 4810 5040"/>
+        <label xml:lang="x-mapping" text="destatis:4580 destatis:4020 destatis:4810 destatis:5040"/>
         <url xlink:href="https://c-i-r-c.de/"/>
       </category>
 	  
 	  <category ID="8000.26">
         <label xml:lang="de" text="ELLIS UNIT"/>
-        <label xml:lang="x-mapping" text="destatis:3560 3850 4160"/>
+        <label xml:lang="x-mapping" text="destatis:3560 destatis:3850 destatis:4160"/>
         <url xlink:href="https://www.ellis-jena.eu/"/>
       </category>
 	  
 	  <category ID="8000.27">
         <label xml:lang="de" text="LPI: Leibniz-Zentrum für Photonik in der Infektionsforschung"/>
-        <label xml:lang="x-mapping" text="destatis:4780 4020 3637 3730"/>
+        <label xml:lang="x-mapping" text="destatis:4780 destatis:4020 destatis:3637 destatis:3730"/>
         <url xlink:href="https://lpi-jena.de/"/>
       </category>
 	  
 	  <category ID="8000.28">
         <label xml:lang="de" text="Kompetenzzentrum für Interdisziplinäre Prävention"/>
-        <label xml:lang="x-mapping" text="destatis:4450 4453"/>
+        <label xml:lang="x-mapping" text="destatis:4450 destatis:4453"/>
         <url xlink:href="https://zs.thulb.uni-jena.de/receive/jportal_jpinst_00008567"/>
       </category>
 	  
 	  <category ID="8000.29">
         <label xml:lang="de" text="Jena School for Microbial Communication (JSMC)"/>
-        <label xml:lang="x-mapping" text="destatis:4020 4780"/>
+        <label xml:lang="x-mapping" text="destatis:4020 destatis:4780"/>
         <url xlink:href="https://www.jsmc-phd.de/"/>
       </category>
 
@@ -625,7 +625,7 @@
 
     <category ID="4711">
       <label xml:lang="de" text="Thüringer Universitäts- und Landesbibliothek Jena (ThULB)"/>
-      <label xml:lang="x-mapping" text="destatis:0700 9000"/>
+      <label xml:lang="x-mapping" text="destatis:0700 destatis:9000"/>
       <url xlink:href="https://www.thulb.uni-jena.de/"/>
     </category>
 
@@ -680,7 +680,7 @@
 
         <category ID="7000.04">
           <label xml:lang="de" text="Institut für Arbeits-, Sozial- und Umweltmedizin"/>
-          <label xml:lang="x-mapping" text="destatis:4705 4776"/>
+          <label xml:lang="x-mapping" text="destatis:4705 destatis:4776"/>
           <url xlink:href="https://www.uniklinikum-jena.de/asum/"/>
         </category>
 
@@ -710,7 +710,7 @@
 
         <category ID="7000.09">
           <label xml:lang="de" text="Institut für Geschichte, Theorie und Ethik der Medizin"/>
-          <label xml:lang="x-mapping" text="destatis:4760 4700"/>
+          <label xml:lang="x-mapping" text="destatis:4760 destatis:4700"/>
           <url xlink:href="https://www.uniklinikum-jena.de/Medizingeschichte.html"/>
         </category>
 
@@ -740,7 +740,7 @@
 
         <category ID="7000.15">
           <label xml:lang="de" text="Institut für Pharmakologie und Toxikologie"/>
-          <label xml:lang="x-mapping" text="destatis:3940 4715 4930"/>
+          <label xml:lang="x-mapping" text="destatis:3940 destatis:4715 destatis:4930"/>
           <url xlink:href="https://www.uniklinikum-jena.de/ipt/"/>
         </category>
 
@@ -764,13 +764,13 @@
 
         <category ID="7000.19">
           <label xml:lang="de" text="Institut für Psychosoziale Medizin, Psychotherapie und Psychoonkologie"/>
-          <label xml:lang="x-mapping" text="destatis:4580 5060"/>
+          <label xml:lang="x-mapping" text="destatis:4580 destatis:5060"/>
           <url xlink:href="https://www.uniklinikum-jena.de/mpsy/"/>
         </category>
 
         <category ID="7000.20">
           <label xml:lang="de" text=" Institut für Diagnostische und Interventionelle Radiologie"/>
-          <label xml:lang="x-mapping" text="destatis:4740 5150"/>
+          <label xml:lang="x-mapping" text="destatis:4740 destatis:5150"/>
           <url xlink:href="https://www.uniklinikum-jena.de/idir/"/>
         </category>
 
@@ -782,7 +782,7 @@
 
         <category ID="7000.22">
           <label xml:lang="de" text="Institut für Medizinische Statistik, Informatik und Datenwissenschaft (IMSID) "/>
-          <label xml:lang="x-mapping" text="destatis:4525 4737"/>
+          <label xml:lang="x-mapping" text="destatis:4525 destatis:4737"/>
           <url xlink:href="https://www.uniklinikum-jena.de/imsid/"/>
         </category>
 
@@ -800,7 +800,7 @@
 
         <category ID="7000.57">
           <label xml:lang="de" text="Institut für Physikalische und Rehabilitative Medizin"/>
-          <label xml:lang="x-mapping" text="destatis:5015 5080"/>
+          <label xml:lang="x-mapping" text="destatis:5015 destatis:5080"/>
           <url xlink:href="https://www.uniklinikum-jena.de/physiotherapie/"/>
         </category>
       </category>
@@ -847,7 +847,7 @@
 
         <category ID="7000.31">
           <label xml:lang="de" text="Klinik für Gerontopsychiatrie und Psychotherapie"/>
-          <label xml:lang="x-mapping" text="destatis:5060 5120"/>
+          <label xml:lang="x-mapping" text="destatis:5060 destatis:5120"/>
           <url xlink:href="https://www.uniklinikum-jena.de/gerontopsychiatrie/"/>
         </category>
 
@@ -917,7 +917,7 @@
 
         <category ID="7000.42">
           <label xml:lang="de" text="Klinik für Kinderchirurgie"/>
-          <label xml:lang="x-mapping" text="destatis:4950 4980"/>
+          <label xml:lang="x-mapping" text="destatis:4950 destatis:4980"/>
           <url xlink:href="https://www.uniklinikum-jena.de/kinderchirurgie/"/>
         </category>
 
@@ -942,7 +942,7 @@
 
         <category ID="7000.46">
           <label xml:lang="de" text="Klinik für Neuropädiatrie"/>
-          <label xml:lang="x-mapping" text="destatis:4950 5040"/>
+          <label xml:lang="x-mapping" text="destatis:4950 destatis:5040"/>
           <url xlink:href="https://www.uniklinikum-jena.de/neuropaediatrie/"/>
         </category>
 
@@ -954,13 +954,13 @@
 
         <category ID="7000.48">
           <label xml:lang="de" text="Klinik für Nuklearmedizin"/>
-          <label xml:lang="x-mapping" text="destatis:4595 5150"/>
+          <label xml:lang="x-mapping" text="destatis:4595 destatis:5150"/>
           <url xlink:href="https://www.uniklinikum-jena.de/nuklearmedizin/"/>
         </category>
 
         <category ID="7000.49">
           <label xml:lang="de" text="Klinik für Psychiatrie und Psychotherapie"/>
-          <label xml:lang="x-mapping" text="destatis:5050 5060"/>
+          <label xml:lang="x-mapping" text="destatis:5050 destatis:5060"/>
           <url xlink:href="https://www.uniklinikum-jena.de/psychiatrie/"/>
         </category>
 
@@ -972,7 +972,7 @@
 
         <category ID="7000.51">
           <label xml:lang="de" text="Klinik für Strahlentherapie und Radioonkologie"/>
-          <label xml:lang="x-mapping" text="destatis:4595 5150"/>
+          <label xml:lang="x-mapping" text="destatis:4595 destatis:5150"/>
           <url xlink:href="https://www.uniklinikum-jena.de/strahlenklinik/"/>
         </category>
 
@@ -1034,7 +1034,7 @@
         <category ID="7000.63">
           <label xml:lang="de"
                  text="Zentrum für Sepsis und Infektionsforschung / Center for Sepsis Control and Care (CSCC)"/>
-          <label xml:lang="x-mapping" text="destatis:4780 4810"/>
+          <label xml:lang="x-mapping" text="destatis:4780 destatis:4810"/>
           <url xlink:href="https://www.uniklinikum-jena.de/cscc/"/>
         </category>
 
@@ -1046,7 +1046,7 @@
 
         <category ID="7000.65">
           <label xml:lang="de" text="Fazialis-Nerv-Zentrum"/>
-          <label xml:lang="x-mapping" text="destatis:1740 5030 5040"/>
+          <label xml:lang="x-mapping" text="destatis:1740 destatis:5030 destatis:5040"/>
           <url xlink:href="https://www.uniklinikum-jena.de/fazialis/"/>
         </category>
 
@@ -1082,7 +1082,7 @@
 
         <category ID="7000.71">
           <label xml:lang="de" text="Zentrum für seltene Erkrankungen (ZSE)"/>
-          <label xml:lang="x-mapping" text="destatis:4750 4900"/>
+          <label xml:lang="x-mapping" text="destatis:4750 destatis:4900"/>
           <url xlink:href="https://www.uniklinikum-jena.de/zse/"/>
         </category>
 
@@ -1100,7 +1100,7 @@
 
         <category ID="7000.74">
           <label xml:lang="de" text="UniversitätsTumorCentrum Jena (UTC)"/>
-          <label xml:lang="x-mapping" text="destatis:4732 4936"/>
+          <label xml:lang="x-mapping" text="destatis:4732 destatis:4936"/>
           <url xlink:href="https://www.uniklinikum-jena.de/tz/-p-6304.html"/>
         </category>
 
@@ -1119,19 +1119,19 @@
 
         <category ID="7000.78">
           <label xml:lang="de" text="Zentrum für Gesundheits- und Sicherheitsmanagement"/>
-          <label xml:lang="x-mapping" text="destatis:4453 5090"/>
+          <label xml:lang="x-mapping" text="destatis:4453 destatis:5090"/>
           <url xlink:href="https://www.uniklinikum-jena.de/zgs/"/>
         </category>
 
         <category ID="7000.79">
           <label xml:lang="de" text="Apotheke des Universitätsklinikums und Institut für Krankenhauspharmazie"/>
-          <label xml:lang="x-mapping" text="destatis:3900 8930"/>
+          <label xml:lang="x-mapping" text="destatis:3900 destatis:8930"/>
           <url xlink:href="https://www.uniklinikum-jena.de/apotheke/"/>
         </category>
 	  
 	      <category ID="7000.80">
           <label xml:lang="de" text="InfectoGnostics Research Campus Jena"/>
-          <label xml:lang="x-mapping" text="destatis:4780 4810"/>
+          <label xml:lang="x-mapping" text="destatis:4780 destatis:4810"/>
           <url xlink:href="https://www.infectognostics.de/"/>
         </category>
       </category>
