@@ -4,6 +4,8 @@
   <title xml:lang="de">Über die Bibliographie</title>
   <title xml:lang="en">About the Bibliography</title>
 
+  <!-- Intro German/English -->
+
   <div class="row">
     <div class="col col-md-8">
       <article class="card mb-3" xml:lang="de">
@@ -31,6 +33,8 @@
       </article>
     </div>
   </div>
+
+  <!-- German Version -->
 
   <div class="row">
     <div class="col">
@@ -431,14 +435,16 @@
             <div class="card">
               <div class="card-header" id="headingPersonIcons">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                          data-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     <xinclude uri="i18n:thunibib.faq.icon.headline"/>
                   </button>
                 </h3>
               </div>
-              <div id="collapsePersonIcons" class="collapse" aria-labelledby="headingPersonIcons" data-parent="#accordionExample">
+              <div id="collapsePersonIcons" class="collapse" aria-labelledby="headingPersonIcons"
+                   data-parent="#accordionExample">
                 <div class="card-body">
                   <dl>
                     <dt>
@@ -582,7 +588,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseServiceOne" class="collapse show" aria-labelledby="headingServiceOne" data-parent="#accordionExample2">
+              <div id="collapseServiceOne" class="collapse show" aria-labelledby="headingServiceOne"
+                   data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Publikationen, die Open Access veröffentlicht sind, werden in der Universitätsbibliographie
@@ -608,14 +615,16 @@
               <div class="card-header" id="headingServiceThree">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceThree" aria-expanded="false" aria-controls="collapseServiceThree">
+                          data-target="#collapseServiceThree" aria-expanded="false"
+                          aria-controls="collapseServiceThree">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Redaktionelle Prüfung
                   </button>
                 </h3>
               </div>
-              <div id="collapseServiceThree" class="collapse" aria-labelledby="headingServiceThree" data-parent="#accordionExample2">
+              <div id="collapseServiceThree" class="collapse" aria-labelledby="headingServiceThree"
+                   data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Wir prüfen Ihre gemeldeten Publikationen und ergänzen ggf. die Publikationsmetadaten, damit eine
@@ -636,7 +645,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseServiceFour" class="collapse" aria-labelledby="headingServiceFour" data-parent="#accordionExample2">
+              <div id="collapseServiceFour" class="collapse" aria-labelledby="headingServiceFour"
+                   data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Statistiken können über den Gesamtbestand der Universitätsbibliographie abgerufen und nachgenutzt
@@ -659,7 +669,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseServiceFive" class="collapse" aria-labelledby="headingServiceFive" data-parent="#accordionExample2">
+              <div id="collapseServiceFive" class="collapse" aria-labelledby="headingServiceFive"
+                   data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Aus den Daten der Universitätsbibliographie können Sie Listen, die die Publikationen von
@@ -683,7 +694,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseServiceSix" class="collapse" aria-labelledby="headingServiceSix" data-parent="#accordionExample2">
+              <div id="collapseServiceSix" class="collapse" aria-labelledby="headingServiceSix"
+                   data-parent="#accordionExample2">
                 <div class="card-body">
                   <dl>
 
@@ -731,6 +743,8 @@
     </div>
   </div>
 
+  <!-- English Version -->
+
   <div class="row">
     <div class="col">
       <article class="card mb-3" xml:lang="en">
@@ -749,7 +763,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseOneEn" class="collapse show" aria-labelledby="headingOneEn" data-parent="#accordionExampleEn">
+              <div id="collapseOneEn" class="collapse show" aria-labelledby="headingOneEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Publication means that a publication/work should be accessible to a broad public in printed or
@@ -997,7 +1012,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseThreeEn" class="collapse" aria-labelledby="headingThreeEn" data-parent="#accordionExampleEn">
+              <div id="collapseThreeEn" class="collapse" aria-labelledby="headingThreeEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     All current and former members and affiliates of the University of Erfurt can or should report their
@@ -1019,7 +1035,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseFourEn" class="collapse" aria-labelledby="headingFourEn" data-parent="#accordionExampleEn">
+              <div id="collapseFourEn" class="collapse" aria-labelledby="headingFourEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Are you a member or affiliate of the University of Erfurt? Then help us to complete the university
@@ -1043,7 +1060,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseFiveEn" class="collapse" aria-labelledby="headingFiveEn" data-parent="#accordionExampleEn">
+              <div id="collapseFiveEn" class="collapse" aria-labelledby="headingFiveEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     To ensure standardised data quality, reported publication metadata are reviewed and corrected if
@@ -1091,7 +1109,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseSevenEn" class="collapse" aria-labelledby="headingSevenEn" data-parent="#accordionExampleEn">
+              <div id="collapseSevenEn" class="collapse" aria-labelledby="headingSevenEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Metadata is structured, additional data that supplements or describes the actual data in more
@@ -1114,7 +1133,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseEightEn" class="collapse" aria-labelledby="headingEightEn" data-parent="#accordionExampleEn">
+              <div id="collapseEightEn" class="collapse" aria-labelledby="headingEightEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     <a href="https://creativecommons.org/">Creative Commons licenses (CC)</a>
@@ -1148,7 +1168,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseNineEn" class="collapse" aria-labelledby="headingNineEn" data-parent="#accordionExampleEn">
+              <div id="collapseNineEn" class="collapse" aria-labelledby="headingNineEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Publication lists can contain the publications of structural units or persons and can be output in
@@ -1231,7 +1252,8 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseElevenEn" class="collapse" aria-labelledby="headingElevenEn" data-parent="#accordionExampleEn">
+              <div id="collapseElevenEn" class="collapse" aria-labelledby="headingElevenEn"
+                   data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Information on linking your ORCID-ID to the university bibliography can be found under "My profile".
@@ -1239,181 +1261,207 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
 
-            <article class="card mt-3 mb-3" xml:lang="en">
-              <div class="card-body">
-                <h3>Our service for you</h3>
+  <div class="row">
+    <div class="col">
+      <article class="card mb-3" xml:lang="en">
+        <div class="card-body">
+          <h3>Our service for you</h3>
 
-                <div class="accordion" id="accordionExampleEn2">
-                  <div class="card">
-                    <div class="card-header" id="headingServiceEnOne">
-                      <h3 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                data-target="#collapseServiceEn" aria-expanded="true" aria-controls="collapseServiceEn">
-                          <i class="fas fa-plus-circle"/>
-                          <i class="fas fa-minus-circle"/>
-                          Labelling of Open Access
-                        </button>
-                      </h3>
-                    </div>
-                    <div id="collapseServiceEn" class="collapse show" aria-labelledby="headingServiceEn" data-parent="#accordionExampleEn2">
-                      <div class="card-body">
-                        <p>
-                          Publications that are published Open Access are labelled in the university bibliography. This
-                          makes it
-                          possible to see at an instant whether a publication is freely accessible.
-                          Further information on open access publishing can be found on  <a
-                          href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/publishing-open-access">
-                          open access publishing</a>,
-                          <a
-                            href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/open-access-publication-fund">
-                            Open Access Publication Fund
-                          </a>
-                          or
-                          <a
-                            href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/publishing-agreements">
-                            Publishing agreements
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-header" id="headingServiceEnThree">
-                      <h3 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseServiceEnThree" aria-expanded="false" aria-controls="collapseServiceEnThree">
-                          <i class="fas fa-plus-circle"/>
-                          <i class="fas fa-minus-circle"/>
-                          Editorial review
-                        </button>
-                      </h3>
-                    </div>
-                    <div id="collapseServiceEnThree" class="collapse" aria-labelledby="headingServiceEnThree" data-parent="#accordionExampleEn2">
-                      <div class="card-body">
-                        <p>
-                          We check your reported publications and, if necessary, supplement the publication metadata to
-                          ensure
-                          standardised data quality for all entries.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-header" id="headingServiceEnFour">
-                      <h3 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseServiceEnFour" aria-expanded="false" aria-controls="collapseServiceEnFour">
-                          <i class="fas fa-plus-circle"/>
-                          <i class="fas fa-minus-circle"/>
-                          Statistics
-                        </button>
-                      </h3>
-                    </div>
-                    <div id="collapseServiceEnFour" class="collapse" aria-labelledby="headingServiceEnFour" data-parent="#accordionExampleEn2">
-                      <div class="card-body">
-                        <p>
-                          Statistics can be retrieved and reused via the entire university bibliography. Statistical
-                          analyses can
-                          also be displayed for individual hit lists / search results. To do this, use the button
-                          "Statistics" in
-                          the generated search result.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-header" id="headingServiceEnFive">
-                      <h3 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseServiceEnFive" aria-expanded="false" aria-controls="collapseServiceEnFive">
-                          <i class="fas fa-plus-circle"/>
-                          <i class="fas fa-minus-circle"/>
-                          Support with the creation of (personal) publication lists
-                        </button>
-                      </h3>
-                    </div>
-                    <div id="collapseServiceEnFive" class="collapse" aria-labelledby="headingServiceEnFive" data-parent="#accordionExampleEn2">
-                      <div class="card-body">
-                        <p>
-                          You can use the university bibliography data to create lists containing the publications of
-                          structural
-                          units or individuals in various formats.
-                          These lists are up to date as long as new publications are reported to us.
-                          <br/>
-                          With the help of a Typo3 plug-in, you can also integrate your lists on the University of
-                          Erfurt
-                          website.
-                          Read more information on the procedure under <a href="list-wizard.xed">Personal publication
-                          list</a>,
-                          or ask us
-                          <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-header" id="headingServiceEnSix">
-                      <h3 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseServiceEnSix" aria-expanded="false" aria-controls="collapseServiceEnSix">
-                          <i class="fas fa-plus-circle"/>
-                          <i class="fas fa-minus-circle"/>
-                          Linking with personal IDs
-                        </button>
-                      </h3>
-                    </div>
-                    <div id="collapseServiceEnSix" class="collapse" aria-labelledby="headingServiceEnSix" data-parent="#accordionExampleEn2">
-                      <div class="card-body">
-                        <dl>
-
-                          <dt>ORCID</dt>
-                          <dd>The University of Erfurt is an <a href="https://orcid.org/">ORCID member</a>.
-                            The connection of the university bibliography to ORCID is already implemented and can help
-                            you
-                            to maintain
-                            your ORCID profile and your personal publication list.
-                            Information on linking your ORCID ID with the university bibliography can be found at „My
-                            profile“.
-                          </dd>
-
-                          <dt>GND</dt>
-                          <dd>The <a href="https://www.dnb.de/EN/Professionell/Standardisierung/GND/gnd_node.html">
-                            Gemeinsame
-                            Normdatei (GND)
-                          </a> is a form of controlled vocabulary for persons, corporate bodies, geographical entities,
-                            subject
-                            headings and work titles.
-                            It is maintained cooperatively by the German National Library (DNB), all German-language
-                            library
-                            networks,
-                            the Journal Database (ZDB) and numerous other institutions.
-                          </dd>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
+          <div class="accordion" id="accordionExampleEn2">
+            <div class="card">
+              <div class="card-header" id="headingServiceEnOne">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                          data-target="#collapseServiceEn" aria-expanded="true"
+                          aria-controls="collapseServiceEn">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    Labelling of Open Access
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseServiceEn" class="collapse show" aria-labelledby="headingServiceEn"
+                   data-parent="#accordionExampleEn2">
+                <div class="card-body">
+                  <p>
+                    Publications that are published Open Access are labelled in the university bibliography.
+                    This
+                    makes it
+                    possible to see at an instant whether a publication is freely accessible.
+                    Further information on open access publishing can be found on  <a
+                    href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/publishing-open-access">
+                    open access publishing</a>,
+                    <a
+                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/open-access-publication-fund">
+                      Open Access Publication Fund
+                    </a>
+                    or
+                    <a
+                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/publishing-agreements">
+                      Publishing agreements
+                    </a>
+                  </p>
                 </div>
               </div>
-            </article>
+            </div>
 
-            <article class="card mb-3" xml:lang="en">
-              <div class="card-body">
-                <h3>Contact</h3>
-                <p>
-                  Do you have any questions about the University Bibliography or need help or advice? Please contact us!
-                </p>
-                <p>
-                  Editorial team:
-                  <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
-                </p>
+            <div class="card">
+              <div class="card-header" id="headingServiceEnThree">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button"
+                          data-toggle="collapse"
+                          data-target="#collapseServiceEnThree" aria-expanded="false"
+                          aria-controls="collapseServiceEnThree">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    Editorial review
+                  </button>
+                </h3>
               </div>
-            </article>
+              <div id="collapseServiceEnThree" class="collapse" aria-labelledby="headingServiceEnThree"
+                   data-parent="#accordionExampleEn2">
+                <div class="card-body">
+                  <p>
+                    We check your reported publications and, if necessary, supplement the publication metadata
+                    to
+                    ensure
+                    standardised data quality for all entries.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingServiceEnFour">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button"
+                          data-toggle="collapse"
+                          data-target="#collapseServiceEnFour" aria-expanded="false"
+                          aria-controls="collapseServiceEnFour">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    Statistics
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseServiceEnFour" class="collapse" aria-labelledby="headingServiceEnFour"
+                   data-parent="#accordionExampleEn2">
+                <div class="card-body">
+                  <p>
+                    Statistics can be retrieved and reused via the entire university bibliography. Statistical
+                    analyses can
+                    also be displayed for individual hit lists / search results. To do this, use the button
+                    "Statistics" in
+                    the generated search result.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingServiceEnFive">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button"
+                          data-toggle="collapse"
+                          data-target="#collapseServiceEnFive" aria-expanded="false"
+                          aria-controls="collapseServiceEnFive">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    Support with the creation of (personal) publication lists
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseServiceEnFive" class="collapse" aria-labelledby="headingServiceEnFive"
+                   data-parent="#accordionExampleEn2">
+                <div class="card-body">
+                  <p>
+                    You can use the university bibliography data to create lists containing the publications of
+                    structural
+                    units or individuals in various formats.
+                    These lists are up to date as long as new publications are reported to us.
+                    <br/>
+                    With the help of a Typo3 plug-in, you can also integrate your lists on the University of
+                    Erfurt
+                    website.
+                    Read more information on the procedure under <a href="list-wizard.xed">Personal publication
+                    list</a>,
+                    or ask us
+                    <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingServiceEnSix">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button"
+                          data-toggle="collapse"
+                          data-target="#collapseServiceEnSix" aria-expanded="false"
+                          aria-controls="collapseServiceEnSix">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    Linking with personal IDs
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseServiceEnSix" class="collapse" aria-labelledby="headingServiceEnSix"
+                   data-parent="#accordionExampleEn2">
+                <div class="card-body">
+                  <dl>
+
+                    <dt>ORCID</dt>
+                    <dd>The University of Erfurt is an <a href="https://orcid.org/">ORCID member</a>.
+                      The connection of the university bibliography to ORCID is already implemented and can help
+                      you
+                      to maintain
+                      your ORCID profile and your personal publication list.
+                      Information on linking your ORCID ID with the university bibliography can be found at „My
+                      profile“.
+                    </dd>
+
+                    <dt>GND</dt>
+                    <dd>The <a href="https://www.dnb.de/EN/Professionell/Standardisierung/GND/gnd_node.html">
+                      Gemeinsame
+                      Normdatei (GND)
+                    </a> is a form of controlled vocabulary for persons, corporate bodies, geographical
+                      entities,
+                      subject
+                      headings and work titles.
+                      It is maintained cooperatively by the German National Library (DNB), all German-language
+                      library
+                      networks,
+                      the Journal Database (ZDB) and numerous other institutions.
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <article class="card mb-3" xml:lang="en">
+        <div class="card-body">
+          <h3>Contact</h3>
+          <p>
+            Do you have any questions about the University Bibliography or need help or advice? Please contact
+            us!
+          </p>
+          <p>
+            Editorial team:
+            <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+          </p>
         </div>
       </article>
     </div>
