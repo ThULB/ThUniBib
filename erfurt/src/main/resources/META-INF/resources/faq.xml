@@ -737,19 +737,19 @@
         <div class="card-body">
           <h3>Useful information</h3>
 
-          <div class="accordion" id="accordionExample">
+          <div class="accordion" id="accordionExampleEn">
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <div class="card-header" id="headingOneEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          data-target="#collapseOneEn" aria-expanded="true" aria-controls="collapseOneEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What is meant by publication?
                   </button>
                 </h3>
               </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div id="collapseOneEn" class="collapse show" aria-labelledby="headingOneEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Publication means that a publication/work should be accessible to a broad public in printed or
@@ -766,17 +766,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingTwo">
+              <div class="card-header" id="headingTwoEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          data-target="#collapseTwoEn" aria-expanded="false" aria-controls="collapseTwoEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Which publication types are listed?
                   </button>
                 </h3>
               </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div id="collapseTwoEn" class="collapse" aria-labelledby="headingTwoEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     What is recorded in the university bibliography:
@@ -987,17 +987,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingThreeEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseThreeEn" aria-expanded="false" aria-controls="collapseThreeEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Who can register publications?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseThreeEn" class="collapse" aria-labelledby="headingThreeEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     All current and former members and affiliates of the University of Erfurt can or should report their
@@ -1009,17 +1009,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingFourEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseFouEnr" aria-expanded="false" aria-controls="collapseFourEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     How can publications be reported?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseFourEn" class="collapse" aria-labelledby="headingFourEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Are you a member or affiliate of the University of Erfurt? Then help us to complete the university
@@ -1033,17 +1033,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingFiveEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseFiveEn" aria-expanded="false" aria-controls="collapseFiveEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Why is my publication not (yet) visible?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseFiveEn" class="collapse" aria-labelledby="headingFiveEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     To ensure standardised data quality, reported publication metadata are reviewed and corrected if
@@ -1057,17 +1057,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingSixEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseSixEn" aria-expanded="false" aria-controls="collapseSixEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What does the reference "part of the statistics" mean?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseSixEn" class="collapse" aria-labelledby="headingSixEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     The note "part of statistics" in data records means that data records are included in statistical
@@ -1081,17 +1081,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingSevenEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseSevenEn" aria-expanded="false" aria-controls="collapseSevenEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What is metadata?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseSevenEn" class="collapse" aria-labelledby="headingSevenEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Metadata is structured, additional data that supplements or describes the actual data in more
@@ -1104,17 +1104,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingEightEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseEightEn" aria-expanded="false" aria-controls="collapseEightEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What open access licences are available?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseEightEn" class="collapse" aria-labelledby="headingEightEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     <a href="https://creativecommons.org/">Creative Commons licenses (CC)</a>
@@ -1138,17 +1138,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingNineEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseNineEn" aria-expanded="false" aria-controls="collapseNineEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     How do I create (my) publication list?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseNineEn" class="collapse" aria-labelledby="headingNineEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Publication lists can contain the publications of structural units or persons and can be output in
@@ -1164,17 +1164,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingTenEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseTenEn" aria-expanded="false" aria-controls="collapseTenEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What is meant by the access rights?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseTenEn" class="collapse" aria-labelledby="headingTenEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     <dl>
@@ -1221,17 +1221,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingElevenEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseElevenEn" aria-expanded="false" aria-controls="collapseElevenEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     How do I link my ORCID-ID to the university bibliography?
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseElevenEn" class="collapse" aria-labelledby="headingElevenEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
                     Information on linking your ORCID-ID to the university bibliography can be found under "My profile".
@@ -1239,24 +1239,24 @@
                 </div>
               </div>
             </div>
-            <article class="card mb-3" xml:lang="en">
+
+            <article class="card mt-3 mb-3" xml:lang="en">
               <div class="card-body">
                 <h3>Our service for you</h3>
 
-                <div class="accordion" id="accordionExample">
+                <div class="accordion" id="accordionExampleEn2">
                   <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" id="headingServiceEnOne">
                       <h3 class="mb-0">
                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                data-target="#collapseServiceEn" aria-expanded="true" aria-controls="collapseServiceEn">
                           <i class="fas fa-plus-circle"/>
                           <i class="fas fa-minus-circle"/>
                           Labelling of Open Access
                         </button>
                       </h3>
                     </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                         data-parent="#accordionExample">
+                    <div id="collapseServiceEn" class="collapse show" aria-labelledby="headingServiceEn" data-parent="#accordionExampleEn2">
                       <div class="card-body">
                         <p>
                           Publications that are published Open Access are labelled in the university bibliography. This
@@ -1280,18 +1280,17 @@
                   </div>
 
                   <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header" id="headingServiceEnThree">
                       <h3 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                data-target="#collapseServiceEnThree" aria-expanded="false" aria-controls="collapseServiceEnThree">
                           <i class="fas fa-plus-circle"/>
                           <i class="fas fa-minus-circle"/>
                           Editorial review
                         </button>
                       </h3>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                         data-parent="#accordionExample">
+                    <div id="collapseServiceEnThree" class="collapse" aria-labelledby="headingServiceEnThree" data-parent="#accordionExampleEn2">
                       <div class="card-body">
                         <p>
                           We check your reported publications and, if necessary, supplement the publication metadata to
@@ -1303,18 +1302,17 @@
                   </div>
 
                   <div class="card">
-                    <div class="card-header" id="headingFour">
+                    <div class="card-header" id="headingServiceEnFour">
                       <h3 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                data-target="#collapseServiceEnFour" aria-expanded="false" aria-controls="collapseServiceEnFour">
                           <i class="fas fa-plus-circle"/>
                           <i class="fas fa-minus-circle"/>
                           Statistics
                         </button>
                       </h3>
                     </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                         data-parent="#accordionExample">
+                    <div id="collapseServiceEnFour" class="collapse" aria-labelledby="headingServiceEnFour" data-parent="#accordionExampleEn2">
                       <div class="card-body">
                         <p>
                           Statistics can be retrieved and reused via the entire university bibliography. Statistical
@@ -1328,18 +1326,17 @@
                   </div>
 
                   <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header" id="headingServiceEnFive">
                       <h3 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                data-target="#collapseServiceEnFive" aria-expanded="false" aria-controls="collapseServiceEnFive">
                           <i class="fas fa-plus-circle"/>
                           <i class="fas fa-minus-circle"/>
                           Support with the creation of (personal) publication lists
                         </button>
                       </h3>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                         data-parent="#accordionExample">
+                    <div id="collapseServiceEnFive" class="collapse" aria-labelledby="headingServiceEnFive" data-parent="#accordionExampleEn2">
                       <div class="card-body">
                         <p>
                           You can use the university bibliography data to create lists containing the publications of
@@ -1360,18 +1357,17 @@
                   </div>
 
                   <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header" id="headingServiceEnSix">
                       <h3 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                data-target="#collapseServiceEnSix" aria-expanded="false" aria-controls="collapseServiceEnSix">
                           <i class="fas fa-plus-circle"/>
                           <i class="fas fa-minus-circle"/>
                           Linking with personal IDs
                         </button>
                       </h3>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                         data-parent="#accordionExample">
+                    <div id="collapseServiceEnSix" class="collapse" aria-labelledby="headingServiceEnSix" data-parent="#accordionExampleEn2">
                       <div class="card-body">
                         <dl>
 
@@ -1401,18 +1397,17 @@
                       </div>
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </article>
 
             <article class="card mb-3" xml:lang="en">
               <div class="card-body">
-                <h3>contact</h3>
+                <h3>Contact</h3>
                 <p>
                   Do you have any questions about the University Bibliography or need help or advice? Please contact us!
-                  <br/>
+                </p>
+                <p>
                   Editorial team:
                   <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
                 </p>
