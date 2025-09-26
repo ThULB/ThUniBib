@@ -4,11 +4,11 @@
   <title xml:lang="de">Über die Bibliographie</title>
   <title xml:lang="en">About the Bibliography</title>
 
-  <!-- Intro German/English -->
+  <!-- Introtext German/English -->
 
-  <div class="row">
+  <div class="row" xml:lang="all">
     <div class="col col-md-8">
-      <article class="card mb-3" xml:lang="de">
+      <article class="card mb-3">
         <div class="card-body">
           <p>
             <h3>
@@ -17,17 +17,15 @@
             </h3>
           </p>
           <p>
-            Die Universitätsbibliographie verzeichnet sämtliche Publikationen aller Mitglieder und Angehörigen der
-            Universität Erfurt,
-            deren Publikationen im Zusammenhang mit einer Tätigkeit an der Universität Erfurt entstanden sind.
-          </p>
-        </div>
-      </article>
-      <article class="card mb-3" xml:lang="en">
-        <div class="card-body">
-          <p>
-            The University Bibliography lists all publications of all members and affiliates of the University of Erfurt
-            whose publications were published during the period of activity at the University of Erfurt.
+            <i18n:de>
+              Die Universitätsbibliographie verzeichnet sämtliche Publikationen aller Mitglieder und Angehörigen der
+              Universität Erfurt, deren Publikationen im Zusammenhang mit einer Tätigkeit an der Universität Erfurt
+              entstanden sind.
+            </i18n:de>
+            <i18n:en>The University Bibliography lists all publications of all members and affiliates of the University
+              of Erfurt
+              whose publications were published during the period of activity at the University of Erfurt.
+            </i18n:en>
           </p>
         </div>
       </article>
@@ -385,7 +383,7 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseEight" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     In der Wissenschaft werden häufig <a href="https://de.creativecommons.net/start/">
@@ -417,7 +415,7 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseNine" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     Publikationslisten können die Publikationen von Struktureinheiten oder Personen beinhalten und in
@@ -1237,6 +1235,65 @@
                       </dd>
                     </dl>
                   </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingPersonIcons">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                          data-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    <xinclude uri="i18n:thunibib.faq.icon.headline"/>
+                  </button>
+                </h3>
+              </div>
+              <div id="collapsePersonIcons" class="collapse" aria-labelledby="headingPersonIcons"
+                   data-parent="#accordionExampleEn">
+                <div class="card-body">
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user"/>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user-edit"/>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user"/>
+                      <sup>
+                        <xinclude uri="i18n:ubo.person.connected.sup"/>
+                      </sup>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user.sup"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user-edit"/>
+                      <sup>
+                        <xinclude uri="i18n:ubo.person.connected.sup"/>
+                      </sup>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit.sup"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <xinclude uri="i18n:thunibib.faq.icon.not.present"/>
+                  </dl>
                 </div>
               </div>
             </div>
