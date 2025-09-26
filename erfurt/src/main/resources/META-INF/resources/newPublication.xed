@@ -5,11 +5,11 @@
   <title xml:lang="en">Register a publication</title>
 
   <article class="card mb-1">
-    <div class="card-body">
       <xed:form role="form" xmlns:xed="http://www.mycore.de/xeditor">
         <xed:choose>
           <xed:when test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
-            <xed:bind xpath="/mods:mods">
+            <div class="card-body">
+              <xed:bind xpath="/mods:mods">
               <fieldset>
 
                 <xed:if test="$xed-validation-failed">
@@ -108,6 +108,8 @@
 
               </fieldset>
             </xed:bind>
+            </div>
+
             <div class="card-body bg-alternative">
               <p>
                 <i18n:de>
@@ -140,40 +142,42 @@
             </div>
           </xed:when>
           <xed:otherwise>
-            <p>
-              <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden,
-                und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a href="login.xed">Login</a>.
-              </i18n:de>
-              <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and
-                you would like to report this publication? Please use your Uni-Login to
-                <a href="login.xed">sign in</a>.
-              </i18n:en>
-            </p>
+            <div class="card-body bg-alternative">
+              <p>
+                <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden,
+                  und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a href="login.xed">Login</a>.
+                </i18n:de>
+                <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and
+                  you would like to report this publication? Please use your Uni-Login to
+                  <a href="login.xed">sign in</a>.
+                </i18n:en>
+              </p>
 
-            <p>
-              <i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen
-                qualitativ hochwertige Publikationsmetadaten daraus:
-                <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
-              </i18n:de>
-              <i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality
-                publication metadata, or contact us
-                <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>.
-              </i18n:en>
-              <i18n:de>
-                Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
-                href="faq.xml">FAQs
-              </a> oder
-                <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns.</a>
-              </i18n:de>
-              <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
-                href="faq.xml">FAQs
-              </a> or
-                <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a>
-              </i18n:en>
-            </p>
+              <p>
+                <i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen
+                  qualitativ hochwertige Publikationsmetadaten daraus:
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+                </i18n:de>
+                <i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality
+                  publication metadata, or contact us
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>.
+                </i18n:en>
+                <i18n:de>
+                  Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
+                  href="faq.xml">FAQs
+                </a> oder
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns.</a>
+                </i18n:de>
+                <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
+                  href="faq.xml">FAQs
+                </a> or
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a>
+                </i18n:en>
+              </p>
+            </div>
           </xed:otherwise>
         </xed:choose>
       </xed:form>
-    </div>
+
   </article>
 </webpage>
