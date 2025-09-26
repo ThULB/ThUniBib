@@ -90,8 +90,8 @@
                 </xed:bind>
 
                 <xed:validate
-                    test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
-                    display="global" i18n="ubo.newPublicationWizard.required"/>
+                  test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
+                  display="global" i18n="ubo.newPublicationWizard.required"/>
 
                 <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
 
@@ -111,46 +111,65 @@
             <div class="card-body bg-alternative">
               <p>
                 <i18n:de>
-                  Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a href="faq.xml">FAQs</a> oder <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns</a><br/>
-				   Um Ihre Publikation in der Universitätsbibliographie verzeichnen zu können, ist zunächst die Erfassung von Publikationsmetadaten erforderlich. 
-				   Geben Sie hier den Identifikator für die Publikation (z.B. DOI, ISBN) ein, damit Publikationsdaten aus bestehenden Quellen übernommen werden können.<br/>
-				   Im Anschluss wird geprüft, ob dieser Eintrag bereits in der Universitätsbibliographie verzeichnet ist. Sollte der Titel noch nicht existieren, gelangen Sie im nächsten Schritt zur Erfassungsmaske. 
+                  Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
+                  href="faq.xml">FAQs
+                </a> oder
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns</a>
+                  <br/>
+                  Um Ihre Publikation in der Universitätsbibliographie verzeichnen zu können, ist zunächst die Erfassung
+                  von Publikationsmetadaten erforderlich.
+                  Geben Sie hier den Identifikator für die Publikation (z.B. DOI, ISBN) ein, damit Publikationsdaten aus
+                  bestehenden Quellen übernommen werden können.
+                  <br/>
+                  Im Anschluss wird geprüft, ob dieser Eintrag bereits in der Universitätsbibliographie verzeichnet ist.
+                  Sollte der Titel noch nicht existieren, gelangen Sie im nächsten Schritt zur Erfassungsmaske.
                 </i18n:de>
-				 <i18n:en>To find out which publications are included in the university bibliography, please refer to <a href="faq.xml">FAQs</a> or <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a><br/>
-				 In order for your publication to be listed in the university bibliography, publication metadata must first be recorded. Enter the identifier for the publication (e.g. DOI, ISBN) 
-				 so that publication data can be transferred from existing sources.<br/>
-				 The system then checks whether this entry is already listed in the university bibliography. If the title does not yet exist, you will be taken to the entry screen in the next step.
-			     </i18n:en>
+                <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
+                  href="faq.xml">FAQs
+                </a> or
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a>
+                  <br/>
+                  In order for your publication to be listed in the university bibliography, publication metadata must
+                  first be recorded. Enter the identifier for the publication (e.g. DOI, ISBN)
+                  so that publication data can be transferred from existing sources.
+                  <br/>
+                  The system then checks whether this entry is already listed in the university bibliography. If the
+                  title does not yet exist, you will be taken to the entry screen in the next step.
+                </i18n:en>
               </p>
             </div>
           </xed:when>
           <xed:otherwise>
             <p>
-              
-			  <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden, und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-Login <a href="login.xed">
-                Anmelden</a> 
-			  </i18n:de>
-              <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and you would like to report this publication? ? Please use your Uni-Login <a href="login.xed">sign in
-              </a> 
+              <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden,
+                und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a href="login.xed">Login</a>.
+              </i18n:de>
+              <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and
+                you would like to report this publication? Please use your Uni-Login to
+                <a href="login.xed">sign in</a>.
               </i18n:en>
             </p>
 
             <p>
-			<i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen qualitativ hochwertige Publikationsmetadaten daraus: 
-			<a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
-			</i18n:de>
-			<i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality publication metadata, or contact us <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
-                </a> 
-			</i18n:en>
-            </p>
-
-            <p>
-			<il8n:de>
-			Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a href="faq.xml">FAQs</a> oder <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns</a>
-			</il8n:de>
-	    	 <i18n:en>To find out which publications are included in the university bibliography, please refer to <a href="faq.xml">FAQs</a> or <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a>
-			 </i18n:en>
-			  
+              <i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen
+                qualitativ hochwertige Publikationsmetadaten daraus:
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+              </i18n:de>
+              <i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality
+                publication metadata, or contact us
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>.
+              </i18n:en>
+              <i18n:de>
+                Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
+                href="faq.xml">FAQs
+              </a> oder
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns.</a>
+              </i18n:de>
+              <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
+                href="faq.xml">FAQs
+              </a> or
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a>
+              </i18n:en>
             </p>
           </xed:otherwise>
         </xed:choose>
