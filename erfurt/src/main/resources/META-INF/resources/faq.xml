@@ -303,17 +303,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingFive">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseFive" aria-expanded="false" aria-controls="headingFive">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Warum ist meine Publikation (noch) nicht sichtbar?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     Um eine einheitliche Datenqualität zu gewährleisten, werden gemeldete Publikationsmetadaten von der
@@ -327,17 +327,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingSix">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was bedeutet der Hinweis „Teil der Statistik“?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     Der Hinweis „Teil der Statistik“ in Datensätzen informiert darüber, ob Publikationen in der
@@ -350,17 +350,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingSeven">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was sind Metadaten?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     Metadaten sind strukturierte, zusätzliche Daten, die die eigentlichen Daten ergänzen bzw. näher
@@ -371,17 +371,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingEight">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was gibt es für Open-Access-Lizenzen?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseEight" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     In der Wissenschaft werden häufig <a href="https://de.creativecommons.net/start/">
@@ -403,17 +403,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingNine">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Wie erstelle ich (m)eine Publikationsliste?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseNine" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     Publikationslisten können die Publikationen von Struktureinheiten oder Personen beinhalten und in
@@ -429,17 +429,74 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingPersonIcons">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    <xinclude uri="i18n:thunibib.faq.icon.headline"/>
+                  </button>
+                </h3>
+              </div>
+              <div id="collapsePersonIcons" class="collapse" aria-labelledby="headingPersonIcons" data-parent="#accordionExample">
+                <div class="card-body">
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user"/>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user-edit"/>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user"/>
+                      <sup>
+                        <xinclude uri="i18n:ubo.person.connected.sup"/>
+                      </sup>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user.sup"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i class="fas fa-user-edit"/>
+                      <sup>
+                        <xinclude uri="i18n:ubo.person.connected.sup"/>
+                      </sup>
+                    </dt>
+                    <dd>
+                      <xinclude uri="i18n:thunibib.faq.icon.fa.user.edit.sup"/>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <xinclude uri="i18n:thunibib.faq.icon.not.present"/>
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingEleven">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was ist unter den Zugangsrechten (Access Rights) zu verstehen?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
                 <div class="card-body">
                   <dl>
 
@@ -480,17 +537,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingTwelve">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Wie verknüpfe ich meine ORCID-ID mit der Universitätsbibliographie?
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     Informationen zur Verknüpfung Ihrer ORCID-ID mit der Universitätsbibliographie finden Sie unter
