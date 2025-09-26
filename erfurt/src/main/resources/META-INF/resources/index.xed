@@ -1,55 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib">
-  <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Universität Erfurt</title>
-  <title xml:lang="en">Welcome to Bibliography of University of Erfurt</title>
-
-  <article class="card mb-3" xml:lang="de">
-    <div class="card-body">
-      <h3>Die Universitätsbibliographie</h3>
+ <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Universität Erfurt</title>
+ <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt</title>
+ 
+ <article class="card mb-3" xml:lang="de">
+   <div class="card-body">
+     <h3>Die Universitätsbibliographie</h3>
       <p>
-        ist der zentrale Publikationsnachweis der Universität Erfurt, der online die Publikationstätigkeit der
-        Hochschulangehörigen verzeichnet.
-        Sie ist eine Dienstleistung der Universitätsbibliothek und wird durch diese redaktionell betreut.
-        <br/>
-        Die Universitätsbibliographie befindet sich derzeit im Aufbau.
+        … ist die zentrale Plattform zum Nachweis der Publikationsleistungen aller Mitglieder und Angehörigen der Universität Erfurt. 
+        Es werden Publikationen erfasst, die während der Tätigkeit an der Universität Erfurt entstanden sind, einen entsprechenden Zugehörigkeitsvermerk in der Publikation aufweisen und gedruckt oder digital dauerhaft öffentlich verfügbar sind.
+		Die Universitätsbibliographie ist eine Dienstleistung der Universitätsbibliothek, die auch für die redaktionelle Betreuung der Publikationsdaten verantwortlich ist.<br/>
       </p>
       <p>
-        Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
-        gefördert und erfolgt in Zusammenarbeit mit der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
+        Die Universitätsbibliographie wird laufend um ältere Publikationsdaten aus der bisherigen <a href="https://opac.uni-erfurt.de/DB=7/LNG=DU/">Hochschulbibliographie</a> ergänzt.
       </p>
+	  <p>
+	    Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Kooperationsverbund 
+		Thüringer Hochschulbibliotheken sowie der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
+	  </p>	
       <h3>Gehören Sie der Universität Erfurt an?</h3>
       <p>
-        Helfen Sie uns bei der Vervollständigung!
-        <br/>
-        <a href="../newPublication.xed">Hier können Sie Ihre Publikation an die Universitätsbibliographie melden</a>
+        Helfen Sie uns bei der Vervollständigung der Bibliographie!<br/>
+        <a href="../newPublication.xed">Melden Sie Ihre Publikationen an die Universitätsbibliographie</a> , und wir machen qualitativ hochwertige Publikationsmetadaten daraus.
       </p>
-    </div>
-  </article>
-
+	  <p>
+	    Oder schicken Sie uns Ihre Publikationsliste(n) in einem beliebigen Format: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+	  </p>
+   </div>
+ </article>
   <article class="card mb-3" xml:lang="en">
     <div class="card-body">
       <h3>The University Bibliography</h3>
       <p>
-        is the central resource of University of Erfurt that lists all publication activities of the university members.
-        It is provided and edited by the university library.
-        <br/>
-        The bibliography is currently under construction.
+        … is the central platform for documenting the publication achievements of all members and affiliates of the University of Erfurt.
+		Publications are recorded that were published during the period of activity at the University of Erfurt, have a corresponding affiliation 
+		note in the publication and are permanently available to the public in printed or digital form. 
+		The University Bibliography is a service provided by the University Library, which is also responsible for the editorial management of the publication data.
+		    
       </p>
       <p>
-        The development of the university bibliography is supported by the State of Thuringia within the framework of
-        the
-        Thuringian Digital Strategy and is being carried out in cooperation with the Head Office of the GBV Common
-        Library Network.
+        The university bibliography is continuously updated with older publication data from the previous <a href="https://opac.uni-erfurt.de/DB=7/LNG=EN/">university bibliography.</a>
       </p>
-      <h3>
-        As a member of University of Erfurt
-      </h3>
       <p>
-        Help us to complete the bibliography!
-        <br/>
-        <a href="../newPublication.xed">Here you can register your own publication</a>
+	    The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian digital strategy and is being carried out in cooperation with the 
+		Kooperationsverbund Thüringer Hochschulbibliotheken and the GBV Common Library Network.
+	  </p>
+	  <h3>
+        Are you a member of the University of Erfurt?</h3>
+      <p>
+        Help us to complete the bibliography!<br/>
+        <a href="../newPublication.xed">Report your publications to the University Bibliography</a> , and we will turn them into high-quality publication metadata. 
       </p>
+	  <p>
+	    Or send us your publication list(s) in any format: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+	  </p>
     </div>
   </article>
 
@@ -72,15 +77,14 @@
           <h3>Kontakt:</h3>
         </hgroup>
         <p>
-          <a href="https://www.uni-erfurt.de/bibliothek/ueber-die-ub/kontakt/ansprechpartner">
-            <span>Kontakt zur Universitätsbibliothek Erfurt</span>
+	  <a href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren-1/universitaetsbibliographie">
+            <span>Redaktionsteam der Universitätsbibliographie</span>
           </a>
         </p>
         <p>
-          Universitätsbibliothek Erfurt
-          <br/>
-          E-Mail:
-          <a href="mailto:bibliographie@uni-erfurt.de">bibliographie@uni-erfurt.de</a>
+         <br/>
+          E-Mail: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a><br/>
+          
         </p>
       </div>
     </article>
@@ -91,16 +95,14 @@
           <h3>Contact:</h3>
         </hgroup>
         <p>
-          <a href="https://www.uni-erfurt.de/en/erfurt-university-library/about-us/contact/contact-persons">
-            <span>Contact the University Library of Erfurt</span>
+	  <a href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography">
+            <span>Editorial team of the University Bibliography</span>
           </a>
         </p>
         <p>
-          Erfurt University Library
           <br/>
-          E-Mail:
-          <a href="mailto:bibliographie@uni-erfurt.de">bibliographie@uni-erfurt.de</a>
-     
+          Email: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a><br/>
+         
         </p>
       </div>
     </article>

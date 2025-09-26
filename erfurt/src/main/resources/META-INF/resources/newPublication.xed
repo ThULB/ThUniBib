@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib.new.publication" xmlns:i18n="http://www.mycore.org/i18n">
-  <title xml:lang="de">Publikation einreichen</title>
-  <title xml:lang="en">Registering a publication</title>
+  <title xml:lang="de">Publikation melden</title>
+  <title xml:lang="en">Register a publication</title>
 
   <article class="card mb-1">
-    <div>
+    <div class="card-body">
       <xed:form role="form" xmlns:xed="http://www.mycore.de/xeditor">
         <xed:choose>
           <xed:when test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
@@ -45,7 +45,6 @@
                             <option value="ppn">GVK PPN</option>
                             <option value="issn">ISSN</option>
                           </xed:if>
-                          <option value="dbt">DBT-ID</option>
                         </select>
                       </xed:bind>
                       :
@@ -91,8 +90,8 @@
                 </xed:bind>
 
                 <xed:validate
-                    test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
-                    display="global" i18n="ubo.newPublicationWizard.required"/>
+                  test="(string-length(mods:identifier) &gt; 0) or (string-length(mods:location/mods:shelfLocator) &gt; 0) or ( (string-length(mods:titleInfo/mods:title) &gt; 0) and (string-length(mods:name/mods:namePart) &gt; 0) )"
+                  display="global" i18n="ubo.newPublicationWizard.required"/>
 
                 <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
 
@@ -112,59 +111,66 @@
             <div class="card-body bg-alternative">
               <p>
                 <i18n:de>
-                  In der Bibliographie werden <strong>selbstständige und unselbstständige Publikationen</strong> erfasst,
-                  die <strong>
-                  gedruckt oder in digitaler Form
-                </strong> erschienen sind. Das können beispielsweise Monografien, Artikel in Zeitschriften und Beiträge
-                  in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>
-                  Alle Angehörigen und ehemaligen Angehörigen
-                </strong> der Universität Erfurt sind eingeladen, ihre Publikationen an die
-                  Universitätsbibliographie zu melden.
+                  Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
+                  href="faq.xml">FAQs
+                </a> oder
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns</a>
+                  <br/>
+                  Um Ihre Publikation in der Universitätsbibliographie verzeichnen zu können, ist zunächst die Erfassung
+                  von Publikationsmetadaten erforderlich.
+                  Geben Sie hier den Identifikator für die Publikation (z.B. DOI, ISBN) ein, damit Publikationsdaten aus
+                  bestehenden Quellen übernommen werden können.
+                  <br/>
+                  Im Anschluss wird geprüft, ob dieser Eintrag bereits in der Universitätsbibliographie verzeichnet ist.
+                  Sollte der Titel noch nicht existieren, gelangen Sie im nächsten Schritt zur Erfassungsmaske.
                 </i18n:de>
+                <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
+                  href="faq.xml">FAQs
+                </a> or
+                  <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a>
+                  <br/>
+                  In order for your publication to be listed in the university bibliography, publication metadata must
+                  first be recorded. Enter the identifier for the publication (e.g. DOI, ISBN)
+                  so that publication data can be transferred from existing sources.
+                  <br/>
+                  The system then checks whether this entry is already listed in the university bibliography. If the
+                  title does not yet exist, you will be taken to the entry screen in the next step.
+                </i18n:en>
               </p>
             </div>
           </xed:when>
           <xed:otherwise>
-            <div class="card-body bg-alternative">
-              <p>
-                <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem <a href="login.xed">
-                  URMZ-Login
-                </a> an.
-                </i18n:de>
-                <i18n:en>If you would like to submit a publication please <a href="login.xed">
-                  sign in
-                </a> with your URMZ
-                  credentials.
-                </i18n:en>
-              </p>
+            <p>
+              <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden,
+                und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a href="login.xed">Login</a>.
+              </i18n:de>
+              <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and
+                you would like to report this publication? Please use your Uni-Login to
+                <a href="login.xed">sign in</a>.
+              </i18n:en>
+            </p>
 
-              <p>
-                <i18n:de>Sollten Sie bereis <strong>Literaturlisten</strong> besitzen, die noch nicht in der
-                Universitätsbibliographie nachgewiesen sind, so <a href="contact.xml">setzen Sie sich bitte mit uns in
-                  Verbindung</a>.
-                </i18n:de>
-                <i18n:en>If you already have <strong>bibliographies</strong> that are not yet listed in the university bibliography, please
-                  <a href="contact.xml">contact us.
-                  </a>
-                </i18n:en>
-              </p>
-
-              <p>
-                <i18n:de>In der Bibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder
-                in digitaler Form erschienen sind. Das können beispielsweise Monografien, Artikel in Zeitschriften und
-                Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen. <strong>
-                  Alle Angehörigen und ehemaligen Angehörigen
-                </strong> der Universität Erfurt (und Ihrer Vorgängerinstitutionen) sind eingeladen, ihre
-                Publikationen an die Universitätsbibliographie zu melden.
-                </i18n:de>
-                <i18n:en>The bibliography includes independent and dependent publications that have appeared in print or digital form.
-                 These can be, for example, monographs, articles in journals and contributions to collective works, but also audio
-                  documents and multimedia, digital publications.
-                  <strong>All members and former members</strong> of the University of Erfurt (and your predecessor institutions)
-                  are invited to report their publications to the University Bibliography.
-                </i18n:en>
-              </p>
-            </div>
+            <p>
+              <i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen
+                qualitativ hochwertige Publikationsmetadaten daraus:
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+              </i18n:de>
+              <i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality
+                publication metadata, or contact us
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>.
+              </i18n:en>
+              <i18n:de>
+                Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
+                href="faq.xml">FAQs
+              </a> oder
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">fragen Sie uns.</a>
+              </i18n:de>
+              <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
+                href="faq.xml">FAQs
+              </a> or
+                <a href="mailto:bibliografie.ub@uni-erfurt.de">contact us</a>
+              </i18n:en>
+            </p>
           </xed:otherwise>
         </xed:choose>
       </xed:form>
