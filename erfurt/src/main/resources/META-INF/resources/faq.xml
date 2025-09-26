@@ -570,19 +570,19 @@
         <div class="card-body">
           <h3>Unser Service für Sie</h3>
 
-          <div class="accordion" id="accordionExample">
+          <div class="accordion" id="accordionExample2">
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <div class="card-header" id="headingServiceOne">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          data-target="#collapseServiceOne" aria-expanded="true" aria-controls="collapseServiceOne">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Kennzeichnung von Open Access
                   </button>
                 </h3>
               </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div id="collapseServiceOne" class="collapse show" aria-labelledby="headingServiceOne" data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Publikationen, die Open Access veröffentlicht sind, werden in der Universitätsbibliographie
@@ -605,17 +605,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingServiceThree">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseServiceThree" aria-expanded="false" aria-controls="collapseServiceThree">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Redaktionelle Prüfung
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseServiceThree" class="collapse" aria-labelledby="headingServiceThree" data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Wir prüfen Ihre gemeldeten Publikationen und ergänzen ggf. die Publikationsmetadaten, damit eine
@@ -626,17 +626,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingServiceFour">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          data-target="#collapseServiceFour" aria-expanded="false" aria-controls="collapseServiceFour">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Statistiken
                   </button>
                 </h3>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div id="collapseServiceFour" class="collapse" aria-labelledby="headingServiceFour" data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Statistiken können über den Gesamtbestand der Universitätsbibliographie abgerufen und nachgenutzt
@@ -649,17 +649,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingServiceFive">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseServiceFive" aria-expanded="false" aria-controls="collapseServiceFive">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Unterstützung bei der Erstellung von (persönlichen) Publikationslisten
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseServiceFive" class="collapse" aria-labelledby="headingServiceFive" data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
                     Aus den Daten der Universitätsbibliographie können Sie Listen, die die Publikationen von
@@ -673,17 +673,17 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingServiceSix">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-target="#collapseServiceSix" aria-expanded="false" aria-controls="collapseServiceSix">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Verknüpfung mit Personen-IDs
                   </button>
                 </h3>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseServiceSix" class="collapse" aria-labelledby="headingServiceSix" data-parent="#accordionExample2">
                 <div class="card-body">
                   <dl>
 
