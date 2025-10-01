@@ -65,7 +65,6 @@
 
     <xsl:apply-templates select="." mode="bar-chart">
       <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
-      <xsl:with-param name="display-data-label" select="'false'"/>
       <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="horizontal-bars" select="'false'"/>
     </xsl:apply-templates>
@@ -114,7 +113,6 @@
 
     <xsl:apply-templates select="." mode="bar-chart">
       <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
-      <xsl:with-param name="display-data-label" select="'false'"/>
       <xsl:with-param name="facet-name" select="'year'"/>
       <xsl:with-param name="horizontal-bars" select="'false'"/>
     </xsl:apply-templates>
