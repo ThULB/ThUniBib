@@ -145,8 +145,9 @@
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="pie-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.licenses')/i18n/text()"/>
-      <xsl:with-param name="facet-name" select="'licenses'"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.licenses_facet')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'licenses'"/>
+      <xsl:with-param name="facet-name" select="'licenses_facet'"/>
     </xsl:apply-templates>
 
     <xsl:if test="mcrxml:isCurrentUserInRole('admin')">

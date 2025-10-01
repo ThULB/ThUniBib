@@ -84,7 +84,7 @@
   },
   {
     "add-field": {
-      "name": "licenses",
+      "name": "licenses_facet",
       "type": "string",
       "multiValued": true,
       "indexed": true,
@@ -94,7 +94,7 @@
   {
     "add-copy-field": {
       "source": "license",
-      "dest": "licenses"
+      "dest": "licenses_facet"
     }
   },
   {
