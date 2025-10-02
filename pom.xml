@@ -19,7 +19,7 @@
   <scm>
     <url>git@github.com:ThULB/ThUniBib.git</url>
   </scm>
-
+ 
   <properties>
     <charts.common.version>1.0.2-SNAPSHOT</charts.common.version>
     <jackson.version>2.17.1</jackson.version>
