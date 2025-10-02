@@ -57,10 +57,11 @@
   </xsl:template>
 
   <xsl:template match="response" priority="1">
+    <!--
     <xsl:apply-templates select="." mode="charts-common-oa-statistics">
       <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
     </xsl:apply-templates>
-
+    -->
     <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
     <xsl:apply-templates select="." mode="bar-chart">
