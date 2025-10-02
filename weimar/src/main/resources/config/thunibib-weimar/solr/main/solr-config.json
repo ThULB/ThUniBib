@@ -1,0 +1,91 @@
+[
+  {
+    "update-requestHandler": {
+      "name": "/statistics",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "q.alt": "*:*",
+        "qs": "5",
+        "mm": "100%",
+        "df": "all",
+        "wt": "xml",
+        "f.year.facet.limit": -1,
+        "sort": "year desc"
+      },
+      "appends": {
+        "facet.field": [
+          "year",
+          "destatis",
+          "origin_exact",
+          "ORIGIN.1",
+          "ORIGIN.2.statistics",
+          "genre",
+          "oa",
+          "facet_person",
+          "connection_nid_text",
+          "nid_connection",
+          "fundingType",
+          "licenses_facet"
+        ],
+        "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa_exact,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
+        "fq": "+objectType:mods",
+        "fq": "+status:(unchecked OR status:confirmed OR status:reviewPending)"
+      },
+      "invariants": {
+        "fl": "",
+        "start": "0",
+        "rows": "0",
+        "facet": "true",
+        "facet.mincount": "1",
+        "facet.threads": "4",
+        "fq": "year:[2022 TO *]"
+      }
+    }
+  },
+  {
+    "update-requestHandler": {
+      "name": "/statistics-all",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "q.alt": "*:*",
+        "qs": "5",
+        "mm": "100%",
+        "df": "all",
+        "wt": "xml",
+        "f.year.facet.limit": -1,
+        "sort": "year desc"
+      },
+      "appends": {
+        "facet.field": [
+          "year",
+          "destatis",
+          "origin_exact",
+          "ORIGIN.1",
+          "ORIGIN.2.statistics",
+          "genre",
+          "oa",
+          "facet_person",
+          "connection_nid_text",
+          "nid_connection",
+          "fundingType",
+          "licenses_facet"
+        ],
+        "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa_exact,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
+        "fq": "+objectType:mods"
+      },
+      "invariants": {
+        "fl": "",
+        "start": "0",
+        "rows": "0",
+        "facet": "true",
+        "facet.mincount": "1",
+        "facet.threads": "4",
+        "fq": "year:[2022 TO *]"
+      }
+    }
+  }
+]
