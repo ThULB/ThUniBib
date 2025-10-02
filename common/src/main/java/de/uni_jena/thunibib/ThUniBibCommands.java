@@ -761,7 +761,7 @@ public class ThUniBibCommands {
         SolrQuery query = new SolrQuery("+nid_connection:" + connectionId);
         query.setRows(Integer.MAX_VALUE);
         query.setFields("id", "nid_connection");
-        QueryResponse response = MCRSolrClientFactory.getMainSolrClient().query(query);
+        QueryResponse response = MCRSolrCoreManager.getMainSolrClient().query(query);
         return response.getResults();
     }
 
