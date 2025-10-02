@@ -110,6 +110,14 @@
       "source": "corresponding_aut",
       "dest": "corresponding_aut_facet"
     }
+  },
+  {
+    "add-field": {
+      "name": "corresponding_aut_connected_facet",
+      "type": "string",
+      "multiValued": true,
+      "stored": true
+    }
   }
 ]
 
