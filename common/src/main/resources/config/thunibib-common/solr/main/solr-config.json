@@ -76,8 +76,7 @@
         "rows": "0",
         "facet": "true",
         "facet.mincount": "1",
-        "facet.threads": "4",
-        "fq": "year:[2018 TO *]"
+        "facet.threads": "4"
       }
     }
   },
@@ -119,8 +118,7 @@
         "rows": "0",
         "facet": "true",
         "facet.mincount": "1",
-        "facet.threads": "4",
-        "fq": "year:[2018 TO *]"
+        "facet.threads": "4"
       }
     }
   },
