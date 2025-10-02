@@ -36,3 +36,9 @@ i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
   color: $primary;
   content: "\f19c";
 }
+
+.apexcharts-bar-area, .apexcharts-pie-area {
+  &:hover {
+    cursor: pointer;
+  }
+}
