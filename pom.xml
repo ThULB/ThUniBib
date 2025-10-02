@@ -26,7 +26,7 @@
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
     <jersey.client.version>3.1.3</jersey.client.version>
     <maven.compiler.release>21</maven.compiler.release>
-    <mycore.version>2024.06.1-SNAPSHOT</mycore.version>
+    <mycore.version>2024.06.2-SNAPSHOT</mycore.version>
     <node.version>v16.19.1</node.version>
     <oaipmh.version>2.1</oaipmh.version>
     <ubo.version>dev-SNAPSHOT</ubo.version>
