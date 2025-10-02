@@ -30,6 +30,7 @@
     <xsl:apply-templates select="mods:identifier" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="mods:classification" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:name[mods:nameIdentifier[@type='connection']][mods:role[mods:roleTerm/text() = 'corresponding_author']]" mode="thunibib-solr-fields"/>
 
     <xsl:comment/>
     <xsl:call-template name="oa-status" />
@@ -183,5 +184,14 @@
         </xsl:for-each>
       </xsl:for-each>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="mods:name[mods:nameIdentifier[@type='connection']][mods:role[mods:roleTerm/text() = 'corresponding_author']]" mode="thunibib-solr-fields">
+    <field name="corresponding_aut_connected_facet">
+      <xsl:value-of select="mods:namePart[@type='family']" />
+      <xsl:for-each select="mods:namePart[@type='given'][1]">
+        <xsl:value-of select="concat(', ',text())" />
+      </xsl:for-each>
+    </field>
   </xsl:template>
 </xsl:stylesheet>
