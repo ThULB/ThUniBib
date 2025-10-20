@@ -162,11 +162,7 @@ body {
   }
 }
 
-#ubo-search-person option[value="person_ths"] {
-  display: none;
-}
-
-.charts-common-bar-chart-destatis{
+.charts-common-bar-chart-destatis, .charts-common-bar-chart-nid_connection {
   display: none;
 }
 

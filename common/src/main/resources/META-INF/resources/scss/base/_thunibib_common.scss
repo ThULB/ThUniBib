@@ -37,6 +37,10 @@ i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
   content: "\f19c";
 }
 
+#ubo-search-person option[value="person_ths"] {
+  display: none;
+}
+
 .apexcharts-bar-area, .apexcharts-pie-area {
   &:hover {
     cursor: pointer;
