@@ -71,38 +71,44 @@
     <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=*%3A*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
     <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=%2Bstatus%3A(imported%20OR%20reviewPending)+%2BimportID%3A*&amp;rows=0&amp;facet=true&amp;facet.limit=-1&amp;facet.field=importID&amp;fq%2Bcreated%3A[NOW%2FDAY-30DAYS%20TO%20*]"/>
 
-    <article class="card" xml:lang="de">
+    <article class="card bg-alternative" xml:lang="de">
       <div class="card-body">
         <hgroup>
           <h3>Kontakt:</h3>
         </hgroup>
         <p>
-	  <a href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren-1/universitaetsbibliographie">
+          <a
+            href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren-1/universitaetsbibliographie">
             <span>Redaktionsteam der Universitätsbibliographie</span>
           </a>
         </p>
         <p>
-         <br/>
-          E-Mail: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a><br/>
-          
+          <br/>
+          E-Mail:
+          <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+          <br/>
+
         </p>
       </div>
     </article>
 
-    <article class="card" xml:lang="en">
+    <article class="card bg-alternative" xml:lang="en">
       <div class="card-body">
         <hgroup>
           <h3>Contact:</h3>
         </hgroup>
         <p>
-	  <a href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography">
+          <a
+            href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography">
             <span>Editorial team of the University Bibliography</span>
           </a>
         </p>
         <p>
           <br/>
-          Email: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a><br/>
-         
+          Email:
+          <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+          <br/>
+
         </p>
       </div>
     </article>
