@@ -44,14 +44,18 @@
   </xsl:template>
 
   <xsl:template name="workCitation">
-    <work:citation>
-      <work:citation-type>
-        <xsl:value-of select="'bibtex'"/>
-      </work:citation-type>
+    <xsl:variable name="mcr-object-id" select="//mycoreobject/@ID"/>
 
-      <work:citation-value>
-        <xsl:value-of select="document(concat('notnull:toString:xslTransform:bibtex:mcrobject:', //mycoreobject/@ID))/str/text()"/>
-      </work:citation-value>
-    </work:citation>
+    <xsl:if test="document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:exists:',  $mcr-object-id))/string = 'true'">
+      <work:citation>
+        <work:citation-type>
+          <xsl:value-of select="'bibtex'"/>
+        </work:citation-type>
+
+        <work:citation-value>
+          <xsl:value-of select="document(concat('notnull:toString:xslTransform:bibtex:mcrobject:', $mcr-object-id))/str/text()"/>
+        </work:citation-value>
+      </work:citation>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
