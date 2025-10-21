@@ -133,7 +133,7 @@
     </xsl:apply-templates>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.3')/i18n/text()"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.2.statistics')/i18n/text()"/>
       <xsl:with-param name="classId" select="'ORIGIN'"/>
       <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
       <xsl:with-param name="height" select="1024"/>
