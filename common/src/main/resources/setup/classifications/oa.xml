@@ -10,47 +10,55 @@
       <label xml:lang="de" text="Open Access" />
       <label xml:lang="en" text="Open Access" />
       <label xml:lang="x-color" text="#f08112" />
+      <label xml:lang="x-color-chart" text="#C8FE2E" />
       <category ID="green">
         <!-- Publikation ist in einer lizenzpflichtigen Zeitschrift erschienen, eine (evtl. andere) Version des Artikels wurde auf DuEPublico publiziert (Zweitveröffentlichung). -->
         <label xml:lang="de" text="OA Grün" />
         <label xml:lang="en" text="OA Green" />
         <label xml:lang="x-color" text="#0b610b" />
+        <label xml:lang="x-color-chart" text="#00FF00" />
       </category>
       <category ID="gold">
         <!-- OA Erstveröffentlichung -->
         <label xml:lang="de" text="OA Gold" />
         <label xml:lang="en" text="OA Gold" />
         <label xml:lang="x-color" text="#ffd966" />
-          <category ID="diamond">
-            <!-- OA Erstveröffentlichung ohne APCs -->
-            <label xml:lang="de" text="OA Diamond" />
-            <label xml:lang="en" text="OA Diamond" />
-            <label xml:lang="x-color" text="#CECECE" />
-          </category>
+        <label xml:lang="x-color-chart" text="#FFFF00" />
+        <category ID="diamond">
+          <!-- OA Erstveröffentlichung ohne APCs -->
+          <label xml:lang="de" text="OA Diamond" />
+          <label xml:lang="en" text="OA Diamond" />
+          <label xml:lang="x-color" text="#CECECE" />
+          <label xml:lang="x-color-chart" text="#CECECE" />
+        </category>
       </category>
       <category ID="hybrid">
         <!-- Publikation ist in einer lizenzpflichtigen Zeitschrift erschienen, in der einzelne Artikel gegen Zahlung einer Publikationsgebühr Open Access erscheinen. -->
         <label xml:lang="de" text="OA Hybrid" />
         <label xml:lang="en" text="OA Hybrid" />
         <label xml:lang="x-color" text="#4472c4" />
+        <label xml:lang="x-color-chart" text="#FF8000" />
       </category>
       <category ID="bronze">
         <!-- Beim Verlag frei zugänglich, aber nicht unter einer OA Lizenz  -->
         <label xml:lang="de" text="OA Bronze" />
         <label xml:lang="en" text="OA Bronze" />
         <label xml:lang="x-color" text="#cd7f32" />
+        <label xml:lang="x-color-chart" text="#BF8970" />
       </category>
       <category ID="embargo">
         <!-- Publikation ist in einer lizenzpflichtigen Zeitschrift erschienen und nach nun bereits abgelaufener Embargofrist für alle frei zugänglich. -->
         <label xml:lang="de" text="OA Embargo" />
         <label xml:lang="en" text="OA Embargo" />
         <label xml:lang="x-color" text="#81c14b" />
+        <label xml:lang="x-color-chart" text="#868A08" />
       </category>
     </category>
     <category ID="closed">
       <label xml:lang="de" text="Closed Access" />
       <label xml:lang="en" text="Closed Access" />
       <label xml:lang="x-color" text="#8f989d" />
+      <label xml:lang="x-color-chart" text="#5fa8e8" />
     </category>
   </categories>
 </mycoreclass>

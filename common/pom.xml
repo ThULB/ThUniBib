@@ -11,6 +11,40 @@
   <artifactId>thunibib-common</artifactId>
   <name>ThUniBib Common Files</name>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.6.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <artifactSet>
+                <includes>
+                  <include>de.uni-jena.thulb:charts-common</include>
+                </includes>
+              </artifactSet>
+              <filters>
+                <filter>
+                  <artifact>de.uni-jena.thulb:charts-common</artifact>
+                  <excludes>
+                    <exclude>META-INF/MANIFEST.MF</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
   <dependencies>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -23,6 +57,10 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>de.uni-jena.thulb</groupId>
+      <artifactId>charts-common</artifactId>
     </dependency>
     <dependency>
       <groupId>jakarta.servlet</groupId>

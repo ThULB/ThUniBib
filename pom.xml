@@ -7,25 +7,32 @@
     <version>57</version>
     <relativePath />
   </parent>
+
   <groupId>de.uni-jena.thulb.ubo</groupId>
   <artifactId>ThUniBib</artifactId>
   <version>dev-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>UBO ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
-  <url>...</url>
+  <url>https://github.com/ThULB/ThUniBib</url>
   <inceptionYear>2019</inceptionYear>
+  <scm>
+    <url>git@github.com:ThULB/ThUniBib.git</url>
+  </scm>
 
   <properties>
+    <charts.common.version>1.0.2</charts.common.version>
     <jackson.version>2.17.1</jackson.version>
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
     <jdom.version>2.0.6.1</jdom.version>
     <jersey.client.version>3.1.3</jersey.client.version>
     <maven.compiler.release>17</maven.compiler.release>
     <mycore.version>2023.06.4-SNAPSHOT</mycore.version>
+    <node.version>v16.19.1</node.version>
     <oaipmh.version>2.1</oaipmh.version>
     <solr.version>8.11.3</solr.version>
     <ubo.version>dev-SNAPSHOT</ubo.version>
+    <yarn.version>v1.22.19</yarn.version>
   </properties>
 
   <build>
@@ -91,6 +98,11 @@
       <name>Central Portal Snapshots</name>
       <url>https://central.sonatype.com/repository/maven-snapshots/</url>
     </repository>
+    <repository>
+      <id>gitlab-maven-releases</id>
+      <name>git.thulb.uni-jena.de</name>
+      <url>https://git.thulb.uni-jena.de/api/v4/projects/98/packages/maven</url>
+    </repository>
   </repositories>
 
   <distributionManagement>
@@ -123,6 +135,11 @@
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
         <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.uni-jena.thulb</groupId>
+        <artifactId>charts-common</artifactId>
+        <version>${charts.common.version}</version>
       </dependency>
       <dependency>
         <groupId>de.uni-jena.thulb.ubo</groupId>

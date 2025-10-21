@@ -1,6 +1,6 @@
 /target/
 /bin/
-
+*/node_modules/
 .class
 
 # Mobile Tools for Java (J2ME)

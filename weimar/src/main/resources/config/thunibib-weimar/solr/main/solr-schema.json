@@ -1,0 +1,11 @@
+[
+  {
+    "add-field": {
+      "name": "ORIGIN.2.statistics",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    }
+  }
+]
