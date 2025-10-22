@@ -1,5 +1,20 @@
 # Changelog
 
+# 2025.10.22-2023.06.x
+- [#792](https://github.com/ThULB/ThUniBib/issues/792) Provide bibtex as work:citation-value when publication is submitted to orcid (#794)
+- [#798](https://github.com/ThULB/ThUniBib/issues/798) Update Jena's ORIGIN.xml
+- [#801](https://github.com/ThULB/ThUniBib/issues/801) Fixed destatis x-mapping attributes in ORIGIN.xml (Jena) (#802)
+- [#806](https://github.com/ThULB/ThUniBib/issues/806) Updated .xed and .xml files for Erfurt (#807)
+- [#809](https://github.com/ThULB/ThUniBib/issues/809) Allow ORICD authorization for Shibboleth users (#810)
+- [FSU040THUL-10225](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10225) [#815](https://github.com/ThULB/ThUniBib/issues/815) Check for dbt id as well when checking for existing dbt publications (#817)
+- [FSU040THUL-10225](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10225) [#815](https://github.com/ThULB/ThUniBib/issues/815) Fixed NullPointerException in DBTImportCommands#publicationExists(SolrDocument) (#816)
+- [FSU040THUL-10352](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10352) [#818](https://github.com/ThULB/ThUniBib/issues/818) Enable import via dbt id in newPublication.xed (#819)
+- [FSU040THUL-10465](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10465) [#813](https://github.com/ThULB/ThUniBib/issues/813) Updated faq.xml, listWizard.xed and newPublication.xed for Erfurt (#814)
+- [FSU040THUL-10491](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10491) [#821](https://github.com/ThULB/ThUniBib/issues/821) Link identifiers of type ppn to BibSearch (#822)
+- [FSU040THUL-8266 ](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8266) [#754](https://github.com/ThULB/ThUniBib/issues/754) Migrate to ApexCharts and add chart "Publications per structural unit of the university" for Weimar (#755)
+- [FSU040THUL-8266 ](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8266) [#754](https://github.com/ThULB/ThUniBib/issues/754) Update statistics chart titles (Weimar) and restrict access to certain charts (#820)
+- [FSU040THUL-9186 ](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9186) [#795](https://github.com/ThULB/ThUniBib/issues/795) Improved layout for Erfurt's UBO instance (#796)
+---
 # 2025.09.03-2023.06.x
 - [#785](https://github.com/ThULB/ThUniBib/issues/785) Upgrade to MyCoRe 2023.06.4 Snapshot (#786)
 - [#789](https://github.com/ThULB/ThUniBib/issues/789) Updated mapping to orcid work types (#790)
