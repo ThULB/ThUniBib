@@ -25,7 +25,7 @@
   <xinclude uri="xslStyle:charts/bar-chart?require-admin=true&amp;facet=destatis:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=destatis"/>
 
   <xinclude uri="xslStyle:charts/bar-chart?classification=ORIGIN&amp;facet=ORIGIN.1:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.1"/>
-  <xinclude uri="xslStyle:charts/bar-chart?classification=ORIGIN&amp;facet=ORIGIN.2.statistics&amp;default-height=1024:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.2.statistics"/>
+  <xinclude uri="xslStyle:charts/bar-chart?require-admin=true&amp;classification=ORIGIN&amp;facet=ORIGIN.2.statistics&amp;default-height=1024:solr:requestHandler:search:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2022+TO+*%5D&amp;rows=0&amp;facet.field=ORIGIN.2.statistics"/>
   <xinclude uri="xslStyle:charts/pie-chart?classification=ubogenre&amp;facet=genre:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=genre&amp;fq=%2Byear%3E%3D2022"/>
   <xinclude uri="xslStyle:charts/pie-chart?classification=licenses&amp;facet=licenses_facet:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0&amp;facet.field=licenses_facet&amp;fq=%2Byear%3E%3D2022"/>
 

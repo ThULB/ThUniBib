@@ -20,6 +20,7 @@ import org.mycore.solr.MCRSolrCore;
 import org.mycore.ubo.importer.ListImportJob;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -118,7 +119,7 @@ public class DBTImportCommands {
 
         if (fieldValues == null) {
             LOGGER.warn("No field 'mods.identifier' present in document of '{}'", doc.get("id"));
-            fieldValues = Collections.emptyList();
+            fieldValues = new ArrayList<>();
         }
 
         fieldValues.add(dbtId);
