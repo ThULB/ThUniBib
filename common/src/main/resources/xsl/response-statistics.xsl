@@ -3,13 +3,20 @@
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
-                exclude-result-prefixes="xsl xalan i18n">
+                exclude-result-prefixes="i18n mcrxml xalan xsl">
+
+  <xsl:import href="charts/bar-chart.xsl"/>
+  <xsl:import href="charts/oa-chart.xsl" />
+  <xsl:import href="charts/pie-chart.xsl"/>
+  <xsl:import href="charts/bar-stacked-oa-chart.xsl" />
 
   <xsl:include href="statistics.xsl" />
-  <xsl:include href="statistics-oa.xsl" />
+
   <xsl:param name="WebApplicationBaseURL" />
   <xsl:param name="RequestURL" />
+  <xsl:param name="UBO.projectid.default"/>
 
   <xsl:template match="/">
     <html id="dozbib.search">
@@ -17,6 +24,8 @@
         <title>
           <xsl:call-template name="page.title" />
         </title>
+
+        <script src="{$WebApplicationBaseURL}assets/apexcharts/dist/apexcharts.js"/>
       </head>
       <body>
         <article class="card mb-3">
@@ -34,7 +43,6 @@
             </xsl:if>
           </div>
         </article>
-        <xsl:apply-templates select="/" mode="oa-statistics" />
         <xsl:apply-templates select="response" />
       </body>
     </html>
@@ -49,19 +57,112 @@
   </xsl:template>
 
   <xsl:template match="response" priority="1">
-    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/highcharts.src.js" type="text/javascript"></script>
-    <script src="{$WebApplicationBaseURL}webjars/highcharts/5.0.1/themes/grid.js" type="text/javascript"></script>
+    <!--
+    <xsl:apply-templates select="." mode="charts-common-oa-statistics">
+      <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
+    </xsl:apply-templates>
+    -->
+    <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
 
-    <div id="chartDialog" />
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'year'"/>
+      <xsl:with-param name="horizontal-bars" select="'false'"/>
+    </xsl:apply-templates>
 
-    <xsl:for-each select="lst[@name='facet_counts']">
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='year'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='subject'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='origin'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='genre'][int]" />
-      <xsl:apply-templates select="lst[@name='facet_fields']/lst[@name='nid_connection'][int]" />
-    </xsl:for-each>
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.destatis')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'destatis'"/>
+      <xsl:with-param name="height" select="1512"/>
+    </xsl:apply-templates>
 
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.origin_exact')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'ORIGIN'"/>
+      <xsl:with-param name="facet-name" select="'origin_exact'"/>
+      <xsl:with-param name="height" select="1800"/>
+    </xsl:apply-templates>
+
+    <xsl:apply-templates select="." mode="pie-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.genre')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'ubogenre'"/>
+      <xsl:with-param name="facet-name" select="'genre'"/>
+    </xsl:apply-templates>
+
+    <!-- This chart will only get displayed in Jena -->
+    <xsl:if test="contains('fsu',  $UBO.projectid.default)">
+      <xsl:apply-templates select="." mode="pie-chart">
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.fundingType')/i18n/text()"/>
+        <xsl:with-param name="facet-name" select="'fundingType'"/>
+      </xsl:apply-templates>
+    </xsl:if>
+
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'nid_connection'"/>
+      <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
+      <xsl:with-param name="height" select="1800"/>
+    </xsl:apply-templates>
+  </xsl:template>
+
+  <xsl:template match="response[$UBO.projectid.default = 'ubw']" priority="1">
+    <xsl:variable name="user-is-admin" select="mcrxml:isCurrentUserInRole('admin')"/>
+
+    <xsl:apply-templates select="." mode="charts-common-oa-statistics">
+      <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
+    </xsl:apply-templates>
+
+    <xsl:apply-templates select="." mode="stacked-bar-oa-chart"/>
+
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.year')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'year'"/>
+      <xsl:with-param name="horizontal-bars" select="'false'"/>
+    </xsl:apply-templates>
+
+    <xsl:if test="$user-is-admin">
+      <xsl:apply-templates select="." mode="bar-chart">
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.destatis')/i18n/text()"/>
+        <xsl:with-param name="facet-name" select="'destatis'"/>
+        <xsl:with-param name="height" select="1512"/>
+      </xsl:apply-templates>
+    </xsl:if>
+
+    <xsl:apply-templates select="." mode="bar-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.1')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'ORIGIN'"/>
+      <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
+    </xsl:apply-templates>
+
+    <xsl:if test="$user-is-admin">
+      <xsl:apply-templates select="." mode="bar-chart">
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.2.statistics')/i18n/text()"/>
+        <xsl:with-param name="classId" select="'ORIGIN'"/>
+        <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
+        <xsl:with-param name="height" select="1024"/>
+      </xsl:apply-templates>
+    </xsl:if>
+
+    <xsl:apply-templates select="." mode="pie-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.genre')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'ubogenre'"/>
+      <xsl:with-param name="facet-name" select="'genre'"/>
+    </xsl:apply-templates>
+
+    <xsl:apply-templates select="." mode="pie-chart">
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.licenses_facet')/i18n/text()"/>
+      <xsl:with-param name="classId" select="'licenses'"/>
+      <xsl:with-param name="facet-name" select="'licenses_facet'"/>
+    </xsl:apply-templates>
+
+    <xsl:if test="$user-is-admin">
+      <xsl:apply-templates select="." mode="bar-chart">
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
+        <xsl:with-param name="facet-name" select="'nid_connection'"/>
+        <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
+        <xsl:with-param name="height" select="1800"/>
+      </xsl:apply-templates>
+    </xsl:if>
   </xsl:template>
 
 </xsl:stylesheet>

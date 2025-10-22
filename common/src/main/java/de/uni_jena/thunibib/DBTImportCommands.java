@@ -20,7 +20,10 @@ import org.mycore.solr.MCRSolrCore;
 import org.mycore.ubo.importer.ListImportJob;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -111,7 +114,17 @@ public class DBTImportCommands {
      * ignoring new publications that failed to be queried successfully.</p>
      */
     private static boolean publicationExists(SolrDocument doc) {
-        return doc.getFieldValues("mods.identifier")
+        Collection<Object> fieldValues = doc.getFieldValues("mods.identifier");
+        String dbtId = doc.get("id").toString();
+
+        if (fieldValues == null) {
+            LOGGER.warn("No field 'mods.identifier' present in document of '{}'", doc.get("id"));
+            fieldValues = new ArrayList<>();
+        }
+
+        fieldValues.add(dbtId);
+
+        return fieldValues
             .stream()
             .map(Object::toString)
             .anyMatch(identifier -> {

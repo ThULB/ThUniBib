@@ -7,7 +7,6 @@ $erfurtPetrol: #00856f;
 $erfurtBlueHover: #2f6daa;
 $erfurtYellow: #f4c000;
 
-// reposis
 $erfurtRHover: #6969d4;
 $erfurtRLink: #494999;
 $erfurtRLinkAlt: #3838c2;
@@ -29,5 +28,5 @@ $body-bg: white;
 $badge-font-weight: normal;
 
 $theme-colors: (
-  alternative: hsl(347, 4%, 90%)
+  alternative: $erfurtPetrol
 );

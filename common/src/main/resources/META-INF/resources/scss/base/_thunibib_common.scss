@@ -1,3 +1,7 @@
+.ubo-facet-card-ORIGIN-1, .ubo-facet-card-ORIGIN-2-statistics {
+  display: none;
+}
+
 i.flag {
   margin-right: .5rem;
   position: relative;
@@ -31,4 +35,14 @@ div[id^="bs-select"] ul.dropdown-menu li.active a {
 i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
   color: $primary;
   content: "\f19c";
+}
+
+#ubo-search-person option[value="person_ths"] {
+  display: none;
+}
+
+.apexcharts-bar-area, .apexcharts-pie-area {
+  &:hover {
+    cursor: pointer;
+  }
 }
