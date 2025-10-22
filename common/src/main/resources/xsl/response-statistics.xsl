@@ -106,6 +106,8 @@
   </xsl:template>
 
   <xsl:template match="response[$UBO.projectid.default = 'ubw']" priority="1">
+    <xsl:variable name="user-is-admin" select="mcrxml:isCurrentUserInRole('admin')"/>
+
     <xsl:apply-templates select="." mode="charts-common-oa-statistics">
       <xsl:with-param name="facet-name" select="'mediaTypePerYearAndOA'"/>
     </xsl:apply-templates>
@@ -118,7 +120,7 @@
       <xsl:with-param name="horizontal-bars" select="'false'"/>
     </xsl:apply-templates>
 
-    <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
+    <xsl:if test="$user-is-admin">
       <xsl:apply-templates select="." mode="bar-chart">
         <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.destatis')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'destatis'"/>
@@ -132,12 +134,14 @@
       <xsl:with-param name="facet-name" select="'ORIGIN.1'"/>
     </xsl:apply-templates>
 
-    <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.2.statistics')/i18n/text()"/>
-      <xsl:with-param name="classId" select="'ORIGIN'"/>
-      <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
-      <xsl:with-param name="height" select="1024"/>
-    </xsl:apply-templates>
+    <xsl:if test="$user-is-admin">
+      <xsl:apply-templates select="." mode="bar-chart">
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.ORIGIN.2.statistics')/i18n/text()"/>
+        <xsl:with-param name="classId" select="'ORIGIN'"/>
+        <xsl:with-param name="facet-name" select="'ORIGIN.2.statistics'"/>
+        <xsl:with-param name="height" select="1024"/>
+      </xsl:apply-templates>
+    </xsl:if>
 
     <xsl:apply-templates select="." mode="pie-chart">
       <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.genre')/i18n/text()"/>
@@ -151,7 +155,7 @@
       <xsl:with-param name="facet-name" select="'licenses_facet'"/>
     </xsl:apply-templates>
 
-    <xsl:if test="mcrxml:isCurrentUserInRole('admin')">
+    <xsl:if test="$user-is-admin">
       <xsl:apply-templates select="." mode="bar-chart">
         <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
         <xsl:with-param name="facet-name" select="'nid_connection'"/>
