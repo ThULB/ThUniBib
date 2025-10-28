@@ -24,8 +24,8 @@
           <label xml:lang="x-marcgt" text="article"/>
           <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
 
-          <label xml:lang="de" text="Daten Artikel"/>
-          <label xml:lang="en" text="Data paper"/>
+          <label xml:lang="de" text="Datenartikel"/>
+          <label xml:lang="en" text="Data Paper"/>
         </category>
 
         <category ID="review_article">
