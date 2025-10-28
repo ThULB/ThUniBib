@@ -12,8 +12,10 @@
   </xsl:template>
 
   <xsl:template match="doc">
-    <mods:identifier type="dbt">
-      <xsl:value-of select="str[@name='id']"/>
-    </mods:identifier>
+    <xsl:if test="string-length(document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:getMatchingString:', str[@name='id'], ':dbt_mods_[\d]{8}'))/string) = 17">
+      <mods:identifier type="dbt">
+        <xsl:value-of select="str[@name='id']"/>
+      </mods:identifier>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
