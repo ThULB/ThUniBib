@@ -18,6 +18,16 @@
         <label xml:lang="de" text="Artikel/Aufsatz" description="Ein Artikel oder ein redaktioneller Teil veröffentlicht in einer wissenschaftlichen Zeitschrift"/>
         <label xml:lang="en" text="Journal article"/>
 
+        <category ID="data_paper">
+          <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
+          <label xml:lang="x-color" text="#3f888f"/>
+          <label xml:lang="x-marcgt" text="article"/>
+          <label xml:lang="x-mapping" text="marcgt:article orcidWorkType:journal-article"/>
+
+          <label xml:lang="de" text="Daten Artikel"/>
+          <label xml:lang="en" text="Data paper"/>
+        </category>
+
         <category ID="review_article">
           <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
           <label xml:lang="x-color" text="#8671b1"/>
