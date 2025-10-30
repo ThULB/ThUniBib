@@ -5,6 +5,8 @@
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 exclude-result-prefixes="mods xlink xsl">
 
+  <xsl:include href="dbt2mods-genre-mapping-utils.xsl"/>
+
   <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:template match="@*|node()|comment()">
@@ -21,7 +23,10 @@
   </xsl:template>
 
   <xsl:template match="mods:genre[@type = 'intern'][not(@authorityURI)][not(@valueURI)]">
-    <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre"
-                valueURI="{$WebApplicationBaseURL}classifications/ubogenre#{.}"/>
+    <xsl:variable name="mapped-genre">
+      <xsl:apply-templates select="." mode="mir-genre-to-ubogenre"/>
+    </xsl:variable>
+
+    <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre" valueURI="{$WebApplicationBaseURL}classifications/ubogenre#{$mapped-genre}"/>
   </xsl:template>
 </xsl:stylesheet>
