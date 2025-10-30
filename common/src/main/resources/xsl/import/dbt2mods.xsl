@@ -12,6 +12,8 @@
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 exclude-result-prefixes="mcrxml mods xsl xalan xlink">
 
+  <xsl:include href="dbt2mods-genre-mapping-utils.xsl"/>
+
   <xsl:param name="CurrentLang"/>
   <xsl:param name="MCR.user2.IdentityManagement.UserCreation.Affiliation"/>
   <xsl:param name="WebApplicationBaseURL"/>
@@ -50,17 +52,18 @@
   </xsl:template>
 
   <xsl:template match="mods:genre[contains(@authorityURI, 'mir_genres')]">
-    <xsl:variable name="genre" select="substring-after(@valueURI, '#')"/>
     <!-- matches mods:genre in select-genre.xed -->
     <mods:genre type="intern">
-      <xsl:value-of select="$genre"/>
+      <xsl:apply-templates select="." mode="mir-genre-to-ubogenre"/>
     </mods:genre>
   </xsl:template>
 
   <xsl:template match="mods:genre[contains(@authorityURI, 'mir_genres')]" mode="relatedItem">
-    <xsl:variable name="genre" select="substring-after(@valueURI, '#')"/>
-    <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre"
-                valueURI="{$WebApplicationBaseURL}classifications/ubogenre#{$genre}"/>
+    <xsl:variable name="genre">
+      <xsl:apply-templates select="." mode="mir-genre-to-ubogenre"/>
+    </xsl:variable>
+
+    <mods:genre type="intern" authorityURI="{$WebApplicationBaseURL}classifications/ubogenre" valueURI="{$WebApplicationBaseURL}classifications/ubogenre#{$genre}"/>
   </xsl:template>
 
   <xsl:template match="mods:relatedItem">
