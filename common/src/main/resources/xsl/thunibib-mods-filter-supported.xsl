@@ -56,6 +56,15 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
+  <xsl:template match="mods:genre[string-length(text()) &gt; 0 and not(substring-after(@valueURI,'#') = text())]">
+    <!-- TODO remove log message -->
+    <xsl:message>########## value in valueURI differs from text() ##############</xsl:message>
+
+    <mods:genre type="intern">
+      <xsl:value-of select="text()"/>
+    </mods:genre>
+  </xsl:template>
+
   <xsl:template
       match="mods:classification[contains(@valueURI,'/classifications/') and contains(@authorityURI,'/classifications/')]|mods:classification/@valueURI|mods:classification/@authorityURI">
     <xsl:call-template name="copy-and-apply"/>
