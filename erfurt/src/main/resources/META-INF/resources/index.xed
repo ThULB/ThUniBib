@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib">
- <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Universität Erfurt</title>
- <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt</title>
+ <title xml:lang="de">Willkommen bei der Erfurter Universitätsbibliographie (EFUB)</title>
+ <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt (EFUB)</title>
  
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
@@ -22,10 +22,10 @@
       <h3>Gehören Sie der Universität Erfurt an?</h3>
       <p>
         Helfen Sie uns bei der Vervollständigung der Bibliographie!<br/>
-        <a href="../newPublication.xed">Melden Sie Ihre Publikationen an die Universitätsbibliographie</a> , und wir machen qualitativ hochwertige Publikationsmetadaten daraus.
+        <a href="../newPublication.xed">Melden Sie Ihre Publikationen an die Universitätsbibliographie</a>, und wir machen qualitativ hochwertige Publikationsmetadaten daraus.
       </p>
 	  <p>
-	    Oder schicken Sie uns Ihre Publikationsliste(n) in einem beliebigen Format: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+	    Oder schicken Sie uns Ihre Publikationsliste(n) in einem beliebigen Format: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
 	  </p>
    </div>
  </article>
@@ -40,7 +40,7 @@
 		    
       </p>
       <p>
-        The university bibliography is continuously updated with older publication data from the previous <a href="https://opac.uni-erfurt.de/DB=7/LNG=EN/">university bibliography.</a>
+        The university bibliography is continuously updated with older publication data from the previous <a href="https://opac.uni-erfurt.de/DB=7/LNG=EN/">university bibliography</a>.
       </p>
       <p>
 	    The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian digital strategy and is being carried out in cooperation with the 
@@ -53,64 +53,94 @@
         <a href="../newPublication.xed">Report your publications to the University Bibliography</a> , and we will turn them into high-quality publication metadata. 
       </p>
 	  <p>
-	    Or send us your publication list(s) in any format: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+	    Or send us your publication list(s) in any format: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
 	  </p>
     </div>
   </article>
 
   <article class="card mb-3">
     <div class="card-body">
-      <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
+      <xed:form xmlns:xed="http://www.mycore.de/xeditor" method="post" role="form">
+        <div class="form-group form-inline mb-0">
+
+          <xed:bind xpath="/query">
+            <xed:bind xpath="@mask" default="index.xed" />
+            <xed:bind xpath="@numPerPage" default="10" />
+            <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
+              <xed:bind xpath="condition[@field='all'][@operator='contains']/@value">
+                <label for="input" class="mycore-form-label">
+                  <xed:output i18n="ubo.search.simple" />
+                </label>
+                <input id="input" type="text" class="mycore-form-input form-control-sm mr-2" />
+              </xed:bind>
+
+              <!-- Standard users must only find confirmed publications, admins find all publications -->
+              <xed:choose>
+                <xed:when test="not(xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin'))">
+                  <xed:bind xpath="condition[@field='status'][@operator='='][@value='confirmed']" />
+                </xed:when>
+                <xed:otherwise>
+                  <xed:bind xpath="condition[@field='objectType'][@operator='='][@value='mods']" />
+                </xed:otherwise>
+              </xed:choose>
+
+            </xed:bind>
+
+            <xed:bind xpath="sortBy[field[@name='year'][@order='descending']]" />
+
+          </xed:bind>
+
+          <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
+            <xed:output i18n="button.search" />
+          </button>
+
+        </div>
+      </xed:form>
     </div>
   </article>
 
-  <xinclude uri="xslStyle:response-newest:solr:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3ANOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
-
+  <xinclude uri="xslStyle:response-newest:solr:q=status:confirmed+AND+year:NOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year" />
+  
   <aside id="sidebar">
-    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0"/>
-    <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=*%3A*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY"/>
-    <xinclude uri="xslStyle:thunibib-response-sidebar-admin:solr:q=%2Bstatus%3A(imported%20OR%20reviewPending)+%2BimportID%3A*&amp;rows=0&amp;facet=true&amp;facet.limit=-1&amp;facet.field=importID&amp;fq%2Bcreated%3A[NOW%2FDAY-30DAYS%20TO%20*]"/>
-
-    <article class="card bg-alternative" xml:lang="de">
-      <div class="card-body">
+    <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status:confirmed&amp;rows=0" />
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=*:*&amp;rows=0&amp;facet=true&amp;facet.field=status&amp;facet.mincount=0&amp;facet.range=created&amp;facet.range=modified&amp;facet.range.start=NOW/DAY-30DAY&amp;facet.range.end=NOW&amp;facet.range.gap=%2B1DAY" />
+    <xinclude uri="xslStyle:response-sidebar-admin:solr:q=status:imported+AND+importID:*&amp;rows=0&amp;facet=true&amp;facet.sort=index&amp;facet.limit=-1&amp;facet.field=importID" />
+ 
+    <article class="card" xml:lang="de">
+      <div class="card-body bg-alternative">
         <hgroup>
           <h3>Kontakt:</h3>
         </hgroup>
         <p>
-          <a
-            href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren-1/universitaetsbibliographie">
+	  <a href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren-1/universitaetsbibliographie">
             <span>Redaktionsteam der Universitätsbibliographie</span>
           </a>
         </p>
         <p>
-          <br/>
-          E-Mail:
-          <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
-          <br/>
-
+         <br/>
+          E-Mail: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a><br/>
+          
         </p>
       </div>
     </article>
 
-    <article class="card bg-alternative" xml:lang="en">
-      <div class="card-body">
+    <article class="card" xml:lang="en">
+      <div class="card-body bg-alternative">
         <hgroup>
           <h3>Contact:</h3>
         </hgroup>
         <p>
-          <a
-            href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography">
+	  <a href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography">
             <span>Editorial team of the University Bibliography</span>
           </a>
         </p>
         <p>
           <br/>
-          Email:
-          <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
-          <br/>
-
+          Email: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a><br/>
+         
         </p>
       </div>
     </article>
   </aside>
+    
 </webpage>
