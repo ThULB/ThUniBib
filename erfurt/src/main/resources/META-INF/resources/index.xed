@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib">
- <title xml:lang="de">Willkommen bei der Universitätsbibliographie der Universität Erfurt</title>
- <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt</title>
+ <title xml:lang="de">Willkommen bei der Erfurter Universitätsbibliographie (EFUB)</title>
+ <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt (EFUB)</title>
  
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
@@ -25,7 +25,7 @@
         <a href="../newPublication.xed">Melden Sie Ihre Publikationen an die Universitätsbibliographie</a> , und wir machen qualitativ hochwertige Publikationsmetadaten daraus.
       </p>
 	  <p>
-	    Oder schicken Sie uns Ihre Publikationsliste(n) in einem beliebigen Format: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+	    Oder schicken Sie uns Ihre Publikationsliste(n) in einem beliebigen Format: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
 	  </p>
    </div>
  </article>
@@ -40,7 +40,7 @@
 		    
       </p>
       <p>
-        The university bibliography is continuously updated with older publication data from the previous <a href="https://opac.uni-erfurt.de/DB=7/LNG=EN/">university bibliography.</a>
+        The university bibliography is continuously updated with older publication data from the previous <a href="https://opac.uni-erfurt.de/DB=7/LNG=EN/">university bibliography</a>.
       </p>
       <p>
 	    The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian digital strategy and is being carried out in cooperation with the 
@@ -53,7 +53,7 @@
         <a href="../newPublication.xed">Report your publications to the University Bibliography</a> , and we will turn them into high-quality publication metadata. 
       </p>
 	  <p>
-	    Or send us your publication list(s) in any format: <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+	    Or send us your publication list(s) in any format: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
 	  </p>
     </div>
   </article>
@@ -85,7 +85,7 @@
         <p>
           <br/>
           E-Mail:
-          <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+          <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
           <br/>
 
         </p>
@@ -106,7 +106,7 @@
         <p>
           <br/>
           Email:
-          <a href="mailto:bibliografie.ub@uni-erfurt.de">bibliografie.ub@uni-erfurt.de</a>
+          <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
           <br/>
 
         </p>
