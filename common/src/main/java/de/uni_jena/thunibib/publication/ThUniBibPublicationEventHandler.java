@@ -23,8 +23,11 @@ import org.mycore.user2.MCRUserManager;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
@@ -73,7 +76,20 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
 
     protected void handleName(Element modsNameElement) {
         MCRUser userFromModsName = MCRUserMatcherUtils.createNewMCRUserFromModsNameElement(modsNameElement);
-        MCRUserMatcherDTO ldapMatcherDTO = new MCRUserMatcherDTO(userFromModsName);
+        MCRUserMatcherDTO ldapMatcherDTO;
+
+        if (containsLeadID(modsNameElement)) {
+            MCRUser cloned = userFromModsName.clone();
+            cloned.setAttributes(cloned.getAttributes().stream()
+                .filter(mcrUserAttribute -> mcrUserAttribute.getName().equals("id_" + LEAD_ID_NAME) || mcrUserAttribute.getName().equals(CONNECTION_ID_NAME))
+                .collect(Collectors.toCollection(
+                    TreeSet::new)));
+
+            ldapMatcherDTO = new MCRUserMatcherDTO(cloned);
+        } else {
+            ldapMatcherDTO = new MCRUserMatcherDTO(userFromModsName);
+        }
+
         ldapMatcherDTO = ldapMatcher.matchUser(ldapMatcherDTO);
         if (ldapMatcherDTO.wasMatchedOrEnriched()) {
             logUserMatch(modsNameElement, ldapMatcherDTO, ldapMatcher);
@@ -87,8 +103,13 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
             MCRUser newLocalUser = ThUniBibUserMatcherUtils
                 .createNewMCRUserFromModsNameElement(ldapMatcherDTO, modsNameElement, LDAP_REALM);
             newLocalUser.setRealName(buildPersonNameFromMODS(modsNameElement).orElse(newLocalUser.getUserID()));
-            connectModsNameElementWithMCRUser(modsNameElement, newLocalUser);
-            MCRUserManager.updateUser(newLocalUser);
+
+            // check duplicate nameIdentifiers in userdata base
+            if (hasUniqueNameIdentifiers(newLocalUser)) {
+                connectModsNameElementWithMCRUser(modsNameElement, newLocalUser);
+                MCRUserManager.updateUser(newLocalUser);
+            }
+
         } else {
             LOGGER.warn("No matching user found for for name element {}", userFromModsName.getRealName());
         }
@@ -103,6 +124,19 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
                     .collect(Collectors.toList());
                 elementsToRemove.forEach(modsNameElement::removeContent);
             });
+    }
+
+    protected boolean hasUniqueNameIdentifiers(MCRUser mcrUser) {
+        SortedSet<MCRUserAttribute> attributes = mcrUser.getAttributes();
+        for (MCRUserAttribute attr : attributes) {
+            String attributeName = attr.getName();
+            String attributeValue = attr.getValue();
+            Stream<MCRUser> matchingUsers = MCRUserManager.getUsers(attributeName, attributeValue);
+            if (matchingUsers.count() > 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private boolean containsLeadID(Element modsNameElement) {

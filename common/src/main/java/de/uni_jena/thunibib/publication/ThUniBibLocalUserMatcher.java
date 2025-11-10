@@ -37,12 +37,11 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
         MCRUserMatcherDTO localMatcherDTO = new MCRUserMatcherDTO(providedUser);
 
         // check for matching lead id
-        matchingUsers.addAll(getUsersByAttributeValue(LEAD_ID_NAME, providedUser.getUserAttribute(LEAD_ID_NAME)));
+        matchingUsers.addAll(getUsersByAttributeValue("id_" + LEAD_ID_NAME, providedUser.getUserAttribute("id_" + LEAD_ID_NAME)));
 
         // check for matching connection id
         if (matchingUsers.isEmpty()) {
-            matchingUsers.addAll(
-                getUsersByAttributeValue(CONNECTION_ID_NAME, providedUser.getUserAttribute(CONNECTION_ID_NAME)));
+            matchingUsers.addAll(getUsersByAttributeValue(CONNECTION_ID_NAME, providedUser.getUserAttribute(CONNECTION_ID_NAME)));
         }
 
         // check for any other id
@@ -52,9 +51,7 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
             // remove all matching users where lead id differs from mcrUser lead id
             matchingUsers = matchingUsers
                 .stream()
-                .filter(u ->
-                    u.getUserAttribute(LEAD_ID_NAME) != null && providedUser.getUserAttribute(LEAD_ID_NAME) != null
-                        && !(u.getUserAttribute(LEAD_ID_NAME).equals(providedUser.getUserAttribute(LEAD_ID_NAME))))
+                .filter(u -> u.getUserAttribute("id_" + LEAD_ID_NAME) != null && providedUser.getUserAttribute("id_" + LEAD_ID_NAME) != null && !(u.getUserAttribute("id_" + LEAD_ID_NAME).equals(providedUser.getUserAttribute("id_" + LEAD_ID_NAME))))
                 .collect(Collectors.toList());
         }
 
