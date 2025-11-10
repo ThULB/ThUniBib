@@ -73,7 +73,6 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
 
     protected void handleName(Element modsNameElement) {
         MCRUser userFromModsName = MCRUserMatcherUtils.createNewMCRUserFromModsNameElement(modsNameElement);
-
         MCRUserMatcherDTO ldapMatcherDTO = new MCRUserMatcherDTO(userFromModsName);
         ldapMatcherDTO = ldapMatcher.matchUser(ldapMatcherDTO);
         if (ldapMatcherDTO.wasMatchedOrEnriched()) {

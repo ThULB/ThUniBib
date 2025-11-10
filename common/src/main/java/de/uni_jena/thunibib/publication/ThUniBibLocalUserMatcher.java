@@ -34,6 +34,7 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
     public MCRUserMatcherDTO matchUser(MCRUserMatcherDTO matcherDTO) {
         List<MCRUser> matchingUsers = new ArrayList<>();
         MCRUser providedUser = matcherDTO.getMCRUser();
+        MCRUserMatcherDTO localMatcherDTO = new MCRUserMatcherDTO(providedUser);
 
         // check for matching lead id
         matchingUsers.addAll(getUsersByAttributeValue(LEAD_ID_NAME, providedUser.getUserAttribute(LEAD_ID_NAME)));
@@ -59,8 +60,8 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
 
         switch (matchingUsers.size()) {
             case 0:
-                matcherDTO.setMatchedOrEnriched(false);
-                return matcherDTO;
+                localMatcherDTO.setMatchedOrEnriched(false);
+                return localMatcherDTO;
             case 1: {
                 MCRUser matchingUser = matchingUsers.get(0);
 
@@ -93,18 +94,18 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
                     .getAttributes()
                     .addAll(providedAttributes);
 
-                matcherDTO.setMCRUser(matchingUser);
-                matcherDTO.setMatchedOrEnriched(true);
-                return matcherDTO;
+                localMatcherDTO.setMCRUser(matchingUser);
+                localMatcherDTO.setMatchedOrEnriched(true);
+                return localMatcherDTO;
             }
             default: {
                 LOGGER.error("Found more than one matching users for the given attributes: {}",
                     matchingUsers.stream().map(MCRUser::getUserID).collect(
                         Collectors.joining(", ")));
 
-                matcherDTO.setMCRUser(null);
-                matcherDTO.setMatchedOrEnriched(false);
-                return matcherDTO;
+                localMatcherDTO.setMCRUser(null);
+                localMatcherDTO.setMatchedOrEnriched(false);
+                return localMatcherDTO;
             }
         }
     }

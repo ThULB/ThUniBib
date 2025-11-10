@@ -15,7 +15,8 @@ public class ThUniBibUserMatcherUtils {
         String realmID) {
         Map<String, String> nameIdentifiers = MCRUserMatcherUtils.getNameIdentifiers(modsNameElement);
         String username = matcherDTO.getMCRUser().getUserName();
-        MCRUser mcrUser = new MCRUser(username, realmID);
+
+        MCRUser mcrUser = new MCRUser(matcherDTO.wasMatchedOrEnriched() ? username : "artifical-" + username, realmID);
         MCRUserMatcherUtils.enrichUserWithGivenNameIdentifiers(mcrUser, nameIdentifiers);
         mcrUser.setRealName(MCRUserMatcherUtils.getRealName(modsNameElement));
         return mcrUser;
