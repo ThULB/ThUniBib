@@ -25,11 +25,9 @@ import org.mycore.user2.MCRUserManager;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
@@ -132,7 +130,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
             }
         }
 
-        MCRUserMatcherUtils.enrichUserWithGivenNameIdentifiers(storedUser, MCRUserMatcherUtils.getNameIdentifiers(modsNameElement));
+        ThUniBibUserMatcherUtils.addNameIdentifiersToMCRUser(storedUser, MCRUserMatcherUtils.getNameIdentifiers(modsNameElement));
         if (hasUniqueNameIdentifiers(storedUser,1)) {
             MCRUserManager.updateUser(user);
         } else {
