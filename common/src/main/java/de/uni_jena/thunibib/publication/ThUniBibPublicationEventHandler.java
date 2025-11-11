@@ -1,6 +1,8 @@
 package de.uni_jena.thunibib.publication;
 
+import de.uni_jena.thunibib.matcher.ThUniBibLocalUserMatcher;
 import de.uni_jena.thunibib.matcher.ThUniBibMatcherLDAP;
+import de.uni_jena.thunibib.matcher.ThUniBibUserMatcherUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
@@ -36,17 +38,14 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
 
     private final static Logger LOGGER = LogManager.getLogger();
 
-    //TODO REMOVE
-    private final static String CONFIG_MATCHERS = "MCR.user2.matching.chain";
+
     private final static String CONFIG_CONNECTION_STRATEGY = "MCR.user2.matching.publication.connection.strategy";
     private final static String CONFIG_DEFAULT_ROLE = "MCR.user2.IdentityManagement.UserCreation.DefaultRole";
     private final static String CONFIG_SKIP_LEAD_ID = "MCR.user2.matching.lead_id.skip";
 
-    public final static String LEAD_ID_NAME = MCRConfiguration2.getString("MCR.user2.matching.lead_id").orElse("");
     public final static String CONNECTION_ID_NAME = "id_connection";
-    public final static String LDAP_REALM = MCRConfiguration2
-        .getString("MCR.user2.IdentityManagement.UserCreation.LDAP.Realm")
-        .orElseThrow();
+    public final static String LDAP_REALM = MCRConfiguration2.getString("MCR.user2.IdentityManagement.UserCreation.LDAP.Realm").orElseThrow();
+    public final static String LEAD_ID_NAME = MCRConfiguration2.getString("MCR.user2.matching.lead_id").orElseThrow();;
 
     private final static XPathExpression<Element> XPATH_GIVEN_NAME = XPATH_FACTORY.compile(
         "mods:namePart[@type='given']", Filters.element(), null, MODS_NAMESPACE);
@@ -76,40 +75,29 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
 
     protected void handleName(Element modsNameElement) {
         MCRUser userFromModsName = MCRUserMatcherUtils.createNewMCRUserFromModsNameElement(modsNameElement);
-        MCRUserMatcherDTO ldapMatcherDTO;
+        MCRUserMatcherDTO matcherDTO;
 
-        if (containsLeadID(modsNameElement)) {
-            MCRUser cloned = userFromModsName.clone();
-            cloned.setAttributes(cloned.getAttributes().stream()
-                .filter(mcrUserAttribute -> mcrUserAttribute.getName().equals("id_" + LEAD_ID_NAME) || mcrUserAttribute.getName().equals(CONNECTION_ID_NAME))
-                .collect(Collectors.toCollection(
-                    TreeSet::new)));
+        // only retain lead id and connection id for matching
+        MCRUser cloned = userFromModsName.clone();
+        cloned.setAttributes(cloned
+            .getAttributes()
+            .stream()
+            .filter(mcrUserAttribute -> mcrUserAttribute.getName().equals("id_" + LEAD_ID_NAME) || mcrUserAttribute.getName().equals(CONNECTION_ID_NAME))
+            .collect(Collectors.toCollection(TreeSet::new)));
 
-            ldapMatcherDTO = new MCRUserMatcherDTO(cloned);
-        } else {
-            ldapMatcherDTO = new MCRUserMatcherDTO(userFromModsName);
+        matcherDTO = new MCRUserMatcherDTO(cloned);
+        matcherDTO = ldapMatcher.matchUser(matcherDTO);
+
+        if (matcherDTO.wasMatchedOrEnriched()) {
+            logUserMatch(modsNameElement, matcherDTO, ldapMatcher);
         }
 
-        ldapMatcherDTO = ldapMatcher.matchUser(ldapMatcherDTO);
-        if (ldapMatcherDTO.wasMatchedOrEnriched()) {
-            logUserMatch(modsNameElement, ldapMatcherDTO, ldapMatcher);
-        }
-
-        MCRUserMatcherDTO localMatcherDTO = localMatcher.matchUser(ldapMatcherDTO);
+        MCRUserMatcherDTO localMatcherDTO = localMatcher.matchUser(matcherDTO);
 
         if (localMatcherDTO.wasMatchedOrEnriched()) {
             handleUser(modsNameElement, localMatcherDTO.getMCRUser());
         } else if (localMatcherDTO.getMCRUser() != null && containsLeadID(modsNameElement)) {
-            MCRUser newLocalUser = ThUniBibUserMatcherUtils
-                .createNewMCRUserFromModsNameElement(ldapMatcherDTO, modsNameElement, LDAP_REALM);
-            newLocalUser.setRealName(buildPersonNameFromMODS(modsNameElement).orElse(newLocalUser.getUserID()));
-
-            // check duplicate nameIdentifiers in userdata base
-            if (hasUniqueNameIdentifiers(newLocalUser)) {
-                connectModsNameElementWithMCRUser(modsNameElement, newLocalUser);
-                MCRUserManager.updateUser(newLocalUser);
-            }
-
+            handleUser(modsNameElement, matcherDTO, userFromModsName);
         } else {
             LOGGER.warn("No matching user found for for name element {}", userFromModsName.getRealName());
         }
@@ -117,13 +105,57 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         MCRConfiguration2.getBoolean(CONFIG_SKIP_LEAD_ID)
             .filter(Boolean::booleanValue)
             .ifPresent(trueValue -> {
-                List<Element> elementsToRemove
-                    = modsNameElement.getChildren("nameIdentifier", MODS_NAMESPACE)
+                List<Element> elementsToRemove = modsNameElement.getChildren("nameIdentifier", MODS_NAMESPACE)
                     .stream()
                     .filter(element -> LEAD_ID_NAME.equals(element.getAttributeValue("type")))
                     .collect(Collectors.toList());
                 elementsToRemove.forEach(modsNameElement::removeContent);
             });
+    }
+
+    /**
+     * Handles locally matched user.
+     *
+     * @param user
+     * @param modsNameElement
+     * */
+    protected void handleUser(Element modsNameElement, MCRUser user) {
+        connectModsNameElementWithMCRUser(modsNameElement, user);
+        MCRUser storedUser = MCRUserManager.getUser(user.getUserName() + "@" + user.getRealmID());
+        if (storedUser == null) {
+            user.assignRole(defaultRoleForNewlyCreatedUsers);
+        } else {
+            for (String role : storedUser.getSystemRoleIDs().stream().toList()) {
+                user.assignRole(role);
+            }
+        }
+
+        MCRUserMatcherUtils.enrichUserWithGivenNameIdentifiers(storedUser, MCRUserMatcherUtils.getNameIdentifiers(modsNameElement));
+        if (hasUniqueNameIdentifiers(storedUser)) {
+            MCRUserManager.updateUser(user);
+        } else {
+            LOGGER.error("mods:name element {} has identifiers already present at other user", storedUser.getRealName());
+        }
+    }
+
+    /**
+     * Handles user matched in LDAP but not locally present.
+     *
+     * @param modsNameElement
+     * @param matcherDTO
+     * @param userFromModsName
+     * */
+    private void handleUser(Element modsNameElement, MCRUserMatcherDTO matcherDTO, MCRUser userFromModsName) {
+        MCRUser newLocalUser = ThUniBibUserMatcherUtils.createNewMCRUserFromModsNameElement(matcherDTO, modsNameElement, LDAP_REALM);
+        newLocalUser.setRealName(buildPersonNameFromMODS(modsNameElement).orElse(newLocalUser.getUserID()));
+
+        // check duplicate nameIdentifiers in userdata base
+        if (hasUniqueNameIdentifiers(newLocalUser)) {
+            connectModsNameElementWithMCRUser(modsNameElement, newLocalUser);
+            MCRUserManager.updateUser(newLocalUser);
+        } else {
+            LOGGER.error("mods:name element {} has identifiers already present at other user", userFromModsName.getRealName());
+        }
     }
 
     protected boolean hasUniqueNameIdentifiers(MCRUser mcrUser) {
@@ -142,21 +174,6 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
     private boolean containsLeadID(Element modsNameElement) {
         return modsNameElement.getChildren("nameIdentifier", MODS_NAMESPACE)
             .stream().anyMatch(element -> LEAD_ID_NAME.equals(element.getAttributeValue("type")));
-    }
-
-    protected void handleUser(Element modsName, MCRUser user) {
-        connectModsNameElementWithMCRUser(modsName, user);
-
-        MCRUser storedUser = MCRUserManager.getUser(user.getUserName() + "@" + user.getRealmID());
-        if (storedUser == null) {
-            user.assignRole(defaultRoleForNewlyCreatedUsers);
-        } else {
-            for (String role : storedUser.getSystemRoleIDs().stream().toList()) {
-                user.assignRole(role);
-            }
-        }
-
-        MCRUserManager.updateUser(user);
     }
 
     private void logUserMatch(Element modsNameElement, MCRUserMatcherDTO matcherDTO, MCRUserMatcher matcher) {

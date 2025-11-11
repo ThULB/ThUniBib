@@ -1,4 +1,4 @@
-package de.uni_jena.thunibib.publication;
+package de.uni_jena.thunibib.matcher;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
