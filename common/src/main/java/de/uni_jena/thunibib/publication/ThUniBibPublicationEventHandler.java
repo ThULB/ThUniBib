@@ -38,19 +38,16 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
 
     private final static Logger LOGGER = LogManager.getLogger();
 
-
     private final static String CONFIG_CONNECTION_STRATEGY = "MCR.user2.matching.publication.connection.strategy";
     private final static String CONFIG_DEFAULT_ROLE = "MCR.user2.IdentityManagement.UserCreation.DefaultRole";
     private final static String CONFIG_SKIP_LEAD_ID = "MCR.user2.matching.lead_id.skip";
 
     public final static String CONNECTION_ID_NAME = "id_connection";
     public final static String LDAP_REALM = MCRConfiguration2.getString("MCR.user2.IdentityManagement.UserCreation.LDAP.Realm").orElseThrow();
-    public final static String LEAD_ID_NAME = MCRConfiguration2.getString("MCR.user2.matching.lead_id").orElseThrow();;
+    public final static String LEAD_ID_NAME = MCRConfiguration2.getString("MCR.user2.matching.lead_id").orElseThrow();
 
-    private final static XPathExpression<Element> XPATH_GIVEN_NAME = XPATH_FACTORY.compile(
-        "mods:namePart[@type='given']", Filters.element(), null, MODS_NAMESPACE);
-    private final static XPathExpression<Element> XPATH_FAMILY_NAME
-        = XPATH_FACTORY.compile("mods:namePart[@type='family']", Filters.element(), null, MODS_NAMESPACE);
+    private final static XPathExpression<Element> XP_FAMILY_NAME = XPATH_FACTORY.compile("mods:namePart[@type='family']", Filters.element(), null, MODS_NAMESPACE);
+    private final static XPathExpression<Element> XP_GIVEN_NAME = XPATH_FACTORY.compile("mods:namePart[@type='given']", Filters.element(), null, MODS_NAMESPACE);
 
     /** The default Role that is assigned to newly created users **/
     private String defaultRoleForNewlyCreatedUsers;
@@ -62,7 +59,6 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
 
     /** The configured connection strategy to "connect" publications to MCRUsers */
     private String connectionStrategy;
-
 
     public ThUniBibPublicationEventHandler() {
         super();
@@ -77,13 +73,19 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         MCRUser userFromModsName = MCRUserMatcherUtils.createNewMCRUserFromModsNameElement(modsNameElement);
         MCRUserMatcherDTO matcherDTO;
 
-        // only retain lead id and connection id for matching
         MCRUser cloned = userFromModsName.clone();
-        cloned.setAttributes(cloned
-            .getAttributes()
-            .stream()
-            .filter(mcrUserAttribute -> mcrUserAttribute.getName().equals("id_" + LEAD_ID_NAME) || mcrUserAttribute.getName().equals(CONNECTION_ID_NAME))
-            .collect(Collectors.toCollection(TreeSet::new)));
+
+        /* Only retain lead id and connection id for matching when connection or lead id present.
+         * When leadid/connection id are not present retain all other id, these id are needed when the local matcher
+         * trys to find users.
+         */
+        if(cloned.getAttributes().stream().anyMatch(attr->attr.getName().equals(CONNECTION_ID_NAME) || attr.getName().equals("id_" + LEAD_ID_NAME))) {
+            cloned.setAttributes(cloned
+                .getAttributes()
+                .stream()
+                .filter(mcrUserAttribute -> mcrUserAttribute.getName().equals("id_" + LEAD_ID_NAME) || mcrUserAttribute.getName().equals(CONNECTION_ID_NAME))
+                .collect(Collectors.toCollection(TreeSet::new)));
+        }
 
         matcherDTO = new MCRUserMatcherDTO(cloned);
         matcherDTO = ldapMatcher.matchUser(matcherDTO);
@@ -114,10 +116,10 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
     }
 
     /**
-     * Handles locally matched user.
+     * Handles locally matched (therefore existing) user.
      *
-     * @param user
      * @param modsNameElement
+     * @param user
      * */
     protected void handleUser(Element modsNameElement, MCRUser user) {
         connectModsNameElementWithMCRUser(modsNameElement, user);
@@ -131,9 +133,10 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         }
 
         MCRUserMatcherUtils.enrichUserWithGivenNameIdentifiers(storedUser, MCRUserMatcherUtils.getNameIdentifiers(modsNameElement));
-        if (hasUniqueNameIdentifiers(storedUser)) {
+        if (hasUniqueNameIdentifiers(storedUser,1)) {
             MCRUserManager.updateUser(user);
         } else {
+            removeDuplicateNameIdentifiers(storedUser,1);
             LOGGER.error("mods:name element {} has identifiers already present at other user", storedUser.getRealName());
         }
     }
@@ -150,7 +153,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         newLocalUser.setRealName(buildPersonNameFromMODS(modsNameElement).orElse(newLocalUser.getUserID()));
 
         // check duplicate nameIdentifiers in userdata base
-        if (hasUniqueNameIdentifiers(newLocalUser)) {
+        if (hasUniqueNameIdentifiers(newLocalUser,0)) {
             connectModsNameElementWithMCRUser(modsNameElement, newLocalUser);
             MCRUserManager.updateUser(newLocalUser);
         } else {
@@ -158,22 +161,47 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         }
     }
 
-    protected boolean hasUniqueNameIdentifiers(MCRUser mcrUser) {
-        SortedSet<MCRUserAttribute> attributes = mcrUser.getAttributes();
-        for (MCRUserAttribute attr : attributes) {
+    /**
+     * Determines if attributes of the provided users are already present at other users. One can specify how often the
+     * attribute is allowed to occur across the entire user database
+     *
+     * @param mcrUser the {@link MCRUser}
+     * @param maxOccurrenceAllowed specify how often the attribute is allowed to occur
+     * */
+    protected boolean hasUniqueNameIdentifiers(MCRUser mcrUser, int maxOccurrenceAllowed) {
+        for (MCRUserAttribute attr : mcrUser.getAttributes()) {
             String attributeName = attr.getName();
             String attributeValue = attr.getValue();
-            Stream<MCRUser> matchingUsers = MCRUserManager.getUsers(attributeName, attributeValue);
-            if (matchingUsers.count() > 0) {
+            if (MCRUserManager.getUsers(attributeName, attributeValue).count() > maxOccurrenceAllowed) {
                 return false;
             }
         }
         return true;
     }
 
+    /**
+     * Removes attributes of the provided user when an attribute is already present at other users.
+     * One can specify how often the attribute is allowed to occur across the entire user database before it is
+     * considered a duplicate attribute.
+     *
+     * @param mcrUser the {@link MCRUser}
+     * @param maxOccurrenceAllowed specify how often the attribute is allowed to occur
+     * */
+    protected void removeDuplicateNameIdentifiers(MCRUser mcrUser, int maxOccurrenceAllowed) {
+        for (MCRUserAttribute attr : mcrUser.getAttributes()) {
+            String attributeName = attr.getName();
+            String attributeValue = attr.getValue();
+            if (MCRUserManager.getUsers(attributeName, attributeValue).count() > maxOccurrenceAllowed) {
+                mcrUser.getAttributes().remove(attr);
+            }
+        }
+    }
+
     private boolean containsLeadID(Element modsNameElement) {
-        return modsNameElement.getChildren("nameIdentifier", MODS_NAMESPACE)
-            .stream().anyMatch(element -> LEAD_ID_NAME.equals(element.getAttributeValue("type")));
+        return modsNameElement
+            .getChildren("nameIdentifier", MODS_NAMESPACE)
+            .stream()
+            .anyMatch(element -> LEAD_ID_NAME.equals(element.getAttributeValue("type")));
     }
 
     private void logUserMatch(Element modsNameElement, MCRUserMatcherDTO matcherDTO, MCRUserMatcher matcher) {
@@ -215,8 +243,8 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
     }
 
     protected Optional<String> buildPersonNameFromMODS(Element nameElement) {
-        Element givenName = XPATH_GIVEN_NAME.evaluateFirst(nameElement);
-        Element familyName = XPATH_FAMILY_NAME.evaluateFirst(nameElement);
+        Element givenName = XP_GIVEN_NAME.evaluateFirst(nameElement);
+        Element familyName = XP_FAMILY_NAME.evaluateFirst(nameElement);
 
         if ((givenName != null) && (familyName != null)) {
             return Optional.of(familyName.getText() + ", " + givenName.getText());

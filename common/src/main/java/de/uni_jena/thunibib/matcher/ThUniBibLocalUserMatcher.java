@@ -48,11 +48,13 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
         if (matchingUsers.isEmpty()) {
             matchingUsers.addAll(getUsersForGivenAttributes(providedUser.getAttributes()));
 
-            // remove all matching users where lead id differs from mcrUser lead id
-            matchingUsers = matchingUsers
-                .stream()
-                .filter(u -> u.getUserAttribute("id_" + LEAD_ID_NAME) != null && providedUser.getUserAttribute("id_" + LEAD_ID_NAME) != null && !(u.getUserAttribute("id_" + LEAD_ID_NAME).equals(providedUser.getUserAttribute("id_" + LEAD_ID_NAME))))
-                .collect(Collectors.toList());
+            // remove all matching users where lead id differs from mcrUser lead id if provided user has lead or connection id
+            if(providedUser.getAttributes().stream().anyMatch(attr->attr.getName().equals(CONNECTION_ID_NAME) || attr.getName().equals("id_" + LEAD_ID_NAME))) {
+                matchingUsers = matchingUsers
+                    .stream()
+                    .filter(u -> u.getUserAttribute("id_" + LEAD_ID_NAME) != null && providedUser.getUserAttribute("id_" + LEAD_ID_NAME) != null && !(u.getUserAttribute("id_" + LEAD_ID_NAME).equals(providedUser.getUserAttribute("id_" + LEAD_ID_NAME))))
+                    .collect(Collectors.toList());
+            }
         }
 
         switch (matchingUsers.size()) {
@@ -82,8 +84,7 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
                     .getAttributes()
                     .stream()
                     .filter(attribute -> !isOtherUsersAttribute(attribute))
-                    .filter(attribute -> !attribute.getName().equals(CONNECTION_ID_NAME)
-                        || !hasMatchingUserConnectionKey)
+                    .filter(attribute -> !attribute.getName().equals(CONNECTION_ID_NAME) || !hasMatchingUserConnectionKey)
                     .filter(Predicate.not(matchingUser.getAttributes()::contains))
                     .toList();
 
