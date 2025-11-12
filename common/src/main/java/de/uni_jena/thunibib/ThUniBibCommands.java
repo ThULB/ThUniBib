@@ -1,5 +1,6 @@
 package de.uni_jena.thunibib;
 
+import de.uni_jena.thunibib.publication.ThUniBibPublicationEventHandler;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.apache.http.HttpEntity;
@@ -16,7 +17,9 @@ import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
+import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
@@ -77,7 +80,7 @@ import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 @MCRCommandGroup(name = "ThUniBib Commands")
 
 public class ThUniBibCommands {
-    private static final Logger LOGGER = LogManager.getLogger(ThUniBibCommands.class);
+    private static final Logger LOGGER = LogManager.getLogger();
 
     private static List<String> DEFAULT_ROLES = List.of("submitter", "admin");
 
@@ -642,5 +645,85 @@ public class ThUniBibCommands {
         } catch (IOException | JDOMException | MCRAccessException e) {
             LOGGER.error("Could not transform xml", e);
         }
+    }
+
+    @MCRCommand(syntax = "thunibib merge user {0} with {1}",
+        help = "Merges the user given in {0} with the user given in {1} and assigns all publication from user {0} to user {1}. Deletes user {0}.")
+    public static void mergeUsers(String from, String to) {
+        MCRUser fromUser = MCRUserManager.getUser(from);
+        MCRUser toUser = MCRUserManager.getUser(to);
+        if (fromUser == null || toUser == null) {
+            return;
+        }
+
+        if (fromUser.equals(toUser)) {
+            LOGGER.error("Supplied users are identical");
+            return;
+        }
+
+        List<MCRUserAttribute> fromConnIds = getConnectionsIds(fromUser,
+            ThUniBibPublicationEventHandler.CONNECTION_ID_NAME);
+        List<MCRUserAttribute> toConnIds = getConnectionsIds(toUser,
+            ThUniBibPublicationEventHandler.CONNECTION_ID_NAME);
+
+        if (fromConnIds.size() != 1) {
+            LOGGER.error("There are {} connection identifier for user {}", fromConnIds.size(), from);
+            return;
+        }
+
+        if (toConnIds.size() != 1) {
+            LOGGER.warn("There are {} connection identifier for user {}", toConnIds.size(), to);
+            return;
+        }
+
+        LOGGER.info("Start merging user {} to {}", from, to);
+        LOGGER.info("Connection ID from: {} => {}", from, fromConnIds.get(0).getValue());
+        LOGGER.info("Connection ID to  : {} => {}", to, toConnIds.get(0).getValue());
+
+        try {
+            String connectionIdFrom = fromConnIds.get(0).getValue();
+            String connectionIdTo = toConnIds.get(0).getValue();
+
+            MCRUserManager.deleteUser(fromUser);
+            ThUniBibCommands
+                .getSolrDocumentsByConnectionId(connectionIdFrom)
+                .forEach(solrDocument -> {
+                    MCRObjectID mcrid = MCRObjectID.getInstance(solrDocument.getFieldValue("id").toString());
+                    Document xml = MCRMetadataManager.retrieveMCRObject(mcrid).createXML();
+                    XPATH_FACTORY.compile(
+                        "//mods:nameIdentifier[@type='connection'][text() = '" + connectionIdFrom + "']",
+                        Filters.element(), null, MODS_NAMESPACE).evaluate(xml).forEach(nameIdentifier -> {
+                            nameIdentifier.setText(connectionIdTo);
+                        }
+                    );
+
+                    try {
+                        MCRMetadataManager.update(new MCRObject(xml));
+                    } catch (MCRAccessException e) {
+                        LOGGER.error("Could not update connection id in object {}", mcrid, e);
+                    }
+                });
+
+        } catch (Exception e) {
+            LOGGER.error("Could not retrieve solr documents for connection id {}", fromConnIds.get(0).getValue(), e);
+        }
+        LOGGER.info("Finished merging user {} to {}", from, to);
+    }
+
+    private static SolrDocumentList getSolrDocumentsByConnectionId(String connectionId)
+        throws SolrServerException, IOException {
+        SolrQuery query = new SolrQuery("+nid_connection:" + connectionId);
+        query.setRows(Integer.MAX_VALUE);
+        query.setFields("id", "nid_connection");
+        QueryResponse response = MCRSolrClientFactory.getMainSolrClient().query(query);
+        return response.getResults();
+    }
+
+    private static List<MCRUserAttribute> getConnectionsIds(MCRUser user, String attributeName) {
+        List<MCRUserAttribute> attributes = user.getAttributes()
+            .stream()
+            .filter(attr -> attributeName.equals(attr.getName()))
+            .toList();
+        return attributes;
     }
 }

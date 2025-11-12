@@ -31,20 +31,22 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
     private final static Logger LOGGER = LogManager.getLogger();
 
     @Override
-    public MCRUserMatcherDTO matchUser(MCRUserMatcherDTO matcherDTO) {
+    public MCRUserMatcherDTO matchUser(MCRUserMatcherDTO providedMatcherDTO) {
         List<MCRUser> matchingUsers = new ArrayList<>();
-        MCRUser providedUser = matcherDTO.getMCRUser();
+
+        MCRUser providedUser = providedMatcherDTO.getMCRUser();
         MCRUserMatcherDTO localMatcherDTO = new MCRUserMatcherDTO(providedUser);
 
         // check for matching lead id
         matchingUsers.addAll(getUsersByAttributeValue("id_" + LEAD_ID_NAME, providedUser.getUserAttribute("id_" + LEAD_ID_NAME)));
 
-        // check for matching connection id
+        // TODO REMOVE ? check for matching connection id
         if (matchingUsers.isEmpty()) {
             matchingUsers.addAll(getUsersByAttributeValue(CONNECTION_ID_NAME, providedUser.getUserAttribute(CONNECTION_ID_NAME)));
         }
 
         // check for any other id
+        // TODO add only attributes != lead/conncetion id
         if (matchingUsers.isEmpty()) {
             matchingUsers.addAll(getUsersForGivenAttributes(providedUser.getAttributes()));
 
