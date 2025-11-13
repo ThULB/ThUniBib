@@ -17,7 +17,6 @@ import org.mycore.datamodel.common.MCRXMLMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.ubo.matcher.MCRUserMatcher;
 import org.mycore.ubo.matcher.MCRUserMatcherDTO;
-import org.mycore.ubo.matcher.MCRUserMatcherUtils;
 import org.mycore.user2.MCRUser;
 import org.mycore.user2.MCRUserAttribute;
 import org.mycore.user2.MCRUserManager;
@@ -49,15 +48,17 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
     private final static XPathExpression<Element> XP_GIVEN_NAME = XPATH_FACTORY.compile("mods:namePart[@type='given']", Filters.element(), null, MODS_NAMESPACE);
 
     /** The default Role that is assigned to newly created users **/
-    private String defaultRoleForNewlyCreatedUsers;
+    private final String defaultRoleForNewlyCreatedUsers;
 
     /** Matcher to look up a matching local user **/
-    private ThUniBibLocalUserMatcher localMatcher;
+    private final ThUniBibLocalUserMatcher localMatcher;
 
     private final MCRUserMatcher ldapMatcher;
 
     /** The configured connection strategy to "connect" publications to MCRUsers */
-    private String connectionStrategy;
+    private final String connectionStrategy;
+
+    private final ThUniBibUserMatcherUtils matcherUtils;
 
     public ThUniBibPublicationEventHandler() {
         super();
@@ -66,10 +67,11 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         this.localMatcher = new ThUniBibLocalUserMatcher();
         this.connectionStrategy = MCRConfiguration2.getString(CONFIG_CONNECTION_STRATEGY).orElse("");
         this.ldapMatcher = new ThUniBibMatcherLDAP();
+        this.matcherUtils = ThUniBibUserMatcherUtils.getInstance();
     }
 
     protected void handleName(Element modsNameElement) {
-        MCRUser userFromModsName = MCRUserMatcherUtils.createNewMCRUserFromModsNameElement(modsNameElement);
+        MCRUser userFromModsName = matcherUtils.createNewMCRUserFromModsNameElement(modsNameElement);
         MCRUserMatcherDTO matcherDTO;
 
         MCRUser cloned = userFromModsName.clone();
@@ -131,7 +133,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
             }
         }
 
-        ThUniBibUserMatcherUtils.addNameIdentifiersToMCRUser(storedUser, MCRUserMatcherUtils.getNameIdentifiers(modsNameElement));
+        matcherUtils.addNameIdentifiersToMCRUser(storedUser, matcherUtils.getNameIdentifiers(modsNameElement));
         if (hasUniqueNameIdentifiers(storedUser,1)) {
             MCRUserManager.updateUser(user);
         } else {
@@ -147,12 +149,12 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
      * @param matcherDTO
      * @param userFromModsName
      * */
-    private void handleUser(Element modsNameElement, MCRUserMatcherDTO matcherDTO, MCRUser userFromModsName) {
-        MCRUser newLocalUser = ThUniBibUserMatcherUtils.createNewMCRUserFromModsNameElement(matcherDTO, modsNameElement, LDAP_REALM);
+    protected void handleUser(Element modsNameElement, MCRUserMatcherDTO matcherDTO, MCRUser userFromModsName) {
+        MCRUser newLocalUser = matcherUtils.createMCRUserFromMatchedModsNameElement(matcherDTO, modsNameElement, LDAP_REALM);
         newLocalUser.setRealName(buildPersonNameFromMODS(modsNameElement).orElse(newLocalUser.getUserID()));
 
         // check duplicate nameIdentifiers in userdata base
-        if (hasUniqueNameIdentifiers(newLocalUser,0)) {
+        if (hasUniqueNameIdentifiers(newLocalUser, 0)) {
             connectModsNameElementWithMCRUser(modsNameElement, newLocalUser);
             MCRUserManager.updateUser(newLocalUser);
         } else {
@@ -196,11 +198,11 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         return true;
     }
 
-    private String getRuntimeExceptionMessage(List<MCRUserAttribute> attr, String idType) {
+    protected final String getRuntimeExceptionMessage(List<MCRUserAttribute> attr, String idType) {
         StringBuilder m = new StringBuilder();
-        m.append("Identifier of type " + idType + " (" + attr.stream().map(MCRUserAttribute::getValue).collect(Collectors.joining(", ")) + ") must not occur more than once.\n");
-        m.append("1. Please return to the input form.\n");
-        m.append("2. Remove the affected author by pressing the - sign.\n");
+        m.append("Identifier of type " + idType + " (" + attr.stream().map(MCRUserAttribute::getValue).collect(Collectors.joining(", ")) + ") must not occur more than once. ");
+        m.append("1. Please return to the input form. ");
+        m.append("2. Remove the affected author by pressing the - sign. ");
         m.append("3. Add the author via the IdentityPicker.");
         return m.toString();
     }
@@ -245,7 +247,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
             String connectionID = getOrAddConnectionID(mcrUser);
             // if not already present, persist connection in mods:name - nameIdentifier-Element
             String connectionIDType = CONNECTION_ID_NAME.replace("id_", "");
-            if (!MCRUserMatcherUtils.containsNameIdentifierWithType(modsNameElement, connectionIDType)) {
+            if (!matcherUtils.containsNameIdentifierWithType(modsNameElement, connectionIDType)) {
                 LOGGER.info("Connecting publication with MCRUser: {}, via nameIdentifier of type: {} " +
                     "and value: {}", mcrUser.getUserName(), connectionIDType, connectionID);
                 addNameIdentifierTo(modsNameElement, connectionIDType, connectionID);
@@ -298,7 +300,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
     }
 
     protected void handlePublication(MCRObject obj) {
-        MCRUserMatcherUtils.getNameElements(obj).forEach(modsNameElement -> handleName(modsNameElement));
+        matcherUtils.getNameElements(obj).forEach(modsNameElement -> handleName(modsNameElement));
         LOGGER.debug("Final document: {}", new XMLOutputter(Format.getPrettyFormat()).outputString(obj.createXML()));
     }
 }
