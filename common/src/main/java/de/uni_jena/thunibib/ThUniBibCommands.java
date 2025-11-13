@@ -661,9 +661,9 @@ public class ThUniBibCommands {
             return;
         }
 
-        List<MCRUserAttribute> fromConnIds = getConnectionsIds(fromUser,
+        List<MCRUserAttribute> fromConnIds = getAttributesByName(fromUser,
             ThUniBibPublicationEventHandler.CONNECTION_ID_NAME);
-        List<MCRUserAttribute> toConnIds = getConnectionsIds(toUser,
+        List<MCRUserAttribute> toConnIds = getAttributesByName(toUser,
             ThUniBibPublicationEventHandler.CONNECTION_ID_NAME);
 
         if (fromConnIds.size() != 1) {
@@ -710,6 +710,52 @@ public class ThUniBibCommands {
         LOGGER.info("Finished merging user {} to {}", from, to);
     }
 
+    @MCRCommand(syntax = "thunibib reset publications with user {0}", help = "Remove connection and lead identifiers from the given user. "
+        + "Removes all connection id from all publications where the given user is present as author. "
+        + "Set the state of publication to 'imported'")
+    public static void resetPublicationWithUser(String user) {
+        MCRUser mcrUser = MCRUserManager.getUser(user);
+        if (mcrUser == null) {
+            return;
+        }
+
+        List<MCRUserAttribute> connIds = getAttributesByName(mcrUser, ThUniBibPublicationEventHandler.CONNECTION_ID_NAME);
+        MCRUserManager.deleteUser(mcrUser);
+
+        connIds.forEach(connId -> {
+            try {
+                getSolrDocumentsByConnectionId(connId.getValue()).forEach(solrDoc -> {
+                    MCRObjectID mcrid = MCRObjectID.getInstance(solrDoc.getFieldValue("id").toString());
+
+                    if(MCRMetadataManager.exists(mcrid)) {
+                        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrid);
+
+                        Document xml = mcrObject.createXML();
+                        List<Element> nameIdentifierElements = XPATH_FACTORY.compile(
+                            "//mods:name[mods:nameIdentifier[@type='connection'][text() = '" + connId.getValue()
+                                + "']]/mods:nameIdentifier", Filters.element(), null, MODS_NAMESPACE).evaluate(xml);
+
+                        for (Element nameIdentifier : nameIdentifierElements) {
+                            nameIdentifier.detach();
+                        }
+
+                        try {
+                            Optional.ofNullable(
+                                XPATH_FACTORY.compile("//servflag[@type='status']", Filters.element())
+                                    .evaluateFirst(xml)).ifPresent(status -> status.setText("imported"));
+
+                            MCRMetadataManager.update(new MCRObject(xml));
+                        } catch (MCRAccessException e) {
+                            LOGGER.error("Could not update connection id in object {}", mcrid, e);
+                        }
+                    }
+                });
+            } catch (IOException |SolrServerException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
     private static SolrDocumentList getSolrDocumentsByConnectionId(String connectionId)
         throws SolrServerException, IOException {
         SolrQuery query = new SolrQuery("+nid_connection:" + connectionId);
@@ -719,10 +765,10 @@ public class ThUniBibCommands {
         return response.getResults();
     }
 
-    private static List<MCRUserAttribute> getConnectionsIds(MCRUser user, String attributeName) {
+    private static List<MCRUserAttribute> getAttributesByName(MCRUser user, String attrName) {
         List<MCRUserAttribute> attributes = user.getAttributes()
             .stream()
-            .filter(attr -> attributeName.equals(attr.getName()))
+            .filter(attr -> attrName.equals(attr.getName()))
             .toList();
         return attributes;
     }
