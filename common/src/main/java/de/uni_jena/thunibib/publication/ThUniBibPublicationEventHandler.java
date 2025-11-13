@@ -25,6 +25,7 @@ import org.mycore.user2.MCRUserManager;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -164,10 +165,28 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
      * attribute is allowed to occur across the entire user database
      *
      * @param mcrUser the {@link MCRUser}
-     * @param maxOccurrenceAllowed specify how often the attribute is allowed to occur
+     * @param maxOccurrenceAllowed specify how often the attribute is allowed to occur across the entire user database
      * */
     protected boolean hasUniqueNameIdentifiers(MCRUser mcrUser, int maxOccurrenceAllowed) {
-        for (MCRUserAttribute attr : mcrUser.getAttributes()) {
+        SortedSet<MCRUserAttribute> userAttributes = mcrUser.getAttributes();
+
+        List<MCRUserAttribute> leadIds = userAttributes
+            .stream()
+            .filter(attr -> attr.getName().equals("id_" + LEAD_ID_NAME))
+            .toList();
+        if (leadIds.size() > 1) {
+            throw new RuntimeException(getRuntimeExceptionMessage(leadIds, "id_" + LEAD_ID_NAME));
+        }
+
+        List<MCRUserAttribute> connIds = userAttributes
+            .stream()
+            .filter(attr -> attr.getName().equals(CONNECTION_ID_NAME))
+            .toList();
+        if (connIds.size() > 1) {
+            throw new RuntimeException(getRuntimeExceptionMessage(connIds, "id_" + CONNECTION_ID_NAME));
+        }
+
+        for (MCRUserAttribute attr : userAttributes) {
             String attributeName = attr.getName();
             String attributeValue = attr.getValue();
             if (MCRUserManager.getUsers(attributeName, attributeValue).count() > maxOccurrenceAllowed) {
@@ -175,6 +194,15 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
             }
         }
         return true;
+    }
+
+    private String getRuntimeExceptionMessage(List<MCRUserAttribute> attr, String idType) {
+        StringBuilder m = new StringBuilder();
+        m.append("Identifier of type " + idType + " (" + attr.stream().map(MCRUserAttribute::getValue).collect(Collectors.joining(", ")) + ") must not occur more than once.\n");
+        m.append("1. Please return to the input form.\n");
+        m.append("2. Remove the affected author by pressing the - sign.\n");
+        m.append("3. Add the author via the IdentityPicker.");
+        return m.toString();
     }
 
     /**
