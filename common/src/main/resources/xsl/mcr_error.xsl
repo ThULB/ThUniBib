@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation" exclude-result-prefixes="i18n">
+                xmlns:xalan="http://xml.apache.org/xalan"
+                xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
+                xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="i18n mcrxsl xalan">
 
   <xsl:template match="/">
     <html>
@@ -11,12 +14,10 @@
       </head>
       <body>
         <xsl:if test=".//exception[@type = 'de.uni_jena.thunibib.publication.DuplicatePrimaryIdException']">
-          <div class="section card" id="sectionlast">
-            <div class="card-body">
-              <p>
-                <xsl:value-of select=".//exception[@type = 'de.uni_jena.thunibib.publication.DuplicatePrimaryIdException'][1]/message[1]/text()"/>
-              </p>
-            </div>
+          <div class="jumbotron text-center">
+            <p class="text-monospace">
+              <xsl:value-of disable-output-escaping="yes" select=".//exception[@type = 'de.uni_jena.thunibib.publication.DuplicatePrimaryIdException'][1]/message[1]/text()"/>
+            </p>
           </div>
         </xsl:if>
         <xsl:apply-templates select="mcr_error"/>
@@ -24,57 +25,64 @@
     </html>
   </xsl:template>
 
-  <xsl:template match="mcr_error">
-    <div class="section card" id="sectionlast">
-      <div class="card-body">
-        <p>
-          <xsl:value-of select="concat(i18n:translate('error.intro'),' :')"/>
-        </p>
-        <pre style="padding-left:3ex;">
-          <xsl:value-of select="text()"/>
-        </pre>
-        <xsl:choose>
-          <xsl:when test="exception">
-            <xsl:apply-templates select="exception"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <p>
-              <xsl:value-of select="i18n:translate('error.noInfo')"/>
-            </p>
-          </xsl:otherwise>
-        </xsl:choose>
-      </div>
-    </div>
-  </xsl:template>
-
-  <!-- MCRErrorServlet generated this page -->
-  <xsl:template match="mcr_error[@errorServlet]">
-    <div class="section card" id="sectionlast">
-      <div class="card-body">
-        <p>
+  <xsl:template match="/mcr_error">
+    <div class="jumbotron text-center">
+      <xsl:variable name="message">
+        <xsl:if test="@errorServlet and string-length(text()) &gt; 1">
           <xsl:call-template name="lf2br">
             <xsl:with-param name="string" select="text()"/>
           </xsl:call-template>
-        </p>
-        <p>
-          <xsl:value-of select="i18n:translate('error.requestURI',@requestURI)"/>
-        </p>
-        <xsl:apply-templates select="exception"/>
-      </div>
+        </xsl:if>
+      </xsl:variable>
+
+      <p class="text-monospace">
+        <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.',/mcr_error/@HttpError),/mcr_error/@requestURI)"/>
+      </p>
+
+      <h1>
+        <span class="text-danger align-middle display-3 pr-3">
+          <xsl:value-of select="/mcr_error/@HttpError"/>
+        </span>
+        <span>
+          <xsl:value-of select="$message"/>
+        </span>
+      </h1>
+
+      <xsl:if test="mcrxsl:isCurrentUserInRole('admin')">
+        <xsl:choose>
+          <xsl:when test="@errorServlet and string-length(text()) &gt; 1 or exception">
+            <xsl:if test="exception">
+              <div class="card">
+                <div class="card-header bg-warning text-white ubo-hover-pointer" data-toggle="collapse"
+                     href="#stacktrace" role="button" aria-expanded="false" aria-controls="stacktrace">
+                  <xsl:value-of select="i18n:translate('thunibib.error.show.stacktrace')"/>
+                </div>
+
+                <div id="stacktrace" class="card-body text-left collapse">
+                  <xsl:for-each select="exception/trace">
+                    <pre class="small">
+                      <xsl:value-of select="."/>
+                    </pre>
+                  </xsl:for-each>
+                </div>
+              </div>
+            </xsl:if>
+          </xsl:when>
+
+          <xsl:otherwise>
+            <p>
+              <small>
+                <xsl:value-of select="i18n:translate('error.noInfo')"/>
+              </small>
+            </p>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
     </div>
   </xsl:template>
 
-  <xsl:template match="exception">
-    <p>
-      <xsl:value-of select="concat(i18n:translate('error.stackTrace'),' :')"/>
-    </p>
-    <xsl:apply-templates select="trace"/>
-  </xsl:template>
-
-  <xsl:template match="trace">
-    <pre style="padding-left:3ex;">
-      <xsl:value-of select="."/>
-    </pre>
+  <xsl:template match="/mcr_error[contains('401|403', @HttpError)]">
+    <xsl:value-of select="i18n:translage('component.base.webpage.notLoggedIn')"/>
   </xsl:template>
 
   <xsl:template name="lf2br">
