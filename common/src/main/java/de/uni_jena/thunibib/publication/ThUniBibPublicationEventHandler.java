@@ -15,6 +15,7 @@ import org.mycore.common.events.MCREvent;
 import org.mycore.common.events.MCREventHandlerBase;
 import org.mycore.datamodel.common.MCRXMLMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
+import org.mycore.services.i18n.MCRTranslation;
 import org.mycore.ubo.matcher.MCRUserMatcher;
 import org.mycore.ubo.matcher.MCRUserMatcherDTO;
 import org.mycore.user2.MCRUser;
@@ -177,7 +178,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
             .filter(attr -> attr.getName().equals("id_" + LEAD_ID_NAME))
             .toList();
         if (leadIds.size() > 1) {
-            throw new RuntimeException(getRuntimeExceptionMessage(leadIds, "id_" + LEAD_ID_NAME));
+            throw new DuplicatePrimaryIdException(getRuntimeExceptionMessage(leadIds, "id_" + LEAD_ID_NAME));
         }
 
         List<MCRUserAttribute> connIds = userAttributes
@@ -185,7 +186,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
             .filter(attr -> attr.getName().equals(CONNECTION_ID_NAME))
             .toList();
         if (connIds.size() > 1) {
-            throw new RuntimeException(getRuntimeExceptionMessage(connIds, "id_" + CONNECTION_ID_NAME));
+            throw new DuplicatePrimaryIdException(getRuntimeExceptionMessage(connIds, "id_" + CONNECTION_ID_NAME));
         }
 
         for (MCRUserAttribute attr : userAttributes) {
@@ -199,12 +200,9 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
     }
 
     protected final String getRuntimeExceptionMessage(List<MCRUserAttribute> attr, String idType) {
-        StringBuilder m = new StringBuilder();
-        m.append("Identifier of type " + idType + " (" + attr.stream().map(MCRUserAttribute::getValue).collect(Collectors.joining(", ")) + ") must not occur more than once. ");
-        m.append("1. Please return to the input form. ");
-        m.append("2. Remove the affected author by pressing the - sign. ");
-        m.append("3. Add the author via the IdentityPicker.");
-        return m.toString();
+        String i18n = "thunibib.editor.duplicate.primary.id.error";
+        String affectedId = attr.stream().map(MCRUserAttribute::getValue).collect(Collectors.joining(", "));
+        return MCRTranslation.translate(i18n, idType, affectedId);
     }
 
     /**
