@@ -1,5 +1,15 @@
 # Changelog
 
+# 2025.11.17-2023.06.x
+- [#825](https://github.com/ThULB/ThUniBib/issues/825) Update ORIGIN.xml [Ilmenau] (#831)
+- [#839](https://github.com/ThULB/ThUniBib/issues/839)Update landing page and faq (Erfurt) (#840)
+- [FSU040THUL-10543](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10543) [#826](https://github.com/ThULB/ThUniBib/issues/826) Personal identifiers are being assigned to incorrect user accounts (#841)
+- [FSU040THUL-10544](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10544) [#829](https://github.com/ThULB/ThUniBib/issues/829) Validate enriched dbt id when importing via doi list import (#830)
+- [FSU040THUL-10546](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10546) [#827](https://github.com/ThULB/ThUniBib/issues/827) Add support for new genre type data paper (Daten-Artikel) (#828)
+- [FSU040THUL-10695](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10695) [#832](https://github.com/ThULB/ThUniBib/issues/832) Add connection id to list of `MCR.ORCID2.User.TrustedNameIdentifierTypes` (#833)
+- [FSU040THUL-10786](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10786) [#842](https://github.com/ThULB/ThUniBib/issues/842) Updated telephone numbers in contact.xml and index.xed (Jena) (#843)
+---
+
 # 2025.10.22-2023.06.x
 - [#792](https://github.com/ThULB/ThUniBib/issues/792) Provide bibtex as work:citation-value when publication is submitted to orcid (#794)
 - [#798](https://github.com/ThULB/ThUniBib/issues/798) Update Jena's ORIGIN.xml
@@ -15,6 +25,7 @@
 - [FSU040THUL-8266 ](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-8266) [#754](https://github.com/ThULB/ThUniBib/issues/754) Update statistics chart titles (Weimar) and restrict access to certain charts (#820)
 - [FSU040THUL-9186 ](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9186) [#795](https://github.com/ThULB/ThUniBib/issues/795) Improved layout for Erfurt's UBO instance (#796)
 ---
+
 # 2025.09.03-2023.06.x
 - [#785](https://github.com/ThULB/ThUniBib/issues/785) Upgrade to MyCoRe 2023.06.4 Snapshot (#786)
 - [#789](https://github.com/ThULB/ThUniBib/issues/789) Updated mapping to orcid work types (#790)
@@ -33,6 +44,7 @@
 - [FSU040THUL-9208](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9208) [#778](https://github.com/ThULB/ThUniBib/issues/778) Retain roles of publication imported from DBT when possible, otherwise map to marc-relator role 'oth', map 'ths' (DBT) to 'dgs' (UBO) (#779)
 - [FSU040THUL-9214](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-9214) [#780](https://github.com/ThULB/ThUniBib/issues/780) Updated MCR.PICA2MODS.DATABASE property in thunibib-erfurt/mycore.properties to opac-de-547 (#783)
 ---
+
 # 2025.07.23-2023.06.x
 - [#704](https://github.com/ThULB/ThUniBib/issues/704) Add document type "Tondokument" (#705)
 - [#738](https://github.com/ThULB/ThUniBib/issues/738) List of recent imports on landing page ignores scopus imports in Jena (#739)
