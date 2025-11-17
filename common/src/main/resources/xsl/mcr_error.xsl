@@ -25,7 +25,7 @@
     </html>
   </xsl:template>
 
-  <xsl:template match="/mcr_error">
+  <xsl:template match="mcr_error">
     <div class="jumbotron text-center">
       <xsl:variable name="message">
         <xsl:if test="@errorServlet and string-length(text()) &gt; 1">
@@ -36,12 +36,12 @@
       </xsl:variable>
 
       <p class="text-monospace">
-        <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.',/mcr_error/@HttpError),/mcr_error/@requestURI)"/>
+        <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.', @HttpError), @requestURI)"/>
       </p>
 
       <h1>
         <span class="text-danger align-middle display-3 pr-3">
-          <xsl:value-of select="/mcr_error/@HttpError"/>
+          <xsl:value-of select="@HttpError"/>
         </span>
         <span>
           <xsl:value-of select="$message"/>
@@ -81,8 +81,21 @@
     </div>
   </xsl:template>
 
-  <xsl:template match="/mcr_error[contains('401|403', @HttpError)]">
-    <xsl:value-of select="i18n:translage('component.base.webpage.notLoggedIn')"/>
+  <xsl:template match="mcr_error[contains('401 403', @HttpError)]">
+    <div class="jumbotron text-center">
+      <p class="text-monospace">
+        <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.', @HttpError), @requestURI)"/>
+      </p>
+
+      <h1>
+        <span class="text-danger align-middle display-3 pr-3">
+          <xsl:value-of select="@HttpError"/>
+        </span>
+        <span>
+          <xsl:value-of select="i18n:translate('component.base.webpage.notLoggedIn')"/>
+        </span>
+      </h1>
+    </div>
   </xsl:template>
 
   <xsl:template name="lf2br">
