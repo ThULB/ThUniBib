@@ -421,23 +421,41 @@
         <xed:choose>
           <xed:when test="string-length(mods:nameIdentifier[@type=$MCR.user2.matching.lead_id]) &gt; 0">
             <xed:bind xpath="mods:nameIdentifier[@type=$MCR.user2.matching.lead_id]">
-              <a target="_blank" href="{$UBO.LSF.Link}{.}">
-                <xed:output value="concat('&#160;', i18n:translate('editor.identity.picker.lead_id'), ' ', .)"/>
-              </a>
+              <sup>
+                <xed:choose>
+                  <xed:when test="xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+                    <a target="_blank" class="ml-1" href="{$UBO.LSF.Link}{.}">
+                      <xed:output value="concat(i18n:translate('editor.identity.picker.lead_id'), ': ', .)"/>
+                    </a>
+                  </xed:when>
+                  <xed:otherwise>
+                    <span class="ml-1">
+                      <xed:output value="concat(i18n:translate('editor.identity.picker.lead_id'), ': ', .)"/>
+                    </span>
+                  </xed:otherwise>
+                </xed:choose>
+              </sup>
             </xed:bind>
           </xed:when>
-          <!-- do not search and display results if person is already linked, but lead_id was deleted -->
-          <xed:when test="count(mods:nameIdentifier[@type='connection'])&gt;0">
-            <span class="fas fa-user ml-1"></span>
+          <xed:when test="count(mods:nameIdentifier[@type='connection']) &gt; 0">
+            <span class="fas fa-user ml-1" title="ConnectionID: {mods:nameIdentifier[@type='connection'][1]/text()}"/>
+            <sup>
+              <xed:choose>
+                <xed:when test="xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+                  <a target="_blank" class="ml-1" href="{$ThUniBib.search.by.user.attribute.link}{mods:nameIdentifier[@type='connection'][1]/text()}">
+                      <xed:output value="concat('ConnectionID: ', mods:nameIdentifier[@type='connection'][1]/text())"/>
+                  </a>
+                </xed:when>
+                <xed:otherwise>
+                    <xed:output value="concat('ConnectionID: ', mods:nameIdentifier[@type='connection'][1]/text())"/>
+                </xed:otherwise>
+              </xed:choose>
+            </sup>
           </xed:when>
-          <xed:when test="string-length(mods:namePart[@type='family']) &gt; 0">
-            <!-- xed:load-resource uri="ires:search:{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}" name="searchResults"/>
-            <xed:if test="count($searchResults/person) &gt; 0">
-              <xed:output value="concat('&#160;(', count($searchResults/person), ' in ', i18n:translate('editor.identity.picker.name'), ')')" />
-            </xed:if -->
-          </xed:when>
+          <xed:when test="string-length(mods:namePart[@type='family']) &gt; 0"/>
         </xed:choose>
       </span>
+
       <div class="ml-auto pb-1">
         <button id="{xed:generate-id()}" class="btn btn-xs btn-primary mr-1" type="submit" xed:target="subselect"
                 xed:href="../identitypicker.html?{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}&amp;xEditorHook={xed:generate-id()}">
