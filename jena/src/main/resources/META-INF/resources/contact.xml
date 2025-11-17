@@ -19,11 +19,21 @@
         </i18n:en>
       </p>
       <p>
-        Thüringer Universitäts- und Landesbibliothek Jena
+        <i18n:de>
+          Thüringer Universitäts- und Landesbibliothek Jena
+        </i18n:de>
+        <i18n:en>
+          Thuringian University and State Library Jena
+        </i18n:en>
         <br/>
         <a href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de</a>
         <br/>
-        Tel.: +49 3641 9-404 100
+        <i18n:de>
+          Tel.: +49 3641 9-404 215
+        </i18n:de>
+        <i18n:en>
+          Phone: +49 3641 9-404 215
+        </i18n:en>
         <br/>
       </p>
     </div>
