@@ -52,7 +52,7 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:response-newest:solr:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3ANOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
+  <xinclude uri="xslStyle:response-newest:solr:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked)+AND+year%3ANOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year,cite"/>
 
   <aside id="sidebar">
     <xinclude uri="xslStyle:response-sidebar-mini:solr:q=%2B(status%3Aconfirmed+status%3Aunchecked)&amp;rows=0"/>
