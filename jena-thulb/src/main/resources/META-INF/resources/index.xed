@@ -13,7 +13,7 @@
   </article>
 
   <xinclude
-      uri="xslStyle:response-newest:solr:q=status%3Aconfirmed+AND+year%3ANOW&amp;rows=3&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year" />
+      uri="xslStyle:response-newest:solr:q=status%3Aconfirmed+AND+year%3ANOW&amp;rows=3&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year,cite" />
 
   <aside id="sidebar">
     <xinclude uri="xslStyle:response-sidebar-mini:solr:q=status%3Aconfirmed&amp;rows=0" />
