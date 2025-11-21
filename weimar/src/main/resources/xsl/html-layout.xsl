@@ -40,7 +40,7 @@
   <xsl:include href="coreFunctions.xsl"/>
   <xsl:include href="html-layout-backend.xsl"/>
   <xsl:include href="servicedesk.xsl"/>
-  <xsl:include href="user-orcid.xsl"/>
+  <xsl:include href="ubo-orcid.xsl"/>
 
   <!-- ==================== HTML ==================== -->
 
@@ -50,8 +50,6 @@
     </xsl:text>
     <html lang="{$CurrentLang}">
       <xsl:apply-templates select="head"/>
-      <!-- include Internet Explorer warning -->
-      <xsl:call-template name="msie-note"/>
       <xsl:call-template name="layout"/>
     </html>
   </xsl:template>
