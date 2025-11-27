@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
+                xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
+                exclude-result-prefixes="i18n mcrxml">
+
+  <xsl:param name="UBO.projectid.default"/>
+  <xsl:param name="WebApplicationBaseURL"/>
+
+  <xsl:template match="/thunibib-shared-identifiers">
+    <webpage>
+      <title xml:lang="de">Übersicht: Nutzer mit gleichen Identifikatoren</title>
+      <title xml:lang="en">Overview: User sharing the same identifiers</title>
+
+      <article>
+
+        <xsl:choose>
+          <xsl:when test="not(mcrxml:isCurrentUserInRole('admin'))">
+            <h5>
+              <xsl:value-of select="i18n:translate('component.base.webpage.notLoggedIn')"/>
+            </h5>
+          </xsl:when>
+
+          <xsl:otherwise>
+            <div class="card-body">
+              <xsl:value-of select="i18n:translate('thunibib.users.sharing.identifiers.intro')"/>
+            </div>
+
+            <div class="card-body">
+              <xsl:apply-templates select="identifier"/>
+            </div>
+          </xsl:otherwise>
+        </xsl:choose>
+      </article>
+    </webpage>
+  </xsl:template>
+
+  <xsl:template match="identifier[count(identifier) &gt; 0]">
+    <div class="row pt-2 pb-2 border-bottom pt-5">
+      <div class="col-2 font-weight-bold text-truncate">
+        <xsl:value-of select="@type"/>
+      </div>
+    </div>
+
+    <xsl:for-each select="identifier">
+      <xsl:sort select="@value"/>
+      <div class="row border-bottom">
+        <div class="col-2">
+          <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?search={@value}">
+            <xsl:value-of select="@value"/>
+          </a>
+        </div>
+
+        <div class="col">
+          <xsl:for-each select="user">
+            <div class="row">
+              <div class="col-4">
+                <xsl:value-of select="@realname"/>
+              </div>
+              <div class="col">
+                <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={@username}">
+                  <xsl:value-of select="@username"/>
+                </a>
+              </div>
+            </div>
+          </xsl:for-each>
+        </div>
+      </div>
+    </xsl:for-each>
+  </xsl:template>
+</xsl:stylesheet>

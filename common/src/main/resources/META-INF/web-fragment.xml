@@ -24,4 +24,14 @@
     <servlet-name>ListVanishedLDAPUsersServlet</servlet-name>
     <url-pattern>/servlets/ListVanishedLDAPUsersServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ListUsersSharingIdentifiersServlet</servlet-name>
+    <servlet-class>de.uni_jena.thunibib.user.ListUsersSharingIdentifiersServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ListUsersSharingIdentifiersServlet</servlet-name>
+    <url-pattern>/servlets/ListUsersSharingIdentifiersServlet</url-pattern>
+  </servlet-mapping>
 </web-fragment>
