@@ -5,14 +5,17 @@ package de.uni_jena.thunibib.user;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
+import jakarta.servlet.http.HttpServletResponse;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.content.MCRJDOMContent;
+import org.mycore.common.xml.MCRXMLFunctions;
 import org.mycore.frontend.servlets.MCRServlet;
 import org.mycore.frontend.servlets.MCRServletJob;
 import org.mycore.user2.MCRUser;
+import org.mycore.user2.MCRUserAttribute;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +35,11 @@ public class ListUsersSharingIdentifiersServlet extends MCRServlet {
 
     @Override
     protected void doGet(MCRServletJob job) throws Exception {
+        if (!MCRXMLFunctions.isCurrentUserInRole("admin")) {
+            job.getResponse().sendError(HttpServletResponse.SC_FORBIDDEN);
+            return;
+        }
+
         Document xml = new Document();
         Element allIds = new Element("thunibib-shared-identifiers");
         xml.setRootElement(allIds);
@@ -41,12 +49,6 @@ public class ListUsersSharingIdentifiersServlet extends MCRServlet {
         }
 
         getLayoutService().doLayout(job.getRequest(), job.getResponse(), new MCRJDOMContent(xml));
-
-        /*
-        if (!MCRXMLFunctions.isCurrentUserInRole("admin")) {
-            getLayoutService().doLayout(job.getRequest(), job.getResponse(), new MCRJDOMContent(xml));
-            return;
-        }*/
     }
 
     /**
@@ -64,11 +66,17 @@ public class ListUsersSharingIdentifiersServlet extends MCRServlet {
         HashMap<String, List<MCRUser>> userById = new HashMap<>();
 
         for (MCRUser mcrUser : resultList) {
-            String value = mcrUser.getUserAttribute(idName);
-            if (value == null) {
+            List<MCRUserAttribute> allMatching = mcrUser
+                .getAttributes()
+                .stream()
+                .filter(a -> a.getName().equals(idName))
+                .toList();
+
+            if (allMatching == null || allMatching.isEmpty()) {
                 continue;
             }
 
+            String value = allMatching.get(0).getValue();
             if (userById.containsKey(value)) {
                 userById.get(value).add(mcrUser);
             } else {
@@ -89,7 +97,8 @@ public class ListUsersSharingIdentifiersServlet extends MCRServlet {
             for (MCRUser mcrUser : entry.getValue()) {
                 Element userElement = new Element("user");
                 idElement.addContent(userElement);
-                userElement.setAttribute("realname", mcrUser.getRealName());
+                String realname = mcrUser.getRealName();
+                userElement.setAttribute("realname", realname != null ? realname : mcrUser.getUserName());
                 userElement.setAttribute("username", mcrUser.getUserName() + "@" + mcrUser.getRealmID());
             }
         });

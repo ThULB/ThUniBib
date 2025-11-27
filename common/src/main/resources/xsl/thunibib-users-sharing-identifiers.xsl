@@ -13,7 +13,6 @@
       <title xml:lang="en">Overview: User sharing the same identifiers</title>
 
       <article>
-
         <xsl:choose>
           <xsl:when test="not(mcrxml:isCurrentUserInRole('admin'))">
             <h5>
@@ -36,16 +35,16 @@
   </xsl:template>
 
   <xsl:template match="identifier[count(identifier) &gt; 0]">
-    <div class="row pt-2 pb-2 border-bottom pt-5">
+    <div class="row pt-2 pb-2 border-bottom">
       <div class="col-2 font-weight-bold text-truncate">
-        <xsl:value-of select="@type"/>
+        <xsl:value-of select="concat(@type, ' [', count(identifier),']')"/>
       </div>
     </div>
 
     <xsl:for-each select="identifier">
       <xsl:sort select="@value"/>
-      <div class="row border-bottom">
-        <div class="col-2">
+      <div class="row border-bottom thunibib-grouped-identifier">
+        <div class="col-3 text-truncate" title="{@value}">
           <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?search={@value}">
             <xsl:value-of select="@value"/>
           </a>
