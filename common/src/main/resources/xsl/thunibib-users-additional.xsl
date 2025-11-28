@@ -16,6 +16,11 @@
       <a href="{$WebApplicationBaseURL}servlets/ListVanishedLDAPUsersServlet?lang={$CurrentLang}">
         <xsl:value-of select="concat(i18n:translate('thunibib.vanished.users.intro.link.here'), '.')"/>
       </a>
+      <xsl:value-of select="i18n:translate('thunibib.users.sharing.identifiers.link')"/>
+
+      <a href="{$WebApplicationBaseURL}servlets/ListUsersSharingIdentifiersServlet?lang={$CurrentLang}">
+        <xsl:value-of select="concat(i18n:translate('thunibib.users.sharing.identifiers.intro.link.here'), '.')"/>
+      </a>
     </div>
   </xsl:template>
 
