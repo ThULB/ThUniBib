@@ -3,20 +3,20 @@ package de.uni_jena.thunibib;
 import de.uni_jena.thunibib.publication.ThUniBibPublicationEventHandler;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClientBase;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -49,7 +49,7 @@ import org.mycore.datamodel.metadata.MCRObjectID;
 import org.mycore.frontend.MCRFrontendUtil;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
-import org.mycore.solr.MCRSolrClientFactory;
+import org.mycore.solr.MCRSolrCoreManager;
 import org.mycore.solr.commands.MCRSolrCommands;
 import org.mycore.ubo.ldap.LDAPAuthenticator;
 import org.mycore.ubo.ldap.LDAPObject;
@@ -258,8 +258,8 @@ public class ThUniBibCommands {
         try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
             CloseableHttpResponse httpResponse = httpclient.execute(get);
 
-            if (httpResponse.getStatusLine().getStatusCode() != 200) {
-                LOGGER.warn("Could not read from url because: {}", httpResponse.getStatusLine().getReasonPhrase());
+            if (httpResponse.getCode() != 200) {
+                LOGGER.warn("Could not read from url because: {}", httpResponse.getReasonPhrase());
                 return null;
             }
 
@@ -303,7 +303,7 @@ public class ThUniBibCommands {
         solrQuery.setSort("id", SolrQuery.ORDER.asc);
 
         try {
-            return MCRSolrClientFactory.getMainSolrClient().query(solrQuery).getResults();
+            return MCRSolrCoreManager.getMainSolrClient().query(solrQuery).getResults();
         } catch (SolrServerException | IOException e) {
             LOGGER.error("Could not execute solr query {}", solrQuery);
             return new ArrayList<>();
@@ -343,8 +343,8 @@ public class ThUniBibCommands {
         try (CloseableHttpClient client = HttpClientBuilder.create().build();
             CloseableHttpResponse httpResponse = client.execute(p)) {
 
-            if (httpResponse.getStatusLine().getStatusCode() != 200) {
-                LOGGER.warn(httpResponse.getStatusLine());
+            if (httpResponse.getCode() != 200) {
+                LOGGER.warn(httpResponse.getReasonPhrase());
                 return;
             }
 
@@ -369,12 +369,12 @@ public class ThUniBibCommands {
         String core = MCRConfiguration2.getString("MCR.Solr.Core.ubo-projects.Name").orElse("?");
 
         // check for core
-        if (!MCRSolrClientFactory.get(core).isPresent()) {
+        if (!MCRSolrCoreManager.get(core).isPresent()) {
             LOGGER.warn("Solr core '{}' is unconfigured", core);
             return;
         }
 
-        HttpSolrClient client = MCRSolrClientFactory.get(core).get().getClient();
+        HttpSolrClientBase client = MCRSolrCoreManager.get(core).get().getClient();
         Namespace cerif = Namespace.getNamespace("cerif", "https://www.openaire.eu/cerif-profile/1.1/");
 
         XPathExpression<Element> titleExpr = XPathFactory.instance()
@@ -612,7 +612,7 @@ public class ThUniBibCommands {
         }
 
         List<String> list = new ArrayList<>();
-        MCRUserManager.listUsers(null, mcrRealm.getID(), null).forEach(mcrUser -> {
+        MCRUserManager.listUsers(null, mcrRealm.getID(), null, null).forEach(mcrUser -> {
             String username = mcrUser.getUserName();
             String realm = mcrUser.getRealm().getID();
             list.add("thunibib set username of " + username + "@" + realm + " to lead id");
@@ -635,12 +635,12 @@ public class ThUniBibCommands {
         }
 
         MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
-        MCRXSLTransformer transformer = MCRXSLTransformer.getInstance(
+        MCRXSLTransformer transformer = MCRXSLTransformer.obtainInstance(
             "xsl/migration/xslt-migrate-fachreferate-to-destatis.xsl");
 
         try {
             MCRContent content = transformer.transform(new MCRJDOMContent(mcrObject.createXML()),
-                MCRParameterCollector.getInstanceFromUserSession());
+                MCRParameterCollector.ofCurrentSession());
             MCRMetadataManager.update(new MCRObject(content.asXML()));
         } catch (IOException | JDOMException | MCRAccessException e) {
             LOGGER.error("Could not transform xml", e);
@@ -761,7 +761,7 @@ public class ThUniBibCommands {
         SolrQuery query = new SolrQuery("+nid_connection:" + connectionId);
         query.setRows(Integer.MAX_VALUE);
         query.setFields("id", "nid_connection");
-        QueryResponse response = MCRSolrClientFactory.getMainSolrClient().query(query);
+        QueryResponse response = MCRSolrCoreManager.getMainSolrClient().query(query);
         return response.getResults();
     }
 

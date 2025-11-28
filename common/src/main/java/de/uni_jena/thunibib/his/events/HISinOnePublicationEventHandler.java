@@ -9,7 +9,7 @@ import org.mycore.common.events.MCREvent;
 import org.mycore.common.events.MCREventHandlerBase;
 import org.mycore.datamodel.metadata.MCRObject;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handles the publishing of publications to HISinOne.
@@ -26,7 +26,7 @@ public class HISinOnePublicationEventHandler extends MCREventHandlerBase {
      */
     @Override
     protected void handleObjectCreated(MCREvent evt, MCRObject obj) {
-        ArrayList<String> flags = obj.getService().getFlags("status");
+        List<String> flags = obj.getService().getFlags("status");
         if (flags == null || flags.isEmpty()) {
             return;
         }
@@ -79,7 +79,7 @@ public class HISinOnePublicationEventHandler extends MCREventHandlerBase {
     }
 
     protected boolean hasHISinOneFlag(MCRObject obj) {
-        ArrayList<String> flags = obj.getService().getFlags(HISInOneServiceFlag.getName());
+        List<String> flags = obj.getService().getFlags(HISInOneServiceFlag.getName());
         return flags != null && !flags.isEmpty();
     }
 
