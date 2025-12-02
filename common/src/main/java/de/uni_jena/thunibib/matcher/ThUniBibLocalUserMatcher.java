@@ -122,6 +122,10 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
         Set<MCRUser> users = new HashSet<>();
         for (MCRUserAttribute mcrAttribute : mcrAttributes) {
             String attributeName = mcrAttribute.getName();
+            if ("mail".equals(attributeName)) {
+                continue;
+            }
+
             String attributeValue = mcrAttribute.getValue();
             users.addAll(MCRUserManager.getUsers(attributeName, attributeValue).toList());
         }
