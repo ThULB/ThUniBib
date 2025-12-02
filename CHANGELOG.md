@@ -1,5 +1,12 @@
 # Changelog
 
+# 2025.12.02-2023.06.x
+- [#844](https://github.com/ThULB/ThUniBib/issues/844) Fixed handling of 401 and 403 errors in `mcr_error.xsl` (#845)
+- [#846](https://github.com/ThULB/ThUniBib/issues/846) Do not ignore email address from matched user (ldap) when creating a `MCRUser` (#847)
+- [#850](https://github.com/ThULB/ThUniBib/issues/850) Fixed naming issue in configuration for HS Schmalkalden (#851)
+- [#853](https://github.com/ThULB/ThUniBib/issues/853) Provide UI for examining users sharing an identifier (#854)
+---
+
 # 2025.11.17-2023.06.x
 - [#825](https://github.com/ThULB/ThUniBib/issues/825) Update ORIGIN.xml [Ilmenau] (#831)
 - [#839](https://github.com/ThULB/ThUniBib/issues/839)Update landing page and faq (Erfurt) (#840)
