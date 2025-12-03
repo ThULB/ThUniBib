@@ -67,7 +67,7 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
                 MCRUser matchingUser = matchingUsers.get(0);
 
                 LOGGER.info(
-                    "Found local matching user! Matched user: {} and attributes: {} with local user: {} and attributes: {}",
+                    "Matched user '{}' and attributes {} with local user '{}' and attributes '{}'",
                     providedUser.getUserName(),
                     providedUser.getAttributes()
                         .stream()
@@ -79,14 +79,14 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
                         .map(a -> a.getName() + "=" + a.getValue())
                         .collect(Collectors.joining(" | ")));
 
-                boolean hasMatchingUserConnectionKey = matchingUser.getUserAttribute(CONNECTION_ID_NAME) != null;
+                boolean matchingHasConnectionId = matchingUser.getUserAttribute(CONNECTION_ID_NAME) != null;
 
                 // only add attributes which are not present, don't add duplicate connection attributes
                 List<MCRUserAttribute> providedAttributes = providedUser
                     .getAttributes()
                     .stream()
                     .filter(attribute -> !isOtherUsersAttribute(attribute))
-                    .filter(attribute -> !attribute.getName().equals(CONNECTION_ID_NAME) || !hasMatchingUserConnectionKey)
+                    .filter(attribute -> !attribute.getName().equals(CONNECTION_ID_NAME) || !matchingHasConnectionId)
                     .filter(Predicate.not(matchingUser.getAttributes()::contains))
                     .toList();
 
@@ -100,8 +100,10 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
             }
             default: {
                 LOGGER.error("Found more than one matching users for the given attributes: {}",
-                    matchingUsers.stream().map(MCRUser::getUserID).collect(
-                        Collectors.joining(", ")));
+                    matchingUsers
+                        .stream()
+                        .map(MCRUser::getUserID)
+                        .collect(Collectors.joining(", ")));
 
                 localMatcherDTO.setMCRUser(null);
                 localMatcherDTO.setMatchedOrEnriched(false);
@@ -122,6 +124,10 @@ public class ThUniBibLocalUserMatcher implements MCRUserMatcher {
         Set<MCRUser> users = new HashSet<>();
         for (MCRUserAttribute mcrAttribute : mcrAttributes) {
             String attributeName = mcrAttribute.getName();
+            if ("mail".equals(attributeName)) {
+                continue;
+            }
+
             String attributeValue = mcrAttribute.getValue();
             users.addAll(MCRUserManager.getUsers(attributeName, attributeValue).toList());
         }
