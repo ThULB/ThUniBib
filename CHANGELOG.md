@@ -1,5 +1,9 @@
 # Changelog
 
+# 2025.12.03-2023.06.x
+- [#852](https://github.com/ThULB/ThUniBib/issues/852) Do not match via mail attribute (#855)
+---
+
 # 2025.12.02-2023.06.x
 - [#844](https://github.com/ThULB/ThUniBib/issues/844) Fixed handling of 401 and 403 errors in `mcr_error.xsl` (#845)
 - [#846](https://github.com/ThULB/ThUniBib/issues/846) Do not ignore email address from matched user (ldap) when creating a `MCRUser` (#847)
@@ -9,7 +13,7 @@
 
 # 2025.11.17-2023.06.x
 - [#825](https://github.com/ThULB/ThUniBib/issues/825) Update ORIGIN.xml [Ilmenau] (#831)
-- [#839](https://github.com/ThULB/ThUniBib/issues/839)Update landing page and faq (Erfurt) (#840)
+- [#839](https://github.com/ThULB/ThUniBib/issues/839) Update landing page and faq (Erfurt) (#840)
 - [FSU040THUL-10543](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10543) [#826](https://github.com/ThULB/ThUniBib/issues/826) Personal identifiers are being assigned to incorrect user accounts (#841)
 - [FSU040THUL-10544](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10544) [#829](https://github.com/ThULB/ThUniBib/issues/829) Validate enriched dbt id when importing via doi list import (#830)
 - [FSU040THUL-10546](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10546) [#827](https://github.com/ThULB/ThUniBib/issues/827) Add support for new genre type data paper (Daten-Artikel) (#828)
