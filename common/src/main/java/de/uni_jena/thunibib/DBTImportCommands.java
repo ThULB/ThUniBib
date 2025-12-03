@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClientBase;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -15,8 +15,8 @@ import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
-import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrCore;
+import org.mycore.solr.MCRSolrCoreManager;
 import org.mycore.ubo.importer.ListImportJob;
 
 import java.io.IOException;
@@ -34,9 +34,9 @@ public class DBTImportCommands {
 
     protected static final String DBT_BASEURL = MCRConfiguration2.getStringOrThrow("ThUniBib.Importer.DBT.BaseURL");
 
-    protected static final HttpSolrClient DBT_SOLR_CLIENT;
+    protected static final HttpSolrClientBase DBT_SOLR_CLIENT;
 
-    protected static final MCRSolrCore DBT_SOLR_CORE = MCRSolrClientFactory.get("dbt").orElseThrow();
+    protected static final MCRSolrCore DBT_SOLR_CORE = MCRSolrCoreManager.get("dbt").orElseThrow();
 
     static {
         DBT_SOLR_CLIENT = DBT_SOLR_CORE.getClient();
@@ -129,7 +129,7 @@ public class DBTImportCommands {
             .map(Object::toString)
             .anyMatch(identifier -> {
                 try {
-                    return MCRSolrClientFactory
+                    return MCRSolrCoreManager
                         .getMainSolrClient()
                         .query(new SolrQuery("+pub_id:" + identifier))
                         .getResults()
