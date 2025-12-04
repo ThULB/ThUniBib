@@ -82,10 +82,9 @@
   </xed:template>
 
   <xed:template id="status">
-    <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='status']">
+    <xed:bind xpath="../../../../service/servstates[@class='MCRMetaClassification']/servstate[@classid='state']/@categid" default="submitted">
       <xed:choose>
         <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-          <xed:bind xpath="." default="submitted"/>
           <div class="form-inline form-group">
             <label for="{xed:generate-id()}" class="mycore-form-label">
               <xed:output value="concat(i18n:translate('ubo.status'), ': ')"/>
@@ -95,12 +94,12 @@
             </select>
             <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover"
                data-placement="right" data-content="{i18n:ubo.help.status}">
-              <i class="fas fa-info"></i>
+              <i class="fas fa-info"/>
             </a>
           </div>
         </xed:when>
         <xed:otherwise>
-          <xed:bind xpath="." default="submitted"/>
+          <xed:bind xpath="."/>
         </xed:otherwise>
       </xed:choose>
     </xed:bind>
