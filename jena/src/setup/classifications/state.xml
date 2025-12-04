@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass ID="state" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+
+  <label xml:lang="de" text="Objektstatus"/>
+  <label xml:lang="en" text="Object state"/>
+  <label xml:lang="it" text="stato dell'oggetto"/>
+
+  <label xml:lang="x-uri" text="http://www.mycore.org/classifications/state"/>
+
+  <categories>
+    <category ID="confirmed">
+      <label xml:lang="de" text="redaktionell geprüft"/>
+      <label xml:lang="en" text="confirmed"/>
+    </category>
+    <category ID="reviewPending">
+      <label xml:lang="de" text="Prüfung ausstehend"/>
+      <label xml:lang="en" text="Review pending"/>
+    </category>
+    <category ID="submitted">
+      <label xml:lang="de" text="eingereicht"/>
+      <label xml:lang="en" text="submitted"/>
+    </category>
+    <category ID="review">
+      <label xml:lang="de" text="wird bearbeitet"/>
+      <label xml:lang="en" text="in review"/>
+    </category>
+    <category ID="imported">
+      <label xml:lang="de" text="importiert"/>
+      <label xml:lang="en" text="imported"/>
+    </category>
+    <category ID="unchecked">
+      <label xml:lang="de" text="keine Redaktion"/>
+      <label xml:lang="en" text="no editing"/>
+    </category>
+  </categories>
+</mycoreclass>
