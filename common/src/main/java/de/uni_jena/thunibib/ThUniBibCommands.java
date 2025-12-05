@@ -741,8 +741,10 @@ public class ThUniBibCommands {
 
                         try {
                             Optional.ofNullable(
-                                XPATH_FACTORY.compile("//servflag[@type='status']", Filters.element())
-                                    .evaluateFirst(xml)).ifPresent(status -> status.setText("imported"));
+                                    XPATH_FACTORY
+                                        .compile("//servstate[@classid='state']", Filters.element())
+                                        .evaluateFirst(xml))
+                                .ifPresent(status -> status.setAttribute("categid", "imported"));
 
                             MCRMetadataManager.update(new MCRObject(xml));
                         } catch (MCRAccessException e) {

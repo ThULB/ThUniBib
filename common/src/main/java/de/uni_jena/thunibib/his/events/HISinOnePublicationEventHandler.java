@@ -26,8 +26,8 @@ public class HISinOnePublicationEventHandler extends MCREventHandlerBase {
      */
     @Override
     protected void handleObjectCreated(MCREvent evt, MCRObject obj) {
-        List<String> flags = obj.getService().getFlags("status");
-        if (flags == null || flags.isEmpty()) {
+        String state = obj.getService().getState().getId();
+        if (state == null) {
             return;
         }
 
@@ -74,7 +74,7 @@ public class HISinOnePublicationEventHandler extends MCREventHandlerBase {
     }
 
     protected boolean isPublished(MCRObject obj) {
-        String status = obj.getService().getFlags("status").get(0);
+        String status = obj.getService().getState().getId();
         return ("confirmed".equals(status));
     }
 

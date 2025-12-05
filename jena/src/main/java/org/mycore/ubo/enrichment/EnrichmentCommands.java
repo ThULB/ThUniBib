@@ -255,12 +255,12 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         return MCRObjectID.getNextFreeId(projectID, "mods");
     }
 
-    private static void createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
+    private static void createOrUpdate(MCRMODSWrapper wrappedMCRobj, String importStatus) {
 
         MCRObject object = wrappedMCRobj.getMCRObject();
         // save object
         try {
-            setState(wrappedMCRobj, import_status);
+            object.getService().setState(importStatus);
 
             final Optional<MCRObjectID> alreadyExists = Optional.of(object.getId())
                 .filter(MCRMetadataManager::exists);
@@ -274,9 +274,5 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         } catch (MCRAccessException e) {
             throw new MCRException("Error while creating " + object.getId().toString(), e);
         }
-    }
-
-    private static void setState(MCRMODSWrapper wrapped, String import_status) {
-        wrapped.setServiceFlag("status", import_status);
     }
 }

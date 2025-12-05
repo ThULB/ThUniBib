@@ -250,7 +250,7 @@
   </xsl:template>
 
   <xsl:template name="visibility">
-    <xsl:param name="status" select="//servflags/servflag[@type='status']"/>
+    <xsl:param name="status" select="//servstates/servstate[@classid='state']"/>
     <xsl:variable name="visibility-his-key" select="fn:document(concat('hisinone:resolve:id:visibility:', $status))"/>
     <xsl:if test="$visibility-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/visibilityValue">
@@ -260,7 +260,7 @@
   </xsl:template>
 
   <xsl:template name="state">
-    <xsl:param name="status" select="//servflags/servflag[@type='status']"/>
+    <xsl:param name="status" select="//servstates/servstate[@classid='state']"/>
     <xsl:variable name="status-his-key" select="fn:document(concat('hisinone:resolve:id:state:', $status))"/>
 
     <xsl:if test="$status-his-key">
