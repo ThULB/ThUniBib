@@ -17,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClientBase;
+import org.apache.solr.client.solrj.request.QueryRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -50,6 +51,8 @@ import org.mycore.frontend.MCRFrontendUtil;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.solr.MCRSolrCoreManager;
+import org.mycore.solr.auth.MCRSolrAuthenticationLevel;
+import org.mycore.solr.auth.MCRSolrAuthenticationManager;
 import org.mycore.solr.commands.MCRSolrCommands;
 import org.mycore.ubo.ldap.LDAPAuthenticator;
 import org.mycore.ubo.ldap.LDAPObject;
@@ -303,7 +306,11 @@ public class ThUniBibCommands {
         solrQuery.setSort("id", SolrQuery.ORDER.asc);
 
         try {
-            return MCRSolrCoreManager.getMainSolrClient().query(solrQuery).getResults();
+            QueryRequest queryRequest = new QueryRequest(solrQuery);
+            MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+            QueryResponse response = queryRequest.process(MCRSolrCoreManager.getMainSolrClient());
+            return response.getResults();
+
         } catch (SolrServerException | IOException e) {
             LOGGER.error("Could not execute solr query {}", solrQuery);
             return new ArrayList<>();
@@ -763,7 +770,9 @@ public class ThUniBibCommands {
         SolrQuery query = new SolrQuery("+nid_connection:" + connectionId);
         query.setRows(Integer.MAX_VALUE);
         query.setFields("id", "nid_connection");
-        QueryResponse response = MCRSolrCoreManager.getMainSolrClient().query(query);
+        QueryRequest queryRequest = new QueryRequest(query);
+        MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+        QueryResponse response = queryRequest.process(MCRSolrCoreManager.getMainSolrClient());
         return response.getResults();
     }
 
