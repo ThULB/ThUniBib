@@ -28,5 +28,9 @@
       <label xml:lang="de" text="keine Redaktion"/>
       <label xml:lang="en" text="no editing"/>
     </category>
+    <category ID="deleted">
+      <label xml:lang="de" text="gelöscht"/>
+      <label xml:lang="en" text="deleted"/>
+    </category>
   </categories>
 </mycoreclass>
