@@ -469,12 +469,12 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return MCRMetadataManager.getMCRObjectIDGenerator().getNextFreeId(projectID, "mods");
     }
 
-    private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
+    private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String importState) {
         wrappedMCRobj.setServiceFlag("importID", ID_PROVIDER.getImportId());
         MCRObject object = wrappedMCRobj.getMCRObject();
         // save object
         try {
-            setState(wrappedMCRobj, import_status);
+            object.getService().setState(importState);
             if (MCRMetadataManager.exists(object.getId())) {
                 LOGGER.info("Update object {}!", object.getId().toString());
                 MCRMetadataManager.update(object);
@@ -487,9 +487,5 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         } catch (MCRAccessException e) {
             throw new MCRException("Error while creating " + object.getId().toString(), e);
         }
-    }
-
-    private static void setState(MCRMODSWrapper wrapped, String import_status) {
-        wrapped.setServiceFlag("status", import_status);
     }
 }
