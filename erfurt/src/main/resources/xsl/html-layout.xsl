@@ -181,8 +181,8 @@
   </xsl:template>
 
   <xsl:template name="layout.header">
-    <header class="">
-      <div class="container" id="">
+    <header class="bg-white thunibib-ef-header">
+      <div class="container" id="thunibib-ef-container">
         <div class="row">
           <div class="col header-brand">
             <xsl:variable name="href">
@@ -195,12 +195,10 @@
                 </xsl:otherwise>
               </xsl:choose>
             </xsl:variable>
-
-            <a title="Zur Startseite" class="imageLink" href="{$href}">
+            <a href="{$href}">
               <div id="wordmark"/>
             </a>
           </div>
-
           <nav class="col col-auto">
             <div class="nav nav-pills">
               <xsl:call-template name="layout.login"/>
@@ -318,7 +316,7 @@
         </xsl:variable>
         <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
            role="button" id="mcrFunctionsDropdown" href="#"
-           class="nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block text-white user">
+           class="nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block user">
           <xsl:choose>
             <xsl:when test="$userData/realName">
               <xsl:value-of select="$userData/realName"/>
@@ -340,13 +338,13 @@
       <xsl:choose>
         <xsl:when test="/webpage/@id='login'"/>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-          <a class="btn btn-link p-0 text-white" title="{i18n:translate('component.user2.button.login')}"
+          <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
              href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
             <xsl:value-of select="i18n:translate('thunibib.signIn')"/>
           </a>
         </xsl:when>
       </xsl:choose>
-      <span class="text-white ml-2 mr-1">
+      <span class="ml-2 mr-1">
         <xsl:value-of select="'|'"/>
       </span>
     </div>
@@ -370,7 +368,7 @@
           </xsl:when>
         </xsl:choose>
       </xsl:variable>
-      <span class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="border flag flag-{$CurrentLang}" style="vertical-align:middle"/>
         <span class="align-middle">
           <xsl:value-of select="utilities:toUpperCase($CurrentLang)"/>
