@@ -16,7 +16,17 @@
   <xsl:param name="UBO.Mail.Feedback"/>
   <xsl:param name="RequestURL"/>
   <xsl:param name="ThUniBib.ServiceDesk.enabled"/>
-  <xsl:param name="ThUniBib.Servlet" select="substring-before(substring-after($RequestURL, 'servlets/'), '?')"/>
+  <xsl:variable name="ThUniBib.Servlet">
+    <xsl:choose>
+      <xsl:when test="contains($RequestURL, '?')">
+        <xsl:value-of select="substring-before(substring-after($RequestURL, 'servlets/'), '?')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="substring-after($RequestURL, 'servlets/')"/>
+      </xsl:otherwise>
+    </xsl:choose>
+
+  </xsl:variable>
 
   <xsl:param name="UBO.Frontend.jquery.version"/>
   <xsl:param name="UBO.Frontend.bootstrap-select.version"/>
