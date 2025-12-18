@@ -25,6 +25,13 @@
           <xsl:value-of select="concat(i18n:translate('thunibib.users.sharing.identifiers.intro.link.here'), '.')"/>
         </a>
       </p>
+
+      <p>
+        <xsl:value-of select="i18n:translate('thunibib.users.multiple.identifiers.link')"/>
+        <a href="{$WebApplicationBaseURL}servlets/ListUsersHavingMultipleIdentifiersServlet?lang={$CurrentLang}">
+          <xsl:value-of select="concat(i18n:translate('thunibib.users.multiple.identifiers.intro.link.here'), '.')"/>
+        </a>
+      </p>
     </div>
   </xsl:template>
 
