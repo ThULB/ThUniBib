@@ -2,7 +2,7 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
   <label xml:lang="de" text="Technische Universität Ilmenau"/>
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
-  <label xml:lang="x-version" text="2025-10-24"/>
+  <label xml:lang="x-version" text="2025-12-23"/>
  
  <categories>
 
@@ -139,7 +139,6 @@
             <category ID="08.010.010.110(2022)">
                <label xml:lang="de" text="Juniorprofessur Funktechnologien für automatisierte und vernetzte Fahrzeuge (2022-)"/>
                <label xml:lang="en" text="Assistant Professorship Radio Technologies for Automated and Connected Vehicles (2022-)"/>
-               
                <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-lpp" text="1821309103"/>
                <label xml:lang="x-from" text="2022"/>
@@ -1106,6 +1105,15 @@
                <label xml:lang="x-kst" text="2225"/>
             </category>
 
+            <category ID="08.020.020.035(2025)">
+               <label xml:lang="de" text="Fachgebiet Medizinische Informatik (2025-)"/>
+               <label xml:lang="en" text="Computational Medicine Group (2025-)"/>
+               <label xml:lang="x-mapping" text="destatis:3520"/>
+               <label xml:lang="x-lpp" text="TUIAIIBTI_MedInf003"/>
+               <label xml:lang="x-from" text="2025"/>
+               <label xml:lang="x-kst" text="2224"/>
+            </category>
+
             <category ID="08.020.020.040(2013)">
                <label xml:lang="de" text="Stiftungsprofessur Multimodale Datenanalyse in der Biomedizintechnik (2013-)"/>
                <label xml:lang="en" text="Endowed Professorship for Multimodal Data Analysis in Biomedical Engineering (2013-)"/>
@@ -1180,6 +1188,14 @@
                <label xml:lang="x-lpp" text="479729980"/>
                <label xml:lang="x-from" text="2005"/>
                <label xml:lang="x-to" text="2010"/>
+            </category>
+
+            <category ID="08.020.030.045(2025)">
+               <label xml:lang="de" text="Fachgebiet Ressourceneffiziente Künstliche Intelligenz (2025-)"/>
+               <label xml:lang="x-mapping" text="destatis:3560"/>
+               <label xml:lang="x-lpp" text="TUIAITII_ReKI001"/>
+               <label xml:lang="x-from" text="2025"/>
+               <label xml:lang="x-kst" text="2239"/>
             </category>
 
             <category ID="08.020.030.050(2005)">
@@ -1507,11 +1523,12 @@
             </category>
 
             <category ID="08.020.060.030(2023)">
-               <label xml:lang="de" text="Fachgebiet Medizinische Informatik (2023-)"/>
-               <label xml:lang="en" text="Computational Medicine Group (2023-)"/>
+               <label xml:lang="de" text="Fachgebiet Medizinische Informatik (2023-2024) ↗"/>
+               <label xml:lang="en" text="Computational Medicine Group (2023-2024) ↗"/>
                <label xml:lang="x-mapping" text="destatis:3520"/>
                <label xml:lang="x-lpp" text="1844654494"/>
                <label xml:lang="x-from" text="2023"/>
+               <label xml:lang="x-to" text="2024"/>
                <label xml:lang="x-kst" text="2257"/>
             </category>
 
@@ -1973,7 +1990,6 @@
             <category ID="08.030.090.090(2023)">
                <label xml:lang="de" text="Fachgebiet Mechanik Nachgiebiger Systeme (2023-)"/>
                <label xml:lang="en" text="Mechanics of Compliant Systems Group (2023-)"/>
-               
                <label xml:lang="x-mapping" text="destatis:6900"/>
                <label xml:lang="x-lpp" text="1839204036"/>
                <label xml:lang="x-from" text="2023"/>
@@ -2543,7 +2559,6 @@
 
             <category ID="08.040.010.190(2023)">
                <label xml:lang="de" text="Juniorprofessur Diskrete Mathematik (2023-)"/>
-               
                <label xml:lang="x-mapping" text="destatis:3440"/>
                <label xml:lang="x-lpp" text="1861112076"/>
                <label xml:lang="x-from" text="2023"/>
@@ -2553,7 +2568,6 @@
             <category ID="08.040.010.200(2023)">
                <label xml:lang="de" text="Fachgebiet Mathematics of Data Science (2023-)"/>
                <label xml:lang="en" text="Group for Mathematics of Data Science (2023-)"/>
-               
                <label xml:lang="x-mapping" text="destatis:3400"/>
                <label xml:lang="x-lpp" text="1861112211"/>
                <label xml:lang="x-from" text="2023"/>
@@ -2761,7 +2775,6 @@
             <category ID="08.040.020.110(2022)">
                <label xml:lang="de" text="Juniorprofessur Theoretische Festkörperphysik (2022-)"/>
                <label xml:lang="en" text="Group of Theoretical Solid State Physics (2022-)"/>
-               
                <label xml:lang="x-mapping" text="destatis:3680"/>
                <label xml:lang="x-lpp" text="1821290631"/>
                <label xml:lang="x-from" text="2022"/>
@@ -3397,7 +3410,6 @@
             <category ID="08.050.050.040(2022)">
                <label xml:lang="de" text="Fachgebiet Kommunikationswissenschaft mit Schwerpunkt Computational Communication Science (2022-)"/>
                <label xml:lang="en" text="Computational Communication Science Group (2022-)"/>
-               
                <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="1821307011"/>
                <label xml:lang="x-from" text="2022"/>
@@ -3597,7 +3609,6 @@
 
          <category ID="08.900.050(2016)">
             <label xml:lang="de" text="Technische Universität / Studierendenrat (2016-)"/>
-            
             <label xml:lang="x-mapping" text="destatis:8820"/>
             <label xml:lang="x-lpp" text="1851448942"/>
             <label xml:lang="x-from" text="2016"/>
@@ -3620,6 +3631,7 @@
 
       </category>
    </category>
+
 
 
 
