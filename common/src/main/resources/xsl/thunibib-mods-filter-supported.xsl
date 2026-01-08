@@ -83,6 +83,8 @@
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
+  <xsl:template match="mods:roleTerm[@type='text'][@authority='GBV']"/>
+
   <xsl:template match="mods:affiliation">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
