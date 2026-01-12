@@ -156,12 +156,15 @@
               <p>
                 <i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen
                   qualitativ hochwertige Publikationsmetadaten daraus:
-                  <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
+                  <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
                 </i18n:de>
                 <i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality
                   publication metadata, or contact us
                   <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
                 </i18n:en>
+              </p>
+
+              <p>
                 <i18n:de>
                   Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
                   href="faq.xml">FAQs
