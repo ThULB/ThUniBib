@@ -3,7 +3,13 @@
 <webpage lastModified="$Date$" id="dozbib">
  <title xml:lang="de">Willkommen bei der Erfurter Universitätsbibliographie (EFUB)</title>
  <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt (EFUB)</title>
- 
+
+<article class="card mb-3">
+  <div class="card-body">
+    <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
+  </div>
+</article>
+
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
      <h3>Die Universitätsbibliographie</h3>
@@ -55,12 +61,6 @@
 	  <p>
 	    Or send us your publication list(s) in any format: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
 	  </p>
-    </div>
-  </article>
-
-  <article class="card mb-3">
-    <div class="card-body">
-      <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
     </div>
   </article>
 
