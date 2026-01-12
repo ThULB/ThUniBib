@@ -145,11 +145,11 @@
             <div class="card-body bg-alternative">
               <p>
                 <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden,
-                  und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a href="login.xed">Login</a>.
+                  und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a href="servlets/MCRShibbolethLoginServlet">Login</a>.
                 </i18n:de>
                 <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and
                   you would like to report this publication? Please use your Uni-Login to
-                  <a href="login.xed">sign in</a>.
+                  <a href="servlets/MCRShibbolethLoginServlet">sign in</a>.
                 </i18n:en>
               </p>
 
