@@ -299,7 +299,7 @@
                           data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Welche Personengruppen können Publikationen melden?
+                    Wer kann Publikationen melden?
                   </button>
                 </h3>
               </div>
@@ -307,7 +307,12 @@
                 <div class="card-body">
                   <p>
                     Alle aktuellen und ehemaligen Angehörigen und Mitglieder der Universität Erfurt können bzw. sollten
-                    ihre Publikationen an die Universitätsbibliographie melden.
+                    ihre Publikationen an die Universitätsbibliographie melden. Zur Angabe der institutionellen
+                    Zugehörigkeit und Verwendung von standardisierten Identifikatoren beachten Sie bitte die
+                    <a
+                      href="https://www.uni-erfurt.de/fileadmin/Hauptseiten/Forschung/Forschungsfoerderung/Affiliationsrichtlinie_15102025_final-unterzeichnet.pdf">
+                      Affiliationsrichtlinie der Universität Erfurt.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -328,10 +333,10 @@
                 <div class="card-body">
                   <p>
                     Sie gehören der Universität Erfurt an? Dann helfen Sie uns bei der Vollständigkeit der
-                    Universitätsbibliographie und melden Sie uns Ihre Publikationen über
-                    <a href="newPublication.xed">Publikationen melden</a>
-                    oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format
-                    <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
+                    Universitätsbibliographie. Nutzen Sie unser Formular <a href="newPublication.xed">Publikationen
+                    melden</a>, wenn Sie eine einzelne Publikation mit Identifikator (DOI, ISBN, ISSN) melden wollen.
+                    Bei Publikationslisten senden Sie uns Ihre Liste(n) in einem beliebigen Format
+                    <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
                   </p>
                 </div>
               </div>
@@ -1034,8 +1039,10 @@
                 <div class="card-body">
                   <p>
                     All current and former members and affiliates of the University of Erfurt can or should report their
-                    publications to the university bibliography that were published during the period of activity at the
-                    University of Erfurt.
+                    publications to the university bibliography. For information on institutional affiliation and the
+                    use of standardised identifiers, please refer to the <a
+                    href="https://www.uni-erfurt.de/fileadmin/Hauptseiten/Forschung/Forschungsfoerderung/Affiliationsrichtlinie_15102025_final-unterzeichnet.pdf">
+                    Affiliationsrichtlinie der Universität Erfurt.</a>
                   </p>
                 </div>
               </div>
@@ -1056,10 +1063,10 @@
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    Are you a member or affiliate of the University of Erfurt? Then help us to complete the university
-                    bibliography and report your publications to us <a href="newPublication.xed">Register a
-                    publication</a>,
-                    or send us your publication list(s) in any format
+                    You are a member or affiliate of the University of Erfurt? Then help us to complete the university
+                    bibliography. Use our form <a href="newPublication.xed">Register a publication</a> if you want to
+                    report a single publication with an identifier (DOI, ISBN, ISSN). For publication lists, send us
+                    your list(s) in any format.
                     <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
                   </p>
                 </div>
