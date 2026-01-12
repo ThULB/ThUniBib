@@ -105,15 +105,19 @@
                           data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Welche Publikationstypen werden verzeichnet?
+                    Was wird verzeichnet?
                   </button>
                 </h3>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Was wird in der Universitätsbibliographie erfasst:
+                    Es werden Publikationen erfasst, die während der Tätigkeit an der Universität Erfurt entstanden
+                    sind, einen entsprechenden Zugehörigkeitsvermerk in der Publikation aufweisen und gedruckt oder
+                    digital dauerhaft öffentlich verfügbar sind. Wir erfassen die elektronische Version der Publikation
+                    und verweisen ggf. auf die Printausgabe.
                   </p>
+
                   <dl>
                     <dt>Abstract (Konferenz/Tagung)</dt>
                     <dd>Ein Abstract ist ein kurzer Text, der eine Präsentation an einer Konferenz zusammenfasst und
@@ -797,14 +801,17 @@
                           data-target="#collapseTwoEn" aria-expanded="false" aria-controls="collapseTwoEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Which publication types are listed?
+                    Which publications are listed?
                   </button>
                 </h3>
               </div>
               <div id="collapseTwoEn" class="collapse" aria-labelledby="headingTwoEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    What is recorded in the university bibliography:
+                    We record publications that were produced during employment at the University of Erfurt, bear a
+                    corresponding affiliation note in the publication, and are permanently available to the public in
+                    print or digital form. We record the electronic version of the publication and refer to the print
+                    edition where applicable.
                   </p>
                   <dl>
                     <dt>Abstract (conference / meeting)</dt>
