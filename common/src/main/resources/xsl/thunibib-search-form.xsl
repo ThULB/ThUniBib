@@ -13,7 +13,7 @@
       <form class="col form-inline" method="get" action="servlets/solr/{$solrRequestHandler}">
         <div class="form-group col-12">
           <div class="input-group col-12">
-            <input class="form-control" placeholder="{i18n:translate('ubo.search.simple')}"/>
+            <input id="input" name="q" type="text" class="form-control" placeholder="{i18n:translate('ubo.search.simple')}"/>
             <button class="btn btn-primary" type="submit">
               <xsl:value-of select="i18n:translate('button.search')"/>
             </button>
