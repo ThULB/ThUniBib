@@ -198,10 +198,10 @@
             <xsl:variable name="href">
               <xsl:choose>
                 <xsl:when test="$CurrentLang = 'de'">
-                  <xsl:value-of select="'https://www.uni-erfurt.de/bibliothek'"/>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/'"/>
                 </xsl:when>
                 <xsl:otherwise>
-                  <xsl:value-of select="'https://www.uni-erfurt.de/en/erfurt-university-library'"/>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/en/'"/>
                 </xsl:otherwise>
               </xsl:choose>
             </xsl:variable>
