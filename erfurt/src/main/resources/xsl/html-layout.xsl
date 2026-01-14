@@ -191,7 +191,7 @@
   </xsl:template>
 
   <xsl:template name="layout.header">
-    <header class="bg-white thunibib-ef-header">
+    <header class="thunibib-ef-header">
       <div class="container" id="thunibib-ef-container">
         <div class="row">
           <div class="col header-brand">
