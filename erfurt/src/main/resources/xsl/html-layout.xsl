@@ -16,6 +16,17 @@
   <xsl:param name="CurrentLang"/>
   <xsl:param name="UBO.Login.Path"/>
   <xsl:param name="ThUniBib.ServiceDesk.enabled"/>
+  <xsl:variable name="ThUniBib.Servlet">
+    <xsl:choose>
+      <xsl:when test="contains($RequestURL, '?')">
+        <xsl:value-of select="substring-before(substring-after($RequestURL, 'servlets/'), '?')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="substring-after($RequestURL, 'servlets/')"/>
+      </xsl:otherwise>
+    </xsl:choose>
+
+  </xsl:variable>
 
   <xsl:param name="UBO.Frontend.jquery.version"/>
   <xsl:param name="UBO.Frontend.bootstrap-select.version"/>
@@ -117,8 +128,8 @@
 
   <!-- html body -->
   <xsl:template name="layout.body">
-    <div class="bodywrapper pt-4">
-      <div class="container d-flex flex-column flex-grow-1">
+    <div class="bodywrapper pt-4 thunibib-bodywrapper-{$ThUniBib.Servlet}">
+      <div class="container d-flex flex-column flex-grow-1 thunibib-container-{$ThUniBib.Servlet}">
         <div class="row">
           <div class="col-lg">
             <xsl:call-template name="layout.inhalt"/>
@@ -180,28 +191,26 @@
   </xsl:template>
 
   <xsl:template name="layout.header">
-    <header class="">
-      <div class="container" id="">
+    <header class="thunibib-ef-header">
+      <div class="container" id="thunibib-ef-container">
         <div class="row">
           <div class="col header-brand">
             <xsl:variable name="href">
               <xsl:choose>
                 <xsl:when test="$CurrentLang = 'de'">
-                  <xsl:value-of select="'https://www.uni-erfurt.de/bibliothek'"/>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/'"/>
                 </xsl:when>
                 <xsl:otherwise>
-                  <xsl:value-of select="'https://www.uni-erfurt.de/en/erfurt-university-library'"/>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/en/'"/>
                 </xsl:otherwise>
               </xsl:choose>
             </xsl:variable>
-
-            <a title="Zur Startseite" class="imageLink" href="{$href}">
+            <a href="{$href}">
               <div id="wordmark"/>
             </a>
           </div>
-
           <nav class="col col-auto">
-            <div class="nav nav-pills">
+            <div class="nav nav-pills text-white">
               <xsl:call-template name="layout.login"/>
             </div>
           </nav>
@@ -317,7 +326,7 @@
         </xsl:variable>
         <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
            role="button" id="mcrFunctionsDropdown" href="#"
-           class="nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block text-white user">
+           class="nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block user text-white">
           <xsl:choose>
             <xsl:when test="$userData/realName">
               <xsl:value-of select="$userData/realName"/>
@@ -345,12 +354,12 @@
           </a>
         </xsl:when>
       </xsl:choose>
-      <span class="text-white ml-2 mr-1">
+      <span class="ml-2 mr-1">
         <xsl:value-of select="'|'"/>
       </span>
     </div>
 
-    <div class="nav-item dropdown">
+    <div class="nav-item dropdown text-white">
       <xsl:variable name="href-lang-toggle">
         <xsl:choose>
           <xsl:when test="$CurrentLang='de'">
@@ -369,7 +378,7 @@
           </xsl:when>
         </xsl:choose>
       </xsl:variable>
-      <span class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="border flag flag-{$CurrentLang}" style="vertical-align:middle"/>
         <span class="align-middle">
           <xsl:value-of select="utilities:toUpperCase($CurrentLang)"/>

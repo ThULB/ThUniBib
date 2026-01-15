@@ -34,4 +34,14 @@
     <servlet-name>ListUsersSharingIdentifiersServlet</servlet-name>
     <url-pattern>/servlets/ListUsersSharingIdentifiersServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ListUsersHavingMultipleIdentifiersServlet</servlet-name>
+    <servlet-class>de.uni_jena.thunibib.user.ListUsersHavingMultipleIdentifiersServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ListUsersHavingMultipleIdentifiersServlet</servlet-name>
+    <url-pattern>/servlets/ListUsersHavingMultipleIdentifiersServlet</url-pattern>
+  </servlet-mapping>
 </web-fragment>

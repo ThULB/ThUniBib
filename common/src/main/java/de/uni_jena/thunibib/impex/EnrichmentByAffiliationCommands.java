@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.request.QueryRequest;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocumentList;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -27,7 +29,6 @@ import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.MCRJDOMContent;
 import org.mycore.common.content.transformer.MCRContentTransformer;
 import org.mycore.common.content.transformer.MCRContentTransformerFactory;
-import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -38,14 +39,17 @@ import org.mycore.mods.MCRMODSWrapper;
 import org.mycore.mods.enrichment.MCREnrichmentResolver;
 import org.mycore.services.queuedjob.MCRJob;
 import org.mycore.services.queuedjob.MCRJobQueueManager;
-import org.mycore.solr.MCRSolrClientFactory;
+import org.mycore.solr.MCRSolrCoreManager;
 import org.mycore.solr.MCRSolrUtils;
+import org.mycore.solr.auth.MCRSolrAuthenticationLevel;
+import org.mycore.solr.auth.MCRSolrAuthenticationManager;
 import org.mycore.ubo.importer.ImportIdProvider;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
@@ -124,7 +128,15 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         String filterTransformer, String importId) {
 
         final String request = buildRequestURL(picaQuery, startStr);
-        final Element result = Objects.requireNonNull(MCRURIResolver.instance().resolve(request));
+        SAXBuilder builder = new SAXBuilder();
+
+        final Element result;
+        try {
+            result = Objects.requireNonNull(builder.build(request).getRootElement().detach());
+        } catch (JDOMException | IOException e) {
+            LOGGER.error("Could not fetch content from url {}", request, e);
+            return new ArrayList<>();
+        }
 
         XPathExpression<Element> r = XPathFactory.instance()
             .compile(".//mods:mods/mods:recordInfo/mods:recordIdentifier",
@@ -333,13 +345,16 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     public static boolean isAlreadyStored(String identifierField, String identifierValue) {
         LOGGER.info("Check if already stored in Solr using field {} and value {}", identifierField, identifierValue);
-        SolrClient solrClient = MCRSolrClientFactory.getMainSolrClient();
+        SolrClient solrClient = MCRSolrCoreManager.getMainSolrClient();
         SolrQuery query = new SolrQuery();
         query.setQuery(identifierField + ":" + MCRSolrUtils.escapeSearchValue(identifierValue));
         query.setRows(0);
         SolrDocumentList results;
         try {
-            results = solrClient.query(query).getResults();
+            QueryRequest queryRequest = new QueryRequest(query);
+            MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+            QueryResponse response = queryRequest.process(solrClient);
+            results = response.getResults();
             return (results.getNumFound() > 0);
         } catch (Exception ex) {
             throw new MCRException(ex);
@@ -418,7 +433,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static String makeRequest(String targetURL) {
         String content = "";
         try {
-            URL url = new URL(targetURL);
+            URL url = new URI(targetURL).toURL();
             URLConnection request = url.openConnection();
             request.connect();
             content = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
@@ -454,12 +469,12 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return MCRMetadataManager.getMCRObjectIDGenerator().getNextFreeId(projectID, "mods");
     }
 
-    private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String import_status) {
+    private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String importState) {
         wrappedMCRobj.setServiceFlag("importID", ID_PROVIDER.getImportId());
         MCRObject object = wrappedMCRobj.getMCRObject();
         // save object
         try {
-            setState(wrappedMCRobj, import_status);
+            object.getService().setState(importState);
             if (MCRMetadataManager.exists(object.getId())) {
                 LOGGER.info("Update object {}!", object.getId().toString());
                 MCRMetadataManager.update(object);
@@ -472,9 +487,5 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         } catch (MCRAccessException e) {
             throw new MCRException("Error while creating " + object.getId().toString(), e);
         }
-    }
-
-    private static void setState(MCRMODSWrapper wrapped, String import_status) {
-        wrapped.setServiceFlag("status", import_status);
     }
 }

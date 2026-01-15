@@ -10,17 +10,28 @@
   <xsl:param name="WebApplicationBaseURL"/>
 
   <xsl:template match="/users" mode="headAdditional" priority="1">
-    <div class="mt-5 mb-5">
-      <xsl:value-of select="i18n:translate('thunibib.vanished.users.intro.link')"/>
+    <div class="mt-5 mb-3">
+      <p>
+        <xsl:value-of select="i18n:translate('thunibib.vanished.users.intro.link')"/>
 
-      <a href="{$WebApplicationBaseURL}servlets/ListVanishedLDAPUsersServlet?lang={$CurrentLang}">
-        <xsl:value-of select="concat(i18n:translate('thunibib.vanished.users.intro.link.here'), '.')"/>
-      </a>
-      <xsl:value-of select="i18n:translate('thunibib.users.sharing.identifiers.link')"/>
+        <a href="{$WebApplicationBaseURL}servlets/ListVanishedLDAPUsersServlet?lang={$CurrentLang}">
+          <xsl:value-of select="concat(i18n:translate('thunibib.vanished.users.intro.link.here'), '.')"/>
+        </a>
+      </p>
 
-      <a href="{$WebApplicationBaseURL}servlets/ListUsersSharingIdentifiersServlet?lang={$CurrentLang}">
-        <xsl:value-of select="concat(i18n:translate('thunibib.users.sharing.identifiers.intro.link.here'), '.')"/>
-      </a>
+      <p>
+        <xsl:value-of select="i18n:translate('thunibib.users.sharing.identifiers.link')"/>
+        <a href="{$WebApplicationBaseURL}servlets/ListUsersSharingIdentifiersServlet?lang={$CurrentLang}">
+          <xsl:value-of select="concat(i18n:translate('thunibib.users.sharing.identifiers.intro.link.here'), '.')"/>
+        </a>
+      </p>
+
+      <p>
+        <xsl:value-of select="i18n:translate('thunibib.users.multiple.identifiers.link')"/>
+        <a href="{$WebApplicationBaseURL}servlets/ListUsersHavingMultipleIdentifiersServlet?lang={$CurrentLang}">
+          <xsl:value-of select="concat(i18n:translate('thunibib.users.multiple.identifiers.intro.link.here'), '.')"/>
+        </a>
+      </p>
     </div>
   </xsl:template>
 

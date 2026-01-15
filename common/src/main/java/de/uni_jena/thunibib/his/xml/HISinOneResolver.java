@@ -402,8 +402,8 @@ public class HISinOneResolver implements URIResolver {
         Optional<MCRLabel> label = Optional.empty();
         try {
             MCRCategory category = MCRCategoryDAOFactory
-                .getInstance()
-                .getCategory(MCRCategoryID.fromString("typeOfResource:" + resourceTypeText), 0);
+                .obtainInstance()
+                .getCategory(MCRCategoryID.ofString("typeOfResource:" + resourceTypeText), 0);
             label = category.getLabel("x-mapping-his-pub-resource-value");
         } catch (Exception ex) {
             LOGGER.warn("Could not resolve label x-mapping-his-pub-resource-value for category {}",
@@ -610,8 +610,8 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<SysValue.PublicationAccessTypeValue>>() {
                 });
 
-            MCRCategoryID mcrCategoryID = MCRCategoryID.fromString("accessrights:" + accessRightsCategId);
-            MCRCategory mcrCategory = MCRCategoryDAOFactory.getInstance().getCategory(mcrCategoryID, 1);
+            MCRCategoryID mcrCategoryID = MCRCategoryID.ofString("accessrights:" + accessRightsCategId);
+            MCRCategory mcrCategory = MCRCategoryDAOFactory.obtainInstance().getCategory(mcrCategoryID, 1);
 
             Optional<MCRLabel> label = mcrCategory.getLabel("en");
 
@@ -804,15 +804,15 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<SysValue.QualificationThesisValue>>() {
                 });
 
-            MCRCategoryID categId = MCRCategoryID.fromString("ubogenre:" + ubogenre);
-            MCRCategoryID thesisCategId = MCRCategoryID.fromString("ubogenre:thesis");
-            List<MCRCategory> children = MCRCategoryDAOFactory.getInstance().getChildren(thesisCategId);
+            MCRCategoryID categId = MCRCategoryID.ofString("ubogenre:" + ubogenre);
+            MCRCategoryID thesisCategId = MCRCategoryID.ofString("ubogenre:thesis");
+            List<MCRCategory> children = MCRCategoryDAOFactory.obtainInstance().getChildren(thesisCategId);
             boolean isThesis = children.stream().filter(c -> c.getId().equals(categId)).findAny().isPresent();
 
             SysValue.QualificationThesisValue sysValue = null;
             if (isThesis) {
                 String text = MCRCategoryDAOFactory
-                    .getInstance()
+                    .obtainInstance()
                     .getCategory(categId, -1).getLabel("de").get()
                     .getText();
 

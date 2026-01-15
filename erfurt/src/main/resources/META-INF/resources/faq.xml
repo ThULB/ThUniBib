@@ -74,14 +74,14 @@
               <div class="card-header" id="headingOne">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was ist mit Veröffentlichung gemeint?
                   </button>
                 </h3>
               </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
                     Veröffentlichung bedeutet, dass eine Publikation / ein Werk einer breiten Öffentlichkeit in
@@ -105,15 +105,21 @@
                           data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Welche Publikationstypen werden verzeichnet?
+                    Was wird verzeichnet?
                   </button>
                 </h3>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Was wird in der Universitätsbibliographie erfasst:
+                    Es werden Publikationen erfasst, die während der Tätigkeit an der Universität Erfurt entstanden
+                    sind, einen entsprechenden Zugehörigkeitsvermerk in der Publikation aufweisen und gedruckt oder
+                    digital dauerhaft öffentlich verfügbar sind. Wir erfassen die elektronische Version der Publikation
+                    und verweisen ggf. auf die Printausgabe.
                   </p>
+
+                  <p>Das sind die Publikationstypen, die erfasst werden:</p>
+
                   <dl>
                     <dt>Abstract (Konferenz/Tagung)</dt>
                     <dd>Ein Abstract ist ein kurzer Text, der eine Präsentation an einer Konferenz zusammenfasst und
@@ -295,7 +301,7 @@
                           data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Welche Personengruppen können Publikationen melden?
+                    Wer kann Publikationen melden?
                   </button>
                 </h3>
               </div>
@@ -303,7 +309,12 @@
                 <div class="card-body">
                   <p>
                     Alle aktuellen und ehemaligen Angehörigen und Mitglieder der Universität Erfurt können bzw. sollten
-                    ihre Publikationen an die Universitätsbibliographie melden.
+                    ihre Publikationen an die Universitätsbibliographie melden. Zur Angabe der institutionellen
+                    Zugehörigkeit und Verwendung von standardisierten Identifikatoren beachten Sie bitte die
+                    <a
+                      href="https://www.uni-erfurt.de/fileadmin/Hauptseiten/Forschung/Forschungsfoerderung/Affiliationsrichtlinie_15102025_final-unterzeichnet.pdf">
+                      Affiliationsrichtlinie der Universität Erfurt.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -324,10 +335,10 @@
                 <div class="card-body">
                   <p>
                     Sie gehören der Universität Erfurt an? Dann helfen Sie uns bei der Vollständigkeit der
-                    Universitätsbibliographie und melden Sie uns Ihre Publikationen über
-                    <a href="newPublication.xed">Publikationen melden</a>
-                    oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format
-                    <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
+                    Universitätsbibliographie. Nutzen Sie unser Formular <a href="newPublication.xed">Publikationen
+                    melden</a>, wenn Sie eine einzelne Publikation mit Identifikator (DOI, ISBN, ISSN) melden wollen.
+                    Bei Publikationslisten senden Sie uns Ihre Liste(n) in einem beliebigen Format
+                    <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
                   </p>
                 </div>
               </div>
@@ -446,14 +457,22 @@
               </div>
               <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
                 <div class="card-body">
+                  <p>Erzeugen Sie aus den Daten der Universitätsbibliographie Ihre persönliche Publikationsliste. Die
+                    Listen sind so aktuell, wie uns neue Publikationen gemeldet werden und diese redaktionell
+                    geprüft und freigeschaltet sind. Melden Sie uns gern <a href="newPublication.xed">fehlende
+                      Publikationen</a>, oder sprechen Sie uns zu Korrekturwünschen von Einträgen an: <a
+                      href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
+                  </p>
+
                   <p>
-                    Publikationslisten können die Publikationen von Struktureinheiten oder Personen beinhalten und in
-                    verschiedenen Formaten ausgegeben werden.
-                    Die Listen sind so aktuell, wie uns neue Publikationen gemeldet werden.
-                    <br/>
-                    Wie Sie Publikationslisten aus der Universitätsbibliographie erstellen und in Ihre (persönlichen)
-                    Webseiten einbinden, erfahren Sie unter
-                    <a href="list-wizard.xed">Persönliche Publikationsliste</a>
+                    Über das
+                    <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">Formular</a>
+                    können Sie persönliche Publikationslisten direkt aus der Universitätsbibliographie erstellen und
+                    in verschiedenen Formaten ausgeben. Tragen Sie unter „Personen hinzufügen“ den
+                    gewünschten Namen ein und wählen Sie über das grüne Plus die Person sowie den Zeitraum, die
+                    Sortierung und das Ausgabeformat aus. Erst mit der Auswahl des Ausgabeformats kann die
+                    Zitierweise ausgewählt werden. Es wird ein Link erzeugt, den Sie auf Ihrer Webseite oder in
+                    Dokumenten einfügen können.
                   </p>
                 </div>
               </div>
@@ -608,14 +627,14 @@
               <div class="card-header" id="headingServiceOne">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceOne" aria-expanded="true" aria-controls="collapseServiceOne">
+                          data-target="#collapseServiceOne" aria-expanded="false" aria-controls="collapseServiceOne">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Kennzeichnung von Open Access
                   </button>
                 </h3>
               </div>
-              <div id="collapseServiceOne" class="collapse show" aria-labelledby="headingServiceOne"
+              <div id="collapseServiceOne" class="collapse" aria-labelledby="headingServiceOne"
                    data-parent="#accordionExample2">
                 <div class="card-body">
                   <p>
@@ -766,14 +785,14 @@
               <div class="card-header" id="headingOneEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseOneEn" aria-expanded="true" aria-controls="collapseOneEn">
+                          data-target="#collapseOneEn" aria-expanded="false" aria-controls="collapseOneEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What is meant by publication?
                   </button>
                 </h3>
               </div>
-              <div id="collapseOneEn" class="collapse show" aria-labelledby="headingOneEn"
+              <div id="collapseOneEn" class="collapse" aria-labelledby="headingOneEn"
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
@@ -797,15 +816,21 @@
                           data-target="#collapseTwoEn" aria-expanded="false" aria-controls="collapseTwoEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Which publication types are listed?
+                    Which publications are listed?
                   </button>
                 </h3>
               </div>
               <div id="collapseTwoEn" class="collapse" aria-labelledby="headingTwoEn" data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    What is recorded in the university bibliography:
+                    We record publications that were produced during employment at the University of Erfurt, bear a
+                    corresponding affiliation note in the publication, and are permanently available to the public in
+                    print or digital form. We record the electronic version of the publication and refer to the print
+                    edition where applicable.
                   </p>
+
+                  <p>The following types of publications are recorded:</p>
+
                   <dl>
                     <dt>Abstract (conference / meeting)</dt>
                     <dd>An abstract is a short text that summarizes a presentation at a conference and has been
@@ -1027,8 +1052,10 @@
                 <div class="card-body">
                   <p>
                     All current and former members and affiliates of the University of Erfurt can or should report their
-                    publications to the university bibliography that were published during the period of activity at the
-                    University of Erfurt.
+                    publications to the university bibliography. For information on institutional affiliation and the
+                    use of standardised identifiers, please refer to the <a
+                    href="https://www.uni-erfurt.de/fileadmin/Hauptseiten/Forschung/Forschungsfoerderung/Affiliationsrichtlinie_15102025_final-unterzeichnet.pdf">
+                    Affiliationsrichtlinie der Universität Erfurt.</a>
                   </p>
                 </div>
               </div>
@@ -1049,10 +1076,10 @@
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    Are you a member or affiliate of the University of Erfurt? Then help us to complete the university
-                    bibliography and report your publications to us <a href="newPublication.xed">Register a
-                    publication</a>,
-                    or send us your publication list(s) in any format
+                    You are a member or affiliate of the University of Erfurt? Then help us to complete the university
+                    bibliography. Use our form <a href="newPublication.xed">Register a publication</a> if you want to
+                    report a single publication with an identifier (DOI, ISBN, ISSN). For publication lists, send us
+                    your list(s) in any format.
                     <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
                   </p>
                 </div>
@@ -1182,13 +1209,20 @@
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    Publication lists can contain the publications of structural units or persons and can be output in
-                    various
-                    formats. The lists are as up to date as new publications are reported to us.
-                    You can find out how to create publication lists from the university bibliography and integrate them
-                    into your
-                    (personal) websites at
-                    <a href="list-wizard.xed">Personal publication list</a>
+                    Create your personal publication list from the data in the University Bibliography. The lists are
+                    updated as soon as new publications are reported to us and have been editorially reviewed and
+                    approved. Please feel free to report any <a href="newPublication.xed">missing publications</a>
+                    to us or contact us <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-
+                    erfurt.de</a> if you would like to request corrections to entries.
+                  </p>
+
+                  <p>
+                    You can use the <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">form</a>
+                    to create personal publication lists directly from the University Bibliography and output them in
+                    various formats. Enter the desired name under "Add person" and use the green plus sign to
+                    select the person, the time period, the sorting and the output format. The citation style can only
+                    be selected once the output format has been selected. A link is generated which you can insert
+                    into your website or documents.
                   </p>
                 </div>
               </div>
@@ -1347,7 +1381,7 @@
               <div class="card-header" id="headingServiceEnOne">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceEn" aria-expanded="true"
+                          data-target="#collapseServiceEn" aria-expanded="false"
                           aria-controls="collapseServiceEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
@@ -1355,7 +1389,7 @@
                   </button>
                 </h3>
               </div>
-              <div id="collapseServiceEn" class="collapse show" aria-labelledby="headingServiceEn"
+              <div id="collapseServiceEn" class="collapse" aria-labelledby="headingServiceEn"
                    data-parent="#accordionExampleEn2">
                 <div class="card-body">
                   <p>

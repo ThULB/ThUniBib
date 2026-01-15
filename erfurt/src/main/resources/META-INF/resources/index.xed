@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <webpage lastModified="$Date$" id="dozbib">
- <title xml:lang="de">Willkommen bei der Erfurter Universitätsbibliographie (EFUB)</title>
- <title xml:lang="en">Welcome to the Bibliography of the University of Erfurt (EFUB)</title>
- 
+ <title xml:lang="de">Erfurter Universitätsbibliographie (EFUB)</title>
+ <title xml:lang="en">Bibliography of the University of Erfurt (EFUB)</title>
+
+<article class="card mb-3">
+  <div class="card-body">
+    <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
+  </div>
+</article>
+
  <article class="card mb-3" xml:lang="de">
    <div class="card-body">
      <h3>Die Universitätsbibliographie</h3>
-      <p>
-        … ist die zentrale Plattform zum Nachweis der Publikationsleistungen aller Mitglieder und Angehörigen der Universität Erfurt. 
-        Es werden Publikationen erfasst, die während der Tätigkeit an der Universität Erfurt entstanden sind, einen entsprechenden Zugehörigkeitsvermerk in der Publikation aufweisen und gedruckt oder digital dauerhaft öffentlich verfügbar sind.
-		Die Universitätsbibliographie ist eine Dienstleistung der Universitätsbibliothek, die auch für die redaktionelle Betreuung der Publikationsdaten verantwortlich ist.<br/>
-      </p>
-      <p>
-        Die Universitätsbibliographie wird laufend um ältere Publikationsdaten aus der bisherigen <a href="https://opac.uni-erfurt.de/DB=7/LNG=DU/">Hochschulbibliographie</a> ergänzt.
-      </p>
-	  <p>
-	    Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Kooperationsverbund 
-		Thüringer Hochschulbibliotheken sowie der Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
-	  </p>	
+     <p>
+       … ist der zentrale Publikationsnachweis der Universität Erfurt. Sie ist eine Dienstleistung der
+       Universitätsbibliothek und verzeichnet online die Publikationen von Mitgliedern und Angehörigen der Universität.
+     </p>
+
+     <p>
+       Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer Digitalstrategie
+       gefördert und erfolgt in Zusammenarbeit mit dem Kooperationsverbund Thüringer Hochschulbibliotheken sowie der
+       Verbundzentrale des Gemeinsamen Bibliotheksverbunds.
+     </p>
+
       <h3>Gehören Sie der Universität Erfurt an?</h3>
       <p>
         Helfen Sie uns bei der Vervollständigung der Bibliographie!<br/>
@@ -33,19 +38,19 @@
     <div class="card-body">
       <h3>The University Bibliography</h3>
       <p>
-        … is the central platform for documenting the publication achievements of all members and affiliates of the University of Erfurt.
-		Publications are recorded that were published during the period of activity at the University of Erfurt, have a corresponding affiliation 
-		note in the publication and are permanently available to the public in printed or digital form. 
-		The University Bibliography is a service provided by the University Library, which is also responsible for the editorial management of the publication data.
-		    
+        … is the central publication record of the University of Erfurt. It is a service provided by the university
+        library and lists the publications of members and affiliates of the university online.
+        <br/>
+        The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian
+        digital strategy and is being carried out in cooperation with the Kooperationsverbund Thüringer
+        Hochschulbibliotheken and the GBV Common Library Network.
       </p>
+
       <p>
-        The university bibliography is continuously updated with older publication data from the previous <a href="https://opac.uni-erfurt.de/DB=7/LNG=EN/">university bibliography</a>.
+        The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian
+        digital strategy and is being carried out in cooperation with the Kooperationsverbund Thüringer
+        Hochschulbibliotheken and the GBV Common Library Network.
       </p>
-      <p>
-	    The development of the university bibliography is funded by the state of Thuringia as part of the Thuringian digital strategy and is being carried out in cooperation with the 
-		Kooperationsverbund Thüringer Hochschulbibliotheken and the GBV Common Library Network.
-	  </p>
 	  <h3>
         Are you a member of the University of Erfurt?</h3>
       <p>
@@ -55,12 +60,6 @@
 	  <p>
 	    Or send us your publication list(s) in any format: <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
 	  </p>
-    </div>
-  </article>
-
-  <article class="card mb-3">
-    <div class="card-body">
-      <xinclude uri="xslStyle:thunibib-search-form:buildxml:_rootName_=landing-page"/>
     </div>
   </article>
 

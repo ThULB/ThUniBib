@@ -26,7 +26,7 @@ import org.mycore.oai.pmh.CannotDisseminateFormatException;
 import org.mycore.oai.pmh.IdDoesNotExistException;
 import org.mycore.oai.pmh.harvester.Harvester;
 import org.mycore.oai.pmh.harvester.HarvesterBuilder;
-import org.mycore.solr.MCRSolrClientFactory;
+import org.mycore.solr.MCRSolrCoreManager;
 import org.mycore.solr.search.MCRSolrSearchUtils;
 
 import java.io.IOException;
@@ -232,8 +232,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
         LOGGER.info("Got dbt identifier: {}, using solr query: {}", dbtIdentifier, solrQuery);
         SolrDocument first = null;
         try {
-            first = MCRSolrSearchUtils
-                .first(MCRSolrClientFactory.getMainSolrClient(), solrQuery);
+            first = MCRSolrSearchUtils.first(MCRSolrCoreManager.getMainSolrClient(), solrQuery);
         } catch (SolrServerException | IOException e) {
             e.printStackTrace();
         }

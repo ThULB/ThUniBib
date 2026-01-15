@@ -20,6 +20,17 @@
   <xsl:param name="UBO.Frontend.jquery-ui.version"/>
   <xsl:param name="UBO.Frontend.bootstrap.version"/>
   <xsl:param name="UBO.Frontend.font-awesome.version"/>
+  <xsl:variable name="ThUniBib.Servlet">
+    <xsl:choose>
+      <xsl:when test="contains($RequestURL, '?')">
+        <xsl:value-of select="substring-before(substring-after($RequestURL, 'servlets/'), '?')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="substring-after($RequestURL, 'servlets/')"/>
+      </xsl:otherwise>
+    </xsl:choose>
+
+  </xsl:variable>
 
   <!-- ==================== IMPORTS ==================== -->
   <!-- additional stylesheets -->
@@ -111,21 +122,21 @@
 
   <!-- html body -->
   <xsl:template name="layout.body">
-    <div class="bodywrapper pt-4">
-      <div class="container d-flex flex-column flex-grow-1">
+    <div class="bodywrapper pt-4 thunibib-bodywrapper-{$ThUniBib.Servlet}">
+      <div class="container d-flex flex-column flex-grow-1 thunibib-container-{$ThUniBib.Servlet}">
         <div class="row">
           <div class="col-lg">
-            <xsl:call-template name="layout.inhalt" />
+            <xsl:call-template name="layout.inhalt"/>
           </div>
           <xsl:if test="body/aside[@id='sidebar']">
             <div class="col-lg-3 pl-lg-0">
-              <xsl:copy-of select="body/aside[@id='sidebar']" />
+              <xsl:copy-of select="body/aside[@id='sidebar']"/>
             </div>
           </xsl:if>
         </div>
         <div class="row">
           <div class="col">
-            <hr class="mb-0" />
+            <hr class="mb-0"/>
           </div>
         </div>
       </div>

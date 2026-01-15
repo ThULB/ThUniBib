@@ -25,7 +25,7 @@
       <label xml:lang="en">Personal publication list</label>
     </item>
     <item ref="newPublication.xed" id="dozbib.new.publication">
-      <label xml:lang="de">Publikation einreichen</label>
+      <label xml:lang="de">Publikation melden</label>
       <label xml:lang="en">Registering a publication</label>
       <item id="dozbib.edit.publication"/>
     </item>

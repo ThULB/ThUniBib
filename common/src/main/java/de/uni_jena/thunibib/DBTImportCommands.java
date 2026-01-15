@@ -6,7 +6,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClientBase;
+import org.apache.solr.client.solrj.request.QueryRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -15,8 +16,10 @@ import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
-import org.mycore.solr.MCRSolrClientFactory;
 import org.mycore.solr.MCRSolrCore;
+import org.mycore.solr.MCRSolrCoreManager;
+import org.mycore.solr.auth.MCRSolrAuthenticationLevel;
+import org.mycore.solr.auth.MCRSolrAuthenticationManager;
 import org.mycore.ubo.importer.ListImportJob;
 
 import java.io.IOException;
@@ -34,9 +37,9 @@ public class DBTImportCommands {
 
     protected static final String DBT_BASEURL = MCRConfiguration2.getStringOrThrow("ThUniBib.Importer.DBT.BaseURL");
 
-    protected static final HttpSolrClient DBT_SOLR_CLIENT;
+    protected static final HttpSolrClientBase DBT_SOLR_CLIENT;
 
-    protected static final MCRSolrCore DBT_SOLR_CORE = MCRSolrClientFactory.get("dbt").orElseThrow();
+    protected static final MCRSolrCore DBT_SOLR_CORE = MCRSolrCoreManager.get("dbt").orElseThrow();
 
     static {
         DBT_SOLR_CLIENT = DBT_SOLR_CORE.getClient();
@@ -44,7 +47,10 @@ public class DBTImportCommands {
 
     @MCRCommand(syntax = "query dbt solr {0}", help = "Returns the number of hits for the given solr query (DBT-core)")
     public static void checkDBTSolrReachable(String query) throws Exception {
-        QueryResponse response = DBT_SOLR_CLIENT.query(new SolrQuery(query));
+        QueryRequest queryRequest = new QueryRequest(new SolrQuery(query));
+        MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+        QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
+
         LOGGER.info("{} hit(s) for query '{}' to DBT's solr core at '{}'", response.getResults().getNumFound(), query,
             DBT_SOLR_CORE.getServerURL());
     }
@@ -61,7 +67,11 @@ public class DBTImportCommands {
             query.setFields("id", "mods.identifier");
             query.setFacet(false);
 
-            solrDocuments = DBT_SOLR_CLIENT.query(query).getResults();
+            QueryRequest queryRequest = new QueryRequest(query);
+            MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+            QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
+
+            solrDocuments = response.getResults();
         } catch (SolrServerException | IOException e) {
             LOGGER.error("Could not get solr documents for query '{}'", solrQuery);
             return null;
@@ -129,11 +139,10 @@ public class DBTImportCommands {
             .map(Object::toString)
             .anyMatch(identifier -> {
                 try {
-                    return MCRSolrClientFactory
-                        .getMainSolrClient()
-                        .query(new SolrQuery("+pub_id:" + identifier))
-                        .getResults()
-                        .getNumFound() > 0;
+                    QueryRequest queryRequest = new QueryRequest(new SolrQuery("+pub_id:" + identifier));
+                    MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+                    QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
+                    return response.getResults().getNumFound() > 0;
                 } catch (SolrServerException | IOException e) {
                     LOGGER.error("Could not query local solr for identifier {}", identifier, e);
                     return true;
