@@ -191,17 +191,17 @@
   </xsl:template>
 
   <xsl:template name="layout.header">
-    <header class="bg-white thunibib-ef-header">
+    <header class="thunibib-ef-header">
       <div class="container" id="thunibib-ef-container">
         <div class="row">
           <div class="col header-brand">
             <xsl:variable name="href">
               <xsl:choose>
                 <xsl:when test="$CurrentLang = 'de'">
-                  <xsl:value-of select="'https://www.uni-erfurt.de/bibliothek'"/>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/'"/>
                 </xsl:when>
                 <xsl:otherwise>
-                  <xsl:value-of select="'https://www.uni-erfurt.de/en/erfurt-university-library'"/>
+                  <xsl:value-of select="'https://www.uni-erfurt.de/en/'"/>
                 </xsl:otherwise>
               </xsl:choose>
             </xsl:variable>
@@ -210,7 +210,7 @@
             </a>
           </div>
           <nav class="col col-auto">
-            <div class="nav nav-pills">
+            <div class="nav nav-pills text-white">
               <xsl:call-template name="layout.login"/>
             </div>
           </nav>
@@ -326,7 +326,7 @@
         </xsl:variable>
         <a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
            role="button" id="mcrFunctionsDropdown" href="#"
-           class="nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block user">
+           class="nav-link dropdown-toggle p-0 ubo-hover-pointer d-inline-block user text-white">
           <xsl:choose>
             <xsl:when test="$userData/realName">
               <xsl:value-of select="$userData/realName"/>
@@ -348,7 +348,7 @@
       <xsl:choose>
         <xsl:when test="/webpage/@id='login'"/>
         <xsl:when test="$CurrentUser = $MCR.Users.Guestuser.UserName">
-          <a class="btn btn-link p-0" title="{i18n:translate('component.user2.button.login')}"
+          <a class="btn btn-link p-0 text-white" title="{i18n:translate('component.user2.button.login')}"
              href="{$WebApplicationBaseURL}{$UBO.Login.Path}?url={encoder:encode($RequestURL)}">
             <xsl:value-of select="i18n:translate('thunibib.signIn')"/>
           </a>
@@ -359,7 +359,7 @@
       </span>
     </div>
 
-    <div class="nav-item dropdown">
+    <div class="nav-item dropdown text-white">
       <xsl:variable name="href-lang-toggle">
         <xsl:choose>
           <xsl:when test="$CurrentLang='de'">
