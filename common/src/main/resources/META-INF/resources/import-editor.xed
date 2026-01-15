@@ -56,6 +56,14 @@
       <script>
         $(document).ready(function () {
           $('select[class*="autocomplete"]').selectpicker({liveSearch:true, liveSearchNormalize:true, virtualScroll:true, showSubtext:true, size:10});
+
+          /* init bootstrap tooltips */
+          $(document).popover({
+            selector: "[data-toggle=popover]",
+            container: "body",
+            html: true,
+            trigger: "focus"
+          });
         });
       </script>
 
