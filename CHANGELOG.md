@@ -13,10 +13,10 @@
 - [#877](https://github.com/ThULB/ThUniBib/issues/877) List users having multiple identifiers of a given type (#878)
 - [#880](https://github.com/ThULB/ThUniBib/issues/880) [ILM] Update ORIGIN.xml (#881)
 - [#885](https://github.com/ThULB/ThUniBib/issues/885) Update index.xed (#886)
-- [#890](https://github.com/ThULB/ThUniBib/issues/890) Fixed tooltips not popping up on <i/> elements in forms (#891)
+- [#890](https://github.com/ThULB/ThUniBib/issues/890) Fixed tooltips not popping up on **&lt;i/&gt;** elements in forms (#891)
 - [FSU040THUL-10796](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10796) [#875](https://github.com/ThULB/ThUniBib/issues/875) [ILM] Added stylesheet for open access marker (#876)
-- [FSU040THUL-11060](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11060) [#873](https://github.com/ThULB/ThUniBib/issues/873) [EF] Update logo and email address (#874)
-- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) Adjustments to some pages before going live (#888)
+- [FSU040THUL-11060](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11060) [#873](https://github.com/ThULB/ThUniBib/issues/873) [UBE] Update logo and email address (#874)
+- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Adjustments to some pages before going live (#888)
 - [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) Remove GBV roles when importing from catalog (#883)
 ---
 
