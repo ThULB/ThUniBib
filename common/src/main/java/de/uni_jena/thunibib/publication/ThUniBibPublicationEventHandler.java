@@ -90,7 +90,10 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         }
 
         matcherDTO = new MCRUserMatcherDTO(cloned);
-        matcherDTO = ldapMatcher.matchUser(matcherDTO);
+
+        if (MCRConfiguration2.getString("MCR.user2.LDAP.ProviderURL").isPresent()) {
+            matcherDTO = ldapMatcher.matchUser(matcherDTO);
+        }
 
         if (matcherDTO.wasMatchedOrEnriched()) {
             logUserMatch(modsNameElement, matcherDTO, ldapMatcher);

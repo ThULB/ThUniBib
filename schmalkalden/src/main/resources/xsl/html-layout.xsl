@@ -385,7 +385,7 @@
           </xsl:when>
         </xsl:choose>
       </xsl:variable>
-      <span class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      <span class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
         <i class="border flag flag-{$CurrentLang}" style="vertical-align:middle"/>
         <span class="align-middle">
