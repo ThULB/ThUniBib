@@ -1,5 +1,14 @@
 # Changelog
 
+# 2026.01.30-2024.06.x
+- [#889](https://github.com/ThULB/ThUniBib/issues/889) Check for presence of MCR.user2.LDAP.ProviderURL before trying to match a user in ldap (#894)
+- [#897](https://github.com/ThULB/ThUniBib/issues/897) [J] Enable DBT import (#898)
+- [#901](https://github.com/ThULB/ThUniBib/issues/901) Remove _forwardedCount parameter from solr requests (#902)
+- [FSU040THUL-10983](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10983) [#899](https://github.com/ThULB/ThUniBib/issues/899) Set property UBO.IdentityPicker.generate.button.show = true (#900)
+- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Provide labels in English for categories in ORIGIN.xml (#893)
+- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Removed duplicate paragraph in index.xed (#892)
+---
+
 # 2026.01.15-2024.06.x
 - [#748](https://github.com/ThULB/ThUniBib/issues/748) Set mycore version to 2024.06.x (#749)
 - [#856](https://github.com/ThULB/ThUniBib/issues/856) Fixed wrong value in MCR.CLI.Classes.External.ThUniBib (#857)
