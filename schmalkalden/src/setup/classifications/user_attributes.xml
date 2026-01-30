@@ -2,7 +2,7 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="user_attributes">
   <label xml:lang="de" text="Nutzerattribute" />
   <categories>
-    <category ID="id_ube">
+    <category ID="id_hssm">
       <label xml:lang="de" text="Lokale ID" />
       <label xml:lang="en" text="Local ID" />
       <label xml:lang="x-display" text="false" />

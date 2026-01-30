@@ -4,7 +4,7 @@
   <label xml:lang="en" text="Namenskennungen"/>
   <label xml:lang="de" text="Name Identifier"/>
   <categories>
-    <category ID="ube">
+    <category ID="hssm">
       <label xml:lang="de" text="Lokale ID"/>
       <label xml:lang="en" text="Local ID"/>
       <label xml:lang="x-display" text="false"/>
