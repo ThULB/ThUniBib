@@ -12,7 +12,7 @@
         "df": "all",
         "wt": "xml",
         "f.year.facet.limit": -1,
-        "sort": "year desc"
+        "sort":"year desc"
       },
       "appends": {
         "facet.field": [
@@ -31,7 +31,8 @@
         ],
         "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa_exact,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
         "fq": "+objectType:mods",
-        "fq": "+status:(unchecked OR status:confirmed OR status:reviewPending)"
+        "fq": "+status:(unchecked OR status:confirmed OR status:reviewPending)",
+        "fq": "year:[2022 TO *]"
       },
       "invariants": {
         "fl": "",
@@ -39,8 +40,7 @@
         "rows": "0",
         "facet": "true",
         "facet.mincount": "1",
-        "facet.threads": "4",
-        "fq": "year:[2022 TO *]"
+        "facet.threads": "4"
       }
     }
   },
@@ -75,7 +75,8 @@
           "licenses_facet"
         ],
         "json.facet": "{year:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{oa:{type:terms,field:oa_exact,sort:{index:asc}}}},mediaTypePerYearAndOA:{limit:-1,type:terms,field:year,sort:{index:asc},facet:{mediaType:{type:terms,field:mediaType-online-status,sort:{index:asc}},oa_status:{type:terms,field:oa_status,sort:{index:asc}}}}}",
-        "fq": "+objectType:mods"
+        "fq": "+objectType:mods",
+        "fq": "year:[2022 TO *]"
       },
       "invariants": {
         "fl": "",
@@ -83,8 +84,7 @@
         "rows": "0",
         "facet": "true",
         "facet.mincount": "1",
-        "facet.threads": "4",
-        "fq": "year:[2022 TO *]"
+        "facet.threads": "4"
       }
     }
   }
