@@ -471,21 +471,20 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
 
     private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String importState) {
         wrappedMCRobj.setServiceFlag("importID", ID_PROVIDER.getImportId());
-        MCRObject object = wrappedMCRobj.getMCRObject();
-        // save object
+        MCRObject mcrObject = wrappedMCRobj.getMCRObject();
+
         try {
-            object.getService().setState(importState);
-            if (MCRMetadataManager.exists(object.getId())) {
-                LOGGER.info("Update object {}!", object.getId().toString());
-                MCRMetadataManager.update(object);
+            mcrObject.getService().setState(importState);
+            if (MCRMetadataManager.exists(mcrObject.getId())) {
+                LOGGER.warn("Object with id '{}' does already exist. Nothing done.", mcrObject.getId().toString());
             } else {
-                LOGGER.info("Create object {}!", object.getId().toString());
-                MCRMetadataManager.create(object);
+                LOGGER.info("Creating object '{}'", mcrObject.getId().toString());
+                MCRMetadataManager.create(mcrObject);
             }
 
-            return object;
+            return mcrObject;
         } catch (MCRAccessException e) {
-            throw new MCRException("Error while creating " + object.getId().toString(), e);
+            throw new MCRException("Error while creating " + mcrObject.getId().toString(), e);
         }
     }
 }
