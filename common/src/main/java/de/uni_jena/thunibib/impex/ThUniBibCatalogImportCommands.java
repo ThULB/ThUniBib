@@ -491,10 +491,11 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
             }
 
             List<Element> identifierElements = XPATH_FACTORY
-                .compile("//mods:identifier[@type]", Filters.element(), null, MODS_NAMESPACE)
+                .compile("//mods:mods/mods:identifier[@type]", Filters.element(), null, MODS_NAMESPACE)
                 .evaluate(mcrObject.createXML());
 
-            boolean noneMatch = identifierElements.stream()
+            boolean noneMatch = identifierElements
+                .stream()
                 .noneMatch(id -> isAlreadyStored("id_" + id.getAttributeValue("type"), id.getText()));
 
             if (!noneMatch) {
