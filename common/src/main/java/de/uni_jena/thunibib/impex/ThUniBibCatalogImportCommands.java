@@ -64,10 +64,10 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@MCRCommandGroup(name = "Catalog Import Commands")
-public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
+@MCRCommandGroup(name = "ThUniBib Catalog Import")
+public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
 
-    private static final Logger LOGGER = LogManager.getLogger(EnrichmentByAffiliationCommands.class);
+    private static final Logger LOGGER = LogManager.getLogger(ThUniBibCatalogImportCommands.class);
     private static final CommandTracker<String, MCRObject> TRACKER = new CommandTracker<>();
 
     private static final String projectID = MCRConfiguration2.getStringOrThrow("UBO.projectid.default");
