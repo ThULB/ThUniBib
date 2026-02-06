@@ -11,7 +11,6 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.request.QueryRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
-import org.apache.solr.common.SolrDocumentList;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -63,6 +62,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
+import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 @MCRCommandGroup(name = "ThUniBib Catalog Import")
 public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
@@ -343,19 +345,24 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
         return false;
     }
 
-    public static boolean isAlreadyStored(String identifierField, String identifierValue) {
-        LOGGER.info("Check if already stored in Solr using field {} and value {}", identifierField, identifierValue);
+    public static boolean isAlreadyStored(String field, String value) {
+        LOGGER.info("Check by solr if publication already stored with field '{}:{}'", field, value);
         SolrClient solrClient = MCRSolrCoreManager.getMainSolrClient();
         SolrQuery query = new SolrQuery();
-        query.setQuery(identifierField + ":" + MCRSolrUtils.escapeSearchValue(identifierValue));
+        query.setQuery(field + ":" + MCRSolrUtils.escapeSearchValue(value));
         query.setRows(0);
-        SolrDocumentList results;
+
         try {
             QueryRequest queryRequest = new QueryRequest(query);
-            MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+            MCRSolrAuthenticationManager.obtainInstance()
+                .applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
             QueryResponse response = queryRequest.process(solrClient);
-            results = response.getResults();
-            return (results.getNumFound() > 0);
+
+            boolean isPresent = response.getResults().getNumFound() > 0;
+            if (isPresent) {
+                LOGGER.info("Found existing records in solr by for '{}:{}'", field, value);
+            }
+            return isPresent;
         } catch (Exception ex) {
             throw new MCRException(ex);
         }
@@ -478,8 +485,24 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
             if (MCRMetadataManager.exists(mcrObject.getId())) {
                 LOGGER.warn("Object with id '{}' does already exist. Nothing done.", mcrObject.getId().toString());
             } else {
-                LOGGER.info("Creating object '{}'", mcrObject.getId().toString());
-                MCRMetadataManager.create(mcrObject);
+                List<Element> identifierElements = XPATH_FACTORY
+                    .compile("//mods:identifier[@type]", Filters.element(), null, MODS_NAMESPACE)
+                    .evaluate(mcrObject.createXML());
+
+                boolean noneMatch = identifierElements.stream()
+                    .noneMatch(id -> isAlreadyStored("id_" + id.getAttributeValue("type"), id.getText()));
+
+                if (noneMatch) {
+                    LOGGER.info("Creating object '{}'", mcrObject.getId().toString());
+                    MCRMetadataManager.create(mcrObject);
+                } else {
+                    String idString = identifierElements
+                        .stream()
+                        .map(i -> new String(i.getAttributeValue("type") + ":" + i.getText()))
+                        .collect(Collectors.joining(", "));
+                    LOGGER.info("Not creating object for ppn '{}' as one of its ids ({}) is already present",
+                        mcrObject.getId().toString(), idString);
+                }
             }
 
             return mcrObject;
