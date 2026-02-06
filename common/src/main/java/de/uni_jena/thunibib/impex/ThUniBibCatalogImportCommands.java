@@ -82,20 +82,20 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
     private static ImportIdProvider ID_PROVIDER = new ThUniBibCatalogImportIdProvider();
 
     static {
-        String property_prefix = "ThUniBib.affilitation.import.";
-        String property_duplicates_check = property_prefix + "dublicate.check.identifiers";
-        String property_k10plus_max_records = property_prefix + "k10plus.max.records";
-        String property_lobid_max_records = property_prefix + "lobid.max.records";
+        String propertyPrefix = "ThUniBib.affilitation.import.";
+        String propertyDuplicatesCheck = propertyPrefix + "dublicate.check.identifiers";
+        String propertyK10PlusMaxRecords = propertyPrefix + "k10plus.max.records";
+        String propertyLobidMaxRecords = propertyPrefix + "lobid.max.records";
 
         DUPLICATE_CHECK_IDS = MCRConfiguration2
-            .getOrThrow(property_duplicates_check, MCRConfiguration2::splitValue)
+            .getOrThrow(propertyDuplicatesCheck, MCRConfiguration2::splitValue)
             .collect(Collectors.toList());
         LOGGER.info("Checking for duplicates using these identifier: {}", DUPLICATE_CHECK_IDS);
 
-        K10PLUS_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(property_k10plus_max_records);
+        K10PLUS_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(propertyK10PlusMaxRecords);
         LOGGER.info("Max records that are queried from k10plus: {}", K10PLUS_MAX_RECORDS);
 
-        LOBID_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(property_lobid_max_records);
+        LOBID_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(propertyLobidMaxRecords);
         LOGGER.info("Max records that are queried from lobid: {}", LOBID_MAX_RECORDS);
     }
 
@@ -191,11 +191,10 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
         String importId) {
 
         // 2. check against Solr (duplicates across multiple imports)
-        String ppn_field = "id_" + PPN_IDENTIFIER;
+        String ppnField = "id_" + PPN_IDENTIFIER;
         MCRObject mcrObject = null;
 
-        if (isAlreadyStored(ppn_field, ppnID)) {
-            LOGGER.info("Found duplicate in Solr by field {} and value {}", ppn_field, ppnID);
+        if (isAlreadyStored(ppnField, ppnID)) {
             TRACKER.decrementTrackSize(importId);
         } else {
             try {
@@ -205,7 +204,11 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
                     new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
                 wrappedMods = transform(wrappedMods, filterTransformer);
                 mcrObject = createOrUpdate(wrappedMods, status);
-                TRACKER.untrack(importId, ppnID, mcrObject);
+                if (mcrObject != null) {
+                    TRACKER.untrack(importId, ppnID, mcrObject);
+                } else {
+                    TRACKER.decrementTrackSize(importId);
+                }
             } catch (Exception e) {
                 LOGGER.error("Error while creating mcr object from {}", ppnID, e);
                 TRACKER.decrementTrackSize(importId);
@@ -246,18 +249,19 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
         return PICA_URL.replace(QUERY_PLACEHOLDER, query) + "&startRecord=" + start;
     }
 
+    @Deprecated
     @MCRCommand(syntax = "import by affiliation with GND {0} and status {1}",
         help = "test import of publications by affiliation GND, imported documents get status one of 'confirmed', " +
             "'submitted', 'imported'",
         order = 10
     )
-    public static void importByAffiliation(String affiliationGND, String import_status) {
-        final List<String> allowedStatus = Arrays.asList(new String[] { "confirmed", "submitted", "imported" });
+    public static void importByAffiliation(String affiliationGND, String importStatus) {
+        final List<String> allowedStatus = Arrays.asList("confirmed", "submitted", "imported");
 
-        // HashSets for finding duplicates during the import session, PPN is hard wired, rest is configurable
+        // HashSets for finding duplicates during the import session, PPN is hard-wired, rest is configurable
         Map<String, Set<String>> duplicateCheckSetsMap = setUpDuplicateCheckSets();
 
-        if (allowedStatus.contains(import_status)) {
+        if (allowedStatus.contains(importStatus)) {
 
             List<String> affiliatedPersonsGNDs = getAllGNDsOfAffiliatedPersons(affiliationGND);
             for (String affiliatedPersonGND : affiliatedPersonsGNDs) {
@@ -268,7 +272,7 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
                         new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
                         LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(
                             wrappedMods.getMCRObject().createXML()));
-                        createOrUpdate(wrappedMods, import_status);
+                        createOrUpdate(wrappedMods, importStatus);
                     } else {
                         LOGGER.info("Publication with PPN {} was already imported, import canceled!", ppnID);
                     }
@@ -276,9 +280,8 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
             }
 
         } else {
-            LOGGER.info("Status not allowed: {}, use one of {}", import_status, String.join(", ", allowedStatus));
+            LOGGER.info("Status not allowed: {}, use one of {}", importStatus, String.join(", ", allowedStatus));
         }
-
     }
 
     private static Map<String, Set<String>> setUpDuplicateCheckSets() {
@@ -360,7 +363,7 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
 
             boolean isPresent = response.getResults().getNumFound() > 0;
             if (isPresent) {
-                LOGGER.info("Found existing records in solr by for '{}:{}'", field, value);
+                LOGGER.info("Found existing records in solr by '{}:{}'", field, value);
             }
             return isPresent;
         } catch (Exception ex) {
@@ -484,28 +487,31 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
             mcrObject.getService().setState(importState);
             if (MCRMetadataManager.exists(mcrObject.getId())) {
                 LOGGER.warn("Object with id '{}' does already exist. Nothing done.", mcrObject.getId().toString());
-            } else {
-                List<Element> identifierElements = XPATH_FACTORY
-                    .compile("//mods:identifier[@type]", Filters.element(), null, MODS_NAMESPACE)
-                    .evaluate(mcrObject.createXML());
-
-                boolean noneMatch = identifierElements.stream()
-                    .noneMatch(id -> isAlreadyStored("id_" + id.getAttributeValue("type"), id.getText()));
-
-                if (noneMatch) {
-                    LOGGER.info("Creating object '{}'", mcrObject.getId().toString());
-                    MCRMetadataManager.create(mcrObject);
-                } else {
-                    String idString = identifierElements
-                        .stream()
-                        .map(i -> new String(i.getAttributeValue("type") + ":" + i.getText()))
-                        .collect(Collectors.joining(", "));
-                    LOGGER.info("Not creating object for ppn '{}' as one of its ids ({}) is already present",
-                        mcrObject.getId().toString(), idString);
-                }
+                return null;
             }
 
+            List<Element> identifierElements = XPATH_FACTORY
+                .compile("//mods:identifier[@type]", Filters.element(), null, MODS_NAMESPACE)
+                .evaluate(mcrObject.createXML());
+
+            boolean noneMatch = identifierElements.stream()
+                .noneMatch(id -> isAlreadyStored("id_" + id.getAttributeValue("type"), id.getText()));
+
+            if (!noneMatch) {
+                String idString = identifierElements
+                    .stream()
+                    .map(i -> new String(i.getAttributeValue("type") + ":" + i.getText()))
+                    .collect(Collectors.joining(", "));
+                LOGGER.info(
+                    "Not creating object '{}' as another publication with one of its identifiers in [{}] is already stored",
+                    mcrObject.getId().toString(), idString);
+                return null;
+            }
+
+            LOGGER.info("Creating object '{}'", mcrObject.getId().toString());
+            MCRMetadataManager.create(mcrObject);
             return mcrObject;
+
         } catch (MCRAccessException e) {
             throw new MCRException("Error while creating " + mcrObject.getId().toString(), e);
         }
