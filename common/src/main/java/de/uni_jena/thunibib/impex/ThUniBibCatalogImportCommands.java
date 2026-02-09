@@ -297,7 +297,7 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
      * Given a publication and its PPN, check for duplicates in current import session via HashSets and across sessions
      * via Solr queries. This method has side effects. The sets in the duplicateCheckSetsMap get extended by the
      * identifiers of the publication that are used for finding duplicates by each method call. Meaning that the first
-     * call with a new unique publication would return "false", meaning there where no duplicates found, while another
+     * call with a new unique publication would return "false", meaning there were no duplicates found, while another
      * call with the same parameters (same publication and ppn) would return "true", meaning this publication was
      * already imported, either this import session or sometime before in a different session.
      *
@@ -307,6 +307,7 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
      *                              to check for duplicates during an import session
      * @return false, if no duplicate was found or true if a duplicate was found
      */
+    @Deprecated
     private static boolean checkForDuplicates(String publication_ppn, Document publication,
         Map<String, Set<String>> duplicateCheckSetsMap) {
 
@@ -382,6 +383,7 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
         return identifierElements;
     }
 
+    @Deprecated
     private static Map<String, Document> getAllPublicationsOfPersonByGND(String gnd) {
         Map<String, Document> ppnToPublicationMap = new HashMap<>();
 
@@ -454,6 +456,7 @@ public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
         return content;
     }
 
+    @Deprecated
     private static List<String> getAllGNDsOfAffiliatedPersons(String affiliationGND) {
         List<String> affiliatedPersonsGNDs = new ArrayList<>();
 
