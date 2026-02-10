@@ -1,12 +1,14 @@
 # Changelog
 
-# 2026.01.30-2024.06.x
+# 2026.02.10-2024.06.x
 - [#889](https://github.com/ThULB/ThUniBib/issues/889) Check for presence of MCR.user2.LDAP.ProviderURL before trying to match a user in ldap (#894)
 - [#897](https://github.com/ThULB/ThUniBib/issues/897) [J] Enable DBT import (#898)
 - [#901](https://github.com/ThULB/ThUniBib/issues/901) Remove _forwardedCount parameter from solr requests (#902)
 - [FSU040THUL-10983](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10983) [#899](https://github.com/ThULB/ThUniBib/issues/899) Set property UBO.IdentityPicker.generate.button.show = true (#900)
 - [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Provide labels in English for categories in ORIGIN.xml (#893)
 - [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Removed duplicate paragraph in index.xed (#892)
+- [FSU040THUL-11509](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11509) [#905](https://github.com/ThULB/ThUniBib/issues/905) Updated solr-schema.json (#906)
+- [FSU040THUL-11642](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11642) [#903](https://github.com/ThULB/ThUniBib/issues/903) Fixed statistics not working after executing an advanced search (#904)
 ---
 
 # 2026.01.15-2024.06.x
