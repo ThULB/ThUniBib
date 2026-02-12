@@ -7,7 +7,7 @@
   <!-- Introtext German/English -->
 
   <div class="row" xml:lang="all">
-    <div class="col col-md-7">
+    <div class="col col-md-7 d-flex align-items-stretch">
       <article class="card mb-3">
         <div class="card-body">
           <p>
@@ -31,7 +31,7 @@
       </article>
     </div>
 
-    <div class="col">
+    <div class="col d-flex align-items-stretch">
       <article class="card bg-alternative mb-3" xml:lang="de">
         <div class="card-body">
           <h3>Kontakt</h3>

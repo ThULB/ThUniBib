@@ -18,7 +18,7 @@
       </div>
 
       <div class="row">
-        <div class="col-12 col-md">
+        <div class="col-12 col-md d-flex align-items-stretch">
           <article class="card mb-3 thunibib-hyphens-auto" xml:lang="de">
             <div class="card-body">
               <h3>Die Universitätsbibliographie</h3>
@@ -54,7 +54,7 @@
             </div>
           </article>
         </div>
-        <div class="col-12 col-md">
+        <div class="col-12 col-md d-flex align-items-stretch">
           <article class="card mb-3 thunibib-hyphens-auto" xml:lang="de">
             <div class="card-body">
               <h3>Gehören Sie der Universität Erfurt an?</h3>
