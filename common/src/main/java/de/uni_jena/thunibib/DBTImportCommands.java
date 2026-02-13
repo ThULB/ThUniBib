@@ -41,6 +41,8 @@ public class DBTImportCommands {
 
     protected static final MCRSolrCore DBT_SOLR_CORE = MCRSolrCoreManager.get("dbt").orElseThrow();
 
+    protected static final HttpSolrClientBase SOLR_CLIENT_MAIN = MCRSolrCoreManager.getMainSolrCore().getClient();
+
     static {
         DBT_SOLR_CLIENT = DBT_SOLR_CORE.getClient();
     }
@@ -85,7 +87,7 @@ public class DBTImportCommands {
         }
 
         String eligible = identifiers.stream().collect(Collectors.joining(" "));
-        LOGGER.info("The following {} DBT identifiers will be considered for import: {}", identifiers.size(), eligible);
+        LOGGER.info("The following {} dbt identifiers will be considered for import: {}", identifiers.size(), eligible);
         return Arrays.asList("import " + eligible + " from dbt");
     }
 
@@ -145,7 +147,7 @@ public class DBTImportCommands {
                     QueryRequest queryRequest = new QueryRequest(
                         new SolrQuery("+pub_id:" + MCRSolrUtils.escapeSearchValue(identifier)));
                     MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
-                    QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
+                    QueryResponse response = queryRequest.process(SOLR_CLIENT_MAIN);
                     return response.getResults().getNumFound() > 0;
                 } catch (SolrServerException | IOException e) {
                     LOGGER.error("Could not query local solr for identifier {}", identifier, e);
