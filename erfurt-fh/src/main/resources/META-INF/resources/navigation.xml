@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<navigation root="true">
+
+  <item id="home"/>
+  <item id="login"/>
+  <item id="dozbib"/>
+
+  <item menu="main">
+    <item ref="search.xed">
+      <label xml:lang="de">Suche</label>
+      <label xml:lang="en">Search</label>
+      <item id="dozbib.search-simple" ref="search.xed">
+        <label xml:lang="de">Erweiterte Suche</label>
+        <label xml:lang="en">Advanced search</label>
+        <item id="dozbib.search"/>
+      </item>
+      <item id="dozbib.search-expert" ref="search-expert-solr.xed" role="admin">
+        <label xml:lang="de">Expertensuche</label>
+        <label xml:lang="en">Expert search</label>
+      </item>
+    </item>
+    <item ref="list-wizard.xed" id="dozbib.list-wizard">
+      <label xml:lang="de">Persönliche Publikationsliste</label>
+      <label xml:lang="en">Personal publication list</label>
+    </item>
+    <item ref="newPublication.xed" id="dozbib.new.publication">
+      <label xml:lang="de">Publikation melden</label>
+      <label xml:lang="en">Registering a publication</label>
+      <item id="dozbib.edit.publication"/>
+    </item>
+    <item ref="statistics.xml" id="dozbib.stats">
+      <label xml:lang="de">Statistiken</label>
+      <label xml:lang="en">Statistics</label>
+    </item>
+    <item id="dozbib.import.list" ref="import-list.xed" role="admin">
+      <label xml:lang="de">Importieren</label>
+      <label xml:lang="en">Import</label>
+    </item>
+    <item ref="faq.xml" id="about">
+      <label xml:lang="de">FAQ</label>
+      <label xml:lang="en">FAQ</label>
+    </item>
+  </item>
+
+  <item menu="user">
+    <item id="profile" ref="servlets/MCRUserServlet?action=show">
+      <label xml:lang="de">Mein Profil</label>
+      <label xml:lang="en">My profile</label>
+    </item>
+    <item id="dozbib.duplicates" ref="dedup/" role="admin">
+      <label xml:lang="de">Dubletten-Bericht</label>
+      <label xml:lang="en">Duplicates report</label>
+    </item>
+    <item id="classeditor" ref="modules/classeditor/classificationEditor.xml" role="admin">
+      <label xml:lang="de">Klassifikationseditor</label>
+      <label xml:lang="en">Classification editor</label>
+    </item>
+    <item id="useradmin" ref="servlets/MCRUserServlet" role="admin">
+      <label xml:lang="de">Nutzerverwaltung</label>
+      <label xml:lang="en">User administration</label>
+    </item>
+    <item id="usernew" ref="authorization/new-user.xed?action=save" role="admin">
+      <label xml:lang="de">Nutzer anlegen</label>
+      <label xml:lang="en">Create new User</label>
+    </item>
+    <item id="acleditor" ref="rsc/ACLE/start" role="admin">
+      <label xml:lang="de">ACL-Editor</label>
+      <label xml:lang="en">ACL editor</label>
+    </item>
+    <item id="mcrjobs" ref="servlets/JobStatusServlet" role="admin">
+      <label xml:lang="de">Übersicht-MCRJobs</label>
+      <label xml:lang="en">Overview-MCRJobs</label>
+    </item>
+    <item id="webcli" ref="rsc/WebCLI/" role="admin">
+      <label xml:lang="de">WebCLI</label>
+      <label xml:lang="en">WebCLI</label>
+    </item>
+    <item id="signout" ref="servlets/logout" display-divider="top">
+      <label xml:lang="de">Abmelden</label>
+      <label xml:lang="en">Sign out</label>
+    </item>
+  </item>
+
+  <item role="meta">
+    <item ref="https://www.fh-erfurt.de/zentrale-einrichtungen/hochschulbibliothek" xml:lang="de">
+      <label xml:lang="de">Kontakt</label>
+      <label xml:lang="en">Contact</label>
+    </item>
+
+    <item ref="https://www.fh-erfurt.de/en/central-facilities/university-library" xml:lang="en">
+      <label xml:lang="en">Contact</label>
+    </item>
+
+    <item ref="https://www.fh-erfurt.de/impressum" xml:lang="de">
+      <label xml:lang="de">Impressum</label>
+    </item>
+
+    <item ref="https://www.fh-erfurt.de/en/legal-notice" xml:lang="en">
+      <label xml:lang="en">Legal Notice</label>
+    </item>
+
+    <item ref="https://www.fh-erfurt.de/datenschutz" xml:lang="de">
+      <label xml:lang="de">Datenschutz</label>
+    </item>
+
+    <item ref="https://www.fh-erfurt.de/en/privacy-policy" xml:lang="en">
+      <label xml:lang="en">Privacy Statement</label>
+    </item>
+
+    <item ref="https://www.fh-erfurt.de/barrierefreiheit" xml:lang="de">
+      <label xml:lang="de">Barrierefreiheit</label>
+    </item>
+
+    <item ref="https://www.fh-erfurt.de/en/accessibility" xml:lang="en">
+      <label xml:lang="en">Accessibility</label>
+    </item>
+  </item>
+
+</navigation>
