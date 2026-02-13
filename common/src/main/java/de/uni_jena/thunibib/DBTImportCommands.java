@@ -18,6 +18,7 @@ import org.mycore.frontend.cli.annotation.MCRCommand;
 import org.mycore.frontend.cli.annotation.MCRCommandGroup;
 import org.mycore.solr.MCRSolrCore;
 import org.mycore.solr.MCRSolrCoreManager;
+import org.mycore.solr.MCRSolrUtils;
 import org.mycore.solr.auth.MCRSolrAuthenticationLevel;
 import org.mycore.solr.auth.MCRSolrAuthenticationManager;
 import org.mycore.ubo.importer.ListImportJob;
@@ -26,7 +27,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -73,10 +73,11 @@ public class DBTImportCommands {
 
             solrDocuments = response.getResults();
         } catch (SolrServerException | IOException e) {
-            LOGGER.error("Could not get solr documents for query '{}'", solrQuery);
+            LOGGER.error("Could not get solr documents for query '{}'", solrQuery, e);
             return null;
         }
 
+        LOGGER.info("Checking {} dbt documents for duplicates", solrDocuments.getNumFound());
         List<String> identifiers = getIdentifiers(solrDocuments);
         if (identifiers.isEmpty()) {
             LOGGER.info("No new DBT MyCoRe object identifiers could be found");
@@ -127,6 +128,8 @@ public class DBTImportCommands {
         Collection<Object> fieldValues = doc.getFieldValues("mods.identifier");
         String dbtId = doc.get("id").toString();
 
+        LOGGER.debug("Check DBT publication exists for '{}'", dbtId);
+
         if (fieldValues == null) {
             LOGGER.warn("No field 'mods.identifier' present in document of '{}'", doc.get("id"));
             fieldValues = new ArrayList<>();
@@ -139,7 +142,8 @@ public class DBTImportCommands {
             .map(Object::toString)
             .anyMatch(identifier -> {
                 try {
-                    QueryRequest queryRequest = new QueryRequest(new SolrQuery("+pub_id:" + identifier));
+                    QueryRequest queryRequest = new QueryRequest(
+                        new SolrQuery("+pub_id:" + MCRSolrUtils.escapeSearchValue(identifier)));
                     MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
                     QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
                     return response.getResults().getNumFound() > 0;
