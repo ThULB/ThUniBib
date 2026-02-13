@@ -79,7 +79,7 @@ public class DBTImportCommands {
             return null;
         }
 
-        LOGGER.info("Checking {} dbt documents for duplicates", solrDocuments.getNumFound());
+        LOGGER.info("Checking {} dbt documents for presence in local bibliography", solrDocuments.getNumFound());
         List<String> identifiers = getIdentifiers(solrDocuments);
         if (identifiers.isEmpty()) {
             LOGGER.info("No new DBT MyCoRe object identifiers could be found");
