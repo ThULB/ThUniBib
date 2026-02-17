@@ -4,6 +4,7 @@ import de.uni_jena.thunibib.Utilities;
 import de.uni_jena.thunibib.his.api.client.HISInOneClient;
 import de.uni_jena.thunibib.his.api.client.HISinOneClientFactory;
 import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
+import de.uni_jena.thunibib.his.so.HISinOneOEProcessor;
 import de.uni_jena.thunibib.his.xml.HISInOneServiceFlag;
 import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
@@ -154,5 +155,11 @@ public class HISinOneCommands {
             LOGGER.error("Could not delete {} from {}", mcrObject.getId(), HIS_IN_ONE_BASE_URL, e);
         }
         return SysValue.ErroneousSysValue;
+    }
+
+    @MCRCommand(syntax = "convert HISinOne SO csv at {0} to mycore classification at {1}",
+        help = "Converts a csv HISinOne export file to a mycore classification")
+    public static void convertCSV2XML(String in, String out) throws Exception {
+        HISinOneOEProcessor.csvToXml(in, out);
     }
 }
