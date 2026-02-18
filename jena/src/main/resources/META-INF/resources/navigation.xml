@@ -41,6 +41,10 @@
       <label xml:lang="de">Importieren</label>
       <label xml:lang="en">Import</label>
     </item>
+    <item ref="orcid.xml" id="orcid">
+      <label xml:lang="de">ORCID</label>
+      <label xml:lang="en">ORCID</label>
+    </item>
     <item ref="faq.xml" id="about">
       <label xml:lang="de">FAQ</label>
       <label xml:lang="en">FAQ</label>
