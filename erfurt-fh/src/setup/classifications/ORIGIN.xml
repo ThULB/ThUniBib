@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
+
+  <label xml:lang="de" text="Fachhochschule Erfurt - University of applied Sciences"/>
+  <label xml:lang="en" text="Fachhochschule Erfurt - University of applied Sciences"/>
+  <label xml:lang="x-place" text="Fachhochschule Erfurt | Altonaer Straße 25 | 99085 Erfurt"/>
+
+  <categories>
+    <category ID="0100">
+      <label xml:lang="de" text="Angewandte Sozialwissenschaften"/>
+      <label xml:lang="en" text="Angewandte Sozialwissenschaften"/>
+      <label xml:lang="x-lpp" text="1848805098"/>
+    </category>
+    <category ID="0200">
+      <label xml:lang="de" text="Architektur und Stadtplanung"/>
+      <label xml:lang="en" text="Architektur und Stadtplanung"/>
+      <label xml:lang="x-lpp" text="1848806140"/>
+    </category>
+    <category ID="0300">
+      <label xml:lang="de" text="Bauingenieurwesen und Konservierung / Restaurierung"/>
+      <label xml:lang="en" text="Bauingenieurwesen und Konservierung / Restaurierung"/>
+      <label xml:lang="x-lpp" text="1848806280"/>
+    </category>
+    <category ID="0400">
+      <label xml:lang="de" text="Gebäudetechnik und Informatik"/>
+      <label xml:lang="en" text="Gebäudetechnik und Informatik"/>
+      <label xml:lang="x-lpp" text="1848806493"/>
+    </category>
+    <category ID="0500">
+      <label xml:lang="de" text="Landschaftsarchitektur, Gartenbau und Forst"/>
+      <label xml:lang="en" text="Landschaftsarchitektur, Gartenbau und Forst"/>
+      <label xml:lang="x-lpp" text="1848807112"/>
+    </category>
+    <category ID="0600">
+      <label xml:lang="de" text="Wirtschaft-Logistik-Verkehr"/>
+      <label xml:lang="en" text="Wirtschaft-Logistik-Verkehr"/>
+      <label xml:lang="x-lpp" text="1848807163"/>
+    </category>
+    <category ID="0700">
+      <label xml:lang="de" text="Forschungsstelle für gartenbauliche Kulturpflanzen"/>
+      <label xml:lang="en" text="Forschungsstelle für gartenbauliche Kulturpflanzen"/>
+      <label xml:lang="x-lpp" text="1848807260"/>
+    </category>
+    <category ID="0800">
+      <label xml:lang="de" text="Institut für Produktion, Transport, Umschlag und Lagerung"/>
+      <label xml:lang="en" text="Institut für Produktion, Transport, Umschlag und Lagerung"/>
+      <label xml:lang="x-lpp" text="1848807929"/>
+    </category>
+    <category ID="0900">
+      <label xml:lang="de" text="Forschungskollektiv Peripherie und Zentrum der Fachhochschule Erfurt"/>
+      <label xml:lang="en" text="Forschungskollektiv Peripherie und Zentrum der Fachhochschule Erfurt"/>
+      <label xml:lang="x-lpp" text="1848807562"/>
+    </category>
+    <category ID="1000">
+      <label xml:lang="de" text="Institut für Bauphysikalische Qualitätssicherung"/>
+      <label xml:lang="en" text="Institut für Bauphysikalische Qualitätssicherung"/>
+      <label xml:lang="x-lpp" text="184880766X"/>
+    </category>
+    <category ID="1100">
+      <label xml:lang="de" text="Institut für Bauwerksintegrierte Technologien"/>
+      <label xml:lang="en" text="Institut für Bauwerksintegrierte Technologien"/>
+      <label xml:lang="x-lpp" text="1848807619"/>
+    </category>
+    <category ID="1200">
+      <label xml:lang="de" text="Thüringer Institut für Kindheitspädagogik der Fachhochschule Erfurt"/>
+      <label xml:lang="en" text="Thüringer Institut für Kindheitspädagogik der Fachhochschule Erfurt"/>
+      <label xml:lang="x-lpp" text="1848807988"/>
+    </category>
+    <category ID="1300">
+      <label xml:lang="de" text="Institut für Stadtforschung, Planung und Kommunikation"/>
+      <label xml:lang="en" text="Institut für Stadtforschung, Planung und Kommunikation"/>
+      <label xml:lang="x-lpp" text="1848807716"/>
+    </category>
+    <category ID="1400">
+      <label xml:lang="de" text="Institut Verkehr und Raum"/>
+      <label xml:lang="en" text="Institut Verkehr und Raum"/>
+      <label xml:lang="x-lpp" text="1848807821"/>
+    </category>
+  </categories>
+</mycoreclass>

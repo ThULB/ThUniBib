@@ -1,0 +1,26 @@
+/* Regular */
+@font-face {
+    font-family: 'Sans Pro Regular';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url(../fonts/sanspro-regular-webfont.woff2) format('woff2');
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Sans Pro Bold';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url(../fonts/sanspro-bold-webfont.woff2) format('woff2');
+}
+
+/* Semi Bold */
+@font-face {
+    font-family: 'Sans Pro Semi Bold';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url(../fonts/sanspro-semibold-webfont.woff2) format('woff2');
+}
