@@ -2,7 +2,7 @@
 
 <webpage lastModified="$Date$" id="orcid" xmlns:i18n="http://www.mycore.org/i18n">
   <title>
-    <i18n:code>index.person.id.orcid</i18n:code>
+    <i18n:code>thunibib.jena.orcid</i18n:code>
   </title>
 
   <article class="card">
@@ -14,18 +14,37 @@
       <h3>
         <i18n:code>thunibib.jena.orcid.h.whats.orcid</i18n:code>
       </h3>
+      <p>
+        <i18n:code>thunibib.jena.orcid.content.whats.orcid</i18n:code>
+      </p>
+
       <h3>
         <i18n:code>thunibib.jena.orcid.h.advantage.orcid</i18n:code>
       </h3>
+      <p>
+        <i18n:code>thunibib.jena.orcid.content.advantage.orcid</i18n:code>
+      </p>
+
       <h3>
         <i18n:code>thunibib.jena.orcid.h.create.orcid</i18n:code>
       </h3>
+      <p>
+        <i18n:code>thunibib.jena.orcid.content.create.orcid</i18n:code>
+      </p>
+
       <h3>
         <i18n:code>thunibib.jena.orcid.h.work.orcid</i18n:code>
       </h3>
+      <p>
+        <i18n:code>thunibib.jena.orcid.content.work.orcid</i18n:code>
+      </p>
+
       <h3>
         <i18n:code>thunibib.jena.orcid.h.trustedParty</i18n:code>
       </h3>
+      <p>
+        <i18n:code>thunibib.jena.orcid.content.trustedParty</i18n:code>
+      </p>
     </div>
   </article>
 </webpage>
