@@ -48,6 +48,16 @@
               <p>
                 <i18n:code>thunibib.jena.orcid.content.trustedParty</i18n:code>
               </p>
+
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.furtherInformation</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.furtherInformation</i18n:code>
+              </p>
+
+
+
             </div>
             <div class="col-3">
               <img class="img-fluid" src="images/logo-orcid-tagline.webp"/>
