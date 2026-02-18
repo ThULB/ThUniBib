@@ -91,11 +91,7 @@ a#mcrFunctionsDropdown {
 }
 
 .thunibib-orcid-advantages-ul li {
-  list-style-type: none;
-}
-
-.thunibib-orcid-advantages-ul li:before {
-  content: "✓ ";
+  list-style-type: '✓  ';
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {

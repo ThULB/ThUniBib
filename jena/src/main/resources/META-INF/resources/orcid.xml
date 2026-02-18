@@ -5,46 +5,56 @@
     <i18n:code>thunibib.jena.orcid</i18n:code>
   </title>
 
-  <article class="card">
-    <div class="card-body">
-      <h1>
-        <i18n:code>thunibib.jena.orcid</i18n:code>
-      </h1>
+  <div class="row">
+    <div class="col">
+      <article class="card">
+        <div class="card-body">
+          <h1>
+            <i18n:code>thunibib.jena.orcid</i18n:code>
+          </h1>
+          <div class="row">
+            <div class="col">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.whats.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.whats.orcid</i18n:code>
+              </p>
 
-      <h3>
-        <i18n:code>thunibib.jena.orcid.h.whats.orcid</i18n:code>
-      </h3>
-      <p>
-        <i18n:code>thunibib.jena.orcid.content.whats.orcid</i18n:code>
-      </p>
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.advantage.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.advantage.orcid</i18n:code>
+              </p>
 
-      <h3>
-        <i18n:code>thunibib.jena.orcid.h.advantage.orcid</i18n:code>
-      </h3>
-      <p>
-        <i18n:code>thunibib.jena.orcid.content.advantage.orcid</i18n:code>
-      </p>
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.create.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.create.orcid</i18n:code>
+              </p>
 
-      <h3>
-        <i18n:code>thunibib.jena.orcid.h.create.orcid</i18n:code>
-      </h3>
-      <p>
-        <i18n:code>thunibib.jena.orcid.content.create.orcid</i18n:code>
-      </p>
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.work.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.work.orcid</i18n:code>
+              </p>
 
-      <h3>
-        <i18n:code>thunibib.jena.orcid.h.work.orcid</i18n:code>
-      </h3>
-      <p>
-        <i18n:code>thunibib.jena.orcid.content.work.orcid</i18n:code>
-      </p>
-
-      <h3>
-        <i18n:code>thunibib.jena.orcid.h.trustedParty</i18n:code>
-      </h3>
-      <p>
-        <i18n:code>thunibib.jena.orcid.content.trustedParty</i18n:code>
-      </p>
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.trustedParty</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.trustedParty</i18n:code>
+              </p>
+            </div>
+            <div class="col-3">
+              <img class="img-fluid" src="images/logo-orcid-tagline.webp"/>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
-  </article>
+  </div>
 </webpage>
