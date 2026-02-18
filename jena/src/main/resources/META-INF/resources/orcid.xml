@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webpage lastModified="$Date$" id="orcid" xmlns:i18n="http://www.mycore.org/i18n">
+  <title>
+    <i18n:code>thunibib.jena.orcid</i18n:code>
+  </title>
+
+  <div class="row">
+    <div class="col">
+      <article class="card">
+        <div class="card-body">
+          <h1>
+            <i18n:code>thunibib.jena.orcid</i18n:code>
+          </h1>
+
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.whats.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.whats.orcid</i18n:code>
+              </p>
+            </div>
+
+            <div class="col-12 col-md offset-md-1">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.furtherInformation</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.furtherInformation</i18n:code>
+              </p>
+            </div>
+          </div>
+
+          <div class="row pb-2 pb-sm-0">
+            <div class="col-12 col-md-7">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.advantage.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.advantage.orcid</i18n:code>
+              </p>
+            </div>
+            <div class="col-12 col-md offset-md-1">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.contact</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.contact</i18n:code>
+              </p>
+              <div class="bg-primary pl-3 pt-3 pb-2">
+                <p class="text-white">
+                  <i18n:code>thunibib.jena.orcid.h.contact</i18n:code>
+                </p>
+                <p class="text-white">
+                  <i18n:code>thunibib.jena.orcid.details1.contact</i18n:code>
+                </p>
+                <p class="text-white">
+                  <i18n:code>thunibib.jena.orcid.details2.contact</i18n:code>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.create.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.create.orcid</i18n:code>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.work.orcid</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.work.orcid</i18n:code>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <h3>
+                <i18n:code>thunibib.jena.orcid.h.trustedParty</i18n:code>
+              </h3>
+              <p>
+                <i18n:code>thunibib.jena.orcid.content.trustedParty</i18n:code>
+              </p>
+            </div>
+            <div class="col-12 col-md offset-md-1">
+              <img class="img-fluid" src="images/logo-orcid-cmo.png"/>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</webpage>
