@@ -14,7 +14,7 @@
           </h1>
 
           <div class="row">
-            <div class="col-7">
+            <div class="col-12 col-md-7">
               <h3>
                 <i18n:code>thunibib.jena.orcid.h.whats.orcid</i18n:code>
               </h3>
@@ -23,7 +23,7 @@
               </p>
             </div>
 
-            <div class="col offset-1">
+            <div class="col-12 col-md offset-md-1">
               <h3>
                 <i18n:code>thunibib.jena.orcid.h.furtherInformation</i18n:code>
               </h3>
@@ -33,8 +33,8 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-7">
+          <div class="row pb-2 pb-sm-0">
+            <div class="col-12 col-md-7">
               <h3>
                 <i18n:code>thunibib.jena.orcid.h.advantage.orcid</i18n:code>
               </h3>
@@ -42,7 +42,7 @@
                 <i18n:code>thunibib.jena.orcid.content.advantage.orcid</i18n:code>
               </p>
             </div>
-            <div class="col offset-1">
+            <div class="col-12 col-md offset-md-1">
               <h3>
                 <i18n:code>thunibib.jena.orcid.h.contact</i18n:code>
               </h3>
@@ -64,7 +64,7 @@
           </div>
 
           <div class="row">
-            <div class="col-7">
+            <div class="col-12 col-md-7">
               <h3>
                 <i18n:code>thunibib.jena.orcid.h.create.orcid</i18n:code>
               </h3>
@@ -75,7 +75,7 @@
           </div>
 
           <div class="row">
-            <div class="col-7">
+            <div class="col-12 col-md-7">
               <h3>
                 <i18n:code>thunibib.jena.orcid.h.work.orcid</i18n:code>
               </h3>
@@ -86,7 +86,7 @@
           </div>
 
           <div class="row">
-            <div class="col-7">
+            <div class="col-12 col-md-7">
               <h3>
                 <i18n:code>thunibib.jena.orcid.h.trustedParty</i18n:code>
               </h3>
@@ -94,7 +94,7 @@
                 <i18n:code>thunibib.jena.orcid.content.trustedParty</i18n:code>
               </p>
             </div>
-            <div class="col offset-1">
+            <div class="col-12 col-md offset-md-1">
               <img class="img-fluid" src="images/logo-orcid-cmo.png"/>
             </div>
           </div>
