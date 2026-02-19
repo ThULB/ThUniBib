@@ -56,7 +56,7 @@
                 <i18n:code>thunibib.jena.orcid.content.furtherInformation</i18n:code>
               </p>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 d-none d-sm-block">
               <img class="img-fluid" src="images/logo-orcid-tagline.webp"/>
             </div>
           </div>
@@ -71,8 +71,16 @@
               <p>
                 <i18n:code>thunibib.jena.orcid.content.contact</i18n:code>
               </p>
-              <div class="bg-primary text-white">
-                <i18n:code>thunibib.jena.orcid.h.contact</i18n:code>
+              <div class="bg-primary pl-3 pt-3 pb-2">
+                <p class="text-white">
+                  <i18n:code>thunibib.jena.orcid.h.contact</i18n:code>
+                </p>
+                <p class="text-white">
+                  <i18n:code>thunibib.jena.orcid.details1.contact</i18n:code>
+                </p>
+                <p class="text-white">
+                  <i18n:code>thunibib.jena.orcid.details2.contact</i18n:code>
+                </p>
               </div>
             </div>
           </div>
