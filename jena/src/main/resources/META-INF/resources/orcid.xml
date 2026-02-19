@@ -51,14 +51,8 @@
             </div>
 
             <div class="col-12 offset-md-1 col-sm-4">
-              <div class="row d-none d-sm-block">
-                <div class="col">
-                  <img class="img-fluid" src="images/logo-orcid-tagline.webp"/>
-                </div>
-              </div>
-
               <!-- contact box -->
-              <div class="row">
+              <div class="row pb-5">
                 <div class="col">
                   <h3>
                     <i18n:code>thunibib.jena.orcid.h.furtherInformation</i18n:code>
@@ -85,6 +79,11 @@
                       <i18n:code>thunibib.jena.orcid.details2.contact</i18n:code>
                     </p>
                   </div>
+                </div>
+              </div>
+              <div class="row pt-5 d-none d-sm-block">
+                <div class="col pt-5">
+                  <img class="img-fluid pt-5" src="images/logo-orcid-cmo.png"/>
                 </div>
               </div>
             </div>
