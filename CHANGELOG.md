@@ -1,5 +1,16 @@
 # Changelog
 
+# 2026.02.24-2024.06.x
+- [#911](https://github.com/ThULB/ThUniBib/issues/911) Added maven module for FH Erfurt (#912)
+- [#913](https://github.com/ThULB/ThUniBib/issues/913) Escape solr's special characters in query field values (#914)
+- [#915](https://github.com/ThULB/ThUniBib/issues/915) Added command 'convert HISinOne SO csv at {0} to mycore classification at {1}' (#916)
+- [#917](https://github.com/ThULB/ThUniBib/issues/917) Set MCR.CronJob.Jobs.[DBT-Import | UpdateFunding].Command.User = system:MCRJanitor (#918)
+- [FSU040THUL-11431](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11431) [#895](https://github.com/ThULB/ThUniBib/issues/895) [UBE] Layout adjustments on the homepage (#896)
+- [FSU040THUL-11704](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11704) [#909](https://github.com/ThULB/ThUniBib/issues/909) [UBE] Provide labels in English in origin.xml (#910)
+- [FSU040THUL-11765](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11765) [#919](https://github.com/ThULB/ThUniBib/issues/919) [J] Added ORCID® tab to navigation (#920)
+- [FSU040THUL-11785](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11785) [#921](https://github.com/ThULB/ThUniBib/issues/921) Configured property MCR.classeditor.additionalLanguages for ThUniBib
+---
+
 # 2026.02.10-2024.06.x
 - [#889](https://github.com/ThULB/ThUniBib/issues/889) Check for presence of MCR.user2.LDAP.ProviderURL before trying to match a user in ldap (#894)
 - [#897](https://github.com/ThULB/ThUniBib/issues/897) [J] Enable DBT import (#898)
