@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="nameIdentifier">
+  <label xml:lang="en" text="Namenskennungen"/>
+  <label xml:lang="de" text="Name Identifier"/>
+  <categories>
+    <category ID="ube">
+      <label xml:lang="de" text="Lokale ID"/>
+      <label xml:lang="en" text="Local ID"/>
+      <label xml:lang="x-display" text="false"/>
+    </category>
+    <category ID="scopus">
+      <label xml:lang="de" text="SCOPUS"/>
+      <label xml:lang="en" text="SCOPUS"/>
+      <label xml:lang="x-display" text="true"/>
+      <label xml:lang="x-uri" text="https://www.scopus.com/authid/detail.url?partnerID=HzOxMe3b&amp;origin=inward&amp;authorId="/>
+    </category>
+    <category ID="gnd">
+      <label xml:lang="de" text="GND"/>
+      <label xml:lang="en" text="GND"/>
+      <label xml:lang="x-display" text="true"/>
+      <label xml:lang="x-uri" text="https://d-nb.info/gnd/"/>
+    </category>
+    <category ID="researcherid">
+      <label xml:lang="de" text="ResearcherID"/>
+      <label xml:lang="en" text="ResearcherID"/>
+      <label xml:lang="x-display" text="true"/>
+      <label xml:lang="x-uri" text="http://www.researcherid.com/rid/"/>
+    </category>
+    <category ID="orcid">
+      <label xml:lang="de" text="ORCID"/>
+      <label xml:lang="en" text="ORCID"/>
+      <label xml:lang="x-display" text="true"/>
+      <label xml:lang="x-uri" text="https://orcid.org/"/>
+    </category>
+    <category ID="viaf">
+      <label xml:lang="de" text="VIAF" description="Virtuelle internationale Normdatei"/>
+      <label xml:lang="en" text="VIAF" description="Virtual International Authority File"/>
+      <label xml:lang="x-display" text="true"/>
+      <label xml:lang="x-uri" text="https://viaf.org/viaf/"/>
+    </category>
+    <category ID="connection">
+      <label xml:lang="de" text="Connection ID"/>
+      <label xml:lang="en" text="Connection ID"/>
+      <label xml:lang="x-display" text="false"/>
+    </category>
+  </categories>
+</mycoreclass>

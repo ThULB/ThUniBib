@@ -10,7 +10,7 @@
 
   <groupId>de.uni-jena.thulb.ubo</groupId>
   <artifactId>ThUniBib</artifactId>
-  <version>2026.02.10-2024.06.x</version>
+  <version>2026.02.24-2024.06.x</version>
   <packaging>pom</packaging>
   <name>UBO ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
@@ -142,7 +142,7 @@
       <dependency>
         <groupId>de.uni-jena.thulb.ubo</groupId>
         <artifactId>thunibib-common</artifactId>
-        <version>2026.02.10-2024.06.x</version>
+        <version>2026.02.24-2024.06.x</version>
       </dependency>
       <dependency>
         <groupId>jakarta.servlet</groupId>
@@ -200,6 +200,7 @@
   <modules>
     <module>common</module>
     <module>erfurt</module>
+    <module>erfurt-fh</module>
     <module>ilmenau</module>
     <module>jena-thulb</module>
     <module>jena</module>
