@@ -95,7 +95,7 @@
       <label xml:lang="de">Datenschutz</label>
       <label xml:lang="en">Privacy Statement</label>
     </item>
-    <item ref="#">
+    <item ref="privacy-statement.xml">
       <label xml:lang="de">Barrierefreiheit</label>
       <label xml:lang="en">Accessibility</label>
     </item>
