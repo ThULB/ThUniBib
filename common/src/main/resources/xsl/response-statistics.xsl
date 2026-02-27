@@ -25,7 +25,7 @@
           <xsl:call-template name="page.title" />
         </title>
 
-        <script src="{$WebApplicationBaseURL}assets/apexcharts/dist/apexcharts.js"/>
+        <script src="{$WebApplicationBaseURL}assets/echarts/dist/echarts.js"/>
       </head>
       <body>
         <article class="card mb-3">
