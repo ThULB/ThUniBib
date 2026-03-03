@@ -45,12 +45,6 @@ i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
   display: none;
 }
 
-.apexcharts-bar-area, .apexcharts-pie-area {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .thunibib-container-MCRUserServlet > .row > div {
   background-color: white;
 }
