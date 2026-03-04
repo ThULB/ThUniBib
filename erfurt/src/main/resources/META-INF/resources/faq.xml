@@ -602,9 +602,19 @@
               <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Informationen zur Verknüpfung Ihrer ORCID-ID mit der Universitätsbibliographie finden Sie unter
-                    "Mein
-                    Profil".
+                    Verbinden Sie Ihren Namen mit Ihrer Forschung. Damit Ihre Publikationsdaten automatisch in Ihr
+                    ORCID-Record importiert werden, verknüpfen Sie zuvor Ihre ORCID-ID mit der EFUB. Nutzen Sie hierfür
+                    unsere
+                    <a
+                      href="https://www.uni-erfurt.de/fileadmin/einrichtung/bibliothek/Themen/OA_FDM_DH/ORCID-Verknuepfung1.mp4">
+                      Videoanleitung.
+                    </a>
+                  </p>
+                  <p>
+                    Erfahren Sie mehr über ORCID auf unserer
+                    <a href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren/orcid-support">
+                      Webseite.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -1359,7 +1369,19 @@
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    Information on linking your ORCID-ID to the university bibliography can be found under "My profile".
+                    Connect your name with your research. To ensure that your publication data is automatically imported
+                    into your ORCID record, first link your ORCID ID to the EFUB. Please refer to our
+                    <a
+                      href="https://www.uni-erfurt.de/fileadmin/einrichtung/bibliothek/Themen/OA_FDM_DH/Link_to_ORCID1.mp4">
+                      video tutorial.
+                    </a>
+                  </p>
+                  <p>
+                    Learn more about ORCID on our
+                    <a
+                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/orcid">
+                      website.
+                    </a>
                   </p>
                 </div>
               </div>
