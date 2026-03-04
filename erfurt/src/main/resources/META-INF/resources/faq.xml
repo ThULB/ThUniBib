@@ -836,83 +836,33 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingSixEn">
+              <div class="card-header" id="headingElevenEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSixEn" aria-expanded="false" aria-controls="collapseSixEn">
+                          data-target="#collapseElevenEn" aria-expanded="false" aria-controls="collapseElevenEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    What does the reference "part of the statistics" mean?
+                    How do I link my ORCID-ID to the university bibliography?
                   </button>
                 </h3>
               </div>
-              <div id="collapseSixEn" class="collapse" aria-labelledby="headingSixEn" data-parent="#accordionExampleEn">
-                <div class="card-body">
-                  <p>
-                    The note "part of statistics" in data records means that data records are included in statistical
-                    analyses.
-                    If a data record is labelled "part of statistics: Yes", the content was published during the period
-                    of
-                    activity at the University of Erfurt.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header" id="headingSevenEn">
-                <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSevenEn" aria-expanded="false" aria-controls="collapseSevenEn">
-                    <i class="fas fa-plus-circle"/>
-                    <i class="fas fa-minus-circle"/>
-                    What is metadata?
-                  </button>
-                </h3>
-              </div>
-              <div id="collapseSevenEn" class="collapse" aria-labelledby="headingSevenEn"
+              <div id="collapseElevenEn" class="collapse" aria-labelledby="headingElevenEn"
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    Metadata is structured, additional data that supplements or describes the actual data in more
-                    detail.
-                    Metadata
-                    makes it easier to archive and find data.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header" id="headingEightEn">
-                <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseEightEn" aria-expanded="false" aria-controls="collapseEightEn">
-                    <i class="fas fa-plus-circle"/>
-                    <i class="fas fa-minus-circle"/>
-                    What open access licences are available?
-                  </button>
-                </h3>
-              </div>
-              <div id="collapseEightEn" class="collapse" aria-labelledby="headingEightEn"
-                   data-parent="#accordionExampleEn">
-                <div class="card-body">
-                  <p>
-                    <a href="https://creativecommons.org/">Creative Commons licenses (CC)</a>
-                    are frequently used in science, and less frequently the
-                    <a href="https://www.hbz-nrw.de/produkte/open-access/dipp/lizenzen/dppl/">Digital Peer Publishing
-                      License
-                      (DPPL)
+                    Connect your name with your research. To ensure that your publication data is automatically imported
+                    into your ORCID record, first link your ORCID ID to the EFUB. Please refer to our
+                    <a
+                      href="https://www.uni-erfurt.de/fileadmin/einrichtung/bibliothek/Themen/OA_FDM_DH/Link_to_ORCID1.mp4">
+                      video tutorial.
                     </a>
-                    or the <a href="https://www.gnu.org/">Free Documentation License of the GNU-Initiative (GNU-FDL)</a>.
-                    The
-                    first two are internationally compatible. The GNU-FDL is based on the Anglo-American legal area.
-                    An open content licence allows works to be reused without having to obtain individual permissions
-                    from
-                    the
-                    rights holders. A corresponding reference to the selected licence and a link to the licence text is
-                    provided
-                    with the publication.
+                  </p>
+                  <p>
+                    Learn more about ORCID on our
+                    <a
+                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/orcid">
+                      website.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -935,18 +885,45 @@
                   <p>
                     Create your personal publication list from the data in the University Bibliography. The lists are
                     updated as soon as new publications are reported to us and have been editorially reviewed and
-                    approved. Please feel free to report any <a href="newPublication.xed">missing publications</a>
+                    approved. Please feel free to report any
+                    <a href="newPublication.xed">missing publications</a>
                     to us or contact us <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-
-                    erfurt.de</a> if you would like to request corrections to entries.
+                    erfurt.de
+                  </a> if you would like to request corrections to entries.
                   </p>
 
                   <p>
-                    You can use the <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">form</a>
+                    You can use the
+                    <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">form</a>
                     to create personal publication lists directly from the University Bibliography and output them in
                     various formats. Enter the desired name under "Add person" and use the green plus sign to
                     select the person, the time period, the sorting and the output format. The citation style can only
                     be selected once the output format has been selected. A link is generated which you can insert
                     into your website or documents.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingSixEn">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseSixEn" aria-expanded="false" aria-controls="collapseSixEn">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    What does the reference "part of the statistics" mean?
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseSixEn" class="collapse" aria-labelledby="headingSixEn" data-parent="#accordionExampleEn">
+                <div class="card-body">
+                  <p>
+                    The note "part of statistics" in data records means that data records are included in statistical
+                    analyses.
+                    If a data record is labelled "part of statistics: Yes", the content was published during the period
+                    of
+                    activity at the University of Erfurt.
                   </p>
                 </div>
               </div>
@@ -1069,33 +1046,57 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingElevenEn">
+              <div class="card-header" id="headingEightEn">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseElevenEn" aria-expanded="false" aria-controls="collapseElevenEn">
+                          data-target="#collapseEightEn" aria-expanded="false" aria-controls="collapseEightEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    How do I link my ORCID-ID to the university bibliography?
+                    What open access licences are available?
                   </button>
                 </h3>
               </div>
-              <div id="collapseElevenEn" class="collapse" aria-labelledby="headingElevenEn"
+              <div id="collapseEightEn" class="collapse" aria-labelledby="headingEightEn"
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    Connect your name with your research. To ensure that your publication data is automatically imported
-                    into your ORCID record, first link your ORCID ID to the EFUB. Please refer to our
-                    <a
-                      href="https://www.uni-erfurt.de/fileadmin/einrichtung/bibliothek/Themen/OA_FDM_DH/Link_to_ORCID1.mp4">
-                      video tutorial.
+                    <a href="https://creativecommons.org/">Creative Commons licenses (CC)</a>
+                    are frequently used in science, and less frequently the
+                    <a href="https://www.hbz-nrw.de/produkte/open-access/dipp/lizenzen/dppl/">Digital Peer Publishing
+                      License
+                      (DPPL)
                     </a>
+                    or the <a href="https://www.gnu.org/">Free Documentation License of the GNU-Initiative (GNU-FDL)</a>.
+                    The
+                    first two are internationally compatible. The GNU-FDL is based on the Anglo-American legal area.
+                    An open content licence allows works to be reused without having to obtain individual permissions
+                    from
+                    the
+                    rights holders. A corresponding reference to the selected licence and a link to the licence text is
+                    provided
+                    with the publication.
                   </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingSevenEn">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseSevenEn" aria-expanded="false" aria-controls="collapseSevenEn">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    What is metadata?
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseSevenEn" class="collapse" aria-labelledby="headingSevenEn"
+                   data-parent="#accordionExampleEn">
+                <div class="card-body">
                   <p>
-                    Learn more about ORCID on our
-                    <a
-                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/orcid">
-                      website.
-                    </a>
+                    Metadata is structured, additional data that supplements or describes the actual data in more
+                    detail. Metadata makes it easier to archive and find data.
                   </p>
                 </div>
               </div>
