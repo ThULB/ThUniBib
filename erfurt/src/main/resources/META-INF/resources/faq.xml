@@ -114,182 +114,55 @@
                   <p>
                     Es werden Publikationen erfasst, die während der Tätigkeit an der Universität Erfurt entstanden
                     sind, einen entsprechenden Zugehörigkeitsvermerk in der Publikation aufweisen und gedruckt oder
-                    digital dauerhaft öffentlich verfügbar sind. Wir erfassen die elektronische Version der Publikation
-                    und verweisen ggf. auf die Printausgabe.
+                    digital dauerhaft öffentlich verfügbar sind.
+                    Wir erfassen die elektronische Version der Publikation und verweisen ggf. auf die Printausgabe.
+                  </p>
+                  <p>
+                    Das sind die Publikationstypen, die erfasst werden. Weitere Informationen dazu finden Sie auf
+                    unserer
+                    <a
+                      href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren/universitaetsbibliographie/publikationen-melden">
+                      Webseite.
+                    </a>
                   </p>
 
-                  <p>Das sind die Publikationstypen, die erfasst werden:</p>
-
-                  <dl>
-                    <dt>Abstract (Konferenz/Tagung)</dt>
-                    <dd>Ein Abstract ist ein kurzer Text, der eine Präsentation an einer Konferenz zusammenfasst und
-                      entweder in einer wissenschaftlichen Zeitschrift oder in einem Tagungsband veröffentlicht wurde.
-                    </dd>
-                    <dt>Artikel / Aufsatz</dt>
-                    <dd>Ein Aufsatz oder Artikel ist ein abgeschlossener Beitrag zu einem abgegrenzten Thema oder einer
-                      Fragestellung, der zusammen mit anderen Beiträgen z.B. in einer Zeitschrift veröffentlicht wurde.
-                    </dd>
-                    <dt>Aufsatz (Konferenz)</dt>
-                    <dd>Ein Aufsatz (Konferenz) ist eine Konferenzschrift, die im Rahmen einer Konferenz dauerhaft auf
-                      den
-                      Seiten der Veranstalter oder einem Repositorium publiziert wurde.
-                    </dd>
-                    <dt>Ausstellungskatalog</dt>
-                    <dd>Ein Ausstellungskatalog ist eine Auflistung mit Erläuterungen dessen, was bei einer Ausstellung
-                      gezeigt wird. Die Form kann variieren und u.a. reine Listen, Essays, Erläuterungen sowie den
-                      Katalogteil und sachbezogene Anzeigen enthalten.
-                    </dd>
-                    <dt>Bachelorarbeit</dt>
-                    <dd>Unter einer Bachelorarbeit versteht man international eine wissenschaftliche oder künstlerische
-                      Arbeit, die zum Abschluss eines Bachelor-Studiengangs von Studierenden verfasst wird. Die
-                      Bachelorarbeit muss entweder in einem Verlag oder auf einem (institutionellen) Repositorium
-                      publiziert sein und einen eindeutigen Identifikator (DOI, URN, ISBN) haben.
-                    </dd>
-                    <dt>Blogbeitrag</dt>
-                    <dd>Ein Blogbeitrag ist ein Aufsatz oder Artikel in einem Blog bzw. auf einer Webseite.</dd>
-                    <dt>Brief (Letter)</dt>
-                    <dd>Ein Brief (engl. Letter) enthält Beiträge (z.B. Daten aus der Originalforschung), von denen die
-                      Herausgeberschaft glaubt, dass sie für die Forschung interessant sind. Für dieses Format gelten
-                      oft
-                      strenge Längenbeschränkungen, und sie werden auch als <i>Brief Communications</i> bezeichnet.
-                    </dd>
-                    <dt>Buch (Monographie)</dt>
-                    <dd>Ein Buch, geschrieben von einem oder mehreren Autoren und Autorinnen, das sich einem Thema
-                      widmet
-                      und dieses umfassend und unter Berücksichtigung der relevanten Forschungsergebnisse darstellt.
-                    </dd>
-                    <dt>Buch (Sammelwerk)</dt>
-                    <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge in Form
-                      von Buchaufsätzen oder Kapiteln verschiedener Autoren und Autorinnen.
-                    </dd>
-                    <dt>Buchaufsatz / Kaptiel</dt>
-                    <dd>Ein Buchaufsatz oder Kapitel ist ein abgeschlossener Beitrag zu einem abgegrenzten Thema oder
-                      einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einem Buch veröffentlicht wurde.
-                    </dd>
-                    <dt>Data Article / Data Paper</dt>
-                    <dd>Data Article bzw. Data Paper sind sachliche und objektive Veröffentlichungen mit der Absicht,
-                      bestimmte Daten, Datensätze oder Datensammlungen zu identifizieren und zu beschreiben, um die
-                      Auffindbarkeit zu erleichtern.
-                    </dd>
-                    <dt>Diplomarbeit</dt>
-                    <dd>Eine Diplomarbeit ist in Deutschland die schriftliche Abschlussarbeit eines Diplom-Studiengangs
-                      an
-                      einer Hochschule oder Berufsakademie.
-                      Die Diplomarbeit ist schriftlicher Leistungsbestandteil einer Diplomprüfung und führt zur
-                      Erlangung
-                      des akademischen Diplomgrades (Diplom).
-                      Die Diplomarbeit muss entweder in einem Verlag oder auf einem (institutionellen) Repositorium
-                      publiziert sein und einen eindeutigen Identifikator (DOI, URN, ISBN) haben.
-                    </dd>
-                    <dt>Diskussionspapier / Working paper</dt>
-                    <dd>Diskussionspapiere oder Arbeitspapiere (engl. Working Paper) sind meist mehrseitige
-                      Veröffentlichungen von Forschenden, die nicht in Fachzeitschriften oder Fachbüchern erscheinen,
-                      sondern als projekteigene Veröffentlichungen verbreitet werden, z. B. über das Repositorium einer
-                      Hochschule.
-                    </dd>
-                    <dt>Dissertation</dt>
-                    <dd>Eine Dissertation ist eine wissenschaftliche Arbeit zum Erwerb des Doktorgrades.</dd>
-                    <dt>Forschungsbericht</dt>
-                    <dd>Die Kategorie “Bericht” umfasst öffentliche wissenschaftliche Publikationen, die entweder von
-                      der
-                      Institution herausgegeben wurden, in der die Forschung stattfindet, oder im Auftrag einer
-                      Institution angefertigt wurden.
-                      Arbeitspapiere, Gutachten, Forschungs- und Abschlussberichte z.B. von Projekten öffentlicher
-                      Einrichtungen können hier erfasst werden.
-                    </dd>
-                    <dt>Forschungsdaten</dt>
-                    <dd>Forschungsdaten sind Daten, die bei der Planung, der Durchführung und der Dokumentation
-                      wissenschaftlicher Vorhaben entstehen oder bei einem solchen Vorhaben Verwendung finden.
-                      Sie bilden ein wesentliches Fundament wissenschaftlicher Arbeiten und dokumentieren deren
-                      Ergebnisse. Auswertung, Analyse und Interpretation der Forschungsdaten ermöglicht
-                      Schlussfolgerungen, erzeugt Informationen und liefert neue Erkenntnisse.
-                    </dd>
-                    <dt>Habilitation</dt>
-                    <dd>Eine Habilitation ist eine wissenschaftliche Arbeit zum Erwerb der universitären Lehrbefähigung.
-                    </dd>
-                    <dt>Interview</dt>
-                    <dd>Interviews mit Bezug auf wissenschaftliche Tätigkeiten, die in Zeitschriften, Zeitungen, Blogs,
-                      Rundfunk oder Fernsehen veröffentlicht wurden, können hier angegeben werden.
-                    </dd>
-                    <dt>Konferenz- / Tagungsband</dt>
-                    <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge einer
-                      wissenschaftlichen Tagung in Form von Buchaufsätzen oder Kapiteln verschiedener Autoren und
-                      Autorinnen.
-                    </dd>
-                    <dt>Konferenz- / Tagungsbeitrag</dt>
-                    <dd>Ein Konferenz- / Tagungsbeitrag ist eine Konferenzschrift, die im Rahmen einer Konferenz
-                      entstanden ist und in einem Tagungsband, einer Zeitschrift oder einem Repositorium publiziert
-                      wurde.
-                    </dd>
-                    <dt>Lexikon</dt>
-                    <dd>Ein nach Stichwörtern alphabetisch geordnetes Nachschlagewerk für alle Wissensgebiete oder für
-                      ein
-                      bestimmtes Sachgebiet. Es enthält Beiträge in Form von Buchaufsätzen oder Kapiteln verschiedener
-                      Autoren und Autorinnen.
-                    </dd>
-                    <dt>Lexikoneintrag</dt>
-                    <dd>Ein Lexikoneintrag ist ein Beitrag in Form von Buchaufsätzen und Kapiteln in einem Lexikon.</dd>
-                    <dt>Masterarbeit</dt>
-                    <dd>Eine Masterarbeit ist international eine wissenschaftliche oder künstlerische Arbeit, die für
-                      den
-                      Abschluss eines Master-Studienganges verfasst wird.
-                      Die Masterarbeit dient dabei im Allgemeinen als Nachweis darüber, dass die Studierenden in der
-                      Lage
-                      sind, eine wissenschaftliche bzw. künstlerische Arbeit selbstständig, aber unter Betreuung zu
-                      verfassen.
-                      Die Masterarbeit muss entweder in einem Verlag oder auf einem (institutionellen) Repositorium
-                      publiziert sein und einen eindeutigen Identifikator (DOI, URN, ISBN) haben.
-                    </dd>
-                    <dt>Noten</dt>
-                    <dd>Noten bezeichnet ein niedergeschriebenes oder gedrucktes Musikstück oder einen Auszug daraus,
-                      z.B.
-                      in Form eines Manuskripts, einer gebundenen Partitur oder einer gedruckten Einzelstimme.
-                    </dd>
-                    <dt>Patent(schrift)</dt>
-                    <dd>Eine Patentschrift bezieht sich auf ein erteiltes Patent und enthält Beschreibungen und
-                      Zeichnungen zu einem technischen Verfahren oder Produkt.
-                    </dd>
-                    <dt>Poster</dt>
-                    <dd>Ein Poster ist eine visuelle Präsentation wissenschaftlicher Ergebnisse, die im Rahmen einer
-                      Konferenz dauerhaft und mit einem eindeutigen Identifikator (DOI, URN, Handle) auf den Seiten der
-                      Veranstalter oder einem Repositorium publiziert wurden.
-                    </dd>
-                    <dt>Rezension</dt>
-                    <dd>Eine Rezension ist ein Artikel, der eine kritische Bewertung eines oder auch mehrerer Werke
-                      beinhaltet.
-                    </dd>
-                    <dt>Reihe / Serie</dt>
-                    <dd>Eine Reihe oder Serie ist ein fortlaufendes Sammelwerk, welches mehrere Publikationen, die
-                      jeweils
-                      in sich abgeschlossen sind, aber in einem allgemeinen thematischen Bezug zueinanderstehen,
-                      umfasst.
-                    </dd>
-                    <dt>Sonderheft</dt>
-                    <dd>Ein Sonderheft ist ein sog. Special Issue oder Themenheft einer Zeitschrift.</dd>
-                    <dt>Urteilsanmerkung</dt>
-                    <dd>Eine Urteilsanmerkung ist eine Anmerkung zu einer Urteilsbesprechung.</dd>
-                    <dt>Vorwort / Nachwort / Editorial</dt>
-                    <dd>Ein Vorwort oder Nachwort ist ein abgeschlossener unselbstständiger Beitrag zur Einleitung oder
-                      zum Abschluss einer Thematik in einer Zeitschrift oder einem Buch.
-                    </dd>
-                    <dt>Video- / Film(beitrag)</dt>
-                    <dd>Ein Video- oder ein Filmbeitrag ist eine elektronische Wiedergabe von bewegten Bildern und Ton.
-                    </dd>
-                    <dt>Vortrag / Redebeitrag</dt>
-                    <dd>Bei einem Vortrag handelt es sich um eine Rede z.B. vor einem Fachpublikum.</dd>
-                    <dt>Website / Blog</dt>
-                    <dd>Ein Blog ist eine tagebuchartige, öffentlich zugängliche Webseite, die ständig um Kommentare und
-                      Notizen zu bestimmten wissenschaftlichen Themen ergänzt wird.
-                    </dd>
-                    <dt>Zeitschrift</dt>
-                    <dd>Eine Zeitschrift ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge zu
-                      einer thematischen oder fachlichen Ausrichtung erscheinen.
-                    </dd>
-                    <dt>Zeitung</dt>
-                    <dd>Eine Zeitung ist ein regelmäßig erscheinendes, fortlaufendes Sammelwerk, in dem Beiträge mit
-                      aktuellem und universellem Inhalt erscheinen.
-                    </dd>
-                  </dl>
+                  <ul>
+                    <li>Abstract (Konferenz/Tagung)</li>
+                    <li>Artikel / Aufsatz</li>
+                    <li>Ausstellungskatalog</li>
+                    <li>Bachelorarbeit</li>
+                    <li>Blogbeitrag</li>
+                    <li>Brief (Letter)</li>
+                    <li>Buch (Monographie)</li>
+                    <li>Buch (Sammelwerk)</li>
+                    <li>Buchaufsatz / Kapitel</li>
+                    <li>Data Article / Data Paper</li>
+                    <li>Diplomarbeit</li>
+                    <li>Diskussionspapier / Working paper</li>
+                    <li>Dissertation</li>
+                    <li>Forschungsbericht</li>
+                    <li>Forschungsdaten</li>
+                    <li>Habilitation</li>
+                    <li>Interview</li>
+                    <li>Konferenz- / Tagungsband</li>
+                    <li>Konferenz- / Tagungsbeitrag</li>
+                    <li>Lexikon</li>
+                    <li>Lexikoneintrag</li>
+                    <li>Masterarbeit</li>
+                    <li>Noten</li>
+                    <li>Patent(schrift)</li>
+                    <li>Poster</li>
+                    <li>Rezension</li>
+                    <li>Reihe / Serie</li>
+                    <li>Sonderheft</li>
+                    <li>Urteilsanmerkung</li>
+                    <li>Vorwort / Nachwort / Editorial</li>
+                    <li>Video- / Film(beitrag)</li>
+                    <li>Vortrag / Redebeitrag</li>
+                    <li>Website / Blog</li>
+                    <li>Zeitschrift</li>
+                    <li>Zeitung</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -838,210 +711,52 @@
                     print or digital form. We record the electronic version of the publication and refer to the print
                     edition where applicable.
                   </p>
+                  <p>
+                    The following types of publications are recorded. Further information can be found on our
+                    <a
+                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography/registering-a-publication">
+                      website.
+                    </a>
+                  </p>
 
-                  <p>The following types of publications are recorded:</p>
-
-                  <dl>
-                    <dt>Abstract (conference / meeting)</dt>
-                    <dd>An abstract is a short text that summarizes a presentation at a conference and has been
-                      published
-                      either
-                      in a scientific journal or in conference proceedings.
-                    </dd>
-                    <dt>Annotations</dt>
-                    <dd>An annotation is a note to a judgement discussion.</dd>
-                    <dt>Article / Essay</dt>
-                    <dd>An essay or article is a completed contribution on a defined topic or issue that has been
-                      published
-                      together with other contributions, e.g. in a journal.
-                    </dd>
-                    <dt>Bachelor thesis</dt>
-                    <dd>Internationally, a Bachelor's thesis is an academic or artistic paper written by students at the
-                      end
-                      of a
-                      Bachelor's degree program.
-                      The Bachelor's thesis must be published either by a publisher or on an (institutional) repository
-                      and
-                      have a
-                      unique identifier (DOI, URN, ISBN).
-                    </dd>
-                    <dt>Blog post</dt>
-                    <dd>A blog post is an essay or article in a webblog or on a website.</dd>
-                    <dt>Book (collection)</dt>
-                    <dd>A book edited by one or more people. It contains contributions in the form of book essays or
-                      chapters by
-                      various authors.
-                    </dd>
-                    <dt>Book essay / chapter</dt>
-                    <dd>A book essay or chapter is a completed contribution on a defined topic or issue that has been
-                      published
-                      together with other contributions, e.g. in a book.
-                    </dd>
-                    <dt>Book (monograph)</dt>
-                    <dd>A book, written by one or more authors, that is dedicated to a specific topic and presents it
-                      comprehensively and in consideration of the relevant research results.
-                    </dd>
-                    <dt>Conference paper</dt>
-                    <dd>A conference paper is a paper that has been produced as part of a conference and published in a
-                      conference
-                      proceeding, a journal or a repository.
-                    </dd>
-                    <dt>Conference proceedings</dt>
-                    <dd>A book edited by one or more people. It contains contributions from a scientific conference in
-                      the
-                      form of
-                      book essays or chapters by various authors.
-                    </dd>
-                    <dt>Data Article / Data Paper</dt>
-                    <dd>A factual and objective publication with a focused intent to identify and describe specific
-                      data,
-                      sets of
-                      data, or data collections to facilitate discoverability.
-                    </dd>
-                    <dt>Diploma thesis</dt>
-                    <dd>In Germany, a diploma thesis is the final written work of a diploma program at a university or
-                      university
-                      of cooperative education.
-                      The diploma thesis is a written component of a diploma examination and leads to the award of the
-                      academic
-                      diploma degree (Diplom).
-                      The diploma thesis must be published either by a publisher or on an (institutional) repository and
-                      have a
-                      unique identifier (DOI, URN, ISBN).
-                    </dd>
-                    <dt>Dissertation</dt>
-                    <dd>A dissertation is a scientific work to acquire a doctoral degree.</dd>
-                    <dt>Essay (conference)</dt>
-                    <dd>An article (conference) is a conference paper that has been published permanently on the
-                      organizer's
-                      website or a repository as part of a conference.
-                    </dd>
-                    <dt>Exhibition catalog</dt>
-                    <dd>An exhibition catalog is a list with explanations of what is shown at an exhibition. The form
-                      can
-                      vary and
-                      may include lists, essays, explanations, the catalog section and factual advertisements.
-                    </dd>
-                    <dt>Habiliation</dt>
-                    <dd>A habilitation is a scientific work to acquire the university teaching qualification.</dd>
-                    <dt>Interview</dt>
-                    <dd>Interviews relating to scientific activities that have been published in magazines, newspapers,
-                      blogs,
-                      radio or television can be reported here.
-                    </dd>
-                    <dt>Journal</dt>
-                    <dd>A journal is a regularly published, ongoing collective work in which articles on a specific
-                      topic
-                      or
-                      subject are published.
-                    </dd>
-                    <dt>Letter</dt>
-                    <dd>A letter contains contributions (e.g. data from original research) that the editors believe to
-                      be
-                      of
-                      interest to researchers. This format is often subject to strict length restrictions and is also
-                      known
-                      as <i>
-                        Brief Communications</i>.
-                    </dd>
-                    <dt>Lecture / speech</dt>
-                    <dd>A lecture is a speech, e.g. in front of a specialised audience or in a journal.</dd>
-                    <dt>Lexicon</dt>
-                    <dd>A reference work organised alphabetically by keyword for all fields of knowledge or for a
-                      specific
-                      subject
-                      area. It contains contributions in the form of book essays or chapters by various authors.
-                    </dd>
-                    <dt>Lexicon entry</dt>
-                    <dd>An lexicon entry is a contribution in the form of book essays and chapters in an encyclopaedia
-                      or
-                      a
-                      lexicon.
-                    </dd>
-                    <dt>Master thesis</dt>
-                    <dd>A Master's thesis is an international scientific or artistic work that is written for the
-                      completion
-                      of a
-                      Master's degree programme.
-                      The Master's thesis generally serves as proof that students are capable to write a scientific or
-                      artistic
-                      thesis independently, but under supervision.
-                      The Master’s thesis must be published either by a publisher or on an (institutional) repository
-                      and
-                      have a
-                      unique identifier (DOI, URN, ISBN).
-                    </dd>
-                    <dt>Musical notes</dt>
-                    <dd>Sheet music means a written or printed piece of music or an extract from it, e.g. in the form of
-                      a
-                      manuscript, a bound score or a printed individual part.
-                    </dd>
-                    <dt>Newspaper</dt>
-                    <dd>A newspaper is a regularly published, ongoing collective work in which articles with current and
-                      universal
-                      content are published.
-                    </dd>
-                    <dt>Patent specification</dt>
-                    <dd>A patent specification refers to a granted patent and contains descriptions and drawings of a
-                      technical
-                      process or product.
-                    </dd>
-                    <dt>Poster</dt>
-                    <dd>A poster is a visual presentation of scientific results that have been published permanently and
-                      with a
-                      unique identifier (DOI, URN, handle) on the organisers' website or a repository as part of a
-                      conference.
-                    </dd>
-                    <dt>Preface / epilog/ editorial</dt>
-                    <dd>A preface or epilogue is a contribution to the introduction or conclusion of a topic in a
-                      journal
-                      or
-                      book.
-                    </dd>
-                    <dt>Research data</dt>
-                    <dd>Research data are data that are generated during the planning, realisation and documentation of
-                      scientific
-                      projects or are used in such projectsThey form an essential foundation of scientific work and
-                      document
-                      its
-                      results.
-                      Evaluation, analysis and interpretation of research data enables conclusions to be drawn,
-                      generates
-                      information and provides new insights.
-                    </dd>
-                    <dt>Research Report</dt>
-                    <dd>The category "Report" includes public scientific publications that were either published by the
-                      institution in which the research takes place or were commissioned by an institution.
-                      Working papers, expertises, research and final reports, e.g. from projects of public institutions,
-                      can
-                      be
-                      recorded here.
-                    </dd>
-                    <dt>Review</dt>
-                    <dd>A review is an article that contains a critical assessment of one or more works.</dd>
-                    <dt>Series</dt>
-                    <dd>A series is an ongoing collective work that comprises several publications, each of which is
-                      self-contained but has a general thematic relationship to each other.
-                    </dd>
-                    <dt>Special issue</dt>
-                    <dd>A special issue is an issue of a journal on a special topic.</dd>
-                    <dt>Video- / film</dt>
-                    <dd>A video or film contribution is an electronic reproduction of moving images and sound.</dd>
-                    <dt>Website / blog</dt>
-                    <dd>A blog is a diary-like, publicly accessible website that is constantly updated with comments and
-                      notes on
-                      specific scientific topics.
-                    </dd>
-                    <dt>Working paper</dt>
-                    <dd>Discussion papers or working papers are usually multi-page publications by researchers that do
-                      not
-                      appear
-                      in specialist journals or textbooks, but are distributed as project-specific publications, e.g.
-                      via
-                      a
-                      university repository.
-                    </dd>
-                  </dl>
+                  <ul>
+                    <li>Abstract (conference / meeting)</li>
+                    <li>Annotations</li>
+                    <li>Article / Essay</li>
+                    <li>Bachelor thesis</li>
+                    <li>Blog post</li>
+                    <li>Book (collection)</li>
+                    <li>Book essay / chapter</li>
+                    <li>Book (monograph)</li>
+                    <li>Conference paper</li>
+                    <li>Conference proceedings</li>
+                    <li>Data Article / Data Paper</li>
+                    <li>Diploma thesis</li>
+                    <li>Dissertation</li>
+                    <li>Essay (conference)</li>
+                    <li>Exhibition catalog</li>
+                    <li>Habliitation</li>
+                    <li>Interview</li>
+                    <li>Journal</li>
+                    <li>Letter</li>
+                    <li>Lecture / speech</li>
+                    <li>Lexicon</li>
+                    <li>Lexicon entry</li>
+                    <li>Master thesis</li>
+                    <li>Musical notes</li>
+                    <li>Newspaper</li>
+                    <li>Patent specification</li>
+                    <li>Poster</li>
+                    <li>Preface / epilog/ editorial</li>
+                    <li>Research data</li>
+                    <li>Research Report</li>
+                    <li>Review</li>
+                    <li>Series</li>
+                    <li>Special issue</li>
+                    <li>Video- / film</li>
+                    <li>Website / blog</li>
+                    <li>Working paper</li>
+                  </ul>
                 </div>
               </div>
             </div>
