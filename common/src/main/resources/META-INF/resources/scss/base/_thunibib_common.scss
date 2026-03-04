@@ -52,3 +52,15 @@ i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
 .thunibib-hyphens-auto {
   hyphens: auto;
 }
+
+.thunibib-orcid-statistic-row {
+  &-1 {
+    background: $light;
+    color: $primary;
+  }
+
+  &-0 {
+    background: white;
+    color: $primary;
+  }
+}

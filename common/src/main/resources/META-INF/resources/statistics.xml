@@ -30,4 +30,6 @@
   <span class="thunibib-statistics-identifier-schemes">
     <xinclude uri="xslStyle:statistics:solr:requestHandler:select:q=objectKind%3Aname&amp;rows=0&amp;facet.pivot=name_id_type,name_id_type"/>
   </span>
+
+  <xinclude uri="notnull:xslStyle:statistics-orcid:orcidStatistics:trusted-party"/>
 </webpage>
