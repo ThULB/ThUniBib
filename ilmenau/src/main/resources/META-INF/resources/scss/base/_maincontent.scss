@@ -1,4 +1,3 @@
-
 // regarding forms
 
 $form-color: #251e52;
@@ -104,4 +103,15 @@ $form-color: #251e52;
   background-color: white !important;
   border-radius: 0.2rem;
   border: 1px solid $color-dark-blue;
+}
+
+.orcid-button {
+  border-color: $primary;
+  color: $primary;
+}
+
+.orcid-button:hover {
+  background-color: $primary;
+  border-color: $primary;
+  color: white;
 }
