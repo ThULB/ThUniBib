@@ -242,76 +242,32 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingSix">
+              <div class="card-header" id="headingTwelve">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Was bedeutet der Hinweis „Teil der Statistik“?
+                    Wie verknüpfe ich meine ORCID-ID mit der Universitätsbibliographie?
                   </button>
                 </h3>
               </div>
-              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+              <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Der Hinweis „Teil der Statistik“ in Datensätzen informiert darüber, ob Publikationen in der
-                    statistischen Auswertung gezählt werden.
-                    Sofern ein Datensatz mit „Teil der Statistik: Ja“ gekennzeichnet ist, ist der Inhalt im Zusammenhang
-                    mit der Tätigkeit an der Universität Erfurt entstanden.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header" id="headingSeven">
-                <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                    <i class="fas fa-plus-circle"/>
-                    <i class="fas fa-minus-circle"/>
-                    Was sind Metadaten?
-                  </button>
-                </h3>
-              </div>
-              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
-                <div class="card-body">
-                  <p>
-                    Metadaten sind strukturierte, zusätzliche Daten, die die eigentlichen Daten ergänzen bzw. näher
-                    beschreiben. Metadaten erleichtern das Archivieren und Auffinden von Daten.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header" id="headingEight">
-                <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                    <i class="fas fa-plus-circle"/>
-                    <i class="fas fa-minus-circle"/>
-                    Was gibt es für Open-Access-Lizenzen?
-                  </button>
-                </h3>
-              </div>
-              <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
-                <div class="card-body">
-                  <p>
-                    In der Wissenschaft werden häufig <a href="https://de.creativecommons.net/start/">
-                    Creative-Commons-Lizenzen (CC)</a>, seltener auch die
-                    <a href="https://www.hbz-nrw.de/produkte/open-access/dipp/lizenzen/dppl/">Digital Peer Publishing
-                      License (DPPL)
+                    Verbinden Sie Ihren Namen mit Ihrer Forschung. Damit Ihre Publikationsdaten automatisch in Ihr
+                    ORCID-Record importiert werden, verknüpfen Sie zuvor Ihre ORCID-ID mit der EFUB. Nutzen Sie hierfür
+                    unsere
+                    <a
+                      href="https://www.uni-erfurt.de/fileadmin/einrichtung/bibliothek/Themen/OA_FDM_DH/ORCID-Verknuepfung1.mp4">
+                      Videoanleitung.
                     </a>
-                    oder die <a href="https://www.gnu.org/">Free Documentation License der GNU-Initiative (GNU-FDL)</a> verwendet.
-                    Die beiden ersten sind international kompatibel. Die GNU-FDL ist in ihrer Anlage auf den
-                    anglo-amerikanischen Rechtsraum bezogen.
-                    Durch die Lizenzierung mittels einer Open-Content-Lizenz können Werke nachgenutzt werden, ohne bei
-                    den
-                    Rechteinhabern und Rechteinhaberinnen individuell Erlaubnisse einholen zu müssen.
-                    Dafür wird ein entsprechender Hinweis auf die gewählte Lizenz und ein Link zum Lizenztext bei der
-                    Veröffentlichung gegeben.
+                  </p>
+                  <p>
+                    Erfahren Sie mehr über ORCID auf unserer
+                    <a href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren/orcid-support">
+                      Webseite.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -346,6 +302,29 @@
                     Sortierung und das Ausgabeformat aus. Erst mit der Auswahl des Ausgabeformats kann die
                     Zitierweise ausgewählt werden. Es wird ein Link erzeugt, den Sie auf Ihrer Webseite oder in
                     Dokumenten einfügen können.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingSix">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    Was bedeutet der Hinweis „Teil der Statistik“?
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                <div class="card-body">
+                  <p>
+                    Der Hinweis „Teil der Statistik“ in Datensätzen informiert darüber, ob Publikationen in der
+                    statistischen Auswertung gezählt werden.
+                    Sofern ein Datensatz mit „Teil der Statistik: Ja“ gekennzeichnet ist, ist der Inhalt im Zusammenhang
+                    mit der Tätigkeit an der Universität Erfurt entstanden.
                   </p>
                 </div>
               </div>
@@ -462,37 +441,57 @@
             </div>
 
             <div class="card">
-              <div class="card-header" id="headingTwelve">
+              <div class="card-header" id="headingEight">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                          data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
-                    Wie verknüpfe ich meine ORCID-ID mit der Universitätsbibliographie?
+                    Was gibt es für Open-Access-Lizenzen?
                   </button>
                 </h3>
               </div>
-              <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
+              <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Verbinden Sie Ihren Namen mit Ihrer Forschung. Damit Ihre Publikationsdaten automatisch in Ihr
-                    ORCID-Record importiert werden, verknüpfen Sie zuvor Ihre ORCID-ID mit der EFUB. Nutzen Sie hierfür
-                    unsere
-                    <a
-                      href="https://www.uni-erfurt.de/fileadmin/einrichtung/bibliothek/Themen/OA_FDM_DH/ORCID-Verknuepfung1.mp4">
-                      Videoanleitung.
+                    In der Wissenschaft werden häufig <a href="https://de.creativecommons.net/start/">
+                    Creative-Commons-Lizenzen (CC)</a>, seltener auch die
+                    <a href="https://www.hbz-nrw.de/produkte/open-access/dipp/lizenzen/dppl/">Digital Peer Publishing
+                      License (DPPL)
                     </a>
-                  </p>
-                  <p>
-                    Erfahren Sie mehr über ORCID auf unserer
-                    <a href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren/orcid-support">
-                      Webseite.
-                    </a>
+                    oder die <a href="https://www.gnu.org/">Free Documentation License der GNU-Initiative (GNU-FDL)</a> verwendet.
+                    Die beiden ersten sind international kompatibel. Die GNU-FDL ist in ihrer Anlage auf den
+                    anglo-amerikanischen Rechtsraum bezogen.
+                    Durch die Lizenzierung mittels einer Open-Content-Lizenz können Werke nachgenutzt werden, ohne bei
+                    den
+                    Rechteinhabern und Rechteinhaberinnen individuell Erlaubnisse einholen zu müssen.
+                    Dafür wird ein entsprechender Hinweis auf die gewählte Lizenz und ein Link zum Lizenztext bei der
+                    Veröffentlichung gegeben.
                   </p>
                 </div>
               </div>
             </div>
 
+            <div class="card">
+              <div class="card-header" id="headingSeven">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    Was sind Metadaten?
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                <div class="card-body">
+                  <p>
+                    Metadaten sind strukturierte, zusätzliche Daten, die die eigentlichen Daten ergänzen bzw. näher
+                    beschreiben. Metadaten erleichtern das Archivieren und Auffinden von Daten.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
