@@ -34,18 +34,19 @@
 
                 <div class="row thunibib-orcid-statistic-row thunibib-orcid-statistic-row-{position() mod 2}"
                      title="{position()}">
-                  <div class="col-2 text-truncate" title="{@realName}">
+                  <div class="col-md-2 text-truncate" title="{@realName}">
                     <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={@name}">
                       <xsl:value-of select="@realName"/>
                     </a>
                   </div>
 
-                  <div class="col-3 text-truncate">
+                  <div class="col-md text-truncate">
                     <xsl:for-each select="attributes/attribute[@name='id_orcid']/@value">
                       <xsl:sort select="."/>
 
                       <a class="d-block" href="{$MCR.ORCID2.BaseURL}/{.}" title="{.}">
-                        <xsl:value-of select="."/>
+                        <img class="pr-1" height="16" src="{$WebApplicationBaseURL}images/orcid_icon.svg" alt="ORCID iD Logo"/>
+                        <xsl:value-of select="concat($MCR.ORCID2.BaseURL, '/', .)"/>
                       </a>
                     </xsl:for-each>
                   </div>
