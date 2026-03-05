@@ -28,8 +28,10 @@
               </span>
             </div>
 
-            <div class="col-12 col-md">
+            <div class="col-12 col-md-8">
               <xsl:for-each select="user">
+                <xsl:sort select="@realName"/>
+
                 <div class="row thunibib-orcid-statistic-row thunibib-orcid-statistic-row-{position() mod 2}"
                      title="{position()}">
                   <div class="col-2 text-truncate" title="{@realName}">
@@ -38,11 +40,14 @@
                     </a>
                   </div>
 
-                  <xsl:variable name="orcid-id" select="attributes/attribute[@name='id_orcid']/@value"/>
-                  <div class="col-3 text-truncate" title="{$orcid-id}">
-                    <a href="{$MCR.ORCID2.BaseURL}/{$orcid-id}">
-                      <xsl:value-of select="$orcid-id"/>
-                    </a>
+                  <div class="col-3 text-truncate">
+                    <xsl:for-each select="attributes/attribute[@name='id_orcid']/@value">
+                      <xsl:sort select="."/>
+
+                      <a class="d-block" href="{$MCR.ORCID2.BaseURL}/{.}" title="{.}">
+                        <xsl:value-of select="."/>
+                      </a>
+                    </xsl:for-each>
                   </div>
                 </div>
               </xsl:for-each>
