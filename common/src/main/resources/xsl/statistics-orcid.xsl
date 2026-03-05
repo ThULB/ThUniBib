@@ -4,6 +4,7 @@
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 exclude-result-prefixes="xsl xalan i18n">
 
+  <xsl:param name="ChartsCommon.border.class"/>
   <xsl:param name="MCR.ORCID2.BaseURL"/>
   <xsl:param name="WebApplicationBaseURL"/>
 
@@ -12,40 +13,43 @@
   </xsl:template>
 
   <xsl:template match="trusted-party[count(user) &gt; 0]" mode="orcid-statistics">
-    <article class="card">
-      <div class="card-body">
-        <h3>
-          <xsl:value-of select="i18n:translate('thunibib.statistic.orcid.trustedParty')"/>
-        </h3>
+    <div class="thunibib-orcid-statistic-container {$ChartsCommon.border.class}">
+      <article class="card">
+        <div class="card-body">
+          <h3>
+            <xsl:value-of select="i18n:translate('thunibib.statistic.orcid.trustedParty')"/>
+          </h3>
 
-        <div class="row">
-          <div class="col-12 col-md-3">
-            <xsl:value-of select="concat(i18n:translate('thunibib.statistic.orcid.trustedParty.introText'), ':')"/>
-            <span class="font-weight-bold pl-3">
-              <xsl:value-of select="count(user)"/>
-            </span>
-          </div>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <xsl:value-of select="concat(i18n:translate('thunibib.statistic.orcid.trustedParty.introText'), ':')"/>
+              <span class="font-weight-bold pl-3">
+                <xsl:value-of select="count(user)"/>
+              </span>
+            </div>
 
-          <div class="col-12 col-md">
-            <xsl:for-each select="user">
-              <div class="row thunibib-orcid-statistic-row thunibib-orcid-statistic-row-{position() mod 2}" title="{position()}">
-                <div class="col-2 text-truncate" title="{@realName}">
-                  <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={@name}">
-                    <xsl:value-of select="@realName"/>
-                  </a>
+            <div class="col-12 col-md">
+              <xsl:for-each select="user">
+                <div class="row thunibib-orcid-statistic-row thunibib-orcid-statistic-row-{position() mod 2}"
+                     title="{position()}">
+                  <div class="col-2 text-truncate" title="{@realName}">
+                    <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={@name}">
+                      <xsl:value-of select="@realName"/>
+                    </a>
+                  </div>
+
+                  <xsl:variable name="orcid-id" select="attributes/attribute[@name='id_orcid']/@value"/>
+                  <div class="col-3 text-truncate" title="{$orcid-id}">
+                    <a href="{$MCR.ORCID2.BaseURL}/{$orcid-id}">
+                      <xsl:value-of select="$orcid-id"/>
+                    </a>
+                  </div>
                 </div>
-
-                <xsl:variable name="orcid-id" select="attributes/attribute[@name='id_orcid']/@value"/>
-                <div class="col-3 text-truncate" title="{$orcid-id}">
-                  <a href="{$MCR.ORCID2.BaseURL}/{$orcid-id}">
-                    <xsl:value-of select="$orcid-id"/>
-                  </a>
-                </div>
-              </div>
-            </xsl:for-each>
+              </xsl:for-each>
+            </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </xsl:template>
 </xsl:stylesheet>
