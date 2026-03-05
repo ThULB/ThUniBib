@@ -35,7 +35,7 @@
                 <div class="row thunibib-orcid-statistic-row thunibib-orcid-statistic-row-{position() mod 2}"
                      title="{position()}">
                   <div class="col-md-2 text-truncate" title="{@realName}">
-                    <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={@name}">
+                    <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={@name}" title="{i18n:translate('thunibib.statistic.orcid.trustedParty.link.user')}">
                       <xsl:value-of select="@realName"/>
                     </a>
                   </div>
