@@ -44,8 +44,17 @@
                     <xsl:for-each select="attributes/attribute[@name='id_orcid']/@value">
                       <xsl:sort select="."/>
 
+                      <xsl:variable name="orcid" select="."/>
+
                       <a class="d-block" href="{$MCR.ORCID2.BaseURL}/{.}" title="{.}">
-                        <img class="pr-1" height="16" src="{$WebApplicationBaseURL}images/orcid_icon.svg" alt="ORCID iD Logo"/>
+                        <xsl:choose>
+                          <xsl:when test="../../attribute[@name = concat('orcid_credential_', $orcid)]">
+                            <img class="pr-1" height="16" src="{$WebApplicationBaseURL}images/orcid_icon.svg" alt="ORCID iD Logo"/>
+                          </xsl:when>
+                          <xsl:otherwise>
+                            <img class="pr-1" height="16" src="{$WebApplicationBaseURL}images/orcid/unauthenticated/Mono/ORCID-iD_icon_unauth_BW_vector.svg" alt="ORCID iD Logo (unauthorized)"/>
+                          </xsl:otherwise>
+                        </xsl:choose>
                         <xsl:value-of select="concat($MCR.ORCID2.BaseURL, '/', .)"/>
                       </a>
                     </xsl:for-each>
