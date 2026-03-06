@@ -53,6 +53,11 @@ i.ubo-picker-service-ThUniBibLDAPWithLocalService::before {
   hyphens: auto;
 }
 
+td.identifier:hover {
+  background-color: $primary;
+  color: contrast-color($primary);
+}
+
 .thunibib-orcid-statistic-row {
   &-1 {
     background: $light;
