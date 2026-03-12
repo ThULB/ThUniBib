@@ -155,4 +155,12 @@ public class Utilities {
 
         return b.toString();
     }
+
+    public static boolean isPartOfUKJ(String mcrid){
+        return true;
+    }
+
+    public static boolean isPartOfCoreUniversity(String mcrid){
+        return false;
+    }
 }
