@@ -26,11 +26,11 @@
     <xsl:if test="mods:classification[contains(@valueURI, 'ORIGIN')]">
       <xsl:variable name="mcrid" select="../../../../@ID"/>
 
-      <field name="ukj">
+      <field name="statistics.univercity.ukj">
         <xsl:value-of select="document(concat('notnull:callJava:de.uni_jena.thunibib.Utilities:isPartOfUKJ:', $mcrid))"/>
       </field>
 
-      <field name="core.univercity">
+      <field name="statistics.univercity.core">
         <xsl:value-of select="document(concat('notnull:callJava:de.uni_jena.thunibib.Utilities:isPartOfCoreUniversity:', $mcrid))"/>
       </field>
     </xsl:if>
