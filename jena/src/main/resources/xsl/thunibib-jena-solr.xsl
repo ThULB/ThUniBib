@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
                 xmlns:mods="http://www.loc.gov/mods/v3"
-                xmlns:utilities="xalan://de.uni_jena.thunibib.Utilities"
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                exclude-result-prefixes="mods utilities xalan xsl">
+                exclude-result-prefixes="mods xalan xsl">
 
   <xsl:import href="xslImport:solr-document:thunibib-jena-solr.xsl"/>
 
@@ -25,12 +24,14 @@
 
   <xsl:template match="mods:mods" mode="thunibib-jena-solr-fields">
     <xsl:if test="mods:classification[contains(@valueURI, 'ORIGIN')]">
+      <xsl:variable name="mcrid" select="../../../../@ID"/>
+
       <field name="ukj">
-        <xsl:value-of select="utilities:isPartOfUKJ(../../../../@ID)"/>
+        <xsl:value-of select="document(concat('notnull:callJava:de.uni_jena.thunibib.Utilities:isPartOfUKJ:', $mcrid))"/>
       </field>
 
       <field name="core.univercity">
-        <xsl:value-of select="utilities:isPartOfCoreUniversity(../../../../@ID)"/>
+        <xsl:value-of select="document(concat('notnull:callJava:de.uni_jena.thunibib.Utilities:isPartOfCoreUniversity:', $mcrid))"/>
       </field>
     </xsl:if>
   </xsl:template>
