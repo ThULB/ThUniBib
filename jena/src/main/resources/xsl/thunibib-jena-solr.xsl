@@ -7,8 +7,6 @@
 
   <xsl:import href="xslImport:solr-document:thunibib-jena-solr.xsl"/>
 
-  <xsl:param name="UBO.projectid.default"/>
-
   <xsl:template match="mycoreobject">
     <xsl:apply-imports/>
     <xsl:comment>
