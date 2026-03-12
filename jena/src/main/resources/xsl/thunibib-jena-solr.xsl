@@ -4,8 +4,7 @@
                 xmlns:utilities="xalan://de.uni_jena.thunibib.Utilities"
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
-                exclude-result-prefixes="mcrxsl mods utilities xalan xsl">
+                exclude-result-prefixes="mods utilities xalan xsl">
 
   <xsl:import href="xslImport:solr-document:thunibib-jena-solr.xsl"/>
 
@@ -25,12 +24,14 @@
   </xsl:template>
 
   <xsl:template match="mods:mods" mode="thunibib-jena-solr-fields">
-    <field name="ukj">
-      <xsl:value-of select="utilities:isPartOfUKJ(../../../../@ID)"/>
-    </field>
+    <xsl:if test="mods:classification[contains(@valueURI, 'ORIGIN')]">
+      <field name="ukj">
+        <xsl:value-of select="utilities:isPartOfUKJ(../../../../@ID)"/>
+      </field>
 
-    <field name="core.univercity">
-      <xsl:value-of select="utilities:isPartOfUKJ(../../../../@ID)"/>
-    </field>
+      <field name="core.univercity">
+        <xsl:value-of select="utilities:isPartOfCoreUniversity(../../../../@ID)"/>
+      </field>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
