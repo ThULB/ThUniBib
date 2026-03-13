@@ -1,0 +1,18 @@
+[
+  {
+    "add-field": {
+      "name": "statistics.univercity.core",
+      "type": "boolean",
+      "multiValued": false,
+      "stored": true
+    }
+  },
+  {
+    "add-field": {
+      "name": "statistics.univercity.ukj",
+      "type": "boolean",
+      "multiValued": false,
+      "stored": true
+    }
+  }
+]
