@@ -373,7 +373,7 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                On the page „<a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
+                On the page „<a href="https://bibliographie.uni-weimar.de/newPublication.xed?lang=en">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
               </p>
             </div>
           </div>
