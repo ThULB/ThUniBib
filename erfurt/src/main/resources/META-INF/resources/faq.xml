@@ -207,11 +207,16 @@
               <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Sie gehören der Universität Erfurt an? Dann helfen Sie uns bei der Vollständigkeit der
+                    Sie gehören der Universität Erfurt an? Dann helfen Sie uns bei der Vervollständigung der
                     Universitätsbibliographie. Nutzen Sie unser Formular <a href="newPublication.xed">Publikationen
                     melden</a>, wenn Sie eine einzelne Publikation mit Identifikator (DOI, ISBN, ISSN) melden wollen.
-                    Bei Publikationslisten senden Sie uns Ihre Liste(n) in einem beliebigen Format
-                    <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
+                    Bei Publikationslisten senden Sie uns Ihre Liste(n) in einem beliebigen Format <a
+                    href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>. Weitere
+                    Informationen dazu finden Sie auf unserer
+                    <a
+                      href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren/universitaetsbibliographie/publikationen-melden">
+                      Webseite.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -800,11 +805,14 @@
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    You are a member or affiliate of the University of Erfurt? Then help us to complete the university
+                    Are you a member or affiliate of the University of Erfurt? Then help us to complete the university
                     bibliography. Use our form <a href="newPublication.xed">Register a publication</a> if you want to
-                    report a single publication with an identifier (DOI, ISBN, ISSN). For publication lists, send us
-                    your list(s) in any format.
-                    <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>
+                    report a single publication with an identifier (DOI, ISBN, ISSN). For publication lists, send us your publication list(s) in any format. <a
+                    href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>. Further information can be found on our
+                    <a
+                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography/registering-a-publication">
+                      website.
+                    </a>
                   </p>
                 </div>
               </div>
