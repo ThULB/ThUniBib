@@ -291,22 +291,29 @@
               </div>
               <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
                 <div class="card-body">
-                  <p>Erzeugen Sie aus den Daten der Universitätsbibliographie Ihre persönliche Publikationsliste. Die
-                    Listen sind so aktuell, wie uns neue Publikationen gemeldet werden und diese redaktionell
-                    geprüft und freigeschaltet sind. Melden Sie uns gern <a href="newPublication.xed">fehlende
-                      Publikationen</a>, oder sprechen Sie uns zu Korrekturwünschen von Einträgen an: <a
-                      href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
-                  </p>
-
                   <p>
-                    Über das
-                    <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">Formular</a>
-                    können Sie persönliche Publikationslisten direkt aus der Universitätsbibliographie erstellen und
-                    in verschiedenen Formaten ausgeben. Tragen Sie unter „Personen hinzufügen“ den
-                    gewünschten Namen ein und wählen Sie über das grüne Plus die Person sowie den Zeitraum, die
-                    Sortierung und das Ausgabeformat aus. Erst mit der Auswahl des Ausgabeformats kann die
+                    Erzeugen Sie aus den Daten der Universitätsbibliographie Ihre persönliche Publikationsliste. Die
+                    Listen sind so aktuell, wie uns neue Publikationen gemeldet werden und diese redaktionell geprüft
+                    und freigeschaltet sind.
+                    Melden Sie uns gern <a href="newPublication.xed">fehlende Publikationen</a>, oder sprechen Sie uns
+                    zu Korrekturwünschen von Einträgen an: <a href="mailto:bibliographie.ub@uni-erfurt.de">
+                    bibliographie.ub@uni-erfurt.de</a>.
+                  </p>
+                  <p>
+                    Über das <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">Formular</a> können
+                    Sie persönliche Publikationslisten direkt aus der Universitätsbibliographie erstellen und in
+                    verschiedenen Formaten ausgeben.
+                    Tragen Sie unter "Personen hinzufügen" den gewünschten Namen ein und wählen Sie den Zeitraum,
+                    die Sortierung sowie das Ausgabeformat aus. Erst mit der Auswahl des Ausgabeformats kann die
                     Zitierweise ausgewählt werden. Es wird ein Link erzeugt, den Sie auf Ihrer Webseite oder in
                     Dokumenten einfügen können.
+                  </p>
+                  <p>
+                    Weitere Informationen dazu finden Sie auf unserer
+                    <a
+                      href="https://www.uni-erfurt.de/bibliothek/forschen-und-publizieren/publizieren/universitaetsbibliographie/publikationslisten">
+                      Webseite.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -891,23 +898,17 @@
                    data-parent="#accordionExampleEn">
                 <div class="card-body">
                   <p>
-                    Create your personal publication list from the data in the University Bibliography. The lists are
-                    updated as soon as new publications are reported to us and have been editorially reviewed and
-                    approved. Please feel free to report any
-                    <a href="newPublication.xed">missing publications</a>
-                    to us or contact us <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-
-                    erfurt.de
-                  </a> if you would like to request corrections to entries.
+                    Publication lists can contain the publications of structural units or persons and can be output in
+                    various formats. The lists are as up to date as new publications are reported to us. You can find
+                    out how to create publication lists from the university bibliography and integrate them into your
+                    (personal) websites at <a href="list-wizard.xed">Personal publication list</a>.
                   </p>
-
                   <p>
-                    You can use the
-                    <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">form</a>
-                    to create personal publication lists directly from the University Bibliography and output them in
-                    various formats. Enter the desired name under "Add person" and use the green plus sign to
-                    select the person, the time period, the sorting and the output format. The citation style can only
-                    be selected once the output format has been selected. A link is generated which you can insert
-                    into your website or documents.
+                    Further information can be found on our
+                    <a
+                      href="https://www.uni-erfurt.de/en/erfurt-university-library/research-and-publishing/publishing/university-bibliography/publication-lists">
+                      website.
+                    </a>
                   </p>
                 </div>
               </div>
