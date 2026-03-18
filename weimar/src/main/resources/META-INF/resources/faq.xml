@@ -82,7 +82,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Alle Angehörigen und Mitglieder der Bauhaus-Universität Weimar können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine Anmeldung mit dem UniRZ-Login erforderlich. 
+                Alle Angehörigen und Mitglieder der Bauhaus-Universität Weimar können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine Anmeldung mit dem Universitätslogin erforderlich. 
                 Ehemalige Angehörige nehmen bitte <a href="contact.xml">Kontakt mit der Redaktion</a> der Universitätsbibliographie auf.
               </p>
             </div>
@@ -352,7 +352,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                All members and affiliates of the Bauhaus-Universität Weimar can register their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>. 
+                All members and affiliates of the Bauhaus-Universität Weimar can register their publications to the University Bibliography. This requires login with university login. 
                 Former members should <a href="contact.xml">contact the editorial team</a> of the University Bibliography.
               </p>
             </div>
@@ -373,7 +373,7 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                On the page „<a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
+                On the page „<a href="https://bibliographie.uni-weimar.de/newPublication.xed?lang=en">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
               </p>
             </div>
           </div>
