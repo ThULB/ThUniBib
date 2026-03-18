@@ -82,7 +82,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                Alle Angehörigen und Mitglieder der Bauhaus-Universität Weimar können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine Anmeldung mit dem UniRZ-Login erforderlich. 
+                Alle Angehörigen und Mitglieder der Bauhaus-Universität Weimar können ihre Publikationen an die Universitätsbibliographie melden. Dazu ist eine Anmeldung mit dem Universitätslogin erforderlich. 
                 Ehemalige Angehörige nehmen bitte <a href="contact.xml">Kontakt mit der Redaktion</a> der Universitätsbibliographie auf.
               </p>
             </div>
@@ -127,6 +127,27 @@
                 Dadurch kann es zu zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und
                 aufgearbeitet, um eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu
                 gewährleisten.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingORCID">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseORCID" aria-expanded="false" aria-controls="collapseORCID">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Wie verknüpfe ich meine ORCID-ID mit der Universitätsbibliographie?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseORCID" class="collapse" aria-labelledby="headingORCID" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Informationen zur Verknüpfung Ihrer ORCID-ID mit der Universitätsbibliographie finden Sie unter
+                <a href="servlets/MCRUserServlet?action=show">"Mein Profil"</a>.
               </p>
             </div>
           </div>
@@ -352,7 +373,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                All members and affiliates of the Bauhaus-Universität Weimar can register their publications to the University Bibliography. This requires a <a href="https://bibliographie.tu-ilmenau.de/servlets/MCRShibbolethLoginServlet">login with the UniRZ login</a>. 
+                All members and affiliates of the Bauhaus-Universität Weimar can register their publications to the University Bibliography. This requires login with university login. 
                 Former members should <a href="contact.xml">contact the editorial team</a> of the University Bibliography.
               </p>
             </div>
@@ -373,7 +394,7 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFAQ">
             <div class="card-body">
               <p>
-                On the page „<a href="https://bibliographie.tu-ilmenau.de/newPublication.xed">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
+                On the page „<a href="https://bibliographie.uni-weimar.de/newPublication.xed?lang=en">Registering a publication</a>“ you get to the input mask for publications by entering an identifier (e.g. DOI) or by entering author and title of the publication.
               </p>
             </div>
           </div>
@@ -394,6 +415,26 @@
             <div class="card-body">
               <p>
                 Submitted publications are reviewed by an editorial team at the University Library. This may cause time delays. Entries may be corrected and reprocessed to ensure consistent data quality with respect to statistical analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingORCIDEn">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseORCIDEn" aria-expanded="false" aria-controls="collapseORCIDEn">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                How do I link my ORCID-ID to the university bibliography?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseORCIDEn" class="collapse" aria-labelledby="headingORCIDEn" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Information on linking your ORCID-ID to the university bibliography can be found under <a href="servlets/MCRUserServlet?action=show">"My profile"</a>.
               </p>
             </div>
           </div>
