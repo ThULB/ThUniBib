@@ -133,6 +133,27 @@
         </div>
 
         <div class="card">
+          <div class="card-header" id="headingORCID">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseORCID" aria-expanded="false" aria-controls="collapseORCID">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                Wie verknüpfe ich meine ORCID-ID mit der Universitätsbibliographie?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseORCID" class="collapse" aria-labelledby="headingORCID" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Informationen zur Verknüpfung Ihrer ORCID-ID mit der Universitätsbibliographie finden Sie unter
+                <a href="servlets/MCRUserServlet?action=show">"Mein Profil"</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
               <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
@@ -394,6 +415,26 @@
             <div class="card-body">
               <p>
                 Submitted publications are reviewed by an editorial team at the University Library. This may cause time delays. Entries may be corrected and reprocessed to ensure consistent data quality with respect to statistical analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingORCIDEn">
+            <h3 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseORCIDEn" aria-expanded="false" aria-controls="collapseORCIDEn">
+                <i class="fas fa-plus-circle"/>
+                <i class="fas fa-minus-circle"/>
+                How do I link my ORCID-ID to the university bibliography?
+              </button>
+            </h3>
+          </div>
+          <div id="collapseORCIDEn" class="collapse" aria-labelledby="headingORCIDEn" data-parent="#accordionFAQ">
+            <div class="card-body">
+              <p>
+                Information on linking your ORCID-ID to the university bibliography can be found under <a href="servlets/MCRUserServlet?action=show">"My profile"</a>.
               </p>
             </div>
           </div>
