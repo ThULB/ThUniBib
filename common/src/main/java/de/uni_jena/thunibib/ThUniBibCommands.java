@@ -80,7 +80,7 @@ import java.util.stream.Collectors;
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
-@MCRCommandGroup(name = "ThUniBib Commands")
+@MCRCommandGroup(name = "ThUniBib Support Commands")
 
 public class ThUniBibCommands {
     private static final Logger LOGGER = LogManager.getLogger();
