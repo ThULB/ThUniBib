@@ -7,19 +7,26 @@ import jakarta.persistence.criteria.Root;
 import jakarta.persistence.criteria.SetJoin;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jdom2.Attribute;
 import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.filter.Filters;
+import org.jdom2.xpath.XPathExpression;
 import org.mycore.backend.jpa.MCREntityManagerProvider;
 import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.MCRJDOMContent;
 import org.mycore.common.content.transformer.MCRContentTransformer;
 import org.mycore.common.content.transformer.MCRContentTransformerFactory;
+import org.mycore.common.xml.MCRURIResolver;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryDAO;
 import org.mycore.datamodel.classifications2.MCRCategoryDAOFactory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
 import org.mycore.datamodel.classifications2.MCRLabel;
+import org.mycore.datamodel.common.MCRXMLMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
+import org.mycore.datamodel.metadata.MCRObjectID;
 import org.mycore.user2.MCRUser;
 import org.mycore.user2.MCRUserAttribute;
 import org.mycore.user2.MCRUserAttribute_;
@@ -32,6 +39,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+
+import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
+import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
 public class Utilities {
     protected static final Logger LOGGER = LogManager.getLogger(Utilities.class);
@@ -154,5 +164,42 @@ public class Utilities {
         }
 
         return b.toString();
+    }
+
+    public static boolean isPartOfUKJ(String mcrid) throws Exception {
+        XPathExpression<Boolean> exists = XPATH_FACTORY.compile("count(.//category[@ID = '7000']) > 0",
+            Filters.fboolean());
+
+        return evaluate(getCategories(mcrid), exists);
+    }
+
+    public static boolean isPartOfCoreUniversity(String mcrid) throws Exception {
+        XPathExpression<Boolean> exists = XPATH_FACTORY.compile("count(.//categories/category[not(@ID = '7000')]) > 0",
+            Filters.fboolean());
+
+        return evaluate(getCategories(mcrid), exists);
+    }
+
+    private static boolean evaluate(List<String> categIds, XPathExpression<Boolean> expression) {
+        for (int i = 0; i < categIds.size(); i++) {
+            String uri = "classification:metadata:0:parents:ORIGIN:" + categIds.get(i);
+            Element resolved = MCRURIResolver.obtainInstance().resolve(uri);
+            if (expression.evaluateFirst(resolved)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static List<String> getCategories(String mcrid) throws Exception {
+        Document xml = MCRXMLMetadataManager.getInstance().retrieveXML(MCRObjectID.getInstance(mcrid));
+        return XPATH_FACTORY
+            .compile("//mods:classification[contains(@valueURI, 'ORIGIN')]/@valueURI", Filters.attribute(), null,
+                MODS_NAMESPACE)
+            .evaluate(xml)
+            .stream()
+            .map(Attribute::getValue)
+            .map(valueURI -> valueURI.substring(valueURI.indexOf('#') + 1))
+            .toList();
     }
 }

@@ -1,23 +1,39 @@
 # Changelog
 
+# 2026.03.19-2024.06.x
+- [#923](https://github.com/ThULB/ThUniBib/issues/923) **[WE]** Fixed link to privacy statement (#924)
+- [#926](https://github.com/ThULB/ThUniBib/issues/926) Migrate to charts-common 2.1 (#927)
+- [#934](https://github.com/ThULB/ThUniBib/issues/934) **[WE]** Fixed link to accessibility statement (#935)
+- [#937](https://github.com/ThULB/ThUniBib/issues/937) **[WE]** Update index.xed (#938)
+- [#943](https://github.com/ThULB/ThUniBib/issues/943) **[J]** Add solr field to filter results by affiliation (ukj or core univercity) (#944)
+- [FSU040THUL-11875](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11875) [#932](https://github.com/ThULB/ThUniBib/issues/932) **[UBE]** Additions to the FAQs (#933)
+- [FSU040THUL-11899](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11899) [#930](https://github.com/ThULB/ThUniBib/issues/930) Added ORCIDStatisticsResolver and updated statistics.xml (#931)
+- [FSU040THUL-11899](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11899) [#949](https://github.com/ThULB/ThUniBib/issues/949) Do not shorten names of users with linked orcid profile (#950)
+- [FSU040THUL-11900](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11900) [#928](https://github.com/ThULB/ThUniBib/issues/928) **[ILM]** Adjusted ORCID button background and text color (#929)
+- [FSU040THUL-12043](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-12043) [#939](https://github.com/ThULB/ThUniBib/issues/939) **[WE]** Link to ORCID information provided by uni-weimar.de (#940)
+- [FSU040THUL-12048](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-12048) [#941](https://github.com/ThULB/ThUniBib/issues/941) **[J]** Link to ORCID menu item on user's profile page (#942)
+- [FSU040THUL-12127](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-12127) [#947](https://github.com/ThULB/ThUniBib/issues/947) **[WE]** Update faq.xml (#948)
+- Bump com.fasterxml.jackson.core:jackson-core from 2.17.1 to 2.18.6 (#925)
+---
+
 # 2026.02.24-2024.06.x
 - [#911](https://github.com/ThULB/ThUniBib/issues/911) Added maven module for FH Erfurt (#912)
 - [#913](https://github.com/ThULB/ThUniBib/issues/913) Escape solr's special characters in query field values (#914)
 - [#915](https://github.com/ThULB/ThUniBib/issues/915) Added command 'convert HISinOne SO csv at {0} to mycore classification at {1}' (#916)
 - [#917](https://github.com/ThULB/ThUniBib/issues/917) Set MCR.CronJob.Jobs.[DBT-Import | UpdateFunding].Command.User = system:MCRJanitor (#918)
-- [FSU040THUL-11431](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11431) [#895](https://github.com/ThULB/ThUniBib/issues/895) [UBE] Layout adjustments on the homepage (#896)
-- [FSU040THUL-11704](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11704) [#909](https://github.com/ThULB/ThUniBib/issues/909) [UBE] Provide labels in English in origin.xml (#910)
-- [FSU040THUL-11765](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11765) [#919](https://github.com/ThULB/ThUniBib/issues/919) [J] Added ORCID® tab to navigation (#920)
+- [FSU040THUL-11431](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11431) [#895](https://github.com/ThULB/ThUniBib/issues/895) **[UBE]** Layout adjustments on the homepage (#896)
+- [FSU040THUL-11704](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11704) [#909](https://github.com/ThULB/ThUniBib/issues/909) **[UBE]** Provide labels in English in origin.xml (#910)
+- [FSU040THUL-11765](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11765) [#919](https://github.com/ThULB/ThUniBib/issues/919) **[J]** Added ORCID® tab to navigation (#920)
 - [FSU040THUL-11785](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11785) [#921](https://github.com/ThULB/ThUniBib/issues/921) Configured property MCR.classeditor.additionalLanguages for ThUniBib
 ---
 
 # 2026.02.10-2024.06.x
 - [#889](https://github.com/ThULB/ThUniBib/issues/889) Check for presence of MCR.user2.LDAP.ProviderURL before trying to match a user in ldap (#894)
-- [#897](https://github.com/ThULB/ThUniBib/issues/897) [J] Enable DBT import (#898)
+- [#897](https://github.com/ThULB/ThUniBib/issues/897) **[J]** Enable DBT import (#898)
 - [#901](https://github.com/ThULB/ThUniBib/issues/901) Remove _forwardedCount parameter from solr requests (#902)
 - [FSU040THUL-10983](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10983) [#899](https://github.com/ThULB/ThUniBib/issues/899) Set property UBO.IdentityPicker.generate.button.show = true (#900)
-- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Provide labels in English for categories in ORIGIN.xml (#893)
-- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Removed duplicate paragraph in index.xed (#892)
+- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) **[UBE]** Provide labels in English for categories in ORIGIN.xml (#893)
+- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) **[UBE]** Removed duplicate paragraph in index.xed (#892)
 - [FSU040THUL-11509](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11509) [#905](https://github.com/ThULB/ThUniBib/issues/905) Updated solr-schema.json (#906)
 - [FSU040THUL-11642](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11642) [#903](https://github.com/ThULB/ThUniBib/issues/903) Fixed statistics not working after executing an advanced search (#904)
 ---
@@ -30,15 +46,15 @@
 - [#862](https://github.com/ThULB/ThUniBib/issues/862) Migrate ubo status to mycore state (#863)
 - [#864](https://github.com/ThULB/ThUniBib/issues/864) Provide authentication for solr in EnrichmentByAffiliationCommands (#865)
 - [#866](https://github.com/ThULB/ThUniBib/issues/866) Apply solr authentication in ThUniBib- and DBTImportCommands (#867)
-- [#869](https://github.com/ThULB/ThUniBib/issues/869) [WE] Update faq.xml (#870)
+- [#869](https://github.com/ThULB/ThUniBib/issues/869) **[WE]** Update faq.xml (#870)
 - [#871](https://github.com/ThULB/ThUniBib/issues/871) Upgraded version of charts-common to 1.0.3 (#872)
 - [#877](https://github.com/ThULB/ThUniBib/issues/877) List users having multiple identifiers of a given type (#878)
-- [#880](https://github.com/ThULB/ThUniBib/issues/880) [ILM] Update ORIGIN.xml (#881)
+- [#880](https://github.com/ThULB/ThUniBib/issues/880) **[ILM]** Update ORIGIN.xml (#881)
 - [#885](https://github.com/ThULB/ThUniBib/issues/885) Update index.xed (#886)
 - [#890](https://github.com/ThULB/ThUniBib/issues/890) Fixed tooltips not popping up on **&lt;i/&gt;** elements in forms (#891)
-- [FSU040THUL-10796](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10796) [#875](https://github.com/ThULB/ThUniBib/issues/875) [ILM] Added stylesheet for open access marker (#876)
-- [FSU040THUL-11060](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11060) [#873](https://github.com/ThULB/ThUniBib/issues/873) [UBE] Update logo and email address (#874)
-- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) [UBE] Adjustments to some pages before going live (#888)
+- [FSU040THUL-10796](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10796) [#875](https://github.com/ThULB/ThUniBib/issues/875) **[ILM]** Added stylesheet for open access marker (#876)
+- [FSU040THUL-11060](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11060) [#873](https://github.com/ThULB/ThUniBib/issues/873) **[UBE]** Update logo and email address (#874)
+- [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) **[UBE]** Adjustments to some pages before going live (#888)
 - [FSU040THUL-11318](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11318) [#882](https://github.com/ThULB/ThUniBib/issues/882) Remove GBV roles when importing from catalog (#883)
 ---
 
@@ -185,7 +201,7 @@
 - [#629](https://github.com/ThULB/ThUniBib/issues/629) Fixed link to communication and marketing department in impressum.xml (Jena) (#631)
 - [#629](https://github.com/ThULB/ThUniBib/issues/629) Updated impressum.xml (Jena) (#630)
 - [#634](https://github.com/ThULB/ThUniBib/issues/634) Fixed IllegalStateException in ThUniBibImportJobAction (#635)
-- [FSU040THUL-4406](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4406) [#616](https://github.com/ThULB/ThUniBib/issues/616) [WE] Updated privacy-statement.xml (#617)
+- [FSU040THUL-4406](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4406) [#616](https://github.com/ThULB/ThUniBib/issues/616) **[WE]** Updated privacy-statement.xml (#617)
 - [FSU040THUL-4412](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4412) [#618](https://github.com/ThULB/ThUniBib/issues/618) Added CC0 1.0 to licenses.xml (#619)
 ---
 
@@ -195,7 +211,7 @@
 ---
 
 ## 2024.08.26.1
--  [FSU040THUL-4406](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4406) [#616](https://github.com/ThULB/ThUniBib/issues/616) [WE] Updated privacy-statement.xml
+-  [FSU040THUL-4406](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-4406) [#616](https://github.com/ThULB/ThUniBib/issues/616) **[WE]** Updated privacy-statement.xml
 ---
 
 ## 2024.08.26.2

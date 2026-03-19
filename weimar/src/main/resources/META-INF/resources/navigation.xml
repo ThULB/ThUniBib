@@ -95,9 +95,11 @@
       <label xml:lang="de">Datenschutz</label>
       <label xml:lang="en">Privacy Statement</label>
     </item>
-    <item ref="#">
+    <item ref="https://www.uni-weimar.de/de/erklaerung-zur-barrierefreiheit/" xml:lang="de">
       <label xml:lang="de">Barrierefreiheit</label>
-      <label xml:lang="en">Accessibility</label>
+    </item>
+    <item ref="https://www.uni-weimar.de/en/accessibility-statement/" xml:lang="en">
+      <label xml:lang="en">Accessibility Statement</label>
     </item>
   </item>
 </navigation>
