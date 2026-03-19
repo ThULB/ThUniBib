@@ -21,20 +21,20 @@
           </h3>
 
           <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
               <xsl:value-of select="concat(i18n:translate('thunibib.statistic.orcid.trustedParty.introText'), ':')"/>
               <span class="font-weight-bold pl-3">
                 <xsl:value-of select="count(user)"/>
               </span>
             </div>
 
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md">
               <xsl:for-each select="user">
                 <xsl:sort select="@realName"/>
 
                 <div class="row thunibib-orcid-statistic-row thunibib-orcid-statistic-row-{position() mod 2}"
                      title="{position()}">
-                  <div class="col-md-2 text-truncate" title="{@realName}">
+                  <div class="col-md-3 text-truncate" title="{@realName}">
                     <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={@name}" title="{i18n:translate('thunibib.statistic.orcid.trustedParty.link.user')}">
                       <xsl:value-of select="@realName"/>
                     </a>
