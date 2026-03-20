@@ -13,7 +13,25 @@
       thunibib-jena-solr.xsl -&gt;
     </xsl:comment>
 
-    <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods" mode="thunibib-jena-solr-fields"/>
+    <xsl:choose>
+      <xsl:when test="metadata/def.modsContainer/modsContainer/mods:mods/mods:classification[contains(@valueURI, 'ORIGIN')]">
+        <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods" mode="thunibib-jena-solr-fields"/>
+        <field name="statistics.univercity.unchecked">
+          <xsl:value-of select="false()"/>
+        </field>
+      </xsl:when>
+      <xsl:otherwise>
+        <field name="statistics.univercity.unchecked">
+          <xsl:value-of select="true()"/>
+        </field>
+        <field name="statistics.univercity.ukj">
+          <xsl:value-of select="false()"/>
+        </field>
+        <field name="statistics.univercity.core">
+          <xsl:value-of select="false()"/>
+        </field>
+      </xsl:otherwise>
+    </xsl:choose>
 
     <xsl:comment>
       &lt;- thunibib-jena-solr.xsl
