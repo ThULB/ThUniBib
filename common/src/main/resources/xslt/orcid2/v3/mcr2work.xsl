@@ -4,8 +4,9 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:work="http://www.orcid.org/ns/work"
+                xmlns:mcrstring="http://www.mycore.de/xslt/stringutils"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
-                exclude-result-prefixes="fn mods xsl">
+                exclude-result-prefixes="mcrstring fn mods xsl">
 
   <xsl:import href="resource:xslt/orcid2/v3/mcr2work_generic.xsl"/>
 
@@ -42,6 +43,16 @@
       </work:journal-title>
     </xsl:if>
   </xsl:template>
+
+  <!-- transform only first abstract -->
+  <xsl:template match="mods:abstract[fn:string-length(text()) &gt; 0][position() = 1]">
+      <work:short-description>
+        <xsl:value-of select="mcrstring:shorten(text(), ($short-description-max-length - 1), '…')"/>
+      </work:short-description>
+  </xsl:template>
+
+  <!-- discard all other abstracts -->
+  <xsl:template match="mods:abstract"/>
 
   <xsl:template name="workCitation">
     <xsl:variable name="mcr-object-id" select="//mycoreobject/@ID"/>
