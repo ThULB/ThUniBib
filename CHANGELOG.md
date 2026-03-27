@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026.03.27-2024.06.x
+- [#951](https://github.com/ThULB/ThUniBib/issues/951) [J] Provide chart for publications by year, separated by affiliation (#952)
+- [#955](https://github.com/ThULB/ThUniBib/issues/955) [WE] Updated and moved filter query content to query parameter in Solr URI (#956)
+- [#963](https://github.com/ThULB/ThUniBib/issues/963) Set version of charts-common to 2.2 (#964)
+- [FSU040THUL-11900](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11900) [#961](https://github.com/ThULB/ThUniBib/issues/961) [ILM] Set backround of submit to orcid button to white (#962)
+- [FSU040THUL-12043](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12043) [#959](https://github.com/ThULB/ThUniBib/issues/959) [WE] Removed trailing slash in property UBO.ORCID2.InfoURL (#960)
+- [FSU040THUL-12153](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12153) [#953](https://github.com/ThULB/ThUniBib/issues/953) Properly handle multiple abstracts when transforming publication for transfer to ORCID (#954)
+---
+
 # 2026.03.19-2024.06.x
 - [#923](https://github.com/ThULB/ThUniBib/issues/923) **[WE]** Fixed link to privacy statement (#924)
 - [#926](https://github.com/ThULB/ThUniBib/issues/926) Migrate to charts-common 2.1 (#927)
