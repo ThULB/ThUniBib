@@ -1,18 +1,27 @@
 # Changelog
 
+## 2026.03.27-2024.06.x
+- [#951](https://github.com/ThULB/ThUniBib/issues/951) [J] Provide chart for publications by year, separated by affiliation (#952)
+- [#955](https://github.com/ThULB/ThUniBib/issues/955) [WE] Updated and moved filter query content to query parameter in Solr URI (#956)
+- [#963](https://github.com/ThULB/ThUniBib/issues/963) Set version of charts-common to 2.2 (#964)
+- [FSU040THUL-11900](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11900) [#961](https://github.com/ThULB/ThUniBib/issues/961) [ILM] Set backround of submit to orcid button to white (#962)
+- [FSU040THUL-12043](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12043) [#959](https://github.com/ThULB/ThUniBib/issues/959) [WE] Removed trailing slash in property UBO.ORCID2.InfoURL (#960)
+- [FSU040THUL-12153](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12153) [#953](https://github.com/ThULB/ThUniBib/issues/953) Properly handle multiple abstracts when transforming publication for transfer to ORCID (#954)
+---
+
 # 2026.03.19-2024.06.x
 - [#923](https://github.com/ThULB/ThUniBib/issues/923) **[WE]** Fixed link to privacy statement (#924)
 - [#926](https://github.com/ThULB/ThUniBib/issues/926) Migrate to charts-common 2.1 (#927)
 - [#934](https://github.com/ThULB/ThUniBib/issues/934) **[WE]** Fixed link to accessibility statement (#935)
 - [#937](https://github.com/ThULB/ThUniBib/issues/937) **[WE]** Update index.xed (#938)
 - [#943](https://github.com/ThULB/ThUniBib/issues/943) **[J]** Add solr field to filter results by affiliation (ukj or core univercity) (#944)
-- [FSU040THUL-11875](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11875) [#932](https://github.com/ThULB/ThUniBib/issues/932) **[UBE]** Additions to the FAQs (#933)
-- [FSU040THUL-11899](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11899) [#930](https://github.com/ThULB/ThUniBib/issues/930) Added ORCIDStatisticsResolver and updated statistics.xml (#931)
-- [FSU040THUL-11899](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11899) [#949](https://github.com/ThULB/ThUniBib/issues/949) Do not shorten names of users with linked orcid profile (#950)
-- [FSU040THUL-11900](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-11900) [#928](https://github.com/ThULB/ThUniBib/issues/928) **[ILM]** Adjusted ORCID button background and text color (#929)
-- [FSU040THUL-12043](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-12043) [#939](https://github.com/ThULB/ThUniBib/issues/939) **[WE]** Link to ORCID information provided by uni-weimar.de (#940)
-- [FSU040THUL-12048](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-12048) [#941](https://github.com/ThULB/ThUniBib/issues/941) **[J]** Link to ORCID menu item on user's profile page (#942)
-- [FSU040THUL-12127](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/FSU040THUL-12127) [#947](https://github.com/ThULB/ThUniBib/issues/947) **[WE]** Update faq.xml (#948)
+- [FSU040THUL-11875](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11875) [#932](https://github.com/ThULB/ThUniBib/issues/932) **[UBE]** Additions to the FAQs (#933)
+- [FSU040THUL-11899](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11899) [#930](https://github.com/ThULB/ThUniBib/issues/930) Added ORCIDStatisticsResolver and updated statistics.xml (#931)
+- [FSU040THUL-11899](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11899) [#949](https://github.com/ThULB/ThUniBib/issues/949) Do not shorten names of users with linked orcid profile (#950)
+- [FSU040THUL-11900](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11900) [#928](https://github.com/ThULB/ThUniBib/issues/928) **[ILM]** Adjusted ORCID button background and text color (#929)
+- [FSU040THUL-12043](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12043) [#939](https://github.com/ThULB/ThUniBib/issues/939) **[WE]** Link to ORCID information provided by uni-weimar.de (#940)
+- [FSU040THUL-12048](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12048) [#941](https://github.com/ThULB/ThUniBib/issues/941) **[J]** Link to ORCID menu item on user's profile page (#942)
+- [FSU040THUL-12127](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12127) [#947](https://github.com/ThULB/ThUniBib/issues/947) **[WE]** Update faq.xml (#948)
 - Bump com.fasterxml.jackson.core:jackson-core from 2.17.1 to 2.18.6 (#925)
 ---
 

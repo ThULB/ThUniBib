@@ -14,5 +14,13 @@
       "multiValued": false,
       "stored": true
     }
+  },
+  {
+    "add-field": {
+      "name": "statistics.univercity.unchecked",
+      "type": "boolean",
+      "multiValued": false,
+      "stored": true
+    }
   }
 ]
