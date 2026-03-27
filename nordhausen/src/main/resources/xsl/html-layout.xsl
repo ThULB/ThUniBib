@@ -41,7 +41,7 @@
   <xsl:include href="coreFunctions.xsl"/>
   <xsl:include href="html-layout-backend.xsl"/>
   <xsl:include href="servicedesk.xsl"/>
-  <xsl:include href="user-orcid.xsl"/>
+  <xsl:include href="ubo-orcid.xsl"/>
 
   <!-- ==================== HTML ==================== -->
 
