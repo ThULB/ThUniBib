@@ -98,8 +98,8 @@
     </xsl:if>
 
     <xsl:apply-templates select="." mode="bar-chart">
-      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
-      <xsl:with-param name="facet-name" select="'nid_connection'"/>
+      <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection_affiliated')/i18n/text()"/>
+      <xsl:with-param name="facet-name" select="'nid_connection_affiliated'"/>
       <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
       <xsl:with-param name="height" select="1800"/>
     </xsl:apply-templates>
@@ -157,8 +157,8 @@
 
     <xsl:if test="$user-is-admin">
       <xsl:apply-templates select="." mode="bar-chart">
-        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection')/i18n/text()"/>
-        <xsl:with-param name="facet-name" select="'nid_connection'"/>
+        <xsl:with-param name="chart-title" select="document('notnull:i18n:ChartsCommon.chart.title.nid_connection_affiliated')/i18n/text()"/>
+        <xsl:with-param name="facet-name" select="'nid_connection_affiliated'"/>
         <xsl:with-param name="generate-labels-from-pivot" select="'true'"/>
         <xsl:with-param name="height" select="1800"/>
       </xsl:apply-templates>
