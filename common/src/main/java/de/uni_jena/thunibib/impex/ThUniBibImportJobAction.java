@@ -50,8 +50,8 @@ public class ThUniBibImportJobAction extends MCRJobAction {
 
             int ignoreCount = 0;
             for (String ppn : ppns) {
-                if (!EnrichmentByAffiliationCommands.isAlreadyStored("id_ppn", ppn)) {
-                    MCRObject mcrobj = EnrichmentByAffiliationCommands.enrichOrCreateByPPNWithKey(ppn, status, filter,
+                if (!ThUniBibCatalogImportCommands.isAlreadyStored("id_ppn", ppn)) {
+                    MCRObject mcrobj = ThUniBibCatalogImportCommands.enrichOrCreateByPPNWithKey(ppn, status, filter,
                         importId);
 
                     if (mcrobj != null) {
@@ -79,7 +79,7 @@ public class ThUniBibImportJobAction extends MCRJobAction {
     }
 
     private List<String> getList(List<String> ppns, String query, int start) {
-        String url = EnrichmentByAffiliationCommands.buildRequestURL(query, String.valueOf(start));
+        String url = ThUniBibCatalogImportCommands.buildRequestURL(query, String.valueOf(start));
         SAXBuilder builder = new SAXBuilder();
         Element result = null;
         try {
