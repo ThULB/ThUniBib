@@ -118,6 +118,15 @@
       "multiValued": true,
       "stored": true
     }
+  },
+  {
+    "add-field": {
+      "name": "nid_connection_affiliated",
+      "type": "ubo_id",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    }
   }
 ]
 
