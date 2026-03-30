@@ -84,21 +84,6 @@
   },
   {
     "add-field": {
-      "name": "licenses_facet",
-      "type": "string",
-      "multiValued": true,
-      "indexed": true,
-      "stored": true
-    }
-  },
-  {
-    "add-copy-field": {
-      "source": "license",
-      "dest": "licenses_facet"
-    }
-  },
-  {
-    "add-field": {
       "name": "corresponding_aut_facet",
       "type": "string",
       "multiValued": true,
