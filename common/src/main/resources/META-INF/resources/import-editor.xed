@@ -218,18 +218,37 @@
     </xed:bind>
   </xed:template>
 
+  <xed:template id="title.submitter">
+    <xed:bind xpath="mods:titleInfo">
+      <xed:bind xpath="mods:title">
+        <div class="form-inline form-group">
+          <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+            <xed:output value="concat(i18n:translate('ubo.title'), ': ')"/>
+          </label>
+          <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        </div>
+      </xed:bind>
+      <xed:bind xpath="mods:subTitle">
+        <div class="form-inline form-group">
+          <label for="{xed:generate-id()}" class="mycore-form-label">
+            <xed:output value="concat(i18n:translate('ubo.title.subTitle'), ': ')"/>
+          </label>
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        </div>
+      </xed:bind>
+    </xed:bind>
+  </xed:template>
+
   <xed:template id="title">
     <xed:bind xpath="mods:titleInfo">
-      <xed:if test="xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
-        <xed:bind xpath="mods:nonSort">
-          <div class="form-inline form-group">
-            <label for="{xed:generate-id()}" class="mycore-form-label">
-              <xed:output value="concat(i18n:translate('ubo.title.nonSort'), ': ')"/>
-            </label>
-            <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
-          </div>
-        </xed:bind>
-      </xed:if>
+      <xed:bind xpath="mods:nonSort">
+        <div class="form-inline form-group">
+          <label for="{xed:generate-id()}" class="mycore-form-label">
+            <xed:output value="concat(i18n:translate('ubo.title.nonSort'), ': ')"/>
+          </label>
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        </div>
+      </xed:bind>
 
       <xed:bind xpath="mods:title">
         <div class="form-inline form-group">
