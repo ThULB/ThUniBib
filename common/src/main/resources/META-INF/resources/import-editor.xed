@@ -80,10 +80,11 @@
   <xed:template id="legend.ID">
     <xed:bind xpath="/mycoreobject/@ID" default="{$UBO.projectid.default}_mods_00000000">
       <xed:choose>
-        <xed:when test="contains(.,'_mods_00000000')">Neue Publikation erfassen:</xed:when>
-        <xed:otherwise>Eintrag
-          <xed:output value="number(substring-after(.,'mods_'))"/>
-          korrigieren:
+        <xed:when test="contains(., '_mods_00000000')">
+          <xed:output i18n="ubo.newPublication"/>
+        </xed:when>
+        <xed:otherwise>
+          <xed:output value="concat(i18n:translate('ubo.entry.correct'), number(substring-after(.,'mods_')), i18n:translate('ubo.entry.correct.colon'))"/>
         </xed:otherwise>
       </xed:choose>
     </xed:bind>
