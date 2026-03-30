@@ -282,6 +282,15 @@
         <label xml:lang="de" text="Diskussionspapier/Working Paper"/>
         <label xml:lang="en" text="Working paper"/>
       </category>
+      <category ID="legal_commentary">
+        <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
+        <label xml:lang="x-color" text="#3f8f6e"/>
+        <label xml:lang="x-marcgt" text="digest"/>
+        <label xml:lang="x-mapping" text="marcgt:digest orcidWorkType:annotation"/>
+
+        <label xml:lang="de" text="Juristischer Kommentar"/>
+        <label xml:lang="en" text="Legal Commentary"/>
+      </category>
       <category ID="case_note">
         <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
         <label xml:lang="x-color" text="#8671b1"/>
