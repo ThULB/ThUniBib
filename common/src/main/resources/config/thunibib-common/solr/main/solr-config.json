@@ -31,6 +31,7 @@
           "mediaType",
           "accessrights",
           "oa",
+          "licenses_facet",
           "fundingType",
           "nid_connection_affiliated"
         ],
@@ -158,6 +159,7 @@
           "mediaType",
           "accessrights",
           "oa",
+          "licenses_facet",
           "fundingType"
         ],
         "wt": "xml"
@@ -199,6 +201,7 @@
           "mediaType",
           "accessrights",
           "oa",
+          "licenses_facet",
           "fundingType"
         ],
         "wt": "xml"
