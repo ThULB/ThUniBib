@@ -19,7 +19,6 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -107,7 +106,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -270,7 +269,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="place"/>
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
     <xed:include uri="webapp:import-editor.xed" ref="url"/>
@@ -292,7 +291,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -315,7 +314,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -337,7 +336,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -360,7 +359,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -383,7 +382,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -406,7 +405,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -451,7 +450,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="conference"/>
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
@@ -739,7 +738,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -756,7 +755,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="extent"/>
     <xed:include uri="webapp:import-editor.xed" ref="comment"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
@@ -829,13 +828,13 @@
 
   <xed:template id="host.journal">
     <xed:include uri="webapp:import-editor.xed" ref="host.title"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="issue"/>
     <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
   <xed:template id="host.journal.linked">
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="issue"/>
     <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
@@ -855,7 +854,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
@@ -871,7 +870,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
     <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
@@ -886,7 +885,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="place"/>
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+    
     <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
