@@ -44,7 +44,7 @@
 
   <xsl:template match="identifier[count(user) &gt; 0]">
     <div class="row pt-2 pb-2 border-bottom">
-      <div class="col-2 font-weight-bold text-truncate ubo-hover-pointer">
+      <div class="col-2 fw-bold text-truncate ubo-hover-pointer">
 
         <button class="btn btn-sm btn-primary text-truncate w-50" data-toggle="collapse" href="#collapse-{@type}"
                 role="button" aria-expanded="false" aria-controls="collapse-{@type}" title="{@type} ({count(user)})">
@@ -57,7 +57,7 @@
       <xsl:for-each select="user">
         <xsl:sort select="@values"/>
         <div class="row border-bottom thunibib-grouped-identifier">
-          <div class="col-3 font-weight-bold text-truncate" title="{@values}">
+          <div class="col-3 fw-bold text-truncate" title="{@values}">
             <xsl:value-of select="@values"/>
           </div>
 

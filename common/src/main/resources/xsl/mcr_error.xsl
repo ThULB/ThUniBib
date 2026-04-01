@@ -40,7 +40,7 @@
       </p>
 
       <h1>
-        <span class="text-danger align-middle display-3 pr-3">
+        <span class="text-danger align-middle display-3 pe-3">
           <xsl:value-of select="@HttpError"/>
         </span>
         <span>
@@ -58,7 +58,7 @@
                   <xsl:value-of select="i18n:translate('thunibib.error.show.stacktrace')"/>
                 </div>
 
-                <div id="stacktrace" class="card-body text-left collapse">
+                <div id="stacktrace" class="card-body text-start collapse">
                   <xsl:for-each select="exception/trace">
                     <pre class="small">
                       <xsl:value-of select="."/>
@@ -88,7 +88,7 @@
       </p>
 
       <h1>
-        <span class="text-danger align-middle display-3 pr-3">
+        <span class="text-danger align-middle display-3 pe-3">
           <xsl:value-of select="@HttpError"/>
         </span>
         <span>

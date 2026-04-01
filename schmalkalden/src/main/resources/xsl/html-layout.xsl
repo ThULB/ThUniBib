@@ -144,7 +144,7 @@
             <xsl:call-template name="layout.inhalt"/>
           </div>
           <xsl:if test="body/aside[@id='sidebar']">
-            <div class="col-lg-3 pl-lg-0">
+            <div class="col-lg-3 ps-lg-0">
               <xsl:copy-of select="body/aside[@id='sidebar']"/>
             </div>
           </xsl:if>
