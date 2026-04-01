@@ -9,7 +9,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-erfurt-fh</artifactId>
-  <name>ThUniBib Layout: Erfurt FH</name>
+  <name>ThUniBib Layout: Hochschule Erfurt</name>
   <dependencies>
     <dependency>
       <groupId>de.uni-jena.thulb.ubo</groupId>

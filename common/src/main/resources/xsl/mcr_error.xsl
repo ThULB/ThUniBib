@@ -15,7 +15,7 @@
       <body>
         <xsl:if test=".//exception[@type = 'de.uni_jena.thunibib.publication.DuplicatePrimaryIdException']">
           <div class="jumbotron text-center">
-            <p class="text-monospace">
+            <p class="font-monospace">
               <xsl:value-of disable-output-escaping="yes" select=".//exception[@type = 'de.uni_jena.thunibib.publication.DuplicatePrimaryIdException'][1]/message[1]/text()"/>
             </p>
           </div>
@@ -35,7 +35,7 @@
         </xsl:if>
       </xsl:variable>
 
-      <p class="text-monospace">
+      <p class="font-monospace">
         <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.', @HttpError), @requestURI)"/>
       </p>
 
@@ -83,7 +83,7 @@
 
   <xsl:template match="mcr_error[contains('401 403', @HttpError)]">
     <div class="jumbotron text-center">
-      <p class="text-monospace">
+      <p class="font-monospace">
         <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.', @HttpError), @requestURI)"/>
       </p>
 

@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>thunibib-common</artifactId>
-  <name>ThUniBib Common Files</name>
+  <name>ThUniBib - Shared Files</name>
 
   <dependencies>
     <dependency>
