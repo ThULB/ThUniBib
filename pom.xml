@@ -12,7 +12,7 @@
   <artifactId>ThUniBib</artifactId>
   <version>dev-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>UBO ThUniBib</name>
+  <name>ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
   <url>https://github.com/ThULB/ThUniBib</url>
   <inceptionYear>2019</inceptionYear>
