@@ -75,7 +75,13 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
         MCRUser userFromModsName = matcherUtils.createNewMCRUserFromModsNameElement(modsNameElement);
         MCRUserMatcherDTO matcherDTO;
 
-        MCRUser cloned = userFromModsName.clone();
+        final MCRUser cloned;
+        try {
+            cloned = userFromModsName.clone();
+        } catch (Exception e) {
+            LOGGER.error("Could not clone user from mods name element", e);
+            return;
+        }
 
         /* Only retain lead id and connection id for matching when connection or lead id present.
          * When leadid/connection id are not present retain all other id, these id are needed when the local matcher
@@ -297,7 +303,7 @@ public class ThUniBibPublicationEventHandler extends MCREventHandlerBase {
     @Override
     protected void handleObjectRepaired(MCREvent evt, MCRObject obj) {
         handlePublication(obj);
-        MCRXMLMetadataManager.instance().update(obj.getId(), obj.createXML(), new Date());
+        MCRXMLMetadataManager.getInstance().update(obj.getId(), obj.createXML(), new Date());
     }
 
     protected void handlePublication(MCRObject obj) {

@@ -57,8 +57,8 @@ public class ThUniBibUserMatcherUtils {
         MCRUser mcrUser = new MCRUser(matcherDTO.wasMatchedOrEnriched() ? username : USERNAME_PREFIX+"-" + username, realmID);
         if (matcherDTO.wasMatchedOrEnriched()) {
             addIdAttributesFromMatcherDTO(mcrUser, matcherDTO);
-            if(matcherDTO.getMCRUser().getEMailAddress() != null) {
-                mcrUser.setEMail(matcherDTO.getMCRUser().getEMailAddress());
+            if(matcherDTO.getMCRUser().getEMail() != null) {
+                mcrUser.setEMail(matcherDTO.getMCRUser().getEMail());
             }
         }
 
