@@ -189,14 +189,13 @@
         <version>${ubo.version}</version>
       </dependency>
     </dependencies>
-
   </dependencyManagement>
+
   <modules>
     <module>common</module>
     <module>erfurt</module>
     <module>erfurt-fh</module>
     <module>ilmenau</module>
-    <module>jena-thulb</module>
     <module>jena</module>
     <module>nordhausen</module>
     <module>schmalkalden</module>
