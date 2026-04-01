@@ -133,7 +133,7 @@
             <xsl:call-template name="layout.inhalt"/>
           </div>
           <xsl:if test="body/aside[@id='sidebar']">
-            <div class="col-lg-3 pl-lg-0">
+            <div class="col-lg-3 ps-lg-0">
               <xsl:copy-of select="body/aside[@id='sidebar']"/>
             </div>
           </xsl:if>
@@ -263,7 +263,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <i class="fas fa-home pr-1"/>
+                  <i class="fas fa-home pe-1"/>
                   <a href="{$WebApplicationBaseURL}">
                     <xsl:value-of select="i18n:translate('navigation.Home')"/>
                   </a>
