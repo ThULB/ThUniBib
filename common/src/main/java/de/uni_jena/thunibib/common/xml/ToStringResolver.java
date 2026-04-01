@@ -41,7 +41,7 @@ public class ToStringResolver implements URIResolver {
     public Source resolve(String href, String base) throws TransformerException {
         String subURI = href.substring(href.indexOf(":") + 1);
         String content = null;
-        try (InputStream is = ((StreamSource) MCRURIResolver.instance().resolve(subURI, null)).getInputStream()) {
+        try (InputStream is = ((StreamSource) MCRURIResolver.obtainInstance().resolve(subURI, null)).getInputStream()) {
             try {
                 SAXBuilder saxBuilder = new SAXBuilder();
                 content = new XMLOutputter(Format.getCompactFormat()).outputString(saxBuilder.build(is));
