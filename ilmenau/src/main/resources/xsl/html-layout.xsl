@@ -135,7 +135,7 @@
           <div class="col-lg-9">
             <xsl:call-template name="layout.breadcrumbPath"/>
           </div>
-          <div class="col-lg-3 pl-0">
+          <div class="col-lg-3 ps-0">
             <xsl:call-template name="layout.basket.info"/>
           </div>
         </div>
@@ -152,7 +152,7 @@
             <xsl:call-template name="layout.inhalt"/>
           </div>
           <xsl:if test="body/aside[@id='sidebar']">
-            <div class="col-lg-3 pl-lg-0">
+            <div class="col-lg-3 ps-lg-0">
               <xsl:copy-of select="body/aside[@id='sidebar']"/>
             </div>
           </xsl:if>
@@ -268,7 +268,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <i class="fas fa-home pr-1"></i>
+                  <i class="fas fa-home pe-1"></i>
                   <a href="https://www.tu-ilmenau.de/ub/">
                     <xsl:value-of select="i18n:translate('navigation.UB')"/>
                   </a>
@@ -424,7 +424,7 @@
   <!-- Footer -->
   <xsl:template name="layout.footer">
     <footer>
-      <div class="container info d-flex flex-column pl-0 pr-0">
+      <div class="container info d-flex flex-column ps-0 pe-0">
         <div class="mt-auto">
           <xsl:call-template name="layout.imprintline"/>
         </div>
