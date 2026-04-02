@@ -85,7 +85,7 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -134,7 +134,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -163,7 +163,7 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -187,7 +187,7 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -217,7 +217,7 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -358,7 +358,7 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -416,7 +416,7 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -462,7 +462,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -491,7 +491,7 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -517,7 +517,7 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -549,7 +549,7 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
@@ -680,7 +680,7 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
