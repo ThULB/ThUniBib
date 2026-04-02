@@ -1,32 +1,31 @@
-// override bootstrap sass variables specified here:
-// http://getbootstrap.com/customize/#less-variables
-@import "./utilities/variables_thunibib";
+$font-family-sans-serif: 'Roboto', Arial, sans-serif !default;
+$body-bg: white !default;
 
-// necessary import (parent)
-@import "ubo";
+$primary: #002350 !default;
+$secondary: #887440 !default;
+$info: #1d60bd !default;
+$success: #74a740 !default;
+$danger: #cb2129 !default;
+$warning: #dc9800 !default;
 
-// thunibib CSS
-// Unspecific/general
+$link-color: $info !default;
+$link-hover-decoration: none !default;
+$link-hover-color: #2285ff !default;
+
+$bg-color-breadcrumb: $info !default;
+$badge-font-weight: normal !default;
+$border-radius: 0rem !default;
+$border-radius-sm: 0rem !default;
+
+// accordion indent (for faq)
+$fsu-acc-indent: 1.8rem !default;
+
+@import "ubo.scss";
 @import "./base/general";
-
-// Header-Specific
 @import "./base/header";
-
-// Breadcrumb-Specific (including basket)
 @import "./base/breadcrumb";
-
-// Navigation-Specific
 @import "./base/navigation";
-
-// Headline-Specific
 @import "./base/headline";
-
-// Bodywrapper-Specific (Main content container)
 @import "./base/maincontent";
-
-// Footer-Specific
 @import "./base/footer";
-
-// shared thunibib styles
 @import "./base/thunibib_common";
-
