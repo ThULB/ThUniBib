@@ -45,7 +45,7 @@
     <div class="row pt-2 pb-2 border-bottom">
       <div class="col-2 fw-bold text-truncate ubo-hover-pointer">
 
-        <button class="btn btn-sm btn-primary text-truncate w-50" data-toggle="collapse" href="#collapse-{@type}"
+        <button class="btn btn-sm btn-primary text-truncate w-50" data-bs-toggle="collapse" href="#collapse-{@type}"
                 role="button" aria-expanded="false" aria-controls="collapse-{@type}"
                 title="{@type} ({count(identifier)})">
           <xsl:value-of select="document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:user_attributes:', @type))"/>
