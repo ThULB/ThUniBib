@@ -11,7 +11,6 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.request.QueryRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
-import org.apache.solr.common.SolrDocumentList;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -64,10 +63,13 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@MCRCommandGroup(name = "Catalog Import Commands")
-public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
+import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
+import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
-    private static final Logger LOGGER = LogManager.getLogger(EnrichmentByAffiliationCommands.class);
+@MCRCommandGroup(name = "ThUniBib Catalog Import")
+public class ThUniBibCatalogImportCommands extends MCRAbstractCommands {
+
+    private static final Logger LOGGER = LogManager.getLogger(ThUniBibCatalogImportCommands.class);
     private static final CommandTracker<String, MCRObject> TRACKER = new CommandTracker<>();
 
     private static final String projectID = MCRConfiguration2.getStringOrThrow("UBO.projectid.default");
@@ -80,20 +82,20 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
     private static ImportIdProvider ID_PROVIDER = new ThUniBibCatalogImportIdProvider();
 
     static {
-        String property_prefix = "ThUniBib.affilitation.import.";
-        String property_duplicates_check = property_prefix + "dublicate.check.identifiers";
-        String property_k10plus_max_records = property_prefix + "k10plus.max.records";
-        String property_lobid_max_records = property_prefix + "lobid.max.records";
+        String propertyPrefix = "ThUniBib.affilitation.import.";
+        String propertyDuplicatesCheck = propertyPrefix + "dublicate.check.identifiers";
+        String propertyK10PlusMaxRecords = propertyPrefix + "k10plus.max.records";
+        String propertyLobidMaxRecords = propertyPrefix + "lobid.max.records";
 
         DUPLICATE_CHECK_IDS = MCRConfiguration2
-            .getOrThrow(property_duplicates_check, MCRConfiguration2::splitValue)
+            .getOrThrow(propertyDuplicatesCheck, MCRConfiguration2::splitValue)
             .collect(Collectors.toList());
         LOGGER.info("Checking for duplicates using these identifier: {}", DUPLICATE_CHECK_IDS);
 
-        K10PLUS_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(property_k10plus_max_records);
+        K10PLUS_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(propertyK10PlusMaxRecords);
         LOGGER.info("Max records that are queried from k10plus: {}", K10PLUS_MAX_RECORDS);
 
-        LOBID_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(property_lobid_max_records);
+        LOBID_MAX_RECORDS = MCRConfiguration2.getStringOrThrow(propertyLobidMaxRecords);
         LOGGER.info("Max records that are queried from lobid: {}", LOBID_MAX_RECORDS);
     }
 
@@ -189,11 +191,10 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         String importId) {
 
         // 2. check against Solr (duplicates across multiple imports)
-        String ppn_field = "id_" + PPN_IDENTIFIER;
+        String ppnField = "id_" + PPN_IDENTIFIER;
         MCRObject mcrObject = null;
 
-        if (isAlreadyStored(ppn_field, ppnID)) {
-            LOGGER.info("Found duplicate in Solr by field {} and value {}", ppn_field, ppnID);
+        if (isAlreadyStored(ppnField, ppnID)) {
             TRACKER.decrementTrackSize(importId);
         } else {
             try {
@@ -203,7 +204,11 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
                     new XMLOutputter(Format.getPrettyFormat()).outputString(wrappedMods.getMCRObject().createXML()));
                 wrappedMods = transform(wrappedMods, filterTransformer);
                 mcrObject = createOrUpdate(wrappedMods, status);
-                TRACKER.untrack(importId, ppnID, mcrObject);
+                if (mcrObject != null) {
+                    TRACKER.untrack(importId, ppnID, mcrObject);
+                } else {
+                    TRACKER.decrementTrackSize(importId);
+                }
             } catch (Exception e) {
                 LOGGER.error("Error while creating mcr object from {}", ppnID, e);
                 TRACKER.decrementTrackSize(importId);
@@ -244,18 +249,19 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return PICA_URL.replace(QUERY_PLACEHOLDER, query) + "&startRecord=" + start;
     }
 
+    @Deprecated
     @MCRCommand(syntax = "import by affiliation with GND {0} and status {1}",
         help = "test import of publications by affiliation GND, imported documents get status one of 'confirmed', " +
             "'submitted', 'imported'",
         order = 10
     )
-    public static void importByAffiliation(String affiliationGND, String import_status) {
-        final List<String> allowedStatus = Arrays.asList(new String[] { "confirmed", "submitted", "imported" });
+    public static void importByAffiliation(String affiliationGND, String importStatus) {
+        final List<String> allowedStatus = Arrays.asList("confirmed", "submitted", "imported");
 
-        // HashSets for finding duplicates during the import session, PPN is hard wired, rest is configurable
+        // HashSets for finding duplicates during the import session, PPN is hard-wired, rest is configurable
         Map<String, Set<String>> duplicateCheckSetsMap = setUpDuplicateCheckSets();
 
-        if (allowedStatus.contains(import_status)) {
+        if (allowedStatus.contains(importStatus)) {
 
             List<String> affiliatedPersonsGNDs = getAllGNDsOfAffiliatedPersons(affiliationGND);
             for (String affiliatedPersonGND : affiliatedPersonsGNDs) {
@@ -266,7 +272,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
                         new MCREnrichmentResolver().enrichPublication(wrappedMods.getMODS(), "import");
                         LOGGER.debug(new XMLOutputter(Format.getPrettyFormat()).outputString(
                             wrappedMods.getMCRObject().createXML()));
-                        createOrUpdate(wrappedMods, import_status);
+                        createOrUpdate(wrappedMods, importStatus);
                     } else {
                         LOGGER.info("Publication with PPN {} was already imported, import canceled!", ppnID);
                     }
@@ -274,9 +280,8 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
             }
 
         } else {
-            LOGGER.info("Status not allowed: {}, use one of {}", import_status, String.join(", ", allowedStatus));
+            LOGGER.info("Status not allowed: {}, use one of {}", importStatus, String.join(", ", allowedStatus));
         }
-
     }
 
     private static Map<String, Set<String>> setUpDuplicateCheckSets() {
@@ -292,7 +297,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
      * Given a publication and its PPN, check for duplicates in current import session via HashSets and across sessions
      * via Solr queries. This method has side effects. The sets in the duplicateCheckSetsMap get extended by the
      * identifiers of the publication that are used for finding duplicates by each method call. Meaning that the first
-     * call with a new unique publication would return "false", meaning there where no duplicates found, while another
+     * call with a new unique publication would return "false", meaning there were no duplicates found, while another
      * call with the same parameters (same publication and ppn) would return "true", meaning this publication was
      * already imported, either this import session or sometime before in a different session.
      *
@@ -302,6 +307,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
      *                              to check for duplicates during an import session
      * @return false, if no duplicate was found or true if a duplicate was found
      */
+    @Deprecated
     private static boolean checkForDuplicates(String publication_ppn, Document publication,
         Map<String, Set<String>> duplicateCheckSetsMap) {
 
@@ -343,19 +349,24 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return false;
     }
 
-    public static boolean isAlreadyStored(String identifierField, String identifierValue) {
-        LOGGER.info("Check if already stored in Solr using field {} and value {}", identifierField, identifierValue);
+    public static boolean isAlreadyStored(String field, String value) {
+        LOGGER.info("Check by solr if publication already stored with field '{}:{}'", field, value);
         SolrClient solrClient = MCRSolrCoreManager.getMainSolrClient();
         SolrQuery query = new SolrQuery();
-        query.setQuery(identifierField + ":" + MCRSolrUtils.escapeSearchValue(identifierValue));
+        query.setQuery(field + ":" + MCRSolrUtils.escapeSearchValue(value));
         query.setRows(0);
-        SolrDocumentList results;
+
         try {
             QueryRequest queryRequest = new QueryRequest(query);
-            MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+            MCRSolrAuthenticationManager.obtainInstance()
+                .applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
             QueryResponse response = queryRequest.process(solrClient);
-            results = response.getResults();
-            return (results.getNumFound() > 0);
+
+            boolean isPresent = response.getResults().getNumFound() > 0;
+            if (isPresent) {
+                LOGGER.info("Found existing records in solr by '{}:{}'", field, value);
+            }
+            return isPresent;
         } catch (Exception ex) {
             throw new MCRException(ex);
         }
@@ -372,6 +383,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return identifierElements;
     }
 
+    @Deprecated
     private static Map<String, Document> getAllPublicationsOfPersonByGND(String gnd) {
         Map<String, Document> ppnToPublicationMap = new HashMap<>();
 
@@ -444,6 +456,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
         return content;
     }
 
+    @Deprecated
     private static List<String> getAllGNDsOfAffiliatedPersons(String affiliationGND) {
         List<String> affiliatedPersonsGNDs = new ArrayList<>();
 
@@ -471,21 +484,40 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
 
     private static MCRObject createOrUpdate(MCRMODSWrapper wrappedMCRobj, String importState) {
         wrappedMCRobj.setServiceFlag("importID", ID_PROVIDER.getImportId());
-        MCRObject object = wrappedMCRobj.getMCRObject();
-        // save object
+        MCRObject mcrObject = wrappedMCRobj.getMCRObject();
+
         try {
-            object.getService().setState(importState);
-            if (MCRMetadataManager.exists(object.getId())) {
-                LOGGER.info("Update object {}!", object.getId().toString());
-                MCRMetadataManager.update(object);
-            } else {
-                LOGGER.info("Create object {}!", object.getId().toString());
-                MCRMetadataManager.create(object);
+            mcrObject.getService().setState(importState);
+            if (MCRMetadataManager.exists(mcrObject.getId())) {
+                LOGGER.warn("Object with id '{}' does already exist. Nothing done.", mcrObject.getId().toString());
+                return null;
             }
 
-            return object;
+            List<Element> identifierElements = XPATH_FACTORY
+                .compile("//mods:mods/mods:identifier[@type]", Filters.element(), null, MODS_NAMESPACE)
+                .evaluate(mcrObject.createXML());
+
+            boolean noneMatch = identifierElements
+                .stream()
+                .noneMatch(id -> isAlreadyStored("id_" + id.getAttributeValue("type"), id.getText()));
+
+            if (!noneMatch) {
+                String idString = identifierElements
+                    .stream()
+                    .map(i -> new String(i.getAttributeValue("type") + ":" + i.getText()))
+                    .collect(Collectors.joining(", "));
+                LOGGER.info(
+                    "Not creating object '{}' as another publication with one of its identifiers in [{}] is already stored",
+                    mcrObject.getId().toString(), idString);
+                return null;
+            }
+
+            LOGGER.info("Creating object '{}'", mcrObject.getId().toString());
+            MCRMetadataManager.create(mcrObject);
+            return mcrObject;
+
         } catch (MCRAccessException e) {
-            throw new MCRException("Error while creating " + object.getId().toString(), e);
+            throw new MCRException("Error while creating " + mcrObject.getId().toString(), e);
         }
     }
 }
