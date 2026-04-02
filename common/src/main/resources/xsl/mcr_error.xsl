@@ -53,7 +53,7 @@
           <xsl:when test="@errorServlet and string-length(text()) &gt; 1 or exception">
             <xsl:if test="exception">
               <div class="card">
-                <div class="card-header bg-warning text-white ubo-hover-pointer" data-toggle="collapse"
+                <div class="card-header bg-warning text-white ubo-hover-pointer" data-bs-toggle="collapse"
                      href="#stacktrace" role="button" aria-expanded="false" aria-controls="stacktrace">
                   <xsl:value-of select="i18n:translate('thunibib.error.show.stacktrace')"/>
                 </div>
