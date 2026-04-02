@@ -80,10 +80,11 @@
   <xed:template id="legend.ID">
     <xed:bind xpath="/mycoreobject/@ID" default="{$UBO.projectid.default}_mods_00000000">
       <xed:choose>
-        <xed:when test="contains(.,'_mods_00000000')">Neue Publikation erfassen:</xed:when>
-        <xed:otherwise>Eintrag
-          <xed:output value="number(substring-after(.,'mods_'))"/>
-          korrigieren:
+        <xed:when test="contains(., '_mods_00000000')">
+          <xed:output i18n="ubo.newPublication"/>
+        </xed:when>
+        <xed:otherwise>
+          <xed:output value="concat(i18n:translate('ubo.entry.correct'), number(substring-after(.,'mods_')), i18n:translate('ubo.entry.correct.colon'))"/>
         </xed:otherwise>
       </xed:choose>
     </xed:bind>
@@ -217,6 +218,27 @@
     </xed:bind>
   </xed:template>
 
+  <xed:template id="title.submitter">
+    <xed:bind xpath="mods:titleInfo">
+      <xed:bind xpath="mods:title">
+        <div class="form-inline form-group">
+          <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+            <xed:output value="concat(i18n:translate('ubo.title'), ': ')"/>
+          </label>
+          <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        </div>
+      </xed:bind>
+      <xed:bind xpath="mods:subTitle">
+        <div class="form-inline form-group">
+          <label for="{xed:generate-id()}" class="mycore-form-label">
+            <xed:output value="concat(i18n:translate('ubo.title.subTitle'), ': ')"/>
+          </label>
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        </div>
+      </xed:bind>
+    </xed:bind>
+  </xed:template>
+
   <xed:template id="title">
     <xed:bind xpath="mods:titleInfo">
       <xed:bind xpath="mods:nonSort">
@@ -227,6 +249,7 @@
           <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
         </div>
       </xed:bind>
+
       <xed:bind xpath="mods:title">
         <div class="form-inline form-group">
           <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
@@ -276,34 +299,33 @@
           <xed:bind xpath="@xml:lang">
             <div class="language-search d-inline" data-preferred-languages="de,en,fr">
               <input id="{xed:generate-id(..)}" type="hidden" class="language-search-input"/>
-              <!-- content is added by javascript -->
+              <!-- content is added by JavaScript -->
             </div>
           </xed:bind>
         </div>
         <xed:controls/>
       </div>
-      <div class="form-inline form-group">
-        <xed:bind xpath="mods:nonSort">
-          <label class="mycore-form-label">
-          </label>
-          <input class="{$xed-validation-marker} mycore-form-input" type="text"
-                 placeholder="{i18n:ubo.title.nonSort}"/>
-        </xed:bind>
-      </div>
+
+      <xed:if test="xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+        <div class="form-inline form-group">
+          <xed:bind xpath="mods:nonSort">
+            <label class="mycore-form-label"/>
+            <input class="{$xed-validation-marker} mycore-form-input" type="text" placeholder="{i18n:ubo.title.nonSort}"/>
+          </xed:bind>
+        </div>
+      </xed:if>
+
       <div class="form-inline form-group">
         <xed:bind xpath="mods:title">
-          <label class="mycore-form-label">
-          </label>
-          <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
-                    placeholder="{i18n:ubo.title}"/>
+          <label class="mycore-form-label"/>
+          <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text" placeholder="{i18n:ubo.title}"/>
         </xed:bind>
       </div>
+
       <div class="form-inline form-group">
         <xed:bind xpath="mods:subTitle">
-          <label class="mycore-form-label">
-          </label>
-          <input class="{$xed-validation-marker} mycore-form-input" type="text"
-                 placeholder="{i18n:ubo.title.subTitle}"/>
+          <label class="mycore-form-label"/>
+          <input class="{$xed-validation-marker} mycore-form-input" type="text" placeholder="{i18n:ubo.title.subTitle}"/>
         </xed:bind>
       </div>
     </xed:repeat>

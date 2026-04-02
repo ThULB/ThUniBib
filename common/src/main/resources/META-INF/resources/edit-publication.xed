@@ -70,8 +70,7 @@
                 <xed:param name="host_intern" default="standalone" />
               </xed:when>
               <xed:when test="string-length($host) &gt; 0">
-                <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" set="{$host}"
-                          name="host_intern" />
+                <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" set="{$host}" name="host_intern" />
               </xed:when>
               <xed:when test="mods:relatedItem[@type='host']">
                 <xed:bind xpath="mods:relatedItem[@type='host']/mods:genre[@type='intern']" name="host_intern" />
@@ -86,24 +85,30 @@
                 <xed:include ref="legend.ID" />
                 <xed:output value="$genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text" />
                 <xed:if test="not($host_intern='standalone')">
-                  <xed:output
-                      value="concat(' in ',$genres//category[@ID=$host_intern]/label[lang($CurrentLang)]/@text)" />
+                  <xed:output value="concat(' in ',$genres//category[@ID=$host_intern]/label[lang($CurrentLang)]/@text)"/>
                 </xed:if>
               </legend>
 
               <xed:include ref="status" />
               <xed:include ref="origin" />
-              <xed:include ref="subject" />
             </fieldset>
 
             <fieldset>
               <legend>
-                <xed:output
-                    value="concat($genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text,':')" />
+                <xed:output value="concat($genres//category[@ID=$genre_intern]/label[lang($CurrentLang)]/@text,':')"/>
               </legend>
 
               <hr class="bg-danger" />
-              <xed:include uri="webapp:import-genres.xed" ref="genre.{$genre_intern}" />
+
+              <xed:choose>
+                <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
+                  <xed:include uri="webapp:import-genres.xed" ref="genre.{$genre_intern}" />
+                </xed:when>
+                <xed:otherwise>
+                  <xed:include uri="webapp:import-genres-submitter.xed" ref="genre.{$genre_intern}" />
+                </xed:otherwise>
+              </xed:choose>
+
               <hr class="bg-danger" />
             </fieldset>
 
