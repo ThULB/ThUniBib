@@ -82,7 +82,7 @@ a.ubo-btn-feedback {
 }
 
 .nameIdentifier {
-  @extend .badge, .bg-primary;
+  @extend .badge;
     a {
         color: white;
         text-transform: uppercase;
