@@ -1,9 +1,12 @@
 // override bootstrap sass variables specified here:
 // http://getbootstrap.com/customize/#less-variables
-@import "./utilities/variables_thunibib";
+
+@import "./utilities/default_variables_thunibib";
 
 // necessary import (parent)
 @import "ubo";
+
+@import "./utilities/variables_thunibib";
 
 // thunibib CSS
 // Unspecific/general
