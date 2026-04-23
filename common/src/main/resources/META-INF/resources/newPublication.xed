@@ -12,7 +12,6 @@
           <xed:when test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
             <xed:bind xpath="/mods:mods">
               <fieldset>
-
                 <xed:if test="$xed-validation-failed">
                   <div class="validation-failures">
                     <h3>
@@ -30,30 +29,34 @@
                   </p>
                 </div>
 
-                <xed:bind xpath="mods:identifier">
-                  <div class="form-group form-inline">
-                    <div class="mycore-form-label">
-                      <xed:bind xpath="@type">
-                        <select class="form-control custom-select">
-                          <option value="doi">DOI</option>
-                          <option value="pubmed">PubMed ID</option>
-                          <option value="scopus">Scopus ID</option>
-                          <option value="ieee">IEEE Article No.</option>
-                          <option value="arxiv">arXiv.org ID</option>
-                          <option value="isbn">ISBN</option>
-                          <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-                            <option value="zdb">ZDB ID</option>
-                            <option value="ppn">GVK PPN</option>
-                            <option value="issn">ISSN</option>
-                          </xed:if>
-                          <option value="dbt">DBT-ID</option>
-                        </select>
-                      </xed:bind>
-                      :
+                <div class="row">
+                  <xed:bind xpath="mods:identifier">
+                    <div class="col-12 col-sm-2">
+                      <div class="form-label">
+                        <xed:bind xpath="@type">
+                          <select class="form-select">
+                            <option value="doi">DOI</option>
+                            <option value="pubmed">PubMed ID</option>
+                            <option value="scopus">Scopus ID</option>
+                            <option value="ieee">IEEE Article No.</option>
+                            <option value="arxiv">arXiv.org ID</option>
+                            <option value="isbn">ISBN</option>
+                            <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
+                              <option value="zdb">ZDB ID</option>
+                              <option value="ppn">GVK PPN</option>
+                              <option value="issn">ISSN</option>
+                            </xed:if>
+                            <option value="dbt">DBT-ID</option>
+                          </select>
+                        </xed:bind>
+                      </div>
                     </div>
-                    <input id="identifier" class="{$xed-validation-marker} mycore-form-input"/>
-                  </div>
-                </xed:bind>
+
+                    <div class="col-12 col-sm-6">
+                      <input id="identifier" class="{$xed-validation-marker} form-control"/>
+                    </div>
+                  </xed:bind>
+                </div>
 
                 <xed:validate xpath="//mods:identifier[@type='doi']" matches="10\.\d+.*"
                               i18n="ubo.identifier.doi.validation" display="global"/>
@@ -62,30 +65,32 @@
                 <xed:validate xpath="//mods:identifier[@type='isbn']" matches="^((978|979)-?)?([\d -]{12}|\d{9})(\d|X)$"
                               i18n="ubo.identifier.isbn.validation" display="global"/>
 
-                <div>
-                  <p>
+                <div class="row mb-3">
+                  <div class="col">
                     <xed:output i18n="ubo.newPublicationWizard.titleAuthor"/>
-                  </p>
+                  </div>
                 </div>
 
                 <xed:bind xpath="mods:titleInfo/mods:title">
-                  <div class="form-group form-inline">
-                    <label for="title" class="mycore-form-label">
+                  <div class="row mb-3">
+                    <label for="title" class="col-12 col-sm-2 col-form-label">
                       <xed:output i18n="ubo.title"/>:
                     </label>
-                    <input id="title" class="{$xed-validation-marker} mycore-form-input"
-                           placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
+                    <div class="col-12 col-sm-6">
+                      <input id="title" class="form-control {$xed-validation-marker}" placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
+                    </div>
                   </div>
                 </xed:bind>
 
                 <xed:bind xpath="mods:name[@type='personal']">
                   <xed:bind xpath="mods:namePart[@type='family']">
-                    <div class="form-group form-inline">
-                      <label for="author" class="mycore-form-label">
+                    <div class="row mb-3">
+                      <label for="author" class="col-12 col-sm-2 col-form-label">
                         <xed:output i18n="ubo.role.author"/>:
                       </label>
-                      <input id="author" class="{$xed-validation-marker} mycore-form-input"
-                             placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                      <div class="col-12 col-sm-6">
+                        <input id="author" class="{$xed-validation-marker} form-control" placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                      </div>
                     </div>
                   </xed:bind>
                   <xed:bind xpath="mods:role[mods:roleTerm[@authority='marcrelator'][@type='code']='aut']"/>
@@ -97,21 +102,18 @@
 
                 <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
 
-                <div class="form-group form-inline">
-                  <label class="mycore-form-label">
-                  </label>
-                  <div class="cancel-submit">
-                    <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet"
-                            xed:href="NewPublicationWizard">
-                      <xed:output i18n="button.next"/>
+                <div class="row mb-3">
+                  <div class="offset-md-2 col cancel-submit">
+                    <button class="btn btn-primary" type="submit" xed:target="servlet" xed:href="NewPublicationWizard">
+                      <xed:output i18n="button.next" />
                     </button>
                   </div>
                 </div>
-
               </fieldset>
             </xed:bind>
-            <div class="card-body bg-alternative">
-              <p>
+
+            <div class="row bg-alternative">
+              <div class="col">
                 <i18n:de>
                   Gerne können Sie auch gesammelte <strong>Literaturlisten</strong> importieren. Schreiben Sie uns dafür eine E-Mail an
                   <a href="mailto:{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')}">
@@ -119,8 +121,11 @@
                         value="xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'MCR.Mail.Address')"/>
                   </a>.
                 </i18n:de>
-              </p>
-              <p>
+              </div>
+            </div>
+
+            <div class="row bg-alternative">
+              <div class="col">
                 <i18n:de>
                   In der Bibliographie werden <strong>selbstständige und unselbstständige Publikationen</strong> erfasst,
                   die <strong>
@@ -131,22 +136,24 @@
                 </strong> der <xed:output i18n="thunibib.university.full.name"/> sind eingeladen, ihre Publikationen an die
                   Universitätsbibliographie zu melden.
                 </i18n:de>
-              </p>
+              </div>
             </div>
           </xed:when>
           <xed:otherwise>
-            <p>
-              <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem URZ-Login <a
+            <div class="row bg-alternative">
+              <div class="col">
+                <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem URZ-Login <a
                   href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
-                hier
-              </a> an.
-              </i18n:de>
-              <i18n:en>If you would like to submit a publication please <a
+                  hier
+                </a> an.
+                </i18n:de>
+                <i18n:en>If you would like to submit a publication please <a
                   href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=en">
-                login
-              </a> with your URZ credentials.
-              </i18n:en>
-            </p>
+                  login
+                </a> with your URZ credentials.
+                </i18n:en>
+              </div>
+            </div>
           </xed:otherwise>
         </xed:choose>
       </xed:form>
