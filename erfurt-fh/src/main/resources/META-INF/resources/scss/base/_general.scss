@@ -24,7 +24,7 @@ body {
 }
 
 .nameIdentifier {
-  @extend .badge, .badge-primary;
+  @extend .badge;
 
   a {
     color: white;

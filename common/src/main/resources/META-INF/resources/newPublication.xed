@@ -73,7 +73,7 @@
 
                 <xed:bind xpath="mods:titleInfo/mods:title">
                   <div class="row mb-3">
-                    <label for="title" class="col-12 col-sm-2 col-form-label">
+                    <label for="title" class="col-12 col-sm-2 col-form-label text-end">
                       <xed:output i18n="ubo.title"/>:
                     </label>
                     <div class="col-12 col-sm-6">
@@ -85,7 +85,7 @@
                 <xed:bind xpath="mods:name[@type='personal']">
                   <xed:bind xpath="mods:namePart[@type='family']">
                     <div class="row mb-3">
-                      <label for="author" class="col-12 col-sm-2 col-form-label">
+                      <label for="author" class="col-12 col-sm-2 col-form-label text-end">
                         <xed:output i18n="ubo.role.author"/>:
                       </label>
                       <div class="col-12 col-sm-6">
