@@ -154,7 +154,7 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg p-0" role="navigation" id="hauptnavigation">
           <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                   aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
               <i class="fas fa-lg fa-bars"></i>
