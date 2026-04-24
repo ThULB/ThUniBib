@@ -92,7 +92,7 @@
 
               <xed:bind xpath="condition[@field='journal'][@operator='phrase']/@value">
                 <div class="row mb-3">
-                  <label for="journal" class="col-12 col-sm-3 col-form-label text-end">
+                  <label for="journal" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="search.dozbib.journal"/>
                   </label>
 
@@ -112,10 +112,10 @@
                         <option value="nid_lsf">
                           <xed:output i18n="search.dozbib.pid"/>
                         </option>
-                        <option value="nid_orcid">ORCID:</option>
-                        <option value="nid_researcherid">ResearcherID:</option>
-                        <option value="nid_scopus">Scopus ID:</option>
-                        <option value="nid_gnd">GND:</option>
+                        <option value="nid_orcid">ORCID</option>
+                        <option value="nid_researcherid">ResearcherID</option>
+                        <option value="nid_scopus">Scopus ID</option>
+                        <option value="nid_gnd">GND</option>
                       </select>
                     </xed:bind>
                   </div>
@@ -162,7 +162,7 @@
 
               <xed:bind xpath="condition4[@field='destatis'][@operator='=']/@value">
                 <div class="row mb-3">
-                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-end">
+                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="facets.facet.destatis"/>
                   </label>
                   <div class="col-12 col-sm-6">
@@ -178,7 +178,7 @@
 
               <xed:bind xpath="condition[@field='origin'][@operator='=']/value">
                 <div class="row mb-3">
-                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-end">
+                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="ubo.department"/>
                   </label>
 
@@ -199,7 +199,7 @@
                 <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
                   <xed:bind xpath="condition6[@field='status'][@operator='=']/value">
                     <div class="row mb-3">
-                      <label class="col-12 col-sm-3 col-form-label text-end">
+                      <label class="col-12 col-sm-3 col-form-label text-sm-end">
                         <strong>
                           <xed:output i18n="search.dozbib.status"/>
                         </strong>
@@ -251,7 +251,7 @@
               <xed:bind xpath="condition7[@field='genre'][@operator='=']/@value"
                         default="{$genre}"> <!-- $genre comes from editor form subselect -->
                 <div class="row mb-3">
-                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-end">
+                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="ubo.genre"/>
                   </label>
                   <div class="col-12 col-sm-6">
@@ -268,7 +268,7 @@
               <xed:bind xpath="condition8[@operator='=']">
                 <div class="row mb-3">
                   <xed:bind xpath="@value">
-                    <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-end">
+                    <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                       <xed:output i18n="ubo.oa"/>
                     </label>
                     <div class="col-12 col-sm-6">
