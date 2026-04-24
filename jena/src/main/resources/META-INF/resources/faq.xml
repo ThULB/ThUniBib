@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-12 col-md-8">
 
-      <article class="card mb-3" xml:lang="de">
+      <article class="card mb-3">
         <div class="card-body">
           <p>
             Die Universitätsbibliographie ist das digitale Publikationsdokumentationssystem der
@@ -37,7 +37,7 @@
     </div>
 
     <div class="col-12 col-md-4">
-      <article class="card mb-3" xml:lang="de">
+      <article class="card mb-3">
         <div class="card-body">
           <h3>Links:</h3>
           <ul>
@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  <article class="card mb-3" xml:lang="de">
+  <article class="card mb-3">
     <div class="card-body">
       <h3>FAQ</h3>
 
