@@ -1,35 +1,11 @@
-// override bootstrap sass variables specified here:
-// http://getbootstrap.com/customize/#less-variables
-
-@import "./utilities/default_variables_thunibib";
-
-// necessary import (parent)
+@import "./utilities/variables";
 @import "ubo";
-
-@import "./utilities/variables_thunibib";
-
-// thunibib CSS
-// Unspecific/general
 @import "./base/general";
-
-// Header-Specific
 @import "./base/header";
-
-// Breadcrumb-Specific (including basket)
 @import "./base/breadcrumb";
-
-// Navigation-Specific
 @import "./base/navigation";
-
-// Headline-Specific
 @import "./base/headline";
-
-// Bodywrapper-Specific (Main content container)
 @import "./base/maincontent";
-
-// Footer-Specific
 @import "./base/footer";
-
-// shared thunibib styles
 @import "./base/thunibib_common";
 
