@@ -43,10 +43,10 @@
             <xed:bind xpath="conditions[@format='xml']/boolean[@operator='and']">
 
               <xed:repeat xpath="condition1[@operator='contains']">
-                <div class="form-group form-inline">
-                  <div class="mycore-form-label">
+                <div class="row mb-3">
+                  <div class="col-12 col-sm-3">
                     <xed:bind xpath="@field">
-                      <select class="form-control w-100 custom-select">
+                      <select class="form-select">
                         <option value="title">
                           <xed:output i18n="search.title"/>
                         </option>
@@ -77,51 +77,65 @@
                       </select>
                     </xed:bind>
                   </div>
-                  <xed:bind xpath="@value" default="{$title}">
-                    <input class="mycore-form-input" type="text"/>
-                  </xed:bind>
-                  <xed:controls>insert remove</xed:controls>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="input-group">
+                      <xed:bind xpath="@value" default="{$title}">
+                        <input class="form-control" type="text"/>
+                      </xed:bind>
+
+                      <xed:controls>insert remove</xed:controls>
+                    </div>
+                  </div>
                 </div>
               </xed:repeat>
 
               <xed:bind xpath="condition[@field='journal'][@operator='phrase']/@value">
-                <div class="form-group form-inline">
-                  <label for="journal" class="mycore-form-label">
+                <div class="row mb-3">
+                  <label for="journal" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="search.dozbib.journal"/>
                   </label>
-                  <input id="journal" type="text" class="mycore-form-input"/>
+
+                  <div class="col-12 col-sm-6">
+                    <input id="journal" type="text" class="form-control"/>
+                  </div>
                 </div>
               </xed:bind>
 
               <xed:include uri="webapp:import-search.xed" ref="name"/>
 
               <xed:repeat xpath="condition3[@operator='=']">
-                <div class="form-group form-inline">
-                  <div class="mycore-form-label">
+                <div class="row mb-3">
+                  <div class="col-12 col-sm-3">
                     <xed:bind xpath="@field">
-                      <select class="form-control w-100 custom-select">
+                      <select class="form-select">
                         <option value="nid_lsf">
                           <xed:output i18n="search.dozbib.pid"/>
                         </option>
-                        <option value="nid_orcid">ORCID:</option>
-                        <option value="nid_researcherid">ResearcherID:</option>
-                        <option value="nid_scopus">Scopus ID:</option>
-                        <option value="nid_gnd">GND:</option>
+                        <option value="nid_orcid">ORCID</option>
+                        <option value="nid_researcherid">ResearcherID</option>
+                        <option value="nid_scopus">Scopus ID</option>
+                        <option value="nid_gnd">GND</option>
                       </select>
                     </xed:bind>
                   </div>
-                  <xed:bind xpath="@value">
-                    <input type="text" class="mycore-form-input"/>
-                  </xed:bind>
-                  <xed:controls>insert remove</xed:controls>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="input-group">
+                      <xed:bind xpath="@value">
+                        <input type="text" class="form-control"/>
+                      </xed:bind>
+                      <xed:controls>insert remove</xed:controls>
+                    </div>
+                  </div>
                 </div>
               </xed:repeat>
 
               <xed:repeat xpath="condition9[@operator='=']">
-                <div class="form-group form-inline">
-                  <div class="mycore-form-label">
-                    <xed:bind xpath="@field" default="{$id_type}">
-                      <select class="form-control w-100 custom-select">
+                <div class="row mb-3">
+                  <xed:bind xpath="@field" default="{$id_type}">
+                    <div class="col-12 col-sm-3">
+                      <select class="form-select">
                         <option value="id_doi">DOI</option>
                         <option value="id_hdl">Handle</option>
                         <option value="id_urn">URN</option>
@@ -132,40 +146,50 @@
                         <option value="id_pubmed">PubMed ID</option>
                         <option value="id_scopus">Scopus ID</option>
                       </select>
-                    </xed:bind>
-                  </div>
-                  <xed:bind xpath="@value">
-                    <input type="text" class="mycore-form-input"/>
+                    </div>
                   </xed:bind>
-                  <xed:controls>insert remove</xed:controls>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="input-group">
+                      <xed:bind xpath="@value">
+                        <input type="text" class="form-control"/>
+                      </xed:bind>
+                      <xed:controls>insert remove</xed:controls>
+                    </div>
+                  </div>
                 </div>
               </xed:repeat>
 
               <xed:bind xpath="condition4[@field='destatis'][@operator='=']/@value">
-                <div class="form-group form-inline">
-                  <label for="{xed:generate-id()}" class="mycore-form-label">
+                <div class="row mb-3">
+                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="facets.facet.destatis"/>
                   </label>
-                  <select id="{xed:generate-id()}" class="autocomplete mycore-form-input custom-select">
-                    <option value="">
-                      <xed:output i18n="search.select"/>
-                    </option>
-                    <xed:include uri="xslStyle:items2options:classification:editor:-1:children:destatis"/>
-                  </select>
+                  <div class="col-12 col-sm-6">
+                    <select id="{xed:generate-id()}" class="autocomplete w-100 mycore-form-input custom-select">
+                      <option value="">
+                        <xed:output i18n="search.select"/>
+                      </option>
+                      <xed:include uri="xslStyle:items2options:classification:editor:-1:children:destatis"/>
+                    </select>
+                  </div>
                 </div>
               </xed:bind>
 
               <xed:bind xpath="condition[@field='origin'][@operator='=']/value">
-                <div class="form-group form-inline">
-                  <label for="{xed:generate-id()}" class="mycore-form-label">
+                <div class="row mb-3">
+                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="ubo.department"/>
                   </label>
-                  <select id="{xed:generate-id()}" class="autocomplete mycore-form-input custom-select">
-                    <option value="">
-                      <xed:output i18n="search.select"/>
-                    </option>
-                    <xed:include uri="xslStyle:items2options:classification:editor:-1:children:ORIGIN"/>
-                  </select>
+
+                  <div class="col-12 col-sm-6">
+                    <select id="{xed:generate-id()}" class="autocomplete w-100 mycore-form-input custom-select">
+                      <option value="">
+                        <xed:output i18n="search.select"/>
+                      </option>
+                      <xed:include uri="xslStyle:items2options:classification:editor:-1:children:ORIGIN"/>
+                    </select>
+                  </div>
                 </div>
               </xed:bind>
 
@@ -174,38 +198,36 @@
               <xed:choose>
                 <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
                   <xed:bind xpath="condition6[@field='status'][@operator='=']/value">
-                    <div class="form-group form-inline">
-                      <label class="mycore-form-label">
+                    <div class="row mb-3">
+                      <label class="col-12 col-sm-3 col-form-label text-sm-end">
                         <strong>
                           <xed:output i18n="search.dozbib.status"/>
                         </strong>
                       </label>
-                      <div class="form-check mr-2">
-                        <input type="checkbox" value="submitted" class="form-check-input"/>
-                        <label class="form-check-label">
+
+                      <div class="col-12 col-sm d-flex align-items-center">
+                        <input type="checkbox" value="submitted" class="form-check-input me-2"/>
+                        <label class="form-check-label me-4">
                           <strong>
                             <xed:output i18n="search.dozbib.status.submitted"/>
                           </strong>
                         </label>
-                      </div>
-                      <div class="form-check mr-2">
-                        <input type="checkbox" value="imported" class="form-check-input"/>
-                        <label class="form-check-label">
+
+                        <input type="checkbox" value="imported" class="form-check-input me-2"/>
+                        <label class="form-check-label me-4">
                           <strong>
                             <xed:output i18n="search.dozbib.status.imported"/>
                           </strong>
                         </label>
-                      </div>
-                      <div class="form-check mr-2">
-                        <input type="checkbox" value="review" class="form-check-input"/>
-                        <label class="form-check-label">
+
+                        <input type="checkbox" value="review" class="form-check-input me-2"/>
+                        <label class="form-check-label me-4">
                           <strong>
                             <xed:output i18n="search.dozbib.status.review"/>
                           </strong>
                         </label>
-                      </div>
-                      <div class="form-check mr-2">
-                        <input type="checkbox" value="confirmed" class="form-check-input"/>
+
+                        <input type="checkbox" value="confirmed" class="form-check-input me-2"/>
                         <label class="form-check-label">
                           <strong>
                             <xed:output i18n="search.dozbib.status.confirmed"/>
@@ -228,45 +250,54 @@
 
               <xed:bind xpath="condition7[@field='genre'][@operator='=']/@value"
                         default="{$genre}"> <!-- $genre comes from editor form subselect -->
-                <div class="form-group form-inline">
-                  <label for="{xed:generate-id()}" class="mycore-form-label">
+                <div class="row mb-3">
+                  <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                     <xed:output i18n="ubo.genre"/>
                   </label>
-                  <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
-                    <option value="">
-                      <xed:output i18n="search.select"/>
-                    </option>
-                    <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:ubogenre"/>
-                  </select>
+                  <div class="col-12 col-sm-6">
+                    <select id="{xed:generate-id()}" class="form-select">
+                      <option value="">
+                        <xed:output i18n="search.select"/>
+                      </option>
+                      <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:ubogenre"/>
+                    </select>
+                  </div>
                 </div>
               </xed:bind>
 
               <xed:bind xpath="condition8[@operator='=']">
-                <div class="form-group form-inline">
+                <div class="row mb-3">
                   <xed:bind xpath="@value">
-                    <label for="{xed:generate-id()}" class="mycore-form-label">
+                    <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
                       <xed:output i18n="ubo.oa"/>
                     </label>
-                    <select id="{xed:generate-id()}" class="mycore-form-input-double w-100 custom-select">
-                      <option value="">
-                        <xed:output i18n="search.select"/>
-                      </option>
-                      <xed:include uri="xslStyle:items2options:classification:editor:-1:children:oa"/>
-                    </select>
-                  </xed:bind>
-                  <xed:bind xpath="@field" initially="oa">
-                    <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-                      <select class="mycore-form-input-double custom-select">
-                        <option value="oa">
-                          <xed:output i18n="search.select.oawithsubcategories"/>
+                    <div class="col-12 col-sm-6">
+                      <select id="{xed:generate-id()}" class="form-select">
+                        <option value="">
+                          <xed:output i18n="search.select"/>
                         </option>
-                        <option value="oa_exact">
-                          <xed:output i18n="search.select.oaexact"/>
-                        </option>
+                        <xed:include uri="xslStyle:items2options:classification:editor:-1:children:oa"/>
                       </select>
-                    </xed:if>
+                    </div>
                   </xed:bind>
                 </div>
+
+                <xed:bind xpath="@field" initially="oa">
+                  <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
+                    <div class="row mb-3">
+                      <div class="col offset-md-3 col-sm-6">
+                        <select class="form-select">
+                          <option value="oa">
+                            <xed:output i18n="search.select.oawithsubcategories"/>
+                          </option>
+                          <option value="oa_exact">
+                            <xed:output i18n="search.select.oaexact"/>
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </xed:if>
+                </xed:bind>
               </xed:bind>
 
             </xed:bind>
@@ -274,19 +305,21 @@
             <xed:include uri="webapp:import-search.xed" ref="sortby"/>
             <xed:include uri="webapp:import-search.xed" ref="numPerPage"/>
 
-            <div class="form-group form-inline ubo-sticky-editor-buttons">
-              <label for="{xed:generate-id()}" class="mycore-form-label">
-              </label>
-              <div class="cancel-submit">
-                <button class="btn btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
-                  <xed:output i18n="button.search"/>
-                </button>
-                <button class="btn btn-danger" type="submit" xed:target="cancel">
-                  <xed:output i18n="button.cancel"/>
-                </button>
-                <button class="btn btn-secondary" type="reset">
-                  <xed:output i18n="button.reset"/>
-                </button>
+            <div class="row ubo-sticky-editor-buttons">
+              <div class="col-12 col-md offset-md-3 ">
+                <div class="input-group">
+                  <div class="cancel-submit">
+                    <button class="btn btn-primary" type="submit" xed:target="servlet" xed:href="MCRQLSearchServlet">
+                      <xed:output i18n="button.search"/>
+                    </button>
+                    <button class="btn btn-danger" type="submit" xed:target="cancel">
+                      <xed:output i18n="button.cancel"/>
+                    </button>
+                    <button class="btn btn-secondary" type="reset">
+                      <xed:output i18n="button.reset"/>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </xed:bind>

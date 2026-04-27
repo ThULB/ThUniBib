@@ -15,7 +15,7 @@
       <body>
         <xsl:if test=".//exception[@type = 'de.uni_jena.thunibib.publication.DuplicatePrimaryIdException']">
           <div class="jumbotron text-center">
-            <p class="text-monospace">
+            <p class="font-monospace">
               <xsl:value-of disable-output-escaping="yes" select=".//exception[@type = 'de.uni_jena.thunibib.publication.DuplicatePrimaryIdException'][1]/message[1]/text()"/>
             </p>
           </div>
@@ -35,12 +35,12 @@
         </xsl:if>
       </xsl:variable>
 
-      <p class="text-monospace">
+      <p class="font-monospace">
         <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.', @HttpError), @requestURI)"/>
       </p>
 
       <h1>
-        <span class="text-danger align-middle display-3 pr-3">
+        <span class="text-danger align-middle display-3 pe-3">
           <xsl:value-of select="@HttpError"/>
         </span>
         <span>
@@ -53,12 +53,12 @@
           <xsl:when test="@errorServlet and string-length(text()) &gt; 1 or exception">
             <xsl:if test="exception">
               <div class="card">
-                <div class="card-header bg-warning text-white ubo-hover-pointer" data-toggle="collapse"
+                <div class="card-header bg-warning text-white ubo-hover-pointer" data-bs-toggle="collapse"
                      href="#stacktrace" role="button" aria-expanded="false" aria-controls="stacktrace">
                   <xsl:value-of select="i18n:translate('thunibib.error.show.stacktrace')"/>
                 </div>
 
-                <div id="stacktrace" class="card-body text-left collapse">
+                <div id="stacktrace" class="card-body text-start collapse">
                   <xsl:for-each select="exception/trace">
                     <pre class="small">
                       <xsl:value-of select="."/>
@@ -83,12 +83,12 @@
 
   <xsl:template match="mcr_error[contains('401 403', @HttpError)]">
     <div class="jumbotron text-center">
-      <p class="text-monospace">
+      <p class="font-monospace">
         <xsl:value-of disable-output-escaping="yes" select="i18n:translate(concat('thunibib.error.codes.', @HttpError), @requestURI)"/>
       </p>
 
       <h1>
-        <span class="text-danger align-middle display-3 pr-3">
+        <span class="text-danger align-middle display-3 pe-3">
           <xsl:value-of select="@HttpError"/>
         </span>
         <span>

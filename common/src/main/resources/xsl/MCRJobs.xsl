@@ -115,12 +115,12 @@
 
             <xsl:if test="MCRJob">
               <table class="table table-sm table-hover">
-                <tr class="font-weight-bold">
+                <tr class="fw-bold">
                   <th class="text-center">
                     <xsl:if test="mcr:isCurrentUserInRole('admin')">
                       <a href="{concat($WebApplicationBaseURL, 'servlets/JobStatusServlet?deleteAll=true')}"
                          title="Delete all jobs">
-                        <i class="fas fa-eraser font-weight-bold"/>
+                        <i class="fas fa-eraser fw-bold"/>
                       </a>
                     </xsl:if>
                   </th>
@@ -275,20 +275,20 @@
         <xsl:for-each select="parameters/parameter">
           <xsl:sort select="@name"/>
           <span class="d-block">
-            <span class="font-weight-bold">
+            <span class="fw-bold">
               <xsl:value-of select="concat(@name, ': ')"/>
             </span>
             <xsl:choose>
               <!-- when object is a mcrobject link to metadata page -->
               <xsl:when test="mcrid:isValid(.) and not (contains(. , '_derivate_'))">
-                <a class="thulb-default-text-color font-weight-bold" href="{$WebApplicationBaseURL}receive/{.}"
+                <a class="thulb-default-text-color fw-bold" href="{$WebApplicationBaseURL}receive/{.}"
                    title="{$WebApplicationBaseURL}receive/{.}">
                   <xsl:value-of select="."/>
                 </a>
               </xsl:when>
               <!-- when object is a derivate link to details page -->
               <xsl:when test="mcrid:isValid(.) and (contains(. , '_derivate_'))">
-                <a class="thulb-default-text-color font-weight-bold"
+                <a class="thulb-default-text-color fw-bold"
                    href="{$WebApplicationBaseURL}servlets/MCRFileNodeServlet/{.}/"
                    title="{$WebApplicationBaseURL}servlets/MCRFileNodeServlet/{.}/">
                   <xsl:value-of select="."/>

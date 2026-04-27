@@ -9,7 +9,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-jena</artifactId>
-  <name>ThUniBib Layout: Jena</name>
+  <name>ThUniBib Layout: Universität Jena</name>
   <build>
     <plugins>
       <plugin>

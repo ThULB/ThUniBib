@@ -5,11 +5,11 @@
   <title xml:lang="en">Register a publication</title>
 
   <article class="card mb-1">
-      <xed:form role="form" xmlns:xed="http://www.mycore.de/xeditor">
-        <xed:choose>
-          <xed:when test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
-            <div class="card-body">
-              <xed:bind xpath="/mods:mods">
+    <xed:form role="form" xmlns:xed="http://www.mycore.de/xeditor">
+      <xed:choose>
+        <xed:when test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
+          <div class="card-body">
+            <xed:bind xpath="/mods:mods">
               <fieldset>
 
                 <xed:if test="$xed-validation-failed">
@@ -29,29 +29,34 @@
                   </p>
                 </div>
 
-                <xed:bind xpath="mods:identifier">
-                  <div class="form-group form-inline">
-                    <div class="mycore-form-label">
-                      <xed:bind xpath="@type">
-                        <select class="form-control custom-select">
-                          <option value="doi">DOI</option>
-                          <option value="pubmed">PubMed ID</option>
-                          <option value="scopus">Scopus ID</option>
-                          <option value="ieee">IEEE Article No.</option>
-                          <option value="arxiv">arXiv.org ID</option>
-                          <option value="isbn">ISBN</option>
-                          <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-                            <option value="zdb">ZDB ID</option>
-                            <option value="ppn">GVK PPN</option>
-                            <option value="issn">ISSN</option>
-                          </xed:if>
-                        </select>
-                      </xed:bind>
-                      :
+                <div class="row">
+                  <xed:bind xpath="mods:identifier">
+                    <div class="col-12 col-sm-2">
+                      <div class="form-label">
+                        <xed:bind xpath="@type">
+                          <select class="form-select">
+                            <option value="doi">DOI</option>
+                            <option value="pubmed">PubMed ID</option>
+                            <option value="scopus">Scopus ID</option>
+                            <option value="ieee">IEEE Article No.</option>
+                            <option value="arxiv">arXiv.org ID</option>
+                            <option value="isbn">ISBN</option>
+                            <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
+                              <option value="zdb">ZDB ID</option>
+                              <option value="ppn">GVK PPN</option>
+                              <option value="issn">ISSN</option>
+                            </xed:if>
+                            <option value="dbt">DBT-ID</option>
+                          </select>
+                        </xed:bind>
+                      </div>
                     </div>
-                    <input id="identifier" class="{$xed-validation-marker} mycore-form-input"/>
-                  </div>
-                </xed:bind>
+
+                    <div class="col-12 col-sm-6">
+                      <input id="identifier" class="{$xed-validation-marker} form-control"/>
+                    </div>
+                  </xed:bind>
+                </div>
 
                 <xed:validate xpath="//mods:identifier[@type='doi']" matches="10\.\d+.*"
                               i18n="ubo.identifier.doi.validation" display="global"/>
@@ -60,30 +65,34 @@
                 <xed:validate xpath="//mods:identifier[@type='isbn']" matches="^((978|979)-?)?([\d -]{12}|\d{9})(\d|X)$"
                               i18n="ubo.identifier.isbn.validation" display="global"/>
 
-                <div>
-                  <p>
+                <div class="row mb-3">
+                  <div class="col">
                     <xed:output i18n="ubo.newPublicationWizard.titleAuthor"/>
-                  </p>
+                  </div>
                 </div>
 
                 <xed:bind xpath="mods:titleInfo/mods:title">
-                  <div class="form-group form-inline">
-                    <label for="title" class="mycore-form-label">
+                  <div class="row mb-3">
+                    <label for="title" class="col-12 col-sm-2 col-form-label text-sm-end">
                       <xed:output i18n="ubo.title"/>:
                     </label>
-                    <input id="title" class="{$xed-validation-marker} mycore-form-input"
-                           placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
+                    <div class="col-12 col-sm-6">
+                      <input id="title" class="form-control {$xed-validation-marker}"
+                             placeholder="{i18n:ubo.newPublicationWizard.title.placeholder}"/>
+                    </div>
                   </div>
                 </xed:bind>
 
                 <xed:bind xpath="mods:name[@type='personal']">
                   <xed:bind xpath="mods:namePart[@type='family']">
-                    <div class="form-group form-inline">
-                      <label for="author" class="mycore-form-label">
+                    <div class="row mb-3">
+                      <label for="author" class="col-12 col-sm-2 col-form-label text-sm-end">
                         <xed:output i18n="ubo.role.author"/>:
                       </label>
-                      <input id="author" class="{$xed-validation-marker} mycore-form-input"
-                             placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                      <div class="col-12 col-sm-6">
+                        <input id="author" class="{$xed-validation-marker} form-control"
+                               placeholder="{i18n:ubo.newPublicationWizard.author.placeholder}"/>
+                      </div>
                     </div>
                   </xed:bind>
                   <xed:bind xpath="mods:role[mods:roleTerm[@authority='marcrelator'][@type='code']='aut']"/>
@@ -95,12 +104,9 @@
 
                 <xed:cleanup-rule xpath="//mods:*" relevant-if="(string-length(normalize-space(text())) &gt; 0) or *"/>
 
-                <div class="form-group form-inline">
-                  <label class="mycore-form-label">
-                  </label>
-                  <div class="cancel-submit">
-                    <button class="btn btn-sm btn-primary" type="submit" xed:target="servlet"
-                            xed:href="NewPublicationWizard">
+                <div class="row mb-3">
+                  <div class="offset-md-2 col cancel-submit">
+                    <button class="btn btn-primary" type="submit" xed:target="servlet" xed:href="NewPublicationWizard">
                       <xed:output i18n="button.next"/>
                     </button>
                   </div>
@@ -108,79 +114,77 @@
 
               </fieldset>
             </xed:bind>
-            </div>
+          </div>
+          <div class="card-body bg-alternative">
+            <p>
+              <i18n:de>
+                Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
+                href="faq.xml">FAQs
+              </a> oder
+                <a href="mailto:bibliographie.ub@uni-erfurt.de">fragen Sie uns</a>
+                <br/>
+                Um Ihre Publikation in der Universitätsbibliographie verzeichnen zu können, ist zunächst die
+                Erfassung von Publikationsmetadaten erforderlich. Geben Sie hier den Identifikator für die Publikation
+                (z.B. DOI, ISBN) ein, damit Publikationsdaten aus bestehenden Quellen übernommen werden können.
+                <br/>
+                Im Anschluss wird geprüft, ob dieser Eintrag bereits in der Universitätsbibliographie verzeichnet
+                ist. Sollte der Titel noch nicht existieren, gelangen Sie im nächsten Schritt zur Erfassungsmaske.
+              </i18n:de>
+              <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
+                href="faq.xml">FAQs
+              </a> or
+                <a href="mailto:bibliographie.ub@uni-erfurt.de">contact us</a>
+                <br/>
+                In order for your publication to be listed in the university bibliography, publication metadata must
+                first be recorded. Enter the identifier for the publication (e.g. DOI, ISBN) so that publication data
+                can be transferred from existing sources.
+                <br/>
+                The system then checks whether this entry is already listed in the university bibliography. If the
+                title does not yet exist, you will be taken to the entry screen in the next step.
+              </i18n:en>
+            </p>
+          </div>
+        </xed:when>
+        <xed:otherwise>
+          <div class="card-body bg-alternative">
+            <p>
+              <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden,
+                und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a
+                  href="servlets/MCRShibbolethLoginServlet">Login</a>.
+              </i18n:de>
+              <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and
+                you would like to report this publication? Please use your Uni-Login to
+                <a href="servlets/MCRShibbolethLoginServlet">sign in</a>.
+              </i18n:en>
+            </p>
 
-            <div class="card-body bg-alternative">
-              <p>
-                <i18n:de>
-                  Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
-                  href="faq.xml">FAQs
-                </a> oder
-                  <a href="mailto:bibliographie.ub@uni-erfurt.de">fragen Sie uns</a>
-                  <br/>
-                  Um Ihre Publikation in der Universitätsbibliographie verzeichnen zu können, ist zunächst die Erfassung
-                  von Publikationsmetadaten erforderlich.
-                  Geben Sie hier den Identifikator für die Publikation (z.B. DOI, ISBN) ein, damit Publikationsdaten aus
-                  bestehenden Quellen übernommen werden können.
-                  <br/>
-                  Im Anschluss wird geprüft, ob dieser Eintrag bereits in der Universitätsbibliographie verzeichnet ist.
-                  Sollte der Titel noch nicht existieren, gelangen Sie im nächsten Schritt zur Erfassungsmaske.
-                </i18n:de>
-                <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
-                  href="faq.xml">FAQs
-                </a> or
-                  <a href="mailto:bibliographie.ub@uni-erfurt.de">contact us</a>
-                  <br/>
-                  In order for your publication to be listed in the university bibliography, publication metadata must
-                  first be recorded. Enter the identifier for the publication (e.g. DOI, ISBN)
-                  so that publication data can be transferred from existing sources.
-                  <br/>
-                  The system then checks whether this entry is already listed in the university bibliography. If the
-                  title does not yet exist, you will be taken to the entry screen in the next step.
-                </i18n:en>
-              </p>
-            </div>
-          </xed:when>
-          <xed:otherwise>
-            <div class="card-body bg-alternative">
-              <p>
-                <i18n:de>Ihre Publikation ist im Zusammenhang mit Ihrer Tätigkeit an der Universität Erfurt entstanden,
-                  und Sie möchten diese Publikation melden? Verwenden Sie dafür bitte Ihr Uni-<a href="servlets/MCRShibbolethLoginServlet">Login</a>.
-                </i18n:de>
-                <i18n:en>Your publication has been created at the time of your employment at the University of Erfurt and
-                  you would like to report this publication? Please use your Uni-Login to
-                  <a href="servlets/MCRShibbolethLoginServlet">sign in</a>.
-                </i18n:en>
-              </p>
+            <p>
+              <i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen
+                qualitativ hochwertige Publikationsmetadaten daraus:
+                <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
+              </i18n:de>
+              <i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality
+                publication metadata, or contact us
+                <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
+              </i18n:en>
+            </p>
 
-              <p>
-                <i18n:de>Oder senden Sie uns Ihre Publikationsliste(n) in einem beliebigen Format, und wir machen
-                  qualitativ hochwertige Publikationsmetadaten daraus:
-                  <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
-                </i18n:de>
-                <i18n:en>Or send us your publication list(s) in any format and we will turn it into high-quality
-                  publication metadata, or contact us
-                  <a href="mailto:bibliographie.ub@uni-erfurt.de">bibliographie.ub@uni-erfurt.de</a>.
-                </i18n:en>
-              </p>
-
-              <p>
-                <i18n:de>
-                  Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
-                  href="faq.xml">FAQs
-                </a> oder
-                  <a href="mailto:bibliographie.ub@uni-erfurt.de">fragen Sie uns.</a>
-                </i18n:de>
-                <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
-                  href="faq.xml">FAQs
-                </a> or
-                  <a href="mailto:bibliographie.ub@uni-erfurt.de">contact us</a>
-                </i18n:en>
-              </p>
-            </div>
-          </xed:otherwise>
-        </xed:choose>
-      </xed:form>
-
+            <p>
+              <i18n:de>
+                Welche Publikationen in der Universitätsbibliographie erfasst werden, entnehmen Sie bitte unseren <a
+                href="faq.xml">FAQs
+              </a> oder
+                <a href="mailto:bibliographie.ub@uni-erfurt.de">fragen Sie uns.</a>
+              </i18n:de>
+              <i18n:en>To find out which publications are included in the university bibliography, please refer to <a
+                href="faq.xml">FAQs
+              </a> or
+                <a href="mailto:bibliographie.ub@uni-erfurt.de">contact us</a>
+              </i18n:en>
+            </p>
+          </div>
+        </xed:otherwise>
+      </xed:choose>
+    </xed:form>
   </article>
 </webpage>

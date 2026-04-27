@@ -49,7 +49,7 @@
               <p>
                 <i18n:code>thunibib.jena.orcid.content.contact</i18n:code>
               </p>
-              <div class="bg-primary pl-3 pt-3 pb-2">
+              <div class="bg-primary ps-3 pt-3 pb-2">
                 <p class="text-white">
                   <i18n:code>thunibib.jena.orcid.h.contact</i18n:code>
                 </p>

@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-12 col-md-8">
 
-      <article class="card mb-3" xml:lang="de">
+      <article class="card mb-3">
         <div class="card-body">
           <p>
             Die Universitätsbibliographie ist das digitale Publikationsdokumentationssystem der
@@ -37,7 +37,7 @@
     </div>
 
     <div class="col-12 col-md-4">
-      <article class="card mb-3" xml:lang="de">
+      <article class="card mb-3">
         <div class="card-body">
           <h3>Links:</h3>
           <ul>
@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  <article class="card mb-3" xml:lang="de">
+  <article class="card mb-3">
     <div class="card-body">
       <h3>FAQ</h3>
 
@@ -69,8 +69,8 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Welche Publikationen werden in die Bibliographie eingetragen?
@@ -91,8 +91,8 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Wer kann Publikationen eintragen?
@@ -112,8 +112,8 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Wie kann man Publikationen in die Bibliographie eintragen?
@@ -136,8 +136,8 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Warum ist meine eingereichte Publikation nicht sofort in der Bibliographie auffindbar?
@@ -158,7 +158,7 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
