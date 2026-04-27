@@ -16,7 +16,7 @@
           <xed:include uri="xslStyle:items2options:classification:editor:-1:children:partOf"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.partOf}">
+           data-bs-content="{i18n:thunibib.editor.help.partOf}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -39,7 +39,7 @@
           <xed:include uri="xslStyle:items2options:classification:editor:-1:children:peerreviewed"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.peerreviewed}">
+           data-bs-content="{i18n:thunibib.editor.help.peerreviewed}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -55,7 +55,7 @@
         <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} mycore-form-input" />
         <xed:controls />
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.comment.intern}">
+           data-bs-content="{i18n:thunibib.editor.help.comment.intern}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -74,7 +74,7 @@
           </option>
           <xed:include uri="xslStyle:items2options:classification:editor:-1:children:accessrights" />
         </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right" data-content="{i18n:ubo.help.accessrights}">
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right" data-bs-content="{i18n:ubo.help.accessrights}">
           <i class="fas fa-info"/>
         </a>
       </div>
@@ -94,7 +94,7 @@
           <xed:include uri="xslStyle:items2options:classification:editor:-1:children:typeOfResource"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.typeOfResource}">
+           data-bs-content="{i18n:thunibib.editor.help.typeOfResource}">
           <i class="fas fa-info"/>
         </a>
       </div>
@@ -114,7 +114,7 @@
           <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mediaType"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.mediatype}">
+           data-bs-content="{i18n:thunibib.editor.help.mediatype}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -135,7 +135,7 @@
           <xed:include uri="xslStyle:items2options:classification:editor:-1:children:republication"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.republication}">
+           data-bs-content="{i18n:thunibib.editor.help.republication}">
           <i class="fas fa-info"></i>
         </a>
       </div>
@@ -155,7 +155,7 @@
           <xed:include uri="xslStyle:items2options:classification:editor:-1:children:licenses"/>
         </select>
         <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.license}">
+           data-bs-content="{i18n:thunibib.editor.help.license}">
           <i class="fas fa-info"/>
         </a>
       </div>
