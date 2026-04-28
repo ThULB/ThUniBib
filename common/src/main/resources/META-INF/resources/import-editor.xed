@@ -447,15 +447,16 @@
   </xed:template>
 
   <xed:template id="person">
-    <div class="form-inline col-sm-6 border-bottom border-primary px-0 mb-2">
+    <div class="input-group border-bottom d-flex align-items-center mb-2">
       <span id="{xed:generate-id()}" class="{$xed-validation-marker}">
         <xed:if test="string-length(mods:namePart[@type='family']) &gt; 0">
           <xed:output value="mods:namePart[@type='family']"/>
           <xed:if test="mods:namePart[@type='given']">
-            <xed:output value="concat(', ',mods:namePart[@type='given'])"/>
+            <xed:output value="concat(', ', mods:namePart[@type='given'])"/>
           </xed:if>
         </xed:if>
       </span>
+
       <span>
         <xed:choose>
           <xed:when test="string-length(mods:nameIdentifier[@type=$MCR.user2.matching.lead_id]) &gt; 0">
@@ -463,12 +464,12 @@
               <sup>
                 <xed:choose>
                   <xed:when test="xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
-                    <a target="_blank" class="ml-1" href="{$UBO.LSF.Link}{.}">
+                    <a target="_blank" class="ms-1" href="{$UBO.LSF.Link}{.}">
                       <xed:output value="concat(i18n:translate('editor.identity.picker.lead_id'), ': ', .)"/>
                     </a>
                   </xed:when>
                   <xed:otherwise>
-                    <span class="ml-1">
+                    <span class="ms-1">
                       <xed:output value="concat(i18n:translate('editor.identity.picker.lead_id'), ': ', .)"/>
                     </span>
                   </xed:otherwise>
@@ -476,12 +477,13 @@
               </sup>
             </xed:bind>
           </xed:when>
+
           <xed:when test="count(mods:nameIdentifier[@type='connection']) &gt; 0">
-            <span class="fas fa-user ml-1" title="ConnectionID: {mods:nameIdentifier[@type='connection'][1]/text()}"/>
+            <span class="fas fa-user ms-1" title="ConnectionID: {mods:nameIdentifier[@type='connection'][1]/text()}"/>
             <sup>
               <xed:choose>
                 <xed:when test="xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
-                  <a target="_blank" class="ml-1" href="{$ThUniBib.search.by.user.attribute.link}{mods:nameIdentifier[@type='connection'][1]/text()}">
+                  <a target="_blank" class="ms-1" href="{$ThUniBib.search.by.user.attribute.link}{mods:nameIdentifier[@type='connection'][1]/text()}">
                       <xed:output value="concat('ConnectionID: ', mods:nameIdentifier[@type='connection'][1]/text())"/>
                   </a>
                 </xed:when>
@@ -495,8 +497,8 @@
         </xed:choose>
       </span>
 
-      <div class="ml-auto pb-1">
-        <button id="{xed:generate-id()}" class="btn btn-xs btn-primary mr-1" type="submit" xed:target="subselect"
+      <div class="ms-auto pb-1">
+        <button id="{xed:generate-id()}" class="btn btn-xs btn-primary me-1" type="submit" xed:target="subselect"
                 xed:href="../identitypicker.html?{xed:call-java('org.mycore.ubo.matcher.MCRUserMatcherUtils', 'getAttributesAsURLString', .)}&amp;xEditorHook={xed:generate-id()}">
           <xed:choose>
             <xed:when test="count(mods:nameIdentifier[@type='connection'])&gt;0">
@@ -509,31 +511,36 @@
         </button>
       </div>
     </div>
-    <xed:controls/>
 
     <xed:repeat xpath="mods:nameIdentifier[not(@type=$MCR.user2.matching.lead_id)][not(@type='connection')]">
-      <div class="form-group form-inline col-12 px-0 mb-2 mt-2 ubo-repeat-group">
-        <label class="mycore-form-label">
-        </label>
-        <xed:bind xpath="@type">
-          <select class="form-control col-sm-2 custom-select">
-            <option value="">
-              <xed:output i18n="search.select"/>
-            </option>
-            <xed:include uri="xslStyle:filterOutLeadAndConnectionID,items2options:classification:editor:-1:children:nameIdentifier"/>
-          </select>
-        </xed:bind>
-        <input type="text" class="{$xed-validation-marker} form-control col-sm-4"/>
-        <xed:controls>insert remove</xed:controls>
+      <div class="row mb-1 ubo-repeat-group">
+        <div class="input-group">
+          <div class="col-4">
+            <xed:bind xpath="@type">
+              <select class="form-select">
+                <option value="">
+                  <xed:output i18n="search.select"/>
+                </option>
+                <xed:include uri="xslStyle:filterOutLeadAndConnectionID,items2options:classification:editor:-1:children:nameIdentifier"/>
+              </select>
+            </xed:bind>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <input type="text" class="{$xed-validation-marker} form-control"/>
+              <xed:controls>insert remove</xed:controls>
+            </div>
+          </div>
+        </div>
       </div>
     </xed:repeat>
 
-    <div class="form-group form-inline col-12 px-0">
-      <xed:repeat xpath="mods:affiliation[not(@authorityURI)][not(@valueURI)]">
-        <label class="mycore-form-label">
-        </label>
-        <textarea class="mycore-form-input" placeholder="Institutionelle Zugehörigkeit"/>
-      </xed:repeat>
+    <div class="row mb-1">
+      <div class="col">
+        <xed:repeat xpath="mods:affiliation[not(@authorityURI)][not(@valueURI)]">
+          <textarea class="form-control" placeholder="Institutionelle Zugehörigkeit"/>
+        </xed:repeat>
+      </div>
     </div>
   </xed:template>
 
@@ -545,7 +552,7 @@
             <select class="form-control custom-select">
               <xed:include uri="xslStyle:items2options:webapp:rollen.xml"/>
             </select>
-            <div class="ml-1">:</div>
+            <div class="ms-1">:</div>
           </label>
         </xed:bind>
         <xed:include uri="webapp:import-editor.xed" ref="person"/>
@@ -555,35 +562,50 @@
 
   <xed:template id="person.role">
     <xed:repeat xpath="mods:name[@type='personal']">
-      <div class="form-group form-inline ubo-repeat-group">
+      <div class="row mb-3 ubo-repeat-group">
         <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="aut">
-          <label class="mycore-form-label d-flex align-items-center mt-0 ubo-mandatory">
-            <select class="form-control custom-select">
+          <div class="col-12 col-sm-3 d-flex align-items-start">
+            <span>*</span>
+            <select class="form-select ms-1">
               <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator"/>
             </select>
-            <div class="ml-1">:</div>
-          </label>
+          </div>
         </xed:bind>
-        <xed:include uri="webapp:import-editor.xed" ref="person"/>
 
-        <div class="form-group form-inline col-12 px-0">
-          <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
-            <label class="mycore-form-label"/>
-            <input type="checkbox" value="corresponding_author"/>
-            <span class="pl-1">
-              <xed:output i18n="ubo.corresponding_author"/>
-            </span>
-          </xed:bind>
+        <div class="col col-sm-6 pe-0">
+          <div class="row">
+            <div class="col">
+              <xed:include uri="webapp:import-editor.xed" ref="person"/>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
+              <div class="col-12 col">
+                <input type="checkbox" class="form-check-input" value="corresponding_author"/>
+                <span class="ps-1">
+                  <xed:output i18n="ubo.corresponding_author"/>
+                </span>
+              </div>
+            </xed:bind>
+          </div>
+
+          <div class="row mb-3">
+            <xed:bind xpath="mods:affiliation[@authorityURI=concat($MCR.baseurl, 'classifications/isAffiliated')]">
+              <div class="col-12 col">
+                <input type="checkbox" class="form-check-input" value="false"/>
+                <span class="ps-1">
+                  <xed:output i18n="thunibib.editor.affiliation.checkbox"/>
+                </span>
+              </div>
+            </xed:bind>
+          </div>
         </div>
 
-        <div class="form-group form-inline col-12 px-0">
-          <xed:bind xpath="mods:affiliation[@authorityURI=concat($MCR.baseurl, 'classifications/isAffiliated')]">
-            <label class="mycore-form-label"/>
-            <input type="checkbox" value="false"/>
-            <span class="pl-1">
-              <xed:output i18n="thunibib.editor.affiliation.checkbox"/>
-            </span>
-          </xed:bind>
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
         </div>
       </div>
     </xed:repeat>
@@ -598,7 +620,7 @@
               <select class="form-control custom-select">
                 <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator_corporation"/>
               </select>
-              <div class="ml-1">:</div>
+              <div class="ms-1">:</div>
             </label>
           </xed:bind>
 
@@ -810,7 +832,7 @@
               <option value="dpm">Patentnummer</option>
               <option value="oclc">OCLC</option>
             </select>
-            <div class="ml-1">:</div>
+            <div class="ms-1">:</div>
           </label>
         </xed:bind>
 
@@ -1045,7 +1067,7 @@
         </button>
 
         <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserSuperUser')">
-          <button class="btn btn-sm btn-outline-info ml-2" type="submit" xed:target="debug">
+          <button class="btn btn-sm btn-outline-info ms-2" type="submit" xed:target="debug">
             <xed:output value="'Debug'"/>
           </button>
         </xed:if>
