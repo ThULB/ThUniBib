@@ -266,62 +266,76 @@
 
   <xed:template id="title.complex">
     <xed:repeat xpath="mods:titleInfo" max="6">
-      <div class="form-inline form-group ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+      <div class="row mb-1 ubo-repeat-group">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end ubo-mandatory">
           <xed:output value="concat(i18n:translate('ubo.title'), ': ')"/>
         </label>
-        <div class="mycore-form-input-group">
-          <xed:bind xpath="@type">
-            <select class="mycore-form-input-double custom-select">
-              <option value="">
-                <xed:output i18n="ubo.title.type.main"/>
-              </option>
-              <option value="abbreviated">
-                <xed:output i18n="ubo.title.type.abbreviated"/>
-              </option>
-              <option value="translated">
-                <xed:output i18n="ubo.title.type.translated"/>
-              </option>
-              <option value="alternative">
-                <xed:output i18n="ubo.title.type.alternative"/>
-              </option>
-              <option value="uniform">
-                <xed:output i18n="ubo.title.type.uniform"/>
-              </option>
-            </select>
-          </xed:bind>
-          <span class="mx-2 align-self-center">in</span>
-          <xed:bind xpath="@xml:lang">
-            <div class="language-search d-inline" data-preferred-languages="de,en,fr">
-              <input id="{xed:generate-id(..)}" type="hidden" class="language-search-input"/>
-              <!-- content is added by javascript -->
+
+        <div class="col col-sm-6 pe-0">
+          <div class="row">
+            <div class="col-12 col-sm-4">
+              <xed:bind xpath="@type">
+                <select class="form-select">
+                  <option value="">
+                    <xed:output i18n="ubo.title.type.main"/>
+                  </option>
+                  <option value="abbreviated">
+                    <xed:output i18n="ubo.title.type.abbreviated"/>
+                  </option>
+                  <option value="translated">
+                    <xed:output i18n="ubo.title.type.translated"/>
+                  </option>
+                  <option value="alternative">
+                    <xed:output i18n="ubo.title.type.alternative"/>
+                  </option>
+                  <option value="uniform">
+                    <xed:output i18n="ubo.title.type.uniform"/>
+                  </option>
+                </select>
+              </xed:bind>
             </div>
-          </xed:bind>
+
+            <div class="col-1 d-flex justify-content-end align-items-center pe-0">in</div>
+
+            <xed:bind xpath="@xml:lang">
+              <div class="col">
+                <div class="language-search d-inline" data-preferred-languages="de,en,fr">
+                  <input id="{xed:generate-id(..)}" type="hidden" class="language-search-input"/>
+                  <!-- content is added by javascript -->
+                </div>
+              </div>
+            </xed:bind>
+          </div>
         </div>
-        <xed:controls/>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
-      <div class="form-inline form-group">
+
+      <div class="row mb-1">
         <xed:bind xpath="mods:nonSort">
-          <label class="mycore-form-label">
-          </label>
-          <input class="{$xed-validation-marker} mycore-form-input" type="text"
-                 placeholder="{i18n:ubo.title.nonSort}"/>
+          <div class="col-12 col-sm-6 offset-sm-3 pe-0">
+            <input class="{$xed-validation-marker} form-control" type="text" placeholder="{i18n:ubo.title.nonSort}"/>
+          </div>
         </xed:bind>
       </div>
-      <div class="form-inline form-group">
+
+      <div class="row mb-1">
         <xed:bind xpath="mods:title">
-          <label class="mycore-form-label">
-          </label>
-          <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
-                    placeholder="{i18n:ubo.title}"/>
+          <div class="col-12 col-sm-6 offset-sm-3 pe-0">
+            <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text" placeholder="{i18n:ubo.title}"/>
+          </div>
         </xed:bind>
       </div>
-      <div class="form-inline form-group">
+
+      <div class="row mb-3">
         <xed:bind xpath="mods:subTitle">
-          <label class="mycore-form-label">
-          </label>
-          <input class="{$xed-validation-marker} mycore-form-input" type="text"
-                 placeholder="{i18n:ubo.title.subTitle}"/>
+          <div class="col-12 col-sm-6 offset-sm-3 pe-0">
+            <input class="{$xed-validation-marker} form-control" type="text" placeholder="{i18n:ubo.title.subTitle}"/>
+          </div>
         </xed:bind>
       </div>
     </xed:repeat>
