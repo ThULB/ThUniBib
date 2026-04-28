@@ -4,25 +4,31 @@
 
   <xed:template id="thunibib.partOf">
     <xed:bind xpath="mods:classification[@classID='partOf']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
-          <xed:output
-              value="concat(i18n:translate('thunibib.editor.label.partOf'), ': ')"/>
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end ubo-mandatory">
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.partOf'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:partOf"/>
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.partOf}">
-          <i class="fas fa-info"></i>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="{$xed-validation-marker} w-100 mycore-form-input">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:partOf"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+          <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.partOf}">
+            <i class="fas fa-info"/>
+          </a>
+          </div>
+        </div>
       </div>
     </xed:bind>
-    <xed:validate xpath="//mods:classification[@classID='partOf']" required="true" i18n="thunibib.condition.partOf"
-                  display="global"/>
+
+    <xed:validate xpath="//mods:classification[@classID='partOf']" required="true" i18n="thunibib.condition.partOf" display="global"/>
   </xed:template>
 
   <xed:template id="thunibib.peerreviewed">
@@ -48,16 +54,23 @@
 
   <xed:template id="thunibib.comment.intern">
     <xed:repeat xpath="mods:note[@type='intern']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('thunibib.comment.intern'), ': ')" />
         </label>
-        <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} mycore-form-input" />
-        <xed:controls />
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.comment.intern}">
-          <i class="fas fa-info"></i>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" type="text" class="{$xed-validation-marker} form-control" />
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls />
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.comment.intern}">
+              <i class="fas fa-info"/>
+            </a>
+          </div>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
