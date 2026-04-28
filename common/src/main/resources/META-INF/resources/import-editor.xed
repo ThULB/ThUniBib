@@ -91,17 +91,25 @@
     <xed:bind xpath="../../../../service/servstates[@class='MCRMetaClassification']/servstate[@classid='state']/@categid" default="submitted">
       <xed:choose>
         <xed:when test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
-          <div class="form-inline form-group">
-            <label for="{xed:generate-id()}" class="mycore-form-label">
+          <div class="row mb-3">
+            <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
               <xed:output value="concat(i18n:translate('ubo.status'), ': ')"/>
             </label>
-            <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
-              <xed:include uri="xslStyle:mycoreclass-options:classification:metadata:-1:children:state"/>
-            </select>
-            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip"
-               data-bs-placement="right" data-bs-title="{i18n:ubo.help.status}">
-              <i class="fas fa-info"/>
-            </a>
+
+            <div class="col col-sm-6 pe-0">
+              <select id="{xed:generate-id()}" class="form-select">
+                <xed:include uri="xslStyle:mycoreclass-options:classification:metadata:-1:children:state"/>
+              </select>
+            </div>
+
+            <div class="col col-sm-3 ps-0">
+              <div class="input-group">
+                <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip"
+                   data-bs-placement="right" data-bs-title="{i18n:ubo.help.status}">
+                  <i class="fas fa-info"/>
+                </a>
+              </div>
+            </div>
           </div>
         </xed:when>
         <xed:otherwise>
