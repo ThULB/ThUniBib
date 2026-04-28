@@ -33,21 +33,27 @@
 
   <xed:template id="thunibib.peerreviewed">
     <xed:bind xpath="mods:classification[@classID='peerreviewed']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output
-              value="concat(i18n:translate('thunibib.editor.label.peerreviewed'), ': ')"/>
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.peerreviewed'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:peerreviewed"/>
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.peerreviewed}">
-          <i class="fas fa-info"></i>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="{$xed-validation-marker} form-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:peerreviewed"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.peerreviewed}">
+              <i class="fas fa-info"/>
+            </a>
+          </div>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
@@ -93,7 +99,7 @@
 
         <div class="col col-sm-3 ps-0">
           <div class="input-group">
-          <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:ubo.help.accessrights}">
+          <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:ubo.help.accessrights}">
             <i class="fas fa-info"/>
           </a>
           </div>
@@ -158,41 +164,54 @@
 
   <xed:template id="thunibib.republication">
     <xed:bind xpath="mods:classification[@classID='republication']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
-          <xed:output
-              value="concat(i18n:translate('thunibib.editor.label.republication'), ': ')"/>
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
+          <xed:output value="concat(i18n:translate('thunibib.editor.label.republication'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:republication"/>
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.republication}">
-          <i class="fas fa-info"></i>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="{$xed-validation-marker} form-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:republication"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.republication}">
+              <i class="fas fa-info"/>
+            </a>
+          </div>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="thunibib.license">
     <xed:bind xpath="mods:accessCondition[@type='use and reproduction'][@classID='licenses']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('thunibib.editor.label.license'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:licenses"/>
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.license}">
-          <i class="fas fa-info"/>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="{$xed-validation-marker} form-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:licenses"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.license}">
+              <i class="fas fa-info"/>
+            </a>
+          </div>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
