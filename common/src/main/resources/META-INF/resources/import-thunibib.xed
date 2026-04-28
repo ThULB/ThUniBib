@@ -77,59 +77,81 @@
 
   <xed:template id="thunibib.accessRights">
     <xed:bind xpath="mods:classification[@classID='accessrights']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.accessrights'), ':')" />
         </label>
-        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value="">
-            <xed:output i18n="search.select" />
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:accessrights" />
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:ubo.help.accessrights}">
-          <i class="fas fa-info"/>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="{$xed-validation-marker} form-select">
+            <option value="">
+              <xed:output i18n="search.select" />
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:accessrights" />
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+          <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:ubo.help.accessrights}">
+            <i class="fas fa-info"/>
+          </a>
+          </div>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="thunibib.typeOfResource">
     <xed:bind xpath="mods:typeOfResource" default="txt">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('thunibib.typeOfResource'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:typeOfResource"/>
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.typeOfResource}">
-          <i class="fas fa-info"/>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="{$xed-validation-marker} form-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:typeOfResource"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+        <div class="input-group">
+          <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.typeOfResource}">
+            <i class="fas fa-info"/>
+          </a>
+        </div>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="thunibib.mediaType">
     <xed:bind xpath="mods:classification[@classID='mediaType']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('thunibib.editor.label.mediatype'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mediaType"/>
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.mediatype}">
-          <i class="fas fa-info"></i>
-        </a>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="{$xed-validation-marker} form-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mediaType"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.mediatype}">
+              <i class="fas fa-info"/>
+            </a>
+          </div>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
