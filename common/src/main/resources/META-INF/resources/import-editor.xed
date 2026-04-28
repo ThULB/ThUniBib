@@ -194,7 +194,7 @@
 
         <div class="col col-sm-3 ps-0">
           <div class="input-group">
-            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:ubo.help.oa}">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:ubo.help.oa}">
               <i class="fas fa-info"/>
             </a>
           </div>
