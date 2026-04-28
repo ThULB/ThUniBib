@@ -652,23 +652,28 @@
 
   <xed:template id="place">
     <xed:bind xpath="mods:originInfo/mods:place/mods:placeTerm[@type='text']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.place'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" type="text" class="form-control"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="year">
     <xed:bind xpath="mods:originInfo/mods:dateIssued[@encoding='w3cdtf']">
-      <div class="form-inline form-group">
-        <label for="year" class="mycore-form-label ubo-mandatory">
+      <div class="row mb-3">
+        <label for="year" class="col-12 col-sm-3 col-form-label text-sm-end ubo-mandatory">
           <xed:output value="concat(i18n:translate('ubo.date.issued.4'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
-               placeholder="{i18n:ubo.date.issued.4.placeholder}"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text" placeholder="{i18n:ubo.date.issued.4.placeholder}"/>
+        </div>
       </div>
       <xed:validate matches="[\d]{4}" i18n="ubo.date.issued.4.validation" display="global"/>
     </xed:bind>
@@ -676,45 +681,56 @@
 
   <xed:template id="publisher">
     <xed:bind xpath="mods:originInfo/mods:publisher">
-      <div class="form-inline form-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.publisher'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" type="text" class="form-control"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="volume">
     <xed:bind xpath="mods:part/mods:detail[@type='volume']/mods:number">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.volume'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" class="mycore-form-input" type="text"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" class="form-control" type="text"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="issue">
     <xed:bind xpath="mods:part/mods:detail[@type='issue']/mods:number">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.issue'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" class="mycore-form-input" type="text"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" class="form-control" type="text"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="edition">
     <xed:bind xpath="mods:originInfo/mods:edition">
-      <div class="form-inline form-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.edition'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-               placeholder="{i18n:ubo.edition.placeholder}"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" type="text" class="form-control" placeholder="{i18n:ubo.edition.placeholder}"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
@@ -736,7 +752,7 @@
           <label for="{xed:generate-id()}" class="mycore-form-label pt-1">
             <xed:output value="concat('↳ ', i18n:translate('ubo.series.volume'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" type="text" class="mycore-form-input col-sm-2 mt-1" placeholder="{i18n:ubo.series.volume.placeholder}"/>
+          <input id="{xed:generate-id()}" type="text" class="form-control col-sm-2 mt-1" placeholder="{i18n:ubo.series.volume.placeholder}"/>
         </xed:bind>
       </div>
     </xed:repeat>
@@ -744,23 +760,28 @@
 
   <xed:template id="extent">
     <xed:bind xpath="mods:physicalDescription/mods:extent">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.extent'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-               placeholder="{i18n:ubo.extent.placeholder}"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" type="text" class="form-control" placeholder="{i18n:ubo.extent.placeholder}"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="comment">
     <xed:repeat xpath="mods:note[not(@type='intern')]">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-6 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.note'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" type="text" class="form-control"/>
+        </div>
         <xed:controls/>
       </div>
     </xed:repeat>
@@ -768,12 +789,14 @@
 
   <xed:template id="pages">
     <xed:bind xpath="mods:part/mods:extent[@unit='pages']/mods:list">
-      <div class="form-inline form-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.pages'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-               placeholder="{i18n:ubo.pages.placeholder}"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" type="text" class="form-control" placeholder="{i18n:ubo.pages.placeholder}"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
@@ -923,17 +946,25 @@
 
   <xed:template id="languages">
     <xed:repeat xpath="mods:language">
-      <div class="form-inline form-group ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3 ubo-repeat-group">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.language'), ': ')"/>
         </label>
+
         <xed:bind xpath="mods:languageTerm[@type='code'][@authority='rfc5646']">
-          <div class="language-search" data-preferred-languages="de,en,fr">
-            <input id="{xed:generate-id()}" type="hidden" class="language-search-input"/>
-            <!-- content is added by javascript -->
+          <div class="col col-sm-6 pe-0">
+            <div class="language-search" data-preferred-languages="de,en,fr">
+              <input id="{xed:generate-id()}" type="hidden" class="language-search-input"/>
+              <!-- content is added by javascript -->
+            </div>
           </div>
         </xed:bind>
-        <xed:controls/>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
