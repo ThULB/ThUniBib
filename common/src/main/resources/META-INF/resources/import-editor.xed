@@ -111,18 +111,6 @@
     </xed:bind>
   </xed:template>
 
-  <xed:template id="tags">
-    <div class="form-inline form-group ubo-repeat-group ubo-tags-group">
-      <label for="{xed:generate-id()}" class="mycore-form-label">Tags:</label>
-      <div class="col-6 pl-0 form-group form-inline">
-        <xed:repeat xpath="mods:extension/tag" min="3">
-          <input type="text" placeholder="Tag" class="form-control ml-1 col-2"/>
-          <xed:controls>append</xed:controls>
-        </xed:repeat>
-      </div>
-    </div>
-  </xed:template>
-
   <xed:template id="subject">
     <xed:repeat xpath="mods:classification[@classID='destatis']">
       <div class="form-inline form-group ubo-repeat-group {$xed-validation-marker}">
