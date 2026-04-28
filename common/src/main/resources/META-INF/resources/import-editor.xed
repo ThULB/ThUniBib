@@ -178,33 +178,43 @@
 
   <xed:template id="oa">
     <xed:bind xpath="mods:classification[@classID='oa']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.oa'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:items2options:classification:editor:-1:children:oa"/>
-        </select>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:ubo.help.oa}">
-          <i class="fas fa-info"></i>
-        </a>
+
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="form-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:oa"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:ubo.help.oa}">
+              <i class="fas fa-info"/>
+            </a>
+          </div>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="genre">
     <xed:bind xpath="mods:genre[@type='intern']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end ubo-mandatory">
           <xed:output value="concat(i18n:translate('ubo.genre'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
-          <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:ubogenre"/>
-        </select>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="form-select">
+            <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:ubogenre"/>
+          </select>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
@@ -1010,21 +1020,22 @@
   </xed:template>
 
   <xed:template id="cancel.submit">
-    <div class="form-inline form-group ubo-sticky-editor-buttons">
-      <label class="mycore-form-label"></label>
-      <button class="btn btn-sm btn-primary mr-2" type="submit" xed:target="servlet" xed:href="DozBibEntryServlet">
-        <xed:output i18n="button.save"/>
-      </button>
-
-      <button class="btn btn-sm btn-secondary" type="submit" xed:target="cancel">
-        <xed:output i18n="button.cancel"/>
-      </button>
-
-      <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserSuperUser')">
-        <button class="btn btn-sm btn-outline-info ml-2" type="submit" xed:target="debug">
-          <xed:output value="'Debug'"/>
+    <div class="row mb-3 ubo-sticky-editor-buttons">
+      <div class="col offset-sm-3">
+        <button class="btn btn-sm btn-primary mr-2" type="submit" xed:target="servlet" xed:href="DozBibEntryServlet">
+          <xed:output i18n="button.save"/>
         </button>
-      </xed:if>
+
+        <button class="btn btn-sm btn-secondary" type="submit" xed:target="cancel">
+          <xed:output i18n="button.cancel"/>
+        </button>
+
+        <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserSuperUser')">
+          <button class="btn btn-sm btn-outline-info ml-2" type="submit" xed:target="debug">
+            <xed:output value="'Debug'"/>
+          </button>
+        </xed:if>
+      </div>
     </div>
   </xed:template>
 
