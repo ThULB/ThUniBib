@@ -241,27 +241,36 @@
   <xed:template id="title">
     <xed:bind xpath="mods:titleInfo">
       <xed:bind xpath="mods:nonSort">
-        <div class="form-inline form-group">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
+        <div class="row mb-3">
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
             <xed:output value="concat(i18n:translate('ubo.title.nonSort'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+          <div class="col-12 col-sm-6 pe-0">
+            <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text"/>
+          </div>
         </div>
       </xed:bind>
+
       <xed:bind xpath="mods:title">
-        <div class="form-inline form-group">
-          <label for="{xed:generate-id()}" class="mycore-form-label ubo-mandatory">
+        <div class="row mb-3">
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end ubo-mandatory">
             <xed:output value="concat(i18n:translate('ubo.title'), ': ')"/>
           </label>
-          <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+
+          <div class="col-12 col-sm-6 pe-0">
+            <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text"/>
+          </div>
         </div>
       </xed:bind>
+
       <xed:bind xpath="mods:subTitle">
-        <div class="form-inline form-group">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
+        <div class="row mb-3">
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
             <xed:output value="concat(i18n:translate('ubo.title.subTitle'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+          <div class="col-12 col-sm-6 pe-0">
+            <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text"/>
+          </div>
         </div>
       </xed:bind>
     </xed:bind>
@@ -346,12 +355,14 @@
 
   <xed:template id="host.title">
     <xed:bind xpath="mods:titleInfo/mods:title">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output i18n="ubo.title"/>
           <xed:output value="concat($genres//category[@ID=$host_intern]/label[lang($CurrentLang)]/@text, ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
@@ -379,16 +390,49 @@
   </xed:template>
 
   <xed:template id="author">
-    <xed:repeat
-        xpath="mods:name[@type='personal'][mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']='aut']"
-        max="99">
-      <div class="form-inline form-group ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="col-sm-3 justify-content-sm-end pl-0 mr-3 ubo-mandatory">
+    <xed:repeat xpath="mods:name[@type='personal'][mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']='aut']" max="99">
+      <div class="row mb-3 ubo-repeat-group">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end ubo-mandatory">
           <xed:output value="concat(i18n:translate('ubo.role.author'), ': ')"/>
         </label>
-        <xed:include uri="webapp:import-editor.xed" ref="person"/>
+
+        <div class="col col-sm-6 pe-0">
+          <div class="row">
+            <div class="col">
+              <xed:include uri="webapp:import-editor.xed" ref="person"/>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
+              <div class="col-12 col">
+                <input type="checkbox" class="form-check-input" value="corresponding_author"/>
+                <span class="ps-1">
+                  <xed:output i18n="ubo.corresponding_author"/>
+                </span>
+              </div>
+            </xed:bind>
+          </div>
+
+          <div class="row mb-3">
+            <xed:bind xpath="mods:affiliation[@authorityURI=concat($MCR.baseurl, 'classifications/isAffiliated')]">
+              <div class="col-12 col">
+                <input type="checkbox" class="form-check-input" value="false"/>
+                <span class="ps-1">
+                  <xed:output i18n="thunibib.editor.affiliation.checkbox"/>
+                </span>
+              </div>
+            </xed:bind>
+          </div>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
-    </xed:repeat>
+     </xed:repeat>
   </xed:template>
 
   <xed:template id="editor">
