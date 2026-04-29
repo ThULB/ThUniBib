@@ -774,22 +774,6 @@
     <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
   </xed:template>
 
-  <xed:template id="genre.festschrift">
-    <xed:include uri="webapp:import-editor.xed" ref="title"/>
-    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
-    <xed:include uri="webapp:import-editor.xed" ref="honoree"/>
-    <xed:include uri="webapp:import-editor.xed" ref="place"/>
-    <xed:include uri="webapp:import-editor.xed" ref="year"/>
-    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
-    <xed:include uri="webapp:import-editor.xed" ref="edition"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
-    <xed:include uri="webapp:import-editor.xed" ref="extent"/>
-    <xed:include uri="webapp:import-editor.xed" ref="comment"/>
-    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
-    <xed:include uri="webapp:import-editor.xed" ref="url"/>
-    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.relatedItem"/>
-  </xed:template>
-
   <xed:template id="genre.workingpaper">
     <xed:include ref="genre.book.common"/>
   </xed:template>
@@ -902,21 +886,6 @@
   </xed:template>
 
   <xed:template id="host.proceedings.linked">
-    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
-  </xed:template>
-
-  <xed:template id="host.festschrift">
-    <xed:include uri="webapp:import-editor.xed" ref="title"/>
-    <xed:include uri="webapp:import-editor.xed" ref="editor"/>
-    <xed:include uri="webapp:import-editor.xed" ref="honoree"/>
-    <xed:include uri="webapp:import-editor.xed" ref="place"/>
-    <xed:include uri="webapp:import-editor.xed" ref="year"/>
-    <xed:include uri="webapp:import-editor.xed" ref="publisher"/>
-    <xed:include uri="webapp:import-editor.xed" ref="volume"/>
-    <xed:include uri="webapp:import-editor.xed" ref="pages"/>
-  </xed:template>
-
-  <xed:template id="host.festschrift.linked">
     <xed:include uri="webapp:import-editor.xed" ref="pages"/>
   </xed:template>
 
