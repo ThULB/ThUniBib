@@ -355,15 +355,22 @@
 
   <xed:template id="conference">
     <xed:repeat xpath="mods:name[@type='conference']">
-      <div class="form-group form-inline">
+      <div class="row mb-3">
         <xed:bind xpath="mods:namePart">
-            <label for="{xed:generate-id()}" class="mycore-form-label">
-              <xed:output value="concat(i18n:translate('ubo.conference'), ': ')"/>
-            </label>
-            <input id="{xed:generate-id()}" type="text" class="mycore-form-input"
-                   placeholder="{i18n:ubo.conference.placeholder}"/>
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
+            <xed:output value="concat(i18n:translate('ubo.conference'), ': ')"/>
+          </label>
+
+          <div class="col col-sm-6 pe-0">
+            <input id="{xed:generate-id()}" type="text" class="form-control" placeholder="{i18n:ubo.conference.placeholder}"/>
+          </div>
         </xed:bind>
-        <xed:controls/>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
@@ -739,20 +746,31 @@
     <xed:repeat xpath="mods:relatedItem[@type='series']" max="3">
       <xed:bind xpath="mods:genre[@type='intern']" default="series"/>
 
-      <div class="form-group form-inline ubo-repeat-group">
+      <div class="row mb-1 ubo-repeat-group">
         <xed:bind xpath="mods:titleInfo/mods:title">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
             <xed:output value="concat(i18n:translate('ubo.series.title'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" type="text" class="mycore-form-input" placeholder="{i18n:ubo.series.title.placeholder}"/>
-        </xed:bind>
-        <xed:controls/>
 
+          <div class="col col-sm-6 pe-0">
+            <input id="{xed:generate-id()}" type="text" class="form-control" placeholder="{i18n:ubo.series.title.placeholder}"/>
+          </div>
+        </xed:bind>
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
         <xed:bind xpath="mods:part/mods:detail[@type='volume']/mods:number">
-          <label for="{xed:generate-id()}" class="mycore-form-label pt-1">
+          <label for="{xed:generate-id()}" class="col-1 offset-sm-3 col-form-label text-sm-end">
             <xed:output value="concat('↳ ', i18n:translate('ubo.series.volume'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" type="text" class="form-control col-sm-2 mt-1" placeholder="{i18n:ubo.series.volume.placeholder}"/>
+          <div class="col col-sm-5 pe-0">
+            <input id="{xed:generate-id()}" type="text" class="form-control" placeholder="{i18n:ubo.series.volume.placeholder}"/>
+          </div>
         </xed:bind>
       </div>
     </xed:repeat>
@@ -775,14 +793,19 @@
   <xed:template id="comment">
     <xed:repeat xpath="mods:note[not(@type='intern')]">
       <div class="row mb-3">
-        <label for="{xed:generate-id()}" class="col-12 col-sm-6 col-form-label text-sm-end">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.note'), ': ')"/>
         </label>
 
-        <div class="col-12 col-sm-6 pe-0">
+        <div class="col col-sm-6 pe-0">
           <input id="{xed:generate-id()}" type="text" class="form-control"/>
         </div>
-        <xed:controls/>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
@@ -906,11 +929,13 @@
 
   <xed:template id="scale">
     <xed:bind xpath="mods:subject/mods:cartographics/mods:scale">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.scale'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
@@ -922,24 +947,26 @@
 
   <xed:template id="coordinates.latitude">
     <xed:bind xpath="mods:subject/mods:cartographics/mods:coordinates[1]">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-emd">
           <xed:output value="concat(i18n:translate('ubo.coordinates.latitude'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input"
-               placeholder="{i18n:ubo.coordinates.format.decimal} (50.9287800)" type="text"/>
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" placeholder="{i18n:ubo.coordinates.format.decimal} (50.9287800)" type="text"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
 
   <xed:template id="coordinates.longitude">
     <xed:bind xpath="mods:subject/mods:cartographics/mods:coordinates[2]">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.coordinates.longitude'), ': ')"/>
         </label>
-        <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input"
-               placeholder="{i18n:ubo.coordinates.format.decimal} (11.5899000)" type="text"/>
+        <div class="col-12 col-sm-6 pe-0">
+          <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" placeholder="{i18n:ubo.coordinates.format.decimal} (11.5899000)" type="text"/>
+        </div>
       </div>
     </xed:bind>
   </xed:template>
