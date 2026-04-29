@@ -9,20 +9,26 @@
 
   <xed:template id="fundingType">
     <xed:repeat xpath="mods:classification[@classID='fundingType']" max="3">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('thunibib.funding.type'), ': ')"/>
         </label>
-        <select id="{xed:generate-id()}" class="mycore-form-input custom-select">
-          <option value="">
-            <xed:output i18n="search.select"/>
-          </option>
-          <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:fundingType"/>
-        </select>
 
-        <xed:controls/>
+        <div class="col col-sm-6 pe-0">
+          <select id="{xed:generate-id()}" class="form-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:fundingType"/>
+          </select>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
-
 </xed:template>
