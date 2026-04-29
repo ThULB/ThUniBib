@@ -862,12 +862,11 @@
   </xed:template>
 
   <xed:template id="identifier">
-    <xed:repeat
-        xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm oclc', @type)]">
-      <div class="form-inline form-group ubo-repeat-group">
-        <xed:bind xpath="@type" default="doi">
-          <label class="mycore-form-label d-flex align-items-center mt-0">
-            <select class="form-control custom-select">
+    <xed:repeat xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm oclc', @type)]">
+      <div class="row mb-3">
+        <div class="col-12 col-sm-3">
+          <xed:bind xpath="@type" default="doi">
+            <select class="form-select">
               <option value="doi">DOI</option>
               <option value="urn">URN</option>
               <option value="hdl">Handle</option>
@@ -884,12 +883,18 @@
               <option value="dpm">Patentnummer</option>
               <option value="oclc">OCLC</option>
             </select>
-            <div class="ms-1">:</div>
-          </label>
-        </xed:bind>
+          </xed:bind>
+        </div>
 
-        <input class="{$xed-validation-marker} mycore-form-input" type="text"/>
-        <xed:controls/>
+        <div class="col col-sm-6 pe-0">
+          <input class="{$xed-validation-marker} form-control" type="text"/>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
@@ -897,13 +902,20 @@
   <xed:template id="url">
     <xed:bind xpath="mods:location">
       <xed:repeat xpath="mods:url" max="3">
-        <div class="form-inline form-group ubo-repeat-group">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
+        <div class="row mb-3 ubo-repeat-group">
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
             <xed:output value="concat(i18n:translate('ubo.link'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
-                 placeholder="http://"/>
-          <xed:controls/>
+
+          <div class="col col-sm-6 pe-0">
+            <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text" placeholder="https://"/>
+          </div>
+
+          <div class="col col-sm-3 ps-0">
+            <div class="input-group">
+              <xed:controls/>
+            </div>
+          </div>
         </div>
       </xed:repeat>
     </xed:bind>
@@ -911,18 +923,25 @@
 
   <xed:template id="topics">
     <xed:repeat xpath="mods:subject">
-      <div class="form-inline form-group ubo-repeat-group">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.subject.topic'), ': ')"/>
         </label>
-        <xed:bind xpath="mods:topic">
-          <input id="{xed:generate-id(..)}" type="text" class="mycore-form-input"/>
-        </xed:bind>
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right"
-           data-bs-title="{i18n:thunibib.editor.help.mods.subject}">
-          <i class="fas fa-info"/>
-        </a>
-        <xed:controls/>
+
+        <div class="col col-sm-6 pe-0">
+          <xed:bind xpath="mods:topic">
+            <input id="{xed:generate-id(..)}" type="text" class="form-control"/>
+          </xed:bind>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.mods.subject}">
+              <i class="fas fa-info"/>
+            </a>
+            <xed:controls/>
+          </div>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
@@ -998,33 +1017,47 @@
 
   <xed:template id="abstract">
     <xed:repeat xpath="mods:abstract" max="4">
-      <div class="form-group form-inline ubo-repeat-group">
+      <div class="row mb-1">
         <xed:bind xpath="@xml:lang">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
             <xed:output value="concat(i18n:translate('ubo.abstract.in'), ': ')"/>
           </label>
-          <div class="language-search" data-preferred-languages="de,en,fr">
-            <input id="{xed:generate-id()}" type="hidden" class="language-search-input"/>
-            <!-- content is added by javascript -->
+
+          <div class="col col-sm-6 pe-0">
+            <div class="language-search" data-preferred-languages="de,en,fr">
+              <input id="{xed:generate-id()}" type="hidden" class="language-search-input"/>
+              <!-- content is added by javascript -->
+            </div>
           </div>
         </xed:bind>
-        <xed:controls/>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <xed:controls/>
+          </div>
+        </div>
       </div>
-      <div class="form-group form-inline">
+
+      <div class="row mb-1">
         <xed:bind xpath="@xlink:href">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
+          <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
             <xed:output value="concat(i18n:translate('ubo.abstract.link'), ': ')"/>
           </label>
-          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"
-                 placeholder="http://"/>
+
+          <div class="col col-sm-6 pe-0">
+            <input id="{xed:generate-id()}" class="{$xed-validation-marker} form-control" type="text" placeholder="https://"/>
+          </div>
         </xed:bind>
       </div>
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('ubo.abstract.ortext'), ': ')"/>
         </label>
-        <textarea id="{xed:generate-id()}" class="mycore-form-input" linewrap="on"
-                  placeholder="{i18n:ubo.abstract.placeholder}" rows="10"/>
+
+        <div class="col-12 col-sm-6 pe-0">
+          <textarea id="{xed:generate-id()}" class="form-control" linewrap="on" placeholder="{i18n:ubo.abstract.placeholder}" rows="10"/>
+        </div>
       </div>
     </xed:repeat>
   </xed:template>
