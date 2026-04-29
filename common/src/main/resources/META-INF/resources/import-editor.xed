@@ -625,22 +625,6 @@
     </div>
   </xed:template>
 
-  <xed:template id="book.contributors">
-    <xed:repeat xpath="mods:name[@type='personal']">
-      <div class="form-group form-inline ubo-repeat-group">
-        <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="aut">
-          <label class="mycore-form-label d-flex align-items-center mt-0 ubo-mandatory">
-            <select class="form-control custom-select">
-              <xed:include uri="xslStyle:items2options:webapp:rollen.xml"/>
-            </select>
-            <div class="ms-1">:</div>
-          </label>
-        </xed:bind>
-        <xed:include uri="webapp:import-editor.xed" ref="person"/>
-      </div>
-    </xed:repeat>
-  </xed:template>
-
   <xed:template id="person.role">
     <xed:repeat xpath="mods:name[@type='personal']">
       <div class="row mb-3 ubo-repeat-group">
@@ -1219,10 +1203,8 @@
       <xed:bind xpath="@xlink:type" set="locator"/>
       <xed:bind xpath="@inherited" set="0"/>
       <xed:choose>
-        <xed:when
-            test="../../../metadata/def.modsContainer/modsContainer/mods:mods/mods:relatedItem[@type='host'][@xlink:href]">
-          <xed:bind xpath="@xlink:href"
-                    set="{../../../../metadata/def.modsContainer/modsContainer/mods:mods/mods:relatedItem[@type='host']/@xlink:href}"/>
+        <xed:when test="../../../metadata/def.modsContainer/modsContainer/mods:mods/mods:relatedItem[@type='host'][@xlink:href]">
+          <xed:bind xpath="@xlink:href" set="{../../../../metadata/def.modsContainer/modsContainer/mods:mods/mods:relatedItem[@type='host']/@xlink:href}"/>
         </xed:when>
         <xed:otherwise>
           <xed:bind xpath="@xlink:href" set=""/>
