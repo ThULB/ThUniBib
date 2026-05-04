@@ -12,6 +12,7 @@ import java.util.HashMap;
  *
  * @author shermann (Silvio Hermann)
  * */
+@JsonIgnoreProperties(ignoreUnknown = true)
 abstract public class SysValue {
     @JsonProperty("id")
     protected int id;

@@ -56,6 +56,12 @@
         </xsl:choose>
       </field>
     </xsl:if>
+
+    <xsl:if test="not(../mods:affiliation[contains(@valueURI, 'isAffiliated#false')])">
+      <field name="nid_connection_affiliated">
+        <xsl:value-of select="."/>
+      </field>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="oa-status">

@@ -20,6 +20,8 @@
         test="string-length(mods:namePart[@type='family']) &gt; 0" i18n="ubo.role.author.validation" display="global"/>
     <xed:validate xpath="//mods:nameIdentifier[@type='orcid']" matches="\d{4}\-\d{4}\-\d{4}\-\d{3}[0-9X]"
                   i18n="ubo.nameIdentifier.orcid.validation" display="global"/>
+    <xed:validate xpath="//mods:nameIdentifier[@type='gnd']" matches="\b(1\d{7}[0-9X]|1[01]\d{8}[0-9X])\b"
+                  i18n="thunibib.nameIdentifier.gnd.validation" display="global"/>
     <xed:validate xpath="//mods:identifier[@type='doi']" matches="10\.\d+.*" i18n="ubo.identifier.doi.validation"
                   display="global"/>
     <xed:validate xpath="//mods:identifier[@type='urn']" matches="urn:nbn:[a-z]{2}:\S*"
