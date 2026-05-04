@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026.05.04-2024.06.x
+- [#957](https://github.com/ThULB/ThUniBib/issues/957) Reflect integration of charts-common in base UBO (#958)
+- [#975](https://github.com/ThULB/ThUniBib/issues/975) Set version of charts-common to 2.3 (#976)
+- [#979](https://github.com/ThULB/ThUniBib/issues/979) Added `JsonIgnoreProperties` annotation to class `SysValue` (#980)
+- [#981](https://github.com/ThULB/ThUniBib/issues/981) Validate format of GND when provided as mods:nameIdentifier (#982)
+- [FSU040THUL-12224](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12224) [#969](https://github.com/ThULB/ThUniBib/issues/969) Add support for document type `legal commentary` (#970)
+- [FSU040THUL-12231](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12231) [#965](https://github.com/ThULB/ThUniBib/issues/965) Non-membership marker and statistics (#966)
+- [FSU040THUL-12234](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12234) [#967](https://github.com/ThULB/ThUniBib/issues/967) Added licence type facet (#968)
+- [FSU040THUL-12238](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12238) [#973](https://github.com/ThULB/ThUniBib/issues/973) Indicate publication is in orcid profile by badge (#974)
+- [FSU040THUL-12628](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12628) [#983](https://github.com/ThULB/ThUniBib/issues/983) [WE] Update structural units (ORIGIN.xml) (#984)
+---
+
 ## 2026.03.27-2024.06.x
 - [#951](https://github.com/ThULB/ThUniBib/issues/951) [J] Provide chart for publications by year, separated by affiliation (#952)
 - [#955](https://github.com/ThULB/ThUniBib/issues/955) [WE] Updated and moved filter query content to query parameter in Solr URI (#956)
