@@ -112,6 +112,17 @@
       "indexed": true,
       "stored": true
     }
+  },
+  {
+    "add-field": {
+      "name": "hisinone",
+      "type": "string",
+      "stored": true
+    },
+    "add-copy-field": {
+      "source": "servflag.MyCoRe-HISinOne",
+      "dest": "hisinone"
+    }
   }
 ]
 

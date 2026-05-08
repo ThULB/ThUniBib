@@ -106,5 +106,5 @@
   </xsl:template>
 
   <!-- Remove all elements with unresolved values -->
-    <xsl:template match="*[fn:number() &lt; 0]"/>
+    <xsl:template match="*[fn:number() &lt; 0] | *[fn:contains(@typeURI, '#-1')]"/>
 </xsl:stylesheet>
