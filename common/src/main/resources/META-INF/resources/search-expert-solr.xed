@@ -197,7 +197,7 @@
                 <div id="accordionExtraOptions" class="accordion form-group">
                   <div>
                     <div id="headingExtraOptions" class="ml-3">
-                      <button class="btn btn-outline-primary  text-left" type="button" data-toggle="collapse"
+                      <button class="btn btn-outline-primary  text-left" type="button" data-bs-toggle="collapse"
                               data-target="#extraOptionsCollapsable" aria-expanded="true"
                               aria-controls="extraOptionsCollapsable">
                         <xed:output i18n="latestObjects.more"/>

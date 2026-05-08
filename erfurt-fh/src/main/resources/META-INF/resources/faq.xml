@@ -73,8 +73,8 @@
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was ist mit Veröffentlichung gemeint?
@@ -101,8 +101,8 @@
             <div class="card">
               <div class="card-header" id="headingTwo">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was wird verzeichnet?
@@ -297,8 +297,8 @@
             <div class="card">
               <div class="card-header" id="headingThree">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Wer kann Publikationen melden?
@@ -323,8 +323,8 @@
             <div class="card">
               <div class="card-header" id="headingFour">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Wie können Publikationen gemeldet werden?
@@ -347,8 +347,8 @@
             <div class="card">
               <div class="card-header" id="headingFive">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFive" aria-expanded="false" aria-controls="headingFive">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseFive" aria-expanded="false" aria-controls="headingFive">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Warum ist meine Publikation (noch) nicht sichtbar?
@@ -371,8 +371,8 @@
             <div class="card">
               <div class="card-header" id="headingSix">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was bedeutet der Hinweis „Teil der Statistik“?
@@ -394,8 +394,8 @@
             <div class="card">
               <div class="card-header" id="headingSeven">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was sind Metadaten?
@@ -415,8 +415,8 @@
             <div class="card">
               <div class="card-header" id="headingEight">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was gibt es für Open-Access-Lizenzen?
@@ -447,8 +447,8 @@
             <div class="card">
               <div class="card-header" id="headingNine">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Wie erstelle ich (m)eine Publikationsliste?
@@ -481,8 +481,8 @@
             <div class="card">
               <div class="card-header" id="headingPersonIcons">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
+                  <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     <xinclude uri="i18n:thunibib.faq.icon.headline"/>
@@ -540,8 +540,8 @@
             <div class="card">
               <div class="card-header" id="headingEleven">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Was ist unter den Zugangsrechten (Access Rights) zu verstehen?
@@ -591,8 +591,8 @@
             <div class="card">
               <div class="card-header" id="headingTwelve">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Wie verknüpfe ich meine ORCID-ID mit der Bibliographie?
@@ -626,8 +626,8 @@
             <div class="card">
               <div class="card-header" id="headingServiceOne">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceOne" aria-expanded="false" aria-controls="collapseServiceOne">
+                  <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceOne" aria-expanded="false" aria-controls="collapseServiceOne">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Kennzeichnung von Open Access
@@ -660,8 +660,8 @@
             <div class="card">
               <div class="card-header" id="headingServiceThree">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceThree" aria-expanded="false"
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceThree" aria-expanded="false"
                           aria-controls="collapseServiceThree">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
@@ -683,8 +683,8 @@
             <div class="card">
               <div class="card-header" id="headingServiceFour">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceFour" aria-expanded="false" aria-controls="collapseServiceFour">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceFour" aria-expanded="false" aria-controls="collapseServiceFour">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Statistiken
@@ -707,8 +707,8 @@
             <div class="card">
               <div class="card-header" id="headingServiceFive">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceFive" aria-expanded="false" aria-controls="collapseServiceFive">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceFive" aria-expanded="false" aria-controls="collapseServiceFive">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Unterstützung bei der Erstellung von (persönlichen) Publikationslisten
@@ -732,8 +732,8 @@
             <div class="card">
               <div class="card-header" id="headingServiceSix">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceSix" aria-expanded="false" aria-controls="collapseServiceSix">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceSix" aria-expanded="false" aria-controls="collapseServiceSix">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Verknüpfung mit Personen-IDs
@@ -784,8 +784,8 @@
             <div class="card">
               <div class="card-header" id="headingOneEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseOneEn" aria-expanded="false" aria-controls="collapseOneEn">
+                  <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseOneEn" aria-expanded="false" aria-controls="collapseOneEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What is meant by publication?
@@ -812,8 +812,8 @@
             <div class="card">
               <div class="card-header" id="headingTwoEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseTwoEn" aria-expanded="false" aria-controls="collapseTwoEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseTwoEn" aria-expanded="false" aria-controls="collapseTwoEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Which publications are listed?
@@ -1039,8 +1039,8 @@
             <div class="card">
               <div class="card-header" id="headingThreeEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThreeEn" aria-expanded="false" aria-controls="collapseThreeEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseThreeEn" aria-expanded="false" aria-controls="collapseThreeEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Who can register publications?
@@ -1064,8 +1064,8 @@
             <div class="card">
               <div class="card-header" id="headingFourEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFourEn" aria-expanded="false" aria-controls="collapseFourEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseFourEn" aria-expanded="false" aria-controls="collapseFourEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     How can publications be reported?
@@ -1089,8 +1089,8 @@
             <div class="card">
               <div class="card-header" id="headingFiveEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseFiveEn" aria-expanded="false" aria-controls="collapseFiveEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseFiveEn" aria-expanded="false" aria-controls="collapseFiveEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Why is my publication not (yet) visible?
@@ -1114,8 +1114,8 @@
             <div class="card">
               <div class="card-header" id="headingSixEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSixEn" aria-expanded="false" aria-controls="collapseSixEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseSixEn" aria-expanded="false" aria-controls="collapseSixEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What does the reference "part of the statistics" mean?
@@ -1138,8 +1138,8 @@
             <div class="card">
               <div class="card-header" id="headingSevenEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseSevenEn" aria-expanded="false" aria-controls="collapseSevenEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseSevenEn" aria-expanded="false" aria-controls="collapseSevenEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What is metadata?
@@ -1162,8 +1162,8 @@
             <div class="card">
               <div class="card-header" id="headingEightEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseEightEn" aria-expanded="false" aria-controls="collapseEightEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseEightEn" aria-expanded="false" aria-controls="collapseEightEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What open access licences are available?
@@ -1197,8 +1197,8 @@
             <div class="card">
               <div class="card-header" id="headingNineEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseNineEn" aria-expanded="false" aria-controls="collapseNineEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseNineEn" aria-expanded="false" aria-controls="collapseNineEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     How do I create (my) publication list?
@@ -1231,8 +1231,8 @@
             <div class="card">
               <div class="card-header" id="headingTenEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseTenEn" aria-expanded="false" aria-controls="collapseTenEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseTenEn" aria-expanded="false" aria-controls="collapseTenEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     What is meant by the access rights?
@@ -1288,8 +1288,8 @@
             <div class="card">
               <div class="card-header" id="headingPersonIcons">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
+                  <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     <xinclude uri="i18n:thunibib.faq.icon.headline"/>
@@ -1347,8 +1347,8 @@
             <div class="card">
               <div class="card-header" id="headingElevenEn">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseElevenEn" aria-expanded="false" aria-controls="collapseElevenEn">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseElevenEn" aria-expanded="false" aria-controls="collapseElevenEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     How do I link my ORCID-ID to the university bibliography?
@@ -1380,8 +1380,8 @@
             <div class="card">
               <div class="card-header" id="headingServiceEnOne">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseServiceEn" aria-expanded="false"
+                  <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceEn" aria-expanded="false"
                           aria-controls="collapseServiceEn">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
@@ -1418,8 +1418,8 @@
               <div class="card-header" id="headingServiceEnThree">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button"
-                          data-toggle="collapse"
-                          data-target="#collapseServiceEnThree" aria-expanded="false"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceEnThree" aria-expanded="false"
                           aria-controls="collapseServiceEnThree">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
@@ -1444,8 +1444,8 @@
               <div class="card-header" id="headingServiceEnFour">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button"
-                          data-toggle="collapse"
-                          data-target="#collapseServiceEnFour" aria-expanded="false"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceEnFour" aria-expanded="false"
                           aria-controls="collapseServiceEnFour">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
@@ -1471,8 +1471,8 @@
               <div class="card-header" id="headingServiceEnFive">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button"
-                          data-toggle="collapse"
-                          data-target="#collapseServiceEnFive" aria-expanded="false"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceEnFive" aria-expanded="false"
                           aria-controls="collapseServiceEnFive">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
@@ -1505,8 +1505,8 @@
               <div class="card-header" id="headingServiceEnSix">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button"
-                          data-toggle="collapse"
-                          data-target="#collapseServiceEnSix" aria-expanded="false"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseServiceEnSix" aria-expanded="false"
                           aria-controls="collapseServiceEnSix">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>

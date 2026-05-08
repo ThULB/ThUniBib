@@ -40,7 +40,7 @@
   </xsl:template>
 
   <xsl:template name="heading">
-    <div class="row font-weight-bold border-bottom pb-2 pt-2">
+    <div class="row fw-bold border-bottom pb-2 pt-2">
       <div class="col-2 text-truncate">
         <xsl:value-of select="'name'"/>
       </div>
@@ -57,7 +57,7 @@
 
   <xsl:template match="user">
     <div class="row pt-2 pb-2 border-bottom">
-      <div class="col-2 font-weight-bold text-truncate">
+      <div class="col-2 fw-bold text-truncate">
         <a href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={id}">
           <xsl:value-of select="name"/>
         </a>

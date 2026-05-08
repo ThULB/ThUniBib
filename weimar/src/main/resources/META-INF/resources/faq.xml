@@ -51,7 +51,7 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -71,7 +71,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -92,7 +92,7 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -112,7 +112,7 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -135,7 +135,7 @@
         <div class="card">
           <div class="card-header" id="headingORCID">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseORCID" aria-expanded="false" aria-controls="collapseORCID">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -156,7 +156,7 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -176,7 +176,7 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -247,7 +247,7 @@
         <div class="card">
           <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
@@ -277,7 +277,7 @@
         <div class="card">
           <div class="card-header" id="headingEight">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 <xinclude uri="i18n:thunibib.faq.icon.headline"/>
@@ -342,7 +342,7 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -362,7 +362,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -383,7 +383,7 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -403,7 +403,7 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -423,7 +423,7 @@
         <div class="card">
           <div class="card-header" id="headingORCIDEn">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
                       data-target="#collapseORCIDEn" aria-expanded="false" aria-controls="collapseORCIDEn">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -443,7 +443,7 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -463,7 +463,7 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse"
                       data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
@@ -535,7 +535,7 @@
         <div class="card">
           <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 What is the difference between different Access Rights options?
@@ -565,7 +565,7 @@
         <div class="card">
           <div class="card-header" id="headingEight">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 <xinclude uri="i18n:thunibib.faq.icon.headline"/>

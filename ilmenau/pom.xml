@@ -9,7 +9,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-ilmenau</artifactId>
-  <name>ThUniBib Layout: Ilmenau</name>
+  <name>ThUniBib Layout: TU Ilmenau</name>
   <dependencies>
     <dependency>
       <groupId>de.uni-jena.thulb.ubo</groupId>
