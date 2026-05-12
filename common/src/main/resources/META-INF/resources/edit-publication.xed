@@ -105,20 +105,24 @@
                   <xed:include uri="webapp:import-genres.xed" ref="genre.{$genre_intern}" />
                 </xed:when>
                 <xed:otherwise>
-                  <xed:include uri="webapp:import-genres-submitter.xed" ref="genre.{$genre_intern}" />
+                  <xed:include uri="webapp:import-genres-submitter.xed" ref="submitter.default" />
                 </xed:otherwise>
               </xed:choose>
 
               <hr class="bg-danger" />
             </fieldset>
 
-            <fieldset>
-              <xed:include ref="languages" />
-              <xed:include ref="topics" />
-              <xed:if test="not($genre_intern='abstract') or not($genre_intern='preface')">
-                <xed:include ref="abstract" />
-              </xed:if>
-            </fieldset>
+            <xed:if test="xed:call-java('org.mycore.ubo.AccessControl','currentUserIsAdmin')">
+              <fieldset>
+                <xed:include ref="languages" />
+                <xed:include ref="topics" />
+                <xed:if test="not($genre_intern='abstract') or not($genre_intern='preface')">
+                  <xed:include ref="abstract" />
+                </xed:if>
+
+                <hr class="bg-danger" />
+              </fieldset>
+            </xed:if>
 
             <xed:if test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
               <fieldset>
