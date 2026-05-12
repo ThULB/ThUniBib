@@ -8,184 +8,301 @@
 
   <div class="row">
     <div class="col-12 col-md-8">
-
-      <article class="card mb-3" xml:lang="de">
+      <div class="card">
         <div class="card-body">
-          <p>
-            Die Universitätsbibliographie ist das digitale Publikationsdokumentationssystem der
-            Friedrich-Schiller-Universität Jena. Es dient der Erfassung, Präsentation und Dokumentation der
-            Publikationsleistungen aller Angehörigen der Universität, sowie des Universitätsklinikums Jena.
-          </p>
-          <p>
-            Ab dem 01.06.2022 werden in der Universitätsbibliographie sukzessive Publikationen nachgewiesen. Diese
-            gelangen über Datenbanken, manuelle Meldungen oder Listen in die Bibliographie und werden durch die ThULB
-            redaktionell geprüft. Derzeit befindet sich die Universitätsbibliographie im Aufbau und es werden vorrangig
-            aktuelle Publikationen bearbeitet.
-          </p>
-          <p>
-            Sie können <a href="https://bibliographie.uni-jena.de/newPublication.xed">Ihre Publikationen an die
-            Universitätsbibliographie melden.
-          </a> Damit helfen Sie uns bei der Vervollständigung. Wir freuen uns auf Ihre Unterstützung.
-          </p>
-          <p>
-            Der Aufbau der Universitätsbibliographie wird durch das Land Thüringen im Rahmen der Thüringer
-            Digitalstrategie gefördert und erfolgt in Zusammenarbeit mit dem Bibliotheksservicecenter Thüringen sowie
-            der Verbundzentrale des Gemeinsamen Bibliotheksverbundes.
-          </p>
-        </div>
-      </article>
-    </div>
+          <h3>FAQ</h3>
 
-    <div class="col-12 col-md-4">
-      <article class="card mb-3" xml:lang="de">
-        <div class="card-body">
-          <h3>Links:</h3>
-          <ul>
-            <li>Informationen zu
-              <a href="https://www.thulb.uni-jena.de/services/forschung-/-lehre/open-access-/-elektronisches-publizieren"
-                 target="_blank">Open Access und zum elektronischen Publizieren
-              </a>
-            </li>
-            <li>Informationen zur
-              <a href="https://www.thulb.uni-jena.de/services/forschung-/-lehre/hochschulschriften-abgabe"
-                 target="_blank">Abgabe von Hochschulschriften
-              </a>
-            </li>
-            <li>Kontakt bei weiteren Fragen:
-              <a href="mailto:unibibliographie_thulb@uni-jena.de" target="_blank">unibibliographie_thulb@uni-jena.de
-              </a>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                          data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
 
-  <article class="card mb-3" xml:lang="de">
-    <div class="card-body">
-      <h3>FAQ</h3>
+                    <i18n:de>Welche Publikationen werden in die Universitätsbibliographie eingetragen?</i18n:de>
+                    <i18n:en>Which types of publications are contained in the University Bibliography?</i18n:en>
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  <i18n:de>
+                    <p>
+                      In der Universitätsbibliographie werden Publikationen erfasst, die in gedruckter oder digitaler
+                      Form erschienen sind. Das sind beispielsweise Zeitschriftenartikel, Monographien, Beiträge in
+                      Sammelwerken, aber auch Tondokumente und multimediale, digitale Veröffentlichungen.
+                    </p>
+                  </i18n:de>
 
-      <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                Welche Publikationen werden in die Bibliographie eingetragen?
-              </button>
-            </h3>
-          </div>
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-              <p>
-                In der Bibliographie werden selbstständige und unselbstständige Publikationen erfasst, die gedruckt oder
-                in digitaler Form erschienen sind. Das können beispielsweise Monographien, Artikel in Zeitschriften und
-                Beiträge in Sammelwerken sein, aber auch Tondokumente und multimediale, digitale Veröffentlichungen.
-              </p>
+                  <i18n:en>
+                    <p>
+                      The University Bibliography includes publications (books and articles) that have been published
+                      digitally or in print, such as journal articles, monographs, contributions to anthologies, as well
+                      as audio recordings and multimedia digital publications.
+                    </p>
+                  </i18n:en>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                Wer kann Publikationen eintragen?
-              </button>
-            </h3>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-              <p>
-                Alle Angehörigen der Universität Jena und des Universitätsklinikums können ihre Publikationen an die
-                Universitätsbibliographie Jena melden. Dazu ist eine Anmeldung mit dem URZ-Login erforderlich.
-              </p>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    <i18n:de>Wer kann Publikationen eintragen?</i18n:de>
+                    <i18n:en>Who may submit publications?</i18n:en>
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  <i18n:de>
+                    <p>
+                      Alle Angehörigen der Friedrich-Schiller-Universität Jena und des Universitätsklinikums können ihre
+                      Publikationen an die Universitätsbibliographie melden. Um Publikationen einreichen zu können,
+                      ist ein URZ-Login erforderlich.
+                    </p>
+                  </i18n:de>
+
+                  <i18n:en>
+                    <p>
+                      All members of the Friedrich Schiller University Jena and the University Hospital Jena may submit
+                      publications to the University Bibliography. For submitting, an URZ login is needed.
+                    </p>
+                  </i18n:en>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                Wie kann man Publikationen in die Bibliographie eintragen?
-              </button>
-            </h3>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-              <p>
-                Angehörige der Universität können sich in der Bibliographie anmelden, indem sie auf den Pfeil oben
-                rechts klicken und sich mit ihrem URZ-Login einloggen.
-                Auf der Seite „<a href="https://bibliographie.uni-jena.de/newPublication.xed">Publikation einreichen</a>“
-                gelangen Sie mit der Angabe eines Identifier (z.B. DOI) oder mit der Angabe von Autor*in und Titel der
-                Publikation zur Eingabemaske für Publikationen.
-              </p>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    <i18n:de>Wie kann man Publikationen in der Universitätsbibliographie einreichen?</i18n:de>
+                    <i18n:en>How can I submit publications?</i18n:en>
+
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  <i18n:de>
+                    <p>
+                      Sie rufen die Startseite der <a href="https://bibliographie.uni-jena.de?lang=de">
+                      Universitätsbibliographie </a> auf und melden sich dort mit Ihrem
+                      URZ-Login an. Über <a href="newPublication.xed">„Publikation einreichen“</a> gelangen Sie zur
+                      Eingabemaske für Publikationen. Dort
+                      ist entweder die Angabe des Identifikators (z.B. DOI oder ISBN) oder die Angabe von Autor*in und
+                      Titel der Publikation notwendig.
+                    </p>
+
+                    <p>
+                      <a href="assets/de/01-DE-Handout.pdf" class="font-weight-bold">Ausführliche Schritt-für-Schritt-Anleitung</a>
+                    </p>
+
+                    <p>
+                      Wenn Sie mehrere Publikationen oder Publikationslisten einreichen möchten, kontaktieren Sie das
+                      Team bitte per E-Mail: <a href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de.</a>
+                    </p>
+                  </i18n:de>
+
+                  <i18n:en>
+                    <p>
+                      Go to the <a href="https://bibliographie.uni-jena.de?lang=en">homepage</a> of the University
+                      Bibliography and log in with your URZ login. Then choose
+                      <a href="https://bibliographie.uni-jena.de/newPublication.xed?lang=en">"Registering a
+                        publication"
+                      </a>
+                      to access the input screen for publications. There you either enter
+                      the identifier (e.g. DOI or ISBN) or the author and title of the publication.
+                      You are also welcome to import collected literature lists. Please send an e-mail to
+                      <a href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de.</a>
+                    </p>
+
+                    <p>
+                      <a href="assets/en/01-EN-Handout.pdf" class="font-weight-bold">Step-by-Step Guide</a>
+                    </p>
+                  </i18n:en>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-header" id="headingFour">
-            <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                Warum ist meine eingereichte Publikation nicht sofort in der Bibliographie auffindbar?
-              </button>
-            </h3>
-          </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-            <div class="card-body">
-              <p>
-                Eingereichte Publikationen werden von einem Redaktionsteam an der ThULB überprüft. Dadurch kann es zu
-                zeitlichen Verzögerungen kommen. Die Einträge werden gegebenenfalls korrigiert und aufgearbeitet, um
-                eine einheitliche Datenqualität hinsichtlich der statistischen Auswertung zu gewährleisten.
-              </p>
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    <i18n:de>Warum ist meine eingereichte Publikation nicht sofort in der Universitätsbibliographie auffindbar?</i18n:de>
+                    <i18n:en>Why is my publication not found in the University Bibliography immediately?</i18n:en>
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                  <i18n:de>
+                    <p>
+                      Ihre Publikation ist nicht sofort auffindbar, da das Team der Universitätsbibliographie jede
+                      einzelne Einreichung prüft und ggf. Informationen ergänzt, um Qualität und Einheitlichkeit der
+                      Metadaten zu gewährleisten.
+                    </p>
+                  </i18n:de>
+
+                  <i18n:en>
+                    <p>
+                      Your submission is not found immediately, because the University Bibliography team checks every
+                      single submission and adds additional data, if necessary, to ensure the quality and consistency of
+                      publication records. You will receive feedback as soon as the publication has been editorially
+                      checked and is listed in the University Bibliography
+                    </p>
+                  </i18n:en>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-header" id="headingFive">
-            <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
-                Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
-              </button>
-            </h3>
-          </div>
-          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-            <div class="card-body">
-              <dl>
+            <div class="card">
+              <div class="card-header" id="headingFive">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    <i18n:de>
+                      Wie kann ich mein ORCID-Profil mit der Universitätsbibliographie verknüpfen und welche Vorteile hat dies?
+                    </i18n:de>
 
-                <dt>Open Access</dt>
-                <dd><strong>Offener Zugang:</strong> Eine Ressource ist Open Access wenn sie sofort und dauerhaft online und für alle im Web kostenlos und ohne finanzielle und technische Hindernisse verfügbar ist.</dd>
+                    <i18n:en>
+                      How can I connect my ORCID profile to my University Bibliography profile and what are the advantages of this connection?
+                    </i18n:en>
+                  </button>
+                </h3>
+              </div>
 
-                <dt>Embargoed access</dt>
-                <dd><strong>Zugang unterliegt Embargo:</strong> Eine Ressource, die einem Embargo unterliegt, wird ab einem bestimmten Datum für den offenen Zugriff freigegeben. Bis dahin können nur die Metadaten angezeigt werden. Embargos können von Herausgeber- und Geldgeberrichtlinien verlangt oder vom Autor festgelegt werden.</dd>
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                <div class="card-body">
+                  <i18n:de>
+                    <p>
+                      Um Publikationsdaten aus der Universitätsbibliographie Jena automatisiert in Ihr ORCID-Profil
+                      übertragen zu lassen, können Sie selbst eine entsprechende Verknüpfung erstellen.
+                    </p>
+                    <p>
+                      Alle in der Universitätsbibliographie erfassten Titel werden dann automatisch in Ihrem
+                      ORCID-Profil angezeigt.
+                    </p>
 
-                <dt>Restricted access</dt>
-                <dd><strong>Eingeschränkter Zugang:</strong> Ressource, die in einem System verfügbar ist, jedoch eine gewisse Einschränkung für den vollständigen offenen Zugriff aufweist.</dd>
+                    <p>
+                      <a class="font-weight-bold" href="assets/de/02-DE-Handout.pdf">Ausführliche Schritt für Schritt-Anleitung</a>
+                    </p>
+                  </i18n:de>
 
-                <dt>Metadata only access</dt>
-                <dd><strong>Nur Metadaten:</strong> Eine Ressource, bei der der Zugriff nur auf Metadaten beschränkt ist. Die Ressource selbst wird durch die Metadaten beschrieben, ist jedoch weder direkt über das System noch über die Plattform verfügbar.</dd>
-              </dl>
+                  <i18n:en>
+                    <p>
+                      You can create a connection yourself to automatically transfer publication data from the
+                      University Bibliography to your ORCID profile. All publications listed in the University
+                      Bibliography will then be displayed in your ORCID profile automatically. 
+                    </p>
+                    <p>
+                      <a class="font-weight-bold" href="assets/en/02-EN-Handout.pdf">Step-by-Step Guide</a>
+                    </p>
+                  </i18n:en>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- NEW -->
+            <div class="card">
+              <div class="card-header" id="headingSix">
+                <h3 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    <i class="fas fa-plus-circle"/>
+                    <i class="fas fa-minus-circle"/>
+                    <i18n:de>
+                      Wie kann meine persönliche Publikationsliste aus der Universitätsbibliographie in meine persönliche Universitätswebseite eingebunden werden?
+                    </i18n:de>
+                    <i18n:en>
+                      How does the integration of my publication list from the University Bibliography into my personal university website work?
+                    </i18n:en>
+                  </button>
+                </h3>
+              </div>
+
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                <div class="card-body">
+                  <i18n:de>
+                    <p>
+                      Mit Hilfe Ihres Profils in der Universitätsbibliographie können Sie die Publikationsliste auf
+                      Ihrer persönlichen Universitätswebseite über das Content-Management-System (CMS) der Universität
+                      Jena einbinden und automatisiert pflegen lassen: <a href="https://wiki.uni-jena.de/spaces/STK002KNOW/pages/192610766/Publikationen+-+%C3%9Cbersicht">CMS How to</a>
+                    </p>
+                  </i18n:de>
+
+                  <i18n:en>
+                    <p>
+                      You can integrate your publication list at the University Bibliography into your personal
+                      university website via its content management system (CMS) and have it maintained
+                      automatically: <a href="https://wiki.uni-jena.de/spaces/STK002KNOW/pages/192610766/Publikationen+-+%C3%9Cbersicht">CMS How to</a>
+                    </p>
+                  </i18n:en>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </article>
 
+    <div class="col-12 col-md-4">
+      <article class="card">
+        <div class="card-body">
+          <div class="bg-primary p-2">
+            <!-- GERMAN -->
+            <i18n:de>
+              <p class="font-weight-bold text-white">Kontakt</p>
+
+              <p class="text-white">
+                Haben Sie Fragen zur Universitätsbibliographie oder benötigen
+                Sie Hilfe oder Beratung?
+              </p>
+
+              <p class="text-white">
+                Sprechen Sie uns an!
+              </p>
+
+              <p class="text-white">
+                Team Universitätsbibliographie:
+                <a class="text-white" href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de</a>
+              </p>
+            </i18n:de>
+
+            <!-- ENGLISH-->
+            <i18n:en>
+              <p class="font-weight-bold text-white">Contact</p>
+
+              <p class="text-white">
+                Do you have any questions about the University Bibliography or need help or advice?
+              </p>
+
+              <p class="text-white">
+                Please contact us!
+              </p>
+
+              <p class="text-white">
+              Team of the University Bibliography:
+                <a class="text-white" href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de</a>
+              </p>
+            </i18n:en>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
 </webpage>
