@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xed:template xmlns:xed="http://www.mycore.de/xeditor">
+  <xed:template id="submitter.default">
+    <xed:include uri="webapp:import-editor.xed" ref="title.submitter"/>
+    <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+
+    <hr class="bg-danger" />
+
+    <xed:include ref="submitter.thunibib.relatedItem"/>
+  </xed:template>
+
+  <xed:template id="submitter.thunibib.relatedItem">
+    <fieldset>
+      <legend>
+        <xed:output value="concat(i18n:translate('thunibib.editor.label.published.in'), ': ')"/>
+      </legend>
+      <xed:bind xpath="mods:relatedItem[@type='host']">
+        <xed:choose>
+          <xed:when test="string-length(@xlink:href) &gt; 0">
+            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') and xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+            </xed:if>
+            <xed:if
+              test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+            </xed:if>
+          </xed:when>
+          <xed:otherwise>
+            <xed:include uri="webapp:import-editor.xed" ref="host"/>
+            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') and xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+            </xed:if>
+            <xed:include uri="webapp:import-editor.xed" ref="title.submitter"/>
+            <xed:if test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+            </xed:if>
+            <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+          </xed:otherwise>
+        </xed:choose>
+      </xed:bind>
+    </fieldset>
+  </xed:template>
+</xed:template>
