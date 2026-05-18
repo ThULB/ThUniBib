@@ -135,7 +135,17 @@
     <div class="bodywrapper pt-4 thunibib-bodywrapper-{$ThUniBib.Servlet}">
       <div class="container d-flex flex-column flex-grow-1 thunibib-container-{$ThUniBib.Servlet}">
         <div class="row">
-          <div class="col-lg">
+          <div>
+            <xsl:attribute name="class">
+              <xsl:choose>
+                <xsl:when test="//*[@id='thunibib-landing-page-jena']">
+                  <xsl:value-of select="'col-lg-9'"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="'col-lg'"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
             <xsl:call-template name="layout.inhalt"/>
           </div>
           <xsl:if test="body/aside[@id='sidebar']">
