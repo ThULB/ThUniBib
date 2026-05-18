@@ -98,7 +98,7 @@
     </div>
   </article>
 
-  <article class="card mb-3">
+  <article class="card mb-3 d-none d-sm-block">
     <div class="card-body">
       <xinclude uri="xslStyle:charts/bar-chart?ChartsCommon.omit.label.axis.y=true&amp;ChartsCommon.default.height=450&amp;horizontal=false&amp;facet=year:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2018+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
 
