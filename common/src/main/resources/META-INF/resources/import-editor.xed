@@ -230,14 +230,6 @@
           <textarea id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
         </div>
       </xed:bind>
-      <xed:bind xpath="mods:subTitle">
-        <div class="form-inline form-group">
-          <label for="{xed:generate-id()}" class="mycore-form-label">
-            <xed:output value="concat(i18n:translate('ubo.title.subTitle'), ': ')"/>
-          </label>
-          <input id="{xed:generate-id()}" class="{$xed-validation-marker} mycore-form-input" type="text"/>
-        </div>
-      </xed:bind>
     </xed:bind>
   </xed:template>
 
