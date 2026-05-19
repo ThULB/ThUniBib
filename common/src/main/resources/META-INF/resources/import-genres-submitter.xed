@@ -40,7 +40,7 @@
             <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') and xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
               <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
             </xed:if>
-            <xed:include uri="webapp:import-editor.xed" ref="title.submitter"/>
+            <xed:include uri="webapp:import-editor.xed" ref="title.submitter.optional"/>
             <xed:if test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
               <xed:include uri="webapp:import-editor.xed" ref="volume"/>
               <xed:include uri="webapp:import-editor.xed" ref="issue"/>
