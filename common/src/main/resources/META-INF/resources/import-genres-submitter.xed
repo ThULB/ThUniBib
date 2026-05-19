@@ -5,7 +5,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="title.submitter"/>
     <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
-    <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier.mandatory"/>
 
     <hr class="bg-danger" />
 

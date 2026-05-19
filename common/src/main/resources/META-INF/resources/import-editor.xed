@@ -802,6 +802,26 @@
     </xed:repeat>
   </xed:template>
 
+  <xed:template id="identifier.mandatory">
+    <xed:repeat xpath="mods:identifier[contains('doi urn hdl pubmed ieee arxiv zdb ppn scopus isi isbn issn dbt dpm oclc', @type)]">
+      <div class="form-inline form-group ubo-repeat-group">
+        <xed:bind xpath="@type" default="doi">
+          <label class="mycore-form-label d-flex align-items-center mt-0">
+            <div class="mr-2">*</div>
+            <select class="form-control custom-select">
+              <xed:include uri="xslStyle:genre-filter,items2options:classification:editor:-1:children:thunibibIdentifier"/>
+            </select>
+            <div class="ml-1">:</div>
+          </label>
+        </xed:bind>
+
+        <input class="{$xed-validation-marker} mycore-form-input" type="text"/>
+        <xed:validate required="true" relevant-if="@type!='unknown'" i18n="thunibib.validation.identifier.required" display="global"/>
+        <xed:controls/>
+      </div>
+    </xed:repeat>
+  </xed:template>
+
   <xed:template id="url">
     <xed:bind xpath="mods:location">
       <xed:repeat xpath="mods:url" max="3">
