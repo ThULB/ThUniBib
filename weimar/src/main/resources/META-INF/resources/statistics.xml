@@ -9,9 +9,9 @@
 
   <article class="card mb-3">
     <div class="card-body bg-alternative">
-      <h3>
+      <h2 class="h3">
         <i18n:code>thunibib.statistic.hint</i18n:code>
-      </h3>
+      </h2>
       <p>
         <i18n:code>thunibib.statistic.hint.text</i18n:code>
       </p>
