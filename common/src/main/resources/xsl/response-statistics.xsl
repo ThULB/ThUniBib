@@ -35,9 +35,9 @@
             <xsl:if
                 test="not(response/lst[@name='responseHeader']/lst[@name='params']/str[@name='fq'] = 'partOf:&quot;true&quot;'
                             or response/lst[@name='responseHeader']/lst[@name='params']/arr[@name='fq']/str = 'partOf:&quot;true&quot;')">
-              <h3>
+              <h1 class="h3">
                 <xsl:value-of select="i18n:translate('thunibib.statistic.hint')" />
-              </h3>
+              </h1>
 
               <p>
                 <xsl:value-of select="i18n:translate('thunibib.statistic.generic.hint.text')" />

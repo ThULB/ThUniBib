@@ -14,9 +14,9 @@
               <fieldset>
                 <xed:if test="$xed-validation-failed">
                   <div class="validation-failures">
-                    <h3>
+                    <h1 class="h3">
                       <xed:output i18n="form.validation.failed"/>
-                    </h3>
+                    </h1>
                     <ul>
                       <xed:display-validation-messages/>
                     </ul>
