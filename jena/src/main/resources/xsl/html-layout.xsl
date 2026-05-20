@@ -110,9 +110,9 @@
       <div class="container w-100 w-sm-50">
         <div class="row">
           <div class="col">
-            <h3 id="seitentitel">
+            <h1 class="h3" id="seitentitel">
               <xsl:copy-of select="head/title/node()"/>
-            </h3>
+            </h1>
           </div>
         </div>
       </div>
@@ -250,9 +250,9 @@
           <xsl:copy-of select="body/*[not(@id='sidebar')][not(@id='breadcrumb')]"/>
         </xsl:when>
         <xsl:otherwise>
-          <h3>
+          <h1 class="h3">
             <xsl:value-of select="i18n:translate('navigation.notAllowedToSeeThisPage')"/>
-          </h3>
+          </h1>
         </xsl:otherwise>
       </xsl:choose>
     </section>
@@ -409,9 +409,9 @@
   <xsl:template name="layout.pageTitle">
     <div class="card my-3">
       <div class="card-body py-2">
-        <h3 id="seitentitel">
+        <h1 class="h3" id="seitentitel">
           <xsl:copy-of select="head/title/node()"/>
-        </h3>
+        </h1>
       </div>
     </div>
   </xsl:template>
