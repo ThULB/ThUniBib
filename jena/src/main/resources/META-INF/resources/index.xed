@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<webpage lastModified="2022-05-23T10:46:00" id="dozbib" xmlns:i18n="http://www.mycore.org/i18n">
+<webpage lastModified="2026-05-18T14:17:00" id="dozbib" xmlns:i18n="http://www.mycore.org/i18n">
+  <script src="assets/echarts/dist/echarts.js"/>
+
   <title>
     <i18n:de>Willkommen bei der Universitätsbibliographie der Friedrich-Schiller-Universität Jena</i18n:de>
     <i18n:en>Welcome to the University Bibliography of Friedrich Schiller University Jena</i18n:en>
   </title>
 
-  <article class="card mb-3">
+  <article id="thunibib-landing-page-jena" class="card mb-3">
     <div class="card-body">
       <h3>
         <i18n:de>Die Universitätsbibliographie Jena</i18n:de>
@@ -96,7 +98,20 @@
     </div>
   </article>
 
-  <xinclude uri="xslStyle:response-newest:solr:q=partOf%3Atrue+AND+status%3A(confirmed+OR+unchecked+OR+reviewPending)+AND+year%3ANOW&amp;rows=4&amp;sort=year+desc,created+desc&amp;facet=false&amp;fl=id,year"/>
+  <article class="card mb-3 d-none d-sm-block">
+    <div class="card-body">
+      <xinclude uri="xslStyle:charts/bar-chart?ChartsCommon.omit.label.axis.y=true&amp;ChartsCommon.default.height=450&amp;horizontal=false&amp;facet=year:solr:requestHandler:select:q=partOf%3Atrue+AND+%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)+AND+year%3A%5B2018+TO+*%5D&amp;rows=0&amp;facet.field=year"/>
+
+      <div>
+        <i18n:de>
+          Statistik: Anzahl der in der Universitätsbibliographie Jena verzeichneten Publikationen pro Erscheinungsjahr
+        </i18n:de>
+        <i18n:en>
+          Statistics: Number of publications recorded in the University Bibliography Jena per year of publication
+        </i18n:en>
+      </div>
+    </div>
+  </article>
 
   <aside id="sidebar">
     <xinclude uri="xslStyle:response-sidebar-mini:solr:q=%2B(status%3Aconfirmed+status%3Aunchecked+status%3AreviewPending)&amp;rows=0"/>
