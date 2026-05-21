@@ -14,11 +14,6 @@ body {
   min-height: 100vh;
 }
 
-.badge.bg-secondary {
-  color: black;
-  background-color: hsl(347, 4%, 90%);
-}
-
 .row .col hr {
   border-top: 0;
 }
@@ -43,7 +38,7 @@ body {
   margin-right: 0rem;
 }
 
-// more space after pipe in facett entry
+// more space after pipe in facet entry
 .mycore-facet-count {
   margin-right: 0.25rem;
 }

@@ -1,29 +1,30 @@
 // web page
-$erfurtLink: #4645A4;
-$erfurtVisited: #6B2906;
-$erfurtGray: #978E90;
-$erfurtOldBlue: #2a2a94;
-$erfurtPetrol: #00856f;
-$erfurtBlueHover: #2f6daa;
-$erfurtYellow: #f4c000;
+$erfurtLink: #4645A4 !default;
+$erfurtVisited: #6B2906 !default;
+$erfurtGray: #978E90 !default;
+$erfurtOldBlue: #2a2a94 !default;
+$erfurtPetrol: #00856f !default;
+$erfurtBlueHover: #2f6daa !default;
+$erfurtYellow: #f4c000 !default;
 
-$erfurtRHover: #6969d4;
-$erfurtRLink: #494999;
-$erfurtRLinkAlt: #3838c2;
-$erfurtRLinkHover: #f39c12;
-$erfurtRInfoBack: #dce4ec;
-$erfurtRButton: #9d9d9d;
-$erfurtRButtonHover: #848484;
-$erfurtRButtonBorder: #7e7e7e;
-$erfurtText: black;
+$erfurtRHover: #6969d4 !default;
+$erfurtRLink: #494999 !default;
+$erfurtRLinkAlt: #3838c2 !default;
+$erfurtRLinkHover: #f39c12 !default;
+$erfurtRInfoBack: #dce4ec !default;
+$erfurtRButton: #9d9d9d !default;
+$erfurtRButtonHover: #848484 !default;
+$erfurtRButtonBorder: #7e7e7e !default;
+$erfurtText: black !default;
 
 // bs overwrite
-$input-btn-font-size-sm: 0.845rem;
-$primary: $erfurtPetrol;
-$secondary: $erfurtGray;
+$input-btn-font-size-sm: 0.845rem !default;
+$primary: $erfurtPetrol !default;
+$secondary: $erfurtGray !default;
 
-$border-radius: 0px;
+$border-radius: 0px !default;
 
-$body-bg: white;
-$badge-font-weight: normal;
-$alternative: $erfurtPetrol
+$body-bg: white !default;
+$badge-font-weight: normal !default;
+$badge-secondary-color: hsl(347, 4%, 90%) !default;
+$alternative: $erfurtPetrol !default;
