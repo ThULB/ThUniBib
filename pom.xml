@@ -193,6 +193,7 @@
 
   <modules>
     <module>common</module>
+    <module>eah-jena</module>
     <module>erfurt</module>
     <module>erfurt-fh</module>
     <module>ilmenau</module>

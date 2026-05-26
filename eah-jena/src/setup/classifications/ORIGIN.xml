@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
+
+  <label xml:lang="de" text="Ernst-Abbe-Hochschule Jena"/>
+  <label xml:lang="en" text="University of Applied Sciences Jena"/>
+  <label xml:lang="x-place" text="Ernst-Abbe-Hochschule Jena |  Carl-Zeiss-Promenade 2  | 07745 Jena"/>
+
+  <categories>
+    <category ID="0100">
+      <label xml:lang="de" text="Ernst-Abbe-Hochschule Jena"/>
+      <label xml:lang="en" text="University of Applied Sciences Jena"/>
+    </category>
+  </categories>
+</mycoreclass>
