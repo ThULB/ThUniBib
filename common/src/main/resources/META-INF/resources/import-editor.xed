@@ -632,7 +632,7 @@
           <div class="col-12 col-sm-3 d-flex align-items-start">
             <span>*</span>
             <select class="form-select ms-1">
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator"/>
+              <xed:include uri="xslStyle:items2options?omit-ancestor-or-self=marcrelator_corporation:classification:editor:-1:children:marcrelator"/>
             </select>
           </div>
         </xed:bind>

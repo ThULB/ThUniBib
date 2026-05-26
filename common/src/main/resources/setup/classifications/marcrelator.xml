@@ -119,5 +119,35 @@
       <label xml:lang="de" text="Sonstige" description="Eine Rolle die nicht in der Liste vorkommt."/>
       <label xml:lang="en" text="Other" description="A role that has no equivalent in the list."/>
     </category>
+
+    <category ID="marcrelator_corporation">
+      <label xml:lang="x-group" text="true"/>
+      <label xml:lang="de" text="Rollen für Körperschaften" description="Eine Liste möglicher Beitragsrollen für Körperschaften" />
+      <label xml:lang="en" text="Contributor roles for corporations" description="A list of possible contributor roles for corporations" />
+      <category ID="his">
+        <label xml:lang="de" text="Gastgebende Einrichtung" description="Eine Organisation, die ein Veranstaltung hostet." />
+        <label xml:lang="en" text="Hosting institution" description="An organization hosting an event, exhibit, conference, etc., which gave rise to the resource, but having little or no responsibility for the content of the resource" />
+      </category>
+      <category ID="dgg">
+        <label xml:lang="de" text="Gradverleihende Einrichtung" description="Eine Körperschaft, die einen akademischen Grad verleiht." />
+        <label xml:lang="en" text="Degree granting institution" description="A organization granting an academic degree." />
+      </category>
+      <category ID="isb">
+        <label xml:lang="de" text="Herausgebende Einrichtung" description="Ein Akteur, der ein Werk z. B. ein offizielles Organ der Körperschaft herausgibt." />
+        <label xml:lang="en" text="Issuing body" description="A person, family or organization issuing a work, such as an official organ of the body." />
+      </category>
+      <category ID="pbl">
+        <label xml:lang="de" text="Verlag" description="Ein Akteur, der für das Veröffentlichen, die Freigabe oder die Herausgabe einer Manifestation verantwortlich ist." />
+        <label xml:lang="en" text="Publisher" description="A person or organization responsible for publishing, releasing, or issuing a resource" />
+      </category>
+      <category ID="prn">
+        <label xml:lang="de" text="Produktionsfirma" description="Eine Körperschaft, die für das finanzielle, technische und organisatorische Management einer Produktion für die Bühne, die Leinwand, die Tonaufnahme, das Fernsehen, für einen Webcast usw. verantwortlich ist." />
+        <label xml:lang="en" text="Production company" description="An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc." />
+      </category>
+      <category ID="pta">
+        <label xml:lang="de" text="Anmeldende Einrichtung (Patent)" description="Eine Person oder Organisation, die ein Patent angemeldet hat." />
+        <label xml:lang="en" text="Patent applicant" description="A person or organization that applied for a patent." />
+      </category>
+    </category>
   </categories>
 </mycoreclass>
