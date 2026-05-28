@@ -408,7 +408,7 @@
         <label xml:lang="x-mapping" text="orcidWorkType:other"/>
 
         <label xml:lang="de" text="Reihe/Serie"/>
-        <label xml:lang="en" text="series"/>
+        <label xml:lang="en" text="Series"/>
       </category>
       <category ID="journal">
         <label xml:lang="x-hosts" text="standalone"/>

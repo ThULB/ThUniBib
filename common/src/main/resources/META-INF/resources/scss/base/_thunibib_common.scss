@@ -69,3 +69,7 @@ td.identifier:hover {
     color: $primary;
   }
 }
+
+.hit.card .bibentry .in-host-series span.ubo-date-part {
+  display: none;
+}
