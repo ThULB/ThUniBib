@@ -12,24 +12,17 @@
       </h3>
       <p>
         <i18n:de>
-          Nehmen Sie gern Kontakt mit uns auf:
+          Team Universitätsbibliographie
         </i18n:de>
         <i18n:en>
-          Feel free to contact us:
-        </i18n:en>
-      </p>
-      <p>
-        <i18n:de>
-          Thüringer Universitäts- und Landesbibliothek Jena
-        </i18n:de>
-        <i18n:en>
-          Thuringian University and State Library Jena
+          Team University Bibliography
         </i18n:en>
         <br/>
+        E-Mail:
         <a href="mailto:unibibliographie_thulb@uni-jena.de">unibibliographie_thulb@uni-jena.de</a>
         <br/>
         <i18n:de>
-          Tel.: +49 3641 9-404 215
+          Telefon: +49 3641 9-404 215
         </i18n:de>
         <i18n:en>
           Phone: +49 3641 9-404 215

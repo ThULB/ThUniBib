@@ -18,6 +18,7 @@
     </xsl:comment>
 
     <xsl:apply-templates select="metadata/def.modsContainer/modsContainer/mods:mods" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="service/servflags/servflag" mode="thunibib-solr-fields"/>
 
     <xsl:comment>
       &lt;- thunibib-solr.xsl
@@ -198,6 +199,12 @@
       <xsl:for-each select="mods:namePart[@type='given'][1]">
         <xsl:value-of select="concat(', ',text())" />
       </xsl:for-each>
+    </field>
+  </xsl:template>
+
+  <xsl:template match="servflag" mode="thunibib-solr-fields">
+    <field name="servflag.{@type}">
+      <xsl:value-of select="text()"/>
     </field>
   </xsl:template>
 </xsl:stylesheet>

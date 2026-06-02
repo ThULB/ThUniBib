@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026.06.02-2024.06.x
+- [#985](https://github.com/ThULB/ThUniBib/issues/985) Simplified gnd validating regex in import-editor.xed (#986)
+- [#987](https://github.com/ThULB/ThUniBib/issues/987) Do not provide unresolved identifier types to HISinOne (#988)
+- [FSU040THUL-11622](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-11622) [#997](https://github.com/ThULB/ThUniBib/issues/997) Suppress display of year information of related series in search results (#998)
+- [FSU040THUL-12400](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12400) [#995](https://github.com/ThULB/ThUniBib/issues/995) Fixed superscripts and subscripts are not displayed in generated PDF
+- [FSU040THUL-12718](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12718) [#989](https://github.com/ThULB/ThUniBib/issues/989) [J] Update content of tabs in navigation (#990)
+- [FSU040THUL-12744](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12744) [#991](https://github.com/ThULB/ThUniBib/issues/991) [J] Integration of the "Publications / Year of Publication" statistic on the landing page (#992)
+- [FSU040THUL-12851](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12851) [#993](https://github.com/ThULB/ThUniBib/issues/993) [UBE] Link to sign-in form configured by property `UBO.Login.Path` (#994)
+- [FSU040THUL-12882](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12882) [#999](https://github.com/ThULB/ThUniBib/issues/999) [J] Updated ORIGIN.xml (#1000)
+---
+
 ## 2026.05.04-2024.06.x
 - [#957](https://github.com/ThULB/ThUniBib/issues/957) Reflect integration of charts-common in base UBO (#958)
 - [#975](https://github.com/ThULB/ThUniBib/issues/975) Set version of charts-common to 2.3 (#976)
