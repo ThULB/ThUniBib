@@ -146,6 +146,12 @@
         <url xlink:href="https://www.psychologie.uni-jena.de/"/>
       </category>
 
+      <category ID="1040.01.01">
+        <label xml:lang="de" text="Voice Research Unit"/>
+        <label xml:lang="en" text="Voice Research Unit"/>
+        <label xml:lang="x-mapping" text="destatis:0810 destatis:1700 destatis:1760 destatis:5030"/>
+      </category>
+
       <category ID="1040.02">
         <label xml:lang="de" text="Institut für Erziehungswissenschaft"/>
         <label xml:lang="x-mapping" text="destatis:1800"/>
@@ -616,11 +622,35 @@
         <label xml:lang="x-mapping" text="destatis:6520"/>
         <url xlink:href="https://www.nutricard.de/"/>
       </category>
+
+      <category ID="8000.40">
+        <label xml:lang="de" text="Bioinformatics Core Facility Jena"/>
+        <label xml:lang="en" text="Bioinformatics Core Facility Jena"/>
+        <label xml:lang="x-mapping" text="destatis:3540"/>
+      </category>
+
+      <category ID="8000.50">
+        <label xml:lang="de" text="Cluster of Excellence 'Imginamics'"/>
+        <label xml:lang="en" text="Cluster of Excellence 'Imginamics'"/>
+        <label xml:lang="x-mapping" text="destatis:0120 destatis:2210"/>
+      </category>
+
+      <category ID="8000.60">
+        <label xml:lang="de" text="NMR-Plattform der Friedrich-Schiller-Universität Jena"/>
+        <label xml:lang="en" text="NMR Platform of the Friedrich Schiller University Jena"/>
+        <label xml:lang="x-mapping" text="destatis:3750"/>
+      </category>
     </category>
 
     <category ID="1060">
       <label xml:lang="de" text="Zentrale Universitätsverwaltung"/>
       <label xml:lang="x-mapping" text="destatis:9200"/>
+
+      <category ID="1060.10">
+        <label xml:lang="de" text="Servicezentrum Forschung und Transfer"/>
+        <label xml:lang="en" text="Service Center Research and Transfer"/>
+        <label xml:lang="x-mapping" text="destatis:9280"/>
+      </category>
     </category>
 
     <category ID="4711">
@@ -655,6 +685,12 @@
     <category ID="7000">
       <label xml:lang="de" text="Medizinische Fakultät"/>
       <label xml:lang="x-mapping" text="destatis:4400"/>
+
+      <category ID="7000.90">
+        <label xml:lang="de" text="Universitätsklinikum / Klinikverwaltung"/>
+        <label xml:lang="en" text="Jena University Hospital / Administration"/>
+        <label xml:lang="x-mapping" text="destatis:8910"/>
+      </category>
 
       <category ID="institutes">
         <label xml:lang="x-group" text="Institute"/>
