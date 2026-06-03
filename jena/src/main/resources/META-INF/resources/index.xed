@@ -36,7 +36,7 @@
           <span class="font-weight-bold">Fehlt etwas? Unterstützen Sie uns und melden Sie Ihre Publikationen</span>
           <span>
             <a href="mailto:unibibliographie_thulb@uni-jena.de">
-              <i class="far fa-envelope ml-1"/>
+              <i class="far fa-envelope ms-1"/>
             </a>.
           </span>
           Mit Ihrer Unterstützung tragen Sie zur Vollständigkeit der Universitätsbibliographie Jena bei und erhöhen
@@ -73,7 +73,7 @@
           <span class="font-weight-bold">Are you missing publications? Support us and report your publications</span>
           <span>
             <a href="mailto:unibibliographie_thulb@uni-jena.de">
-              <i class="far fa-envelope ml-1"/>
+              <i class="far fa-envelope ms-1"/>
             </a>.
           </span>
         </p>
