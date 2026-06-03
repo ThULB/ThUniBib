@@ -6,6 +6,7 @@
     <xed:include uri="webapp:import-editor.xed" ref="person.role"/>
     <xed:include uri="webapp:import-editor.xed" ref="year"/>
     <xed:include uri="webapp:import-editor.xed" ref="identifier.mandatory"/>
+    <xed:include uri="webapp:import-thunibib.xed" ref="thunibib.comment.intern"/>
 
     <hr class="bg-danger" />
 
