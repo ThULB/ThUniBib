@@ -43,15 +43,17 @@
                   i18n="ubo.date.issued.validation" display="global"/>
 
     <!-- title required for all non-standalone object types -->
-    <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
-                  test="string-length(.) &gt; 0"
-                  relevant-if="not(//mods:mods/mods:relatedItem[@type='series']) and (//mods:mods/mods:genre='entry' or //mods:mods/mods:genre='article' or //mods:mods/mods:genre='chapter' or //mods:mods/mods:genre='preface' or //mods:mods/mods:genre='abstract' or //mods:mods/mods:genre='conference_essay' or //mods:mods/mods:genre='entry' or //mods:mods/mods:genre='video_contribution' or //mods:mods/mods:genre='blog_entry')"
-                  i18n="ubo.title.validation" display="global"/>
+    <xed:if test="xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+      <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
+                    test="string-length(.) &gt; 0"
+                    relevant-if="not(//mods:mods/mods:relatedItem[@type='series']) and (//mods:mods/mods:genre='entry' or //mods:mods/mods:genre='article' or //mods:mods/mods:genre='chapter' or //mods:mods/mods:genre='preface' or //mods:mods/mods:genre='abstract' or //mods:mods/mods:genre='conference_essay' or //mods:mods/mods:genre='entry' or //mods:mods/mods:genre='video_contribution' or //mods:mods/mods:genre='blog_entry')"
+                    i18n="ubo.title.validation" display="global"/>
 
-    <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
-                  test="string-length(.) &gt; 0"
-                  relevant-if="not(//mods:mods/mods:relatedItem[@type='series']) and (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
-                  i18n="ubo.title.validation.genre.intern.present" display="global"/>
+      <xed:validate xpath="//mods:mods/mods:relatedItem[@type='host']/mods:titleInfo/mods:title"
+                    test="string-length(.) &gt; 0"
+                    relevant-if="not(//mods:mods/mods:relatedItem[@type='series']) and (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
+                    i18n="ubo.title.validation.genre.intern.present" display="global"/>
+    </xed:if>
   </xed:template>
 
   <xed:template id="javascript">
