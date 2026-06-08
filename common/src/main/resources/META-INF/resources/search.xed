@@ -146,7 +146,7 @@
                   <label for="{xed:generate-id()}" class="mycore-form-label">
                     <xed:output i18n="facets.facet.destatis"/>
                   </label>
-                  <select id="{xed:generate-id()}" class="autocomplete mycore-form-input custom-select">
+                  <select id="{xed:generate-id()}" class="autocomplete mycore-form-input">
                     <option value="">
                       <xed:output i18n="search.select"/>
                     </option>
@@ -160,7 +160,7 @@
                   <label for="{xed:generate-id()}" class="mycore-form-label">
                     <xed:output i18n="ubo.department"/>
                   </label>
-                  <select id="{xed:generate-id()}" class="autocomplete mycore-form-input custom-select">
+                  <select id="{xed:generate-id()}" class="autocomplete mycore-form-input">
                     <option value="">
                       <xed:output i18n="search.select"/>
                     </option>
