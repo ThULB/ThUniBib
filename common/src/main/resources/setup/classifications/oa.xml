@@ -60,5 +60,11 @@
       <label xml:lang="x-color" text="#8f989d" />
       <label xml:lang="x-color-chart" text="#5fa8e8" />
     </category>
+    <category ID="unset">
+      <label xml:lang="de" text="Ungeprüft" />
+      <label xml:lang="en" text="Unchecked" />
+      <label xml:lang="x-color" text="#808080" />
+      <label xml:lang="x-color-chart" text="#808080" />
+    </category>
   </categories>
 </mycoreclass>
