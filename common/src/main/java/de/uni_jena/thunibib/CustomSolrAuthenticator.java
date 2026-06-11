@@ -1,30 +1,24 @@
 package de.uni_jena.thunibib;
 
 import org.apache.solr.client.solrj.SolrRequest;
-import org.mycore.solr.auth.MCRSolrAuthentication;
-import org.mycore.solr.auth.MCRSolrAuthenticationLevel;
+import org.mycore.solr.auth.MCRSolrAuthenticator;
 
 import java.net.http.HttpRequest;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
- * Implementation of {@link MCRSolrAuthentication} that applies HTTP Basic
+ * Implementation of {@link MCRSolrAuthenticator} that applies HTTP Basic
  * Authentication credentials to Solr requests.
  * <p>
  * This class supports authentication for both SolrJ {@link SolrRequest}
  * instances and Java {@link HttpRequest.Builder} instances. Credentials are
  * provided during construction and are applied unchanged to every request.
  * </p>
- * <p>
- * Authentication levels are not supported by this implementation. Any attempt
- * to set an {@link MCRSolrAuthenticationLevel} will result in an
- * {@link UnsupportedOperationException}.
- * </p>
  *
  * @author shermann (Silvio Hermann)
  */
-public class CustomSolrAuthenticationApplyer implements MCRSolrAuthentication {
+public class CustomSolrAuthenticator implements MCRSolrAuthenticator {
 
     /** Username used for HTTP Basic Authentication. */
     private String username;
@@ -32,7 +26,7 @@ public class CustomSolrAuthenticationApplyer implements MCRSolrAuthentication {
     /** Password used for HTTP Basic Authentication. */
     private String password;
 
-    public CustomSolrAuthenticationApplyer(String username, String password) {
+    public CustomSolrAuthenticator(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -61,18 +55,5 @@ public class CustomSolrAuthenticationApplyer implements MCRSolrAuthentication {
         String authString = this.username + ":" + this.password;
         request.header("Authorization",
             "Basic " + Base64.getEncoder().encodeToString(authString.getBytes(StandardCharsets.UTF_8)));
-    }
-
-    /**
-     * This implementation does not support authentication levels.
-     *
-     * @param level the authentication level to set
-     * @throws UnsupportedOperationException always thrown because authentication
-     *                                       levels are not supported
-     */
-    @Override
-    public void setLevel(MCRSolrAuthenticationLevel level) {
-        throw new UnsupportedOperationException(
-            "Setting " + MCRSolrAuthenticationLevel.class.getSimpleName() + " is not supported");
     }
 }

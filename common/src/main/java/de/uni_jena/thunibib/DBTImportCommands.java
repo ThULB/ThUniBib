@@ -57,8 +57,8 @@ public class DBTImportCommands {
     public static void checkDBTSolrReachable(String query) throws Exception {
         QueryRequest queryRequest = new QueryRequest(new SolrQuery(query));
 
-        CustomSolrAuthenticationApplyer dbtSolrAuthApplyer = new CustomSolrAuthenticationApplyer(DBT_SOLR_SEARCH_USER, DBT_SOLR_SEARCH_PASSWORD);
-        dbtSolrAuthApplyer.applyAuthentication(queryRequest);
+        CustomSolrAuthenticator dbtSolrAuthenticator = new CustomSolrAuthenticator(DBT_SOLR_SEARCH_USER, DBT_SOLR_SEARCH_PASSWORD);
+        dbtSolrAuthenticator.applyAuthentication(queryRequest);
         QueryResponse response2 = queryRequest.process(DBT_SOLR_CLIENT);
         LOGGER.info("{} hit(s) for query '{}' to DBT's solr core at '{}'", response2.getResults().getNumFound(), query, DBT_SOLR_CORE.getServerURL());
     }
@@ -76,8 +76,8 @@ public class DBTImportCommands {
             query.setFacet(false);
 
             QueryRequest queryRequest = new QueryRequest(query);
-            CustomSolrAuthenticationApplyer dbtSolrAuthApplyer = new CustomSolrAuthenticationApplyer(DBT_SOLR_SEARCH_USER, DBT_SOLR_SEARCH_PASSWORD);
-            dbtSolrAuthApplyer.applyAuthentication(queryRequest);
+            CustomSolrAuthenticator dbtSolrAuthenticator = new CustomSolrAuthenticator(DBT_SOLR_SEARCH_USER, DBT_SOLR_SEARCH_PASSWORD);
+            dbtSolrAuthenticator.applyAuthentication(queryRequest);
             QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
 
             solrDocuments = response.getResults();
