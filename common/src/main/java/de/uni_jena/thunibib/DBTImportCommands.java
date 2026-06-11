@@ -43,6 +43,12 @@ public class DBTImportCommands {
 
     protected static final HttpSolrClientBase SOLR_CLIENT_MAIN = MCRSolrCoreManager.getMainSolrCore().getClient();
 
+    protected static final String DBT_SOLR_SEARCH_USER = MCRConfiguration2.getStringOrThrow(
+        "ThUniBib.Solr.Remote.Server.DBT.Auth.Search.Username");
+
+    protected static final String DBT_SOLR_SEARCH_PASSWORD = MCRConfiguration2.getStringOrThrow(
+        "ThUniBib.Solr.Remote.Server.DBT.Auth.Search.Password");
+
     static {
         DBT_SOLR_CLIENT = DBT_SOLR_CORE.getClient();
     }
@@ -50,11 +56,11 @@ public class DBTImportCommands {
     @MCRCommand(syntax = "query dbt solr {0}", help = "Returns the number of hits for the given solr query (DBT-core)")
     public static void checkDBTSolrReachable(String query) throws Exception {
         QueryRequest queryRequest = new QueryRequest(new SolrQuery(query));
-        MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
-        QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
 
-        LOGGER.info("{} hit(s) for query '{}' to DBT's solr core at '{}'", response.getResults().getNumFound(), query,
-            DBT_SOLR_CORE.getServerURL());
+        CustomSolrAuthenticationApplyer dbtSolrAuthApplyer = new CustomSolrAuthenticationApplyer(DBT_SOLR_SEARCH_USER, DBT_SOLR_SEARCH_PASSWORD);
+        dbtSolrAuthApplyer.applyAuthentication(queryRequest);
+        QueryResponse response2 = queryRequest.process(DBT_SOLR_CLIENT);
+        LOGGER.info("{} hit(s) for query '{}' to DBT's solr core at '{}'", response2.getResults().getNumFound(), query, DBT_SOLR_CORE.getServerURL());
     }
 
     @MCRCommand(syntax = "import from dbt by solr query {0}",
@@ -70,7 +76,8 @@ public class DBTImportCommands {
             query.setFacet(false);
 
             QueryRequest queryRequest = new QueryRequest(query);
-            MCRSolrAuthenticationManager.obtainInstance().applyAuthentication(queryRequest, MCRSolrAuthenticationLevel.SEARCH);
+            CustomSolrAuthenticationApplyer dbtSolrAuthApplyer = new CustomSolrAuthenticationApplyer(DBT_SOLR_SEARCH_USER, DBT_SOLR_SEARCH_PASSWORD);
+            dbtSolrAuthApplyer.applyAuthentication(queryRequest);
             QueryResponse response = queryRequest.process(DBT_SOLR_CLIENT);
 
             solrDocuments = response.getResults();
