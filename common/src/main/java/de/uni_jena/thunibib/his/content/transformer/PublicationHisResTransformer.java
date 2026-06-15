@@ -185,7 +185,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                 final JsonObject name = new JsonObject();
                 /* id of person in HISinOne */
                 XPathExpression<Element> idExpr = XPATH_FACTORY.compile(tCond, Filters.element(), null, MODS_NAMESPACE);
-                name.addProperty("id", idExpr.evaluateFirst(nameElement).getText());
+                name.addProperty("id", Integer.parseInt(idExpr.evaluateFirst(nameElement).getText()));
                 /* nameParts */
                 nameElement
                     .getChildren("namePart", MODS_NAMESPACE)

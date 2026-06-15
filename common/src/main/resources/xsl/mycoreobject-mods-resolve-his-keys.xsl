@@ -14,6 +14,7 @@
   <xsl:param name="MCR.user2.matching.lead_id"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
   <xsl:param name="ThUniBib.HISinOne.BaseURL.API.Path"/>
+  <xsl:param name="ThUniBib.HISinOne.resolve.person.default.org.identifier"/>
   <xsl:param name="ThUniBib.HISinOne.resolve.person.identifier.typeUniquename"/>
   <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
   <xsl:param name="WebApplicationBaseURL"/>
@@ -72,11 +73,11 @@
   <xsl:template match="mods:name[@type='personal']">
     <xsl:variable name="his-id">
       <xsl:choose>
-        <xsl:when test="mods:nameIdentifier[@type = 'orcid']">
-          <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:orcid:', mods:nameIdentifier[@type = 'orcid'][1]/text()))"/>
-        </xsl:when>
         <xsl:when test="mods:nameIdentifier[@type = $MCR.user2.matching.lead_id]">
           <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:', $ThUniBib.HISinOne.resolve.person.identifier.typeUniquename, ':',  fn:encode-for-uri(mods:nameIdentifier[@type = $MCR.user2.matching.lead_id][1]/text())))"/>
+        </xsl:when>
+        <xsl:when test="mods:nameIdentifier[@type = 'orcid']">
+          <xsl:value-of select="fn:document(concat('hisinone:resolve:personId:person:orcid:', mods:nameIdentifier[@type = 'orcid'][1]/text()))"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
@@ -86,10 +87,14 @@
       <xsl:if test="number($his-id)">
         <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
 
-        <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/person/identifier">
-          <xsl:value-of select="$his-id"/>
-        </mods:nameIdentifier>
+          <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/person/identifier">
+            <xsl:value-of select="$his-id"/>
+          </mods:nameIdentifier>
 
+          <mods:affiliation authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/person/{$his-id}/organizations">
+            <!-- TODO actual resolving -->
+            <xsl:value-of select="$ThUniBib.HISinOne.resolve.person.default.org.identifier"/>
+          </mods:affiliation>
         <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
       </xsl:if>
     </xsl:copy>
@@ -252,7 +257,7 @@
   </xsl:template>
 
   <xsl:template name="visibility">
-    <xsl:param name="status" select="//servstates/servstate[@classid='state']"/>
+    <xsl:param name="status" select="//servstates/servstate[@classid='state']/@categid"/>
     <xsl:variable name="visibility-his-key" select="fn:document(concat('hisinone:resolve:id:visibility:', $status))"/>
     <xsl:if test="$visibility-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/visibilityValue">
@@ -262,7 +267,7 @@
   </xsl:template>
 
   <xsl:template name="state">
-    <xsl:param name="status" select="//servstates/servstate[@classid='state']"/>
+    <xsl:param name="status" select="//servstates/servstate[@classid='state']/@categid"/>
     <xsl:variable name="status-his-key" select="fn:document(concat('hisinone:resolve:id:state:', $status))"/>
 
     <xsl:if test="$status-his-key">
