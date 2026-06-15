@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026.06.15-2024.06.x
+- [#1001](https://github.com/ThULB/ThUniBib/issues/1001) [NDH] Set `MCR.PICA2MODS.DATABASE` to `opac-de-564` (#1002) and added genre mapping to `pica2mods_thunibib.xsl` (#1007)
+- [#1003](https://github.com/ThULB/ThUniBib/issues/1003) Reflect changes introduced by UBO-488 (#1004)
+- [FSU040THUL-12991](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-12991) [#1005](https://github.com/ThULB/ThUniBib/issues/1005) Fixed `select` inputs for destatis and origin on search.xed (#1006)
+- [FSU040THUL-13025](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13025) [#1008](https://github.com/ThULB/ThUniBib/issues/1008) Made DBTImportCommands use different credentials for dbt solr queries (#1009)
+---
+
 ## 2026.06.02-2024.06.x
 - [#985](https://github.com/ThULB/ThUniBib/issues/985) Simplified gnd validating regex in import-editor.xed (#986)
 - [#987](https://github.com/ThULB/ThUniBib/issues/987) Do not provide unresolved identifier types to HISinOne (#988)
