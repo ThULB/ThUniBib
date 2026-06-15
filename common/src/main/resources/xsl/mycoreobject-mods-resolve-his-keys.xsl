@@ -192,10 +192,12 @@
       </mods:identifier>
     </xsl:for-each>
 
-    <xsl:variable name="url-type-id" select="fn:document('hisinone:resolve:id:globalIdentifiers:url')"/>
-    <mods:identifier type="url" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$url-type-id}">
-      <xsl:value-of select="concat($WebApplicationBaseURL, 'receive/', //mycoreobject/@ID)"/>
-    </mods:identifier>
+    <xsl:if test="not(fn:contains($WebApplicationBaseURL, 'localhost'))">
+      <xsl:variable name="url-type-id" select="fn:document('hisinone:resolve:id:globalIdentifiers:url')"/>
+      <mods:identifier type="url" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$url-type-id}">
+        <xsl:value-of select="concat($WebApplicationBaseURL, 'receive/', //mycoreobject/@ID)"/>
+      </mods:identifier>
+    </xsl:if>
 
     <xsl:variable name="repository-type-id" select="fn:document('hisinone:resolve:id:globalIdentifiers:Repositoriums%20ID')"/>
     <mods:identifier type="mcrid" typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/publication/globalIdentifierType#{$repository-type-id}">
