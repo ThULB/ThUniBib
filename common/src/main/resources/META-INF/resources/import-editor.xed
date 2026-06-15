@@ -1058,12 +1058,12 @@
 
   <xed:template id="projectInformation">
     <xed:choose>
-      <xed:when test="$ThUniBib.Source.Project.Information= 'HISinOne'">
+      <xed:when test="$ThUniBib.Source.Project.Information = 'HISinOne'">
         <xed:include ref="projectInformation.HISinOne"/>
       </xed:when>
-      <xed:otherwise>
+      <xed:when test="$ThUniBib.Source.Project.Information = 'Solr'">
         <xed:include ref="projectInformation.solr"/>
-      </xed:otherwise>
+      </xed:when>
     </xed:choose>
   </xed:template>
 
