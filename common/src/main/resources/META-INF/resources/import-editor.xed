@@ -1059,9 +1059,15 @@
   <xed:template id="projectInformation">
     <xed:choose>
       <xed:when test="$ThUniBib.Source.Project.Information = 'HISinOne'">
+        <legend>
+          <xed:output value="concat(i18n:translate('ubo.project.information'), ': ')" />
+        </legend>
         <xed:include ref="projectInformation.HISinOne"/>
       </xed:when>
       <xed:when test="$ThUniBib.Source.Project.Information = 'Solr'">
+        <legend>
+          <xed:output value="concat(i18n:translate('ubo.project.information'), ': ')" />
+        </legend>
         <xed:include ref="projectInformation.solr"/>
       </xed:when>
     </xed:choose>
