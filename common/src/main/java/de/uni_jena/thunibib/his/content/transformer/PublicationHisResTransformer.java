@@ -182,22 +182,48 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             .compile("//mods:mods/mods:name[@type='personal'][" + tCond + "]", Filters.element(), null, MODS_NAMESPACE)
             .evaluate(xml)
             .forEach(nameElement -> {
-                final JsonObject name = new JsonObject();
+                final JsonObject creator = new JsonObject();
+                final JsonObject personNames = new JsonObject();
+
                 /* id of person in HISinOne */
                 XPathExpression<Element> idExpr = XPATH_FACTORY.compile(tCond, Filters.element(), null, MODS_NAMESPACE);
-                name.addProperty("id", Integer.parseInt(idExpr.evaluateFirst(nameElement).getText()));
+                personNames.addProperty("id", Integer.parseInt(idExpr.evaluateFirst(nameElement).getText()));
+
                 /* nameParts */
                 nameElement
                     .getChildren("namePart", MODS_NAMESPACE)
                     .forEach(namePart -> {
                         var typeOfName = switch (namePart.getAttributeValue("type")) {
                             case "given" -> "firstname";
-                            case "family" -> "creatorname";
+                            case "family" -> "surname";
                             default -> "unknown";
                         };
-                        name.addProperty(typeOfName, namePart.getText());
+                        personNames.addProperty(typeOfName, namePart.getText());
                     });
-                creators.add(name);
+
+                /* Org Units */
+                final JsonArray creatorOrganizations = new JsonArray();
+                nameElement.getChildren("affiliation", MODS_NAMESPACE).forEach(affiliation -> {
+                    JsonObject organizationBasic = new JsonObject();
+                    organizationBasic.addProperty("id", Integer.parseInt(affiliation.getText()));
+                    organizationBasic.addProperty("text", "Bauhaus-Universität Weimar");
+
+                    JsonObject creatorOrganization = new JsonObject();
+                    creatorOrganization.add("organization", organizationBasic);
+
+                    creatorOrganizations.add(creatorOrganization);
+                });
+
+                /* build creator element */
+                creator.addProperty("firstname", personNames.get("firstname").getAsString());
+                creator.addProperty("creatorname", personNames.get("surname").getAsString());
+
+                if (!creatorOrganizations.isEmpty()) {
+                    creator.add("creatorOrganizations", creatorOrganizations);
+                }
+
+                creator.add("person", personNames);
+                creators.add(creator);
             });
 
         // unaffiliated creators
