@@ -247,16 +247,27 @@
     <xsl:variable name="subject-area-value-uri" select="'cs/sys/values/subjectAreaValue'"/>
     <xsl:variable name="origin-id" select="fn:substring-after(mods:classification[contains(@valueURI, 'ORIGIN')]/@valueURI, '#')"/>
 
-    <xsl:for-each select="mods:classification[fn:contains(@authorityURI, 'classifications/destatis')]">
-      <xsl:variable name="categ-id" select="fn:substring-after(@valueURI, '#')"/>
-      <xsl:variable name="subject-area-his-key" select="fn:document(concat('hisinone:resolve:id:subjectArea:', $categ-id))"/>
+    <xsl:choose>
+      <xsl:when test="mods:classification[fn:contains(@authorityURI, 'classifications/destatis')]">
+        <xsl:for-each select="mods:classification[fn:contains(@authorityURI, 'classifications/destatis')]">
+          <xsl:variable name="categ-id" select="fn:substring-after(@valueURI, '#')"/>
+          <xsl:variable name="subject-area-his-key" select="fn:document(concat('hisinone:resolve:id:subjectArea:', $categ-id))"/>
 
-      <xsl:if test="$subject-area-his-key">
+          <xsl:if test="$subject-area-his-key">
+            <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}{$subject-area-value-uri}">
+              <xsl:value-of select="$subject-area-his-key"/>
+            </mods:classification>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="subject-area-his-key" select="fn:document('hisinone:resolve:id:subjectArea')"/>
+
         <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}{$subject-area-value-uri}">
           <xsl:value-of select="$subject-area-his-key"/>
         </mods:classification>
-      </xsl:if>
-    </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template name="visibility">

@@ -223,7 +223,7 @@ public class HISinOneResolver implements URIResolver {
         String city = conferenceParts[1].trim();
         long year = toEpochMilli(conferenceParts[2].trim());
 
-        SysValue country = resolveCountry(URLEncoder.encode("Ohne Angabe", StandardCharsets.UTF_8));
+        SysValue country = resolveCountry(URLEncoder.encode("ohne Angabe", StandardCharsets.UTF_8));
         SysValue language = resolveLanguage("de");
         SysValue status = resolveConferenceState("validiert");
         SysValue conferenceEventType = resolveConferenceEventTypeValue("vor Ort");
@@ -834,6 +834,12 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
+    /**
+     * Resolves destatis class. If you want the default value {@code ohne Angabe} invoke uri resolver like so:
+     * {@code hisinone:resolve:id:subjectArea}
+     *
+     * @param destatisId the destatis id to resolve
+     * */
     private SysValue resolveSubjectArea(String destatisId) {
         if (SUBJECT_AREA_TYPE_MAP.containsKey(destatisId)) {
             return SUBJECT_AREA_TYPE_MAP.get(destatisId);
@@ -859,7 +865,13 @@ public class HISinOneResolver implements URIResolver {
                 SUBJECT_AREA_TYPE_MAP.put(destatisId, areaValue.get());
                 return areaValue.get();
             }
-            return SysValue.UnresolvedSysValue;
+
+            // default value ('ohne Angabe')
+            areaValue = subjectAreas.stream()
+                .filter(subjectAreaValue -> "OA".equalsIgnoreCase(subjectAreaValue.getUniqueName()))
+                .findFirst();
+
+            return areaValue.isPresent() ? areaValue.get() : SysValue.UnresolvedSysValue;
         }
     }
 
