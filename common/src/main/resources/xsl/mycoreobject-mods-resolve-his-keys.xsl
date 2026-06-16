@@ -58,6 +58,9 @@
       <!-- Set visibility class -->
       <xsl:call-template name="visibility"/>
 
+      <!-- Set license class -->
+      <xsl:call-template name="license"/>
+
       <!-- Set publicationCreatorType class -->
       <xsl:call-template name="creatorType"/>
 
@@ -262,6 +265,17 @@
     <xsl:if test="$visibility-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/visibilityValue">
         <xsl:value-of select="$visibility-his-key"/>
+      </mods:classification>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template name="license">
+    <xsl:param name="licence" select="substring-after(mods:accessCondition/@xlink:href, '#')"/>
+    <xsl:variable name="license-his-key" select="fn:document(concat('hisinone:resolve:id:license:', $licence))"/>
+
+    <xsl:if test="$license-his-key">
+      <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/licenseValue">
+        <xsl:value-of select="$license-his-key"/>
       </mods:classification>
     </xsl:if>
   </xsl:template>

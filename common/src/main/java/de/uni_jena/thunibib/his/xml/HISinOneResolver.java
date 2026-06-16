@@ -74,6 +74,7 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CONFERENCE_EVENT_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> LICENSE_TYPE_MAP = new HashMap<>();
 
     public enum Mode {
         resolve, create
@@ -98,7 +99,8 @@ public class HISinOneResolver implements URIResolver {
         state,
         subjectArea,
         thesisType,
-        visibility
+        visibility,
+        license
     }
 
     @Override
@@ -143,6 +145,7 @@ public class HISinOneResolver implements URIResolver {
             case subjectArea -> resolveSubjectArea(fromValue);
             case thesisType -> resolveThesisType(fromValue);
             case visibility -> resolveVisibility(fromValue);
+            case license -> resolveLicense(fromValue);
         };
 
         int resolvedValue = getFieldValue(sysValue, field);
@@ -923,6 +926,41 @@ public class HISinOneResolver implements URIResolver {
 
             VISIBILITY_TYPE_MAP.put(statusCategId, id);
             return id;
+        }
+    }
+
+    protected SysValue resolveLicense(String licenseCategId) {
+        if (licenseCategId == null || licenseCategId.isEmpty()) {
+            return SysValue.UnresolvedSysValue;
+        }
+
+        if (LICENSE_TYPE_MAP.containsKey(licenseCategId)) {
+            return LICENSE_TYPE_MAP.get(licenseCategId);
+        }
+
+        String displayName = MCRXMLFunctions.getDisplayName("licenses", licenseCategId, "de");
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(SysValue.resolve(SysValue.LicenseValue.class))) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logError(response, SysValue.resolve(SysValue.LicenseValue.class));
+                return SysValue.ErroneousSysValue;
+            }
+
+            List<SysValue.LicenseValue> licenseValues = response.readEntity(
+                new GenericType<List<SysValue.LicenseValue>>() {
+                });
+
+            Optional<SysValue.LicenseValue> id = licenseValues.stream()
+                .filter(licenseValue -> displayName.equals(licenseValue.getShortText()))
+                .findFirst();
+
+            if (id.isPresent()) {
+                LICENSE_TYPE_MAP.put(licenseCategId, id.get());
+                return id.get();
+            }
+            return SysValue.UnresolvedSysValue;
         }
     }
 
