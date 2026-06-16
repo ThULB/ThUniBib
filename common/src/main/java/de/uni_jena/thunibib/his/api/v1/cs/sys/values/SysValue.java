@@ -124,6 +124,10 @@ abstract public class SysValue {
     static public class VisibilityValue extends SysValue {
     }
 
+    @HISinOnePath(path = "cs/sys/values/licenseValue")
+    static public class LicenseValue extends SysValue {
+    }
+
     /**
      * HISinOne 'Fachgebiete' classification == UBO 'fachreferate'/'destatis' classification
      * */

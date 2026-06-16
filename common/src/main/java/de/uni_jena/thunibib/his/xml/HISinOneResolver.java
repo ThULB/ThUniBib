@@ -38,18 +38,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * <p>
  * This resolver allows resolving of internal keys used by HISinOne to address its entities.
+ *
+ * <p>
+ * Usage:
+ * </p>
+ * <p>
+ * {@code hisinone:<resolve|create>:<[requested field]>:<conference|country|creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility>:[value]}
  * </p>
  *
- * Usage
+ * Note:
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;conference|country|creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
- * </p>
- *
- * Note
- * <p>
- * The <strong><code>create:</code></strong> uri part is supported for <strong><code>publisher:</code></strong> uri part only.
+ * The <strong>{@code create:}</strong> uri part is supported for <strong>{@code publisher:}</strong> uri part only.
  * </p>
  *
  * @author shermann (Silvio Hermann)
@@ -74,6 +74,7 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> THESIS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> VISIBILITY_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CONFERENCE_EVENT_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue> LICENSE_TYPE_MAP = new HashMap<>();
 
     public enum Mode {
         resolve, create
@@ -98,7 +99,8 @@ public class HISinOneResolver implements URIResolver {
         state,
         subjectArea,
         thesisType,
-        visibility
+        visibility,
+        license
     }
 
     @Override
@@ -143,6 +145,7 @@ public class HISinOneResolver implements URIResolver {
             case subjectArea -> resolveSubjectArea(fromValue);
             case thesisType -> resolveThesisType(fromValue);
             case visibility -> resolveVisibility(fromValue);
+            case license -> resolveLicense(fromValue);
         };
 
         int resolvedValue = getFieldValue(sysValue, field);
@@ -220,7 +223,7 @@ public class HISinOneResolver implements URIResolver {
         String city = conferenceParts[1].trim();
         long year = toEpochMilli(conferenceParts[2].trim());
 
-        SysValue country = resolveCountry(URLEncoder.encode("Ohne Angabe", StandardCharsets.UTF_8));
+        SysValue country = resolveCountry(URLEncoder.encode("ohne Angabe", StandardCharsets.UTF_8));
         SysValue language = resolveLanguage("de");
         SysValue status = resolveConferenceState("validiert");
         SysValue conferenceEventType = resolveConferenceEventTypeValue("vor Ort");
@@ -831,6 +834,12 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
+    /**
+     * Resolves destatis class. If you want the default value {@code ohne Angabe} invoke uri resolver like so:
+     * {@code hisinone:resolve:id:subjectArea}
+     *
+     * @param destatisId the destatis id to resolve
+     * */
     private SysValue resolveSubjectArea(String destatisId) {
         if (SUBJECT_AREA_TYPE_MAP.containsKey(destatisId)) {
             return SUBJECT_AREA_TYPE_MAP.get(destatisId);
@@ -856,7 +865,13 @@ public class HISinOneResolver implements URIResolver {
                 SUBJECT_AREA_TYPE_MAP.put(destatisId, areaValue.get());
                 return areaValue.get();
             }
-            return SysValue.UnresolvedSysValue;
+
+            // default value ('ohne Angabe')
+            areaValue = subjectAreas.stream()
+                .filter(subjectAreaValue -> "OA".equalsIgnoreCase(subjectAreaValue.getUniqueName()))
+                .findFirst();
+
+            return areaValue.isPresent() ? areaValue.get() : SysValue.UnresolvedSysValue;
         }
     }
 
@@ -923,6 +938,41 @@ public class HISinOneResolver implements URIResolver {
 
             VISIBILITY_TYPE_MAP.put(statusCategId, id);
             return id;
+        }
+    }
+
+    protected SysValue resolveLicense(String licenseCategId) {
+        if (licenseCategId == null || licenseCategId.isEmpty()) {
+            return SysValue.UnresolvedSysValue;
+        }
+
+        if (LICENSE_TYPE_MAP.containsKey(licenseCategId)) {
+            return LICENSE_TYPE_MAP.get(licenseCategId);
+        }
+
+        String displayName = MCRXMLFunctions.getDisplayName("licenses", licenseCategId, "de");
+
+        try (HISInOneClient hisClient = HISinOneClientFactory.create();
+            Response response = hisClient.get(SysValue.resolve(SysValue.LicenseValue.class))) {
+
+            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
+                logError(response, SysValue.resolve(SysValue.LicenseValue.class));
+                return SysValue.ErroneousSysValue;
+            }
+
+            List<SysValue.LicenseValue> licenseValues = response.readEntity(
+                new GenericType<List<SysValue.LicenseValue>>() {
+                });
+
+            Optional<SysValue.LicenseValue> id = licenseValues.stream()
+                .filter(licenseValue -> displayName.equals(licenseValue.getShortText()))
+                .findFirst();
+
+            if (id.isPresent()) {
+                LICENSE_TYPE_MAP.put(licenseCategId, id.get());
+                return id.get();
+            }
+            return SysValue.UnresolvedSysValue;
         }
     }
 
