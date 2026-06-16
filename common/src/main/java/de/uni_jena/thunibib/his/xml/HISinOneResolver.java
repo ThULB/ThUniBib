@@ -38,18 +38,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * <p>
  * This resolver allows resolving of internal keys used by HISinOne to address its entities.
+ *
+ * <p>
+ * Usage:
+ * </p>
+ * <p>
+ * {@code hisinone:<resolve|create>:<[requested field]>:<conference|country|creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility>:[value]}
  * </p>
  *
- * Usage
+ * Note:
  * <p>
- * <code>hisinone:&lt;resolve|create&gt;:&lt;[requested field]&gt;:&lt;conference|country|creatorType|documentType|journal|publication|publicationAccessType|publicationResource|publicationType|globalIdentifiers|language|peerReviewed|person|publisher|researchAreaKdsf|subjectArea|state|thesisType|visibility&gt;:[value]</code>
- * </p>
- *
- * Note
- * <p>
- * The <strong><code>create:</code></strong> uri part is supported for <strong><code>publisher:</code></strong> uri part only.
+ * The <strong>{@code create:}</strong> uri part is supported for <strong>{@code publisher:}</strong> uri part only.
  * </p>
  *
  * @author shermann (Silvio Hermann)
