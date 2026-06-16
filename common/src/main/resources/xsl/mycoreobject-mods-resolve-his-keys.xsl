@@ -225,7 +225,7 @@
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="research-area-kdsf-his-key" select="fn:document('hisinone:resolve:id:researchAreaKdsf:001')"/>
+        <xsl:variable name="research-area-kdsf-his-key" select="fn:document('hisinone:resolve:id:researchAreaKdsf:OA')"/>
         <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/researchAreaKdsfValue">
           <xsl:value-of select="$research-area-kdsf-his-key"/>
         </mods:classification>
