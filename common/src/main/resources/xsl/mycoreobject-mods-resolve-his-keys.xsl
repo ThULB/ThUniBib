@@ -103,6 +103,23 @@
     </xsl:copy>
   </xsl:template>
 
+  <xsl:template match="mods:name[@type='corporate']">
+    <xsl:variable name="his-id">
+      <xsl:value-of select="fn:document(concat('notnull:hisinone:resolve:id:corporation:',  fn:encode-for-uri(mods:namePart[1])))"/>
+    </xsl:variable>
+
+    <xsl:copy>
+      <xsl:copy-of select="*|@*"/>
+      <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+      <mods:nameIdentifier
+        typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/researchPartner">
+        <xsl:value-of select="$his-id"/>
+      </mods:nameIdentifier>
+      <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+    </xsl:copy>
+
+  </xsl:template>
+
   <xsl:template match="mods:name[@type='conference']">
     <xsl:variable name="his-id">
       <xsl:value-of select="fn:document(concat('hisinone:resolve:id:conference:', fn:encode-for-uri(mods:namePart/text())))"/>

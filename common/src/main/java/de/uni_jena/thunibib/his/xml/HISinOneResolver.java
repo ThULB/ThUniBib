@@ -87,6 +87,7 @@ public class HISinOneResolver implements URIResolver {
 
     public enum ResolvableTypes {
         conference,
+        corporation,
         country,
         creatorType,
         documentType,
@@ -114,7 +115,7 @@ public class HISinOneResolver implements URIResolver {
     private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy.MM.dd");
 
     @Override
-    public Source resolve(String href, String base) throws TransformerException {
+    final public Source resolve(String href, String base) throws TransformerException {
         LOGGER.debug("Resolving '{}'", href);
 
         String[] parts = href.split(":");
@@ -138,6 +139,7 @@ public class HISinOneResolver implements URIResolver {
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case conference -> Mode.resolve.equals(mode) ? resolveConference(fromValue) : createConference(fromValue);
             case country -> resolveCountry(fromValue);
+            case corporation -> ResearchPartnerResolver.getInstance().resolve(fromValue);
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue);
             case globalIdentifiers -> resolveIdentifierType(fromValue);

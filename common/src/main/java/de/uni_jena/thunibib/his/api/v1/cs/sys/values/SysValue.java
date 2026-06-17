@@ -228,6 +228,10 @@ abstract public class SysValue {
     static public class PublisherWrappedValueSearch extends SysValue.PublisherWrappedValue {
     }
 
+    @HISinOnePath(path = "fs/res/researchPartner")
+    static public class ResearchPartnerSearch extends SysValue {
+    }
+
     @HISinOnePath(path = "fs/res/publisher")
     static public class PublisherWrappedValueCreate extends SysValue.PublisherWrappedValue {
     }
