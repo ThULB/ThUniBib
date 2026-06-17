@@ -72,7 +72,6 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_RESOURCE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_TYPE_MAP = new HashMap<>();
-    private static final Map<String, SysValue> PUBLISHER_MAP = new HashMap<>();
     private static final Map<String, SysValue> RESEARCH_AREA_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> STATE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> SUBJECT_AREA_TYPE_MAP = new HashMap<>();
@@ -151,7 +150,8 @@ public class HISinOneResolver implements URIResolver {
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
             case publicationType -> resolvePublicationType(fromValue);
-            case publisher -> Mode.resolve.equals(mode) ? resolvePublisher(fromValue) : createPublisher(fromValue);
+            case publisher -> Mode.resolve.equals(mode) ? PublisherResolver.getInstance().resolve(fromValue)
+                                                        : PublisherResolver.getInstance().create(fromValue);
             case researchAreaKdsf -> resolveResearchAreaKdsf(fromValue);
             case state -> resolveState(fromValue);
             case subjectArea -> resolveSubjectArea(fromValue);
@@ -546,71 +546,6 @@ public class HISinOneResolver implements URIResolver {
 
             SysValue.Publication publication = response.readEntity(SysValue.Publication.class);
             return publication;
-        }
-    }
-
-    private SysValue resolvePublisher(String value) {
-        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
-
-        Map<String, String> params = new HashMap<>();
-        params.put("q", decodedValue);
-
-        try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(SysValue.resolve(SysValue.PublisherWrappedValueSearch.class), params)) {
-
-            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, SysValue.resolve(SysValue.PublisherWrappedValueSearch.class));
-                return SysValue.ErroneousSysValue;
-            }
-
-            List<SysValue.PublisherWrappedValueSearch> publishers = response.readEntity(
-                new GenericType<List<SysValue.PublisherWrappedValueSearch>>() {
-                });
-
-            List<SysValue.PublisherWrappedValueSearch> resultList = publishers.stream()
-                .filter(pwv -> decodedValue.equals(pwv.getUniqueName()))
-                .toList();
-
-            SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.UnresolvedSysValue;
-            if (r instanceof SysValue.PublisherWrappedValueSearch) {
-                PUBLISHER_MAP.put(decodedValue, r);
-            }
-            return r;
-        } catch (Exception e) {
-            return SysValue.ErroneousSysValue;
-        }
-    }
-
-    /**
-     * Creates a new publisher. Default language is <em>German</em> and default place is <em>unknown/unbekannt</em>.
-     * */
-    private SysValue createPublisher(String value) {
-        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
-
-        SysValue.LanguageValue languageValue = (SysValue.LanguageValue) resolveLanguage("de");
-
-        JsonObject language = new JsonObject();
-        language.addProperty("id", languageValue.getId());
-
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("defaulttext", decodedValue);
-        jsonObject.addProperty("uniquename", decodedValue);
-        jsonObject.add("language", language);
-        jsonObject.addProperty("place", "unbekannt");
-
-        try (HISInOneClient hisClient = HISinOneClientFactory.create();
-
-            Response response = hisClient.post(SysValue.resolve(SysValue.PublisherWrappedValueCreate.class),
-                jsonObject.toString())) {
-
-            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, SysValue.resolve(SysValue.PublisherWrappedValueCreate.class));
-                return SysValue.ErroneousSysValue;
-            }
-
-            SysValue.PublisherWrappedValueCreate publisher = response.readEntity(
-                SysValue.PublisherWrappedValueCreate.class);
-            return publisher;
         }
     }
 
