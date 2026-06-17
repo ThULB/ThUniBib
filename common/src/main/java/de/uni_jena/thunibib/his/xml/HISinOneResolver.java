@@ -27,8 +27,8 @@ import java.lang.reflect.Field;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +55,11 @@ import java.util.stream.Collectors;
  * @author shermann (Silvio Hermann)
  * */
 public class HISinOneResolver implements URIResolver {
+    /**
+     * Regular expression matching the date range format used to depict a conference duration (YYYY.MM.dd-dd or YYYY)
+     */
+    static final String CONFERENCE_DATE_REGEX = "\\d{4}\\.\\d{2}\\.\\d{2}-\\d{2}|\\d{4}";
+
     private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
 
     private static final Map<String, SysValue.LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
@@ -102,6 +107,11 @@ public class HISinOneResolver implements URIResolver {
         visibility,
         license
     }
+
+    /**
+     * {@link SimpleDateFormat} used to parse a conference date.
+     * */
+    private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy.MM.dd");
 
     @Override
     public Source resolve(String href, String base) throws TransformerException {
@@ -167,7 +177,21 @@ public class HISinOneResolver implements URIResolver {
 
         String name = conferenceParts[0].trim();
         String location = conferenceParts[1].trim();
-        long year = toEpochMilli(conferenceParts[2].trim());
+
+        String dateRange = conferenceParts[2].trim();
+        if (!dateRange.matches(CONFERENCE_DATE_REGEX)) {
+            LOGGER.error("Conference date '{}' does not match '{}'", dateRange, CONFERENCE_DATE_REGEX);
+            return SysValue.ErroneousSysValue;
+        }
+
+        final long startDate, endDate;
+        try {
+            startDate = getStartDate(dateRange);
+            endDate = getEndDate(dateRange);
+        } catch (ParseException e) {
+            LOGGER.error("Could not parse start or end date ({}) of conference", dateRange, e);
+            return SysValue.ErroneousSysValue;
+        }
 
         // Search by name of the conference
         Map<String, String> params = new HashMap<>();
@@ -185,7 +209,7 @@ public class HISinOneResolver implements URIResolver {
             Optional<SysValue.Conference> match = Arrays.stream(conferences)
                 .filter(conference -> conference.getDefaultText().equals(name))
                 .filter(conference -> location.equals(conference.getCity()))
-                .filter(conference -> conference.getStartDate() >= year && conference.getEndDate() <= year)
+                .filter(conference -> conference.getStartDate() >= startDate && conference.getEndDate() <= endDate)
                 .findFirst();
             return match.isPresent() ? match.get() : SysValue.UnresolvedSysValue;
         }
@@ -221,14 +245,29 @@ public class HISinOneResolver implements URIResolver {
 
         String name = conferenceParts[0].trim();
         String city = conferenceParts[1].trim();
-        long year = toEpochMilli(conferenceParts[2].trim());
+
+        String dateRange = conferenceParts[2].trim();
+        if (!dateRange.matches(CONFERENCE_DATE_REGEX)) {
+            LOGGER.error("Conference date '{}' does not match '{}'", dateRange, CONFERENCE_DATE_REGEX);
+            return SysValue.ErroneousSysValue;
+        }
+
+        final long startDate, endDate;
+        try {
+            startDate = getStartDate(dateRange);
+            endDate = getEndDate(dateRange);
+        } catch (ParseException e) {
+            LOGGER.error("Could not parse start or end date ({}) of conference", dateRange, e);
+            return SysValue.ErroneousSysValue;
+        }
 
         SysValue country = resolveCountry(URLEncoder.encode("ohne Angabe", StandardCharsets.UTF_8));
         SysValue language = resolveLanguage("de");
         SysValue status = resolveConferenceState("validiert");
         SysValue conferenceEventType = resolveConferenceEventTypeValue("vor Ort");
 
-        JsonObject conference = buildConferenceObject(city, conferenceEventType, name, country, language, status, year);
+        JsonObject conference = buildConferenceObject(city, conferenceEventType, name, country, language, status,
+            startDate, endDate);
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.post(SysValue.resolve(SysValue.Conference.class), conference.toString())) {
@@ -246,7 +285,7 @@ public class HISinOneResolver implements URIResolver {
     }
 
     private JsonObject buildConferenceObject(String city, SysValue eventType, String defaultText, SysValue country,
-        SysValue language, SysValue status, long year) {
+        SysValue language, SysValue status, long startDate, long endDate) {
         JsonObject conference = new JsonObject();
         conference.addProperty("city", city);
 
@@ -268,8 +307,8 @@ public class HISinOneResolver implements URIResolver {
         statusProp.addProperty("id", status.getId());
         conference.add("status", statusProp);
 
-        conference.addProperty("startDate", year);
-        conference.addProperty("endDate", year);
+        conference.addProperty("startDate", startDate);
+        conference.addProperty("endDate", endDate);
 
         return conference;
     }
@@ -1106,9 +1145,23 @@ public class HISinOneResolver implements URIResolver {
         return true;
     }
 
-    private long toEpochMilli(String conferenceYear) {
-        Instant instant = Instant.parse(conferenceYear + "-01-01T00:00:00Z");
-        return instant.minus(1, ChronoUnit.HOURS).toEpochMilli();
+    private long getStartDate(String dateRange) throws ParseException {
+        if (dateRange.length() == 4) {
+            return new SimpleDateFormat("yyyy").parse(dateRange).getTime();
+        }
+
+        return SDF.parse(dateRange.substring(0, dateRange.indexOf("-"))).getTime();
+    }
+
+    private long getEndDate(String dateRange) throws ParseException {
+        if (dateRange.length() == 4) {
+            return new SimpleDateFormat("yyyy").parse(dateRange).getTime();
+        }
+
+        String start = dateRange.substring(0, dateRange.indexOf("-") - 2);
+        String end = dateRange.substring(dateRange.indexOf("-") + 1);
+
+        return SDF.parse(start + end).getTime();
     }
 
     /**
