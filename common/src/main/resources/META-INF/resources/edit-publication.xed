@@ -26,7 +26,7 @@
         <xed:preload uri="webapp:import-editor.xed" />
         <xed:preload uri="webapp:import-thunibib.xed" />
 
-        <xed:if test="$UBO.EditorForms.CustomIncludes">
+        <xed:if test="string-length($UBO.EditorForms.CustomIncludes) &gt; 0">
           <xed:preload uri="webapp:{$UBO.EditorForms.CustomIncludes}" />
         </xed:if>
 
