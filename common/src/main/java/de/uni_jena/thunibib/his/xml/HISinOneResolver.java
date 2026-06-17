@@ -515,6 +515,7 @@ public class HISinOneResolver implements URIResolver {
     }
 
     protected SysValue createParent(String mcrid) {
+        LOGGER.info("Creating {} as parent is required", mcrid);
         return HISinOneCommands.publish(mcrid);
     }
 
