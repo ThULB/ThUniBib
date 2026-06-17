@@ -164,11 +164,12 @@ public class HISinOneResolver implements URIResolver {
     }
 
     private SysValue resolveConference(String value) {
-        if (CONFERENCE_TYPE_MAP.containsKey(value)) {
-            return CONFERENCE_TYPE_MAP.get(value);
+        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+
+        if (CONFERENCE_TYPE_MAP.containsKey(decodedValue)) {
+            return CONFERENCE_TYPE_MAP.get(decodedValue);
         }
 
-        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
         String[] conferenceParts = decodedValue.split(";");
 
         if (!(conferenceParts.length >= 3)) {
@@ -177,21 +178,15 @@ public class HISinOneResolver implements URIResolver {
 
         String name = conferenceParts[0].trim();
         String location = conferenceParts[1].trim();
-
         String dateRange = conferenceParts[2].trim();
-        if (!dateRange.matches(CONFERENCE_DATE_REGEX)) {
-            LOGGER.error("Conference date '{}' does not match '{}'", dateRange, CONFERENCE_DATE_REGEX);
+
+        Optional<HashMap<String, Long>> startEndeDates = getStartEndeDates(dateRange);
+        if (startEndeDates.isEmpty()) {
             return SysValue.ErroneousSysValue;
         }
 
-        final long startDate, endDate;
-        try {
-            startDate = getStartDate(dateRange);
-            endDate = getEndDate(dateRange);
-        } catch (ParseException e) {
-            LOGGER.error("Could not parse start or end date ({}) of conference", dateRange, e);
-            return SysValue.ErroneousSysValue;
-        }
+        long startDate = startEndeDates.get().get("startDate");
+        long endDate = startEndeDates.get().get("endDate");
 
         // Search by name of the conference
         Map<String, String> params = new HashMap<>();
@@ -237,6 +232,10 @@ public class HISinOneResolver implements URIResolver {
 
     private SysValue createConference(String value) {
         String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+        if (CONFERENCE_TYPE_MAP.containsKey(decodedValue)) {
+            return CONFERENCE_TYPE_MAP.get(decodedValue);
+        }
+
         String[] conferenceParts = decodedValue.split(";");
 
         if (conferenceParts.length != 3) {
@@ -245,19 +244,10 @@ public class HISinOneResolver implements URIResolver {
 
         String name = conferenceParts[0].trim();
         String city = conferenceParts[1].trim();
-
         String dateRange = conferenceParts[2].trim();
-        if (!dateRange.matches(CONFERENCE_DATE_REGEX)) {
-            LOGGER.error("Conference date '{}' does not match '{}'", dateRange, CONFERENCE_DATE_REGEX);
-            return SysValue.ErroneousSysValue;
-        }
 
-        final long startDate, endDate;
-        try {
-            startDate = getStartDate(dateRange);
-            endDate = getEndDate(dateRange);
-        } catch (ParseException e) {
-            LOGGER.error("Could not parse start or end date ({}) of conference", dateRange, e);
+        Optional<HashMap<String, Long>> startEndeDates = getStartEndeDates(dateRange);
+        if (startEndeDates.isEmpty()) {
             return SysValue.ErroneousSysValue;
         }
 
@@ -267,7 +257,7 @@ public class HISinOneResolver implements URIResolver {
         SysValue conferenceEventType = resolveConferenceEventTypeValue("vor Ort");
 
         JsonObject conference = buildConferenceObject(city, conferenceEventType, name, country, language, status,
-            startDate, endDate);
+            startEndeDates.get().get("startDate"), startEndeDates.get().get("endDate"));
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
             Response response = hisClient.post(SysValue.resolve(SysValue.Conference.class), conference.toString())) {
@@ -275,12 +265,49 @@ public class HISinOneResolver implements URIResolver {
                 logError(response, SysValue.resolve(SysValue.Conference.class));
                 return SysValue.ErroneousSysValue;
             }
+
             SysValue.Conference created = response.readEntity(SysValue.Conference.class);
 
+            CONFERENCE_TYPE_MAP.put(decodedValue, created);
             return created;
         } catch (Exception e) {
             LOGGER.error("Could not create conference", e);
             return SysValue.ErroneousSysValue;
+        }
+    }
+
+    /**
+     * Extracts and parses the start and end dates from a conference date range string.
+     * <p>
+     * The provided date range must match {@code CONFERENCE_DATE_REGEX}. If the
+     * format is valid, the method parses the start and end dates and returns them
+     * in a {@link HashMap} with the keys {@code "startDate"} and {@code "endDate"}.
+     * If the input does not match the expected format or if date parsing fails,
+     * an empty {@link Optional} is returned.
+     *
+     * @param dateRange the conference date range string to parse
+     * @return an {@link Optional} containing a map with the parsed start and end
+     *         dates ({@code "startDate"} and {@code "endDate"}) as epoch values,
+     *         or {@link Optional#empty()} if the input format is invalid or the
+     *         dates cannot be parsed
+     */
+    private Optional<HashMap<String, Long>> getStartEndeDates(String dateRange) {
+        if (!dateRange.matches(CONFERENCE_DATE_REGEX)) {
+            LOGGER.error("Conference date '{}' does not match '{}'", dateRange, CONFERENCE_DATE_REGEX);
+            return Optional.empty();
+        }
+
+        final long startDate, endDate;
+        try {
+            startDate = getStartDate(dateRange);
+            endDate = getEndDate(dateRange);
+            HashMap<String, Long> startEndeDates = new HashMap<>();
+            startEndeDates.put("startDate", startDate);
+            startEndeDates.put("endDate", endDate);
+            return Optional.of(startEndeDates);
+        } catch (ParseException e) {
+            LOGGER.error("Could not parse start or end date ({}) of conference", dateRange, e);
+            return Optional.empty();
         }
     }
 
