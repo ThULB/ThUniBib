@@ -204,16 +204,20 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
 
                 /* Org Units */
                 final JsonArray creatorOrganizations = new JsonArray();
-                nameElement.getChildren("affiliation", MODS_NAMESPACE).forEach(affiliation -> {
-                    JsonObject organizationBasic = new JsonObject();
-                    organizationBasic.addProperty("id", Integer.parseInt(affiliation.getText()));
-                    organizationBasic.addProperty("text", "Bauhaus-Universität Weimar");
+                nameElement.getChildren("affiliation", MODS_NAMESPACE)
+                    .stream()
+                    .filter(a -> a.getAttribute("authorityURI") != null)
+                    .filter(a -> a.getAttributeValue("authorityURI").startsWith(HIS_IN_ONE_BASE_URL))
+                    .forEach(affiliation -> {
+                        JsonObject organizationBasic = new JsonObject();
+                        organizationBasic.addProperty("id", Integer.parseInt(affiliation.getText()));
+                        organizationBasic.addProperty("text", "Bauhaus-Universität Weimar");
 
-                    JsonObject creatorOrganization = new JsonObject();
-                    creatorOrganization.add("organization", organizationBasic);
+                        JsonObject creatorOrganization = new JsonObject();
+                        creatorOrganization.add("organization", organizationBasic);
 
-                    creatorOrganizations.add(creatorOrganization);
-                });
+                        creatorOrganizations.add(creatorOrganization);
+                    });
 
                 /* build creator element */
                 creator.addProperty("firstname", personNames.get("firstname").getAsString());
