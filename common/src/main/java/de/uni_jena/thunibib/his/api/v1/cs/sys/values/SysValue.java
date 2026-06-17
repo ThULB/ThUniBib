@@ -229,7 +229,7 @@ abstract public class SysValue {
     }
 
     @HISinOnePath(path = "fs/res/researchPartner")
-    static public class ResearchPartnerSearch extends SysValue {
+    static public class ResearchPartner extends SysValue {
     }
 
     @HISinOnePath(path = "fs/res/publisher")

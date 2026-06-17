@@ -138,7 +138,8 @@ public class HISinOneResolver implements URIResolver {
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case conference -> Mode.resolve.equals(mode) ? resolveConference(fromValue) : createConference(fromValue);
             case country -> resolveCountry(fromValue);
-            case corporation -> ResearchPartnerResolver.getInstance().resolve(fromValue);
+            case corporation -> Mode.resolve.equals(mode) ? ResearchPartnerResolver.getInstance().resolve(fromValue)
+                                                          : ResearchPartnerResolver.getInstance().create(fromValue);
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
