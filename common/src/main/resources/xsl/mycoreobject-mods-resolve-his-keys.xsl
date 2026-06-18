@@ -250,9 +250,30 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- TODO find the proper source value, currently mapping is fixed to 'Autor/-in'-->
   <xsl:template name="creatorType">
-    <xsl:variable name="creator-type-his-key" select="fn:document('hisinone:resolve:id:creatorType:aut')"/>
+    <!--
+     * Supported values are:
+     * Autor/-in
+     * Herausgeber/-in
+     * Körperschaft mit Autorenfunktion
+     * Körperschaft mit Herausgeberfunktion
+     * Gruppe mit Autorenfunktion
+     * Gruppe mit Herausgeberfunktion
+     -->
+
+    <xsl:variable name="creator-type">
+      <xsl:choose>
+        <xsl:when test="count(mods:name[@type ='personal']) = 0 and count(mods:name[@type = 'corporate']) &gt; 0">
+          <xsl:value-of select="fn:encode-for-uri('Körperschaft mit Herausgeberfunktion')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="fn:encode-for-uri('Autor/-in')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="creator-type-his-key" select="fn:document(concat('hisinone:resolve:id:creatorType:' , $creator-type))"/>
+
     <xsl:if test="$creator-type-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationCreatorTypeValue">
         <xsl:value-of select="$creator-type-his-key"/>
@@ -262,7 +283,6 @@
 
   <xsl:template name="subjectArea">
     <xsl:variable name="subject-area-value-uri" select="'cs/sys/values/subjectAreaValue'"/>
-    <xsl:variable name="origin-id" select="fn:substring-after(mods:classification[contains(@valueURI, 'ORIGIN')]/@valueURI, '#')"/>
 
     <xsl:choose>
       <xsl:when test="mods:classification[fn:contains(@authorityURI, 'classifications/destatis')]">

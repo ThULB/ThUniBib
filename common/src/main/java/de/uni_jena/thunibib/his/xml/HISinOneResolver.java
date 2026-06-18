@@ -880,9 +880,22 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
+    /**
+     * Supported values are:
+     * <pre>
+     *  Autor/-in
+     *  Herausgeber/-in
+     *  Körperschaft mit Autorenfunktion
+     *  Körperschaft mit Herausgeberfunktion
+     *  Gruppe mit Autorenfunktion
+     *  Gruppe mit Herausgeberfunktion
+     * </pre>
+     * */
     protected SysValue resolveCreatorType(String value) {
-        if (CREATOR_TYPE_MAP.containsKey(value)) {
-            return CREATOR_TYPE_MAP.get(value);
+        String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
+
+        if (CREATOR_TYPE_MAP.containsKey(decodedValue)) {
+            return CREATOR_TYPE_MAP.get(decodedValue);
         }
 
         String path = SysValue.resolve(SysValue.PublicationCreatorTypeValue.class);
@@ -898,15 +911,17 @@ public class HISinOneResolver implements URIResolver {
                 new GenericType<List<SysValue.PublicationCreatorTypeValue>>() {
                 });
 
-            var id = switch (value) {
-                default -> creatorTypes.stream()
-                    .filter(state -> "Autor/-in".equals(state.getUniqueName()))
-                    .findFirst()
-                    .get();
-            };
+            Optional<SysValue.PublicationCreatorTypeValue> creatorTypeValue = creatorTypes
+                .stream()
+                .filter(state -> decodedValue.equals(state.getDefaultText()))
+                .findFirst();
 
-            CREATOR_TYPE_MAP.put(value, id);
-            return id;
+            if (creatorTypeValue.isPresent()) {
+                CREATOR_TYPE_MAP.put(decodedValue, creatorTypeValue.get());
+                return creatorTypeValue.get();
+            }
+
+            return SysValue.UnresolvedSysValue;
         }
     }
 
