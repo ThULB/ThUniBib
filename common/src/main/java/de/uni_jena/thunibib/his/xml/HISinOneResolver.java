@@ -60,7 +60,7 @@ public class HISinOneResolver implements URIResolver {
      */
     static final String CONFERENCE_DATE_REGEX = "\\d{4}\\.\\d{2}\\.\\d{2}-\\d{2}|\\d{4}";
 
-    private static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
+    protected static final Logger LOGGER = LogManager.getLogger(HISinOneResolver.class);
 
     private static final Map<String, SysValue.LanguageValue> LANGUAGE_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> CONFERENCE_TYPE_MAP = new HashMap<>();

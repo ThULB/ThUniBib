@@ -158,30 +158,30 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         addGlobalIdentifiers(jsonObject, xml, "//mods:identifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + "')]");
     }
 
-    /**
-     * For Testing
-     * */
-    protected void addSampleCreator(JsonObject jsonObject) {
-        LOGGER.warn("{}#addSampleCreator invoked", PublicationHisResTransformer.class.getName());
-        JsonArray creators = new JsonArray();
-        JsonObject name = new JsonObject();
-        name.addProperty("id", 135);
-        name.addProperty("creatorname", "Krüger");
-        name.addProperty("firstname", "Gudrun");
-
-        creators.add(name);
-        jsonObject.add("creators", creators);
-    }
-
     protected void addCreators(JsonObject jsonObject, Document xml) {
         final JsonArray creators = new JsonArray();
 
+        // affiliated creators
+        addAffiliatedCreators(xml, creators);
+
+        // unaffiliated creators
+        addUnaffiliatedCreators(xml, creators);
+
+        // affiliated Editors/Herausgeber
+        addAffiliatedEditors(xml, creators);
+
+        if (!creators.isEmpty()) {
+            jsonObject.add("creators", creators);
+        }
+    }
+
+    private void addAffiliatedCreators(Document mods, JsonArray creators) {
         String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
             + SysValue.resolve(SysValue.PersonIdentifier.class) + "')]";
 
         XPATH_FACTORY
             .compile("//mods:mods/mods:name[@type='personal'][" + tCond + "]", Filters.element(), null, MODS_NAMESPACE)
-            .evaluate(xml)
+            .evaluate(mods)
             .forEach(nameElement -> {
                 final JsonObject creator = new JsonObject();
                 final JsonObject personNames = new JsonObject();
@@ -229,11 +229,15 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                 creator.add("person", personNames);
                 creators.add(creator);
             });
+    }
 
-        // unaffiliated creators
+    private void addUnaffiliatedCreators(Document mods, JsonArray creators) {
+        String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
+            + SysValue.resolve(SysValue.PersonIdentifier.class) + "')]";
+
         XPATH_FACTORY
             .compile("//mods:mods/mods:name[@type='personal'][not(" + tCond + ")]", Filters.element(), null, MODS_NAMESPACE)
-            .evaluate(xml)
+            .evaluate(mods)
             .forEach(nameElement -> {
                 final JsonObject name = new JsonObject();
                 name.add("person", JsonNull.INSTANCE);
@@ -250,10 +254,48 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                     });
                 creators.add(name);
             });
+    }
 
-        if (!creators.isEmpty()) {
-            jsonObject.add("creators", creators);
-        }
+    private void addAffiliatedEditors(Document mods, JsonArray creators) {
+        String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
+            + SysValue.resolve(SysValue.ResearchPartner.class) + "')]";
+
+        XPATH_FACTORY
+            .compile("//mods:mods/mods:name[@type='corporate'][" + tCond + "]", Filters.element(), null, MODS_NAMESPACE)
+            .evaluate(mods)
+            .forEach(nameElement -> {
+                final JsonObject creator = new JsonObject();
+                final JsonObject corporateNames = new JsonObject();
+
+                /* id of person in HISinOne */
+                XPathExpression<Element> idExpr = XPATH_FACTORY.compile(tCond, Filters.element(), null, MODS_NAMESPACE);
+                corporateNames.addProperty("id", Integer.parseInt(idExpr.evaluateFirst(nameElement).getText()));
+
+                /* nameParts */
+                nameElement
+                    .getChildren("namePart", MODS_NAMESPACE)
+                    .forEach(namePart -> {
+                        creator.addProperty("creatorname", namePart.getText());
+                    });
+
+                /* Org Units as research partner */
+                final JsonArray creatorOrganizations = new JsonArray();
+                nameElement.getChildren("nameIdentifier", MODS_NAMESPACE)
+                    .stream()
+                    .filter(a -> a.getAttribute("typeURI") != null)
+                    .filter(a -> a.getAttributeValue("typeURI").startsWith(HIS_IN_ONE_BASE_URL))
+                    .forEach(nameIdentifier -> {
+                        JsonObject organizationBasic = new JsonObject();
+                        organizationBasic.addProperty("id", Integer.parseInt(nameIdentifier.getText()));
+
+                        JsonObject creatorOrganization = new JsonObject();
+                        creatorOrganization.add("researchPartner", organizationBasic);
+                        creatorOrganizations.add(creatorOrganization);
+                    });
+
+                creator.add("creatorOrganizations", creatorOrganizations);
+                creators.add(creator);
+            });
     }
 
     protected void addProperty(JsonObject jsonObject, String xpath, Document xml, String pName, boolean single) {
@@ -357,5 +399,23 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         JsonObject journal = new JsonObject();
         journal.addProperty("id", id);
         jsonObject.add(propertyName, journal);
+    }
+
+    /**
+     * For Testing
+     *
+     * @deprecated will be removed in the near future
+     * */
+    @Deprecated
+    protected void addSampleCreator(JsonObject jsonObject) {
+        LOGGER.warn("{}#addSampleCreator invoked", PublicationHisResTransformer.class.getName());
+        JsonArray creators = new JsonArray();
+        JsonObject name = new JsonObject();
+        name.addProperty("id", 135);
+        name.addProperty("creatorname", "Krüger");
+        name.addProperty("firstname", "Gudrun");
+
+        creators.add(name);
+        jsonObject.add("creators", creators);
     }
 }

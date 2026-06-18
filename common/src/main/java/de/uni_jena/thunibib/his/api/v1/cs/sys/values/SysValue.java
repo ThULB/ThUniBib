@@ -67,6 +67,10 @@ abstract public class SysValue {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getLockVersion() {
         return lockVersion;
     }
@@ -235,9 +239,6 @@ abstract public class SysValue {
     @HISinOnePath(path = "fs/res/researchPartner")
     @JsonIgnoreProperties(ignoreUnknown = true)
     static public class ResearchPartner extends SysValue {
-        public ResearchPartner(int id){
-            this.id = id;
-        }
     }
 
     static public class DocumentType extends SysValue {

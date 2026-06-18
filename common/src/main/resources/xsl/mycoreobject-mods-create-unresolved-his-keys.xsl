@@ -122,9 +122,6 @@
     <xsl:comment>End - create corporate - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
   </xsl:template>
 
-    <!-- Remove all elements with unresolved values -->
-    <xsl:template match="*[fn:number() &lt; 0] | *[fn:contains(@typeURI, '#-1')]"/>
-
-  <!-- remove all unmatched -->
-    <xsl:template match="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
+  <!-- Remove all elements with unresolved values -->
+  <xsl:template match="*[fn:number() &lt; 0] | *[fn:contains(@typeURI, '#-1')]"/>
 </xsl:stylesheet>

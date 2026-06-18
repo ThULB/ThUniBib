@@ -80,6 +80,7 @@ class ResearchPartnerResolver extends HISinOneResolver {
 
             return SysValue.UnresolvedSysValue;
         } catch (Exception e) {
+            LOGGER.error("Failed to resolve research partner '{}'", namePart, e);
             return SysValue.ErroneousSysValue;
         }
     }
@@ -108,7 +109,10 @@ class ResearchPartnerResolver extends HISinOneResolver {
                 return SysValue.ErroneousSysValue;
             }
 
-            SysValue.ResearchPartner researchPartner = response.readEntity(SysValue.ResearchPartner.class);
+            Integer researchPartnerId = response.readEntity(Integer.class);
+            SysValue.ResearchPartner researchPartner = new SysValue.ResearchPartner();
+            researchPartner.setId(researchPartnerId);
+
             RESEARCH_PARTNER_MAP.put(decodedValue, researchPartner);
             return researchPartner;
         }
