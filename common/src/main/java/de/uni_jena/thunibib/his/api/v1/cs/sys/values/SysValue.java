@@ -228,12 +228,16 @@ abstract public class SysValue {
     static public class PublisherWrappedValueSearch extends SysValue.PublisherWrappedValue {
     }
 
-    @HISinOnePath(path = "fs/res/researchPartner")
-    static public class ResearchPartner extends SysValue {
-    }
-
     @HISinOnePath(path = "fs/res/publisher")
     static public class PublisherWrappedValueCreate extends SysValue.PublisherWrappedValue {
+    }
+
+    @HISinOnePath(path = "fs/res/researchPartner")
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static public class ResearchPartner extends SysValue {
+        public ResearchPartner(int id){
+            this.id = id;
+        }
     }
 
     static public class DocumentType extends SysValue {

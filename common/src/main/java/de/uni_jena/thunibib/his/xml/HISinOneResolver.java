@@ -86,7 +86,7 @@ public class HISinOneResolver implements URIResolver {
 
     public enum ResolvableTypes {
         conference,
-        corporation,
+        researchPartner,
         country,
         creatorType,
         documentType,
@@ -138,7 +138,7 @@ public class HISinOneResolver implements URIResolver {
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case conference -> Mode.resolve.equals(mode) ? resolveConference(fromValue) : createConference(fromValue);
             case country -> resolveCountry(fromValue);
-            case corporation -> Mode.resolve.equals(mode) ? ResearchPartnerResolver.getInstance().resolve(fromValue)
+            case researchPartner -> Mode.resolve.equals(mode) ? ResearchPartnerResolver.getInstance().resolve(fromValue)
                                                           : ResearchPartnerResolver.getInstance().create(fromValue);
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue);
@@ -343,7 +343,7 @@ public class HISinOneResolver implements URIResolver {
         return conference;
     }
 
-    private SysValue resolveCountry(String countryName) {
+    protected SysValue resolveCountry(String countryName) {
         String decodedCountryName = URLDecoder.decode(countryName, StandardCharsets.UTF_8);
 
         if (COUNTRY_TYPE_MAP.containsKey(decodedCountryName)) {

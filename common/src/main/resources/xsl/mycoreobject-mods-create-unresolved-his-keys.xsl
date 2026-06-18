@@ -30,6 +30,7 @@
           <xsl:apply-templates select="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
           <xsl:apply-templates select="mods:relatedItem[@otherTypeAuth = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
           <xsl:apply-templates select="mods:name[@type='conference'][mods:nameIdentifier[contains(@typeURI, $ThUniBib.HISinOne.BaseURL)][fn:number() &lt; 0]]" mode="create"/>
+          <xsl:apply-templates select="mods:name[@type='corporate'][mods:nameIdentifier[contains(@typeURI, 'fs/res/researchPartner')][fn:number() &lt; 0]]" mode="create"/>
 
           <xsl:comment>End - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
         </xsl:when>
@@ -105,6 +106,25 @@
     <xsl:comment>End - create conference - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
   </xsl:template>
 
-  <!-- Remove all elements with unresolved values -->
+  <xsl:template match="mods:name[@type='corporate'][mods:nameIdentifier[contains(@typeURI, 'fs/res/researchPartner')]]" mode="create" >
+    <xsl:comment>Begin - create corporate - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
+
+    <mods:name type="corporate">
+      <xsl:copy-of select="@*|node()[not(fn:local-name() = 'nameIdentifier')]"/>
+
+      <xsl:variable name="researchPartner-text" select="fn:encode-for-uri(mods:namePart[1])"/>
+      <xsl:variable name="researchPartner-id" select="fn:document(concat('hisinone:create:id:researchPartner:', $researchPartner-text))"/>
+
+      <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/researchPartner">
+        <xsl:value-of select="$researchPartner-id"/>
+      </mods:nameIdentifier>
+    </mods:name>
+    <xsl:comment>End - create corporate - transformer 'xsl/mods-create-unresolved-his-keys.xsl'</xsl:comment>
+  </xsl:template>
+
+    <!-- Remove all elements with unresolved values -->
     <xsl:template match="*[fn:number() &lt; 0] | *[fn:contains(@typeURI, '#-1')]"/>
+
+  <!-- remove all unmatched -->
+    <xsl:template match="mods:classification[@authorityURI = $ThUniBib.HISinOne.BaseURL][fn:number() &lt; 0]" mode="create"/>
 </xsl:stylesheet>

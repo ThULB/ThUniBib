@@ -105,7 +105,7 @@
 
   <xsl:template match="mods:name[@type='corporate']">
     <xsl:variable name="his-id">
-      <xsl:value-of select="fn:document(concat('notnull:hisinone:resolve:id:corporation:',  fn:encode-for-uri(mods:namePart[1])))"/>
+      <xsl:value-of select="fn:document(concat('notnull:hisinone:resolve:id:researchPartner:',  fn:encode-for-uri(mods:namePart[1])))"/>
     </xsl:variable>
 
     <xsl:copy>
