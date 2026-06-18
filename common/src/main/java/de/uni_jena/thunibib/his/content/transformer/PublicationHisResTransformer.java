@@ -211,7 +211,6 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                     .forEach(affiliation -> {
                         JsonObject organizationBasic = new JsonObject();
                         organizationBasic.addProperty("id", Integer.parseInt(affiliation.getText()));
-                        organizationBasic.addProperty("text", "Bauhaus-Universität Weimar");
 
                         JsonObject creatorOrganization = new JsonObject();
                         creatorOrganization.add("organization", organizationBasic);
