@@ -7,9 +7,93 @@
   <label xml:lang="x-place" text="Hochschule Nordhausen | Nordhausen | Weinberghof 4 | 99734 Nordhausen"/>
 
   <categories>
-    <category ID="0100">
-      <label xml:lang="de" text="Hochschule Nordhausen"/>
-      <label xml:lang="en" text="Hochschule Nordhausen"/>
+    <category ID="hsn.eng">
+      <label xml:lang="de" text="Fachbereich Ingenieurwissenschaften"/>
+      <category ID="hsn.aee">
+        <label xml:lang="de" text="Automatisierung und Elektronikentwicklung"/>
+      </category>
+      <category ID="hsn.et">
+        <label xml:lang="de" text="Elektrotechnik"/>
+      </category>
+      <category ID="hsn.gt">
+        <label xml:lang="de" text="Geotechnik"/>
+      </category>
+      <category ID="hsn.inf">
+        <label xml:lang="de" text="Informatik"/>
+      </category>
+      <category ID="hsn.ita">
+        <label xml:lang="de" text="Internet - Technologie und Anwendungen"/>
+      </category>
+      <category ID="hsn.mab">
+        <label xml:lang="de" text="Maschinenbau"/>
+      </category>
+      <category ID="hsn.ret">
+        <label xml:lang="de" text="Regenerative Energietechnik"/>
+      </category>
+      <category ID="hsn.urt">
+        <label xml:lang="de" text="Umwelt- und Recyclingtechnik"/>
+      </category>
+      <category ID="hsn.wintec">
+        <label xml:lang="de" text="Wirtschaftsingenieurwesen für Nachhaltige Technologien"/>
+      </category>
+      <category ID="hsn.eoes">
+        <label xml:lang="de" text="Energetisch-Ökologischer Stadtumbau"/>
+      </category>
+      <category ID="hsn.se">
+        <label xml:lang="de" text="Systems Engineering"/>
+      </category>
+      <category ID="hsn.wing">
+        <label xml:lang="de" text="Wirtschaftsingenieurwesen"/>
+      </category>
+      <category ID="hsn.aki">
+        <label xml:lang="de" text="August-Kramer-Institut"/>
+      </category>
+      <category ID="hsn.iae">
+        <label xml:lang="de" text="Institut für Informatik, Automatisierung und Elektronik"/>
+      </category>
+      <category ID="hsn.inret">
+        <label xml:lang="de" text="Institut für Regenerative Energietechnik"/>
+      </category>
+    </category>
+
+    <category ID="hsn.wiso">
+      <label xml:lang="de" text="Fachbereich Wirtschafts- und Sozialwissenschaften"/>
+      <category ID="hsn.bwl">
+        <label xml:lang="de" text="Betriebswirtschaftslehre"/>
+      </category>
+      <category ID="hsn.gus">
+        <label xml:lang="de" text="Gesundheits- und Sozialwesen"/>
+      </category>
+      <category ID="hsn.hp">
+        <label xml:lang="de" text="Heilpädagogik"/>
+      </category>
+      <category ID="hsn.puma">
+        <label xml:lang="de" text="Public Management"/>
+      </category>
+      <category ID="hsn.soma">
+        <label xml:lang="de" text="Sozialmanagement"/>
+      </category>
+      <category ID="hsn.icm">
+        <label xml:lang="de" text="Innovations- und Change-Management"/>
+      </category>
+      <category ID="hsn.pmg">
+        <label xml:lang="de" text="Public Management &amp; Governance"/>
+      </category>
+      <category ID="hsn.tsa">
+        <label xml:lang="de" text="Therapeutische Soziale Arbeit"/>
+      </category>
+      <category ID="hsn.syb">
+        <label xml:lang="de" text="Systemische Beratung"/>
+      </category>
+      <category ID="hsn.tff">
+        <label xml:lang="de" text="Transdisziplinäre Frühförderung"/>
+      </category>
+      <category ID="hsn.ipmg">
+        <label xml:lang="de" text="Institut für Public Management &amp; Governance"/>
+      </category>
+      <category ID="hsn.isrv">
+        <label xml:lang="de" text="Institut für Sozialmedizin, Rehabilitationswissenschaften und Versorgungsforschung"/>
+      </category>
     </category>
   </categories>
 </mycoreclass>

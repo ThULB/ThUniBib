@@ -3,11 +3,20 @@
 
   <label xml:lang="de" text="Hochschule Schmalkalden"/>
   <label xml:lang="en" text="Hochschule Schmalkalden"/>
-  <label xml:lang="x-place" text="Hochschule Schmalkalden | Schmalkalden | Blechhammer, 98574 Schmalkalden"/>
+  <label xml:lang="x-place" text="Hochschule Schmalkalden | Schmalkalden | Blechhammer 9, 98574 Schmalkalden"/>
 
   <categories>
-    <category ID="0100">
-      <label xml:lang="de" text="Hochschule Schmalkalden"/>
+    <category ID="21030">
+      <label xml:lang="de" text="Fachbereich Informatik"/>
+    </category>
+    <category ID="210040">
+      <label xml:lang="de" text="Fachbereich Maschinenbau"/>
+    </category>
+    <category ID="210050">
+      <label xml:lang="de" text="Fachbereich Wirtschaft"/>
+    </category>
+    <category ID="21060">
+      <label xml:lang="de" text="Fachbereich Wirtschaftsrecht"/>
     </category>
   </categories>
 </mycoreclass>
