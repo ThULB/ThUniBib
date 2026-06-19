@@ -4,10 +4,12 @@
   xmlns:mods="http://www.loc.gov/mods/v3"
   exclude-result-prefixes="xsl">
 
-  <xsl:include href="copynodes.xsl" />
+  <xsl:include href="resource:xsl/copynodes.xsl"/>
 
   <xsl:template match="/">
     <xsl:apply-templates />
   </xsl:template>
+
+  <xsl:template match="//mods:dateIssued[@encoding = 'w3cdtf' and number(text()) &lt;= 1900]"/>
 
 </xsl:stylesheet>
