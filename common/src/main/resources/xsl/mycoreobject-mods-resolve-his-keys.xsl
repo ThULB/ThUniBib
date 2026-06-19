@@ -67,6 +67,8 @@
       <!-- Map identifiers like doi, urn, ... -->
       <xsl:call-template name="globalIdentifiers"/>
 
+      <xsl:call-template name="resolve-default-language"/>
+
       <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
@@ -381,6 +383,21 @@
     </xsl:if>
 
     <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+  </xsl:template>
+
+  <xsl:template name="resolve-default-language">
+    <xsl:if test="not(mods:language)">
+      <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
+
+      <xsl:variable name="defaultLang">
+        <mods:language>
+          <mods:languageTerm type="code" authority="rfc5646">en</mods:languageTerm>
+        </mods:language>
+      </xsl:variable>
+      <xsl:apply-templates select="$defaultLang"/>
+
+      <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="mods:language">
