@@ -42,6 +42,10 @@ public class PublisherResolver extends HISinOneResolver {
     public SysValue resolve(String value) {
         String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8);
 
+        if (PUBLISHER_MAP.containsKey(decodedValue)) {
+            return PUBLISHER_MAP.get(decodedValue);
+        }
+
         Map<String, String> params = new HashMap<>();
         params.put("q", decodedValue);
 
@@ -57,7 +61,8 @@ public class PublisherResolver extends HISinOneResolver {
                 new GenericType<List<SysValue.PublisherWrappedValueSearch>>() {
                 });
 
-            List<SysValue.PublisherWrappedValueSearch> resultList = publishers.stream()
+            List<SysValue.PublisherWrappedValueSearch> resultList = publishers
+                .stream()
                 .filter(pwv -> decodedValue.equals(pwv.getUniqueName()))
                 .toList();
 
@@ -104,6 +109,9 @@ public class PublisherResolver extends HISinOneResolver {
 
             SysValue.PublisherWrappedValueCreate publisher = response.readEntity(
                 SysValue.PublisherWrappedValueCreate.class);
+
+            PUBLISHER_MAP.put(decodedValue, publisher);
+
             return publisher;
         }
     }
