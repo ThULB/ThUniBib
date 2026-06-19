@@ -67,6 +67,10 @@ abstract public class SysValue {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getLockVersion() {
         return lockVersion;
     }
@@ -230,6 +234,11 @@ abstract public class SysValue {
 
     @HISinOnePath(path = "fs/res/publisher")
     static public class PublisherWrappedValueCreate extends SysValue.PublisherWrappedValue {
+    }
+
+    @HISinOnePath(path = "fs/res/researchPartner")
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static public class ResearchPartner extends SysValue {
     }
 
     static public class DocumentType extends SysValue {

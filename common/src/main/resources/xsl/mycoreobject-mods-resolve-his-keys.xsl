@@ -67,6 +67,8 @@
       <!-- Map identifiers like doi, urn, ... -->
       <xsl:call-template name="globalIdentifiers"/>
 
+      <xsl:call-template name="resolve-default-language"/>
+
       <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
@@ -101,6 +103,23 @@
         <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
       </xsl:if>
     </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:name[@type='corporate']">
+    <xsl:variable name="his-id">
+      <xsl:value-of select="fn:document(concat('notnull:hisinone:resolve:id:researchPartner:',  fn:encode-for-uri(mods:namePart[1])))"/>
+    </xsl:variable>
+
+    <xsl:copy>
+      <xsl:copy-of select="*|@*"/>
+      <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+      <mods:nameIdentifier
+        typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/researchPartner">
+        <xsl:value-of select="$his-id"/>
+      </mods:nameIdentifier>
+      <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+    </xsl:copy>
+
   </xsl:template>
 
   <xsl:template match="mods:name[@type='conference']">
@@ -233,9 +252,30 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- TODO find the proper source value, currently mapping is fixed to 'Autor/-in'-->
   <xsl:template name="creatorType">
-    <xsl:variable name="creator-type-his-key" select="fn:document('hisinone:resolve:id:creatorType:aut')"/>
+    <!--
+     * Supported values are:
+     * Autor/-in
+     * Herausgeber/-in
+     * Körperschaft mit Autorenfunktion
+     * Körperschaft mit Herausgeberfunktion
+     * Gruppe mit Autorenfunktion
+     * Gruppe mit Herausgeberfunktion
+     -->
+
+    <xsl:variable name="creator-type">
+      <xsl:choose>
+        <xsl:when test="count(mods:name[@type ='personal']) = 0 and count(mods:name[@type = 'corporate']) &gt; 0">
+          <xsl:value-of select="fn:encode-for-uri('Körperschaft mit Herausgeberfunktion')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="fn:encode-for-uri('Autor/-in')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="creator-type-his-key" select="fn:document(concat('hisinone:resolve:id:creatorType:' , $creator-type))"/>
+
     <xsl:if test="$creator-type-his-key">
       <mods:classification authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/sys/values/publicationCreatorTypeValue">
         <xsl:value-of select="$creator-type-his-key"/>
@@ -245,7 +285,6 @@
 
   <xsl:template name="subjectArea">
     <xsl:variable name="subject-area-value-uri" select="'cs/sys/values/subjectAreaValue'"/>
-    <xsl:variable name="origin-id" select="fn:substring-after(mods:classification[contains(@valueURI, 'ORIGIN')]/@valueURI, '#')"/>
 
     <xsl:choose>
       <xsl:when test="mods:classification[fn:contains(@authorityURI, 'classifications/destatis')]">
@@ -344,6 +383,21 @@
     </xsl:if>
 
     <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+  </xsl:template>
+
+  <xsl:template name="resolve-default-language">
+    <xsl:if test="not(mods:language)">
+      <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
+
+      <xsl:variable name="defaultLang">
+        <mods:language>
+          <mods:languageTerm type="code" authority="rfc5646">en</mods:languageTerm>
+        </mods:language>
+      </xsl:variable>
+      <xsl:apply-templates select="$defaultLang"/>
+
+      <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="mods:language">
