@@ -6,44 +6,38 @@
   <label xml:lang="x-place" text="Ernst-Abbe-Hochschule Jena |  Carl-Zeiss-Promenade 2  | 07745 Jena"/>
 
   <categories>
-    <category ID="6">
-      <label xml:lang="x-place" text="Ernst-Abbe-Hochschule | Jena | Carl-Zeiss-Promenade 2, 07745 Jena"/>
-      <label xml:lang="de" text="Ernst-Abbe-Hochschule Jena"/>
-      <label xml:lang="en" text="University of Applied Sciences Jena"/>
-
-      <category ID="6020">
-        <label xml:lang="de" text="Betriebswirtschaft"/>
-      </category>
-      <category ID="6025">
-        <label xml:lang="de" text="Elektrotechnik und Informationstechnik"/>
-      </category>
-      <category ID="6030">
-        <label xml:lang="de" text="Gesundheit und Pflege"/>
-      </category>
-      <category ID="6035">
-        <label xml:lang="de" text="Grundlagenwissenschaften"/>
-      </category>
-      <category ID="6040">
-        <label xml:lang="de" text="Maschinenbau"/>
-      </category>
-      <category ID="6045">
-        <label xml:lang="de" text="Medizintechnik und Biotechnologie"/>
-      </category>
-      <category ID="6050">
-        <label xml:lang="de" text="SciTec"/>
-      </category>
-      <category ID="6055">
-        <label xml:lang="de" text="Sozialwesen"/>
-      </category>
-      <category ID="6060">
-        <label xml:lang="de" text="Werkstofftechnik"/>
-      </category>
-      <category ID="6065">
-        <label xml:lang="de" text="Wirtschaftsingenieurwesen"/>
-      </category>
-      <category ID="6070">
-        <label xml:lang="de" text="Hochschulbibliothek"/>
-      </category>
+    <category ID="6020">
+      <label xml:lang="de" text="Betriebswirtschaft"/>
+    </category>
+    <category ID="6025">
+      <label xml:lang="de" text="Elektrotechnik und Informationstechnik"/>
+    </category>
+    <category ID="6030">
+      <label xml:lang="de" text="Gesundheit und Pflege"/>
+    </category>
+    <category ID="6035">
+      <label xml:lang="de" text="Grundlagenwissenschaften"/>
+    </category>
+    <category ID="6040">
+      <label xml:lang="de" text="Maschinenbau"/>
+    </category>
+    <category ID="6045">
+      <label xml:lang="de" text="Medizintechnik und Biotechnologie"/>
+    </category>
+    <category ID="6050">
+      <label xml:lang="de" text="SciTec"/>
+    </category>
+    <category ID="6055">
+      <label xml:lang="de" text="Sozialwesen"/>
+    </category>
+    <category ID="6060">
+      <label xml:lang="de" text="Werkstofftechnik"/>
+    </category>
+    <category ID="6065">
+      <label xml:lang="de" text="Wirtschaftsingenieurwesen"/>
+    </category>
+    <category ID="6070">
+      <label xml:lang="de" text="Hochschulbibliothek"/>
     </category>
   </categories>
 </mycoreclass>
