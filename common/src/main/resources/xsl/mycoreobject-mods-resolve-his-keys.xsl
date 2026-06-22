@@ -105,7 +105,7 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- Never not remove conferences -->
+  <!-- Remove mods:name[@type='corporate'] when there are mods:name[@type='personal'] and role is not 'Issuing body (Herausgebende Einrichtung)'-->
   <xsl:template match="mods:name[@type='corporate'][not(mods:role/mods:roleTerm/text() = 'isb')]"/>
 
   <!-- Research partners, only applied when no authors are present -->

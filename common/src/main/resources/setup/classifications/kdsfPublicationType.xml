@@ -19,7 +19,7 @@
       <category ID="Pu43">
         <label xml:lang="de" text="Konferenzband" description="Eine Publikation von Beiträgen, die als Sammelwerk erscheinen. Herausgeber/-innen können natürliche Personen oder Körperschaften sein. Sie enthält Beiträge zu Tagungen, Kongressen oder Wissenschaftlichen Konferenzen verschiedener Autor/-innen (siehe Konferenzbeitrag)." />
         <label xml:lang="en" text="Proceedings" description="A publication edited by an individual person, a group of persons or a corporation. It contains contributions of different authors to scientific conventions, conferences or congresses (see conference contribution)." />
-        <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('proceedings', substring-after(@valueURI,'#'))] and not(mods:relatedItem/mods:genre)) or (mods:genre[contains('proceedings', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('series', substring-after(@valueURI,'#'))])" />
+        <label xml:lang="x-mapping-xpath" text="(mods:genre[contains('proceedings', substring-after(@valueURI,'#'))]) or (mods:genre[contains('proceedings', substring-after(@valueURI,'#'))] and mods:relatedItem[@type='host']/mods:genre[contains('series', substring-after(@valueURI,'#'))])" />
       </category>
     </category>
     <category ID="Pu25">
