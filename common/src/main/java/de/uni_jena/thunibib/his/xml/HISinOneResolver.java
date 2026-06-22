@@ -68,6 +68,7 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
+    private static final Map<String, SysValue.Journal> JOURNAL_MAP = new HashMap<>();
     private static final Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_RESOURCE_TYPE_MAP = new HashMap<>();
@@ -436,6 +437,10 @@ public class HISinOneResolver implements URIResolver {
     }
 
     protected SysValue resolveJournal(String fromValue) {
+        if(JOURNAL_MAP.containsKey(fromValue)) {
+            return JOURNAL_MAP.get(fromValue);
+        }
+
         if (!exists(fromValue)) {
             return SysValue.UnresolvedSysValue;
         }
@@ -454,6 +459,8 @@ public class HISinOneResolver implements URIResolver {
                 return SysValue.ErroneousSysValue;
             }
             SysValue.Journal journal = response.readEntity(SysValue.Journal.class);
+
+            JOURNAL_MAP.put(fromValue, journal);
             return journal;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
