@@ -7,16 +7,23 @@ import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.JDOMException;
 import org.mycore.common.content.MCRContent;
+import org.mycore.datamodel.metadata.MCRObject;
 
 import java.io.IOException;
 
 import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE_URL;
 
 /**
- * Class creates JSON reflecting Journals in HISinOne.
+ * Transforms a MODS-based {@link MCRObject} into the HISinOne journal JSON format.
+ *
+ * <p>
+ * Extracts bibliographic metadata, identifiers, creators, classifications,
+ * affiliations, and related entities from a MyCoRe XML document and maps them
+ * to the structure expected by the HISinOne REST API.
+ * </p>
  *
  * @author shermann (Silvio Hermann)
- * */
+ */
 public class JournalHisResTransformer extends PublicationHisResTransformer {
     private static final Logger LOGGER = LogManager.getLogger(JournalHisResTransformer.class);
 

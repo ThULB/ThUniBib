@@ -16,6 +16,7 @@ import org.jdom2.xpath.XPathExpression;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
+import org.mycore.datamodel.metadata.MCRObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +27,17 @@ import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
+/**
+ * Transforms a MODS-based {@link MCRObject} into the HISinOne publication JSON format.
+ *
+ * <p>
+ * Extracts bibliographic metadata, identifiers, creators, classifications,
+ * affiliations, and related entities from a MyCoRe XML document and maps them
+ * to the structure expected by the HISinOne REST API.
+ * </p>
+ *
+ * @author shermann (Silvio Hermann)
+ */
 public class PublicationHisResTransformer extends MCRToJSONTransformer {
     static {
         MCRConstants.registerNamespace(Namespace.getNamespace("cerif", "https://www.openaire.eu/cerif-profile/1.1/"));
