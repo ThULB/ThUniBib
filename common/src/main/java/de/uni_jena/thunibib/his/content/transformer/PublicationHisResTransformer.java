@@ -45,7 +45,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                 return new JournalHisResTransformer().toJSON(source);
             }
 
-            LOGGER.info("Converting MCRObject {} to HISinOne JSON with {}", xml.getRootElement().getAttributeValue("ID"), getClass().getSimpleName());
+            LOGGER.info("Converting MCRObject {} to HISinOne JSON", xml.getRootElement().getAttributeValue("ID"));
             JsonObject jsonObject = new JsonObject();
 
             addParent(jsonObject, xml);
