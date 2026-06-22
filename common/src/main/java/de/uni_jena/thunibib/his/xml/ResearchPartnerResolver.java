@@ -96,9 +96,6 @@ class ResearchPartnerResolver extends HISinOneResolver {
      */
     public SysValue create(String displayName) {
         String decodedValue = URLDecoder.decode(displayName, StandardCharsets.UTF_8);
-        if (RESEARCH_PARTNER_MAP.containsKey(decodedValue)) {
-            return RESEARCH_PARTNER_MAP.get(decodedValue);
-        }
 
         JsonObject business = buildJson(decodedValue);
         try (HISInOneClient hisClient = HISinOneClientFactory.create();

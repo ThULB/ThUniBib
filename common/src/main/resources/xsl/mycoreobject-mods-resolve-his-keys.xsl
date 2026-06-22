@@ -105,7 +105,11 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="mods:name[@type='corporate']">
+  <!-- Never not remove conferences -->
+  <xsl:template match="mods:name[@type='corporate'][not(mods:role/mods:roleTerm/text() = 'isb')]"/>
+
+  <!-- Research partners, only applied when no authors are present -->
+  <xsl:template match="mods:name[@type='corporate' and count(../mods:name[@type = 'personal']) = 0]">
     <xsl:variable name="his-id">
       <xsl:value-of select="fn:document(concat('notnull:hisinone:resolve:id:researchPartner:',  fn:encode-for-uri(mods:namePart[1])))"/>
     </xsl:variable>
@@ -113,8 +117,7 @@
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
       <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
-      <mods:nameIdentifier
-        typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/researchPartner">
+      <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/researchPartner">
         <xsl:value-of select="$his-id"/>
       </mods:nameIdentifier>
       <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
