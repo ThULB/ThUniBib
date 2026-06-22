@@ -39,13 +39,14 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
     protected JsonObject toJSON(MCRContent source) throws IOException {
         try {
             Document xml = source.asXML();
-            JsonObject jsonObject = new JsonObject();
-
             if (XPATH_FACTORY
                 .compile("//mods:mods/mods:genre[@type='intern'][contains('journal newspaper', substring-after(@valueURI, '#'))]", Filters.element(), null, MODS_NAMESPACE)
                 .evaluateFirst(xml) != null) {
                 return new JournalHisResTransformer().toJSON(source);
             }
+
+            LOGGER.info("Converting MCRObject {} to HISinOne JSON with {}", xml.getRootElement().getAttributeValue("ID"), getClass().getSimpleName());
+            JsonObject jsonObject = new JsonObject();
 
             addParent(jsonObject, xml);
 

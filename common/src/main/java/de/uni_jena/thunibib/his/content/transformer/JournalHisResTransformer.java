@@ -31,6 +31,8 @@ public class JournalHisResTransformer extends PublicationHisResTransformer {
     protected JsonObject toJSON(MCRContent source) throws IOException {
         try {
             Document xml = source.asXML();
+            LOGGER.info("Converting MCRObject {} to HISinOne JSON with {}", xml.getRootElement().getAttributeValue("ID"), getClass().getSimpleName());
+
             JsonObject jsonObject = new JsonObject();
 
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "-lockVersion']", xml, "lockVersion");
