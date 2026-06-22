@@ -68,7 +68,6 @@ public class HISinOneResolver implements URIResolver {
     private static final Map<String, SysValue> CREATOR_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> DOCUMENT_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> IDENTIFIER_TYPE_MAP = new HashMap<>();
-    private static final Map<String, SysValue.Journal> JOURNAL_MAP = new HashMap<>();
     private static final Map<String, SysValue> PEER_REVIEWED_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_ACCESS_TYPE_MAP = new HashMap<>();
     private static final Map<String, SysValue> PUBLICATION_RESOURCE_TYPE_MAP = new HashMap<>();
@@ -139,12 +138,11 @@ public class HISinOneResolver implements URIResolver {
         var sysValue = switch (ResolvableTypes.valueOf(entity)) {
             case conference -> Mode.resolve.equals(mode) ? resolveConference(fromValue) : createConference(fromValue);
             case country -> resolveCountry(fromValue);
-            case researchPartner -> Mode.resolve.equals(mode) ? ResearchPartnerResolver.getInstance().resolve(fromValue)
-                                                          : ResearchPartnerResolver.getInstance().create(fromValue);
+            case researchPartner -> Mode.resolve.equals(mode) ? ResearchPartnerResolver.getInstance().resolve(fromValue) : ResearchPartnerResolver.getInstance().create(fromValue);
             case creatorType -> resolveCreatorType(fromValue);
             case documentType -> resolveDocumentType(fromValue);
             case globalIdentifiers -> resolveIdentifierType(fromValue);
-            case journal -> Mode.resolve.equals(mode) ? resolveJournal(fromValue) : createParent(fromValue);
+            case journal -> Mode.resolve.equals(mode) ? JournalResolver.getInstance().resolve(fromValue) : createParent(fromValue);
             case language -> resolveLanguage(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
             case person -> resolvePerson(fromValue, idValue);
@@ -152,8 +150,7 @@ public class HISinOneResolver implements URIResolver {
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
             case publicationType -> resolvePublicationType(fromValue);
-            case publisher -> Mode.resolve.equals(mode) ? PublisherResolver.getInstance().resolve(fromValue)
-                                                        : PublisherResolver.getInstance().create(fromValue);
+            case publisher -> Mode.resolve.equals(mode) ? PublisherResolver.getInstance().resolve(fromValue) : PublisherResolver.getInstance().create(fromValue);
             case researchAreaKdsf -> resolveResearchAreaKdsf(fromValue);
             case state -> resolveState(fromValue);
             case subjectArea -> resolveSubjectArea(fromValue);
@@ -431,37 +428,6 @@ public class HISinOneResolver implements URIResolver {
 
             SysValue.PersonIdentifier sysValue = response.readEntity(SysValue.PersonIdentifier.class);
             return sysValue;
-        } catch (Exception e) {
-            return SysValue.ErroneousSysValue;
-        }
-    }
-
-    protected SysValue resolveJournal(String fromValue) {
-        if(JOURNAL_MAP.containsKey(fromValue)) {
-            return JOURNAL_MAP.get(fromValue);
-        }
-
-        if (!exists(fromValue)) {
-            return SysValue.UnresolvedSysValue;
-        }
-
-        MCRObject host = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(fromValue));
-        if (host.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
-            return SysValue.UnresolvedSysValue;
-        }
-
-        String hisId = host.getService().getFlags(HISInOneServiceFlag.getName()).get(0);
-        try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(SysValue.resolve(SysValue.Journal.class) + "/" + hisId)) {
-
-            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, SysValue.resolve(SysValue.Journal.class));
-                return SysValue.ErroneousSysValue;
-            }
-            SysValue.Journal journal = response.readEntity(SysValue.Journal.class);
-
-            JOURNAL_MAP.put(fromValue, journal);
-            return journal;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
         }
