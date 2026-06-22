@@ -37,6 +37,8 @@ public class JournalHisResTransformer extends PublicationHisResTransformer {
             addPropertyInt(jsonObject, "//servflag[@type='" + HISInOneServiceFlag.getName() + "']", xml, "id");
 
             addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:title[1]", xml, "defaulttext", true);
+            addProperty(jsonObject, "//mods:mods/mods:titleInfo/mods:subTitle", xml, "subtitle", true);
+
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:language/mods:languageTerm[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][1]", xml, "language");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'state/publication')]", xml, "status");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publisher')]", xml,"publisher");
