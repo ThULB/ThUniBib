@@ -263,7 +263,7 @@ abstract public class SysValue {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @HISinOnePath(path = "fs/res/journal")
-    public class Journal extends SysValue {
+    public static class Journal extends SysValue {
     }
 
     @HISinOnePath(path = "fs/res/publication/globalIdentifierType")
