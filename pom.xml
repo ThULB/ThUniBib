@@ -28,7 +28,7 @@
     <mycore.version>2024.06.3-SNAPSHOT</mycore.version>
     <node.version>v16.19.1</node.version>
     <oaipmh.version>2.1</oaipmh.version>
-    <ubo.version>dev-SNAPSHOT</ubo.version>
+    <ubo.version>2024.06.0-SNAPSHOT</ubo.version>
     <yarn.version>v1.22.19</yarn.version>
   </properties>
 
