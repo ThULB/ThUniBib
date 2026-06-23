@@ -7,6 +7,7 @@ import de.uni_jena.thunibib.his.api.v1.cs.sys.values.SysValue;
 import de.uni_jena.thunibib.his.cli.HISinOneCommands;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
@@ -93,6 +94,7 @@ public class HISinOneResolver implements URIResolver {
         globalIdentifiers,
         journal,
         language,
+        organization,
         peerReviewed,
         person,
         publication,
@@ -113,6 +115,17 @@ public class HISinOneResolver implements URIResolver {
      * */
     private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy.MM.dd");
 
+    /**
+     * Resolves the requested field. The result is an {@link Source} containing a {@link Element}.
+     *
+     * <p>
+     *  {@code <int>…</int>}
+     * </p>
+     *  or
+     * <p>
+     *  {@code <int><i>…</i> … <i>…</i></int>}
+     * </p>
+     * */
     @Override
     final public Source resolve(String href, String base) throws TransformerException {
         LOGGER.debug("Resolving '{}'", href);
@@ -144,8 +157,9 @@ public class HISinOneResolver implements URIResolver {
             case globalIdentifiers -> resolveIdentifierType(fromValue);
             case journal -> Mode.resolve.equals(mode) ? JournalResolver.getInstance().resolve(fromValue) : createParent(fromValue);
             case language -> resolveLanguage(fromValue);
+            case organization -> PersonResolver.getInstance().resolveOrganization(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
-            case person -> resolvePerson(fromValue, idValue);
+            case person -> PersonResolver.getInstance().resolvePerson(fromValue, idValue);
             case publication -> Mode.resolve.equals(mode) ? resolvePublication(fromValue) : createParent(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
@@ -159,9 +173,17 @@ public class HISinOneResolver implements URIResolver {
             case license -> resolveLicense(fromValue);
         };
 
-        int resolvedValue = getFieldValue(sysValue, field);
-        LOGGER.info("Resolved {} to {}", href, resolvedValue);
-        return new JDOMSource(new Element("int").setText(String.valueOf(resolvedValue)));
+        if (sysValue instanceof List) {
+            List<Integer> resolvedValues = getFieldValues((List<SysValue>) sysValue, field);
+            logResolvingResult(href, StringUtils.join(resolvedValues, ", "));
+            Element ints = new Element("int");
+            resolvedValues.forEach(val -> ints.addContent(new Element("i").setText(String.valueOf(val))));
+            return new JDOMSource(ints);
+        } else {
+            int resolvedValue = getFieldValue((SysValue) sysValue, field);
+            logResolvingResult(href, String.valueOf(resolvedValue));
+            return new JDOMSource(new Element("int").setText(String.valueOf(resolvedValue)));
+        }
     }
 
     private SysValue resolveConference(String value) {
@@ -399,35 +421,6 @@ public class HISinOneResolver implements URIResolver {
                 return match.get();
             }
             return SysValue.UnresolvedSysValue;
-        } catch (Exception e) {
-            return SysValue.ErroneousSysValue;
-        }
-    }
-
-    /**
-     * Resolves a person by a given identifier and the type of the identifier.
-     *
-     * @param type the type of the identifier
-     * @param value the value of the identifier
-     *
-     * @return {@link SysValue}
-     */
-    protected SysValue resolvePerson(String type, String value) {
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put(SysValue.PersonIdentifier.getTypeParameterName(), type);
-        parameter.put(SysValue.PersonIdentifier.getValueParameterName(), value);
-        String path = SysValue.resolve(SysValue.PersonIdentifier.class);
-
-        try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.post(path, null, parameter)) {
-
-            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, path);
-                return SysValue.ErroneousSysValue;
-            }
-
-            SysValue.PersonIdentifier sysValue = response.readEntity(SysValue.PersonIdentifier.class);
-            return sysValue;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
         }
@@ -1078,6 +1071,10 @@ public class HISinOneResolver implements URIResolver {
         }
     }
 
+    protected List<Integer> getFieldValues(List<SysValue> sysValues, String fieldName) {
+        return sysValues.stream().map(sysValue -> getFieldValue(sysValue, fieldName)).toList();
+    }
+
     /**
      * Checks for valid {@link MCRObjectID} and if object actually exists.
      *
@@ -1123,7 +1120,11 @@ public class HISinOneResolver implements URIResolver {
      *
      * @param response the response
      */
-    public void logError(Response response, String endpoint) {
+    protected void logError(Response response, String endpoint) {
         LOGGER.error("{}: {}", endpoint, response.readEntity(String.class));
+    }
+
+    protected void logResolvingResult(String href, String resolvedValue) {
+        LOGGER.info("Resolved {} to {}", href, resolvedValue);
     }
 }
