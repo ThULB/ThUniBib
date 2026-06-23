@@ -93,6 +93,7 @@ public class HISinOneResolver implements URIResolver {
         globalIdentifiers,
         journal,
         language,
+        organization,
         peerReviewed,
         person,
         publication,
@@ -144,8 +145,9 @@ public class HISinOneResolver implements URIResolver {
             case globalIdentifiers -> resolveIdentifierType(fromValue);
             case journal -> Mode.resolve.equals(mode) ? JournalResolver.getInstance().resolve(fromValue) : createParent(fromValue);
             case language -> resolveLanguage(fromValue);
+            case organization -> PersonResolver.getInstance().resolveOrganzation(fromValue);
             case peerReviewed -> resolvePeerReviewedType(fromValue);
-            case person -> resolvePerson(fromValue, idValue);
+            case person -> PersonResolver.getInstance().resolvePerson(fromValue, idValue);
             case publication -> Mode.resolve.equals(mode) ? resolvePublication(fromValue) : createParent(fromValue);
             case publicationAccessType -> resolvePublicationAccessType(fromValue);
             case publicationResource -> resolvePublicationResourceType(fromValue);
@@ -399,35 +401,6 @@ public class HISinOneResolver implements URIResolver {
                 return match.get();
             }
             return SysValue.UnresolvedSysValue;
-        } catch (Exception e) {
-            return SysValue.ErroneousSysValue;
-        }
-    }
-
-    /**
-     * Resolves a person by a given identifier and the type of the identifier.
-     *
-     * @param type the type of the identifier
-     * @param value the value of the identifier
-     *
-     * @return {@link SysValue}
-     */
-    protected SysValue resolvePerson(String type, String value) {
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put(SysValue.PersonIdentifier.getTypeParameterName(), type);
-        parameter.put(SysValue.PersonIdentifier.getValueParameterName(), value);
-        String path = SysValue.resolve(SysValue.PersonIdentifier.class);
-
-        try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.post(path, null, parameter)) {
-
-            if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, path);
-                return SysValue.ErroneousSysValue;
-            }
-
-            SysValue.PersonIdentifier sysValue = response.readEntity(SysValue.PersonIdentifier.class);
-            return sysValue;
         } catch (Exception e) {
             return SysValue.ErroneousSysValue;
         }

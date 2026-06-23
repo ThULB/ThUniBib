@@ -97,8 +97,17 @@
           </mods:nameIdentifier>
 
           <mods:affiliation authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/person/{$his-id}/organizations">
-            <!-- TODO actual resolving -->
-            <xsl:value-of select="$ThUniBib.HISinOne.resolve.person.default.org.identifier"/>
+            <xsl:variable name="organizations" select="document(concat('hisinone:resolve:id:organization:', $his-id))"/>
+
+            <xsl:choose>
+              <xsl:when test="number($organizations) &gt; 0">
+                <xsl:value-of select="$organizations"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="$ThUniBib.HISinOne.resolve.person.default.org.identifier"/>
+              </xsl:otherwise>
+            </xsl:choose>
+
           </mods:affiliation>
         <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
       </xsl:if>

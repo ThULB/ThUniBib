@@ -307,6 +307,14 @@ abstract public class SysValue {
         }
     }
 
+    /**
+     * {@code {0}} must be replaced by a valid HISinOne person id.
+     * */
+    @HISinOnePath(path = "cs/psv/person/{0}/organizations")
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static public class PersonOrganizationIdentifier extends SysValue {
+    }
+
     @HISinOnePath(path = "fs/res/conference")
     @JsonIgnoreProperties(ignoreUnknown = true)
     static public class Conference extends SysValue {
