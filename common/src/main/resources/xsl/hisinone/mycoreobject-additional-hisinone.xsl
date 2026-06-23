@@ -4,7 +4,7 @@
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 exclude-result-prefixes="mcrxml mods xsl">
 
-  <xsl:import href="xslImport:additional:mycoreobject-additional-hisinone.xsl"/>
+  <xsl:import href="xslImport:additional:hisinone/mycoreobject-additional-hisinone.xsl"/>
 
 
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
