@@ -8,14 +8,17 @@
   <xsl:import href="xslImport:additional:hisinone/mycoreobject-additional-hisinone.xsl"/>
 
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
+  <xsl:param name="ThUniBib.HISinOne.metadata.display.card" select="'false'"/>
+  <xsl:param name="ThUniBib.HISinOne.metadata.display.integrated" select="'false'"/>
   <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
+
   <xsl:param name="WebApplicationBaseURL"/>
   <xsl:param name="display-hisinone-metadata" select="mcrxml:isCurrentUserInRole('admin') = 'true'"/>
 
   <xsl:template match="mods:mods" mode="additional-metadata">
     <xsl:apply-imports/>
 
-    <xsl:if test="$display-hisinone-metadata">
+    <xsl:if test="$display-hisinone-metadata and $ThUniBib.HISinOne.metadata.display.integrated = 'true'">
       <xsl:call-template name="hisinone-metadata"/>
     </xsl:if>
   </xsl:template>
@@ -23,7 +26,7 @@
   <xsl:template match="mycoreobject" mode="additional-metadata-card">
     <xsl:apply-imports/>
 
-    <xsl:if test="$display-hisinone-metadata">
+    <xsl:if test="$display-hisinone-metadata and $ThUniBib.HISinOne.metadata.display.card = 'true'">
       <div class="ubo_details card mt-2">
         <div class="card-body">
           <xsl:call-template name="hisinone-metadata"/>
