@@ -11,11 +11,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 public class PersonResolver extends HISinOneResolver {
 
-    private final Map<String, SysValue.PersonOrganizationIdentifier> CACHE = new HashMap<>();
+    private final Map<String, List<SysValue>> CACHE = new HashMap<>();
 
     private static PersonResolver instance;
 
@@ -30,7 +29,7 @@ public class PersonResolver extends HISinOneResolver {
         return instance = new PersonResolver();
     }
 
-    public SysValue resolveOrganzation(String personId) {
+    public List<? extends SysValue> resolveOrganization(String personId) {
         String decodedValue = URLDecoder.decode(personId, StandardCharsets.UTF_8);
 
         if(CACHE.containsKey(decodedValue)) {
@@ -44,24 +43,17 @@ public class PersonResolver extends HISinOneResolver {
         try (HISInOneClient hisClient = HISinOneClientFactory.create(); Response response = hisClient.get(url, param)) {
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
                 logError(response, SysValue.resolve(SysValue.PersonOrganizationIdentifier.class));
-                return SysValue.ErroneousSysValue;
+                return List.of(SysValue.UnresolvedSysValue);
             }
 
             List<SysValue.PersonOrganizationIdentifier> orgUnits = response.readEntity(
                 new GenericType<List<SysValue.PersonOrganizationIdentifier>>() {
                 });
 
-            Optional<SysValue.PersonOrganizationIdentifier> first = orgUnits.stream().findFirst();
-
-            if (first.isPresent()) {
-                CACHE.put(decodedValue, first.get());
-                return first.get();
-            }
-
-            return SysValue.UnresolvedSysValue;
+            return orgUnits.isEmpty() ? List.of(SysValue.UnresolvedSysValue) : orgUnits;
         } catch (Exception e) {
             LOGGER.error("Could not resolve organization unit for person {}", personId, e);
-            return SysValue.ErroneousSysValue;
+            return List.of(SysValue.ErroneousSysValue);
         }
     }
 

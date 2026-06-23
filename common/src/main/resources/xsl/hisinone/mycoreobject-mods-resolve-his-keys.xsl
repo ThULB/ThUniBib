@@ -96,19 +96,24 @@
             <xsl:value-of select="$his-id"/>
           </mods:nameIdentifier>
 
-          <mods:affiliation authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/person/{$his-id}/organizations">
-            <xsl:variable name="organizations" select="document(concat('hisinone:resolve:id:organization:', $his-id))"/>
+        <xsl:variable name="organizations" select="document(concat('hisinone:resolve:id:organization:', $his-id))/int"/>
+        <xsl:variable name="valueURI" select="concat($ThUniBib.HISinOne.BaseURL, $ThUniBib.HISinOne.BaseURL.API.Path, 'cs/psv/person/', $his-id, '/organizations')"/>
 
-            <xsl:choose>
-              <xsl:when test="number($organizations) &gt; 0">
-                <xsl:value-of select="$organizations"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="$ThUniBib.HISinOne.resolve.person.default.org.identifier"/>
-              </xsl:otherwise>
-            </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="count($organizations/i) &gt; 0 and not($organizations/i = -1)">
+            <xsl:for-each select="$organizations/i">
+              <mods:affiliation authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$valueURI}">
+                <xsl:value-of select="."/>
+              </mods:affiliation>
+            </xsl:for-each>
+          </xsl:when>
+          <xsl:otherwise>
+            <mods:affiliation authorityURI="{$ThUniBib.HISinOne.BaseURL}" valueURI="{$valueURI}">
+              <xsl:value-of select="$ThUniBib.HISinOne.resolve.person.default.org.identifier"/>
+            </mods:affiliation>
+          </xsl:otherwise>
+        </xsl:choose>
 
-          </mods:affiliation>
         <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
       </xsl:if>
     </xsl:copy>
