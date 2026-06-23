@@ -29,7 +29,7 @@
 
   <xsl:template match="mods:mods">
     <xsl:copy>
-      <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+      <xsl:comment>Begin - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
 
       <!-- Resolve the related item (HIS -> Journal, Übergeordnete Publikation)-->
       <xsl:call-template name="related-item-host"/>
@@ -69,7 +69,7 @@
 
       <xsl:call-template name="resolve-default-language"/>
 
-      <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+      <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
       <!-- Retain original mods:mods -->
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
@@ -90,7 +90,7 @@
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
       <xsl:if test="number($his-id)">
-        <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+        <xsl:comment>Begin - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
 
           <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/person/identifier">
             <xsl:value-of select="$his-id"/>
@@ -109,7 +109,7 @@
             </xsl:choose>
 
           </mods:affiliation>
-        <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+        <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
       </xsl:if>
     </xsl:copy>
   </xsl:template>
@@ -125,11 +125,11 @@
 
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
-      <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+      <xsl:comment>Begin - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
       <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}fs/res/researchPartner">
         <xsl:value-of select="$his-id"/>
       </mods:nameIdentifier>
-      <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+      <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
     </xsl:copy>
 
   </xsl:template>
@@ -142,13 +142,13 @@
     <xsl:copy>
       <xsl:copy-of select="*|@*"/>
       <xsl:if test="number($his-id)">
-        <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+        <xsl:comment>Begin - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
 
         <mods:nameIdentifier typeURI="{$ThUniBib.HISinOne.BaseURL}{$ThUniBib.HISinOne.BaseURL.API.Path}cs/psv/conference/identifier">
           <xsl:value-of select="$his-id"/>
         </mods:nameIdentifier>
 
-        <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+        <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
       </xsl:if>
     </xsl:copy>
   </xsl:template>
@@ -363,7 +363,7 @@
       <xsl:copy-of select="*|@*"/>
     </xsl:copy>
 
-    <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+    <xsl:comment>Begin - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
 
     <!-- publicationTypeValue -->
     <xsl:variable name="xpathmapping2kdsfPublicationType-mycore" select="fn:substring-after(//mods:mods/mods:classification[@generator='xpathmapping2kdsfPublicationType-mycore']/@valueURI, '#')"/>
@@ -394,12 +394,12 @@
       </mods:genre>
     </xsl:if>
 
-    <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+    <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
   </xsl:template>
 
   <xsl:template name="resolve-default-language">
     <xsl:if test="not(mods:language)">
-      <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
+      <xsl:comment>Begin - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
 
       <xsl:variable name="defaultLang">
         <mods:language>
@@ -408,7 +408,7 @@
       </xsl:variable>
       <xsl:apply-templates select="$defaultLang"/>
 
-      <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
+      <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl (create default mods:language)'</xsl:comment>
     </xsl:if>
   </xsl:template>
 
@@ -420,13 +420,13 @@
       <xsl:variable name="his-key" select="fn:document(concat('hisinone:resolve:id:language:', $rfc5646))"/>
 
       <xsl:if test="$his-key">
-        <xsl:comment>Begin - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+        <xsl:comment>Begin - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
 
         <mods:languageTerm authorityURI="{$ThUniBib.HISinOne.BaseURL}" type="code">
           <xsl:value-of select="$his-key"/>
         </mods:languageTerm>
 
-        <xsl:comment>End - transformer 'xsl/mods-resolve-his-keys.xsl'</xsl:comment>
+        <xsl:comment>End - transformer 'xsl/hisinone/mods-resolve-his-keys.xsl'</xsl:comment>
       </xsl:if>
     </xsl:copy>
   </xsl:template>
