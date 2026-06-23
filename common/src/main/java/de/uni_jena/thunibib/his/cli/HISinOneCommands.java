@@ -66,6 +66,8 @@ public class HISinOneCommands {
                     HIS_IN_ONE_BASE_URL + conf.getPath(),
                     publication.getId());
 
+                // TODO Remove refetch MCRObject (when parent was created/updated the servdates changed) when using MyCoRe 2025.12.x
+                mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObject.getId());
                 // Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
                 MCRMetadataManager.update(mcrObject);
