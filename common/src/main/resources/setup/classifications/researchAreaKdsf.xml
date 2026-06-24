@@ -5,6 +5,10 @@
   <label xml:lang="x-uri" text="https://w3id.org/kdsf-ffk/"/>
 
   <categories>
+    <category ID="OA">
+      <label xml:lang="de" text="ohne Angabe"/>
+      <label xml:lang="en" text="not specified"/>
+    </category>
     <category ID="139">
       <label xml:lang="de" text="Arbeit und Wirtschaft - Allgemein" description="Forschung über Aspekte von Arbeit und Wirtschaft im Allgemeinen"/>
       <label xml:lang="en" text="Work and economy - general" description="Research on aspects of work and economy in general"/>

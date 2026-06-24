@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026.06.24-2024.06.x
+- [#1010](https://github.com/ThULB/ThUniBib/issues/1010) Update HISinOne/RES id resolving (#1011)
+- [#1012](https://github.com/ThULB/ThUniBib/issues/1012) Allow to display metadata and project data derived from hisinone  (#1034)
+- [#1012](https://github.com/ThULB/ThUniBib/issues/1012) Allow to display metadata and project data derived from hisinone (#1013)
+- [#1014](https://github.com/ThULB/ThUniBib/issues/1014) Added command `remove servflag in {0}` (#1015)
+- [#1016](https://github.com/ThULB/ThUniBib/issues/1016) Create conferences, research partners and superordinates at HISinOne when needed (#1017)
+- [#1020](https://github.com/ThULB/ThUniBib/issues/1020) [NDH] Updated contact email address (#1021)
+- [#1022](https://github.com/ThULB/ThUniBib/issues/1022) Create ORIGIN.xml from DBT for HS Nordhausen and HS Schmalkalden (#1023)
+- [#1024](https://github.com/ThULB/ThUniBib/issues/1024) Improve linking a publication to a journal at HISinOne (#1025)
+- [#1026](https://github.com/ThULB/ThUniBib/issues/1026) Never remove conference from mods when publishing to HISinOne (#1027)
+- [#1030](https://github.com/ThULB/ThUniBib/issues/1030) Resolve related organizational units of persons associated to a publication (#1031)
+- [#1032](https://github.com/ThULB/ThUniBib/issues/1032) Upgrade version of UBO to 2024.06.0-SNAPSHOT (#1033)
+- [FSU040THUL-13111](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13111) [#1018](https://github.com/ThULB/ThUniBib/issues/1018) Configure `MCR.ContentTransformer.ORCIDMODSFilter.Stylesheet` (#1019)
+- [FSU040THUL-13137](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13137) [#1028](https://github.com/ThULB/ThUniBib/issues/1028) Renamed `Patent` to `Patentschrift` in `ubogenre.xml` (#1029)
+---
+
 ## 2026.06.15-2024.06.x
 - [#1001](https://github.com/ThULB/ThUniBib/issues/1001) [NDH] Set `MCR.PICA2MODS.DATABASE` to `opac-de-564` (#1002) and added genre mapping to `pica2mods_thunibib.xsl` (#1007)
 - [#1003](https://github.com/ThULB/ThUniBib/issues/1003) Reflect changes introduced by UBO-488 (#1004)

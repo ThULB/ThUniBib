@@ -252,7 +252,7 @@
         <label xml:lang="x-color" text="#a9609d"/>
         <label xml:lang="x-mapping" text="orcidWorkType:patent"/>
 
-        <label xml:lang="de" text="Patent"/>
+        <label xml:lang="de" text="Patentschrift"/>
         <label xml:lang="en" text="Patent specification"/>
       </category>
       <category ID="review">

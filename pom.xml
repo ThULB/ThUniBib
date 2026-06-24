@@ -10,7 +10,7 @@
 
   <groupId>de.uni-jena.thulb.ubo</groupId>
   <artifactId>ThUniBib</artifactId>
-  <version>2026.06.15-2024.06.x</version>
+  <version>2026.06.24-2024.06.x</version>
   <packaging>pom</packaging>
   <name>UBO ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
@@ -28,7 +28,7 @@
     <mycore.version>2024.06.3-SNAPSHOT</mycore.version>
     <node.version>v16.19.1</node.version>
     <oaipmh.version>2.1</oaipmh.version>
-    <ubo.version>dev-SNAPSHOT</ubo.version>
+    <ubo.version>2024.06.0-SNAPSHOT</ubo.version>
     <yarn.version>v1.22.19</yarn.version>
   </properties>
 
@@ -136,7 +136,7 @@
       <dependency>
         <groupId>de.uni-jena.thulb.ubo</groupId>
         <artifactId>thunibib-common</artifactId>
-        <version>2026.06.15-2024.06.x</version>
+        <version>2026.06.24-2024.06.x</version>
       </dependency>
       <dependency>
         <groupId>jakarta.servlet</groupId>

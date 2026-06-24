@@ -67,6 +67,10 @@ abstract public class SysValue {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getLockVersion() {
         return lockVersion;
     }
@@ -122,6 +126,10 @@ abstract public class SysValue {
 
     @HISinOnePath(path = "cs/sys/values/visibilityValue")
     static public class VisibilityValue extends SysValue {
+    }
+
+    @HISinOnePath(path = "cs/sys/values/licenseValue")
+    static public class LicenseValue extends SysValue {
     }
 
     /**
@@ -228,6 +236,11 @@ abstract public class SysValue {
     static public class PublisherWrappedValueCreate extends SysValue.PublisherWrappedValue {
     }
 
+    @HISinOnePath(path = "fs/res/researchPartner")
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static public class ResearchPartner extends SysValue {
+    }
+
     static public class DocumentType extends SysValue {
     }
 
@@ -250,7 +263,7 @@ abstract public class SysValue {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @HISinOnePath(path = "fs/res/journal")
-    public class Journal extends SysValue {
+    public static class Journal extends SysValue {
     }
 
     @HISinOnePath(path = "fs/res/publication/globalIdentifierType")
@@ -292,6 +305,14 @@ abstract public class SysValue {
         public String getIdentifierType() {
             return identifierType;
         }
+    }
+
+    /**
+     * {@code {0}} must be replaced by a valid HISinOne person id.
+     * */
+    @HISinOnePath(path = "cs/psv/person/{0}/organizations")
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static public class PersonOrganizationIdentifier extends SysValue {
     }
 
     @HISinOnePath(path = "fs/res/conference")

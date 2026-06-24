@@ -16,6 +16,7 @@ import org.jdom2.xpath.XPathExpression;
 import org.mycore.common.MCRConstants;
 import org.mycore.common.content.MCRContent;
 import org.mycore.common.content.transformer.MCRToJSONTransformer;
+import org.mycore.datamodel.metadata.MCRObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +27,17 @@ import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE
 import static org.mycore.common.MCRConstants.MODS_NAMESPACE;
 import static org.mycore.common.MCRConstants.XPATH_FACTORY;
 
+/**
+ * Transforms a MODS-based {@link MCRObject} into the HISinOne publication JSON format.
+ *
+ * <p>
+ * Extracts bibliographic metadata, identifiers, creators, classifications,
+ * affiliations, and related entities from a MyCoRe XML document and maps them
+ * to the structure expected by the HISinOne REST API.
+ * </p>
+ *
+ * @author shermann (Silvio Hermann)
+ */
 public class PublicationHisResTransformer extends MCRToJSONTransformer {
     static {
         MCRConstants.registerNamespace(Namespace.getNamespace("cerif", "https://www.openaire.eu/cerif-profile/1.1/"));
@@ -37,19 +49,16 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
 
     @Override
     protected JsonObject toJSON(MCRContent source) throws IOException {
-
-
         try {
             Document xml = source.asXML();
-            JsonObject jsonObject = new JsonObject();
-
-            if (XPATH_FACTORY.compile(
-                    "//mods:mods/mods:genre[@type='intern'][contains('journal newspaper', substring-after(@valueURI, '#'))]",
-                    Filters.element(), null, MODS_NAMESPACE)
+            if (XPATH_FACTORY
+                .compile("//mods:mods/mods:genre[@type='intern'][contains('journal newspaper', substring-after(@valueURI, '#'))]", Filters.element(), null, MODS_NAMESPACE)
                 .evaluateFirst(xml) != null) {
-                LOGGER.warn("Transformer {} is not suitable for Journals or Newspapers", getClass().getName());
-                return jsonObject;
+                return new JournalHisResTransformer().toJSON(source);
             }
+
+            LOGGER.info("Converting MCRObject {} to HISinOne JSON", xml.getRootElement().getAttributeValue("ID"));
+            JsonObject jsonObject = new JsonObject();
 
             addParent(jsonObject, xml);
 
@@ -75,6 +84,7 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationAccessTypeValue')]", xml, "access");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'publicationCreatorTypeValue')]", xml,"publicationCreatorType");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'visibilityValue')]", xml, "visibilityValue");
+            addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'licenseValue')]", xml, "license");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:classification[contains(@valueURI, 'state/publication')]", xml, "status");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'publicationTypeValue')]", xml, "publicationType");
             addQualifiedObjectID(jsonObject, "//mods:mods/mods:genre[@authorityURI='" + HIS_IN_ONE_BASE_URL + "'][contains(@valueURI, 'documentTypes')]", xml, "documentType");
@@ -157,53 +167,86 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         addGlobalIdentifiers(jsonObject, xml, "//mods:identifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + "')]");
     }
 
-    /**
-     * For Testing
-     * */
-    protected void addSampleCreator(JsonObject jsonObject) {
-        LOGGER.warn("{}#addSampleCreator invoked", PublicationHisResTransformer.class.getName());
-        JsonArray creators = new JsonArray();
-        JsonObject name = new JsonObject();
-        name.addProperty("id", 135);
-        name.addProperty("creatorname", "Krüger");
-        name.addProperty("firstname", "Gudrun");
-
-        creators.add(name);
-        jsonObject.add("creators", creators);
-    }
-
     protected void addCreators(JsonObject jsonObject, Document xml) {
         final JsonArray creators = new JsonArray();
 
+        // affiliated creators
+        addAffiliatedCreators(xml, creators);
+
+        // unaffiliated creators
+        addUnaffiliatedCreators(xml, creators);
+
+        // affiliated Editors/Herausgeber
+        addAffiliatedEditors(xml, creators);
+
+        if (!creators.isEmpty()) {
+            jsonObject.add("creators", creators);
+        }
+    }
+
+    private void addAffiliatedCreators(Document mods, JsonArray creators) {
         String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
             + SysValue.resolve(SysValue.PersonIdentifier.class) + "')]";
 
         XPATH_FACTORY
             .compile("//mods:mods/mods:name[@type='personal'][" + tCond + "]", Filters.element(), null, MODS_NAMESPACE)
-            .evaluate(xml)
+            .evaluate(mods)
             .forEach(nameElement -> {
-                final JsonObject name = new JsonObject();
+                final JsonObject creator = new JsonObject();
+                final JsonObject personNames = new JsonObject();
+
                 /* id of person in HISinOne */
                 XPathExpression<Element> idExpr = XPATH_FACTORY.compile(tCond, Filters.element(), null, MODS_NAMESPACE);
-                name.addProperty("id", idExpr.evaluateFirst(nameElement).getText());
+                personNames.addProperty("id", Integer.parseInt(idExpr.evaluateFirst(nameElement).getText()));
+
                 /* nameParts */
                 nameElement
                     .getChildren("namePart", MODS_NAMESPACE)
                     .forEach(namePart -> {
                         var typeOfName = switch (namePart.getAttributeValue("type")) {
                             case "given" -> "firstname";
-                            case "family" -> "creatorname";
+                            case "family" -> "surname";
                             default -> "unknown";
                         };
-                        name.addProperty(typeOfName, namePart.getText());
+                        personNames.addProperty(typeOfName, namePart.getText());
                     });
-                creators.add(name);
-            });
 
-        // unaffiliated creators
+                /* Org Units */
+                final JsonArray creatorOrganizations = new JsonArray();
+                nameElement.getChildren("affiliation", MODS_NAMESPACE)
+                    .stream()
+                    .filter(a -> a.getAttribute("authorityURI") != null)
+                    .filter(a -> a.getAttributeValue("authorityURI").startsWith(HIS_IN_ONE_BASE_URL))
+                    .forEach(affiliation -> {
+                        JsonObject organizationBasic = new JsonObject();
+                        organizationBasic.addProperty("id", Integer.parseInt(affiliation.getText()));
+
+                        JsonObject creatorOrganization = new JsonObject();
+                        creatorOrganization.add("organization", organizationBasic);
+
+                        creatorOrganizations.add(creatorOrganization);
+                    });
+
+                /* build creator element */
+                creator.addProperty("firstname", personNames.get("firstname").getAsString());
+                creator.addProperty("creatorname", personNames.get("surname").getAsString());
+
+                if (!creatorOrganizations.isEmpty()) {
+                    creator.add("creatorOrganizations", creatorOrganizations);
+                }
+
+                creator.add("person", personNames);
+                creators.add(creator);
+            });
+    }
+
+    private void addUnaffiliatedCreators(Document mods, JsonArray creators) {
+        String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
+            + SysValue.resolve(SysValue.PersonIdentifier.class) + "')]";
+
         XPATH_FACTORY
             .compile("//mods:mods/mods:name[@type='personal'][not(" + tCond + ")]", Filters.element(), null, MODS_NAMESPACE)
-            .evaluate(xml)
+            .evaluate(mods)
             .forEach(nameElement -> {
                 final JsonObject name = new JsonObject();
                 name.add("person", JsonNull.INSTANCE);
@@ -220,10 +263,48 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
                     });
                 creators.add(name);
             });
+    }
 
-        if (!creators.isEmpty()) {
-            jsonObject.add("creators", creators);
-        }
+    private void addAffiliatedEditors(Document mods, JsonArray creators) {
+        String tCond = "mods:nameIdentifier[contains(@typeURI, '" + HIS_IN_ONE_BASE_URL + API_PATH
+            + SysValue.resolve(SysValue.ResearchPartner.class) + "')]";
+
+        XPATH_FACTORY
+            .compile("//mods:mods/mods:name[@type='corporate'][" + tCond + "]", Filters.element(), null, MODS_NAMESPACE)
+            .evaluate(mods)
+            .forEach(nameElement -> {
+                final JsonObject creator = new JsonObject();
+                final JsonObject corporateNames = new JsonObject();
+
+                /* id of person in HISinOne */
+                XPathExpression<Element> idExpr = XPATH_FACTORY.compile(tCond, Filters.element(), null, MODS_NAMESPACE);
+                corporateNames.addProperty("id", Integer.parseInt(idExpr.evaluateFirst(nameElement).getText()));
+
+                /* nameParts */
+                nameElement
+                    .getChildren("namePart", MODS_NAMESPACE)
+                    .forEach(namePart -> {
+                        creator.addProperty("creatorname", namePart.getText());
+                    });
+
+                /* Org Units as research partner */
+                final JsonArray creatorOrganizations = new JsonArray();
+                nameElement.getChildren("nameIdentifier", MODS_NAMESPACE)
+                    .stream()
+                    .filter(a -> a.getAttribute("typeURI") != null)
+                    .filter(a -> a.getAttributeValue("typeURI").startsWith(HIS_IN_ONE_BASE_URL))
+                    .forEach(nameIdentifier -> {
+                        JsonObject organizationBasic = new JsonObject();
+                        organizationBasic.addProperty("id", Integer.parseInt(nameIdentifier.getText()));
+
+                        JsonObject creatorOrganization = new JsonObject();
+                        creatorOrganization.add("researchPartner", organizationBasic);
+                        creatorOrganizations.add(creatorOrganization);
+                    });
+
+                creator.add("creatorOrganizations", creatorOrganizations);
+                creators.add(creator);
+            });
     }
 
     protected void addProperty(JsonObject jsonObject, String xpath, Document xml, String pName, boolean single) {
@@ -327,5 +408,23 @@ public class PublicationHisResTransformer extends MCRToJSONTransformer {
         JsonObject journal = new JsonObject();
         journal.addProperty("id", id);
         jsonObject.add(propertyName, journal);
+    }
+
+    /**
+     * For Testing
+     *
+     * @deprecated will be removed in the near future
+     * */
+    @Deprecated
+    protected void addSampleCreator(JsonObject jsonObject) {
+        LOGGER.warn("{}#addSampleCreator invoked", PublicationHisResTransformer.class.getName());
+        JsonArray creators = new JsonArray();
+        JsonObject name = new JsonObject();
+        name.addProperty("id", 135);
+        name.addProperty("creatorname", "Krüger");
+        name.addProperty("firstname", "Gudrun");
+
+        creators.add(name);
+        jsonObject.add("creators", creators);
     }
 }

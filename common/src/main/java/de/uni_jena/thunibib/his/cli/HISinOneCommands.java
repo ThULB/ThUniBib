@@ -66,6 +66,8 @@ public class HISinOneCommands {
                     HIS_IN_ONE_BASE_URL + conf.getPath(),
                     publication.getId());
 
+                // TODO Remove refetch MCRObject (when parent was created/updated the servdates changed) when using MyCoRe 2025.12.x
+                mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObject.getId());
                 // Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
                 MCRMetadataManager.update(mcrObject);
@@ -124,7 +126,7 @@ public class HISinOneCommands {
         return SysValue.ErroneousSysValue;
     }
 
-    @MCRCommand(syntax = "remove {0}", help = "Deletes the object given by its id from HISinOne")
+    @MCRCommand(syntax = "remove {0}", help = "Deletes the object given by its id from HISinOne", order = 20)
     public static SysValue remove(String mcrid) {
         MCRObjectID id = MCRObjectID.getInstance(mcrid);
         if (!MCRMetadataManager.exists(id)) {
@@ -161,5 +163,34 @@ public class HISinOneCommands {
         help = "Converts a csv HISinOne export file to a mycore classification")
     public static void convertCSV2XML(String in, String out) throws Exception {
         HISinOneOEProcessor.csvToXml(in, out);
+    }
+
+    @MCRCommand(syntax = "remove servflag in {0}", help = "Removes the servflag containing the HISinOne id",
+        order = 10)
+    public static void removeServflag(String mcrID) {
+        if (!MCRObjectID.isValid(mcrID)) {
+            LOGGER.error("Invalid mcrid '{}'", mcrID);
+            return;
+        }
+        MCRObjectID mcrObjectId = MCRObjectID.getInstance(mcrID);
+        if (!MCRMetadataManager.exists(mcrObjectId)) {
+            LOGGER.warn("MCRObject '{}' does not exist", mcrObjectId);
+            return;
+        }
+
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectId);
+
+        if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
+            LOGGER.info("MCRObject '{}' does not have any servflags of type '{}'", mcrObjectId,
+                HISInOneServiceFlag.getName());
+            return;
+        }
+
+        try {
+            mcrObject.getService().removeFlags(HISInOneServiceFlag.getName());
+            MCRMetadataManager.update(mcrObject);
+        } catch (MCRAccessException e) {
+            LOGGER.error("Could not remove {} from {}", HISInOneServiceFlag.getName(), mcrObjectId, e);
+        }
     }
 }
