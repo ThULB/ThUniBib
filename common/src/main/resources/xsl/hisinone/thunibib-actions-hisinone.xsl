@@ -5,7 +5,7 @@
                 xmlns:mcrxml="xalan://org.mycore.common.xml.MCRXMLFunctions"
                 exclude-result-prefixes="cerif mcrxml mods xsl">
 
-  <xsl:import href="xslImport:additionalActions:hisinone/thunibib-actions-hisinone.xsl"/>
+  <xsl:import href="xslImport:uboActionButtons:hisinone/thunibib-actions-hisinone.xsl"/>
 
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
   <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
@@ -14,7 +14,7 @@
   <xsl:param name="InteractionURL" select="concat($WebApplicationBaseURL,'servlets/HISinOneInteractionServlet?')"/>
   <xsl:param name="isAdmin" select="mcrxml:isCurrentUserInRole('admin') = 'true'"/>
 
-  <xsl:template match="*" mode="additional-actions">
+  <xsl:template match="*" mode="ubo-actions">
     <xsl:apply-imports/>
 
     <xsl:variable name="action">
