@@ -46,14 +46,15 @@
     </xsl:variable>
 
     <xsl:if test="$isAdmin = true()">
-      <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action={$action}" class="action btn btn-sm btn-outline-primary mb-1" title="{$tooltip}">
+      <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action={$action}" title="{$tooltip}" class="action btn btn-sm btn-outline-primary mb-1" onclick="this.classList.add('disabled'); this.classList.add('thunibib-pointer-events-none');">
+
         <i class="{$icon-class} mr-1"/>
         <xsl:value-of select="'HISinOne'"/>
       </a>
 
       <xsl:if test="$servflag-present">
         <xsl:variable name="delete-tooltip" select="document('i18n:thunibib.editor.hisinone.button.delete.tooltip')/i18n/text()"/>
-        <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action=delete" class="action btn btn-sm btn-outline-danger mb-1" title="{$delete-tooltip}">
+        <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action=delete" class="action btn btn-sm btn-outline-danger mb-1" title="{$delete-tooltip}" onclick="this.classList.add('disabled'); this.classList.add('thunibib-pointer-events-none');">
           <i class="fas fa-minus-square mr-1"/>
           <xsl:value-of select="'HISinOne'"/>
         </a>
