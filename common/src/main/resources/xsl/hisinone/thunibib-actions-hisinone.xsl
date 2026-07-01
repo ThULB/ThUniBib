@@ -60,4 +60,9 @@
       </xsl:if>
     </xsl:if>
   </xsl:template>
+
+  <!-- Default template when HISinOne is not configured -->
+  <xsl:template match="*[string-length($ThUniBib.HISinOne.BaseURL) = 0]" mode="ubo-actions">
+    <xsl:apply-imports/>
+  </xsl:template>
 </xsl:stylesheet>
