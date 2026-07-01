@@ -17,9 +17,11 @@
   <xsl:template match="*" mode="ubo-actions">
     <xsl:apply-imports/>
 
+    <xsl:variable name="servflag-present" select="//servflag[@type = $ThUniBib.HISinOne.servflag.type]"/>
+
     <xsl:variable name="action">
       <xsl:choose>
-        <xsl:when test="not(//servflag[@type = $ThUniBib.HISinOne.servflag.type])">
+        <xsl:when test="not($servflag-present)">
           <xsl:value-of select="'publish'"/>
         </xsl:when>
         <xsl:otherwise>
@@ -31,7 +33,7 @@
     <xsl:variable name="icon-class">
       <xsl:choose>
         <xsl:when test="$action='publish'">
-          <xsl:value-of select="'fas fa-upload'"/>
+          <xsl:value-of select="'fas fa-plus-square'"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="'fas fa-sync'"/>
@@ -40,14 +42,7 @@
     </xsl:variable>
 
     <xsl:variable name="tooltip">
-      <xsl:choose>
-        <xsl:when test="$action='publish'">
-          <xsl:value-of select="'publish'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="'update'"/>
-        </xsl:otherwise>
-      </xsl:choose>
+      <xsl:value-of select="document(concat('i18n:thunibib.editor.hisinone.button.', $action, '.tooltip'))/i18n/text()"/>
     </xsl:variable>
 
     <xsl:if test="$isAdmin = true()">
@@ -55,6 +50,14 @@
         <i class="{$icon-class} mr-1"/>
         <xsl:value-of select="'HISinOne'"/>
       </a>
+
+      <xsl:if test="$servflag-present">
+        <xsl:variable name="delete-tooltip" select="document('i18n:thunibib.editor.hisinone.button.delete.tooltip')/i18n/text()"/>
+        <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action=delete" class="action btn btn-sm btn-outline-danger mb-1" title="{$delete-tooltip}">
+          <i class="fas fa-minus-square mr-1"/>
+          <xsl:value-of select="'HISinOne'"/>
+        </a>
+      </xsl:if>
     </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
