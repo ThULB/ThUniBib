@@ -1,0 +1,15 @@
+image: possommi/work:multiarch-debian-jdk21-mvn
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  RELEASE_BRANCH: "main"
+
+stages:
+  - build
+
+build:
+  stage: build
+  only:
+    - branches
+  script:
+    - mvn clean install -ntp

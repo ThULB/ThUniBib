@@ -10,6 +10,7 @@ import org.mycore.oai.pmh.harvester.HarvesterUtil;
 import javax.xml.transform.TransformerFactory;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -56,8 +57,8 @@ public class RecordTransformer {
     }
 
     public Stream<OAIRecord> getAll(Date from, Date until) {
-        final String fromString = from != null ? new SimpleDateFormat(OAI_SIMPLE_FORMAT).format(from) : null;
-        final String untilString = until != null ? new SimpleDateFormat(OAI_SIMPLE_FORMAT).format(until) : null;
+        final String fromString = from != null ? new SimpleDateFormat(OAI_SIMPLE_FORMAT, Locale.ROOT).format(from) : null;
+        final String untilString = until != null ? new SimpleDateFormat(OAI_SIMPLE_FORMAT, Locale.ROOT).format(until) : null;
         return HarvesterUtil.streamHeaders(harvester, format, fromString, untilString, setSpec).map(h -> {
             try {
                 return new OAIRecord(harvester.getRecord(h.getId(), format));
