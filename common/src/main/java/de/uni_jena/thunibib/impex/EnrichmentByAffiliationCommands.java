@@ -58,6 +58,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -215,7 +216,7 @@ public class EnrichmentByAffiliationCommands extends MCRAbstractCommands {
             TRACKER.clear(importId);
             // notify via e-mail
             try {
-                ThUniBibMailer.sendMail(importId, objects, status, SRU_DATABASE.toUpperCase());
+                ThUniBibMailer.sendMail(importId, objects, status, SRU_DATABASE.toUpperCase(Locale.ROOT));
             } catch (Exception e) {
                 LOGGER.error("Could not send email for import job {}", importId, e);
             }

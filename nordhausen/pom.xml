@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.uni-jena.thulb.ubo</groupId>
+    <groupId>de.uni-jena.thulb</groupId>
     <artifactId>ThUniBib</artifactId>
     <version>dev-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
@@ -12,8 +12,9 @@
   <name>ThUniBib Layout: Hochschule Nordhausen</name>
   <dependencies>
     <dependency>
-      <groupId>de.uni-jena.thulb.ubo</groupId>
+      <groupId>de.uni-jena.thulb</groupId>
       <artifactId>thunibib-common</artifactId>
+      <scope>runtime</scope>
     </dependency>
   </dependencies>
 </project>

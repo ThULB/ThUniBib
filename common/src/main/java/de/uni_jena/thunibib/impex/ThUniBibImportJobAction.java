@@ -18,6 +18,7 @@ import org.mycore.services.queuedjob.MCRJobAction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
@@ -69,7 +70,7 @@ public class ThUniBibImportJobAction extends MCRJobAction {
             job.setParameter("size-ignored", String.valueOf(ignoreCount));
 
             try {
-                ThUniBibMailer.sendMail(importId, objects, status, SRU_CATALOG.toUpperCase());
+                ThUniBibMailer.sendMail(importId, objects, status, SRU_CATALOG.toUpperCase(Locale.ROOT));
             } catch (Exception e) {
                 LOGGER.error("Could not send e-mail for import job {} {}", job.getId(), query, e);
             }
