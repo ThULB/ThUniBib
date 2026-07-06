@@ -4,12 +4,12 @@
 
   <parent>
     <groupId>de.uni-jena.thulb</groupId>
-    <artifactId>ThUniBib</artifactId>
+    <artifactId>thunibib</artifactId>
     <version>dev-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-ilmenau</artifactId>
-  <name>ThUniBib Layout: Ilmenau</name>
+  <name>de.uni-jena.thulb:thunibib-ilmenau</name>
   <dependencies>
     <dependency>
       <groupId>de.uni-jena.thulb</groupId>

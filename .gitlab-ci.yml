@@ -1,11 +1,14 @@
 image: possommi/work:multiarch-debian-jdk21-mvn
 
 variables:
+  MAVEN_CLI_OPTS: "-s ci-settings.xml"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
   RELEASE_BRANCH: "main"
 
 stages:
   - build
+  - deploy
+  - release
 
 build:
   stage: build
@@ -13,3 +16,48 @@ build:
     - branches
   script:
     - mvn clean install -ntp
+
+deploy-snapshot:
+  stage: deploy
+  only:
+    - develop
+  script:
+    - mvn $MAVEN_CLI_OPTS deploy
+
+deploy-main:
+  stage: deploy
+  only:
+    - tags
+  script:
+    - mvn $MAVEN_CLI_OPTS deploy
+
+build-tag:
+  stage: build
+  only:
+    - tags
+  script:
+    - echo "### Changed" >> RELEASE_NOTES.txt
+    - git log $(git describe --abbrev=0 --tags $(git describe --abbrev=0)^)...$(git describe --abbrev=0) --oneline --no-merges --format="- %s"|tail +2|sort|uniq >> RELEASE_NOTES.txt
+    - mvn clean install -ntp -DscmBranch=$RELEASE_BRANCH
+  artifacts:
+    when: on_success
+    expire_in: 2 hours
+    paths:
+      - RELEASE_NOTES.txt
+
+release:
+  stage: release
+  cache: [ ]
+  dependencies:
+    - build-tag
+  allow_failure: false
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  only:
+    - tags
+  script:
+    - echo "Running release job"
+  release:
+    name: '$CI_COMMIT_TAG'
+    description: $(cat RELEASE_NOTES.txt)
+    tag_name: '$CI_COMMIT_TAG'
+    ref: '$CI_COMMIT_TAG'
