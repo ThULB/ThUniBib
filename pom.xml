@@ -14,10 +14,12 @@
   <packaging>pom</packaging>
   <name>de.uni-jena.thulb:ThUniBib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
-  <url>https://github.com/ThULB/ThUniBib</url>
+  <url>https://git.thulb.uni-jena.de/thulb/thunibib</url>
   <inceptionYear>2019</inceptionYear>
   <scm>
-    <url>git@github.com:ThULB/ThUniBib.git</url>
+    <connection>scm:git:https://git.thulb.uni-jena.de/thulb/thunibib.git</connection>
+    <developerConnection>scm:git:https://git.thulb.uni-jena.de/thulb/thunibib.git</developerConnection>
+    <url>https://git.thulb.uni-jena.de/thulb/thunibib</url>
   </scm>
 
   <properties>
