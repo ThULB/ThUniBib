@@ -26,7 +26,7 @@
   <xsl:template match="mycoreobject" mode="additional-metadata-card">
     <xsl:apply-imports/>
 
-    <xsl:if test="$display-hisinone-metadata and $ThUniBib.HISinOne.metadata.display.card = 'true'">
+    <xsl:if test="$display-hisinone-metadata and $ThUniBib.HISinOne.metadata.display.card = 'true' and //servflag[@type = $ThUniBib.HISinOne.servflag.type]">
       <div class="ubo_details card mt-2">
         <div class="card-body">
           <xsl:call-template name="hisinone-metadata"/>
