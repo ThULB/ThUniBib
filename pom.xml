@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.mycore</groupId>
-    <artifactId>mycore-parent</artifactId>
-    <version>57</version>
-    <relativePath />
-  </parent>
-
   <groupId>de.uni-jena.thulb</groupId>
-  <artifactId>ThUniBib</artifactId>
+  <artifactId>thunibib</artifactId>
   <version>dev-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>de.uni-jena.thulb:ThUniBib</name>
+  <name>de.uni-jena.thulb:thunibib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
   <url>https://git.thulb.uni-jena.de/thulb/thunibib</url>
   <inceptionYear>2019</inceptionYear>
@@ -23,13 +16,23 @@
   </scm>
 
   <properties>
+    <gitlab.baseURL>https://git.thulb.uni-jena.de/</gitlab.baseURL>
+    <gitlab.projectId>125</gitlab.projectId>
     <jackson.version>2.18.6</jackson.version>
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
     <jersey.client.version>3.1.3</jersey.client.version>
     <maven.compiler.release>21</maven.compiler.release>
-    <mycore.version>2024.06.3-SNAPSHOT</mycore.version>
+    <maven.compiler.release>21</maven.compiler.release>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.jar.plugin.version>3.5.0</maven.jar.plugin.version>
+    <mycore.version>2024.06.3</mycore.version>
     <node.version>v16.19.1</node.version>
     <oaipmh.version>2.1</oaipmh.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sortpom.maven.plugin.version>3.1.3</sortpom.maven.plugin.version>
+    <sortpom.sortDeps>scope,groupId,artifactId</sortpom.sortDeps>
+    <sortpom.sortFile>https://gist.githubusercontent.com/yagee-de/dfd3698c1b49173dbf251f74eb6a9297/raw/406460c088ff3cb6354e4ae6b40535e6f841607d/mycore_sort.xml</sortpom.sortFile>
     <ubo.version>2024.06.0-SNAPSHOT</ubo.version>
     <yarn.version>v1.22.19</yarn.version>
   </properties>
@@ -39,6 +42,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin.version}</version>
         <configuration>
           <archive>
             <manifestEntries>
@@ -53,6 +57,7 @@
       <plugin>
         <groupId>com.github.ekryd.sortpom</groupId>
         <artifactId>sortpom-maven-plugin</artifactId>
+        <version>${sortpom.maven.plugin.version}</version>
         <executions>
           <execution>
             <id>verify-sort-pom</id>
@@ -74,7 +79,6 @@
       </plugin>
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <releases>
@@ -106,11 +110,21 @@
 
   <distributionManagement>
     <repository>
-      <id>github</id>
-      <name>GitHub ThULB Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/ThULB/ThUniBib</url>
+      <id>gitlab-maven-releases</id>
+      <url>${gitlab.baseURL}api/v4/projects/${gitlab.projectId}/packages/maven</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
     </repository>
+    <snapshotRepository>
+      <id>gitlab-maven-snapshots</id>
+      <url>${gitlab.baseURL}api/v4/projects/${gitlab.projectId}/packages/maven</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </snapshotRepository>
   </distributionManagement>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -252,7 +266,6 @@
         <scope>provided</scope>
       </dependency>
     </dependencies>
-
   </dependencyManagement>
   <modules>
     <module>common</module>
@@ -264,5 +277,4 @@
     <module>schmalkalden</module>
     <module>weimar</module>
   </modules>
-
 </project>
