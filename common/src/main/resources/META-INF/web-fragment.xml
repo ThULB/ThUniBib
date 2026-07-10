@@ -44,4 +44,14 @@
     <servlet-name>ListUsersHavingMultipleIdentifiersServlet</servlet-name>
     <url-pattern>/servlets/ListUsersHavingMultipleIdentifiersServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HISinOneInteractionServlet</servlet-name>
+    <servlet-class>de.uni_jena.thunibib.his.servlets.HISinOneInteractionServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HISinOneInteractionServlet</servlet-name>
+    <url-pattern>/servlets/HISinOneInteractionServlet</url-pattern>
+  </servlet-mapping>
 </web-fragment>
