@@ -239,6 +239,14 @@
         <label xml:lang="de" text="Forschungsdaten"/>
         <label xml:lang="en" text="Research data"/>
       </category>
+      <category ID="flyer">
+        <label xml:lang="x-hosts" text="standalone journal book newspaper video others"/>
+        <label xml:lang="x-color" text="#e4f0a2"/>
+        <label xml:lang="x-mapping" text="orcidWorkType:other"/>
+
+        <label xml:lang="de" text="Flyer"/>
+        <label xml:lang="en" text="Flyer"/>
+      </category>
       <category ID="interview">
         <label xml:lang="x-hosts" text="standalone journal collection book newspaper video others"/>
         <label xml:lang="x-color" text="#e02f8b"/>
