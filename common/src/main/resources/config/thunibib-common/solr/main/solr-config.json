@@ -136,13 +136,12 @@
         "qs": "5",
         "mm": "100%",
         "q.alt": "*:*",
-        "df": "all",
+        "qf":"id^105 pub_id_doi^100 pub_id_ppn^100 pub_id_isbn^100 pub_id_issn^100 pub_id_scopus^100 host_id_doi^100 host_id_ppn^100 host_id_isbn^100 host_id_issn^100 host_id_scopus^100 person^90 title^95 host_title^75 place^70 year^70 all^10",
         "rows": 10,
         "fl": "id",
         "facet": "true",
         "facet.mincount": "1",
         "f.year.facet.limit": -1,
-
         "facet.field": [
           "status",
           "partOf",
@@ -179,7 +178,7 @@
         "qs": "5",
         "mm": "100%",
         "q.alt": "*:*",
-        "df": "all",
+        "qf":"id^105 pub_id_doi^100 pub_id_ppn^100 pub_id_isbn^100 pub_id_issn^100 pub_id_scopus^100 host_id_doi^100 host_id_ppn^100 host_id_isbn^100 host_id_issn^100 host_id_scopus^100 person^90 title^95 host_title^75 place^70 year^70 all^10",
         "rows": 10,
         "fl": "id",
         "facet": "true",
