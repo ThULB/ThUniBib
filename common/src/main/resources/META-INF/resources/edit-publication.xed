@@ -116,12 +116,7 @@
             </fieldset>
 
             <xed:if test="not (xed:call-java('org.mycore.common.xml.MCRXMLFunctions', 'isCurrentUserGuestUser'))">
-              <fieldset>
-                <legend>
-                  <xed:output value="concat(i18n:translate('thunibib.editor.label.project.information'), ':')" />
-                </legend>
-                <xed:include ref="projectInformation" />
-              </fieldset>
+              <xed:include ref="projectInformation" />
             </xed:if>
           </xed:bind>
 

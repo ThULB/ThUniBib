@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass ID="fundingType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+  <label xml:lang="de" text="Förderungstyp"/>
+  <label xml:lang="de" text="Type of Funding"/>
+
+  <categories>
+    <category ID="OAPF">
+      <label xml:lang="de" text="Open-Access-Publikationsfonds"/>
+      <label xml:lang="en" text="Open Access Publication Funds"/>
+    </category>
+    <category ID="DealE">
+      <label xml:lang="de" text="DEAL Elsevier"/>
+      <label xml:lang="en" text="DEAL Elsevier"/>
+    </category>
+    <category ID="DEALSN">
+      <label xml:lang="de" text="DEAL Springer"/>
+      <label xml:lang="en" text="DEAL Springer"/>
+    </category>
+    <category ID="DEALW">
+      <label xml:lang="de" text="DEAL Wiley"/>
+      <label xml:lang="en" text="DEAL Wiley"/>
+    </category>
+    <category ID="CUP">
+      <label xml:lang="de" text="Transformationsvertrag CUP"/>
+      <label xml:lang="en" text="Open Access Publishing Agreement CUP"/>
+    </category>
+    <category ID="DeGruyter">
+      <label xml:lang="de" text="Transformationsvertrag De Gruyter"/>
+      <label xml:lang="en" text="Open Access Publishing Agrement De Gruyter"/>
+    </category>
+    <category ID="Frontiers">
+      <label xml:lang="de" text="Publikationsvereinbarung Frontiers"/>
+      <label xml:lang="en" text="Open Access Publishing Agreement Frontiers"/>
+    </category>
+    <category ID="Hogrefe">
+      <label xml:lang="de" text="Transformationsvertrag Hogrefe"/>
+      <label xml:lang="en" text="Open Access Publishing Agrement Hogrefe"/>
+    </category>
+    <category ID="Sage">
+      <label xml:lang="de" text="Transformationsvertrag Sage"/>
+      <label xml:lang="en" text="Open Access Publishing Agrement Sage"/>
+    </category>
+    <category ID="TVF">
+      <label xml:lang="de" text="Transformationsvertrag Taylor &amp; Francis"/>
+      <label xml:lang="en" text="Open Access Publishing Agreement Taylor &amp; Francis"/>
+    </category>
+  </categories>
+</mycoreclass>
