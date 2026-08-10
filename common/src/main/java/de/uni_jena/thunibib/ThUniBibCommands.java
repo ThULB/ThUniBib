@@ -1,6 +1,7 @@
 package de.uni_jena.thunibib;
 
 import de.uni_jena.thunibib.publication.ThUniBibPublicationEventHandler;
+import de.uni_jena.thunibib.solr.InputDocumentForMCRUserFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -18,6 +19,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClientBase;
 import org.apache.solr.client.solrj.request.QueryRequest;
+import org.apache.solr.client.solrj.request.UpdateRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -782,5 +784,23 @@ public class ThUniBibCommands {
             .filter(attr -> attrName.equals(attr.getName()))
             .toList();
         return attributes;
+    }
+
+    @MCRCommand(syntax = "rebuild solr users index", help = "Builds the index for MCRUsers", order = 150)
+    public static void rebuildUsersIndex() throws SolrServerException, IOException {
+        List<MCRUser> users = MCRUserManager.listUsers(null, null, null, null);
+
+        UpdateRequest updateRequest = new UpdateRequest("/update");
+        updateRequest.setCommitWithin(MCRConfiguration2.getInt("MCR.Solr.commitWithIn").orElse(10));
+        MCRSolrAuthenticationManager.obtainInstance()
+            .applyAuthentication(updateRequest, MCRSolrAuthenticationLevel.INDEX);
+
+        for (MCRUser user : users) {
+            SolrInputDocument inputDocument = InputDocumentForMCRUserFactory.create(user);
+            updateRequest.add(inputDocument);
+        }
+
+        updateRequest.process(MCRSolrCoreManager.get("users").get().getClient());
+        MCRSolrCommands.optimize("users");
     }
 }

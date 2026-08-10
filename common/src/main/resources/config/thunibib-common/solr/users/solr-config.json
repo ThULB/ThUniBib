@@ -1,0 +1,22 @@
+[
+  {
+    "update-requestHandler": {
+      "name": "/select",
+      "class": "solr.SearchHandler",
+      "defaults": {
+        "echoParams": "explicit",
+        "defType": "edismax",
+        "mm": "100%",
+        "qs": "5",
+        "q.alt": "*:*",
+        "qf": "id^105 realName^200 mail^150 nameIdentifier^150 realmId^100 all^10",
+        "rows": 10,
+        "sort": "realName.sort asc",
+        "wt": "xml"
+      },
+      "invariants": {
+
+      }
+    }
+  }
+]

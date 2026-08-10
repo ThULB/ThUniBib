@@ -48,7 +48,16 @@
 
         <button class="btn btn-sm btn-primary text-truncate w-50" data-toggle="collapse" href="#collapse-{@type}"
                 role="button" aria-expanded="false" aria-controls="collapse-{@type}" title="{@type} ({count(user)})">
-          <xsl:value-of select="document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:user_attributes:', @type))"/>
+
+          <xsl:variable name="button-text" select="document(concat('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:getDisplayName:user_attributes:', @type))"/>
+          <xsl:choose>
+            <xsl:when test="string-length($button-text) &gt; 0">
+              <xsl:value-of select="$button-text"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="document(concat('notnull:callJava:de.uni_jena.thunibib.Utilities:toUpperCase:', @type))"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </button>
       </div>
     </div>
