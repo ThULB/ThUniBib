@@ -55,7 +55,7 @@
         </label>
       </xed:bind>
 
-      <xed:bind xpath="mods:displayForm" initially="{mods:namePart[@type='family']}, {mods:namePart[@type='given']}">
+      <xed:bind xpath="mods:displayForm" initially="{xed:call-java('de.uni_jena.thunibib.Utilities', 'createDisplayName', mods:namePart[@type='family'], mods:namePart[@type='given'])}">
         <input type="text" class="form-control col-sm-6" placeholder="{i18n:ubo.placeholder.name.family}, {i18n:ubo.placeholder.name.given}"/>
       </xed:bind>
       <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.comment.person.submitter}">
