@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass ID="thunibibIdentifier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
+  <label xml:lang="en" text="Identifier"/>
+  <label xml:lang="de" text="Identifikatoren"/>
+  <label xml:lang="x-uri" text="http://www.mycore.org/classifications/identifier"/>
+
+  <categories>
+    <category ID="doi">
+      <label xml:lang="de" text="DOI"/>
+      <label xml:lang="en" text="DOI"/>
+    </category>
+    <category ID="urn">
+      <label xml:lang="de" text="URN"/>
+      <label xml:lang="en" text="URN"/>
+    </category>
+    <category ID="hdl">
+      <label xml:lang="de" text="Handle"/>
+      <label xml:lang="en" text="Handle"/>
+    </category>
+    <category ID="isbn">
+      <label xml:lang="de" text="ISBN"/>
+      <label xml:lang="en" text="ISBN"/>
+    </category>
+    <category ID="issn">
+      <label xml:lang="de" text="ISSN"/>
+      <label xml:lang="en" text="ISSN"/>
+    </category>
+    <category ID="pubmed">
+      <label xml:lang="de" text="PubMed ID"/>
+      <label xml:lang="en" text="PubMed ID"/>
+    </category>
+    <category ID="ieee">
+      <label xml:lang="de" text="IEEE ID"/>
+      <label xml:lang="en" text="IEEE ID"/>
+    </category>
+    <category ID="arxiv">
+      <label xml:lang="de" text="arXiv.org ID"/>
+      <label xml:lang="en" text="arXiv.org ID"/>
+    </category>
+    <category ID="zdb">
+      <label xml:lang="de" text="ZDB ID"/>
+      <label xml:lang="en" text="ZDB ID"/>
+    </category>
+    <category ID="scopus">
+      <label xml:lang="de" text="Scopus ID"/>
+      <label xml:lang="en" text="Scopus ID"/>
+    </category>
+    <category ID="isi">
+      <label xml:lang="de" text="Web of Science ID"/>
+      <label xml:lang="en" text="Web of Science ID"/>
+    </category>
+    <category ID="ppn">
+      <label xml:lang="de" text="GBV PPN"/>
+      <label xml:lang="en" text="GBV PPN"/>
+    </category>
+    <category ID="dbt">
+      <label xml:lang="de" text="DBT-ID"/>
+      <label xml:lang="en" text="DBT-ID"/>
+    </category>
+    <category ID="dpm">
+      <label xml:lang="de" text="Patentnummer"/>
+      <label xml:lang="en" text="Patentnummer"/>
+    </category>
+    <category ID="oclc">
+      <label xml:lang="de" text="OCLC"/>
+      <label xml:lang="en" text="OCLC"/>
+    </category>
+    <category ID="unknown">
+      <label xml:lang="de" text="unbekannt"/>
+      <label xml:lang="en" text="unknown"/>
+    </category>
+  </categories>
+</mycoreclass>
