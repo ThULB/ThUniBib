@@ -5,6 +5,18 @@
 
   <name>thunibib-common</name>
 
+  <filter>
+    <filter-name>SolrServletFilter</filter-name>
+    <filter-class>de.uni_jena.thunibib.solr.SolrServletFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>SolrServletFilter</filter-name>
+    <servlet-name>MCRSolrSelectProxyServlet</servlet-name>
+    <!-- url-pattern>/servlets/solr</url-pattern -->
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
   <servlet>
     <servlet-name>JobStatusServlet</servlet-name>
     <servlet-class>de.uni_jena.thunibib.impex.servlets.JobStatusServlet</servlet-class>
@@ -43,5 +55,15 @@
   <servlet-mapping>
     <servlet-name>ListUsersHavingMultipleIdentifiersServlet</servlet-name>
     <url-pattern>/servlets/ListUsersHavingMultipleIdentifiersServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HISinOneInteractionServlet</servlet-name>
+    <servlet-class>de.uni_jena.thunibib.his.servlets.HISinOneInteractionServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HISinOneInteractionServlet</servlet-name>
+    <url-pattern>/servlets/HISinOneInteractionServlet</url-pattern>
   </servlet-mapping>
 </web-fragment>

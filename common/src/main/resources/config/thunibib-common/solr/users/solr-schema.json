@@ -1,0 +1,370 @@
+[
+  {
+    "add-field-type": {
+      "name": "ignored",
+      "class": "solr.StrField",
+      "indexed": false,
+      "stored": false,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "strings",
+      "class": "solr.StrField",
+      "sortMissingLast": true,
+      "docValues": true,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "boolean",
+      "class": "solr.BoolField",
+      "sortMissingLast": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "booleans",
+      "class": "solr.BoolField",
+      "sortMissingLast": true,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pint",
+      "class": "solr.IntPointField",
+      "docValues": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pints",
+      "class": "solr.IntPointField",
+      "docValues": true,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "plongs",
+      "class": "solr.LongPointField",
+      "docValues": true,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pfloat",
+      "class": "solr.FloatPointField",
+      "docValues": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pfloats",
+      "class": "solr.FloatPointField",
+      "docValues": true,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pdouble",
+      "class": "solr.DoublePointField",
+      "docValues": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pdoubles",
+      "class": "solr.DoublePointField",
+      "docValues": true,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pdate",
+      "class": "solr.DatePointField",
+      "docValues": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "pdates",
+      "class": "solr.DatePointField",
+      "docValues": true,
+      "multiValued": true
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "binary",
+      "class": "solr.BinaryField"
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "payloads",
+      "class": "solr.TextField",
+      "indexed": true,
+      "stored": false,
+      "analyzer": {
+        "tokenizer": {
+          "class": "solr.WhitespaceTokenizerFactory"
+        },
+        "filters": [
+          {
+            "class": "solr.DelimitedPayloadTokenFilterFactory",
+            "encoder": "float"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "text_en",
+      "class": "solr.TextField",
+      "positionIncrementGap": "100",
+      "indexAnalyzer": {
+        "tokenizer": {
+          "class": "solr.StandardTokenizerFactory"
+        },
+        "filters": [
+          {
+            "class": "solr.StopFilterFactory",
+            "words": "lang/stopwords_en.txt",
+            "ignoreCase": "true"
+          },
+          {
+            "class": "solr.LowerCaseFilterFactory"
+          },
+          {
+            "class": "solr.EnglishPossessiveFilterFactory"
+          },
+          {
+            "class": "solr.KeywordMarkerFilterFactory",
+            "protected": "protwords.txt"
+          },
+          {
+            "class": "solr.PorterStemFilterFactory"
+          }
+        ]
+      },
+      "queryAnalyzer": {
+        "tokenizer": {
+          "class": "solr.StandardTokenizerFactory"
+        },
+        "filters": [
+          {
+            "class": "solr.SynonymGraphFilterFactory",
+            "expand": "true",
+            "ignoreCase": "true",
+            "synonyms": "synonyms.txt"
+          },
+          {
+            "class": "solr.StopFilterFactory",
+            "words": "lang/stopwords_en.txt",
+            "ignoreCase": "true"
+          },
+          {
+            "class": "solr.LowerCaseFilterFactory"
+          },
+          {
+            "class": "solr.EnglishPossessiveFilterFactory"
+          },
+          {
+            "class": "solr.KeywordMarkerFilterFactory",
+            "protected": "protwords.txt"
+          },
+          {
+            "class": "solr.PorterStemFilterFactory"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "text_de",
+      "class": "solr.TextField",
+      "positionIncrementGap": "100",
+      "analyzer": {
+        "tokenizer": {
+          "class": "solr.ICUTokenizerFactory"
+        },
+        "filters": [
+          {
+            "class": "solr.WordDelimiterFilterFactory",
+            "generateWordParts": 1,
+            "generateNumberParts": 1,
+            "catenateWords": 1,
+            "catenateNumbers": 1,
+            "catenateAll": 0,
+            "splitOnCaseChange": 1
+          },
+          {
+            "class": "solr.StopFilterFactory",
+            "format": "snowball",
+            "words": "lang/stopwords_de.txt",
+            "ignoreCase": "true"
+          },
+          {
+            "class": "solr.ICUFoldingFilterFactory"
+          },
+          {
+            "class": "solr.SnowballPorterFilterFactory",
+            "language": "German2"
+          },
+          {
+            "class": "solr.RemoveDuplicatesTokenFilterFactory"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "add-field-type": {
+      "name": "text_wc",
+      "class": "solr.TextField",
+      "stored": false,
+      "multiValued": true,
+      "indexAnalyzer": {
+        "tokenizer": {
+          "class": "solr.WhitespaceTokenizerFactory"
+        },
+        "filters": [
+          {
+            "class": "solr.DelimitedPayloadTokenFilterFactory",
+            "encoder": "identity",
+            "delimiter": "|"
+          },
+          {
+            "class": "solr.LowerCaseFilterFactory"
+          },
+          {
+            "class": "solr.StopFilterFactory",
+            "words": "stopwords.txt",
+            "ignoreCase": "true"
+          },
+          {
+            "class": "solr.ASCIIFoldingFilterFactory"
+          },
+          {
+            "class": "solr.PatternReplaceCharFilterFactory",
+            "pattern": "[^\\p{L}\\p{Nd}]",
+            "replacement": ""
+          }
+        ]
+      },
+      "queryAnalyzer": {
+        "tokenizer": {
+          "class": "solr.WhitespaceTokenizerFactory"
+        },
+        "filters": [
+          {
+            "class": "solr.LowerCaseFilterFactory"
+          },
+          {
+            "class": "solr.StopFilterFactory",
+            "words": "stopwords.txt",
+            "ignoreCase": "true"
+          },
+          {
+            "class": "solr.ASCIIFoldingFilterFactory"
+          },
+          {
+            "class": "solr.PatternReplaceCharFilterFactory",
+            "pattern": "[^\\p{L}\\p{Nd}]",
+            "replacement": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "add-field": {
+      "name": "username",
+      "type": "string",
+      "multiValued": false
+    }
+  },
+  {
+    "add-field": {
+      "name": "realmId",
+      "type": "string",
+      "multiValued": false
+    }
+  },
+  {
+    "add-field": {
+      "name": "realName",
+      "type": "text_de",
+      "multiValued": false
+    }
+  },
+  {
+    "add-field": {
+      "name": "realName.sort",
+      "type": "string",
+      "multiValued": false
+    }
+  },
+  {
+    "add-copy-field": {
+      "source": "realName",
+      "dest": "realName.sort"
+    }
+  },
+  {
+    "add-field": {
+      "name": "mail",
+      "type": "string",
+      "multiValued": true
+    }
+  },
+  {
+    "add-field": {
+      "name": "nameIdentifier",
+      "type": "string",
+      "multiValued": true
+    }
+  },
+  {
+    "add-dynamic-field": {
+      "name": "attribute.*",
+      "type": "string",
+      "multiValued": true
+    }
+  },
+  {
+    "add-field": {
+      "name": "all",
+      "type": "text_de",
+      "multiValued": true,
+      "stored": false
+    }
+  },
+  {
+    "add-copy-field": {
+      "source": "*",
+      "dest": "all"
+    }
+  },
+  {
+    "add-dynamic-field": {
+      "name": "ignored_*",
+      "type": "ignored"
+    }
+  },
+  {
+    "add-dynamic-field": {
+      "name": "*",
+      "type": "ignored"
+    }
+  }
+]

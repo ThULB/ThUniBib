@@ -59,6 +59,44 @@ public class Utilities {
     }
 
     /**
+     * Builds a display name from the first family-name and given-name elements found.
+     *
+     * Returns {@code "familyName, givenName"} when both are present and non-empty,
+     * otherwise whichever one is available, or an empty string if neither is.
+     *
+     * @param n1 elements holding the family name; only the first is used, may be empty
+     * @param n2 elements holding the given name; only the first is used, may be empty
+     *
+     * @return the formatted display name or an empty {@link String}
+     */
+    public static String createDisplayName(List<Element> n1, List<Element> n2) {
+        String familyName = null;
+        String givenName = null;
+
+        if (!n1.isEmpty()) {
+            familyName = n1.get(0).getValue();
+        }
+
+        if (!n2.isEmpty()) {
+            givenName = n2.get(0).getValue();
+        }
+
+        if (familyName != null && !familyName.isEmpty() && givenName != null && !givenName.isEmpty()) {
+            return familyName + ", " + givenName;
+        }
+
+        if (familyName != null && !familyName.isEmpty()) {
+            return familyName;
+        }
+
+        if (givenName != null && !givenName.isEmpty()) {
+            return givenName;
+        }
+
+        return "";
+    }
+
+    /**
      * Transforms a given {@link MCRObject} to JSON suitable for HISinOne/RES.
      *
      * @param mcrObject the object to transform

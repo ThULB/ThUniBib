@@ -39,6 +39,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @MCRCommandGroup(name = "experimental DBT import commands")
@@ -179,7 +180,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
 
     private static void saveLastHarvestDate(Date lastHarvest) {
         final Path lastHarvestDateFilePath = getLastHarvestDateFilePath();
-        final String dateAsString = new SimpleDateFormat(RecordTransformer.OAI_SIMPLE_FORMAT).format(lastHarvest);
+        final String dateAsString = new SimpleDateFormat(RecordTransformer.OAI_SIMPLE_FORMAT, Locale.ROOT).format(lastHarvest);
         try {
             Files.write(lastHarvestDateFilePath, dateAsString.getBytes(StandardCharsets.UTF_8),
                 StandardOpenOption.CREATE);
@@ -195,7 +196,7 @@ public class EnrichmentCommands extends MCRAbstractCommands {
             try {
                 return Files.readAllLines(lastHarvestFile).stream().findFirst().map(str -> {
                     try {
-                        return new SimpleDateFormat(RecordTransformer.OAI_SIMPLE_FORMAT).parse(str);
+                        return new SimpleDateFormat(RecordTransformer.OAI_SIMPLE_FORMAT, Locale.ROOT).parse(str);
                     } catch (ParseException e) {
                         LOGGER.error("Error while parsing date " + str, e);
                         return null;

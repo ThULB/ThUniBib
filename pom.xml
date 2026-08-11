@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.mycore</groupId>
-    <artifactId>mycore-parent</artifactId>
-    <version>57</version>
-    <relativePath />
-  </parent>
-
-  <groupId>de.uni-jena.thulb.ubo</groupId>
-  <artifactId>ThUniBib</artifactId>
-  <version>2026.06.24-2024.06.x</version>
+  <groupId>de.uni-jena.thulb</groupId>
+  <artifactId>thunibib</artifactId>
+  <version>2026.08.11-2024.06.x</version>
   <packaging>pom</packaging>
-  <name>UBO ThUniBib</name>
+  <name>de.uni-jena.thulb:thunibib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
-  <url>https://github.com/ThULB/ThUniBib</url>
+  <url>https://git.thulb.uni-jena.de/thulb/thunibib</url>
   <inceptionYear>2019</inceptionYear>
   <scm>
-    <url>git@github.com:ThULB/ThUniBib.git</url>
+    <connection>scm:git:https://git.thulb.uni-jena.de/thulb/thunibib.git</connection>
+    <developerConnection>scm:git:https://git.thulb.uni-jena.de/thulb/thunibib.git</developerConnection>
+    <url>https://git.thulb.uni-jena.de/thulb/thunibib</url>
   </scm>
 
   <properties>
-    <jackson.version>2.18.6</jackson.version>
+    <gitlab.baseURL>https://git.thulb.uni-jena.de/</gitlab.baseURL>
+    <gitlab.projectId>125</gitlab.projectId>
+    <jackson.annotations.version>2.22</jackson.annotations.version>
+    <jackson.version>2.22.1</jackson.version>
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
     <jersey.client.version>3.1.3</jersey.client.version>
     <maven.compiler.release>21</maven.compiler.release>
-    <mycore.version>2024.06.3-SNAPSHOT</mycore.version>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.jar.plugin.version>3.5.0</maven.jar.plugin.version>
+    <mycore.version>2024.06.3</mycore.version>
     <node.version>v16.19.1</node.version>
     <oaipmh.version>2.1</oaipmh.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sortpom.maven.plugin.version>3.1.3</sortpom.maven.plugin.version>
+    <sortpom.sortDeps>scope,groupId,artifactId</sortpom.sortDeps>
+    <sortpom.sortFile>https://gist.githubusercontent.com/yagee-de/dfd3698c1b49173dbf251f74eb6a9297/raw/406460c088ff3cb6354e4ae6b40535e6f841607d/mycore_sort.xml</sortpom.sortFile>
     <ubo.version>2024.06.0-SNAPSHOT</ubo.version>
     <yarn.version>v1.22.19</yarn.version>
   </properties>
@@ -37,6 +42,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin.version}</version>
         <configuration>
           <archive>
             <manifestEntries>
@@ -51,6 +57,7 @@
       <plugin>
         <groupId>com.github.ekryd.sortpom</groupId>
         <artifactId>sortpom-maven-plugin</artifactId>
+        <version>${sortpom.maven.plugin.version}</version>
         <executions>
           <execution>
             <id>verify-sort-pom</id>
@@ -72,7 +79,6 @@
       </plugin>
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <releases>
@@ -104,11 +110,21 @@
 
   <distributionManagement>
     <repository>
-      <id>github</id>
-      <name>GitHub ThULB Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/ThULB/ThUniBib</url>
+      <id>gitlab-maven-releases</id>
+      <url>${gitlab.baseURL}api/v4/projects/${gitlab.projectId}/packages/maven</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
     </repository>
+    <snapshotRepository>
+      <id>gitlab-maven-snapshots</id>
+      <url>${gitlab.baseURL}api/v4/projects/${gitlab.projectId}/packages/maven</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </snapshotRepository>
   </distributionManagement>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -121,7 +137,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>${jackson.version}</version>
+        <version>${jackson.annotations.version}</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -134,14 +150,59 @@
         <version>${jackson.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.uni-jena.thulb.ubo</groupId>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.11.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>33.3.1-jre</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.17.0</version>
+      </dependency>
+      <dependency>
+        <groupId>de.uni-jena.thulb</groupId>
         <artifactId>thunibib-common</artifactId>
-        <version>2026.06.24-2024.06.x</version>
+        <version>2026.08.11-2024.06.x</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.persistence</groupId>
+        <artifactId>jakarta.persistence-api</artifactId>
+        <version>3.1.0</version>
       </dependency>
       <dependency>
         <groupId>jakarta.servlet</groupId>
         <artifactId>jakarta.servlet-api</artifactId>
         <version>${jakarta.servlet-api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.ws.rs</groupId>
+        <artifactId>jakarta.ws.rs-api</artifactId>
+        <version>4.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.18.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents.client5</groupId>
+        <artifactId>httpclient5</artifactId>
+        <version>5.4.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents.core5</groupId>
+        <artifactId>httpcore5</artifactId>
+        <version>5.3.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.24.1</version>
       </dependency>
       <dependency>
         <groupId>org.glassfish.jersey.core</groupId>
@@ -160,12 +221,22 @@
       </dependency>
       <dependency>
         <groupId>org.mycore</groupId>
+        <artifactId>mycore-jobqueue</artifactId>
+        <version>2024.06.3-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mycore</groupId>
         <artifactId>mycore-mods</artifactId>
         <version>${mycore.version}</version>
       </dependency>
       <dependency>
         <groupId>org.mycore</groupId>
         <artifactId>mycore-orcid</artifactId>
+        <version>${mycore.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mycore</groupId>
+        <artifactId>mycore-solr</artifactId>
         <version>${mycore.version}</version>
       </dependency>
       <dependency>
@@ -188,19 +259,22 @@
         <artifactId>ubo-common</artifactId>
         <version>${ubo.version}</version>
       </dependency>
+      <dependency>
+        <groupId>xml-apis</groupId>
+        <artifactId>xml-apis</artifactId>
+        <version>1.4.01</version>
+        <scope>provided</scope>
+      </dependency>
     </dependencies>
-
   </dependencyManagement>
   <modules>
     <module>common</module>
     <module>erfurt</module>
     <module>erfurt-fh</module>
     <module>ilmenau</module>
-    <module>jena-thulb</module>
     <module>jena</module>
     <module>nordhausen</module>
     <module>schmalkalden</module>
     <module>weimar</module>
   </modules>
-
 </project>

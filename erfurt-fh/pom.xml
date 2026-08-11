@@ -3,17 +3,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.uni-jena.thulb.ubo</groupId>
-    <artifactId>ThUniBib</artifactId>
-    <version>2026.06.24-2024.06.x</version>
+    <groupId>de.uni-jena.thulb</groupId>
+    <artifactId>thunibib</artifactId>
+    <version>2026.08.11-2024.06.x</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-erfurt-fh</artifactId>
-  <name>ThUniBib Layout: Erfurt FH</name>
+  <name>de.uni-jena.thulb:thunibib-erfurt-fh</name>
   <dependencies>
     <dependency>
-      <groupId>de.uni-jena.thulb.ubo</groupId>
+      <groupId>de.uni-jena.thulb</groupId>
       <artifactId>thunibib-common</artifactId>
+      <scope>runtime</scope>
     </dependency>
   </dependencies>
 </project>

@@ -113,7 +113,7 @@ public class HISinOneResolver implements URIResolver {
     /**
      * {@link SimpleDateFormat} used to parse a conference date.
      * */
-    private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy.MM.dd");
+    private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy.MM.dd", Locale.ROOT);
 
     /**
      * Resolves the requested field. The result is an {@link Source} containing a {@link Element}.
@@ -1098,7 +1098,7 @@ public class HISinOneResolver implements URIResolver {
 
     private long getStartDate(String dateRange) throws ParseException {
         if (dateRange.length() == 4) {
-            return new SimpleDateFormat("yyyy").parse(dateRange).getTime();
+            return new SimpleDateFormat("yyyy", Locale.ROOT).parse(dateRange).getTime();
         }
 
         return SDF.parse(dateRange.substring(0, dateRange.indexOf("-"))).getTime();
@@ -1106,7 +1106,7 @@ public class HISinOneResolver implements URIResolver {
 
     private long getEndDate(String dateRange) throws ParseException {
         if (dateRange.length() == 4) {
-            return new SimpleDateFormat("yyyy").parse(dateRange).getTime();
+            return new SimpleDateFormat("yyyy", Locale.ROOT).parse(dateRange).getTime();
         }
 
         String start = dateRange.substring(0, dateRange.indexOf("-") - 2);

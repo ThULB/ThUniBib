@@ -17,6 +17,7 @@ import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 /**
  * {@link URIResolver} for transforming arbitrary {@link Source} to string.
@@ -51,7 +52,7 @@ public class ToStringResolver implements URIResolver {
 
             if (content == null) {
                 is.reset();
-                content = new String(is.readAllBytes());
+                content = new String(is.readAllBytes(), StandardCharsets.UTF_8);
             }
             return new JDOMSource(new Document(new Element("str").addContent(content)));
         } catch (IOException e) {
