@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xed:template xmlns:xed="http://www.mycore.de/xeditor">
+  <xed:template id="submitter.default">
+    <xed:include uri="webapp:import-editor.xed" ref="title.submitter"/>
+    <xed:include ref="person.role.submitter"/>
+    <xed:include uri="webapp:import-editor.xed" ref="year"/>
+    <xed:include uri="webapp:import-editor.xed" ref="identifier.mandatory"/>
+
+    <hr class="bg-danger" />
+
+    <xed:include ref="submitter.thunibib.relatedItem"/>
+
+    <hr class="bg-danger" />
+
+    <xed:include ref="thunibib.comment.intern.submitter"/>
+  </xed:template>
+
+  <xed:template id="person.role.submitter">
+    <xed:repeat xpath="mods:name[@type='personal']">
+      <div class="form-group form-inline ubo-repeat-group">
+        <xed:include ref="person.submitter"/>
+
+        <div class="form-group form-inline col-12 px-0">
+          <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
+            <label class="mycore-form-label"/>
+            <input type="checkbox" value="corresponding_author"/>
+            <span class="pl-1">
+              <xed:output i18n="ubo.corresponding_author"/>
+            </span>
+          </xed:bind>
+        </div>
+
+        <div class="form-group form-inline col-12 px-0">
+          <xed:bind xpath="mods:affiliation[@authorityURI=concat($MCR.baseurl, 'classifications/isAffiliated')]">
+            <label class="mycore-form-label"/>
+            <input type="checkbox" value="false"/>
+            <span class="pl-1">
+              <xed:output i18n="thunibib.editor.affiliation.checkbox"/>
+            </span>
+          </xed:bind>
+        </div>
+      </div>
+    </xed:repeat>
+  </xed:template>
+
+  <xed:template id="person.submitter">
+    <div class="form-group form-inline col-12 px-0 mt-2 ubo-repeat-group">
+      <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="aut">
+        <label class="mycore-form-label d-flex align-items-center mt-0 ubo-mandatory">
+          <select class="form-control custom-select">
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator"/>
+          </select>
+          <div class="ml-1">:</div>
+        </label>
+      </xed:bind>
+
+      <xed:bind xpath="mods:displayForm" initially="{mods:namePart[@type='family']}, {mods:namePart[@type='given']}">
+        <input type="text" class="form-control col-sm-6" placeholder="{i18n:ubo.placeholder.name.family}, {i18n:ubo.placeholder.name.given}"/>
+      </xed:bind>
+      <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.comment.person.submitter}">
+        <i class="fas fa-info"/>
+      </a>
+      <xed:controls/>
+    </div>
+
+    <xed:repeat xpath="mods:nameIdentifier[not(@type=$MCR.user2.matching.lead_id)][not(@type='connection')]">
+      <div class="form-group form-inline col-12 px-0 mb-2 mt-2 ubo-repeat-group">
+        <label class="mycore-form-label"/>
+
+        <xed:bind xpath="@type">
+          <select class="form-control col-sm-2 custom-select">
+            <option value="">
+              <xed:output i18n="search.select"/>
+            </option>
+            <xed:include uri="xslStyle:filterOutLeadAndConnectionID,items2options:classification:editor:-1:children:nameIdentifier"/>
+          </select>
+        </xed:bind>
+        <input type="text" class="{$xed-validation-marker} form-control col-sm-4"/>
+        <xed:controls>insert remove</xed:controls>
+      </div>
+    </xed:repeat>
+
+    <div class="form-group form-inline col-12 px-0">
+      <xed:repeat xpath="mods:affiliation[not(@authorityURI)][not(@valueURI)]">
+        <label class="mycore-form-label">
+        </label>
+        <textarea class="mycore-form-input" placeholder="{i18n:thunibib.editor.help.affiliation}"/>
+      </xed:repeat>
+    </div>
+  </xed:template>
+
+  <xed:template id="submitter.thunibib.relatedItem">
+    <fieldset>
+      <legend>
+        <xed:output value="concat(i18n:translate('thunibib.editor.label.published.in'), ': ')"/>
+      </legend>
+      <xed:bind xpath="mods:relatedItem[@type='host']">
+        <xed:choose>
+          <xed:when test="string-length(@xlink:href) &gt; 0">
+            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') and xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+            </xed:if>
+            <xed:if
+              test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+            </xed:if>
+          </xed:when>
+          <xed:otherwise>
+            <xed:include uri="webapp:import-editor.xed" ref="host"/>
+            <xed:if test="not($genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') and xed:call-java('org.mycore.ubo.AccessControl', 'currentUserIsAdmin')">
+              <xed:include uri="webapp:import-editor.xed" ref="linked.relatedItem"/>
+            </xed:if>
+            <xed:include uri="webapp:import-editor.xed" ref="title.submitter.optional"/>
+            <xed:if test="not($genre_intern = 'chapter' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'blog' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="volume"/>
+              <xed:include uri="webapp:import-editor.xed" ref="issue"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'bachelor_thesis' or genre_intern = 'diploma_thesis' or $genre_intern = 'dissertation' or genre_intern = 'habilitation' or $genre_intern = 'master_thesis' or $genre_intern = 'magister_thesis' or $genre_intern = 'seminar_paper' or $genre_intern = 'state_examination_thesis' or $genre_intern = 'collection' or $genre_intern = 'proceedings' or $genre_intern = 'lexicon' or $genre_intern = 'book' or $genre_intern = 'preprint' or $genre_intern = 'software' or $genre_intern = 'chapter' or $genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="article_number"/>
+            </xed:if>
+            <xed:if test="not($genre_intern = 'video' or genre_intern = 'software' or $genre_intern = 'object' or genre_intern = 'series' or $genre_intern = 'newspaper' or $genre_intern = 'journal') ">
+              <xed:include uri="webapp:import-editor.xed" ref="pages"/>
+            </xed:if>
+            <xed:include uri="webapp:import-editor.xed" ref="identifier"/>
+          </xed:otherwise>
+        </xed:choose>
+      </xed:bind>
+    </fieldset>
+  </xed:template>
+
+  <xed:template id="thunibib.comment.intern.submitter">
+    <xed:repeat xpath="mods:note[@type='intern']">
+      <div class="form-group form-inline">
+        <label for="{xed:generate-id()}" class="mycore-form-label">
+          <xed:output value="concat(i18n:translate('thunibib.comment.intern.submitter'), ': ')" />
+        </label>
+
+        <textarea id="{xed:generate-id()}" type="text" class="mycore-form-input" />
+
+        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
+           data-content="{i18n:thunibib.editor.help.comment.intern}">
+          <i class="fas fa-info"/>
+        </a>
+        <xed:controls />
+      </div>
+    </xed:repeat>
+  </xed:template>
+</xed:template>

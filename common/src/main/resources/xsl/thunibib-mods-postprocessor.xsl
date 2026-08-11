@@ -31,4 +31,21 @@
       <mods:affiliation authorityURI="{@authorityURI}" valueURI="{$WebApplicationBaseURL}classifications/isAffiliated#false"/>
   </xsl:template>
 
+  <xsl:template match="mods:name[not(mods:namePart)]/mods:displayForm">
+    <xsl:choose>
+      <xsl:when test="contains(., ',')">
+        <mods:namePart type="family">
+          <xsl:value-of select="translate(substring-before(., ','), ' ', '')"/>
+        </mods:namePart>
+        <mods:namePart type="given">
+          <xsl:value-of select="translate(substring-after(., ','), ' ', '')"/>
+        </mods:namePart>
+      </xsl:when>
+      <xsl:otherwise>
+        <mods:namePart type="family">
+          <xsl:value-of select="."/>
+        </mods:namePart>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 </xsl:stylesheet>

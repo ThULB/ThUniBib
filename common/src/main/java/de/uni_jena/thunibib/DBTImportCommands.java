@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 
 @MCRCommandGroup(name = "ThUniBib DBT-Import")
 public class DBTImportCommands {
-    private static final Logger LOGGER = LogManager.getLogger(DBTImportCommands.class);
+    private static final Logger LOGGER = LogManager.getLogger();
 
     protected static final String DBT_BASEURL = MCRConfiguration2.getStringOrThrow("ThUniBib.Importer.DBT.BaseURL");
 

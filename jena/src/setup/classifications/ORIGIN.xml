@@ -630,8 +630,8 @@
       </category>
 
       <category ID="8000.50">
-        <label xml:lang="de" text="Cluster of Excellence 'Imginamics'"/>
-        <label xml:lang="en" text="Cluster of Excellence 'Imginamics'"/>
+        <label xml:lang="de" text="Cluster of Excellence 'Imaginamics'"/>
+        <label xml:lang="en" text="Cluster of Excellence 'Imaginamics'"/>
         <label xml:lang="x-mapping" text="destatis:0120 destatis:2210"/>
       </category>
 
