@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026.08.11-2024.06.x
+- #1 Configure CI
+- #6 Add additional HISinOne/RES related actions to menu
+- #10 Hide HISinOne metadata card when servlflag is not present
+- #11 Update README.md and CONTRIBUTING.md to new scm repository
+- #12 Use gitlab package registry
+- #13 Update .gitignore
+- #16 [ILM] Update `index.xed`
+- #18 Use solr for searching user base
+- [FSU040THUL-10974](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10974) #3 Customizing the submitter data fields
+- [FSU040THUL-13350](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13350) #15 Configure qf-parameter for `/search` and `/search-all` request handler
+- [FSU040THUL-13430](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13430) #14 Add publication type `Flyer`
+- [FSU040THUL-13442](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13442) #17 [UBE] Add support for `fundingType`
+- [FSU040THUL-10974](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-10974) #19 Improve generated `mods:displayName` in input form for submitters
+- Bump org.apache.commons:commons-lang3 from 3.17.0 to 3.18.0
+- Bump org.apache.httpcomponents.client5:httpclient5 from 5.4 to 5.4.3
+- Bump com.fasterxml.jackson.core:jackson-databind from 2.18.6 to 2.22.0
+---
+
 ## 2026.06.24-2024.06.x
 - [#1010](https://github.com/ThULB/ThUniBib/issues/1010) Update HISinOne/RES id resolving (#1011)
 - [#1012](https://github.com/ThULB/ThUniBib/issues/1012) Allow to display metadata and project data derived from hisinone  (#1034)
