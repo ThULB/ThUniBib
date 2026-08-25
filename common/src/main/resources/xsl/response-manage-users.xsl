@@ -195,6 +195,11 @@
       </div>
 
       <div class="col text-right">
+        <a class="btn btn-sm btn-outline-primary mr-1" title="{i18n:translate('component.user2.admin.change.title')}"
+           href="{$WebApplicationBaseURL}authorization/change-user.xed?action=save&amp;id={str[@name='id']}">
+          <i class="far fa-edit"/>
+        </a>
+
         <a class="btn btn-sm btn-outline-danger" title="{i18n:translate('component.user2.admin.userDeleteYes')}"
            href="{$WebApplicationBaseURL}servlets/MCRUserServlet?action=show&amp;id={str[@name='id']}&amp;XSL.step=confirmDelete">
           <i class="far fa-trash-alt"/>
