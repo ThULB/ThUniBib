@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.uni-jena.thulb</groupId>
   <artifactId>thunibib</artifactId>
-  <version>dev-SNAPSHOT</version>
+  <version>2026.08.31-2024.06.x</version>
   <packaging>pom</packaging>
   <name>de.uni-jena.thulb:thunibib</name>
   <description>Thüringer Universitäts-Bibliographien</description>
@@ -167,7 +167,7 @@
       <dependency>
         <groupId>de.uni-jena.thulb</groupId>
         <artifactId>thunibib-common</artifactId>
-        <version>dev-SNAPSHOT</version>
+        <version>2026.08.31-2024.06.x</version>
       </dependency>
       <dependency>
         <groupId>jakarta.persistence</groupId>
