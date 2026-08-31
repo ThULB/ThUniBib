@@ -472,8 +472,7 @@
       <category ID="8000.06">
         <label xml:lang="de" text="Aleksander-Brückner-Zentrum für Polenstudien"/>
         <label xml:lang="x-mapping" text="destatis:1346 destatis:2210"/>
-        <url
-            xlink:href="https://www.uni-jena.de/forschung/profillinien/wissenschaftliche-zentren/aleksander-brueckner-zentrum-fuer-polenstudien"/>
+        <url xlink:href="https://www.uni-jena.de/forschung/profillinien/wissenschaftliche-zentren/aleksander-brueckner-zentrum-fuer-polenstudien"/>
       </category>
 
       <category ID="8000.07">
@@ -640,6 +639,19 @@
         <label xml:lang="en" text="NMR Platform of the Friedrich Schiller University Jena"/>
         <label xml:lang="x-mapping" text="destatis:3750"/>
       </category>
+
+      <category ID="8000.70">
+        <label xml:lang="de" text="Massenspektrometrie-Plattform des IAAC und IOMC (MS-Plattform)"/>
+        <label xml:lang="en" text="Mass Spectrometry Platform (The MS Platform)"/>
+        <label xml:lang="x-mapping" text="destatis:3750"/>
+      </category>
+
+      <category ID="8000.80">
+        <label xml:lang="de" text="Center for Lifespan Developmental Science (CELISE)"/>
+        <label xml:lang="en" text="Center for Lifespan Developmental Science (CELISE)"/>
+        <label xml:lang="x-mapping" text="destatis:1720"/>
+        <url xlink:href="https://www.celise.uni-jena.de/"/>
+      </category>
     </category>
 
     <category ID="1060">
@@ -650,6 +662,12 @@
         <label xml:lang="de" text="Servicezentrum Forschung und Transfer"/>
         <label xml:lang="en" text="Service Center Research and Transfer"/>
         <label xml:lang="x-mapping" text="destatis:9280"/>
+      </category>
+
+      <category ID="1060.20">
+        <label xml:lang="de" text="Internationales Büro"/>
+        <label xml:lang="en" text="International Office"/>
+        <label xml:lang="x-mapping" text="destatis:9230"/>
       </category>
     </category>
 
@@ -690,6 +708,13 @@
         <label xml:lang="de" text="Universitätsklinikum / Klinikverwaltung"/>
         <label xml:lang="en" text="Jena University Hospital / Administration"/>
         <label xml:lang="x-mapping" text="destatis:8910"/>
+      </category>
+
+      <category ID="7000.900">
+        <label xml:lang="de" text="Datenintegrationszentrum"/>
+        <label xml:lang="en" text="Data Integration Center"/>
+        <label xml:lang="x-mapping" text="destatis:4525"/>
+        <url xlink:href="https://www.uniklinikum-jena.de/gbit/Datenintegrationszentrum.html"/>
       </category>
 
       <category ID="institutes">
@@ -1018,6 +1043,13 @@
           <url xlink:href="https://www.uniklinikum-jena.de/uc/"/>
         </category>
 
+        <category ID="7000.520">
+          <label xml:lang="de" text="Klinik für Unfall-, Hand- und Wiederherstellungschirurgie und Orthopädie"/>
+          <label xml:lang="en" text="Klinik für Unfall-, Hand- und Wiederherstellungschirurgie und Orthopädie"/>
+          <label xml:lang="x-mapping" text="destatis:4980 destatis:5010"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/uc/"/>
+        </category>
+
         <category ID="7000.53">
           <label xml:lang="de" text="Klinik für Urologie"/>
           <label xml:lang="x-mapping" text="destatis:4970"/>
@@ -1042,6 +1074,12 @@
           <label xml:lang="x-mapping" text="destatis:5240"/>
           <url xlink:href="https://www.uniklinikum-jena.de/zzmk/Poliklinik+f%C3%BCr+Kieferorthop%C3%A4die.html"/>
         </category>
+
+        <category ID="7000.560">
+          <label xml:lang="de" text="Orthopädie Universitätsklinikum Jena, Campus Eisenberg (Waldkliniken Eisenberg)"/>
+          <label xml:lang="en" text="Orthopädie Universitätsklinikum Jena, Campus Eisenberg (Waldkliniken Eisenberg)"/>
+          <label xml:lang="x-mapping" text="destatis:5010"/>
+        </category>
       </category>
 
       <category ID="centers">
@@ -1063,13 +1101,11 @@
         <category ID="7000.62">
           <label xml:lang="de" text="Biomagnetisches Zentrum"/>
           <label xml:lang="x-mapping" text="destatis:5040"/>
-          <url
-              xlink:href="https://www.uniklinikum-jena.de/neuro/%C3%84rzte+_+Zuweisende/Neurologische+Zentren/Biomagnetisches+Zentrum.html"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/neuro/%C3%84rzte+_+Zuweisende/Neurologische+Zentren/Biomagnetisches+Zentrum.html"/>
         </category>
 
         <category ID="7000.63">
-          <label xml:lang="de"
-                 text="Zentrum für Sepsis und Infektionsforschung / Center for Sepsis Control and Care (CSCC)"/>
+          <label xml:lang="de" text="Zentrum für Sepsis und Infektionsforschung / Center for Sepsis Control and Care (CSCC)"/>
           <label xml:lang="x-mapping" text="destatis:4780 destatis:4810"/>
           <url xlink:href="https://www.uniklinikum-jena.de/cscc/"/>
         </category>
@@ -1169,6 +1205,13 @@
           <label xml:lang="de" text="InfectoGnostics Research Campus Jena"/>
           <label xml:lang="x-mapping" text="destatis:4780 destatis:4810"/>
           <url xlink:href="https://www.infectognostics.de/"/>
+        </category>
+
+        <category ID="7000.800">
+          <label xml:lang="de" text="Center for Early Pregnancy and Reproductive Health (CEPRE)"/>
+          <label xml:lang="en" text="Center for Early Pregnancy and Reproductive Health (CEPRE)"/>
+          <label xml:lang="x-mapping" text="destatis:4990"/>
+          <url xlink:href="https://www.uniklinikum-jena.de/cepre/"/>
         </category>
       </category>
     </category>
