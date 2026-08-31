@@ -26,13 +26,6 @@ public class SolrServletFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
         throws ServletException, IOException {
         HttpServletRequest servletRequest = (HttpServletRequest) req;
-        String userAgent = servletRequest.getHeader("User-Agent");
-
-        if (userAgent == null || userAgent.toLowerCase(Locale.ROOT).indexOf("bot") > -1) {
-            LOGGER.warn("User-Agent '{}' was blocked from accessing SOLR", userAgent);
-            ((HttpServletResponse) resp).sendError(HttpServletResponse.SC_FORBIDDEN);
-            return;
-        }
 
         String core = req.getParameter("core");
         if (core != null && "users".equals(core)) {

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026.08.31-2024.06.x
+- #20 Bump versions of certain dependencies
+- #23 Removed temporary bot check in `SolrServletFilter`
+- FSU040THUL-13787 #21 [J] Update ORIGIN.xml
+- FSU040THUL-13833 #22 Allow to edit all user attributes when user is in role `admin`
+- Bump `org.apache.httpcomponents.client5:httpclient5` from 5.4.3 to 5.6.3.
+---
+
 ## 2026.08.11-2024.06.x
 - #1 Configure CI
 - #6 Add additional HISinOne/RES related actions to menu
