@@ -127,7 +127,7 @@
 
           <!-- Simple Paging -->
           <div class="row pt-3">
-            <div class="col">
+            <div class="col offset-sm-1">
               <nav>
                 <ul class="pagination justify-content-center">
                   <li class="page-item {$prev-disabled-class}">
@@ -143,6 +143,14 @@
                   </li>
                 </ul>
               </nav>
+            </div>
+            <div class="col col-sm-1 text-right">
+              <a href="{$WebApplicationBaseURL}servlets/TriggerRebuildUsersIndexServlet"
+                 class="btn btn-sm btn-danger"
+                 title="{i18n:translate('thunibib.user.rebuild.index')}"
+                 onclick="this.classList.add('thunibib-pointer-events-none');this.classList.add('disabled')">
+                <i class="fas fa-sync"/>
+              </a>
             </div>
           </div>
         </div>

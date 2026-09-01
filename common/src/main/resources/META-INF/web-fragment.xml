@@ -66,4 +66,16 @@
     <servlet-name>HISinOneInteractionServlet</servlet-name>
     <url-pattern>/servlets/HISinOneInteractionServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>TriggerRebuildUsersIndexServlet</servlet-name>
+    <servlet-class>de.uni_jena.thunibib.user.TriggerRebuildUsersIndexServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>TriggerRebuildUsersIndexServlet</servlet-name>
+    <url-pattern>/servlets/TriggerRebuildUsersIndexServlet</url-pattern>
+  </servlet-mapping>
+
+
 </web-fragment>
