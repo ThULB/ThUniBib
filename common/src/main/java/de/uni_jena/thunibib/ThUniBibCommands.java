@@ -788,6 +788,14 @@ public class ThUniBibCommands {
 
     @MCRCommand(syntax = "rebuild solr users index", help = "Builds the index for MCRUsers", order = 150)
     public static void rebuildUsersIndex() throws SolrServerException, IOException {
+        try {
+            MCRSolrCommands.dropIndex("users");
+            MCRSolrCommands.optimize("users");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        LOGGER.info("Start rebuilding users index");
         List<MCRUser> users = MCRUserManager.listUsers(null, null, null, null);
 
         UpdateRequest updateRequest = new UpdateRequest("/update");
@@ -803,4 +811,5 @@ public class ThUniBibCommands {
         updateRequest.process(MCRSolrCoreManager.get("users").get().getClient());
         MCRSolrCommands.optimize("users");
     }
+
 }
