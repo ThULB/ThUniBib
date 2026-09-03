@@ -22,9 +22,7 @@
     <mods:mods>
       <xsl:apply-templates select="item/bibrecord/head/citation-info/citation-type/@code" />
       <xsl:apply-templates select="item/bibrecord/head/citation-title/titletext" />
-      <xsl:apply-templates select="scopus:authors/scopus:author">
-        <xsl:sort select="@seq" data-type="number" order="ascending" />
-      </xsl:apply-templates>
+      <xsl:apply-templates select="scopus:authors/scopus:author"/>
       <xsl:apply-templates select="item/bibrecord/head/source[not((@type='b') and (../citation-info/citation-type/@code='bk'))]" />
       <xsl:apply-templates select="item/bibrecord/item-info/itemidlist" />
       <xsl:apply-templates select="scopus:coredata/scopus:pubmed-id" />
