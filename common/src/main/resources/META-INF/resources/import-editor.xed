@@ -52,6 +52,9 @@
                     test="string-length(.) &gt; 0"
                     relevant-if="not(//mods:mods/mods:relatedItem[@type='series']) and (string-length(//mods:mods/mods:relatedItem[@type='host']/mods:genre[@type='intern']) &gt; 0)"
                     i18n="ubo.title.validation.genre.intern.present" display="global"/>
+
+      <xed:validate class="de.uni_jena.thunibib.publication.ThUniBibValidator" method="titlesComplete"
+                    i18n="thunibib.validation.titles.missing.attributes" display="global"/>
     </xed:if>
   </xed:template>
 

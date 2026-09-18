@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026.09.18-2024.06.x
+- #24 Add link to refresh users index
+- #25 [FSU040THUL-13921](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13921) Do not sort by `@seq` in `thunibib-scopus2mods-common.xsl`
+- #26 [FSU040THUL-14033](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-14033) Do not render OA badge when article is print
+- #27 Validate type attributes of `mods:titleInfo` elements
+- #28 [FSU040THUL-14059](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-14059) Exclude `mediaType:print` and `mediaType:technical` from OA statistics
+---
+
 ## 2026.08.31-2024.06.x
 - #20 Bump versions of certain dependencies
 - #23 Removed temporary bot check in `SolrServletFilter`
