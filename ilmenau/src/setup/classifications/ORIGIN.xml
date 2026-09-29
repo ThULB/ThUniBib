@@ -2,9 +2,10 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
   <label xml:lang="de" text="Technische Universität Ilmenau"/>
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
-  <label xml:lang="x-version" text="2025-12-23"/>
+  <label xml:lang="x-version" text="2026-09-29"/>
  
  <categories>
+
 
    <category ID="08">
       <label xml:lang="de" text="Technische Universität Ilmenau (1992-)"/>
@@ -146,7 +147,7 @@
             </category>
 
             <category ID="08.010.010.120(2025)">
-               <label xml:lang="de" text="Stiftungsprofessur Signalverarbeitung für intelligente Sensorsystme (2025-)"/>
+               <label xml:lang="de" text="Stiftungsprofessur Signalverarbeitung für intelligente Sensorsysteme (2025-)"/>
                <label xml:lang="x-mapping" text="destatis:7130"/>
                <label xml:lang="x-from" text="2025"/>
                <label xml:lang="x-kst" text="2118"/>
@@ -2766,6 +2767,7 @@
 
             <category ID="08.040.020.100(2001)">
                <label xml:lang="de" text="Fachgebiet Physikalische Chemie/Mikroreaktionstechnik (2001-2010) ↗"/>
+               <label xml:lang="en" text="Group for Physical Chemistry / Microreaction Technology (2001-2010) ↗"/>
                <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="479838224"/>
                <label xml:lang="x-from" text="2001"/>
@@ -2826,12 +2828,12 @@
             </category>
 
             <category ID="08.040.030.100(2001)">
-               <label xml:lang="de" text="Fachgebiet Physikalische Chemie/Mikroreaktionstechnik (2011-2024)"/>
+               <label xml:lang="de" text="Fachgebiet Physikalische Chemie/Mikroreaktionstechnik (2011-)"/>
+               <label xml:lang="en" text="Group for Physical Chemistry / Microreaction Technology (2011-)"/>
                <label xml:lang="x-gnd" text="113597747X"/>
                <label xml:lang="x-mapping" text="destatis:3730"/>
                <label xml:lang="x-lpp" text="479838224"/>
                <label xml:lang="x-from" text="2011"/>
-               <label xml:lang="x-to" text="2024"/>
                <label xml:lang="x-kst" text="2429"/>
             </category>
          </category>
@@ -3009,11 +3011,12 @@
             </category>
 
             <category ID="08.050.020.020(1997)">
-               <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Finanzwirtschaft/Investition (1997-)"/>
+               <label xml:lang="de" text="Fachgebiet Allgemeine Betriebswirtschaftslehre, insbesondere Finanzwirtschaft/Investition (1997-2025)"/>
                <label xml:lang="x-gnd" text="6045473-8"/>
                <label xml:lang="x-mapping" text="destatis:2960"/>
                <label xml:lang="x-lpp" text="478982003"/>
                <label xml:lang="x-from" text="1997"/>
+               <label xml:lang="x-to" text="2025"/>
                <label xml:lang="x-kst" text="2524"/>
             </category>
 
@@ -3452,10 +3455,11 @@
             </category>
 
             <category ID="08.050.050.080(2009)">
-               <label xml:lang="de" text="Fachgebiet Public Relations mit dem Schwerpunkt Technikkommunikation (2014-)"/>
+               <label xml:lang="de" text="Fachgebiet Public Relations mit dem Schwerpunkt Technikkommunikation (2014-2025)"/>
                <label xml:lang="x-mapping" text="destatis:2240"/>
                <label xml:lang="x-lpp" text="610574396"/>
                <label xml:lang="x-from" text="2014"/>
+               <label xml:lang="x-to" text="2025"/>
                <label xml:lang="x-kst" text="2555"/>
             </category>
 
@@ -3495,10 +3499,12 @@
             </category>
 
             <category ID="08.050.060.050(1992)">
-               <label xml:lang="de" text="Fachgebiet Öffentliches Recht (1992-)"/>
+               <label xml:lang="de" text="Fachgebiet Öffentliches Recht (1992-2025)"/>
+               <label xml:lang="en" text="Group of Public Law (1992-2025)"/>
                <label xml:lang="x-mapping" text="destatis:2560"/>
                <label xml:lang="x-lpp" text="479025975"/>
                <label xml:lang="x-from" text="1992"/>
+               <label xml:lang="x-to" text="2025"/>
                <label xml:lang="x-kst" text="2562"/>
             </category>
 
@@ -3629,9 +3635,10 @@
             <label xml:lang="x-from" text="1992"/>
          </category>
 
-      </category>
-   </category>
 
+
+      </category>
+	</category>
 
 
 
