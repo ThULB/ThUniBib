@@ -46,6 +46,11 @@ import org.mycore.common.xsl.MCRParameterCollector;
 import org.mycore.datamodel.classifications2.MCRCategory;
 import org.mycore.datamodel.classifications2.MCRCategoryID;
 import org.mycore.datamodel.classifications2.impl.MCRCategoryDAOImpl;
+import org.mycore.datamodel.common.MCRAbstractMetadataVersion;
+import org.mycore.datamodel.common.MCRXMLMetadataManager;
+import org.mycore.datamodel.ifs2.MCRVersioningMetadataStore;
+import org.mycore.datamodel.metadata.MCRBase;
+import org.mycore.datamodel.metadata.MCRDerivate;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -812,4 +817,51 @@ public class ThUniBibCommands {
         MCRSolrCommands.optimize("users");
     }
 
+    @MCRCommand(syntax = "undo last commit of {0}", help = "Reverts the last commit")
+    public static void undoLastCommit(String mcrBaseId) throws SolrServerException, IOException {
+        if (!MCRObjectID.isValid(mcrBaseId)) {
+            LOGGER.error("Provided MCRBase id '{}' is invalid", mcrBaseId);
+            return;
+        }
+
+        MCRObjectID mcrid = MCRObjectID.getInstance(mcrBaseId);
+        if (!MCRMetadataManager.exists(mcrid)) {
+            LOGGER.warn("{} does not exist", mcrid);
+            return;
+        }
+
+        MCRBase mcrBase = MCRMetadataManager.retrieve(mcrid);
+        if (!isVersioningConfigured(mcrBase)) {
+            return;
+        }
+
+        List<? extends MCRAbstractMetadataVersion<?>> revisions = MCRXMLMetadataManager
+            .getInstance()
+            .listRevisions(mcrid);
+
+        MCRAbstractMetadataVersion<?> penultimate = revisions.get(revisions.size() - 2);
+        try {
+            LOGGER.info("Reverting last commit for {} by setting content from revision {}", mcrBaseId,
+                penultimate.getRevision());
+            penultimate.restore();
+        } catch (JDOMException e) {
+            LOGGER.error("Could not restore penultimate version of {}", mcrid, e);
+        }
+    }
+
+    private static boolean isVersioningConfigured(MCRBase mcrBase) {
+        boolean versioningConfigured =
+            switch (mcrBase) {
+                case MCRObject m -> MCRConfiguration2.getString("MCR.Metadata.Store.DefaultClass").get()
+                    .equals(MCRVersioningMetadataStore.class.getName());
+                case MCRDerivate d -> MCRConfiguration2.getString("MCR.IFS2.Store.derivate.Class").get()
+                    .equals(MCRVersioningMetadataStore.class.getName());
+                default -> false;
+            };
+
+        if (!versioningConfigured) {
+            LOGGER.error("{} is not configured", MCRVersioningMetadataStore.class.getSimpleName());
+        }
+        return versioningConfigured;
+    }
 }
