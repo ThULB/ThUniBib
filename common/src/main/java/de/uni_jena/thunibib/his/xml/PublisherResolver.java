@@ -50,24 +50,24 @@ public class PublisherResolver extends HISinOneResolver {
         params.put("q", decodedValue);
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
-            Response response = hisClient.get(SysValue.resolve(SysValue.PublisherWrappedValueSearch.class), params)) {
+            Response response = hisClient.get(SysValue.resolve(SysValue.Publisher.class), params)) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, SysValue.resolve(SysValue.PublisherWrappedValueSearch.class));
+                logError(response, SysValue.resolve(SysValue.Publisher.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            List<SysValue.PublisherWrappedValueSearch> publishers = response.readEntity(
-                new GenericType<List<SysValue.PublisherWrappedValueSearch>>() {
+            List<SysValue.Publisher> publishers = response.readEntity(
+                new GenericType<List<SysValue.Publisher>>() {
                 });
 
-            List<SysValue.PublisherWrappedValueSearch> resultList = publishers
+            List<SysValue.Publisher> resultList = publishers
                 .stream()
                 .filter(pwv -> decodedValue.equals(pwv.getUniqueName()))
                 .toList();
 
             SysValue r = !resultList.isEmpty() ? resultList.get(0) : SysValue.UnresolvedSysValue;
-            if (r instanceof SysValue.PublisherWrappedValueSearch) {
+            if (r instanceof SysValue.Publisher) {
                 PUBLISHER_MAP.put(decodedValue, r);
             }
             return r;
@@ -100,16 +100,16 @@ public class PublisherResolver extends HISinOneResolver {
 
         try (HISInOneClient hisClient = HISinOneClientFactory.create();
 
-            Response response = hisClient.post(SysValue.resolve(SysValue.PublisherWrappedValueCreate.class),
+            Response response = hisClient.post(SysValue.resolve(SysValue.Publisher.class),
                 jsonObject.toString())) {
 
             if (response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
-                logError(response, SysValue.resolve(SysValue.PublisherWrappedValueCreate.class));
+                logError(response, SysValue.resolve(SysValue.Publisher.class));
                 return SysValue.ErroneousSysValue;
             }
 
-            SysValue.PublisherWrappedValueCreate publisher = response.readEntity(
-                SysValue.PublisherWrappedValueCreate.class);
+            SysValue.Publisher publisher = response.readEntity(
+                SysValue.Publisher.class);
 
             PUBLISHER_MAP.put(decodedValue, publisher);
 
