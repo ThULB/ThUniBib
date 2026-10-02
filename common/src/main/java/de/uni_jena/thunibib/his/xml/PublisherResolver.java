@@ -72,6 +72,7 @@ public class PublisherResolver extends HISinOneResolver {
             }
             return r;
         } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
             return SysValue.ErroneousSysValue;
         }
     }

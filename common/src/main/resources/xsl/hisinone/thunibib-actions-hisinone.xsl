@@ -8,6 +8,8 @@
   <xsl:import href="xslImport:uboActionButtons:hisinone/thunibib-actions-hisinone.xsl"/>
 
   <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
+  <xsl:param name="ThUniBib.HISinOne.ClientKey"/>
+  <xsl:param name="ThUniBib.HISinOne.ClientSecret"/>
   <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
 
   <xsl:param name="WebApplicationBaseURL"/>
@@ -59,11 +61,28 @@
           <xsl:value-of select="'HISinOne'"/>
         </a>
       </xsl:if>
+
+      <xsl:if test="document('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:isCurrentUserSuperUser') = 'true'">
+        <xsl:variable name="mods-r-tooltip" select="document('i18n:thunibib.editor.hisinone.button.modsr.tooltip')/i18n/text()"/>
+        <a href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=mods-resolve-his-keys-detailed" class="action btn btn-sm btn-outline-primary mb-1" title="{$mods-r-tooltip}">
+          MODS R
+        </a>
+
+        <xsl:variable name="mods-rc-tooltip" select="document('i18n:thunibib.editor.hisinone.button.modsrc.tooltip')/i18n/text()"/>
+        <a href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=mods-resolve-create-his-keys" class="action btn btn-sm btn-outline-danger mb-1" title="{$mods-rc-tooltip}">
+          MODS RC
+        </a>
+
+        <xsl:variable name="json-tooltip" select="document('i18n:thunibib.editor.hisinone.button.json.tooltip')/i18n/text()"/>
+        <a href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=res-publication-json-detailed" class="action btn btn-sm btn-outline-danger mb-1" title="{$json-tooltip}">
+          JSON
+        </a>
+      </xsl:if>
     </xsl:if>
   </xsl:template>
 
   <!-- Default template when HISinOne is not configured -->
-  <xsl:template match="*[string-length($ThUniBib.HISinOne.BaseURL) = 0]" mode="ubo-actions">
+  <xsl:template match="*[string-length($ThUniBib.HISinOne.BaseURL) = 0 or string-length($ThUniBib.HISinOne.ClientKey) = 0 or string-length($ThUniBib.HISinOne.ClientSecret) = 0]" mode="ubo-actions">
     <xsl:apply-imports/>
   </xsl:template>
 </xsl:stylesheet>
