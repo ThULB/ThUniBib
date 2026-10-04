@@ -19,7 +19,7 @@
     <gitlab.baseURL>https://git.thulb.uni-jena.de/</gitlab.baseURL>
     <gitlab.projectId>125</gitlab.projectId>
     <jackson.annotations.version>2.22</jackson.annotations.version>
-    <jackson.version>2.22.1</jackson.version>
+    <jackson.version>2.22.3</jackson.version>
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
     <jersey.client.version>3.1.3</jersey.client.version>
     <maven.compiler.release>21</maven.compiler.release>
