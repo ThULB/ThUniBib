@@ -818,7 +818,7 @@ public class ThUniBibCommands {
     }
 
     @MCRCommand(syntax = "undo last commit of {0}", help = "Reverts the last commit")
-    public static void undoLastCommit(String mcrBaseId) throws SolrServerException, IOException {
+    public static void undoLastCommit(String mcrBaseId) throws IOException {
         if (!MCRObjectID.isValid(mcrBaseId)) {
             LOGGER.error("Provided MCRBase id '{}' is invalid", mcrBaseId);
             return;

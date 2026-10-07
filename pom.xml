@@ -26,14 +26,14 @@
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <maven.jar.plugin.version>3.5.0</maven.jar.plugin.version>
-    <mycore.version>2024.06.3</mycore.version>
+    <mycore.version>2024.06.4-SNAPSHOT</mycore.version>
     <node.version>v16.19.1</node.version>
     <oaipmh.version>2.1</oaipmh.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sortpom.maven.plugin.version>3.1.3</sortpom.maven.plugin.version>
     <sortpom.sortDeps>scope,groupId,artifactId</sortpom.sortDeps>
     <sortpom.sortFile>https://gist.githubusercontent.com/yagee-de/dfd3698c1b49173dbf251f74eb6a9297/raw/406460c088ff3cb6354e4ae6b40535e6f841607d/mycore_sort.xml</sortpom.sortFile>
-    <ubo.version>2024.06.0-SNAPSHOT</ubo.version>
+    <ubo.version>2024.06.1-SNAPSHOT</ubo.version>
     <yarn.version>v1.22.19</yarn.version>
   </properties>
 
@@ -222,7 +222,7 @@
       <dependency>
         <groupId>org.mycore</groupId>
         <artifactId>mycore-jobqueue</artifactId>
-        <version>2024.06.3-SNAPSHOT</version>
+        <version>${mycore.version}</version>
       </dependency>
       <dependency>
         <groupId>org.mycore</groupId>
