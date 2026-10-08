@@ -50,7 +50,7 @@
     <xsl:if test="$isAdmin = true()">
       <xsl:choose>
 
-        <xsl:when test="not(contains('confirmed', //servstate/@categid[1]))">
+        <xsl:when test="document(concat('notnull:callJava:de.uni_jena.thunibib.his.cli.HISinOneCommands:isTransferable:', //mycoreobject/@ID)) = 'false'">
           <button class="btn btn-sm btn-outline-secondary dropdown-toggle mb-1 disabled" type="button" disable="disabled" title="{document('i18n:thunibib.editor.hisinone.button.disabled.tooltip')/i18n/text()}">
             HISinOne
           </button>
