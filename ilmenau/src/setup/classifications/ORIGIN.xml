@@ -2,7 +2,7 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="ORIGIN">
   <label xml:lang="de" text="Technische Universität Ilmenau"/>
   <label xml:lang="x-place" text="TU Ilmenau | Ilmenau | Ehrenbergstraße 29, 98693 Ilmenau"/>
-  <label xml:lang="x-version" text="2026-09-29"/>
+  <label xml:lang="x-version" text="2026-10-13"/>
  
  <categories>
 
@@ -907,14 +907,24 @@
                <label xml:lang="x-kst" text="2183"/>
             </category>
 
+            <category ID="08.010.050.050(2026)">
+               <label xml:lang="de" text="Fachgebiet Menschzentrierte Systeme (2026-)"/>
+               <label xml:lang="en" text="Department of Human-Centered Systems (2026-)"/>
+               <label xml:lang="x-mapping" text="destatis:6780"/>
+               <label xml:lang="x-from" text="2026"/>
+               <label xml:lang="x-kst" text="2185"/>
+            </category>
+
             <category ID="08.010.050.050(2019)">
-               <label xml:lang="de" text="Juniorprofessur Nutzerzentrierte Analyse von Multimediadaten (2019-)"/>
-               <label xml:lang="en" text="Assistant Professorship User-Centric Analysis of Multimedia Data (2019-)"/>
+               <label xml:lang="de" text="Juniorprofessur Nutzerzentrierte Analyse von Multimediadaten (2019-2026) ↑"/>
+               <label xml:lang="en" text="Assistant Professorship User-Centric Analysis of Multimedia Data (2019-2026) ↑"/>
                <label xml:lang="x-mapping" text="destatis:6780"/>
                <label xml:lang="x-lpp" text="1066783136"/>
                <label xml:lang="x-from" text="2019"/>
+               <label xml:lang="x-to" text="2026"/>
                <label xml:lang="x-kst" text="2185"/>
             </category>
+
          </category>
 
          <category ID="08.010.100">
