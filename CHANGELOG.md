@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026.10.22-2024.06.x
+- #29 Added `eduPersonAffiliation` to property `MCR.IdentityPicker.LDAP.identitySchema`
+- #30 [FSU040THUL-14226](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-14226) [WE] Update texts in `index.xed`
+- #31 [ILM] Update `ORIGIN.xml`
+- #32 Add command `undo last commit of {0}`
+- #33 Unify `MCR.URIResolver.xslImports.uboActionButtons` for all instances, include HISinOne support by default
+- #34 Reflect changes in HISinOne `fs/res/publisher` endpoint
+- #35 Group HISinOne actions into extra menu
+- #37 [J] Set new default for `ThUniBib.HISinOne.resolve.person.default.org.identifier`
+- #38 [FSU040THUL-13136](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13136) Rework KDSF mapping of `ubogenre`
+- #39 Improve condition when `HISinOne` button is actually enabled
+- #41 [ILM] Update `ORIGIN.xml`
+- #42 Add `SOLR` fields for counting title/type/language combinations
+- Bump `com.fasterxml.jackson.core:jackson-core` from `2.22.1` to `2.22.3`
+---
+
 ## 2026.09.18-2024.06.x
 - #24 Add link to refresh users index
 - #25 [FSU040THUL-13921](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/140/FSU040THUL-13921) Do not sort by `@seq` in `thunibib-scopus2mods-common.xsl`
