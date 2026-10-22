@@ -36,6 +36,7 @@
     <xsl:comment/>
     <xsl:call-template name="oa-status" />
     <xsl:call-template name="media-type-online-status" />
+    <xsl:call-template name="title-type-lang" />
   </xsl:template>
 
   <xsl:template match="mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">
@@ -205,6 +206,32 @@
   <xsl:template match="servflag" mode="thunibib-solr-fields">
     <field name="servflag.{@type}">
       <xsl:value-of select="text()"/>
+    </field>
+  </xsl:template>
+
+  <xsl:template name="title-type-lang">
+    <field name="title.count.total">
+      <xsl:value-of select="count(mods:titleInfo)"/>
+    </field>
+
+    <field name="title.count.main">
+      <xsl:value-of select="count(mods:titleInfo[not(@type)])"/>
+    </field>
+
+    <field name="title.count.main.nolang">
+      <xsl:value-of select="count(mods:titleInfo[not(@xml:lang)][not(@type)])"/>
+    </field>
+
+    <field name="title.count.type">
+      <xsl:value-of select="count(mods:titleInfo[@type])"/>
+    </field>
+
+    <field name="title.count.lang">
+      <xsl:value-of select="count(mods:titleInfo[@xml:lang])"/>
+    </field>
+
+    <field name="title.count.nolang">
+      <xsl:value-of select="count(mods:titleInfo[not(@xml:lang)])"/>
     </field>
   </xsl:template>
 </xsl:stylesheet>
