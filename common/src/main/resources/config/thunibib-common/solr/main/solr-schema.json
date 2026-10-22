@@ -123,6 +123,14 @@
       "source": "servflag.MyCoRe-HISinOne",
       "dest": "hisinone"
     }
+  },
+  {
+    "add-dynamic-field": {
+      "name": "title.count.*",
+      "type": "string",
+      "multiValued": false,
+      "stored": false
+    }
   }
 ]
 

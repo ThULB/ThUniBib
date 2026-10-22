@@ -198,6 +198,7 @@ abstract public class SysValue {
      * Path: <code>/api/v1/fs/res/wrapped/publisher?q=</code>
      * */
     @JsonIgnoreProperties(ignoreUnknown = true)
+    @Deprecated
     private static class PublisherWrappedValue extends SysValue {
         public enum PathType {
             search, create
@@ -228,12 +229,37 @@ abstract public class SysValue {
         }
     }
 
-    @HISinOnePath(path = "fs/res/wrapped/publisher")
-    static public class PublisherWrappedValueSearch extends SysValue.PublisherWrappedValue {
-    }
-
+    /**
+     * Endpoint for <strong>searching</strong> and <strong>creating</strong> publishers.
+     * <br/>
+     * Path: {@code /api/v1/fs/res/publisher?q=}
+     * */
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @HISinOnePath(path = "fs/res/publisher")
-    static public class PublisherWrappedValueCreate extends SysValue.PublisherWrappedValue {
+    public static class Publisher extends SysValue {
+        @JsonProperty("_foreigntext")
+        String _foreigntext;
+
+        @JsonProperty("place")
+        String place;
+
+        @JsonProperty("label")
+        String label;
+
+        @JsonProperty("language")
+        LanguageValue language;
+
+        public String getForeignText() {
+            return _foreigntext;
+        }
+
+        public String getPlace() {
+            return place;
+        }
+
+        public String getLabel() {
+            return label;
+        }
     }
 
     @HISinOnePath(path = "fs/res/researchPartner")

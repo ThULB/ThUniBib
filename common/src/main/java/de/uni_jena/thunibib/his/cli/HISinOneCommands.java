@@ -10,6 +10,8 @@ import jakarta.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.mycore.access.MCRAccessException;
+import org.mycore.common.MCRClassTools;
+import org.mycore.common.config.MCRConfiguration2;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -22,7 +24,21 @@ import static de.uni_jena.thunibib.his.api.client.HISInOneClient.HIS_IN_ONE_BASE
 
 @MCRCommandGroup(name = "HISinOne Commands")
 public class HISinOneCommands {
-    private static final Logger LOGGER = LogManager.getLogger(HISinOneCommands.class);
+    private static final Logger LOGGER = LogManager.getLogger();
+
+    final static HISinOneTransferableVerifier TRANSFERABLE_VERIFIER;
+
+    static {
+        try {
+            String clazzName = MCRConfiguration2.getStringOrThrow("ThUniBib.HISinOne.TransferableVerifier");
+            TRANSFERABLE_VERIFIER = (HISinOneTransferableVerifier) MCRClassTools
+                .forName(clazzName)
+                .getDeclaredConstructor()
+                .newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @MCRCommand(syntax = "publish {0}", help = "Publishes the object given by its id to HISinOne")
     public static SysValue publish(String mcrid) {
@@ -150,6 +166,7 @@ public class HISinOneCommands {
                 }
                 Integer code = response.readEntity(Integer.class);
                 if (code == 1) {
+                    HISinOneCommands.removeServflag(mcrObject.getId().toString());
                     return SysValue.SuccessSysValue;
                 }
             }
@@ -192,5 +209,22 @@ public class HISinOneCommands {
         } catch (MCRAccessException e) {
             LOGGER.error("Could not remove {} from {}", HISInOneServiceFlag.getName(), mcrObjectId, e);
         }
+    }
+
+    @MCRCommand(syntax = "is {0} transferable to HISinOne",
+        help = "Checks for the given publication if all conditions for a transfer are met")
+    public static boolean isTransferable(String mcrObjectId) {
+        if (!MCRObjectID.isValid(mcrObjectId)) {
+            return false;
+        }
+
+        MCRObjectID id = MCRObjectID.getInstance(mcrObjectId);
+        if (!MCRMetadataManager.exists(id)) {
+            return false;
+        }
+
+        boolean r = TRANSFERABLE_VERIFIER.isTransferable(MCRMetadataManager.retrieveMCRObject(id));
+        LOGGER.info("{} {} transferable to HISinOne", mcrObjectId, (r ? "is" : "is not"));
+        return r;
     }
 }
