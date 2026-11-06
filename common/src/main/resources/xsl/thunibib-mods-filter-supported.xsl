@@ -102,7 +102,7 @@
   </xsl:choose>
 </xsl:template>
 
-  <xsl:template match="mods:dateIssued[@encoding='w3cdtf'][1]|mods:dateIssued/@encoding">
+  <xsl:template match="mods:dateIssued[@encoding='w3cdtf'][string-length(text()) &gt; 0][position() = 1]|mods:dateIssued/@encoding">
     <xsl:call-template name="copy-and-apply"/>
   </xsl:template>
 
