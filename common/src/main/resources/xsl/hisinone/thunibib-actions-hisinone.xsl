@@ -7,14 +7,14 @@
 
   <xsl:import href="xslImport:uboActionButtons:hisinone/thunibib-actions-hisinone.xsl"/>
 
-  <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
-  <xsl:param name="ThUniBib.HISinOne.ClientKey"/>
-  <xsl:param name="ThUniBib.HISinOne.ClientSecret"/>
-  <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
+  <xsl:variable name="ThUniBib.HISinOne.BaseURL" select="document('property:ThUniBib.HISinOne.BaseURL')/entry"/>
+  <xsl:variable name="ThUniBib.HISinOne.ClientKey" select="document('property:ThUniBib.HISinOne.ClientKey')/entry"/>
+  <xsl:variable name="ThUniBib.HISinOne.ClientSecret" select="document('property:ThUniBib.HISinOne.ClientSecret')/entry"/>
+  <xsl:variable name="ThUniBib.HISinOne.servflag.type" select="document('property:ThUniBib.HISinOne.servflag.type')/entry"/>
 
-  <xsl:param name="WebApplicationBaseURL"/>
-  <xsl:param name="InteractionURL" select="concat($WebApplicationBaseURL,'servlets/HISinOneInteractionServlet?')"/>
-  <xsl:param name="isAdmin" select="mcrxml:isCurrentUserInRole('admin') = 'true'"/>
+  <xsl:variable name="WebApplicationBaseURL" select="document('property:WebApplicationBaseURLL')/entry"/>
+  <xsl:variable name="InteractionURL" select="concat($WebApplicationBaseURL,'servlets/HISinOneInteractionServlet?')"/>
+  <xsl:variable name="isAdmin" select="mcrxml:isCurrentUserInRole('admin') = 'true'"/>
 
   <xsl:template match="*" mode="ubo-actions">
     <xsl:apply-imports/>
