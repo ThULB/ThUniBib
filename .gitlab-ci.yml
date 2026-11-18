@@ -20,7 +20,7 @@ build:
 deploy-snapshot:
   stage: deploy
   only:
-    - develop
+    - main
   script:
     - mvn $MAVEN_CLI_OPTS deploy
 
