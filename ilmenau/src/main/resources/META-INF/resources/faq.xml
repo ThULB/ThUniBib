@@ -57,8 +57,8 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Welche Publikationen werden in die Universitätsbibliographie eingetragen?
@@ -77,8 +77,8 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Wer kann Publikationen melden?
@@ -98,8 +98,8 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-start collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Wie kann man Publikationen für die Verzeichnung in der Universitätsbibliographie melden?
@@ -118,8 +118,8 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Warum ist meine eingereichte Publikation nicht sofort in der Universitätsbibliographie auffindbar?
@@ -141,8 +141,8 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Was bedeutet der Hinweis "Teil der Statistik"?
@@ -161,8 +161,8 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-start collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Was bedeuten die einzelnen Publikationstypen?
@@ -232,7 +232,7 @@
         <div class="card">
           <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Was ist unter den verschiedenen Zugangsrechten (Access Rights) zu verstehen?
@@ -262,7 +262,7 @@
         <div class="card">
           <div class="card-header" id="headingEight">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 <xinclude uri="i18n:thunibib.faq.icon.headline"/>
@@ -327,8 +327,8 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Which publications are entered in the University Bibliography?
@@ -347,8 +347,8 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link btn-block text-start collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Who can register publications?
@@ -368,8 +368,8 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-start collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 How can publications be registered for indexing in the University Bibliography?
@@ -388,8 +388,8 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link btn-block text-start collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 Why is my submitted publication not immediately discoverable in the University Bibliography?
@@ -408,8 +408,8 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 What does the reference "part of the statistics" mean?
@@ -428,8 +428,8 @@
         <div class="card">
           <div class="card-header" id="headingSix">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                      data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 What do separate publication types mean?
@@ -500,7 +500,7 @@
         <div class="card">
           <div class="card-header" id="headingSeven">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 <i class="fas fa-plus-circle"></i>
                 <i class="fas fa-minus-circle"></i>
                 What is the difference between different Access Rights options?
@@ -530,7 +530,7 @@
         <div class="card">
           <div class="card-header" id="headingEight">
             <h3 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                 <i class="fas fa-plus-circle"/>
                 <i class="fas fa-minus-circle"/>
                 <xinclude uri="i18n:thunibib.faq.icon.headline"/>

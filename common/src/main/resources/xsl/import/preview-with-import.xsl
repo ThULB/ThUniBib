@@ -83,35 +83,35 @@
 
                       <xsl:if test="import/partOf">
                         <xsl:value-of select="concat(i18n:translate('ubo.partOf'), ': ')"/>
-                        <span class="font-weight-bold">
+                        <span class="fw-bold">
                           <xsl:value-of select="mcrxsl:getDisplayName('partOf', import/partOf)"/>
                         </span>,
                       </xsl:if>
 
                       <xsl:if test="import/status">
                         <xsl:value-of select="concat(i18n:translate('ubo.status'), ': ')"/>
-                        <span class="font-weight-bold">
+                        <span class="fw-bold">
                           <xsl:value-of select="mcrxsl:getDisplayName('state', import/status)"/>
                         </span>,
                       </xsl:if>
 
                       <xsl:if test="import/ubogenre">
                         <xsl:value-of select="concat(i18n:translate('ubo.genre'), ': ')"/>
-                        <span class="font-weight-bold">
+                        <span class="fw-bold">
                           <xsl:value-of select=" mcrxsl:getDisplayName('ubogenre', import/ubogenre)"/>
                         </span>,
                       </xsl:if>
 
                       <xsl:if test="import/origin">
                         <xsl:value-of select="concat(i18n:translate('ubo.department'), ': ')"/>
-                        <span class="font-weight-bold">
+                        <span class="fw-bold">
                           <xsl:value-of select=" mcrxsl:getDisplayName('ORIGIN', import/origin)"/>
                         </span>
                       </xsl:if>
                     </xsl:if>
                   </div>
 
-                  <div class="col-12 col-sm-3 text-left text-sm-right">
+                  <div class="col-12 col-sm-3 text-start text-sm-end">
                     <button id="submit" type="submit" class="btn btn-primary">
                       <xsl:value-of select="i18n:translate('ubo.import.list.form.headline')"/>
                     </button>
@@ -193,7 +193,7 @@
         <xsl:apply-templates select="." mode="html-export"/>
       </div>
 
-      <div class="col text-right text-sm-center">
+      <div class="col text-end text-sm-center">
         <xsl:if test="string-length($identifier) &gt; 0">
           <div class="form-group form-check">
             <input type="checkbox" checked="true" class="form-check-input" name="{$source-type}" value="{$identifier}" onchange="toggleSubmit();"/>

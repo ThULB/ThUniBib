@@ -6,7 +6,7 @@
                 exclude-result-prefixes="encoder i18n mods xsl">
 
   <xsl:import href="xslImport:badges:badges/thunibib-badges-oa.xsl"/>
-  <xsl:include href="resource:xsl/badges/badges-oa.xsl"/>
+  <xsl:include href="badges/badges-oa.xsl"/>
 
   <xsl:param name="WebApplicationBaseURL"/>
   <xsl:param name="CurrentLang"/>

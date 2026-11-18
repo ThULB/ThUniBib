@@ -33,7 +33,7 @@
               </tr>
               <xsl:for-each select="$base/lst">
                 <xsl:variable name="a" select="str[@name='value']" />
-                <tr class="text-right">
+                <tr class="text-end">
                   <th class="identifier" scope="row">
                     <xsl:value-of select="translate(str[@name='value'],'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
                   </th>

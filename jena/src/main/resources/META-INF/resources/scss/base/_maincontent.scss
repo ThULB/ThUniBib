@@ -82,7 +82,7 @@ a.ubo-btn-feedback {
 }
 
 .nameIdentifier {
-    @extend .badge, .badge-primary;
+  @extend .badge;
     a {
         color: white;
         text-transform: uppercase;
@@ -91,9 +91,13 @@ a.ubo-btn-feedback {
     margin-right: 0.25rem;
 }
 
-.badge-secondary {
+.badge {
+  border-radius: $border-radius !important;
+}
+
+.badge.bg-secondary {
   color: #333939;
-  background-color: #e7e4db;
+  background-color: #e7e4db !important;
 }
 
 #accordionExample {

@@ -31,7 +31,7 @@ public class InputDocumentForMCRUserFactory {
             inputDocument.addField("realName", realName);
         }
 
-        String mail = user.getEMailAddress();
+        String mail = user.getEMail();
         if (mail != null) {
             inputDocument.addField("mail", mail);
         }

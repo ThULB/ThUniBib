@@ -106,7 +106,7 @@
       <xsl:when test="$genre='controlled clinical trial'">article</xsl:when>
       <xsl:when test="$genre='corrected and republished article'">article</xsl:when>  
       <xsl:when test="$genre='evaluation studies'">article</xsl:when>  
-      <xsl:when test="$genre='festschrift'">festschrift</xsl:when>   
+      <xsl:when test="$genre='festschrift'">article</xsl:when>
       <xsl:when test="$genre='historical article'">article</xsl:when>    
       <xsl:when test="$genre='interview'">interview</xsl:when>
       <xsl:when test="$genre='introductory journal article'">preface</xsl:when>  
@@ -162,7 +162,7 @@
       <xsl:when test="$genre='monograph'">book</xsl:when>
       <xsl:when test="$genre='book series'">series</xsl:when>
       <xsl:when test="$genre='conferences'">proceedings</xsl:when>
-      <xsl:when test="$genre='festschrift'">festschrift</xsl:when>   
+      <xsl:when test="$genre='festschrift'">article</xsl:when>
       <xsl:when test="$genre='conference'">proceedings</xsl:when>
       <xsl:when test="$genre='collection'">collection</xsl:when>
       <xsl:when test="$genre='proceedings'">proceedings</xsl:when>

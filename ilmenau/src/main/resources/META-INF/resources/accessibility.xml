@@ -66,7 +66,7 @@
         Unsere Postanschrift lautet:
       </p>
 
-      <p class="pl-5">
+      <p class="ps-5">
         Technische Universität Ilmenau
         <br/>
         Universitätsbibliothek
@@ -84,7 +84,7 @@
         an die Durchsetzungsstelle nach dem ThürBarrWebG wenden:
       </p>
 
-      <p class="pl-5">
+      <p class="ps-5">
         Thüringer Landesbeauftragter für Menschen mit Behinderungen
         <br/>
         Herr Joachim Leibiger
@@ -94,7 +94,7 @@
         99096 Erfurt
       </p>
 
-      <div class="row pl-5">
+      <div class="row ps-5">
         <div class="col-1">
           Telefon:
         </div>
@@ -102,7 +102,7 @@
           +49 361 573118000
         </div>
       </div>
-      <div class="row pl-5">  
+      <div class="row ps-5">
         <div class="col-1">
           E-Mail:
         </div>
