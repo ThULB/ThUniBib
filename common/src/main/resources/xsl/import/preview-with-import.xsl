@@ -140,12 +140,12 @@
 
       <div class="col-12 col-sm mt-3 mt-sm-0 text-center btn-group">
         <button class="btn btn-outline-success" onclick="document.querySelectorAll('input[type=&quot;checkbox&quot;]').forEach(cb => cb.checked = true); toggleSubmit();" title="{i18n:translate('thunibib.button.select.all.tooltip')}">
-          <i class="far fa-check-square pr-1"/>
+          <i class="far fa-check-square pe-1"/>
           <xsl:value-of select="i18n:translate('thunibib.button.select.all')"/>
         </button>
 
         <button class="btn btn-outline-warning" onclick="document.querySelectorAll('input[type=&quot;checkbox&quot;]').forEach(cb => cb.checked = false); toggleSubmit();" title="{i18n:translate('thunibib.button.select.none.tooltip')}">
-          <i class="far fa-square pr-1"/>
+          <i class="far fa-square pe-1"/>
           <xsl:value-of select="i18n:translate('thunibib.button.select.none')"/>
         </button>
       </div>
