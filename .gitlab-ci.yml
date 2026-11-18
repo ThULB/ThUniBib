@@ -3,7 +3,7 @@ image: possommi/work:multiarch-debian-jdk21-mvn
 variables:
   MAVEN_CLI_OPTS: "-s ci-settings.xml"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-  RELEASE_BRANCH: "main"
+  RELEASE_BRANCH: "2024.06.x"
 
 stages:
   - build
@@ -20,7 +20,7 @@ build:
 deploy-snapshot:
   stage: deploy
   only:
-    - develop
+    - 2024.06.x
   script:
     - mvn $MAVEN_CLI_OPTS deploy
 
