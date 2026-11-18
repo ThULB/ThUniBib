@@ -4,7 +4,7 @@
   <parent>
     <groupId>de.uni-jena.thulb</groupId>
     <artifactId>thunibib</artifactId>
-    <version>2026.10.22-2024.06.x</version>
+    <version>2025.12.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>thunibib-jena</artifactId>
