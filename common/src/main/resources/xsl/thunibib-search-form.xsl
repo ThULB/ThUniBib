@@ -13,7 +13,7 @@
       <form class="col form-inline" method="get" action="servlets/solr/{$solrRequestHandler}">
         <div class="form-group col-12">
           <div class="input-group col-12">
-            <input id="input" name="q" type="text" class="form-control" placeholder="{i18n:translate('ubo.search.simple')}"/>
+            <input id="input" name="q" type="text" class="form-control" placeholder="{i18n:translate('ubo.search.simple')}" aria-label="{document('i18n:thunibib.aria.label.search.input')/i18n/text()}"/>
             <button class="btn btn-primary" type="submit">
               <xsl:value-of select="i18n:translate('button.search')"/>
             </button>

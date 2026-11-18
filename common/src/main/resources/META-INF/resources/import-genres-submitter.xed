@@ -18,76 +18,90 @@
 
   <xed:template id="person.role.submitter">
     <xed:repeat xpath="mods:name[@type='personal']">
-      <div class="form-group form-inline ubo-repeat-group">
-        <xed:include ref="person.submitter"/>
-
-        <div class="form-group form-inline col-12 px-0">
-          <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
-            <label class="mycore-form-label"/>
-            <input type="checkbox" value="corresponding_author"/>
-            <span class="pl-1">
-              <xed:output i18n="ubo.corresponding_author"/>
-            </span>
-          </xed:bind>
-        </div>
-
-        <div class="form-group form-inline col-12 px-0">
-          <xed:bind xpath="mods:affiliation[@authorityURI=concat($MCR.baseurl, 'classifications/isAffiliated')]">
-            <label class="mycore-form-label"/>
-            <input type="checkbox" value="false"/>
-            <span class="pl-1">
-              <xed:output i18n="thunibib.editor.affiliation.checkbox"/>
-            </span>
-          </xed:bind>
-        </div>
-      </div>
-    </xed:repeat>
-  </xed:template>
-
-  <xed:template id="person.submitter">
-    <div class="form-group form-inline col-12 px-0 mt-2 ubo-repeat-group">
-      <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="aut">
-        <label class="mycore-form-label d-flex align-items-center mt-0 ubo-mandatory">
-          <select class="form-control custom-select">
-            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:marcrelator"/>
-          </select>
-          <div class="ml-1">:</div>
-        </label>
-      </xed:bind>
-
-      <xed:bind xpath="mods:displayForm" initially="{xed:call-java('de.uni_jena.thunibib.Utilities', 'createDisplayName', mods:namePart[@type='family'], mods:namePart[@type='given'])}">
-        <input type="text" class="form-control col-sm-6" placeholder="{i18n:ubo.placeholder.name.family}, {i18n:ubo.placeholder.name.given}"/>
-      </xed:bind>
-      <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right" data-content="{i18n:thunibib.editor.help.comment.person.submitter}">
-        <i class="fas fa-info"/>
-      </a>
-      <xed:controls/>
-    </div>
-
-    <xed:repeat xpath="mods:nameIdentifier[not(@type=$MCR.user2.matching.lead_id)][not(@type='connection')]">
-      <div class="form-group form-inline col-12 px-0 mb-2 mt-2 ubo-repeat-group">
-        <label class="mycore-form-label"/>
-
-        <xed:bind xpath="@type">
-          <select class="form-control col-sm-2 custom-select">
-            <option value="">
-              <xed:output i18n="search.select"/>
-            </option>
-            <xed:include uri="xslStyle:filterOutLeadAndConnectionID,items2options:classification:editor:-1:children:nameIdentifier"/>
-          </select>
+      <div class="row mb-3 ubo-repeat-group">
+        <xed:bind xpath="mods:role/mods:roleTerm[@type='code'][@authority='marcrelator']" initially="aut">
+          <div class="col-12 col-sm-3 d-flex align-items-start">
+            <span>*</span>
+            <select class="form-select ms-1">
+              <xed:include uri="xslStyle:items2options?omit-ancestor-or-self=marcrelator_corporation:classification:editor:-1:children:marcrelator"/>
+            </select>
+          </div>
         </xed:bind>
-        <input type="text" class="{$xed-validation-marker} form-control col-sm-4"/>
-        <xed:controls>insert remove</xed:controls>
+
+        <div class="col col-sm-6 pe-0">
+          <div class="row mb-1">
+            <div class="col">
+              <xed:bind xpath="mods:displayForm" initially="{xed:call-java('de.uni_jena.thunibib.Utilities', 'createDisplayName', mods:namePart[@type='family'], mods:namePart[@type='given'])}">
+                <input type="text" class="form-control" placeholder="{i18n:ubo.placeholder.name.family}, {i18n:ubo.placeholder.name.given}"/>
+              </xed:bind>
+            </div>
+          </div>
+
+          <xed:repeat xpath="mods:nameIdentifier">
+            <div class="row mb-1 ubo-repeat-group">
+              <div class="input-group">
+                <div class="col-4">
+                  <xed:bind xpath="@type">
+                    <select class="form-select">
+                      <option value="">
+                        <xed:output i18n="search.select"/>
+                      </option>
+                      <xed:include uri="xslStyle:filterOutLeadAndConnectionID,items2options:classification:editor:-1:children:nameIdentifier"/>
+                    </select>
+                  </xed:bind>
+                </div>
+
+                <div class="col">
+                  <div class="input-group">
+                    <input type="text" class="{$xed-validation-marker} form-control"/>
+                    <xed:controls>insert remove</xed:controls>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </xed:repeat>
+
+          <div class="row mb-1">
+            <div class="col">
+              <xed:repeat xpath="mods:affiliation[not(@authorityURI)][not(@valueURI)]">
+                <textarea class="form-control" placeholder="{i18n:thunibib.editor.help.affiliation}"/>
+              </xed:repeat>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <xed:bind xpath="mods:role/mods:roleTerm[@type='text'][@classID='author_roles']">
+              <div class="col-12 col">
+                <input type="checkbox" class="form-check-input" value="corresponding_author"/>
+                <span class="ps-1">
+                  <xed:output i18n="ubo.corresponding_author"/>
+                </span>
+              </div>
+            </xed:bind>
+          </div>
+
+          <div class="row mb-3">
+            <xed:bind xpath="mods:affiliation[@authorityURI=concat($MCR.baseurl, 'classifications/isAffiliated')]">
+              <div class="col-12 col">
+                <input type="checkbox" class="form-check-input" value="false"/>
+                <span class="ps-1">
+                  <xed:output i18n="thunibib.editor.affiliation.checkbox"/>
+                </span>
+              </div>
+            </xed:bind>
+          </div>
+        </div>
+
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{i18n:thunibib.editor.help.comment.person.submitter}">
+              <i class="fas fa-info"/>
+            </a>
+            <xed:controls/>
+          </div>
+        </div>
       </div>
     </xed:repeat>
-
-    <div class="form-group form-inline col-12 px-0">
-      <xed:repeat xpath="mods:affiliation[not(@authorityURI)][not(@valueURI)]">
-        <label class="mycore-form-label">
-        </label>
-        <textarea class="mycore-form-input" placeholder="{i18n:thunibib.editor.help.affiliation}"/>
-      </xed:repeat>
-    </div>
   </xed:template>
 
   <xed:template id="submitter.thunibib.relatedItem">
@@ -138,18 +152,26 @@
 
   <xed:template id="thunibib.comment.intern.submitter">
     <xed:repeat xpath="mods:note[@type='intern']">
-      <div class="form-group form-inline">
-        <label for="{xed:generate-id()}" class="mycore-form-label">
+      <div class="row mb-3">
+        <label for="{xed:generate-id()}" class="col-12 col-sm-3 col-form-label text-sm-end">
           <xed:output value="concat(i18n:translate('thunibib.comment.intern.submitter'), ': ')" />
         </label>
 
-        <textarea id="{xed:generate-id()}" type="text" class="mycore-form-input" />
+        <div class="col col-sm-6 pe-0">
+          <textarea id="{xed:generate-id()}" type="text" class="form-control" />
+        </div>
 
-        <a tabindex="0" class="btn btn-secondary info-button" role="button" data-toggle="popover" data-placement="right"
-           data-content="{i18n:thunibib.editor.help.comment.intern}">
-          <i class="fas fa-info"/>
-        </a>
-        <xed:controls />
+        <div class="col col-sm-3 ps-0">
+          <div class="input-group">
+            <a tabindex="0" class="btn btn-secondary info-button" role="button" data-bs-toggle="tooltip"
+               data-bs-placement="right"
+               data-bs-title="{i18n:thunibib.editor.help.comment.intern}">
+              <i class="fas fa-info"/>
+            </a>
+            <xed:controls/>
+          </div>
+        </div>
+
       </div>
     </xed:repeat>
   </xed:template>

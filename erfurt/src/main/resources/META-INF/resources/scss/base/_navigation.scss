@@ -42,9 +42,15 @@ a.nav-link:hover {
 }
 
 /* link to duplicates */
-span.badge-alternative > a {
+span.badge.bg-alternative > a {
+  background-color: $primary;
   color: white;
   text-decoration: none;
+}
+
+span.badge.bg-secondary {
+  background-color: $badge-secondary-color !important;
+  color: black;
 }
 
 li.nav-item.active {

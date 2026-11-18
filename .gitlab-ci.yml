@@ -1,4 +1,4 @@
-image: possommi/work:multiarch-debian-jdk21-mvn
+image: possommi/work:multiarch-debian-jdk25-mvn
 
 variables:
   MAVEN_CLI_OPTS: "-s ci-settings.xml"

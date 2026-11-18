@@ -23,7 +23,7 @@
           <div class="row">
             <div class="col-12 col-md-4">
               <xsl:value-of select="concat(i18n:translate('thunibib.statistic.orcid.trustedParty.introText'), ':')"/>
-              <span class="font-weight-bold pl-3">
+              <span class="fw-bold ps-3">
                 <xsl:value-of select="count(user)"/>
               </span>
             </div>
@@ -49,10 +49,10 @@
                       <a class="d-block" href="{$MCR.ORCID2.BaseURL}/{.}" title="{.}">
                         <xsl:choose>
                           <xsl:when test="../../attribute[@name = concat('orcid_credential_', $orcid)]">
-                            <img class="pr-1" height="16" src="{$WebApplicationBaseURL}images/orcid_icon.svg" alt="ORCID iD Logo"/>
+                            <img class="pe-1" height="16" src="{$WebApplicationBaseURL}images/orcid_icon.svg" alt="ORCID iD Logo"/>
                           </xsl:when>
                           <xsl:otherwise>
-                            <img class="pr-1" height="16" src="{$WebApplicationBaseURL}images/orcid/unauthenticated/Mono/ORCID-iD_icon_unauth_BW_vector.svg" alt="ORCID iD Logo (unauthorized)"/>
+                            <img class="pe-1" height="16" src="{$WebApplicationBaseURL}images/orcid/unauthenticated/Mono/ORCID-iD_icon_unauth_BW_vector.svg" alt="ORCID iD Logo (unauthorized)"/>
                           </xsl:otherwise>
                         </xsl:choose>
                         <xsl:value-of select="concat($MCR.ORCID2.BaseURL, '/', .)"/>

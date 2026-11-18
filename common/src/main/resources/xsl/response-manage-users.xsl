@@ -67,7 +67,7 @@
               </form>
             </div>
 
-            <div class="col text-right">
+            <div class="col text-end">
               <a href="{$WebApplicationBaseURL}authorization/new-user.xed?action=save" class="btn btn-outline-primary">
                 <xsl:value-of select="i18n:translate('component.user2.admin.create.title')"/>
               </a>
@@ -144,7 +144,7 @@
                 </ul>
               </nav>
             </div>
-            <div class="col col-sm-1 text-right">
+            <div class="col col-sm-1 text-end">
               <a href="{$WebApplicationBaseURL}servlets/TriggerRebuildUsersIndexServlet"
                  class="btn btn-sm btn-danger"
                  title="{i18n:translate('thunibib.user.rebuild.index')}"
@@ -202,8 +202,8 @@
         </a>
       </div>
 
-      <div class="col text-right">
-        <a class="btn btn-sm btn-outline-primary mr-1" title="{i18n:translate('component.user2.admin.change.title')}"
+      <div class="col text-end">
+        <a class="btn btn-sm btn-outline-primary me-1" title="{i18n:translate('component.user2.admin.change.title')}"
            href="{$WebApplicationBaseURL}authorization/change-user.xed?action=save&amp;id={str[@name='id']}">
           <i class="far fa-edit"/>
         </a>

@@ -40,10 +40,10 @@
     <li class="list-group-item py-0 px-0 border-0">
       <a href="{$ServletsBaseURL}solr/select?q={encoder:encode($query,'UTF-8')}">
         <div class="row">
-          <div class="col-9 text-right">
+          <div class="col-9 text-end">
             <xsl:value-of select="$label"/>:
           </div>
-          <div class="col text-left">
+          <div class="col text-start">
             <xsl:value-of select="$value"/>
           </div>
         </div>

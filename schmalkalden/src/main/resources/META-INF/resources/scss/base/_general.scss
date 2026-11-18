@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
 }
 
-.badge-secondary {
+.badge.bg-secondary {
   color: black;
   background-color: hsl(347, 4%, 90%);
 }
@@ -24,7 +24,7 @@ body {
 }
 
 .nameIdentifier {
-  @extend .badge, .badge-primary;
+  @extend .badge;
 
   a {
     color: white;
