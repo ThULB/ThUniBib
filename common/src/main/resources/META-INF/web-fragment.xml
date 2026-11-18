@@ -77,5 +77,13 @@
     <url-pattern>/servlets/TriggerRebuildUsersIndexServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ThUniBibListImportServlet</servlet-name>
+    <servlet-class>de.uni_jena.thunibib.impex.servlets.ThUniBibListImportServlet</servlet-class>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>ThUniBibListImportServlet</servlet-name>
+    <url-pattern>/servlets/ThUniBibListImportServlet</url-pattern>
+  </servlet-mapping>
 </web-fragment>

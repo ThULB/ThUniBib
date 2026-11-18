@@ -5,7 +5,8 @@
                 xmlns:xalan="http://xml.apache.org/xalan"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
-                exclude-result-prefixes="mcrxsl mods utilities xalan xsl">
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                exclude-result-prefixes="mcrxsl mods utilities xalan xsl xlink">
 
   <xsl:import href="xslImport:solr-document:thunibib-solr.xsl"/>
 
@@ -27,16 +28,31 @@
 
 
   <xsl:template match="mods:mods" mode="thunibib-solr-fields">
-    <xsl:apply-templates select="mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
-    <xsl:apply-templates select="mods:identifier" mode="thunibib-solr-fields"/>
-    <xsl:apply-templates select="mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="mods:classification" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:identifier" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:name/mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields"/>
     <xsl:apply-templates select="mods:name[mods:nameIdentifier[@type='connection']][mods:role[mods:roleTerm/text() = 'corresponding_author']]" mode="thunibib-solr-fields"/>
+
+    <xsl:apply-templates select="mods:relatedItem/@xlink:href" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:relatedItem/mods:language/mods:languageTerm[@type='code'][@authority='rfc5646'][string-length(.) &gt; 1]" mode="thunibib-solr-fields"/>
+    <xsl:apply-templates select="mods:relatedItem[(@type='host') or (@type='series')]/mods:identifier[@type='uri']" mode="thunibib-solr-fields"/>
 
     <xsl:comment/>
     <xsl:call-template name="oa-status" />
     <xsl:call-template name="media-type-online-status" />
     <xsl:call-template name="title-type-lang" />
+  </xsl:template>
+
+  <xsl:template match="mods:relatedItem/@xlink:href" mode="thunibib-solr-fields">
+    <field name="related_item_id">
+      <xsl:value-of select="."/>
+    </field>
+  </xsl:template>
+
+  <xsl:template match="mods:relatedItem/mods:language/mods:languageTerm[@type='code'][@authority='rfc5646']" mode="thunibib-solr-fields">
+    <field name="host_pub_language">
+      <xsl:value-of select="."/>
+    </field>
   </xsl:template>
 
   <xsl:template match="mods:nameIdentifier[@type='connection']" mode="thunibib-solr-fields">

@@ -7,13 +7,14 @@
 
   <xsl:import href="xslImport:additional:hisinone/mycoreobject-additional-hisinone.xsl"/>
 
-  <xsl:param name="ThUniBib.HISinOne.BaseURL"/>
-  <xsl:param name="ThUniBib.HISinOne.metadata.display.card" select="'false'"/>
-  <xsl:param name="ThUniBib.HISinOne.metadata.display.integrated" select="'false'"/>
-  <xsl:param name="ThUniBib.HISinOne.servflag.type"/>
+  <xsl:variable name="ThUniBib.HISinOne.BaseURL" select="document('property:ThUniBib.HISinOne.BaseURL')/entry"/>
+  <xsl:variable name="ThUniBib.HISinOne.metadata.display.card" select="document('property:ThUniBib.HISinOne.metadata.display.card')/entry"/>
+  <xsl:variable name="ThUniBib.HISinOne.metadata.display.integrated" select="document('property:ThUniBib.HISinOne.metadata.display.integrated')/entry"/>
+  <xsl:variable name="ThUniBib.HISinOne.servflag.type" select="document('property:ThUniBib.HISinOne.servflag.type')/entry"/>
 
-  <xsl:param name="WebApplicationBaseURL"/>
-  <xsl:param name="display-hisinone-metadata" select="mcrxml:isCurrentUserInRole('admin') = 'true'"/>
+  <xsl:variable name="WebApplicationBaseURL" select="document('property:WebApplicationBaseURL')/entry"/>
+  <xsl:variable name="display-hisinone-metadata" select="mcrxml:isCurrentUserInRole('admin') = 'true'"/>
+  <xsl:variable name="ubo-genre" select="substring-after(.//mods:mods/mods:genre[@type='intern']/@valueURI, 'ubogenre#')"/>
 
   <xsl:template match="mods:mods" mode="additional-metadata">
     <xsl:apply-imports/>
@@ -48,7 +49,18 @@
       </div>
 
       <div class="col-9">
-        <a href="{$ThUniBib.HISinOne.BaseURL}a/fs.res.frontend/pub/view/{.}">
+        <xsl:variable name="url-to-hisinone">
+          <xsl:choose>
+            <xsl:when test="$ubo-genre = 'journal'">
+              <xsl:value-of select="concat($ThUniBib.HISinOne.BaseURL,'a/fs.res.frontend/pub/journal/view/', .)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="concat($ThUniBib.HISinOne.BaseURL,'a/fs.res.frontend/pub/view/', .)"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+
+        <a href="{$url-to-hisinone}">
           <xsl:value-of select="."/>
         </a>
       </div>

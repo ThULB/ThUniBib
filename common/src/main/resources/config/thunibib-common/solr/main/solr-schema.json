@@ -1,6 +1,30 @@
 [
   {
     "add-field": {
+      "name": "pub_language",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-copy-field": {
+      "source": "lang",
+      "dest": "pub_language"
+    }
+  },
+  {
+    "add-field": {
+      "name": "related_item_id",
+      "type": "string",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    }
+  },
+  {
+    "add-field": {
       "name": "pub_id",
       "type": "string",
       "multiValued": true,

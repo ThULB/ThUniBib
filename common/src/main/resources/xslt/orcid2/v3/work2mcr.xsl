@@ -69,6 +69,12 @@
           select="../common:external-ids/common:external-id[common:external-id-relationship='part-of']"/>
       </mods:relatedItem>
     </xsl:if>
+
+    <xsl:if test="../@path">
+      <mods:identifier type="orcid:work">
+        <xsl:value-of select="../@path"/>
+      </mods:identifier>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="determine-x-host">
