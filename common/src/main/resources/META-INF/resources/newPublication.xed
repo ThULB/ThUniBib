@@ -142,7 +142,7 @@
           <xed:otherwise>
             <div class="row bg-alternative">
               <div class="col">
-                <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden sie sich bitte mit Ihrem URZ-Login <a
+                <i18n:de>Wenn Sie eine Publikation einreichen möchten, melden Sie sich bitte mit Ihrem URZ-Login <a
                   href="{xed:call-java('org.mycore.common.config.MCRConfiguration2', 'getStringOrThrow', 'UBO.Login.Path')}?url={xed:call-java('org.mycore.frontend.MCRFrontendUtil', 'getBaseURL')}newPublication.xed?lang=de">
                   hier
                 </a> an.
