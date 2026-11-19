@@ -18,13 +18,13 @@
           </p>
           <p>
             <i18n:de>
-              Die Bibliographie verzeichnet sämtliche Publikationen aller Mitglieder und Angehörigen der
-              Fachhochschule Erfurt, deren Publikationen im Zusammenhang mit einer Tätigkeit an der Fachhochschule Erfurt
+              Die Bibliographie verzeichnet Publikationen aller Mitglieder und Angehörigen der Fachhochschule
+              Erfurt ab 1.1.2027, deren Publikationen im Zusammenhang mit einer Tätigkeit an der Fachhochschule Erfurt
               entstanden sind.
             </i18n:de>
-            <i18n:en>The University Bibliography lists all publications of all members and affiliates of the University
-              of Erfurt
-              whose publications were published during the period of activity at the University of Erfurt.
+            <i18n:en>The bibliography records all publications by members and affiliates of the University of Applied
+              Sciences Erfurt, dating from January 1, 2027, that were produced in connection with their work at the
+              University of Applied Sciences Erfurt.
             </i18n:en>
           </p>
         </div>
@@ -39,7 +39,7 @@
             Haben Sie Fragen zur Bibliographie oder benötigen Sie Hilfe oder Beratung? Sprechen Sie uns an!
             <br/>
             Redaktionsteam der Bibliographie:
-            <a href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>
+            <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>
           </p>
 
         </div>
@@ -54,7 +54,7 @@
           </p>
           <p>
             Editorial team:
-            <a href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>
+            <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>
           </p>
         </div>
       </article>
@@ -92,7 +92,7 @@
                     (z.B. auf Archivservern von Bibliotheken oder Verlagen) und einen eindeutigen Identifikator (DOI,
                     URN,
                     ISBN, Handle) hat. In Zweifelsfällen kommen Sie gern auf uns zu
-                    <a href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>
+                    <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>
                   </p>
                 </div>
               </div>
@@ -121,10 +121,6 @@
                   <p>Das sind die Publikationstypen, die erfasst werden:</p>
 
                   <dl>
-                    <dt>Abstract (Konferenz/Tagung)</dt>
-                    <dd>Ein Abstract ist ein kurzer Text, der eine Präsentation an einer Konferenz zusammenfasst und
-                      entweder in einer wissenschaftlichen Zeitschrift oder in einem Tagungsband veröffentlicht wurde.
-                    </dd>
                     <dt>Artikel / Aufsatz</dt>
                     <dd>Ein Aufsatz oder Artikel ist ein abgeschlossener Beitrag zu einem abgegrenzten Thema oder einer
                       Fragestellung, der zusammen mit anderen Beiträgen z.B. in einer Zeitschrift veröffentlicht wurde.
@@ -145,8 +141,6 @@
                       Bachelorarbeit muss entweder in einem Verlag oder auf einem (institutionellen) Repositorium
                       publiziert sein und einen eindeutigen Identifikator (DOI, URN, ISBN) haben.
                     </dd>
-                    <dt>Blogbeitrag</dt>
-                    <dd>Ein Blogbeitrag ist ein Aufsatz oder Artikel in einem Blog bzw. auf einer Webseite.</dd>
                     <dt>Brief (Letter)</dt>
                     <dd>Ein Brief (engl. Letter) enthält Beiträge (z.B. Daten aus der Originalforschung), von denen die
                       Herausgeberschaft glaubt, dass sie für die Forschung interessant sind. Für dieses Format gelten
@@ -162,7 +156,7 @@
                     <dd>Ein Buch, das von einer oder mehreren Personen herausgegeben wurde. Es enthält Beiträge in Form
                       von Buchaufsätzen oder Kapiteln verschiedener Autoren und Autorinnen.
                     </dd>
-                    <dt>Buchaufsatz / Kaptiel</dt>
+                    <dt>Buchaufsatz / Kapitel</dt>
                     <dd>Ein Buchaufsatz oder Kapitel ist ein abgeschlossener Beitrag zu einem abgegrenzten Thema oder
                       einer Fragestellung, der zusammen mit anderen Beiträgen z.B. in einem Buch veröffentlicht wurde.
                     </dd>
@@ -308,13 +302,9 @@
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Alle aktuellen und ehemaligen Angehörigen und Mitglieder der Fachhochschule Erfurt können bzw. sollten
-                    ihre Publikationen an die Bibliographie melden. Zur Angabe der institutionellen
-                    Zugehörigkeit und Verwendung von standardisierten Identifikatoren beachten Sie bitte die
-                    <a
-                      href="https://www.uni-erfurt.de/fileadmin/Hauptseiten/Forschung/Forschungsfoerderung/Affiliationsrichtlinie_15102025_final-unterzeichnet.pdf">
-                      Affiliationsrichtlinie der Fachhochschule Erfurt.
-                    </a>
+                    Alle aktuellen und ehemaligen Angehörigen und Mitglieder der Fachhochschule Erfurt können bzw.
+                    sollten
+                    ihre Publikationen an die Bibliographie melden.
                   </p>
                 </div>
               </div>
@@ -338,7 +328,7 @@
                     Bibliographie. Nutzen Sie unser Formular <a href="newPublication.xed">Publikationen
                     melden</a>, wenn Sie eine einzelne Publikation mit Identifikator (DOI, ISBN, ISSN) melden wollen.
                     Bei Publikationslisten senden Sie uns Ihre Liste(n) in einem beliebigen Format
-                    <a href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>.
+                    <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>.
                   </p>
                 </div>
               </div>
@@ -359,7 +349,7 @@
                 <div class="card-body">
                   <p>
                     Um eine einheitliche Datenqualität zu gewährleisten, werden gemeldete Publikationsmetadaten von der
-                    Universitätsbibliothek redaktionell geprüft, die Publikationsdaten ggf. korrigiert und
+                    Hochschulbibliothek redaktionell geprüft, die Publikationsdaten ggf. korrigiert und
                     aufgearbeitet.
                     Dadurch kann es zu Verzögerungen kommen, und die Publikationen sind daher nicht gleich in der
                     Bibliographie sichtbar.
@@ -461,12 +451,12 @@
                     Listen sind so aktuell, wie uns neue Publikationen gemeldet werden und diese redaktionell
                     geprüft und freigeschaltet sind. Melden Sie uns gern <a href="newPublication.xed">fehlende
                       Publikationen</a>, oder sprechen Sie uns zu Korrekturwünschen von Einträgen an: <a
-                      href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>.
+                      href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>.
                   </p>
 
                   <p>
                     Über das
-                    <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">Formular</a>
+                    <a href="list-wizard.xed?lang=de">Formular</a>
                     können Sie persönliche Publikationslisten direkt aus der Bibliographie erstellen und
                     in verschiedenen Formaten ausgeben. Tragen Sie unter „Personen hinzufügen“ den
                     gewünschten Namen ein und wählen Sie über das grüne Plus die Person sowie den Zeitraum, die
@@ -482,7 +472,8 @@
               <div class="card-header" id="headingPersonIcons">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
-                          data-bs-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
+                          data-bs-target="#collapsePersonIcons" aria-expanded="false"
+                          aria-controls="collapsePersonIcons">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     <xinclude uri="i18n:thunibib.faq.icon.headline"/>
@@ -684,7 +675,8 @@
               <div class="card-header" id="headingServiceFour">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-start collapsed" type="button" data-bs-toggle="collapse"
-                          data-bs-target="#collapseServiceFour" aria-expanded="false" aria-controls="collapseServiceFour">
+                          data-bs-target="#collapseServiceFour" aria-expanded="false"
+                          aria-controls="collapseServiceFour">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Statistiken
@@ -708,7 +700,8 @@
               <div class="card-header" id="headingServiceFive">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-start collapsed" type="button" data-bs-toggle="collapse"
-                          data-bs-target="#collapseServiceFive" aria-expanded="false" aria-controls="collapseServiceFive">
+                          data-bs-target="#collapseServiceFive" aria-expanded="false"
+                          aria-controls="collapseServiceFive">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     Unterstützung bei der Erstellung von (persönlichen) Publikationslisten
@@ -744,16 +737,6 @@
                    data-parent="#accordionExample2">
                 <div class="card-body">
                   <dl>
-
-                    <dt>ORCID</dt>
-                    <dd>Die Fachhochschule Erfurt ist <a href="https://orcid.org/">ORCID-Mitglied</a>.
-                      Die Anbindung der Bibliographie an ORCID ist bereits implementiert und kann Ihnen
-                      dabei
-                      helfen, Ihr ORCID-Profil und Ihre persönliche Publikationsliste zu pflegen.
-                      Informationen zur Verknüpfung Ihrer ORCID-ID mit der Bibliographie finden Sie unter
-                      „Mein Profil“.
-                    </dd>
-
                     <dt>GND</dt>
                     <dd>Die <a href="https://www.dnb.de/DE/Professionell/Standardisierung/GND/gnd_node.html">Gemeinsame
                       Normdatei (GND)
@@ -803,7 +786,7 @@
                     servers of
                     libraries or publishers) and has a unique identifier (DOI, URN, ISBN, handle).
                     In cases of doubt, please contact us:
-                    <a href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>
+                    <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>
                   </p>
                 </div>
               </div>
@@ -1053,9 +1036,11 @@
                   <p>
                     All current and former members and affiliates of the University of Erfurt can or should report their
                     publications to the university bibliography. For information on institutional affiliation and the
-                    use of standardised identifiers, please refer to the <a
-                    href="https://www.uni-erfurt.de/fileadmin/Hauptseiten/Forschung/Forschungsfoerderung/Affiliationsrichtlinie_15102025_final-unterzeichnet.pdf">
-                    Affiliationsrichtlinie der Fachhochschule Erfurt.</a>
+                    use of standardised identifiers, please refer to the
+                    <a
+                      href="https://www.uni-erfurt.de/fileadmin/Hauptseiten/Forschung/Forschungsfoerderung/Affiliationsrichtlinie_15102025_final-unterzeichnet.pdf">
+                      Affiliationsrichtlinie der Fachhochschule Erfurt.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -1080,7 +1065,7 @@
                     bibliography. Use our form <a href="newPublication.xed">Register a publication</a> if you want to
                     report a single publication with an identifier (DOI, ISBN, ISSN). For publication lists, send us
                     your list(s) in any format.
-                    <a href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>
+                    <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>
                   </p>
                 </div>
               </div>
@@ -1211,13 +1196,15 @@
                   <p>
                     Create your personal publication list from the data in the University Bibliography. The lists are
                     updated as soon as new publications are reported to us and have been editorially reviewed and
-                    approved. Please feel free to report any <a href="newPublication.xed">missing publications</a>
-                    to us or contact us <a href="mailto:no-reply@fh-erfurt.de">bibliographie.ub@uni-
-                    erfurt.de</a> if you would like to request corrections to entries.
+                    approved. Please feel free to report any
+                    <a href="newPublication.xed">missing publications</a>
+                    to us or contact us <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a> if
+                    you would like to request corrections to entries.
                   </p>
 
                   <p>
-                    You can use the <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">form</a>
+                    You can use the
+                    <a href="https://bibliographie.uni-erfurt.de/list-wizard.xed?lang=de">form</a>
                     to create personal publication lists directly from the University Bibliography and output them in
                     various formats. Enter the desired name under "Add person" and use the green plus sign to
                     select the person, the time period, the sorting and the output format. The citation style can only
@@ -1289,7 +1276,8 @@
               <div class="card-header" id="headingPersonIcons">
                 <h3 class="mb-0">
                   <button class="btn btn-link btn-block text-start" type="button" data-bs-toggle="collapse"
-                          data-bs-target="#collapsePersonIcons" aria-expanded="false" aria-controls="collapsePersonIcons">
+                          data-bs-target="#collapsePersonIcons" aria-expanded="false"
+                          aria-controls="collapsePersonIcons">
                     <i class="fas fa-plus-circle"/>
                     <i class="fas fa-minus-circle"/>
                     <xinclude uri="i18n:thunibib.faq.icon.headline"/>
@@ -1495,7 +1483,7 @@
                     Read more information on the procedure under <a href="list-wizard.xed">Personal publication
                     list</a>,
                     or ask us
-                    <a href="mailto:no-reply@fh-erfurt.de">no-reply@fh-erfurt.de</a>
+                    <a href="mailto:bibliographie@fh-erfurt.de">bibliographie@fh-erfurt.de</a>
                   </p>
                 </div>
               </div>
