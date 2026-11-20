@@ -198,7 +198,7 @@
             <xsl:variable name="href">
               <xsl:choose>
                 <xsl:when test="$CurrentLang = 'de'">
-                  <xsl:value-of select="'https://www.fh-erfurt.de/de/'"/>
+                  <xsl:value-of select="'https://www.fh-erfurt.de/'"/>
                 </xsl:when>
                 <xsl:otherwise>
                   <xsl:value-of select="'https://www.fh-erfurt.de/en/'"/>
