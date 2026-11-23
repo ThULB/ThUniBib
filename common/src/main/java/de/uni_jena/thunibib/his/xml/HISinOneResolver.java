@@ -498,7 +498,7 @@ public class HISinOneResolver implements URIResolver {
             return SysValue.UnresolvedSysValue;
         }
 
-        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(mcrid));
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRExpandedObject(MCRObjectID.getInstance(mcrid));
         if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
             return SysValue.UnresolvedSysValue;
         }
