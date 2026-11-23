@@ -46,7 +46,7 @@ public class HISinOneCommands {
         if (!MCRMetadataManager.exists(id)) {
             return SysValue.UnresolvedSysValue;
         }
-        return publish(MCRMetadataManager.retrieveMCRObject(id));
+        return publish(MCRMetadataManager.retrieveMCRExpandedObject(id));
     }
 
     public static SysValue publish(MCRObject mcrObject) {
@@ -83,7 +83,7 @@ public class HISinOneCommands {
                     publication.getId());
 
                 // TODO Remove refetch MCRObject (when parent was created/updated the servdates changed) when using MyCoRe 2025.12.x
-                mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObject.getId());
+                mcrObject = MCRMetadataManager.retrieveMCRExpandedObject(mcrObject.getId());
                 // Update MCRObject
                 mcrObject.getService().addFlag(HISInOneServiceFlag.getName(), String.valueOf(publication.getId()));
                 MCRMetadataManager.update(mcrObject);
@@ -103,7 +103,7 @@ public class HISinOneCommands {
         if (!MCRMetadataManager.exists(id)) {
             return SysValue.UnresolvedSysValue;
         }
-        return update(MCRMetadataManager.retrieveMCRObject(id));
+        return update(MCRMetadataManager.retrieveMCRExpandedObject(id));
     }
 
     public static SysValue update(MCRObject mcrObject) {
@@ -148,7 +148,7 @@ public class HISinOneCommands {
         if (!MCRMetadataManager.exists(id)) {
             return SysValue.UnresolvedSysValue;
         }
-        return remove(MCRMetadataManager.retrieveMCRObject(id));
+        return remove(MCRMetadataManager.retrieveMCRExpandedObject(id));
     }
 
     public static SysValue remove(MCRObject mcrObject) {
@@ -195,7 +195,7 @@ public class HISinOneCommands {
             return;
         }
 
-        MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectId);
+        MCRObject mcrObject = MCRMetadataManager.retrieveMCRExpandedObject(mcrObjectId);
 
         if (mcrObject.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
             LOGGER.info("MCRObject '{}' does not have any servflags of type '{}'", mcrObjectId,
@@ -223,7 +223,7 @@ public class HISinOneCommands {
             return false;
         }
 
-        boolean r = TRANSFERABLE_VERIFIER.isTransferable(MCRMetadataManager.retrieveMCRObject(id));
+        boolean r = TRANSFERABLE_VERIFIER.isTransferable(MCRMetadataManager.retrieveMCRExpandedObject(id));
         LOGGER.info("{} {} transferable to HISinOne", mcrObjectId, (r ? "is" : "is not"));
         return r;
     }

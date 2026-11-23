@@ -40,7 +40,7 @@ public class JournalResolver extends HISinOneResolver {
             return SysValue.UnresolvedSysValue;
         }
 
-        MCRObject host = MCRMetadataManager.retrieveMCRObject(MCRObjectID.getInstance(fromValue));
+        MCRObject host = MCRMetadataManager.retrieveMCRExpandedObject(MCRObjectID.getInstance(fromValue));
         if (host.getService().getFlags(HISInOneServiceFlag.getName()).size() == 0) {
             return SysValue.UnresolvedSysValue;
         }

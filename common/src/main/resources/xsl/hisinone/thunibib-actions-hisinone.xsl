@@ -49,58 +49,70 @@
 
     <xsl:if test="$isAdmin = true()">
       <xsl:choose>
-
         <xsl:when test="document(concat('notnull:callJava:de.uni_jena.thunibib.his.cli.HISinOneCommands:isTransferable:', //mycoreobject/@ID)) = 'false'">
-          <button class="btn btn-sm btn-outline-secondary dropdown-toggle mb-1 disabled" type="button" disable="disabled" title="{document('i18n:thunibib.editor.hisinone.button.disabled.tooltip')/i18n/text()}">
+          <a class="btn btn-sm btn-outline-secondary mb-1" type="button" title="{document('i18n:thunibib.editor.hisinone.button.disabled.tooltip')/i18n/text()}">
             HISinOne
-          </button>
+          </a>
         </xsl:when>
 
         <xsl:otherwise>
-          <div class="dropdown">
-            <button class="action btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-              HISinOne
-            </button>
+          <a class="action btn btn-sm btn-outline-secondary mb-1 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            HISinOne
+          </a>
 
-            <div class="dropdown-menu">
-              <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action={$action}" title="{$tooltip}" class="dropdown-item" onclick="this.classList.add('disabled'); this.classList.add('thunibib-pointer-events-none');">
-                <i class="{$icon-class} mr-1"/>
+          <div class="dropdown-menu">
+            <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action={$action}" title="{$tooltip}"
+               class="dropdown-item"
+               onclick="this.classList.add('disabled'); this.classList.add('thunibib-pointer-events-none');">
+              <i class="{$icon-class} me-1"/>
+              <xsl:value-of select="'HISinOne'"/>
+            </a>
+
+            <xsl:if test="$servflag-present">
+              <xsl:variable name="delete-tooltip"
+                            select="document('i18n:thunibib.editor.hisinone.button.delete.tooltip')/i18n/text()"/>
+              <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action=delete" class="dropdown-item text-danger"
+                 title="{$delete-tooltip}"
+                 onclick="this.classList.add('disabled'); this.classList.add('thunibib-pointer-events-none');">
+                <i class="fas fa-minus-square me-1"/>
                 <xsl:value-of select="'HISinOne'"/>
               </a>
+            </xsl:if>
 
-              <xsl:if test="$servflag-present">
-                <xsl:variable name="delete-tooltip" select="document('i18n:thunibib.editor.hisinone.button.delete.tooltip')/i18n/text()"/>
-                <a href="{$InteractionURL}id={//mycoreobject/@ID}&amp;action=delete" class="dropdown-item text-danger" title="{$delete-tooltip}" onclick="this.classList.add('disabled'); this.classList.add('thunibib-pointer-events-none');">
-                  <i class="fas fa-minus-square mr-1"/>
-                  <xsl:value-of select="'HISinOne'"/>
-                </a>
-              </xsl:if>
+            <xsl:if
+              test="document('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:isCurrentUserSuperUser') = 'true'">
 
-              <xsl:if test="document('notnull:callJava:org.mycore.common.xml.MCRXMLFunctions:isCurrentUserSuperUser') = 'true'">
+              <div class="dropdown-divider"/>
 
-                <div class="dropdown-divider"/>
+              <xsl:variable name="mods-r-tooltip"
+                            select="document('i18n:thunibib.editor.hisinone.button.modsr.tooltip')/i18n/text()"/>
+              <a
+                href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=mods-resolve-his-keys-detailed"
+                class="dropdown-item" title="{$mods-r-tooltip}">
+                <i class="fas fa-layer-group"/>
+                MODS R
+              </a>
 
-                <xsl:variable name="mods-r-tooltip" select="document('i18n:thunibib.editor.hisinone.button.modsr.tooltip')/i18n/text()"/>
-                <a href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=mods-resolve-his-keys-detailed" class="dropdown-item" title="{$mods-r-tooltip}">
-                  <i class="fas fa-layer-group"/>
-                  MODS R
-                </a>
+              <xsl:variable name="mods-rc-tooltip"
+                            select="document('i18n:thunibib.editor.hisinone.button.modsrc.tooltip')/i18n/text()"/>
+              <a
+                href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=mods-resolve-create-his-keys"
+                class="dropdown-item text-danger" title="{$mods-rc-tooltip}">
+                <i class="fas fa-layer-group"/>
+                MODS RC
+              </a>
 
-                <xsl:variable name="mods-rc-tooltip" select="document('i18n:thunibib.editor.hisinone.button.modsrc.tooltip')/i18n/text()"/>
-                <a href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=mods-resolve-create-his-keys" class="dropdown-item text-danger" title="{$mods-rc-tooltip}">
-                  <i class="fas fa-layer-group"/>
-                  MODS RC
-                </a>
+              <div class="dropdown-divider"/>
 
-                <div class="dropdown-divider"/>
-
-                <xsl:variable name="json-tooltip" select="document('i18n:thunibib.editor.hisinone.button.json.tooltip')/i18n/text()"/>
-                <a href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=res-publication-json-detailed" class="dropdown-item text-danger" title="{$json-tooltip}">
-                  <i class="fas fa-layer-group"/>
-                  JSON
-                </a>
-              </xsl:if>
-            </div>
+              <xsl:variable name="json-tooltip"
+                            select="document('i18n:thunibib.editor.hisinone.button.json.tooltip')/i18n/text()"/>
+              <a
+                href="{$WebApplicationBaseURL}receive/{//mycoreobject/@ID}?XSL.Transformer=res-publication-json-detailed"
+                class="dropdown-item text-danger" title="{$json-tooltip}">
+                <i class="fas fa-layer-group"/>
+                JSON
+              </a>
+            </xsl:if>
           </div>
         </xsl:otherwise>
       </xsl:choose>
