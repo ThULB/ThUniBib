@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="oa">
 
-  <label xml:lang="en" text="Open Access" description="Open Access Publikationsweg" />
-  <label xml:lang="de" text="Open Access" description="Open Access Road" />
+  <label xml:lang="en" text="Open Access" description="Online-Publikationsweg" />
+  <label xml:lang="de" text="Open Access" description="Online publication route" />
   <label xml:lang="x-color" text="#cfd3d5" />
 
   <categories>
